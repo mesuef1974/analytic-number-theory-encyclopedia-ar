@@ -78,6 +78,26 @@ Build encyclopedia PDF
 
 ملف Artifact مؤقت للمعاينة، وليس إصدارًا رسميًا.
 
+## التحقق العددي المسجل
+
+لتشغيل تجربة ANT-COMP-06-01 من جذر المستودع بعد إعداد بيئة Python:
+
+```text
+python -m pip install -r computational/python/requirements-zeta.txt
+python computational/python/hardy_z_low_zeros.py --config computational/python/config/hardy_z_first10.json
+```
+
+يشغّل GitHub Actions كذلك workflow باسم:
+
+```text
+Zeta numerical validation
+```
+
+نجاحه يثبت اجتياز شروط القبول البرمجية المسجلة فقط، ولا يثبت اكتمال
+الأصفار ولا يقدم دليلًا على فرضية ريمان. راجع
+[سجل التجارب](EXPERIMENTS_REGISTRY.md) وتعليمات
+[مختبر Python](../computational/python/README.md).
+
 ## إنشاء إصدار رسمي
 
 بعد التأكد من نظافة المستودع ونجاح البناء:
