@@ -34,7 +34,7 @@ jobs:
         run: python -m pip install -r computational/python/requirements-zeta.txt
 
       - name: Run registered validation
-        run: python computational/python/hardy_z_low_zeros.py
+        run: python computational/python/hardy_z_low_zeros.py --config computational/python/config/hardy_z_first10.json
 
       - name: Upload validation outputs
         uses: actions/upload-artifact@v4
