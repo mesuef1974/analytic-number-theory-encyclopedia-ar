@@ -1,55 +1,127 @@
 \usepackage{fontspec}
 \usepackage{polyglossia}
+
 \setdefaultlanguage{arabic}
 \setotherlanguage{english}
-\newfontfamily\arabicfont[Script=Arabic,Scale=1.12]{Amiri}
+
+\newfontfamily\arabicfont[
+  Script=Arabic,
+  Scale=1.12
+]{Amiri}
+
 \newfontfamily\englishfont{Latin Modern Roman}
+
+\newfontfamily\arabicfonttt[
+  Script=Arabic,
+  Scale=1.05
+]{Amiri}
+
 \usepackage{amsmath,amssymb,amsthm,mathtools}
 \usepackage{geometry}
-\geometry{a4paper,margin=27mm}
+\usepackage{xcolor}
 \usepackage{hyperref}
 \usepackage{bookmark}
 \usepackage{enumitem}
 \usepackage{microtype}
 \usepackage{csquotes}
-\usepackage[backend=biber,style=alphabetic,sorting=nyt]{biblatex}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+
+\geometry{a4paper,margin=27mm}
+
+\usepackage[
+  backend=biber,
+  style=alphabetic,
+  sorting=nyt
+]{biblatex}
+
 \addbibresource{manuscript/bibliography.bib}
 
 \newtheorem{theorem}{مبرهنة}[chapter]
 \newtheorem{lemma}[theorem]{لمّة}
 \newtheorem{proposition}[theorem]{قضية}
 \newtheorem{corollary}[theorem]{نتيجة}
+
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{تعريف}
 \newtheorem{example}[theorem]{مثال}
+
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{ملاحظة}
 
-\usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[R]{\small الموسوعة الشاملة في نظرية الأعداد التحليلية}
 \fancyfoot[C]{\thepage}
 \setlength{\headheight}{18pt}
-\usepackage{titlesec}
+
 \titleformat{\chapter}[display]
   {\normalfont\huge\bfseries}
   {\chaptername\ \thechapter}
   {12pt}
   {\Huge}
+
 \titlespacing*{\chapter}{0pt}{-20pt}{28pt}
+
 \setlength{\parindent}{1.5em}
 \setlength{\parskip}{0.35em}
 
-
 % Stable result identifiers and provenance status.
+\newcommand{\resultbadge}[2]{%
+  \begingroup
+  \setlength{\fboxsep}{3pt}%
+  \colorbox{#1}{%
+    \strut\textbf{\small #2}%
+  }%
+  \endgroup
+}
+
 \newcommand{\resultid}[1]{%
-  \par\smallskip\noindent\textbf{معرّف النتيجة: }\texttt{#1}\par}
+  \par
+  \smallskip
+  \noindent
+  \resultbadge{gray!15}{معرّف النتيجة}%
+  \quad
+  \textenglish{\texttt{#1}}%
+  \par
+}
+
 \newcommand{\provedhere}{%
-  \noindent\textbf{حالة الاعتماد: }مثبتة داخل الموسوعة.\par}
+  \noindent
+  \resultbadge{green!20}{مثبت هنا}%
+  \quad
+  مثبتة داخل الموسوعة ببرهان كامل.%
+  \par
+}
+
 \newcommand{\citedresult}[1]{%
-  \noindent\textbf{حالة الاعتماد: }مستشهد بها من المرجع #1.\par}
+  \noindent
+  \resultbadge{blue!15}{مستشهد بها}%
+  \quad
+  منقولة من المرجع #1.%
+  \par
+}
+
 \newcommand{\deferredresult}[1]{%
-  \noindent\textbf{حالة الاعتماد: }مؤجلة؛ سيظهر البرهان الكامل في #1.\par}
+  \noindent
+  \resultbadge{gray!20}{برهان مؤجل}%
+  \quad
+  سيظهر البرهان الكامل في #1.%
+  \par
+}
+
 \newcommand{\conditionalresult}[1]{%
-  \noindent\textbf{حالة الاعتماد: }نتيجة مشروطة بـ#1.\par}
+  \noindent
+  \resultbadge{orange!20}{نتيجة مشروطة}%
+  \quad
+  صحيحة بشرط #1.%
+  \par
+}
+
+\newcommand{\draftresult}{%
+  \noindent
+  \resultbadge{red!15}{مسودة}%
+  \quad
+  النتيجة أو البرهان قيد المراجعة.%
+  \par
+}
