@@ -398,7 +398,7 @@ f\longmapsto D_f(s)
 \[
 \sum_{n=1}^{\infty}\frac{|f(n)|}{n^\sigma}<\infty.
 \]
-عندئذ، لكل \(s\) يحقق \(\Re(s)=\sigma\)،
+عندئذ، لكل \(s\) يحقق \(\Re(s)\geq\sigma\)،
 \[
 \sum_{n=1}^{\infty}\frac{f(n)}{n^s}
 =
@@ -424,7 +424,8 @@ f\longmapsto D_f(s)
 وحيدية التحليل إلى عوامل أولية تضمن ظهور كل عدد مسموح به مرة واحدة،
 وضربية \(f\) تحول حاصل ضرب العوامل المحلية إلى \(f(n)\).
 
-أما تبرير النشر والحد، فيأتي من التقارب المطلق. فالفرق بين السلسلة الكاملة
+أما تبرير النشر والحد، فيأتي من التقارب المطلق. فإذا كان
+\(\Re(s)\geq\sigma\)، فإن \(n^{-\Re(s)}\leq n^{-\sigma}\)، فالفرق بين السلسلة الكاملة
 والمجموع المقيد محكوم بذيل من
 \[
 \sum_{n=1}^{\infty}\frac{|f(n)|}{n^\sigma},
@@ -464,7 +465,7 @@ f(p^k)=f(p)^k,
 \label{cor:mobius-reciprocal-zeta}
 \resultid{ANT-COR-05-01}
 \provedhere
-إذا \(\Re(s)>1\)، فإن
+إذا كان \(\Re(s)>1\)، فإن
 \[
 \frac1{\zeta(s)}
 =
@@ -506,7 +507,7 @@ f(p^k)=f(p)^k,
 \label{thm:zeta-logarithmic-derivative-von-mangoldt}
 \resultid{ANT-THM-05-05}
 \provedhere
-إذا \(\Re(s)>1\)، فإن
+إذا كان \(\Re(s)>1\)، فإن
 \[
 -\frac{\zeta'(s)}{\zeta(s)}
 =
