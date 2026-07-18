@@ -1,0 +1,33 @@
+name: اقتراح مرجع أو نتيجة بحثية
+description: اقتراح ورقة أو كتاب أو تحديث لجبهة بحثية
+title: "[مرجع] "
+labels: ["research"]
+body:
+  - type: input
+    id: citation
+    attributes:
+      label: بيانات المرجع
+      description: المؤلف، العنوان، السنة، المجلة أو المستودع
+    validations:
+      required: true
+  - type: input
+    id: doi
+    attributes:
+      label: DOI أو رابط المصدر الأولي
+  - type: textarea
+    id: relevance
+    attributes:
+      label: صلته بالموسوعة
+      description: حدد الفصل أو النتيجة التي يدعمها
+    validations:
+      required: true
+  - type: dropdown
+    id: status
+    attributes:
+      label: حالة العمل
+      options:
+        - منشور ومحكم
+        - نسخة أولية
+        - كتاب أو فصل مرجعي
+        - أطروحة
+        - غير متأكد

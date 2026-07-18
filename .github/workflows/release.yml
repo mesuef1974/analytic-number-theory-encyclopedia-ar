@@ -1,0 +1,79 @@
+name: Publish tagged PDF release
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Existing tag to publish, for example v0.4.0"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Build and publish PDF
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref }}
+
+      - name: Create build directory
+        run: mkdir -p build
+
+      - name: Compile with XeLaTeX and Biber
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: manuscript/main.tex
+          latexmk_use_xelatex: true
+          args: >-
+            -interaction=nonstopmode
+            -halt-on-error
+            -file-line-error
+            -outdir=build
+          os: debian
+
+      - name: Determine release tag
+        id: release
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            TAG="${{ inputs.tag }}"
+          else
+            TAG="${GITHUB_REF_NAME}"
+          fi
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+
+      - name: Prepare release files
+        shell: bash
+        run: |
+          TAG="${{ steps.release.outputs.tag }}"
+          PDF="analytic-number-theory-encyclopedia-${TAG}.pdf"
+          cp build/main.pdf "build/${PDF}"
+          sha256sum "build/${PDF}" > "build/${PDF}.sha256"
+
+      - name: Create or update GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          TAG="${{ steps.release.outputs.tag }}"
+          PDF="build/analytic-number-theory-encyclopedia-${TAG}.pdf"
+          HASH="${PDF}.sha256"
+
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release upload "$TAG" "$PDF" "$HASH" --clobber
+          else
+            gh release create "$TAG" "$PDF" "$HASH" \
+              --title "الموسوعة الشاملة في نظرية الأعداد التحليلية - ${TAG}" \
+              --generate-notes
+          fi

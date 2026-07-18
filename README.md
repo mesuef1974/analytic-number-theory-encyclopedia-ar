@@ -12,6 +12,7 @@
 - [سجل العمل](docs/WORKLOG.md)
 - [قائمة المهام](docs/TODO.md)
 - [الإصدار الحالي](docs/VERSION.md)
+- [دليل بناء PDF](docs/BUILD.md)
 
 ## الحالة الحالية
 
@@ -35,16 +36,15 @@
 5. تحديث فصل الجبهات الحديثة بحسب تاريخ إصدار كل نسخة.
 6. عدم الادعاء بالشمول المطلق؛ فالموسوعة مشروع قابل للتحديث المستمر.
 
-## البناء
+## بناء PDF
 
-يتطلب البناء توزيعة LaTeX تدعم XeLaTeX وحزمة `polyglossia`.
+على Windows:
 
-```bash
-xelatex -output-directory=build manuscript/main.tex
-biber build/main
-xelatex -output-directory=build manuscript/main.tex
-xelatex -output-directory=build manuscript/main.tex
+```powershell
+.\scripts\build.ps1 -Clean -Open
 ```
+
+وعلى GitHub يُبنى PDF تلقائيًا بعد كل Push يؤثر في ملفات الكتاب، ثم يُرفع كـArtifact. راجع [دليل بناء PDF](docs/BUILD.md).
 
 ## هيكل المشروع
 

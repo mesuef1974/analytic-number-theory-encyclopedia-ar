@@ -1,0 +1,71 @@
+name: Build encyclopedia PDF
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "manuscript/**"
+      - "volumes/**"
+      - "figures/**"
+      - "tables/**"
+      - ".github/workflows/build-book.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "manuscript/**"
+      - "volumes/**"
+      - "figures/**"
+      - "tables/**"
+      - ".github/workflows/build-book.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Compile XeLaTeX manuscript
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Create build directory
+        run: mkdir -p build
+
+      - name: Compile with XeLaTeX and Biber
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: manuscript/main.tex
+          latexmk_use_xelatex: true
+          args: >-
+            -interaction=nonstopmode
+            -halt-on-error
+            -file-line-error
+            -outdir=build
+          os: debian
+
+      - name: Verify PDF exists
+        shell: bash
+        run: |
+          test -s build/main.pdf
+          pdfinfo build/main.pdf | sed -n '1,20p'
+
+      - name: Prepare named preview
+        shell: bash
+        run: |
+          cp build/main.pdf build/analytic-number-theory-encyclopedia-preview.pdf
+          sha256sum build/analytic-number-theory-encyclopedia-preview.pdf \
+            > build/analytic-number-theory-encyclopedia-preview.pdf.sha256
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: analytic-number-theory-encyclopedia-preview
+          path: |
+            build/analytic-number-theory-encyclopedia-preview.pdf
+            build/analytic-number-theory-encyclopedia-preview.pdf.sha256
+          if-no-files-found: error
+          retention-days: 30

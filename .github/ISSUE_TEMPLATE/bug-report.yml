@@ -1,0 +1,35 @@
+name: خطأ في النص أو البناء
+description: الإبلاغ عن خطأ رياضي أو لغوي أو تقني
+title: "[خطأ] "
+labels: ["bug"]
+body:
+  - type: dropdown
+    id: category
+    attributes:
+      label: نوع الخطأ
+      options:
+        - خطأ رياضي أو برهاني
+        - خطأ في مرجع
+        - خطأ لغوي أو مصطلحي
+        - خطأ في بناء PDF
+        - خطأ في الشيفرة
+    validations:
+      required: true
+  - type: input
+    id: location
+    attributes:
+      label: موضع الخطأ
+      description: اسم الملف والقسم أو رقم الصفحة في إصدار محدد
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: الوصف
+      description: اشرح الخطأ واقترح تصحيحًا إن أمكن
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: الإصدار أو commit
