@@ -1,0 +1,20 @@
+{
+  "algorithm": "Euler-transformed eta; SciPy loggamma; Brent sign brackets",
+  "all_brackets_change_sign": true,
+  "claim_ceiling": "NO_RH_EVIDENCE",
+  "config_sha256": "ed8f1b570afaafd72c744c26289c8156853fe12e8e680398357b223df0d20bf7",
+  "detected_count": 10,
+  "expected_count": 10,
+  "experiment_id": "ANT-COMP-06-01",
+  "max_abs_zeta": 4.0252892217026403e-13,
+  "notes": [
+    "Sign changes detect odd-multiplicity critical-line zeros only.",
+    "This run does not certify completeness in the scan interval.",
+    "This run is not evidence for the Riemann hypothesis."
+  ],
+  "python_version": "3.12.13",
+  "reference_status": "PASS",
+  "scipy_version": "1.17.0",
+  "script_version": "1.0.0",
+  "strictly_increasing": true
+}
