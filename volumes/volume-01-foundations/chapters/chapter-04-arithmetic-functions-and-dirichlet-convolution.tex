@@ -87,7 +87,10 @@ f(n)=n^s
 
 \section{تحديد الدالة الضربية على القوى الأولية}
 
-\begin{theorem}
+\begin{theorem}[تحديد الدالة الضربية على القوى الأولية]
+\label{thm:multiplicative-function-prime-powers}
+\resultid{ANT-THM-04-03}
+\provedhere
 إذا كانت \(f\) ضربية، فإن قيمها تتحدد تمامًا من قيمها على القوى الأولية
 \[
 f(p^k).
@@ -158,7 +161,10 @@ f(n)
 
 \section{الخواص الجبرية للالتفاف}
 
-\begin{theorem}
+\begin{theorem}[الخواص الجبرية للالتفاف الديريشلي]
+\label{thm:dirichlet-convolution-algebra}
+\resultid{ANT-THM-04-04}
+\provedhere
 الالتفاف الديريشلي تبديلي وتجميعي وتوزيعي على الجمع.
 \end{theorem}
 
@@ -198,7 +204,10 @@ f(n)
 \]
 \end{definition}
 
-\begin{proposition}
+\begin{proposition}[عنصر الوحدة للالتفاف الديريشلي]
+\label{prop:dirichlet-convolution-identity}
+\resultid{ANT-PROP-04-01}
+\provedhere
 لكل \(f\in\mathcal{A}\):
 \[
 f*\varepsilon=\varepsilon*f=f.
@@ -229,7 +238,10 @@ f*g=\varepsilon.
 \]
 \end{definition}
 
-\begin{theorem}
+\begin{theorem}[معيار وجود المعكوس الديريشلي]
+\label{thm:dirichlet-inverse-criterion}
+\resultid{ANT-THM-04-05}
+\provedhere
 تملك الدالة \(f\) معكوسًا ديريشليًا إذا وفقط إذا
 \[
 f(1)\neq0.
@@ -239,7 +251,7 @@ f(1)\neq0.
 \begin{proof}
 إذا كان \(f*g=\varepsilon\)، فإن
 \[
-f(1)g(1)=1،
+f(1)g(1)=1.
 \]
 ومن ثم \(f(1)\neq0\).
 
@@ -288,7 +300,10 @@ g(n)
 \]
 \end{example}
 
-\begin{proposition}
+\begin{proposition}[ضربية دالة موبيوس]
+\label{prop:mobius-multiplicative}
+\resultid{ANT-PROP-04-02}
+\provedhere
 الدالة \(\mu\) ضربية.
 \end{proposition}
 
@@ -301,7 +316,10 @@ g(n)
 
 \section{الهوية الأساسية لموبيوس}
 
-\begin{theorem}
+\begin{theorem}[الهوية الأساسية لدالة موبيوس]
+\label{thm:mobius-basic-identity}
+\resultid{ANT-THM-04-06}
+\provedhere
 لدينا
 \[
 \sum_{d\mid n}\mu(d)
@@ -374,7 +392,10 @@ f.
 \]
 \end{proof}
 
-\begin{corollary}
+\begin{corollary}[صيغة مكافئة لقلب موبيوس]
+\label{cor:mobius-inversion-equivalent-form}
+\resultid{ANT-COR-04-01}
+\provedhere
 إذا
 \[
 F(n)=\sum_{d\mid n}f(n/d),
@@ -425,7 +446,10 @@ n\prod_{p\mid n}\left(1-\frac1p\right).
 
 \section{حفظ الضربية تحت الالتفاف}
 
-\begin{theorem}
+\begin{theorem}[حفظ الضربية تحت الالتفاف]
+\label{thm:convolution-preserves-multiplicativity}
+\resultid{ANT-THM-04-07}
+\provedhere
 إذا كانت \(f\) و\(g\) دالتين ضربيتين، فإن \(f*g\) ضربية.
 \end{theorem}
 
@@ -471,7 +495,10 @@ f(d_2)g(n/d_2)\right),
 \]
 \end{proof}
 
-\begin{corollary}
+\begin{corollary}[ضربية المعكوس الديريشلي]
+\label{cor:dirichlet-inverse-multiplicative}
+\resultid{ANT-COR-04-02}
+\provedhere
 إذا كانت \(f\) ضربية ولها معكوس ديريشلي، فإن \(f^{-1}\) ضربية.
 \end{corollary}
 
@@ -523,7 +550,7 @@ f(p^j)g(p^{\alpha-j}).
 \begin{example}
 إذا كانت \(1(n)=1\)، فإن
 \[
-1\cdot1=1،
+1\cdot1=1.
 \]
 بينما
 \[
@@ -574,7 +601,10 @@ f(n)=0
 
 \section{برهان هوية فون مانغولت}
 
-\begin{theorem}
+\begin{theorem}[هوية فون مانغولت]
+\label{thm:von-mangoldt-divisor-sum}
+\resultid{ANT-THM-04-08}
+\provedhere
 لكل \(n\geq1\):
 \[
 \sum_{d\mid n}\Lambda(d)=\log n.
