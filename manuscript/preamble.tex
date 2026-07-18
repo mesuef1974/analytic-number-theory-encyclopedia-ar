@@ -24,6 +24,7 @@
 \usepackage{enumitem}
 \usepackage{microtype}
 \usepackage{csquotes}
+\DeclareQuoteAlias[american]{english}{arabic}
 \usepackage{fancyhdr}
 \usepackage{titlesec}
 
@@ -32,7 +33,8 @@
 \usepackage[
   backend=biber,
   style=alphabetic,
-  sorting=nyt
+  sorting=nyt,
+  language=english
 ]{biblatex}
 
 \addbibresource{manuscript/bibliography.bib}
@@ -61,7 +63,7 @@
   {12pt}
   {\Huge}
 
-\titlespacing*{\chapter}{0pt}{-20pt}{28pt}
+\titlespacing*{\chapter}{0pt}{10pt}{28pt}
 
 \setlength{\parindent}{1.5em}
 \setlength{\parskip}{0.35em}
