@@ -40,3 +40,16 @@
 \titlespacing*{\chapter}{0pt}{-20pt}{28pt}
 \setlength{\parindent}{1.5em}
 \setlength{\parskip}{0.35em}
+
+
+% Stable result identifiers and provenance status.
+\newcommand{\resultid}[1]{%
+  \par\smallskip\noindent\textbf{معرّف النتيجة: }\texttt{#1}\par}
+\newcommand{\provedhere}{%
+  \noindent\textbf{حالة الاعتماد: }مثبتة داخل الموسوعة.\par}
+\newcommand{\citedresult}[1]{%
+  \noindent\textbf{حالة الاعتماد: }مستشهد بها من المرجع #1.\par}
+\newcommand{\deferredresult}[1]{%
+  \noindent\textbf{حالة الاعتماد: }مؤجلة؛ سيظهر البرهان الكامل في #1.\par}
+\newcommand{\conditionalresult}[1]{%
+  \noindent\textbf{حالة الاعتماد: }نتيجة مشروطة بـ#1.\par}

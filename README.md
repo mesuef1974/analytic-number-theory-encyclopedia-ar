@@ -13,10 +13,12 @@
 - [قائمة المهام](docs/TODO.md)
 - [الإصدار الحالي](docs/VERSION.md)
 - [دليل بناء PDF](docs/BUILD.md)
+- [سياسة اعتماد النتائج](docs/RESULT_STATUS_POLICY.md)
+- [سجل النتائج المعتمدة](docs/RESULTS_REGISTRY.md)
 
 ## الحالة الحالية
 
-الإصدار: `v0.4.0-dev`
+الإصدار: `v0.8.0-dev`
 
 يتضمن هذا الإصدار:
 
