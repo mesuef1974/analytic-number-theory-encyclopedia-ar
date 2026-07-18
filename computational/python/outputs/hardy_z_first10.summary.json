@@ -2,19 +2,24 @@
   "algorithm": "Euler-transformed eta; SciPy loggamma; Brent sign brackets",
   "all_brackets_change_sign": true,
   "claim_ceiling": "NO_RH_EVIDENCE",
-  "config_sha256": "ed8f1b570afaafd72c744c26289c8156853fe12e8e680398357b223df0d20bf7",
+  "config_sha256": "e8bd48eb76269fd37ffe1b5f6e877f85ba079150dfbc518fa400769f49c13892",
   "detected_count": 10,
   "expected_count": 10,
   "experiment_id": "ANT-COMP-06-01",
+  "max_abs_imag_hardy_z": 5.326017404883032e-13,
   "max_abs_zeta": 4.0252892217026403e-13,
+  "max_ordinate_error": 4.334310688136611e-13,
   "notes": [
+    "Reference ordinates are compared with the LMFDB zeta-zero dataset.",
+    "The imaginary leakage of the computed Hardy Z values is bounded.",
     "Sign changes detect odd-multiplicity critical-line zeros only.",
     "This run does not certify completeness in the scan interval.",
     "This run is not evidence for the Riemann hypothesis."
   ],
   "python_version": "3.12.13",
+  "reference_ordinates_source": "https://www.lmfdb.org/zeros/zeta/",
   "reference_status": "PASS",
   "scipy_version": "1.17.0",
-  "script_version": "1.0.0",
+  "script_version": "1.1.0",
   "strictly_increasing": true
 }

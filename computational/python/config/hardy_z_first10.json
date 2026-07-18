@@ -9,8 +9,23 @@
   "euler_terms": 96,
   "sign_delta": 1e-05,
   "expected_count": 10,
+  "expected_ordinates_source": "https://www.lmfdb.org/zeros/zeta/",
+  "expected_ordinates": [
+    14.134725141734693,
+    21.022039638771556,
+    25.01085758014569,
+    30.424876125859512,
+    32.93506158773919,
+    37.58617815882567,
+    40.9187190121475,
+    43.327073280915,
+    48.00515088116716,
+    49.7738324776723
+  ],
   "root_xtol": 1e-13,
   "residual_tolerance": 1e-09,
+  "ordinate_tolerance": 1e-09,
+  "hardy_imag_tolerance": 1e-09,
   "output_csv": "computational/python/outputs/hardy_z_first10.csv",
   "output_summary": "computational/python/outputs/hardy_z_first10.summary.json"
 }
