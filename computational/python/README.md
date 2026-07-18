@@ -30,7 +30,7 @@
 python3 -m venv .venv-zeta
 . .venv-zeta/bin/activate
 python -m pip install -r computational/python/requirements-zeta.txt
-python computational/python/hardy_z_low_zeros.py
+python computational/python/hardy_z_low_zeros.py --config computational/python/config/hardy_z_first10.json
 ```
 
 ### التشغيل على Windows PowerShell
@@ -39,7 +39,7 @@ python computational/python/hardy_z_low_zeros.py
 py -3.12 -m venv .venv-zeta
 .\.venv-zeta\Scripts\Activate.ps1
 python -m pip install -r computational/python/requirements-zeta.txt
-python computational/python/hardy_z_low_zeros.py
+python computational/python/hardy_z_low_zeros.py --config computational/python/config/hardy_z_first10.json
 ```
 
 ### المدخلات والمخرجات
