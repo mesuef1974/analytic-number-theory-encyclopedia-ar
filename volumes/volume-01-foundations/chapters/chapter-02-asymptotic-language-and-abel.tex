@@ -1,5 +1,17 @@
 \chapter{اللغة التقاربية والجمع الجزئي لأبيل}
 
+\section{نطاق الفصل ومخرجاته}
+
+\noindent\textbf{حالة الفصل:} \textenglish{VERIFIED}. طوبقت فروض النتائج
+وبراهينها مع سجل المعرفات، ونجحت فحوص الجودة والبناء. لا تعني هذه البوابة
+أن الفصل اجتاز مراجعة ثانية مستقلة.
+
+يفترض الفصل الإلمام بالنهايات والتكامل والتكامل بالتجزئة. بنهايته ينبغي
+أن يصرّح القارئ باعتماد الثوابت الضمنية، ويميز بين \(O\) و\(o\)
+و\(\sim\)، ويثبت صيغتي الجمع الجزئي، وينقل تقديرًا لدالة مجاميع جزئية
+إلى مجموع موزون. الصيغ القياسية والتطبيقات الإضافية يمكن مراجعتها في
+\cite{Apostol1976,Davenport2000}.
+
 \section{لماذا نحتاج إلى لغة تقاربية؟}
 
 تهتم نظرية الأعداد التحليلية غالبًا بسلوك كميات حسابية عندما تكبر المعلمة الأساسية. وقد يكون إيجاد صيغة مغلقة دقيقة أمرًا مستحيلًا أو غير مفيد، بينما يمكن فصل الكمية إلى حد رئيسي يصف السلوك المنتظم وحد خطأ يقيس التذبذب.
@@ -71,7 +83,7 @@ f(x,\alpha)=O(g(x,\alpha))
 \section{رمز لاندو الصغير}
 
 \begin{definition}
-نكتب
+إذا كانت \(g(x)\neq0\) لكل \(x\) كبير بما يكفي، نكتب
 \[
 f(x)=o(g(x))
 \qquad (x\to\infty)
@@ -102,7 +114,7 @@ x\neq o(x).
 \section{التكافؤ التقاربي}
 
 \begin{definition}
-نكتب
+إذا كانت \(g(x)\neq0\) لكل \(x\) كبير بما يكفي، نكتب
 \[
 f(x)\sim g(x)
 \qquad (x\to\infty)
@@ -119,6 +131,9 @@ f(x)=g(x)+o(g(x)).
 \]
 
 \begin{proposition}
+\label{prop:asymptotic-equivalence-transitive}
+\resultid{ANT-PROP-02-02}
+\provedhere
 إذا كان \(f(x)\sim g(x)\) و\(g(x)\sim h(x)\)، فإن
 \[
 f(x)\sim h(x).
@@ -190,6 +205,9 @@ f(x)=\Omega(g(x))
 \section{قواعد حسابية لرموز الرتبة}
 
 \begin{proposition}
+\label{prop:big-o-arithmetic}
+\resultid{ANT-PROP-02-03}
+\provedhere
 إذا كان \(f_1=O(g_1)\) و\(f_2=O(g_2)\)، فإن
 \[
 f_1+f_2=O(|g_1|+|g_2|)
@@ -205,7 +223,11 @@ f_1f_2=O(g_1g_2).
 \end{proof}
 
 \begin{proposition}
-إذا كان \(f=o(g)\) و\(h=O(k)\)، فإن
+\label{prop:little-o-times-big-o}
+\resultid{ANT-PROP-02-04}
+\provedhere
+إذا كان \(f=o(g)\) و\(h=O(k)\)، حيث لا تنعدم \(g\) و\(k\) في
+النهاية، فإن
 \[
 fh=o(gk).
 \]
@@ -225,6 +247,9 @@ fh=o(gk).
 \section{مقارنة القوى واللوغاريتمات}
 
 \begin{theorem}
+\label{thm:log-powers-below-powers}
+\resultid{ANT-THM-02-03}
+\provedhere
 لكل \(\alpha>0\) ولكل عدد حقيقي \(A\)، لدينا
 \[
 (\log x)^A=o(x^\alpha)
@@ -370,7 +395,7 @@ A(t)=\lfloor t\rfloor.
 =
 \log x+\gamma+O\left(\frac1x\right),
 \]
-حيث \(\gamma\) ثابت أويلر.
+حيث \(\gamma\) ثابت أويلر؛ انظر مثلًا \cite{Apostol1976}.
 
 \section{مثال: تحويل معلومة عدّ إلى مجموع موزون}
 
@@ -477,15 +502,51 @@ A(x)f(x)-A(y)f(y)
 +
 \int_2^x\frac{\vartheta(t)}{t(\log t)^2}\,dt.
 \]
+والنتيجة التالية تعزل خطوة النقل ولا تفترض برهان التقدير
+\(\vartheta(x)\sim x\) نفسه.
+
+\begin{theorem}
+\label{thm:theta-implies-pnt}
+\resultid{ANT-THM-02-04}
+\provedhere
 إذا كان
 \[
 \vartheta(x)\sim x,
 \]
-فإن هذه الصيغة تقود إلى
+فإن
 \[
 \pi(x)\sim\frac{x}{\log x}.
 \]
-سيظهر البرهان الكامل، مع ضبط حدود الخطأ، في فصل مبرهنة الأعداد الأولية.
+\end{theorem}
+
+\begin{proof}
+اكتب \(\vartheta(t)=t+r(t)\)، حيث \(r(t)=o(t)\). الحد الطرفي يحقق
+\[
+\frac{\vartheta(x)}{\log x}
+=
+\frac{x}{\log x}\bigl(1+o(1)\bigr).
+\]
+أما حد التكامل فإن
+\[
+\int_2^x\frac{\vartheta(t)}{t(\log t)^2}\,dt
+=
+\int_2^x\frac{dt}{(\log t)^2}
++
+\int_2^x\frac{r(t)}{t(\log t)^2}\,dt.
+\]
+وبتقسيم التكامل الأول عند \(\sqrt{x}\) نحصل على
+\[
+\int_2^x\frac{dt}{(\log t)^2}
+=O\!\left(\frac{x}{(\log x)^2}\right)
+=o\!\left(\frac{x}{\log x}\right).
+\]
+ولكل \(\varepsilon>0\) يكون \(|r(t)|\leq\varepsilon t\) بعد عتبة
+مناسبة؛ لذا يعطي التقسيم نفسه، مع بقاء الجزء الابتدائي ثابتًا، أن التكامل
+الثاني \(o(x/\log x)\). بالتعويض في صيغة الجمع الجزئي تنتج الدعوى.
+\end{proof}
+
+لا يثبت هذا الفصل الفرضية \(\vartheta(x)\sim x\)؛ فذلك هو الجزء
+العميق المؤجل إلى فصل مبرهنة الأعداد الأولية.
 
 \section{أخطاء شائعة}
 
