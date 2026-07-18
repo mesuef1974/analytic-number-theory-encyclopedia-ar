@@ -20,7 +20,8 @@ releases/preview.pdf.sha256
 - Biber
 - Polyglossia
 - BibLaTeX
-- الخطين DejaVu Sans وDejaVu Serif
+- خط Amiri للنص العربي
+- خط Latin Modern Roman للنص اللاتيني
 
 يمكن استخدام MiKTeX أو TeX Live. لا يحتاج البناء المحلي إلى Perl أو Latexmk. بعد التثبيت، افتح PowerShell جديدًا وتحقق:
 
