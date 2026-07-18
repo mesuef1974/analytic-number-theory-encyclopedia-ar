@@ -18,17 +18,15 @@ releases/preview.pdf.sha256
 
 - XeLaTeX
 - Biber
-- Latexmk
 - Polyglossia
 - BibLaTeX
 - الخطين DejaVu Sans وDejaVu Serif
 
-يمكن استخدام MiKTeX أو TeX Live. بعد التثبيت، افتح PowerShell جديدًا وتحقق:
+يمكن استخدام MiKTeX أو TeX Live. لا يحتاج البناء المحلي إلى Perl أو Latexmk. بعد التثبيت، افتح PowerShell جديدًا وتحقق:
 
 ```powershell
 xelatex --version
 biber --version
-latexmk --version
 ```
 
 ## البناء بأمر واحد

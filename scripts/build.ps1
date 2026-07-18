@@ -20,6 +20,21 @@ function Require-Command {
     }
 }
 
+function Run-Tool {
+    param(
+        [Parameter(Mandatory = $true)][string]$Name,
+        [Parameter(Mandatory = $true)][string[]]$Arguments
+    )
+
+    Write-Host ""
+    Write-Host "$Name $($Arguments -join ' ')" -ForegroundColor DarkGray
+    & $Name @Arguments
+
+    if ($LASTEXITCODE -ne 0) {
+        throw "$Name failed with exit code $LASTEXITCODE."
+    }
+}
+
 Set-Location $RepoRoot
 
 if ($Clean -and (Test-Path $BuildDir)) {
@@ -29,26 +44,26 @@ if ($Clean -and (Test-Path $BuildDir)) {
 New-Item -ItemType Directory -Force $BuildDir | Out-Null
 New-Item -ItemType Directory -Force $ReleaseDir | Out-Null
 
-Require-Command "latexmk"
 Require-Command "xelatex"
 Require-Command "biber"
 
-Write-Host "Building encyclopedia PDF..." -ForegroundColor Cyan
+Write-Host "Building encyclopedia PDF without latexmk..." -ForegroundColor Cyan
 
-& latexmk `
-    -xelatex `
-    -interaction=nonstopmode `
-    -halt-on-error `
-    -file-line-error `
-    "-outdir=$BuildDir" `
+$XeLaTeXArgs = @(
+    "-interaction=nonstopmode",
+    "-halt-on-error",
+    "-file-line-error",
+    "-output-directory=$BuildDir",
     $MainTex
+)
 
-if ($LASTEXITCODE -ne 0) {
-    throw "LaTeX build failed. Review the log files in the build directory."
-}
+Run-Tool -Name "xelatex" -Arguments $XeLaTeXArgs
+Run-Tool -Name "biber" -Arguments @("--input-directory=$BuildDir", "--output-directory=$BuildDir", "main")
+Run-Tool -Name "xelatex" -Arguments $XeLaTeXArgs
+Run-Tool -Name "xelatex" -Arguments $XeLaTeXArgs
 
 if (-not (Test-Path $OutputPdf)) {
-    throw "The build command completed but build\main.pdf was not found."
+    throw "The build completed but build\main.pdf was not found."
 }
 
 Copy-Item $OutputPdf $PreviewPdf -Force
