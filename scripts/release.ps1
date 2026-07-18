@@ -13,30 +13,32 @@ Set-Location $RepoRoot
 
 $status = git status --porcelain
 if ($LASTEXITCODE -ne 0) {
-    throw "تعذر قراءة حالة Git."
+    throw "Unable to read Git status."
 }
+
 if ($status) {
-    throw "المستودع غير نظيف. احفظ التغييرات أو ألغها قبل إنشاء إصدار."
+    throw "The repository is not clean. Commit or discard changes before creating a release."
 }
 
 & (Join-Path $PSScriptRoot "build.ps1") -Clean
 if ($LASTEXITCODE -ne 0) {
-    throw "فشل بناء PDF؛ لم يُنشأ Tag."
+    throw "PDF build failed. No tag was created."
 }
 
 git tag -a $Version -m "Release $Version"
 if ($LASTEXITCODE -ne 0) {
-    throw "تعذر إنشاء Tag $Version."
+    throw "Unable to create tag $Version."
 }
 
-Write-Host "تم إنشاء Tag محلي: $Version" -ForegroundColor Green
+Write-Host "Created local tag: $Version" -ForegroundColor Green
 
 if ($Push) {
     git push origin $Version
     if ($LASTEXITCODE -ne 0) {
-        throw "تعذر دفع Tag إلى GitHub."
+        throw "Unable to push tag to GitHub."
     }
-    Write-Host "تم دفع Tag. سيبدأ Workflow الإصدار تلقائيًا." -ForegroundColor Green
-} else {
-    Write-Host "للنشر نفّذ: git push origin $Version" -ForegroundColor Yellow
+    Write-Host "Tag pushed. The release workflow will start automatically." -ForegroundColor Green
+}
+else {
+    Write-Host "To publish, run: git push origin $Version" -ForegroundColor Yellow
 }

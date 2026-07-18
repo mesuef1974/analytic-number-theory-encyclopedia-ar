@@ -11,7 +11,7 @@ $PreviewHash = "$PreviewPdf.sha256"
 
 if (Test-Path $BuildDir) {
     Remove-Item $BuildDir -Recurse -Force
-    Write-Host "تم حذف مجلد build." -ForegroundColor Green
+    Write-Host "Removed the build directory." -ForegroundColor Green
 }
 
 if ($IncludePreview) {
@@ -20,5 +20,5 @@ if ($IncludePreview) {
             Remove-Item $Path -Force
         }
     }
-    Write-Host "تم حذف نسخة المعاينة المحلية." -ForegroundColor Green
+    Write-Host "Removed the local preview files." -ForegroundColor Green
 }

@@ -16,7 +16,7 @@ function Require-Command {
     param([Parameter(Mandatory = $true)][string]$Name)
 
     if (-not (Get-Command $Name -ErrorAction SilentlyContinue)) {
-        throw "الأداة '$Name' غير موجودة في PATH. راجع docs\BUILD.md."
+        throw "Required command '$Name' was not found in PATH. See docs\BUILD.md."
     }
 }
 
@@ -44,11 +44,11 @@ Write-Host "Building encyclopedia PDF..." -ForegroundColor Cyan
     $MainTex
 
 if ($LASTEXITCODE -ne 0) {
-    throw "فشل بناء LaTeX. راجع ملفات السجل داخل build."
+    throw "LaTeX build failed. Review the log files in the build directory."
 }
 
 if (-not (Test-Path $OutputPdf)) {
-    throw "اكتمل الأمر دون العثور على build\main.pdf."
+    throw "The build command completed but build\main.pdf was not found."
 }
 
 Copy-Item $OutputPdf $PreviewPdf -Force
@@ -58,7 +58,7 @@ $HashFile = "$PreviewPdf.sha256"
 "$Hash  preview.pdf" | Set-Content -Path $HashFile -Encoding ascii
 
 Write-Host ""
-Write-Host "تم إنشاء:" -ForegroundColor Green
+Write-Host "Created:" -ForegroundColor Green
 Write-Host "  $OutputPdf"
 Write-Host "  $PreviewPdf"
 Write-Host "SHA256: $Hash"
