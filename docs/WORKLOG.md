@@ -56,3 +56,9 @@
 - استبدال `latexmk` بتسلسل مباشر: XeLaTeX ثم Biber ثم XeLaTeX مرتين.
 - لم يعد البناء المحلي على Windows يحتاج إلى تثبيت Perl.
 - أبقي بناء GitHub Actions مستقلًا داخل بيئة Linux.
+
+## 2026-07-18 — إصلاح الخط الإنجليزي
+
+- استبدال `DejaVu Serif` بـ`Latin Modern Roman`.
+- حل فشل XeLaTeX على Windows بسبب غياب خط DejaVu Serif.
+- الإبقاء على خط Amiri للنص العربي.

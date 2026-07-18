@@ -3,6 +3,7 @@
 ## [0.1.0-dev] - 2026-07-18
 
 ### أضيف
+- استبدال الخط الإنجليزي `DejaVu Serif` بخط `Latin Modern Roman` المتوفر افتراضيًا في توزيعات TeX.
 - إزالة اعتماد البناء المحلي على `latexmk` وPerl، واستعمال XeLaTeX وBiber مباشرة.
 - إصلاح توافق سكربتات PowerShell مع Windows PowerShell 5.1 بإزالة النص غير ASCII منها.
 - إصلاح فشل GitHub Actions الناتج عن غياب أداة `pdfinfo` في بيئة التشغيل.
