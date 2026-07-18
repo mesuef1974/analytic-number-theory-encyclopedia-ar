@@ -3,6 +3,7 @@
 ## [0.1.0-dev] - 2026-07-18
 
 ### أضيف
+- إصلاح فشل GitHub Actions الناتج عن غياب أداة `pdfinfo` في بيئة التشغيل.
 - إضافة بناء PDF محلي عبر `scripts/build.ps1`.
 - إضافة GitHub Actions لبناء PDF ورفعه كـArtifact.
 - إضافة Workflow لنشر PDF تلقائيًا عند إنشاء Tag.

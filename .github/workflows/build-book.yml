@@ -51,7 +51,9 @@ jobs:
         shell: bash
         run: |
           test -s build/main.pdf
-          pdfinfo build/main.pdf | sed -n '1,20p'
+          echo "PDF generated successfully."
+          stat --printf='Size: %s bytes\n' build/main.pdf
+          file build/main.pdf
 
       - name: Prepare named preview
         shell: bash
