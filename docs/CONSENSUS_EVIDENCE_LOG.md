@@ -103,7 +103,7 @@ Titchmarsh وIwaniec--Kowalski.
 |---|---|---|---:|---|
 | [Zero-free regions for the Riemann zeta function](https://consensus.app/papers/zerofree-regions-for-the-riemann-zeta-function-ford/a48f144caec6526082444a0668851732/?utm_source=chatgpt) | Kevin Ford (2019 بحسب السجل) | arXiv: Number Theory، 25--56؛ لا يظهر DOI | 75 | خريطة للمدخلات الحديثة من نمط فينوغرادوف--كوروبوف؛ لا يُستعمل بدل المرجع القياسي |
 | [Explicit zero-free regions for the Riemann zeta-function](https://consensus.app/papers/explicit-zerofree-regions-for-the-riemann-zetafunction-mossinghoff-trudgian/4297c350de975dc0ab36a7c812cf253e/?utm_source=chatgpt) | Michael J. Mossinghoff, T. Trudgian, Andrew Yang (2022 بحسب السجل) | Research in Number Theory 10؛ لا يظهر DOI | 29 | يبين حساسية الثوابت والارتفاعات في المناطق الصريحة؛ تُطابق بيانات النشر بالأصل قبل الاقتباس |
-| [A hybrid Euler-Hadamard product for the Riemann zeta function](https://consensus.app/papers/a-hybrid-eulerhadamard-product-for-the-riemann-zeta-gonek-hughes/e7bdd8e1403d595aa4d33bb82c98dc2a/?utm_source=chatgpt) | S. Gonek, C. Hughes, J. Keating (2007) | Duke Mathematical Journal 136، 507--549؛ لا يظهر DOI | 98 | سياق بحثي للجمع المملس بين جداء الأوليات وجدء الأصفار؛ ليس مصدر جداء هادامار الكلاسيكي في الفصل |
+| [A hybrid Euler-Hadamard product for the Riemann zeta function](https://consensus.app/papers/a-hybrid-eulerhadamard-product-for-the-riemann-zeta-gonek-hughes/e7bdd8e1403d595aa4d33bb82c98dc2a/?utm_source=chatgpt) | S. Gonek, C. Hughes, J. Keating (2007) | Duke Mathematical Journal 136، 507--549؛ لا يظهر DOI | 98 | سياق بحثي للجمع المملس بين جداء الأوليات وجداء الأصفار؛ ليس مصدر جداء هادامار الكلاسيكي في الفصل |
 
 قرارات هذه الجولة:
 
