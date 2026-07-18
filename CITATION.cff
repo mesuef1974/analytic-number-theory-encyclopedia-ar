@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+title: "الموسوعة الشاملة في نظرية الأعداد التحليلية"
+message: "يرجى الاستشهاد بالموسوعة باستخدام بيانات هذا الملف."
+type: book
+authors:
+  - family-names: "mesuef1974"
+    given-names: "Project Author"
+version: 0.1.0-dev
+date-released: 2026-07-18
+repository-code: "https://github.com/mesuef1974/analytic-number-theory-encyclopedia-ar"
+license: LicenseRef-Proprietary

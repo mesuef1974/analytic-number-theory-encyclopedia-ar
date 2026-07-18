@@ -1,0 +1,26 @@
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setdefaultlanguage{arabic}
+\setotherlanguage{english}
+\newfontfamily\arabicfont[Script=Arabic,Scale=1.05]{DejaVu Sans}
+\newfontfamily\englishfont{DejaVu Serif}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{geometry}
+\geometry{a4paper,margin=27mm}
+\usepackage{hyperref}
+\usepackage{bookmark}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{csquotes}
+\usepackage[backend=biber,style=alphabetic,sorting=nyt]{biblatex}
+\addbibresource{manuscript/bibliography.bib}
+
+\newtheorem{theorem}{مبرهنة}[chapter]
+\newtheorem{lemma}[theorem]{لمّة}
+\newtheorem{proposition}[theorem]{قضية}
+\newtheorem{corollary}[theorem]{نتيجة}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{تعريف}
+\newtheorem{example}[theorem]{مثال}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{ملاحظة}
