@@ -57,11 +57,12 @@ for path in list(ROOT.rglob("*.tex")) + list(ROOT.rglob("*.md")):
             fail(f"Unexpected control character U+{code:04X} found in {rel}.")
             break
 
-registry = read(ROOT / "docs" / "RESULTS_REGISTRY.md")
+registry_paths = sorted((ROOT / "docs").glob("RESULTS_REGISTRY*.md"))
+registry = "\n".join(read(path) for path in registry_paths)
 for tex_path in ROOT.rglob("*.tex"):
     for result_id in re.findall(r"\\resultid\{([^}]+)\}", read(tex_path)):
         if result_id not in registry:
-            fail(f"Result ID {result_id} is missing from docs/RESULTS_REGISTRY.md.")
+            fail(f"Result ID {result_id} is missing from the result registry files.")
 
 if errors:
     print("QUALITY CHECK FAILED")
