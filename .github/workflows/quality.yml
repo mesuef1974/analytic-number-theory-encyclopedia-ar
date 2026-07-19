@@ -1,73 +1,26 @@
 name: Quality checks
 
 on:
+  push:
+    branches: [main]
   pull_request:
     branches: [main]
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   quality:
     runs-on: ubuntu-latest
-    timeout-minutes: 35
     steps:
-      - name: Check out Chapter 7 branch
+      - name: Check out repository
         uses: actions/checkout@v4
-        with:
-          ref: agent/chapter-07-dirichlet-l-functions-v0.11.0
-          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      - name: Apply final review closure
-        run: python scripts/finalize_ch7_review.py
-
       - name: Run repository quality checks
         run: python scripts/quality_check.py
-
-      - name: Create build directory
-        run: mkdir -p build
-
-      - name: Compile finalized PDF
-        uses: xu-cheng/latex-action@v4
-        with:
-          root_file: manuscript/main.tex
-          latexmk_use_xelatex: true
-          args: >-
-            -interaction=nonstopmode
-            -halt-on-error
-            -file-line-error
-            -outdir=build
-          os: debian
-
-      - name: Verify finalized PDF
-        shell: bash
-        run: |
-          test -s build/main.pdf
-          file build/main.pdf
-          cp build/main.pdf build/analytic-number-theory-encyclopedia-chapter-07-reviewed.pdf
-          sha256sum build/analytic-number-theory-encyclopedia-chapter-07-reviewed.pdf > build/analytic-number-theory-encyclopedia-chapter-07-reviewed.pdf.sha256
-
-      - name: Upload reviewed PDF
-        uses: actions/upload-artifact@v4
-        with:
-          name: chapter-07-reviewed-preview
-          path: |
-            build/analytic-number-theory-encyclopedia-chapter-07-reviewed.pdf
-            build/analytic-number-theory-encyclopedia-chapter-07-reviewed.pdf.sha256
-          if-no-files-found: error
-          retention-days: 30
-
-      - name: Commit finalization
-        shell: bash
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
-          git commit -m "Review and finalize Chapter 7"
-          git push origin HEAD:agent/chapter-07-dirichlet-l-functions-v0.11.0
