@@ -4,8 +4,9 @@ on:
   push:
     branches:
       - agent/chapter-07-dirichlet-l-functions-v0.11.0
-    paths:
-      - .github/workflows/ch7-apply-review-corrections.yml
+  pull_request:
+    branches:
+      - main
 
 permissions:
   contents: write
@@ -26,7 +27,6 @@ jobs:
         run: |
           python3 - <<'PY'
           from pathlib import Path
-          from datetime import date
 
           def replace_once(path: str, old: str, new: str) -> None:
               p = Path(path)
@@ -40,11 +40,7 @@ jobs:
           batch4 = "volumes/volume-01-foundations/chapters/chapter-07-dirichlet-l-functions-batch-04.tex"
           batch5 = "volumes/volume-01-foundations/chapters/chapter-07-dirichlet-l-functions-batch-05.tex"
 
-          replace_once(
-              batch2,
-              "هذه الت合同 متوافقة",
-              "وهذه التوافقات متّسقة",
-          )
+          replace_once(batch2, "هذه الت合同 متوافقة", "وهذه التوافقات متّسقة")
 
           old_fe = r'''تتناقص \(\theta_\chi(t)\) أسيًا عندما \(t\to\infty\). ويحول تحويل
 ثيتا سلوكها عند \(t\to0^+\) إلى سلوك
@@ -67,7 +63,6 @@ jobs:
 &=
 \varepsilon_\chi\Lambda(1-s,\overline\chi).
 \end{align*}'''
-
           new_fe = r'''نقسم التكامل عند \(t=1\). وفي الجزء \(0<t<1\) نستعمل تحويل
 ثيتا ثم نغيّر المتغير \(u=1/t\)، فنحصل على
 \begin{align*}
@@ -121,74 +116,47 @@ jobs:
           replace_once(batch5, old_eta, new_eta)
 
           changelog = Path("CHANGELOG.md")
-          ch = changelog.read_text(encoding="utf-8")
+          text = changelog.read_text(encoding="utf-8")
           marker = "### تغيّر\n"
-          addition = (
-              "### تغيّر\n"
-              "- تطبيق تصحيحات المراجعة الخارجية الآلية للفصل السابع: إزالة محرفي CJK المتسربين، وتقسيم تكامل ميلين عند \(t=1\)، وتثبيت اختيار \(\eta\) في مبدأ لاندو، وتحويل نتيجة مكررة إلى ملاحظة تحيل إلى `ANT-COR-07-05`.\n"
-          )
-          if addition not in ch:
-              if marker not in ch:
+          bullet = "- تطبيق تصحيحات المراجعة الخارجية الآلية للفصل السابع: إزالة محرفي CJK المتسربين، وتقسيم تكامل ميلين عند \\(t=1\\)، وتثبيت اختيار \\(\\eta\\) في مبدأ لاندو، وتحويل نتيجة مكررة إلى ملاحظة تحيل إلى `ANT-COR-07-05`.\n"
+          if bullet not in text:
+              if marker not in text:
                   raise SystemExit("CHANGELOG marker not found")
-              ch = ch.replace(marker, addition, 1)
-              changelog.write_text(ch, encoding="utf-8")
+              changelog.write_text(text.replace(marker, marker + bullet, 1), encoding="utf-8")
 
           progress = Path("docs/PROGRESS.md")
-          pr = progress.read_text(encoding="utf-8")
-          done_marker = "- إغلاق النتيجة العامة `ANT-THM-07-09` بحالة `PROVED-HERE`.\n"
-          done_add = done_marker + "- إغلاق تصحيحات المراجعة الخارجية الآلية وإزالة المحارف غير العربية من مصدر الفصل.\n"
-          if "إغلاق تصحيحات المراجعة الخارجية الآلية" not in pr:
-              if done_marker not in pr:
-                  raise SystemExit("PROGRESS completed marker not found")
-              pr = pr.replace(done_marker, done_add, 1)
-          pr = pr.replace(
-              "- تدقيق مستقل كامل للصيغ وعوامل غاما وجذور العدد.\n",
-              "- المراجعة البشرية المستقلة النهائية للصيغ وعوامل غاما وجذور العدد.\n",
-              1,
-          )
-          progress.write_text(pr, encoding="utf-8")
+          text = progress.read_text(encoding="utf-8")
+          marker = "- إغلاق النتيجة العامة `ANT-THM-07-09` بحالة `PROVED-HERE`.\n"
+          bullet = "- إغلاق تصحيحات المراجعة الخارجية الآلية وإزالة المحارف غير العربية من مصدر الفصل.\n"
+          if bullet not in text:
+              if marker not in text:
+                  raise SystemExit("PROGRESS marker not found")
+              text = text.replace(marker, marker + bullet, 1)
+          text = text.replace("- تدقيق مستقل كامل للصيغ وعوامل غاما وجذور العدد.\n", "- المراجعة البشرية المستقلة النهائية للصيغ وعوامل غاما وجذور العدد.\n", 1)
+          progress.write_text(text, encoding="utf-8")
 
-          report = Path("docs/CHAPTER_07_EXTERNAL_AI_REVIEW_CORRECTIONS_2026-07-19.md")
-          report.write_text(r'''# إغلاق تصحيحات المراجعة الخارجية الآلية للفصل السابع
+          Path("docs/CHAPTER_07_EXTERNAL_AI_REVIEW_CORRECTIONS_2026-07-19.md").write_text(r'''# إغلاق تصحيحات المراجعة الخارجية الآلية للفصل السابع
 
 التاريخ: 2026-07-19
 
 الحالة: `PASS-WITH-MINOR-CORRECTIONS / CORRECTIONS-CLOSED`
 
-## نطاق المراجعة
-
-قُرئت ملفات LaTeX الخمسة للفصل السابع، مع فحص البراهين الأساسية ومصدر
-النسخة المبنية. لا تُعد هذه المراجعة مراجعة بشرية مستقلة، ولذلك تبقى حالة
-الفصل `DRAFT` إلى أن يراجعه متخصص بشري ثانٍ.
-
 ## التصحيحات المنفذة
 
-1. إزالة المحرفين الصينيين `合同` من برهان شمول خريطة الاختزال، واستبدالهما
-   بالصياغة العربية: «وهذه التوافقات متّسقة».
-2. تقسيم تكامل ميلين عند \(t=1\) في برهان المعادلة الوظيفية، وتحويل الجزء
-   الواقع في \((0,1)\) بواسطة تحويل ثيتا وتغيير المتغير \(u=1/t\).
-3. تثبيت \(\eta\) أولًا في برهان مبدأ لاندو، ثم استعمال
-   \((\log n)^k=O_{k,\eta}(n^\eta)\) لكل \(k\geq0\).
-4. تحويل النتيجة المكررة عن بساطة الصفر عند \(s=0\) إلى ملاحظة تحيل إلى
-   `ANT-COR-07-05`، بدل إنشاء معرّف نتيجة جديد.
-5. تحديث `CHANGELOG.md` و`docs/PROGRESS.md`.
+1. إزالة المحرفين الصينيين `合同` واستبدالهما بصياغة عربية سليمة.
+2. تقسيم تكامل ميلين عند \(t=1\) في برهان المعادلة الوظيفية.
+3. تثبيت \(\eta\) قبل استعمال التقدير اللوغاريتمي في مبدأ لاندو.
+4. تحويل النتيجة المكررة عن بساطة الصفر عند \(s=0\) إلى ملاحظة تحيل إلى `ANT-COR-07-05`.
+5. تحديث سجل التغييرات ولوحة التقدم.
 
-## الحكم
-
-- خطأ رياضي جوهري: لا يوجد.
-- خطأ محرفي ظاهر: أُغلق.
-- تحسينات الصرامة والتحرير: أُغلقت.
-- المراجعة البشرية المستقلة: ما زالت مطلوبة قبل `REVIEWED`.
+لا تعد هذه مراجعة بشرية مستقلة؛ لذلك تبقى حالة الفصل `DRAFT`.
 ''', encoding="utf-8")
 
-          # Guard against any remaining CJK Unified Ideographs in Chapter 7 sources.
-          chapter_files = list(Path("volumes/volume-01-foundations/chapters").glob("chapter-07*.tex"))
           offenders = []
-          for p in chapter_files:
-              text = p.read_text(encoding="utf-8")
-              for i, ch in enumerate(text):
-                  if "\u4e00" <= ch <= "\u9fff":
-                      offenders.append((str(p), i, ch))
+          for p in Path("volumes/volume-01-foundations/chapters").glob("chapter-07*.tex"):
+              for index, char in enumerate(p.read_text(encoding="utf-8")):
+                  if "\u4e00" <= char <= "\u9fff":
+                      offenders.append((str(p), index, char))
           if offenders:
               raise SystemExit(f"CJK characters remain: {offenders}")
           PY
