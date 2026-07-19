@@ -1,0 +1,242 @@
+name: Apply Chapter 7 review corrections
+
+on:
+  push:
+    branches:
+      - agent/chapter-07-dirichlet-l-functions-v0.11.0
+    paths:
+      - .github/workflows/ch7-apply-review-corrections.yml
+
+permissions:
+  contents: write
+
+jobs:
+  correct-and-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/chapter-07-dirichlet-l-functions-v0.11.0
+          fetch-depth: 0
+
+      - name: Apply reviewed corrections
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from datetime import date
+
+          def replace_once(path: str, old: str, new: str) -> None:
+              p = Path(path)
+              text = p.read_text(encoding="utf-8")
+              count = text.count(old)
+              if count != 1:
+                  raise SystemExit(f"Expected exactly one match in {path}, found {count}")
+              p.write_text(text.replace(old, new, 1), encoding="utf-8")
+
+          batch2 = "volumes/volume-01-foundations/chapters/chapter-07-dirichlet-l-functions-batch-02.tex"
+          batch4 = "volumes/volume-01-foundations/chapters/chapter-07-dirichlet-l-functions-batch-04.tex"
+          batch5 = "volumes/volume-01-foundations/chapters/chapter-07-dirichlet-l-functions-batch-05.tex"
+
+          replace_once(
+              batch2,
+              "هذه الت合同 متوافقة",
+              "وهذه التوافقات متّسقة",
+          )
+
+          old_fe = r'''تتناقص \(\theta_\chi(t)\) أسيًا عندما \(t\to\infty\). ويحول تحويل
+ثيتا سلوكها عند \(t\to0^+\) إلى سلوك
+\(\theta_{\overline\chi}(1/t)\) عند اللانهاية، ولذلك يتقارب التكامل
+محليًا بانتظام لكل \(s\in\mathbb C\)، ويعرف دالة تامة.
+
+وباستخدام تحويل ثيتا ثم تغيير المتغير \(u=1/t\):
+\begin{align*}
+\Lambda(s,\chi)
+&=
+\frac{\varepsilon_\chi}{2}
+\int_0^\infty
+\theta_{\overline\chi}(1/t)
+ t^{(s-a-1)/2}\,\frac{dt}{t}\\
+&=
+\frac{\varepsilon_\chi}{2}
+\int_0^\infty
+\theta_{\overline\chi}(u)
+ u^{(1-s+a)/2}\,\frac{du}{u}\\
+&=
+\varepsilon_\chi\Lambda(1-s,\overline\chi).
+\end{align*}'''
+
+          new_fe = r'''نقسم التكامل عند \(t=1\). وفي الجزء \(0<t<1\) نستعمل تحويل
+ثيتا ثم نغيّر المتغير \(u=1/t\)، فنحصل على
+\begin{align*}
+\Lambda(s,\chi)
+&=
+\frac12\int_1^\infty
+\theta_\chi(t)t^{(s+a)/2}\,\frac{dt}{t}\\
+&\quad+
+\frac{\varepsilon_\chi}{2}\int_1^\infty
+\theta_{\overline\chi}(u)u^{(1-s+a)/2}\,\frac{du}{u}.
+\end{align*}
+يتقارب التكاملان محليًا بانتظام لكل \(s\in\mathbb C\)، بسبب التناقص
+الأسي لدالتي ثيتا عند اللانهاية، ولذلك تمثل الصيغة دالة تامة.
+
+وبتطبيق الصيغة نفسها على \(\Lambda(1-s,\overline\chi)\)، ثم استعمال
+\[
+\varepsilon_\chi\varepsilon_{\overline\chi}
+=
+\frac{\tau(\chi)\tau(\overline\chi)}{i^{2a}q}
+=
+\frac{\chi(-1)q}{(-1)^a q}
+=1,
+\]
+نجد أن الحدين يتبادلان، ومن ثم
+\[
+\Lambda(s,\chi)
+=
+\varepsilon_\chi\Lambda(1-s,\overline\chi).
+\]'''
+          replace_once(batch2, old_fe, new_fe)
+
+          old_cor = r'''\begin{corollary}
+إذا كانت \(\chi\) غير حقيقية، فإن الصفر البديهي عند \(s=0\) في الحالة
+الزوجية بسيط، لأن المعادلة الوظيفية تربطه بقيمة
+\(L(1,\overline\chi)\ne0\).
+\end{corollary}'''
+          new_cor = r'''\begin{remark}[بساطة الصفر عند الصفر في الحالة غير الحقيقية]
+إذا كانت \(\chi\) غير حقيقية وزوجية، فإن الصفر البديهي عند \(s=0\)
+بسيط، لأن المعادلة الوظيفية تربطه بقيمة
+\(L(1,\overline\chi)\ne0\). وهذه حالة خاصة من النتيجة العامة
+\ref{cor:dirichlet-l-trivial-zeros}، وليست نتيجة مستقلة تحتاج إلى معرّف
+إضافي.
+\end{remark}'''
+          replace_once(batch4, old_cor, new_cor)
+
+          old_eta = r'''ثبت عددًا حقيقيًا \(c>\sigma_0\). لكل \(k\geq0\) واختر
+\(\eta>0\) بحيث \(c-\eta>\sigma_0\). لدينا التقدير القياسي'''
+          new_eta = r'''ثبت عددًا حقيقيًا \(c>\sigma_0\)، ثم ثبت عددًا
+\(\eta>0\) بحيث \(c-\eta>\sigma_0\). عندئذ، لكل \(k\geq0\)، لدينا
+التقدير القياسي'''
+          replace_once(batch5, old_eta, new_eta)
+
+          changelog = Path("CHANGELOG.md")
+          ch = changelog.read_text(encoding="utf-8")
+          marker = "### تغيّر\n"
+          addition = (
+              "### تغيّر\n"
+              "- تطبيق تصحيحات المراجعة الخارجية الآلية للفصل السابع: إزالة محرفي CJK المتسربين، وتقسيم تكامل ميلين عند \(t=1\)، وتثبيت اختيار \(\eta\) في مبدأ لاندو، وتحويل نتيجة مكررة إلى ملاحظة تحيل إلى `ANT-COR-07-05`.\n"
+          )
+          if addition not in ch:
+              if marker not in ch:
+                  raise SystemExit("CHANGELOG marker not found")
+              ch = ch.replace(marker, addition, 1)
+              changelog.write_text(ch, encoding="utf-8")
+
+          progress = Path("docs/PROGRESS.md")
+          pr = progress.read_text(encoding="utf-8")
+          done_marker = "- إغلاق النتيجة العامة `ANT-THM-07-09` بحالة `PROVED-HERE`.\n"
+          done_add = done_marker + "- إغلاق تصحيحات المراجعة الخارجية الآلية وإزالة المحارف غير العربية من مصدر الفصل.\n"
+          if "إغلاق تصحيحات المراجعة الخارجية الآلية" not in pr:
+              if done_marker not in pr:
+                  raise SystemExit("PROGRESS completed marker not found")
+              pr = pr.replace(done_marker, done_add, 1)
+          pr = pr.replace(
+              "- تدقيق مستقل كامل للصيغ وعوامل غاما وجذور العدد.\n",
+              "- المراجعة البشرية المستقلة النهائية للصيغ وعوامل غاما وجذور العدد.\n",
+              1,
+          )
+          progress.write_text(pr, encoding="utf-8")
+
+          report = Path("docs/CHAPTER_07_EXTERNAL_AI_REVIEW_CORRECTIONS_2026-07-19.md")
+          report.write_text(r'''# إغلاق تصحيحات المراجعة الخارجية الآلية للفصل السابع
+
+التاريخ: 2026-07-19
+
+الحالة: `PASS-WITH-MINOR-CORRECTIONS / CORRECTIONS-CLOSED`
+
+## نطاق المراجعة
+
+قُرئت ملفات LaTeX الخمسة للفصل السابع، مع فحص البراهين الأساسية ومصدر
+النسخة المبنية. لا تُعد هذه المراجعة مراجعة بشرية مستقلة، ولذلك تبقى حالة
+الفصل `DRAFT` إلى أن يراجعه متخصص بشري ثانٍ.
+
+## التصحيحات المنفذة
+
+1. إزالة المحرفين الصينيين `合同` من برهان شمول خريطة الاختزال، واستبدالهما
+   بالصياغة العربية: «وهذه التوافقات متّسقة».
+2. تقسيم تكامل ميلين عند \(t=1\) في برهان المعادلة الوظيفية، وتحويل الجزء
+   الواقع في \((0,1)\) بواسطة تحويل ثيتا وتغيير المتغير \(u=1/t\).
+3. تثبيت \(\eta\) أولًا في برهان مبدأ لاندو، ثم استعمال
+   \((\log n)^k=O_{k,\eta}(n^\eta)\) لكل \(k\geq0\).
+4. تحويل النتيجة المكررة عن بساطة الصفر عند \(s=0\) إلى ملاحظة تحيل إلى
+   `ANT-COR-07-05`، بدل إنشاء معرّف نتيجة جديد.
+5. تحديث `CHANGELOG.md` و`docs/PROGRESS.md`.
+
+## الحكم
+
+- خطأ رياضي جوهري: لا يوجد.
+- خطأ محرفي ظاهر: أُغلق.
+- تحسينات الصرامة والتحرير: أُغلقت.
+- المراجعة البشرية المستقلة: ما زالت مطلوبة قبل `REVIEWED`.
+''', encoding="utf-8")
+
+          # Guard against any remaining CJK Unified Ideographs in Chapter 7 sources.
+          chapter_files = list(Path("volumes/volume-01-foundations/chapters").glob("chapter-07*.tex"))
+          offenders = []
+          for p in chapter_files:
+              text = p.read_text(encoding="utf-8")
+              for i, ch in enumerate(text):
+                  if "\u4e00" <= ch <= "\u9fff":
+                      offenders.append((str(p), i, ch))
+          if offenders:
+              raise SystemExit(f"CJK characters remain: {offenders}")
+          PY
+
+      - name: Run quality checks
+        run: python3 scripts/quality_check.py
+
+      - name: Create build directory
+        run: mkdir -p build
+
+      - name: Compile with XeLaTeX and Biber
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: manuscript/main.tex
+          latexmk_use_xelatex: true
+          args: >-
+            -interaction=nonstopmode
+            -halt-on-error
+            -file-line-error
+            -outdir=build
+          os: debian
+
+      - name: Verify and prepare corrected preview
+        shell: bash
+        run: |
+          test -s build/main.pdf
+          cp build/main.pdf build/analytic-number-theory-encyclopedia-preview.pdf
+          sha256sum build/analytic-number-theory-encyclopedia-preview.pdf > build/analytic-number-theory-encyclopedia-preview.pdf.sha256
+          pdfinfo build/main.pdf | tee build/pdfinfo.txt
+          grep -Eq '^Pages:[[:space:]]+130$' build/pdfinfo.txt
+
+      - name: Upload corrected PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: chapter-07-corrected-preview
+          path: |
+            build/analytic-number-theory-encyclopedia-preview.pdf
+            build/analytic-number-theory-encyclopedia-preview.pdf.sha256
+            build/pdfinfo.txt
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Commit corrections and remove temporary workflow
+        shell: bash
+        run: |
+          rm -f .github/workflows/ch7-apply-review-corrections.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "fix(chapter-07): apply external review corrections"
+          git push origin HEAD:agent/chapter-07-dirichlet-l-functions-v0.11.0
