@@ -1,0 +1,145 @@
+\section{توافق جذر العدد والمشتقة اللوغاريتمية}
+
+نثبت أولًا الحقائق البنيوية التي تضبط جذر العدد والمشتقة
+اللوغاريتمية، ثم ننتقل إلى عدم الانعدام عند \(s=1\).
+
+\begin{proposition}[توافق جذري العدد]
+\label{prop:dirichlet-root-number-compatibility}
+\resultid{ANT-PROP-07-05}
+\provedhere
+لتكن \(\chi\bmod q\) شخصية بدائية، و\(q>1\)، ولتكن
+\(a\in\{0,1\}\) محددة بالعلاقة \(\chi(-1)=(-1)^a\). إذا
+\[
+\varepsilon_\chi=\frac{\tau(\chi)}{i^a\sqrt q},
+\]
+فإن
+\[
+\varepsilon_\chi\varepsilon_{\overline\chi}=1,
+\qquad
+\varepsilon_{\overline\chi}=\overline{\varepsilon_\chi}.
+\]
+\end{proposition}
+
+\begin{proof}
+للشخصيتين \(\chi\) و\(\overline\chi\) الزوجية نفسها \(a\). ومن مبرهنة
+مجموع غاوس:
+\[
+\tau(\chi)\tau(\overline\chi)=\chi(-1)q=(-1)^a q.
+\]
+لذلك
+\[
+\varepsilon_\chi\varepsilon_{\overline\chi}
+=
+\frac{(-1)^a q}{i^{2a}q}=1,
+\]
+لأن \(i^{2a}=(-1)^a\). وبما أن كلا الجذرين معياره \(1\)، فإن
+\(\varepsilon_{\overline\chi}=\varepsilon_\chi^{-1}\) يساوي
+\(\overline{\varepsilon_\chi}\).
+\end{proof}
+
+\begin{corollary}[اتساق تطبيق المعادلة الوظيفية مرتين]
+\label{cor:functional-equation-involution}
+\resultid{ANT-COR-07-06}
+\provedhere
+تطبيق المعادلة الوظيفية مرتين يعيد الدالة المكتملة نفسها:
+\[
+\Lambda(s,\chi)
+=
+\varepsilon_\chi\varepsilon_{\overline\chi}\Lambda(s,\chi)
+=
+\Lambda(s,\chi).
+\]
+\end{corollary}
+
+\begin{proof}
+نطبق
+\[
+\Lambda(s,\chi)=\varepsilon_\chi\Lambda(1-s,\overline\chi)
+\]
+ثم نطبق المعادلة الوظيفية على الطرف الثاني، ونستعمل القضية السابقة.
+\end{proof}
+
+\begin{proposition}[المشتقة اللوغاريتمية]
+\label{prop:dirichlet-l-logarithmic-derivative}
+\resultid{ANT-PROP-07-06}
+\provedhere
+لكل شخصية ديريشليه \(\chi\bmod q\)، وعندما \(\Re(s)>1\):
+\[
+-\frac{L'}{L}(s,\chi)
+=
+\sum_{n=1}^{\infty}\frac{\Lambda(n)\chi(n)}{n^s}.
+\]
+وتتقارب السلسلة مطلقًا ومحليًا بانتظام في هذا النصف من المستوى.
+\end{proposition}
+
+\begin{proof}
+من المنتج الأويلري وعدم الانعدام في \(\Re(s)>1\) نعرّف الفرع الهولومورفي
+لـ\(\log L(s,\chi)\) بواسطة السلسلة الأويلرية المطلقة
+\[
+\log L(s,\chi)
+=
+\sum_p\sum_{k=1}^{\infty}
+\frac{\chi(p)^k}{k p^{ks}}.
+\]
+هذا التحديد يثبت الفرع المقصود ولا يفترض اختيارًا عالميًا سابقًا
+للوغاريتم. وتتقارب السلسلة مطلقًا ومحليًا بانتظام، وبالتفاضل حدًا حدًا:
+\[
+-\frac{L'}{L}(s,\chi)
+=
+\sum_p\sum_{k=1}^{\infty}
+\frac{\chi(p)^k\log p}{p^{ks}}.
+\]
+وبما أن \(\chi(p)^k=\chi(p^k)\)، وأن
+\(\Lambda(n)=\log p\) عندما \(n=p^k\) وتساوي صفرًا خلاف ذلك، نحصل على
+الصيغة المعلنة. أما التقارب المطلق فينتج من
+\[
+\sum_{n=1}^{\infty}\frac{\Lambda(n)|\chi(n)|}{n^\sigma}
+\leq
+\sum_{n=1}^{\infty}\frac{\Lambda(n)}{n^\sigma}
+<\infty
+\qquad(\sigma>1).
+\]
+\end{proof}
+
+\section{عدم الانعدام عند \(s=1\)}
+
+\begin{theorem}[عدم الانعدام عند الواحد]
+\label{thm:dirichlet-l-nonvanishing-at-one}
+\resultid{ANT-THM-07-09}
+\provedhere
+إذا كانت \(\chi\) شخصية ديريشليه غير رئيسية، فإن
+\[
+L(1,\chi)\ne0.
+\]
+\end{theorem}
+
+\begin{proof}
+إذا كانت \(\chi\) غير حقيقية، فالمطلوب هو المبرهنة
+\ref{thm:nonreal-character-nonvanishing-at-one}. وإذا كانت حقيقية، فهو
+المبرهنة \ref{thm:real-character-nonvanishing-at-one}. وهاتان الحالتان
+تستنفدان جميع شخصيات ديريشليه غير الرئيسية.
+\end{proof}
+
+\begin{remark}[حدود الاعتماد]
+لا تستنتج هذه النتيجة من الهولومورفية وحدها، ولا من المنتج الأويلري عند
+الحد \(s=1\). الحالة غير الحقيقية أثبتت بحاصل ضرب أويلري مساعد، والحالة
+الحقيقية أثبتت بسلسلة ذات معاملات غير سالبة ومبدأ لاندو الأولي. ولم تستعمل
+مبرهنة ديريشليه للأوليات في المتتاليات الحسابية في أي من البرهانين.
+\end{remark}
+
+\section{فرضية ريمان المعممة لدوال ديريشليه}
+
+بعد فصل الأصفار البديهية، تقع الأصفار الأخرى في الشريط
+\(0\leq\Re(s)\leq1\). وتسمى هذه الأصفار غير بديهية.
+
+\begin{definition}[فرضية ريمان المعممة لدوال ديريشليه]
+تنص فرضية ريمان المعممة في هذه العائلة على أن كل صفر غير بديهي لكل دالة
+ديريشليه \(L(s,\chi)\) يحقق
+\[
+\Re(\rho)=\frac12.
+\]
+\end{definition}
+
+هذه فرضية مفتوحة. المعادلة الوظيفية وتناظر الأصفار لا يثبتانها؛ إنهما
+يثبتان فقط تناظر مجموعة الأصفار حول الخط الحرج. ولا يقدم هذا الفصل أي
+ادعاء بتقدم نحو إثباتها.

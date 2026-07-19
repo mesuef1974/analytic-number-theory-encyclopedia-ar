@@ -1,0 +1,579 @@
+\section{الشخصيات المستحثة والموصل}
+
+إذا كان \(d\mid q\)، فإن الاختزال بترديد \(d\) يعطي تشاكلًا شاملًا
+\[
+\pi_{q,d}:(\mathbb Z/q\mathbb Z)^{\times}
+\longrightarrow
+(\mathbb Z/d\mathbb Z)^{\times}.
+\]
+ولإثبات الشمول، خذ فئة \(u\bmod d\) أولية مع \(d\). لكل أولي
+\(p\mid q\) ولا يقسم \(d\)، افرض الشرط
+\[
+n\equiv1\pmod{p^{v_p(q)}},
+\]
+مع الشرط \(n\equiv u\pmod d\). وهذه التوافقات متّسقة لأن \(d\) أولي مع
+حاصل ضرب القوى الأولية المقابلة للأوليات التي لا تقسمه، فتنتج مبرهنة
+الباقي الصيني عددًا \(n\). إذا كان \(p\mid d\)، فإن
+\(n\equiv u\pmod d\) يضمن \(p\nmid n\)، وإذا كان \(p\nmid d\) فقد
+فرضنا \(n\equiv1\pmod p\). لذلك \((n,q)=1\)، وصورة فئته بترديد \(q\)
+هي الفئة \(u\bmod d\).
+
+\begin{definition}
+نسمي \(d\mid q\) \emph{ترديدًا مستحثًا} لشخصية
+\(\chi\bmod q\) إذا كانت \(\chi\) تساوي \(1\) على نواة
+\(\pi_{q,d}\). عندئذ تنزل \(\chi\) نزولًا وحيدًا إلى شخصية على
+\((\mathbb Z/d\mathbb Z)^{\times}\).
+
+وتسمى الشخصية \(\chi\bmod q\) \emph{بدائية} إذا لم يكن لها ترديد
+مستحث أصغر من \(q\). أما أصغر ترديد مستحث فيسمى \emph{موصلها}.
+\end{definition}
+
+إذا نزلت \(\chi\) إلى شخصية \(\chi^{*}\bmod d\)، فإن المساواة بين
+الدالتين الممتدتين على الأعداد الصحيحة ليست حرفية عند الأعداد غير الأولية
+مع \(q\). والصيغة الصحيحة هي
+\[
+\chi(n)=\chi^{*}(n)\chi_{0,q}(n),
+\]
+حيث \(\chi_{0,q}\) الشخصية الرئيسية بترديد \(q\).
+
+\begin{theorem}[الجد البدائي والموصل]
+\label{thm:primitive-ancestor-conductor}
+\resultid{ANT-THM-07-04}
+\provedhere
+لكل شخصية ديريشليه \(\chi\bmod q\) يوجد قاسم وحيد \(f\mid q\)،
+وشخصية بدائية وحيدة \(\chi^{*}\bmod f\)، بحيث
+\[
+\chi(n)=\chi^{*}(n)\chi_{0,q}(n)
+\qquad(n\in\mathbb Z).
+\]
+والعدد \(f\) هو موصل \(\chi\).
+\end{theorem}
+
+\begin{proof}
+نكتب
+\[
+q=\prod_{p\mid q}p^{\alpha_p}.
+\]
+وبمبرهنة الباقي الصيني تنحل زمرة الوحدات إلى
+\[
+(\mathbb Z/q\mathbb Z)^{\times}
+\cong
+\prod_{p\mid q}(\mathbb Z/p^{\alpha_p}\mathbb Z)^{\times},
+\]
+وتنحل الشخصية تبعًا لذلك إلى حاصل ضرب شخصيات محلية \(\chi_p\).
+
+لكل \(p\mid q\)، اختر أصغر عدد
+\(0\leq\beta_p\leq\alpha_p\) تكون عنده \(\chi_p\) تافهة على نواة
+الاختزال
+\[
+(\mathbb Z/p^{\alpha_p}\mathbb Z)^{\times}
+\longrightarrow
+(\mathbb Z/p^{\beta_p}\mathbb Z)^{\times}.
+\]
+ونفسر زمرة الوحدات عند \(p^0=1\) بأنها الزمرة التافهة. وجود
+\(\beta_p\) واضح عند \(\beta_p=\alpha_p\)، وصغراه معرفة لأن المجموعة
+منتهية. تنزل \(\chi_p\) نزولًا وحيدًا إلى شخصية
+\(\chi_p^{*}\bmod p^{\beta_p}\).
+
+ضع
+\[
+f=\prod_{p\mid q}p^{\beta_p},
+\qquad
+\chi^{*}=\prod_{p\mid q}\chi_p^{*}.
+\]
+إذن \(f\mid q\)، وتستحث \(\chi^{*}\) الشخصية \(\chi\). وإذا كانت
+\(\chi^{*}\) مستحثة من قاسم صحيح \(d<f\)، فإن أس أحد الأوليات في
+\(d\) أصغر من \(\beta_p\)، وهذا يناقض صغر \(\beta_p\). ومن ثم
+\(\chi^{*}\) بدائية.
+
+أما التفرد، فلو استحثت شخصية بدائية \(\psi\bmod g\) الشخصية نفسها، فإن
+كل أس أولي في \(g\) يعطي مستوى تنزل إليه الشخصية المحلية، فيكون
+\(\beta_p\leq v_p(g)\). ولو كانت المتباينة صارمة عند أولي ما لكانت
+المركبة المحلية لـ\(\psi\) مستحثة من قوة أصغر، فتفقد \(\psi\)
+بدائيتها. إذن \(v_p(g)=\beta_p\) لكل \(p\)، ومن ثم \(g=f\)، ويعطي
+شمول خرائط الاختزال تفرد الشخصية النازلة نفسها.
+\end{proof}
+
+\begin{proposition}[العوامل المحلية المحذوفة]
+\label{prop:induced-l-factorization}
+\resultid{ANT-PROP-07-03}
+\provedhere
+إذا كانت \(\chi\bmod q\) مستحثة من الشخصية البدائية
+\(\chi^{*}\bmod f\)، فإن
+\[
+L(s,\chi)
+=
+L(s,\chi^{*})
+\prod_{\substack{p\mid q\\p\nmid f}}
+\left(1-\frac{\chi^{*}(p)}{p^s}\right)
+\qquad(\Re(s)>1).
+\]
+وتستمر الهوية إلى كل مجال تستمر إليه الدالتان.
+\end{proposition}
+
+\begin{proof}
+نقارن العوامل الأويلرية. إذا كان \(p\nmid q\)، فلدينا
+\(\chi(p)=\chi^{*}(p)\). وإذا كان \(p\mid q\)، فالعامل المحلي
+لـ\(L(s,\chi)\) يساوي \(1\). أما في \(L(s,\chi^{*})\)، فالعامل
+يساوي أصلًا \(1\) عند \(p\mid f\)، ويحتاج إلى الحذف فقط عندما
+\(p\mid q\) و\(p\nmid f\). وهذا يعطي الصيغة في مجال التقارب المطلق،
+ثم ينقلها مبدأ الهوية إلى مجالات الاستمرار.
+\end{proof}
+
+\begin{example}[شخصية مستحثة بترديد \(6\)]
+لتكن \(\chi_3\) الشخصية غير الرئيسية بترديد \(3\). الشخصية
+\[
+\chi(n)=\chi_3(n)\chi_{0,6}(n)
+\]
+شخصية بترديد \(6\)، وموصلها \(3\). وبما أن \(\chi_3(2)=-1\)، فإن
+\[
+L(s,\chi)=L(s,\chi_3)(1+2^{-s}).
+\]
+هذا المثال يبين أن الاستحثاث لا يعني أن الدالتين الممتدتين بالصفر
+متساويتان عند جميع الأعداد الصحيحة.
+\end{example}
+
+\section{مجاميع غاوس وتحويل فورييه المنتهي}
+
+نكتب
+\[
+e_q(x)=e^{2\pi i x/q}.
+\]
+ولشخصية \(\chi\bmod q\) نعرف مجموع غاوس الملتوي
+\[
+\tau(\chi,n)
+=
+\sum_{a\bmod q}\chi(a)e_q(an),
+\qquad
+\tau(\chi)=\tau(\chi,1).
+\]
+
+\begin{theorem}[فصل مجموع غاوس للشخصية البدائية]
+\label{thm:primitive-gauss-sum}
+\resultid{ANT-THM-07-05}
+\provedhere
+إذا كانت \(\chi\bmod q\) بدائية، فإن لكل \(n\in\mathbb Z\):
+\[
+\tau(\chi,n)=\overline{\chi(n)}\tau(\chi).
+\]
+وفوق ذلك
+\[
+|\tau(\chi)|=\sqrt q,
+\qquad
+\tau(\chi)\tau(\overline\chi)=\chi(-1)q.
+\]
+\end{theorem}
+
+\begin{proof}
+إذا كان \((n,q)=1\)، فإن التغيير \(b\equiv an\pmod q\) يعطي
+\[
+\tau(\chi,n)
+=
+\overline{\chi(n)}
+\sum_{b\bmod q}\chi(b)e_q(b)
+=
+\overline{\chi(n)}\tau(\chi).
+\]
+
+ولنفرض أن \((n,q)>1\)، واختر أوليًا \(p\mid(n,q)\). بما أن \(\chi\)
+بدائية، فالقاسم \(q/p\) ليس ترديدًا مستحثًا؛ لذلك يوجد عدد \(c\) يحقق
+\[
+c\equiv1\pmod{q/p},
+\qquad
+(c,q)=1,
+\qquad
+\chi(c)\ne1.
+\]
+ولأن \(p\mid n\)، فإن \(q\mid(c-1)n\)، ومن ثم
+\(e_q(acn)=e_q(an)\). وبما أن الضرب بـ\(c\) يبدل الفئات بترديد \(q\)،
+نحصل على
+\[
+\tau(\chi,n)=\chi(c)\tau(\chi,n),
+\]
+فيكون المجموع صفرًا. وهذا يساوي الطرف الأيمن لأن \(\chi(n)=0\).
+
+نحسب الآن بطريقة بارسيفال المنتهية:
+\begin{align*}
+\sum_{n\bmod q}|\tau(\chi,n)|^2
+&=
+\sum_{a,b\bmod q}\chi(a)\overline{\chi(b)}
+\sum_{n\bmod q}e_q(n(a-b))\\
+&=q\sum_{a\bmod q}|\chi(a)|^2
+=q\varphi(q).
+\end{align*}
+ومن صيغة الفصل يساوي الطرف الأيسر
+\(\varphi(q)|\tau(\chi)|^2\)، فينتج
+\(|\tau(\chi)|^2=q\).
+
+وأخيرًا
+\[
+\overline{\tau(\chi)}
+=
+\sum_{a\bmod q}\overline{\chi(a)}e_q(-a)
+=
+\chi(-1)\tau(\overline\chi),
+\]
+لأن \(\chi(-1)=\pm1\). لذلك
+\[
+\tau(\chi)\tau(\overline\chi)
+=
+\chi(-1)|\tau(\chi)|^2
+=
+\chi(-1)q.
+\]
+\end{proof}
+
+\begin{corollary}[تحويل فورييه المنتهي للشخصية]
+\label{cor:finite-fourier-character}
+\resultid{ANT-COR-07-03}
+\provedhere
+إذا كانت \(\chi\bmod q\) بدائية، فإن
+\[
+\chi(n)
+=
+\frac{\tau(\chi)}{q}
+\sum_{m\bmod q}\overline{\chi(m)}e_q(-mn)
+\qquad(n\in\mathbb Z).
+\]
+\end{corollary}
+
+\begin{proof}
+المجموع في الطرف الأيمن هو
+\(\tau(\overline\chi,-n)=\chi(-n)\tau(\overline\chi)\). ومن ثم يساوي
+الطرف كله
+\[
+\frac{\tau(\chi)\tau(\overline\chi)}q
+\chi(-1)\chi(n)=\chi(n),
+\]
+باستعمال \(\tau(\chi)\tau(\overline\chi)=\chi(-1)q\).
+\end{proof}
+
+\section{صيغة بواسون وتحويل ثيتا الملتوي}
+
+نعتمد اتفاق تحويل فورييه
+\[
+\widehat f(y)=\int_{-\infty}^{\infty}f(x)e^{-2\pi ixy}\,dx.
+\]
+
+\begin{theorem}[صيغة بواسون على فئة حسابية]
+\label{thm:poisson-residue-class}
+\resultid{ANT-THM-07-06}
+\citedresult{\cite{Apostol1976,MontgomeryVaughan2007}}
+إذا كانت \(f\) دالة من فضاء شوارتز، و\(q\geq1\)، فإن
+\[
+\sum_{k\in\mathbb Z}f(r+kq)
+=
+\frac1q\sum_{m\in\mathbb Z}
+\widehat f\!\left(\frac mq\right)e_q(mr).
+\]
+\end{theorem}
+
+لتكن الآن \(\chi\bmod q\) بدائية، مع \(q>1\)، ونضع
+\[
+a=a_\chi=
+\begin{cases}
+0,&\chi(-1)=1,\\
+1,&\chi(-1)=-1.
+\end{cases}
+\]
+ونعرف، لكل \(t>0\)،
+\[
+\theta_\chi(t)
+=
+\sum_{n\in\mathbb Z}n^a\chi(n)
+\exp\!\left(-\frac{\pi n^2t}{q}\right).
+\]
+لا يوجد حد ثابت عند \(n=0\)، لأن \(q>1\) و\(\chi(0)=0\).
+
+\begin{theorem}[تحويل ثيتا الملتوي]
+\label{thm:twisted-theta-transformation}
+\resultid{ANT-THM-07-07}
+\provedhere
+ضع
+\[
+\varepsilon_\chi
+=
+\frac{\tau(\chi)}{i^a\sqrt q}.
+\]
+عندئذ \(|\varepsilon_\chi|=1\)، ولكل \(t>0\):
+\[
+\theta_\chi(t)
+=
+\varepsilon_\chi
+t^{-a-1/2}
+\theta_{\overline\chi}(1/t).
+\]
+\end{theorem}
+
+\begin{proof}
+نطبق صيغة بواسون على
+\[
+f_{a,t}(x)=x^a e^{-\pi tx^2/q}.
+\]
+وحساب التحويل الغاوسي يعطي
+\[
+\widehat f_{a,t}\!\left(\frac mq\right)
+=
+(-i)^a q^{1/2}t^{-a-1/2}m^a
+\exp\!\left(-\frac{\pi m^2}{qt}\right).
+\]
+نفصل مجموع \(\theta_\chi(t)\) إلى الفئات \(r\bmod q\)، ثم نستعمل
+بواسون:
+\begin{align*}
+\theta_\chi(t)
+&=
+\sum_{r\bmod q}\chi(r)
+\sum_{k\in\mathbb Z}f_{a,t}(r+kq)\\
+&=
+\frac1q\sum_{m\in\mathbb Z}
+\widehat f_{a,t}\!\left(\frac mq\right)
+\sum_{r\bmod q}\chi(r)e_q(mr)\\
+&=
+\frac{(-i)^a\tau(\chi)}{\sqrt q}
+ t^{-a-1/2}
+\sum_{m\in\mathbb Z}m^a\overline{\chi(m)}
+\exp\!\left(-\frac{\pi m^2}{qt}\right).
+\end{align*}
+وبما أن \((-i)^a=i^{-a}\) عندما \(a\in\{0,1\}\)، نحصل على الصيغة
+المعلنة. أما \(|\varepsilon_\chi|=1\) فتنتج من
+\(|\tau(\chi)|=\sqrt q\).
+\end{proof}
+
+\section{الدالة المكتملة والمعادلة الوظيفية}
+
+للشخصية البدائية \(\chi\bmod q\)، حيث \(q>1\)، نعرف أولًا في
+\(\Re(s)>1\):
+\[
+\Lambda(s,\chi)
+=
+\left(\frac q\pi\right)^{(s+a)/2}
+\Gamma\!\left(\frac{s+a}{2}\right)L(s,\chi).
+\]
+
+\begin{theorem}[الاستمرار العالمي والمعادلة الوظيفية]
+\label{thm:primitive-l-functional-equation}
+\resultid{ANT-THM-07-08}
+\provedhere
+تمتد \(\Lambda(s,\chi)\) إلى دالة تامة على \(\mathbb C\)، وتحقق
+\[
+\Lambda(s,\chi)
+=
+\varepsilon_\chi
+\Lambda(1-s,\overline\chi),
+\qquad
+|\varepsilon_\chi|=1.
+\]
+وبالتالي تمتد \(L(s,\chi)\) نفسها إلى دالة تامة.
+\end{theorem}
+
+\begin{proof}
+إذا كانت \(\Re(s)>1\)، فإن جمع الحدين \(n\) و\(-n\) في
+\(\theta_\chi\) يعطي
+\[
+\theta_\chi(t)
+=2\sum_{n=1}^{\infty}n^a\chi(n)
+ e^{-\pi n^2t/q}.
+\]
+وبالتكامل حدًا حدًا نحصل على تمثيل ميلين
+\[
+\Lambda(s,\chi)
+=
+\frac12\int_0^\infty
+\theta_\chi(t)t^{(s+a)/2}\,\frac{dt}{t}.
+\]
+نقسم التكامل عند \(t=1\). وفي الجزء \(0<t<1\) نستعمل تحويل
+ثيتا ثم نغيّر المتغير \(u=1/t\)، فنحصل على
+\begin{align*}
+\Lambda(s,\chi)
+&=
+\frac12\int_1^\infty
+\theta_\chi(t)t^{(s+a)/2}\,\frac{dt}{t}\\
+&\quad+
+\frac{\varepsilon_\chi}{2}\int_1^\infty
+\theta_{\overline\chi}(u)u^{(1-s+a)/2}\,\frac{du}{u}.
+\end{align*}
+يتقارب التكاملان محليًا بانتظام لكل \(s\in\mathbb C\)، بسبب التناقص
+الأسي لدالتي ثيتا عند اللانهاية، ولذلك تمثل الصيغة دالة تامة.
+
+وبتطبيق الصيغة نفسها على \(\Lambda(1-s,\overline\chi)\)، ثم استعمال
+\[
+\varepsilon_\chi\varepsilon_{\overline\chi}
+=
+\frac{\tau(\chi)\tau(\overline\chi)}{i^{2a}q}
+=
+\frac{\chi(-1)q}{(-1)^a q}
+=1,
+\]
+نجد أن الحدين يتبادلان، ومن ثم
+\[
+\Lambda(s,\chi)
+=
+\varepsilon_\chi\Lambda(1-s,\overline\chi).
+\]
+وأخيرًا
+\[
+L(s,\chi)
+=
+\left(\frac q\pi\right)^{-(s+a)/2}
+\frac{\Lambda(s,\chi)}{\Gamma((s+a)/2)}.
+\]
+ولأن \(1/\Gamma\) دالة تامة، يكون الطرف الأيمن تامًا.
+\end{proof}
+
+\begin{remark}
+الحالة البدائية ذات الموصل \(1\) هي دالة زيتا نفسها، وقد عولج قطبها
+ومعادلتها الوظيفية في الفصل السادس. لذلك اشترطنا هنا \(q>1\).
+\end{remark}
+
+\begin{corollary}[الاستمرار العالمي للشخصيات غير الرئيسية]
+\label{cor:all-nonprincipal-entire}
+\resultid{ANT-COR-07-04}
+\provedhere
+إذا كانت \(\chi\bmod q\) غير رئيسية، فإن \(L(s,\chi)\) دالة تامة.
+أما إذا كانت رئيسية فلها قطب بسيط وحيد عند \(s=1\).
+\end{corollary}
+
+\begin{proof}
+إذا كانت \(\chi\) غير رئيسية، فجدها البدائي \(\chi^{*}\) غير رئيسي
+وموصله أكبر من \(1\). الدالة \(L(s,\chi^{*})\) تامة بالمبرهنة السابقة،
+وتضربها صيغة العوامل المحلية المحذوفة في جداء منته من دوال تامة. أما
+الحالة الرئيسية فقد أثبتت في القضية
+\ref{prop:principal-character-zeta-factorization}.
+\end{proof}
+
+\section{الأصفار البديهية والتناظرات}
+
+\begin{corollary}[الأصفار البديهية والشريط الحرج]
+\label{cor:dirichlet-l-trivial-zeros}
+\resultid{ANT-COR-07-05}
+\provedhere
+لتكن \(\chi\bmod q\) بدائية و\(q>1\)، وليكن
+\(a\in\{0,1\}\) محددًا بالزوجية. عندئذ
+\[
+L(-a-2n,\chi)=0
+\qquad(n=0,1,2,\ldots).
+\]
+وجميع هذه الأصفار بسيطة: في الحالة الفردية \(a=1\) لكل \(n\geq0\)،
+وفي الحالة الزوجية \(a=0\) لكل \(n\geq0\)، بما في ذلك الصفر عند
+\(s=0\)، لأن المبرهنة \ref{thm:dirichlet-l-nonvanishing-at-one} تعطي
+\(L(1,\overline\chi)\ne0\).
+
+وكل صفر آخر لـ\(L(s,\chi)\) يقع في الشريط الحرج المغلق
+\[
+0\leq\Re(s)\leq1.
+\]
+\end{corollary}
+
+\begin{proof}
+لدالة غاما أقطاب بسيطة عندما
+\((s+a)/2=0,-1,-2,\ldots\). وبما أن \(\Lambda(s,\chi)\) تامة، يجب أن
+تلغي \(L(s,\chi)\) هذه الأقطاب، فتظهر الأصفار المعلنة.
+
+إذا كان \(1-(-a-2n)>1\)، فإن المعادلة الوظيفية تربط قيمة
+\(\Lambda(-a-2n,\chi)\) بقيمة عند نصف المستوى \(\Re(s)>1\)، حيث
+لا تنعدم \(L\). لذلك تكون قيمة الدالة المكتملة هناك غير صفرية، ويلزم أن
+يلغي \(L\) قطب غاما البسيط بصفر بسيط بالضبط. أما في الحالة
+\(a=0,n=0\)، فيقابل الموضع \(s=1\)، وقد أثبت عدم انعدام
+\(L(1,\overline\chi)\)، فتنتج البساطة بالطريقة نفسها.
+
+ولا توجد أصفار عندما \(\Re(s)>1\) بالمنتج الأويلري. وإذا كان
+\(\Re(s)<0\) ولم يكن \(s\) أحد المواضع البديهية، فإن عامل غاما منته
+وغير صفري؛ وأي صفر هناك ينتقل بالمعادلة الوظيفية إلى صفر في
+\(\Re(1-s)>1\)، وهذا محال.
+\end{proof}
+
+\begin{proposition}[تناظرات الأصفار]
+\label{prop:dirichlet-l-zero-symmetry}
+\resultid{ANT-PROP-07-04}
+\provedhere
+لدينا
+\[
+\overline{\Lambda(\overline s,\chi)}
+=
+\Lambda(s,\overline\chi).
+\]
+فإذا كان \(\rho\) صفرًا للدالة المكتملة الخاصة بـ\(\chi\)، فإن
+\[
+1-\rho
+\quad\text{صفر لـ}\quad\Lambda(s,\overline\chi),
+\]
+وكذلك \(1-\overline\rho\) صفر للدالة المكتملة الخاصة بـ\(\chi\).
+وإذا كانت \(\chi\) حقيقية، ظهرت الأصفار غير الحقيقية في الرباعيات
+\[
+\rho,\ \overline\rho,\ 1-\rho,\ 1-\overline\rho.
+\]
+\end{proposition}
+
+\begin{proof}
+تثبت علاقة المرافق أولًا من سلسلة ديريشليه في \(\Re(s)>1\)، ثم تمتد
+بمبدأ الهوية. وتنتج بقية العلاقات مباشرة من المعادلة الوظيفية ومن أخذ
+المرافق المركب.
+\end{proof}
+
+\begin{remark}[فرضية ريمان المعممة]
+تقول فرضية ريمان المعممة لدوال ديريشليه إن الأصفار غير البديهية تحقق
+\(\Re(\rho)=1/2\). لم يثبت هذا الادعاء، ولا تقدم البراهين السابقة دليلًا
+عليه؛ فهي تثبت فقط التناظر والحصر في الشريط الحرج.
+\end{remark}
+
+\section{مثال: دالة بيتا لديريشليه}
+
+للشخصية \(\chi_4\) البدائية الفردية بترديد \(4\) نجد
+\[
+\tau(\chi_4)=2i,
+\qquad
+\varepsilon_{\chi_4}
+=
+\frac{2i}{i\sqrt4}=1.
+\]
+ومن ثم تحقق الدالة المكتملة
+\[
+\Lambda(s,\chi_4)
+=
+\left(\frac4\pi\right)^{(s+1)/2}
+\Gamma\!\left(\frac{s+1}{2}\right)L(s,\chi_4)
+\]
+المعادلة
+\[
+\Lambda(s,\chi_4)=\Lambda(1-s,\chi_4).
+\]
+وتقع أصفارها البديهية عند
+\(-1,-3,-5,\ldots\)، وكلها بسيطة.
+
+\section{تمارين الدفعة الثانية}
+
+\begin{enumerate}
+  \item أثبت مباشرة شمول خريطة الاختزال
+  \((\mathbb Z/q\mathbb Z)^{\times}\to
+  (\mathbb Z/d\mathbb Z)^{\times}\) عندما \(d\mid q\)، ثم قارن برهانك
+  بالبناء الصريح السابق عبر مبرهنة الباقي الصيني.
+  \item احسب موصل كل شخصية بترديد \(8\)، وحدد البدائية منها.
+  \item تحقق من صيغة العوامل المحلية لشخصية مستحثة من الترديد \(4\) إلى
+  الترديد \(12\).
+  \item أثبت أن فصل مجموع غاوس لكل \(n\) يستلزم بدائية الشخصية.
+  \item اشتق تحويل فورييه المنتهي من تعامد الدوال الأسية بدل استعمال
+  حاصل ضرب مجموعي غاوس.
+  \item تحقق يدويًا من \(\tau(\chi_4)=2i\).
+  \item أعد حساب التحويل الفورييري للدالة
+  \(x e^{-\pi tx^2/q}\) بتفاضل تحويل الغاوسي.
+  \item استخرج من المعادلة المكتملة الصيغة غير المكتملة الواردة عادةً
+  بدلالة \(\Gamma(s)\) ومجموع غاوس.
+  \item بيّن أن رتبة صفر \(L(s,\chi)\) عند \(s=0\) لشخصية بدائية زوجية
+  تساوي \(1+\operatorname{ord}_{s=1}L(s,\overline\chi)\).
+\end{enumerate}
+
+\section{ما بقي قبل اعتماد الفصل السابع}
+
+أُغلقت النواة البرهانية المقررة للفصل، بما فيها عدم الانعدام عند
+\(s=1\). وتبقى قبل تغيير حالة الفصل:
+
+\begin{itemize}
+  \item إتمام التمرير التحريري وتوحيد العبارات بين الدفعات.
+  \item مطابقة الصيغ والمراجع مطابقة مستقلة، ولا سيما عوامل غاما وجذر العدد
+  وتحويل ثيتا.
+  \item نجاح فحوص الجودة وإعادة بناء ملف PDF بعد التصحيحات.
+  \item مراجعة ثانية مستقلة قبل رفع الفصل إلى \textenglish{REVIEWED}.
+\end{itemize}
+
+أما استعمال التعامد والمشتقة اللوغاريتمية وعدم الانعدام لإثبات مبرهنة
+ديريشليه للأوليات في المتتاليات الحسابية فسيكون موضوع الفصل التالي.
