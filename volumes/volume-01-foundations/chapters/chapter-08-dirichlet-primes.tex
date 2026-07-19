@@ -1,0 +1,295 @@
+\chapter{مبرهنة ديريشليه للأوليات في المتتاليات الحسابية}
+
+\section{نطاق الفصل وحالته}
+
+\noindent\textbf{حالة الفصل:} \textenglish{VERIFIED}. يثبت هذا الفصل أن كل
+فئة حسابية مختزلة تحتوي عددًا لا نهائيًا من الأعداد الأولية. والنتيجة
+الوسيطة الأقوى هي تباعد مجموع مقلوبات الأوليات في تلك الفئة.
+
+اجتازت النواة البرهانية فحوص الجودة والبناء، وتدقيقين منطقيين داخليين،
+ومراجعة تحريرية ومرجعية. ولا تعني حالة \textenglish{VERIFIED} اكتمال
+المراجعة الثانية المستقلة المطلوبة قبل \textenglish{REVIEWED}.
+
+لا يثبت الفصل مبرهنة الأعداد الأولية في المتتاليات الحسابية، ولا يقدم
+تقديرًا كميًا لخطأ التوزيع. المسار المستعمل نوعي، ويعتمد على تعامد
+الشخصيات، والمنتج الأويلري، وعدم انعدام \(L(1,\chi)\) للشخصيات غير
+الرئيسية، وقد ثبتت هذه الأدوات في الفصل السابع من دون اعتماد دائري.
+
+\begin{remark}[مواضع المراجع]
+قورنت بنية البرهان مع المسارات القياسية في
+\cite[الفصل 7، الأقسام 7.3--7.9، الصفحات 148--155]{Apostol1976}،
+و\cite[الفصلان 1 و4، الصفحات 1--11 و27--34]{Davenport2000}،
+و\cite[الفصل 4، القسمان 4.2--4.3، الصفحات 115--132]{MontgomeryVaughan2007}.
+وتستعمل لغة \cite[الفصول 3 و5 و17، الصفحات 43--64 و93--152 و419--426]{IwaniecKowalski2004}
+لضبط الفصل بين النتيجة النوعية والنتائج الكمية اللاحقة.
+\end{remark}
+
+\section{مرشح الفئة الحسابية}
+
+ليكن \(q\geq1\)، ولتكن \(a\) فئة مختزلة بترديد \(q\)، أي
+\((a,q)=1\). نكتب
+\[
+P_{q,a}(\sigma)
+=
+\sum_{\substack{p\ \mathrm{أولي}\\ p\equiv a\, (\mathrm{mod}\,q)}}
+\frac1{p^\sigma},
+\qquad \sigma>1.
+\]
+
+\begin{proposition}[مرشح الفئة بالشخصيات]
+\label{prop:dirichlet-prime-class-filter}
+\resultid{ANT-PROP-08-01}
+\provedhere
+لكل عدد صحيح \(n\):
+\[
+\mathbf 1_{n\equiv a\, (\mathrm{mod}\,q)}
+=
+\frac1{\varphi(q)}
+\sum_{\chi\, (\mathrm{mod}\,q)}
+\overline{\chi(a)}\chi(n).
+\]
+ومن ثم، لكل \(\sigma>1\):
+\[
+P_{q,a}(\sigma)
+=
+\frac1{\varphi(q)}
+\sum_{\chi\, (\mathrm{mod}\,q)}
+\overline{\chi(a)}
+\sum_p\frac{\chi(p)}{p^\sigma}.
+\]
+\end{proposition}
+
+\begin{proof}
+إذا كان \((n,q)>1\)، فإن الطرف الأيمن يساوي صفرًا لأن كل شخصية ديريشليه
+تنعدم عند \(n\)، والطرف الأيسر يساوي صفرًا أيضًا لأن \(a\) مختزلة.
+أما إذا كان \((n,q)=1\)، فتعطي علاقة التعامد من الفصل السابع
+\[
+\sum_{\chi\, (\mathrm{mod}\,q)}
+\chi(n)\overline{\chi(a)}
+=
+\begin{cases}
+\varphi(q),&n\equiv a\pmod q,\\
+0,&n\not\equiv a\pmod q.
+\end{cases}
+\]
+وهذا يثبت الهوية الأولى. والهوية الثانية تنتج بضربها في \(p^{-\sigma}\)
+والجمع على الأوليات. والتقارب المطلق يجيز تبديل الجمعين لأن عدد الشخصيات
+منته، ولأن
+\[
+\sum_p\frac{|\chi(p)|}{p^\sigma}
+\leq
+\sum_{n=2}^{\infty}\frac1{n^\sigma}<\infty.
+\]
+\end{proof}
+
+\section{لوغاريتم المنتج الأويلري}
+
+عندما \(\Re(s)>1\)، نعرّف الفرع الأويلري للوغاريتم بالمتسلسلة
+\[
+\ell_\chi(s)
+=
+\sum_p\sum_{k=1}^{\infty}
+\frac{\chi(p)^k}{k p^{ks}}.
+\]
+تتقارب هذه المتسلسلة مطلقًا ومحليًا بانتظام، وتحقق
+\[
+\exp\bigl(\ell_\chi(s)\bigr)=L(s,\chi).
+\]
+وبفصل الحد \(k=1\) نحصل على
+\[
+\ell_\chi(s)
+=
+\sum_p\frac{\chi(p)}{p^s}+H_\chi(s),
+\]
+حيث
+\[
+H_\chi(s)
+=
+\sum_p\sum_{k=2}^{\infty}
+\frac{\chi(p)^k}{k p^{ks}}.
+\]
+
+\begin{lemma}[ضبط القوى الأولية العليا]
+\label{lem:higher-prime-powers-remainder}
+\resultid{ANT-LEM-08-01}
+\provedhere
+تتقارب سلسلة \(H_\chi(s)\) طبيعيًا على كل مجموعة مدمجة في نصف المستوى
+\(\Re(s)>1/2\). وبخاصة، فهي هولومورفية ومحدودة في قرص مغلق مناسب مركزه
+\(s=1\).
+\end{lemma}
+
+\begin{proof}
+خذ \(0<r<1/2\)، وضع \(\sigma_0=1-r>1/2\). إذا كان
+\(|s-1|\leq r\)، فإن \(\Re(s)\geq\sigma_0\)، ومن ثم
+\begin{align*}
+\sum_p\sum_{k=2}^{\infty}
+\left|\frac{\chi(p)^k}{k p^{ks}}\right|
+&\leq
+\sum_p\sum_{k=2}^{\infty}\frac1{p^{k\sigma_0}}\\
+&=
+\sum_p\frac{p^{-2\sigma_0}}{1-p^{-\sigma_0}}\\
+&\leq
+\frac1{1-2^{-\sigma_0}}
+\sum_{n=2}^{\infty}\frac1{n^{2\sigma_0}}<\infty.
+\end{align*}
+إذن التقارب طبيعي على القرص، وبمبرهنة فايرشتراس تكون الدالة هولومورفية
+في داخله ومستمرة، ومن ثم محدودة، على القرص المغلق. والحجة نفسها تعمل على
+كل مجموعة مدمجة في \(\Re(s)>1/2\).
+\end{proof}
+
+\section{فصل الشخصية الرئيسية}
+
+\begin{proposition}[مساهمة الشخصية الرئيسية]
+\label{prop:principal-character-log-growth}
+\resultid{ANT-PROP-08-02}
+\provedhere
+إذا كانت \(\chi_0\) الشخصية الرئيسية بترديد \(q\)، فإن
+\[
+\ell_{\chi_0}(\sigma)
+=
+\log\frac1{\sigma-1}+O_q(1)
+\qquad(\sigma\to1^+).
+\]
+\end{proposition}
+
+\begin{proof}
+للعدد الحقيقي \(\sigma>1\) تكون عوامل المنتج الأويلري موجبة، ولذلك
+\(\ell_{\chi_0}(\sigma)=\log L(\sigma,\chi_0)\) باللوغاريتم الحقيقي.
+ومن الفصل السابع:
+\[
+L(\sigma,\chi_0)
+=
+\zeta(\sigma)\prod_{p\mid q}(1-p^{-\sigma}).
+\]
+وبما أن
+\[
+(\sigma-1)\zeta(\sigma)\longrightarrow1,
+\]
+فإن
+\[
+\log\zeta(\sigma)
+=
+\log\frac1{\sigma-1}+o(1).
+\]
+أما المجموع المنتهي
+\[
+\sum_{p\mid q}\log(1-p^{-\sigma})
+\]
+فيتقارب إلى قيمة منتهية عندما \(\sigma\to1^+\). بضم الحدين نحصل على
+الصيغة المطلوبة.
+\end{proof}
+
+\begin{proposition}[مساهمة الشخصيات غير الرئيسية]
+\label{prop:nonprincipal-character-log-bounded}
+\resultid{ANT-PROP-08-03}
+\provedhere
+إذا كانت \(\chi\) شخصية غير رئيسية بترديد \(q\)، فإن
+\[
+\ell_\chi(\sigma)=O_{q,\chi}(1)
+\qquad(\sigma\to1^+).
+\]
+\end{proposition}
+
+\begin{proof}
+من المبرهنة \ref{thm:dirichlet-l-nonvanishing-at-one} لدينا
+\[
+L(1,\chi)\ne0.
+\]
+ولأن \(L(s,\chi)\) هولومورفية قرب \(s=1\)، يوجد قرص \(U\) مركزه \(1\)
+لا تنعدم فيه الدالة. ولأن القرص بسيط الاتصال، يوجد دالة هولومورفية
+\(g_\chi\) على \(U\) تحقق
+\[
+\exp(g_\chi(s))=L(s,\chi).
+\]
+على كل مركبة متصلة من
+\[
+U\cap\{s:\Re(s)>1\}
+\]
+لدينا
+\[
+\exp\bigl(\ell_\chi(s)-g_\chi(s)\bigr)=1.
+\]
+إذن الفرق يأخذ قيمًا في المجموعة المنفصلة \(2\pi i\mathbb Z\)، وهو
+مستمر، فيكون ثابتًا. وبما أن \(g_\chi\) محدودة على قطعة مدمجة صغيرة تصل
+إلى \(s=1\)، فإن \(\ell_\chi(\sigma)\) تبقى محدودة عندما
+\(\sigma\to1^+\).
+\end{proof}
+
+\section{تباعد مجموع مقلوبات الأوليات}
+
+\begin{theorem}[مبرهنة ديريشليه للأوليات في المتتاليات الحسابية]
+\label{thm:dirichlet-primes-arithmetic-progressions}
+\resultid{ANT-THM-08-01}
+\provedhere
+إذا كان \(q\geq1\) و\((a,q)=1\)، فإن
+\[
+P_{q,a}(\sigma)
+=
+\frac1{\varphi(q)}
+\log\frac1{\sigma-1}+O_q(1)
+\qquad(\sigma\to1^+).
+\]
+وبالتالي
+\[
+\sum_{\substack{p\ \mathrm{أولي}\\ p\equiv a\, (\mathrm{mod}\,q)}}
+\frac1p=\infty.
+\]
+وعلى وجه الخصوص، توجد أعداد أولية لا نهائية تحقق
+\[
+p\equiv a\pmod q.
+\]
+\end{theorem}
+
+\begin{proof}
+من القضية \ref{prop:dirichlet-prime-class-filter} ومن تعريف
+\(H_\chi\):
+\begin{align*}
+P_{q,a}(\sigma)
+&=
+\frac1{\varphi(q)}
+\sum_{\chi\, (\mathrm{mod}\,q)}
+\overline{\chi(a)}
+\bigl(\ell_\chi(\sigma)-H_\chi(\sigma)\bigr).
+\end{align*}
+يفصل حد الشخصية الرئيسية عن بقية الحدود. ولأن \((a,q)=1\)، فإن
+\(\overline{\chi_0(a)}=1\). بحسب القضية
+\ref{prop:principal-character-log-growth} يساوي حدها
+\[
+\frac1{\varphi(q)}
+\log\frac1{\sigma-1}+O_q(1).
+\]
+وبحسب القضية \ref{prop:nonprincipal-character-log-bounded} تبقى حدود
+الشخصيات غير الرئيسية محدودة. كما تبقى جميع حدود \(H_\chi(\sigma)\)
+محدودة بحسب اللمّة \ref{lem:higher-prime-powers-remainder}. وعدد الشخصيات
+بترديد \(q\) منته، فتنتج الصيغة التقاربية المعلنة مع حد إجمالي
+\(O_q(1)\).
+
+يبقى إثبات تباعد مجموع المقلوبات. افترض عكس المطلوب، أي
+\[
+\sum_{\substack{p\ \mathrm{أولي}\\ p\equiv a\, (\mathrm{mod}\,q)}}
+\frac1p<\infty.
+\]
+عندما \(\sigma\downarrow1\)، تزداد الحدود \(p^{-\sigma}\) رتيبًا إلى
+\(p^{-1}\). لذلك تعطي مبرهنة التقارب الرتيب
+\[
+\lim_{\sigma\to1^+}P_{q,a}(\sigma)
+=
+\sum_{\substack{p\ \mathrm{أولي}\\ p\equiv a\, (\mathrm{mod}\,q)}}
+\frac1p<\infty.
+\]
+لكن الصيغة الأولى تقول إن
+\[
+P_{q,a}(\sigma)\longrightarrow\infty,
+\]
+وهذا تناقض. إذن مجموع المقلوبات متباعد، ولا يمكن أن تكون الأوليات في
+الفئة محدودة العدد.
+\end{proof}
+
+\begin{remark}[حدود النتيجة]
+المبرهنة السابقة تثبت اللانهاية وتباعد مجموع المقلوبات، لكنها لا تثبت
+\[
+\pi(x;q,a)\sim\frac{\operatorname{Li}(x)}{\varphi(q)}.
+\]
+فالنتيجة الأخيرة تحتاج أدوات كمية إضافية، أهمها ضبط الأصفار قرب الخط
+\(\Re(s)=1\) وتحويل المعلومات التحليلية إلى تقديرات عدّية.
+\end{remark}
