@@ -1,10 +1,14 @@
 # حزمة المراجعة المستقلة — الفصل الثامن
 
 التاريخ: 2026-07-20  
-الفرع: `agent/chapter-08-dirichlet-primes-v0.12.0-verified`  
-الرأس المرجعي: `8ef3fbe14a9e9faddad5425594dc695f317664bc`  
+الفرع العامل: `agent/chapter-08-dirichlet-primes-v0.12.0-verified`  
+فرع المراجعة الثابت: `review/chapter-08-dirichlet-primes-rc1`  
+الرأس المرجعي غير المتحرك: `8ef3fbe14a9e9faddad5425594dc695f317664bc`  
+تذكرة المراجعة: `Issue #10`  
 الحالة قبل المراجعة: `VERIFIED`  
 طلب السحب: `PR #9`
+
+يجب أن يبنى حكم المراجع على فرع `review/chapter-08-dirichlet-primes-rc1` والرأس المحدد أعلاه، لا على أي تحديث لاحق في فرع العمل.
 
 ## 1. غرض المراجعة
 
@@ -161,7 +165,9 @@ L(s,\chi_0)=\zeta(s)\prod_{p\mid q}(1-p^{-s}),
 ```text
 REVIEWER NAME / IDENTIFIER =
 REVIEW DATE =
+SOURCE BRANCH = review/chapter-08-dirichlet-primes-rc1
 SOURCE COMMIT = 8ef3fbe14a9e9faddad5425594dc695f317664bc
+REVIEW ISSUE = #10
 
 MATHEMATICAL CORRECTNESS = PASS / PASS-WITH-CORRECTIONS / FAIL
 NO-CIRCULARITY = PASS / FAIL
