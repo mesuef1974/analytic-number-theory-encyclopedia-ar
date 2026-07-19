@@ -21,7 +21,7 @@
 \[
 n\equiv1\pmod{p^{v_p(q)}},
 \]
-مع الشرط \(n\equiv u\pmod d\). هذه الت合同 متوافقة لأن \(d\) أولي مع
+مع الشرط \(n\equiv u\pmod d\). وهذه التوافقات متّسقة لأن \(d\) أولي مع
 حاصل ضرب القوى الأولية المقابلة للأوليات التي لا تقسمه، فتنتج مبرهنة
 الباقي الصيني عددًا \(n\). إذا كان \(p\mid d\)، فإن
 \(n\equiv u\pmod d\) يضمن \(p\nmid n\)، وإذا كان \(p\nmid d\) فقد
@@ -391,27 +391,35 @@ f_{a,t}(x)=x^a e^{-\pi tx^2/q}.
 \frac12\int_0^\infty
 \theta_\chi(t)t^{(s+a)/2}\,\frac{dt}{t}.
 \]
-تتناقص \(\theta_\chi(t)\) أسيًا عندما \(t\to\infty\). ويحول تحويل
-ثيتا سلوكها عند \(t\to0^+\) إلى سلوك
-\(\theta_{\overline\chi}(1/t)\) عند اللانهاية، ولذلك يتقارب التكامل
-محليًا بانتظام لكل \(s\in\mathbb C\)، ويعرف دالة تامة.
-
-وباستخدام تحويل ثيتا ثم تغيير المتغير \(u=1/t\):
+نقسم التكامل عند \(t=1\). وفي الجزء \(0<t<1\) نستعمل تحويل
+ثيتا ثم نغيّر المتغير \(u=1/t\)، فنحصل على
 \begin{align*}
 \Lambda(s,\chi)
 &=
-\frac{\varepsilon_\chi}{2}
-\int_0^\infty
-\theta_{\overline\chi}(1/t)
- t^{(s-a-1)/2}\,\frac{dt}{t}\\
-&=
-\frac{\varepsilon_\chi}{2}
-\int_0^\infty
-\theta_{\overline\chi}(u)
- u^{(1-s+a)/2}\,\frac{du}{u}\\
-&=
-\varepsilon_\chi\Lambda(1-s,\overline\chi).
+\frac12\int_1^\infty
+\theta_\chi(t)t^{(s+a)/2}\,\frac{dt}{t}\\
+&\quad+
+\frac{\varepsilon_\chi}{2}\int_1^\infty
+\theta_{\overline\chi}(u)u^{(1-s+a)/2}\,\frac{du}{u}.
 \end{align*}
+يتقارب التكاملان محليًا بانتظام لكل \(s\in\mathbb C\)، بسبب التناقص
+الأسي لدالتي ثيتا عند اللانهاية، ولذلك تمثل الصيغة دالة تامة.
+
+وبتطبيق الصيغة نفسها على \(\Lambda(1-s,\overline\chi)\)، ثم استعمال
+\[
+\varepsilon_\chi\varepsilon_{\overline\chi}
+=
+\frac{\tau(\chi)\tau(\overline\chi)}{i^{2a}q}
+=
+\frac{\chi(-1)q}{(-1)^a q}
+=1,
+\]
+نجد أن الحدين يتبادلان، ومن ثم
+\[
+\Lambda(s,\chi)
+=
+\varepsilon_\chi\Lambda(1-s,\overline\chi).
+\]
 وأخيرًا
 \[
 L(s,\chi)
