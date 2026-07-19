@@ -2,9 +2,13 @@
 
 \section{نطاق الفصل وحالته}
 
-\noindent\textbf{حالة الفصل:} \textenglish{DRAFT}. يثبت هذا الفصل أن كل
+\noindent\textbf{حالة الفصل:} \textenglish{VERIFIED}. يثبت هذا الفصل أن كل
 فئة حسابية مختزلة تحتوي عددًا لا نهائيًا من الأعداد الأولية. والنتيجة
 الوسيطة الأقوى هي تباعد مجموع مقلوبات الأوليات في تلك الفئة.
+
+اجتازت النواة البرهانية فحوص الجودة والبناء، وتدقيقين منطقيين داخليين،
+ومراجعة تحريرية ومرجعية. ولا تعني حالة \textenglish{VERIFIED} اكتمال
+المراجعة الثانية المستقلة المطلوبة قبل \textenglish{REVIEWED}.
 
 لا يثبت الفصل مبرهنة الأعداد الأولية في المتتاليات الحسابية، ولا يقدم
 تقديرًا كميًا لخطأ التوزيع. المسار المستعمل نوعي، ويعتمد على تعامد
@@ -237,7 +241,7 @@ p\equiv a\pmod q.
 \end{theorem}
 
 \begin{proof}
-من المبرهنة \ref{prop:dirichlet-prime-class-filter} ومن تعريف
+من القضية \ref{prop:dirichlet-prime-class-filter} ومن تعريف
 \(H_\chi\):
 \begin{align*}
 P_{q,a}(\sigma)
@@ -247,16 +251,18 @@ P_{q,a}(\sigma)
 \overline{\chi(a)}
 \bigl(\ell_\chi(\sigma)-H_\chi(\sigma)\bigr).
 \end{align*}
-يفصل حد الشخصية الرئيسية عن بقية الحدود. بحسب المبرهنة
+يفصل حد الشخصية الرئيسية عن بقية الحدود. ولأن \((a,q)=1\)، فإن
+\(\overline{\chi_0(a)}=1\). بحسب القضية
 \ref{prop:principal-character-log-growth} يساوي حدها
 \[
 \frac1{\varphi(q)}
 \log\frac1{\sigma-1}+O_q(1).
 \]
-وبحسب المبرهنة \ref{prop:nonprincipal-character-log-bounded} تبقى حدود
+وبحسب القضية \ref{prop:nonprincipal-character-log-bounded} تبقى حدود
 الشخصيات غير الرئيسية محدودة. كما تبقى جميع حدود \(H_\chi(\sigma)\)
 محدودة بحسب اللمّة \ref{lem:higher-prime-powers-remainder}. وعدد الشخصيات
-بترديد \(q\) منته، فتنتج الصيغة التقاربية المعلنة.
+بترديد \(q\) منته، فتنتج الصيغة التقاربية المعلنة مع حد إجمالي
+\(O_q(1)\).
 
 يبقى إثبات تباعد مجموع المقلوبات. افترض عكس المطلوب، أي
 \[
