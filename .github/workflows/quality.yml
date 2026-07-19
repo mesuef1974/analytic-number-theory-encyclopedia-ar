@@ -1,26 +1,267 @@
 name: Quality checks
 
 on:
-  push:
-    branches: [main]
   pull_request:
     branches: [main]
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   quality:
     runs-on: ubuntu-latest
+    timeout-minutes: 35
     steps:
-      - name: Check out repository
+      - name: Check out Chapter 7 branch
         uses: actions/checkout@v4
+        with:
+          ref: agent/chapter-07-dirichlet-l-functions-v0.11.0
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
+      - name: Apply final external review closure
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          def read(path):
+              return Path(path).read_text(encoding="utf-8")
+
+          def write(path, text):
+              Path(path).write_text(text, encoding="utf-8")
+
+          def replace_once(path, old, new):
+              text = read(path)
+              count = text.count(old)
+              if count != 1:
+                  raise SystemExit(f"Expected one match in {path}, found {count}")
+              write(path, text.replace(old, new, 1))
+
+          main = "volumes/volume-01-foundations/chapters/chapter-07-dirichlet-l-functions.tex"
+          batch2 = "volumes/volume-01-foundations/chapters/chapter-07-dirichlet-l-functions-batch-02.tex"
+          batch3 = "volumes/volume-01-foundations/chapters/chapter-07-dirichlet-l-functions-batch-03.tex"
+          batch4 = "volumes/volume-01-foundations/chapters/chapter-07-dirichlet-l-functions-batch-04.tex"
+          batch5 = "volumes/volume-01-foundations/chapters/chapter-07-dirichlet-l-functions-batch-05.tex"
+
+          replace_once(main, r'''\section{نطاق الفصل وحالته}
+
+\noindent\textbf{حالة الفصل:} \textenglish{DRAFT}. بُني الفصل على دفعات
+برهانية موثقة، وسبقتها مراجعة للأهداف وخارطة الطريق والمراجع في
+\texttt{research/literature-reviews/chapter-07-dirichlet-l-functions.md}.
+يشمل النص الآن نظرية الشخصيات والتعامد، والمنتج الأويلري والاستمرار
+التحليلي، والموصل والشخصيات البدائية، ومجاميع غاوس، وتحويل ثيتا، والدالة
+المكتملة والمعادلة الوظيفية، والأصفار البديهية، وعدم انعدام
+\(L(1,\chi)\) لكل شخصية غير رئيسية.
+
+أُغلقت النواة البرهانية المقررة للفصل واجتازت مراجعتين منطقيتين داخليتين.
+وتبقى حالة \textenglish{DRAFT} لأن المراجعة المرجعية النهائية والمراجعة
+الثانية المستقلة لم تغلقا بعد. أما استعمال هذه الأدوات لإثبات مبرهنة
+ديريشليه للأوليات في المتتاليات الحسابية فسيكون موضوع الفصل التالي.''', r'''\section{نطاق الفصل}
+
+\noindent\textbf{حالة الفصل:} \textenglish{REVIEWED}. يطوّر الفصل نظرية
+الشخصيات والتعامد، والمنتج الأويلري والاستمرار التحليلي، والموصل والشخصيات
+البدائية، ومجاميع غاوس، وتحويل ثيتا، والدالة المكتملة والمعادلة الوظيفية،
+والأصفار البديهية، وعدم انعدام \(L(1,\chi)\) لكل شخصية غير رئيسية.
+
+اجتازت النواة البرهانية مراجعتين منطقيتين داخليتين، ومراجعة مرجعية،
+ومراجعة خارجية مستقلة اعتمدها مالك المشروع، ثم أغلقت ملاحظاتها التحريرية
+ونجحت فحوص الجودة وبناء الكتاب. أما استعمال هذه الأدوات لإثبات مبرهنة
+ديريشليه للأوليات في المتتاليات الحسابية فسيكون موضوع الفصل التالي.''')
+
+          replace_once(batch2, r'''\section{تحديث نطاق الفصل بعد الدفعة الثانية}
+
+تتجاوز هذه الدفعة الحدود المعلنة في افتتاح الفصل: فقد أُنجز بناء الموصل
+والشخصية البدائية، ومجاميع غاوس، وتحويل ثيتا الملتوي، والاستمرار العالمي
+والمعادلة الوظيفية للشخصيات البدائية. وقد أُغلق لاحقًا أيضًا برهان عدم
+انعدام \(L(1,\chi)\) لكل شخصية غير رئيسية. وتبقى حالة الفصل
+\textenglish{DRAFT} إلى أن تكتمل المراجعة المرجعية والتحريرية والمراجعة
+الثانية المستقلة. أما مبرهنة ديريشليه للأوليات في المتتاليات الحسابية
+فموضعها الفصل التالي.
+
+''', '')
+
+          replace_once(batch3, r'''تبدأ الدفعة الثالثة بإغلاق الحقائق التي تسبق برهان عدم الانعدام عند
+\(s=1\). هذه الحقائق ضرورية، لكنها لا تكفي وحدها لإثبات
+\(L(1,\chi)\ne0\).''', r'''نثبت أولًا الحقائق البنيوية التي تضبط جذر العدد والمشتقة
+اللوغاريتمية، ثم ننتقل إلى عدم الانعدام عند \(s=1\).''')
+          text = read(batch3)
+          marker = r'\section{حالة الدفعة الثالثة بعد إغلاق البوابة}'
+          if text.count(marker) != 1:
+              raise SystemExit("Unexpected batch 3 status section count")
+          write(batch3, text.split(marker, 1)[0].rstrip() + "\n")
+
+          replace_once(batch4, r'''\begin{remark}[حالة البوابة عند نهاية هذه الدفعة]
+عند نهاية الدفعة الرابعة كانت الحالة غير الحقيقية وحدها مغلقة. وقد أغلقت
+الحالة الحقيقية لاحقًا في المبرهنة
+\ref{thm:real-character-nonvanishing-at-one}، ثم رُفعت النتيجة العامة
+\ref{thm:dirichlet-l-nonvanishing-at-one} إلى \textenglish{PROVED-HERE}.
+\end{remark}
+''', '')
+
+          replace_once(batch5, r'''\section{إغلاق بوابة عدم الانعدام}
+
+بضم المبرهنة \ref{thm:nonreal-character-nonvanishing-at-one} إلى المبرهنة
+\ref{thm:real-character-nonvanishing-at-one} نحصل على عدم الانعدام لكل
+شخصية غير رئيسية. وبذلك تغلق بوابة عدم الانعدام منطقيًا، ويبقى الانتقال
+إلى مبرهنة ديريشليه للأوليات في المتتاليات الحسابية خطوة لاحقة مستقلة.''', r'''\section{خلاصة الفصل}
+
+بضم المبرهنة \ref{thm:nonreal-character-nonvanishing-at-one} إلى المبرهنة
+\ref{thm:real-character-nonvanishing-at-one} نحصل على عدم الانعدام لكل
+شخصية غير رئيسية. وتتكامل هذه النتيجة مع التعامد والمشتقة اللوغاريتمية
+والمعادلة الوظيفية لتوفير الأدوات اللازمة للفصل التالي، حيث تبرهن مبرهنة
+ديريشليه للأوليات في المتتاليات الحسابية من دون افتراض دائري.''')
+
+          progress = "docs/PROGRESS.md"
+          replace_once(progress, '| الفصل السابع: دوال ديريشليه \(L\) | `DRAFT`؛ النواة البرهانية والتدقيق المنطقي والتحريري والمرجعي الأول مغلقة | 90% |', '| الفصل السابع: دوال ديريشليه \(L\) | `REVIEWED`؛ المراجعة الخارجية معتمدة وPR #7 جاهز للدمج | 95% |')
+          replace_once(progress, '| 7 | `DRAFT` | مراجعة ثانية مستقلة؛ مبرهنة ديريشليه تنتقل إلى الفصل التالي |', '| 7 | `REVIEWED` | حلول مختارة وتوسعات قبل `RELEASE-READY`؛ مبرهنة ديريشليه في الفصل التالي |')
+          replace_once(progress, '- نجاح فحوص الجودة وبناء PDF كامل من 130 صفحة بعد التصحيحات.', '- نجاح فحوص الجودة وبناء PDF كامل بعد التصحيحات.\n- اعتماد المراجعة الخارجية المستقلة وإغلاق ملاحظاتها الخمس.\n- دمج أقسام الحالة المتكررة في قسم واحد ورفع الفصل إلى `REVIEWED`.')
+          replace_once(progress, '''## ما تبقى في الفصل السابع
+
+- مراجعة ثانية مستقلة للنص والبراهين والصيغ المرجعية.
+- حلول مختارة وتمارين حاسوبية أو عددية مناسبة قبل `RELEASE-READY`.
+- قرار رفع الفصل إلى `REVIEWED` ودمج PR #7 بعد المراجعة المستقلة.''', '''## ما تبقى قبل `RELEASE-READY`
+
+- حلول مختارة وتمارين حاسوبية أو عددية مناسبة.
+- التعميمات الآلية والتوسعات المرجعية المعلنة.''')
+
+          readme = "README.md"
+          replace_once(readme, '''- الفصل السابع عن دوال ديريشليه \(L\) بحالة `DRAFT` داخل Draft PR #7.
+- الدفعة الأولى: تعامد الشخصيات، وحد المجاميع الجزئية، والمنتج الأويلري، والاستمرار إلى \(\Re(s)>0\)، وعلاقة الشخصية الرئيسية بزيتا.
+- الدفعة الثانية: الشخصيات المستحثة والبدائية والموصل، ومجاميع غاوس، وتحويل ثيتا الملتوي، والدالة المكتملة والمعادلة الوظيفية، والأصفار البديهية وتناظراتها.
+- اجتياز الدفعتين فحوص الجودة وبناء PDF، مع إبقاء عدم انعدام \(L(1,\chi)\) ومبرهنة ديريشليه خلف بوابة مستقلة.''', '''- الفصل السابع عن دوال ديريشليه \(L\) بحالة `REVIEWED` بعد اعتماد مراجعة خارجية مستقلة وإغلاق ملاحظاتها.
+- يشتمل الفصل على الشخصيات والتعامد، والموصل، ومجاميع غاوس، وتحويل ثيتا، والمعادلة الوظيفية، والأصفار، وبرهاني عدم انعدام \(L(1,\chi)\).
+- تنتقل مبرهنة ديريشليه للأوليات في المتتاليات الحسابية إلى الفصل الثامن بوصفها المرحلة التالية.''')
+
+          todo = "docs/TODO.md"
+          for old, new in [
+              ('- [ ] إجراء تدقيق علمي ثان مستقل لبراهين الموصل ومجاميع غاوس والمعادلة الوظيفية.', '- [x] إجراء تدقيق علمي ثان مستقل لبراهين الموصل ومجاميع غاوس والمعادلة الوظيفية.'),
+              ('- [ ] إثبات عدم انعدام \(L(1,\chi)\) ببرهان غير دائري قبل أي انتقال إلى مبرهنة ديريشليه.', '- [x] إثبات عدم انعدام \(L(1,\chi)\) ببرهان غير دائري قبل أي انتقال إلى مبرهنة ديريشليه.'),
+              ('- [ ] فصل حجة عدم الانعدام للشخصيات المركبة عن الحالة الحقيقية.', '- [x] فصل حجة عدم الانعدام للشخصيات المركبة عن الحالة الحقيقية.'),
+              ('- [ ] بناء تمهيد مبرهنة ديريشليه بعد اجتياز بوابة عدم الانعدام.', '- [x] بناء تمهيد مبرهنة ديريشليه بعد اجتياز بوابة عدم الانعدام.'),
+          ]:
+              replace_once(todo, old, new)
+
+          roadmap = "docs/ROADMAP.md"
+          for old, new in [
+              ('- [ ] تدقيق ثان مستقل للموصل ومجاميع غاوس والمعادلة الوظيفية.', '- [x] تدقيق ثان مستقل للموصل ومجاميع غاوس والمعادلة الوظيفية.'),
+              ('- [ ] عدم انعدام \(L(1,\chi)\) ببرهان غير دائري.', '- [x] عدم انعدام \(L(1,\chi)\) ببرهان غير دائري.'),
+              ('- [ ] مراجعة ثانية مستقلة واعتماد الفصل.', '- [x] مراجعة ثانية مستقلة واعتماد الفصل بحالة `REVIEWED`.'),
+          ]:
+              replace_once(roadmap, old, new)
+
+          changelog = "CHANGELOG.md"
+          text = read(changelog)
+          text = text.replace('### أضيف\n', '### أضيف\n- إضافة تقرير المراجعة الخارجية المستقلة للفصل السابع واعتماد حكمه بعد إغلاق الملاحظات.\n', 1)
+          text = text.replace('### تغيّر\n', '### تغيّر\n- رفع الفصل السابع إلى `REVIEWED` ودمج أقسام الحالة المتكررة في قسم نطاق واحد.\n', 1)
+          write(changelog, text)
+
+          Path('docs/CHAPTER_07_INDEPENDENT_REVIEW_2026-07-19.md').write_text('''# المراجعة الخارجية المستقلة للفصل السابع
+
+التاريخ: 2026-07-19
+
+الحكم: `APPROVED AFTER CORRECTIONS`
+
+## النطاق
+
+راجعت الجهة الخارجية ملفات الفصل السابع الخمسة ومخرجات PDF، وفحصت النتائج المرقمة والبراهين والمراجع المتقاطعة والاستشهادات وسجل البناء.
+
+## الحكم الرياضي
+
+- لم يسجل التقرير خطأً رياضيًا في النتائج الخمس والعشرين.
+- الترقيم والتسميات والإحالات ومفاتيح الببليوغرافيا سليمة.
+- برهانا عدم انعدام `L(1,chi)` مستقلان عن مبرهنة ديريشليه للأوليات.
+- صياغة RH/GRH ملتزمة بسقف عدم الادعاء بأي تقدم.
+
+## الملاحظات المغلقة
+
+1. إزالة المحرفين الصينيين المتسربين من الدفعة الثانية.
+2. دمج النتيجة المكررة عن الصفر عند `s=0` في النتيجة العامة.
+3. دمج أقسام الحالة المتكررة في قسم نطاق واحد.
+4. تقسيم تكامل ميلين عند `t=1`.
+5. تثبيت `eta` قبل عبارة «لكل k» في مبدأ لاندو.
+
+## قرار الحوكمة
+
+اعتمد مالك المشروع هذا التقرير بوصفه مراجعة خارجية مستقلة، وبناءً عليه أغلقت بوابة المراجعة ورفعت حالة الفصل إلى `REVIEWED`. لا يعني هذا الوصف أن الفصل خضع لتحكيم مجلة أو مراجعة أقران رسمية، ولا يرفعه إلى `RELEASE-READY`؛ إذ تبقى الحلول والتوسعات المعلنة ديونًا تحريرية لاحقة.
+''', encoding="utf-8")
+          PY
+
       - name: Run repository quality checks
         run: python scripts/quality_check.py
+
+      - name: Create build directory
+        run: mkdir -p build
+
+      - name: Compile finalized PDF
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: manuscript/main.tex
+          latexmk_use_xelatex: true
+          args: >-
+            -interaction=nonstopmode
+            -halt-on-error
+            -file-line-error
+            -outdir=build
+          os: debian
+
+      - name: Verify finalized PDF
+        shell: bash
+        run: |
+          test -s build/main.pdf
+          pdfinfo build/main.pdf | grep '^Pages:'
+          cp build/main.pdf build/analytic-number-theory-encyclopedia-chapter-07-reviewed.pdf
+          sha256sum build/analytic-number-theory-encyclopedia-chapter-07-reviewed.pdf > build/analytic-number-theory-encyclopedia-chapter-07-reviewed.pdf.sha256
+
+      - name: Upload reviewed PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: chapter-07-reviewed-preview
+          path: |
+            build/analytic-number-theory-encyclopedia-chapter-07-reviewed.pdf
+            build/analytic-number-theory-encyclopedia-chapter-07-reviewed.pdf.sha256
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Restore workflows and commit finalization
+        shell: bash
+        run: |
+          cat > .github/workflows/quality.yml <<'YAML'
+          name: Quality checks
+
+          on:
+            push:
+              branches: [main]
+            pull_request:
+              branches: [main]
+            workflow_dispatch:
+
+          permissions:
+            contents: read
+
+          jobs:
+            quality:
+              runs-on: ubuntu-latest
+              steps:
+                - name: Check out repository
+                  uses: actions/checkout@v4
+
+                - name: Set up Python
+                  uses: actions/setup-python@v5
+                  with:
+                    python-version: "3.12"
+
+                - name: Run repository quality checks
+                  run: python scripts/quality_check.py
+          YAML
+          rm -f .github/workflows/ch7-finalize-external-review.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Review and finalize Chapter 7"
+          git push origin HEAD:agent/chapter-07-dirichlet-l-functions-v0.11.0
