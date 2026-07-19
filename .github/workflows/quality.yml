@@ -49,7 +49,7 @@ jobs:
         shell: bash
         run: |
           test -s build/main.pdf
-          pdfinfo build/main.pdf | grep '^Pages:'
+          file build/main.pdf
           cp build/main.pdf build/analytic-number-theory-encyclopedia-chapter-07-reviewed.pdf
           sha256sum build/analytic-number-theory-encyclopedia-chapter-07-reviewed.pdf > build/analytic-number-theory-encyclopedia-chapter-07-reviewed.pdf.sha256
 
