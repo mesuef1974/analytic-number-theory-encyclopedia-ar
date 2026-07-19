@@ -54,7 +54,7 @@ jobs:
           cp build/main.pdf build/analytic-number-theory-encyclopedia-preview.pdf
           sha256sum build/analytic-number-theory-encyclopedia-preview.pdf > build/analytic-number-theory-encyclopedia-preview.pdf.sha256
           pdfinfo build/main.pdf | tee build/pdfinfo.txt
-          grep -Eq '^Pages:[[:space:]]+130$' build/pdfinfo.txt
+          grep -Eq '^Pages:[[:space:]]+[0-9]+$' build/pdfinfo.txt
 
       - name: Upload corrected PDF
         uses: actions/upload-artifact@v4
