@@ -24,40 +24,50 @@
 **مبرهنة Siegel--Walfisz والتوزيع المنتظم للأعداد الأولية في المتتاليات الحسابية.**
 
 ```text
-BASE-MAIN             = 9d02c583d416053550d22dfd7acc44d9c264a02c
-BRANCH                = agent/chapter-12-siegel-walfisz-v0.16.0
-MODE                  = EVIDENCE-FIRST / PRE-AUTHORING
-EVIDENCE-LEDGER       = CREATED
-PROOF-MAP             = CREATED
-PERRON-DEBT-AUDIT     = PASS-FOR-CITED-INPUT-ROUTE
-LOGIC-AUDIT           = PASS
-PRE-AUTHORING-GATE    = CLOSED / PASS
-AUTHORING             = AUTHORIZED / NOT YET STARTED
-BOMBIERI-VINOGRADOV   = DEFERRED
-RELEASE-READY         = NO
+BASE-MAIN              = 9d02c583d416053550d22dfd7acc44d9c264a02c
+BRANCH                 = agent/chapter-12-siegel-walfisz-v0.16.0
+MODE                   = EVIDENCE-FIRST / AUTHORED
+PRE-AUTHORING-GATE     = CLOSED / PASS
+POST-AUTHORING-GATE    = CLOSED / PASS
+CHAPTER-12             = VERIFIED
+QUALITY-CHECKS         = RUN-272 / SUCCESS
+PDF-BUILD              = RUN-267 / SUCCESS
+VALIDATED-HEAD         = 7ea41ec1f20d3821ea98aa832a710946f64277b8
+EXPLICIT-FORMULA       = CITED-INPUT
+SIEGEL-CONSTANT        = INEFFECTIVE
+BOMBIERI-VINOGRADOV    = DEFERRED
+INDEPENDENT-REVIEW     = NOT YET STARTED
+RELEASE-READY          = NO
 ```
 
-## النطاق المعتمد
+## النتيجة المركزية
 
-يفصل الفصل بين:
-
-1. نتيجة الترديد الثابت في الفصل العاشر.
-2. مبرهنة Siegel--Walfisz للترديدات
-   \(q\le(\log x)^A\).
-3. مبرهنة Bombieri--Vinogradov المتوسطية المؤجلة إلى فصل لاحق.
-
-الصيغة المركزية المخططة هي
+لكل \(A>0\)، توجد ثوابت غير فعالة في المسار العام بحيث، بانتظام عندما
+\(q\le(\log x)^A\) و\((a,q)=1\):
 
 \[
 \psi(x;q,a)
 =
 \frac{x}{\varphi(q)}
-+
-O_A\!\left(xe^{-c_A\sqrt{\log x}}\right),
-\qquad q\le(\log x)^A,
++O_A\!\left(xe^{-c_A\sqrt{\log x}}\right).
 \]
 
-مع وسم صريح بأن الثابت العام غير فعال بسبب استعمال مبرهنة Siegel في امتصاص مساهمة الصفر الاستثنائي.
+وسجل الفصل أيضًا صيغة الادخار اللوغاريتمي الاعتباطي والصيغ الموافقة للدالتين
+\(\vartheta(x;q,a)\) و\(\pi(x;q,a)\).
+
+## الفصل بين النتائج
+
+1. الفصل العاشر يثبت النتيجة النوعية لترديد ثابت.
+2. الفصل الثاني عشر يثبت الانتظام للترديدات \(q\le(\log x)^A\).
+3. Bombieri--Vinogradov نتيجة متوسطية مؤجلة إلى فصل لاحق.
+
+## النزاهة البرهانية
+
+- حد PNT الفعال والصيغة الصريحة المقطوعة مسجلان `CITED`.
+- صيغة بيرون العامة وتحويل المسار الكاملان ما يزالان دينين معلنين.
+- حد الصفر الاستثنائي عُزل قبل امتصاصه.
+- تدخل مبرهنة Siegel عند عقدة واحدة محددة، ومنها تأتي عدم فعالية الثابت النهائي.
+- لا يستعمل الفصل Bombieri--Vinogradov أو Linnik أو GRH.
 
 ## المرحلة السابقة
 
