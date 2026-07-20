@@ -12,18 +12,18 @@ MATHEMATICAL-VERDICT    = APPROVED
 BLOCKING-CORRECTION     = BASAK-PRATT-METADATA
 CORRECTION              = APPLIED
 ISSUE-18                = CLOSED / COMPLETED
-CHAPTER-11              = REVIEWED
-PR-17                   = DRAFT / UNMERGED
-MERGE                   = NOT AUTHORIZED
+CHAPTER-11              = REVIEWED / MERGED
+PR-17                   = MERGED / CLOSED
+MERGE-HEAD              = fb1571eaa6328eac597ddbebda79b09d0ebd1696
+PHASE-0.15.0-dev        = ADMINISTRATIVELY CLOSED
 RELEASE-READY           = NO
-CLOSURE-CI              = REQUIRED-ON-THIS-RECEIPT-COMMIT
 ```
 
 ## نطاق الحكم
 
-أعادت المراجعة المستقلة فحص النتائج المثبتة داخليا، والنتائج المقتبسة،
+أعادت المراجعة المستقلة فحص النتائج المثبتة داخليًا، والنتائج المقتبسة،
 والاعتمادات على الفصلين السابع والعاشر، والفصل بين الفعالية وعدم الفعالية.
-لم تكشف خطأ رياضيا حاجزا.
+لم تكشف خطأ رياضيًا حاجزًا.
 
 ## التصحيح الحاجز الذي أغلق
 
@@ -47,17 +47,22 @@ Liu (2022) بوصفه preprint.
 
 - تقرير المراجعة المستقلة محفوظ في المستودع.
 - حالة الفصل داخل ملف LaTeX هي `REVIEWED`.
-- README وPROGRESS وCHANGELOG متزامنة مع الحكم.
+- README وPROGRESS وCHANGELOG متزامنة مع الحكم والدمج.
 - Issue #18 مغلق بحالة `COMPLETED`.
 - فرع المراجعة المجمد لم يعدل بعد التجميد.
-- PR #17 يبقى مسودة وغير مدمج.
+- PR #17 مدمج ومغلق.
+- التزام الدمج المعتمد هو `fb1571eaa6328eac597ddbebda79b09d0ebd1696`.
+- البناء المحلي بعد الدمج نجح وأنتج 171 صفحة.
+- SHA256 للنسخة المحلية هو `C5A09974D6440C24EBBFAE69F574350D9A09626976A0E7784E8E523999626C50`.
 
 ## قرار الحوكمة
 
 ```text
-REVIEW-GATE   = CLOSED
-CURRENT-ACTION = WAITING-FOR-OWNER-MERGE-AUTHORIZATION
-NEXT-GATE      = MERGE-DECISION
+REVIEW-GATE    = CLOSED
+MERGE-GATE     = CLOSED
+CHAPTER-GATE   = CLOSED
+CURRENT-ACTION = CLOSE-0.15.0-dev-GOVERNANCE
+NEXT-PHASE     = 0.16.0-dev / CHAPTER-12 / PRE-AUTHORING
 ```
 
-لا يسمح هذا الإيصال بدمج PR #17 تلقائيا. يلزم أمر صريح من مالك المشروع.
+أغلق هذا الإيصال المرحلة `0.15.0-dev` إداريًا بعد تحقق المراجعة والدمج والبناء. لا يمنح الفصل وسم `RELEASE-READY`، ولا يغير الحدود العلمية المعلنة في متن الفصل وتقارير تدقيقه.
