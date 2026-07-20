@@ -1,0 +1,56 @@
+name: Record chapter 11 review closure
+
+on:
+  push:
+    branches:
+      - agent/chapter-11-zero-free-regions-exceptional-zeros-v0.15.0
+
+permissions:
+  contents: write
+
+jobs:
+  record:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/chapter-11-zero-free-regions-exceptional-zeros-v0.15.0
+          fetch-depth: 0
+
+      - name: Update changelog and remove one-shot workflow
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          path = Path('CHANGELOG.md')
+          text = path.read_text(encoding='utf-8')
+
+          added_anchor = '### أضيف\n'
+          added_lines = (
+              '- إضافة تقرير المراجعة المستقلة للفصل الحادي عشر بحكم رياضي `APPROVED` بعد تصحيح ببليوغرافي حاجز واحد.\n'
+              '- تسجيل تصحيح مرجع Basak--Pratt: المؤلف `Debmalya Basak` وبيانات النشر في *Research in Number Theory* 12(1)، المقالة 17 (2026).\n'
+              '- إضافة بيانات arXiv لورقة Benli--Goel--Twiss--Zaman ووصف Liu (2022) بوصفه preprint.\n'
+          )
+          if added_lines.splitlines()[0] not in text:
+              text = text.replace(added_anchor, added_anchor + added_lines, 1)
+
+          changed_anchor = '### تغيّر\n'
+          changed_lines = (
+              '- رفع الفصل الحادي عشر من `VERIFIED` إلى `REVIEWED` بعد استلام الحكم المستقل وتطبيق التصحيح الببليوغرافي ونجاح CI.\n'
+              '- إغلاق Issue #18 بحالة `COMPLETED`، مع إبقاء PR #17 مسودة وغير مدمج حتى أمر المالك.\n'
+          )
+          if changed_lines.splitlines()[0] not in text:
+              text = text.replace(changed_anchor, changed_anchor + changed_lines, 1)
+
+          path.write_text(text, encoding='utf-8')
+          PY
+
+          git rm .github/workflows/record-chapter-11-review-closure.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add CHANGELOG.md
+          git commit -m "docs(chapter-11): record independent review closure"
+          git push origin HEAD:agent/chapter-11-zero-free-regions-exceptional-zeros-v0.15.0
