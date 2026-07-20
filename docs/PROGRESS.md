@@ -2,50 +2,48 @@
 
 ## الحالة العامة
 
-- **الإصدار التطويري الحالي:** `0.16.0-dev`
-- **المرحلة:** إغلاق الفصل الثاني عشر بعد المراجعة المستقلة والدمج.
-- **حالة الفصل:** `REVIEWED / MERGED`
+- **الإصدار التطويري الحالي:** `0.17.0-dev`
+- **المرحلة:** الفصل الثالث عشر — مبرهنة Bombieri--Vinogradov والتوزيع المتوسطي للأعداد الأولية.
+- **حالة الفصل:** `PRE-AUTHORING`
 - **الفرع المستقر:** `main`
-- **رأس `main` الحالي:** `b1f09a3388aa34194eb8836b6977fe05f86aee7a`
-- **فرع الإغلاق الحوكمي:** `agent/chapter-12-governance-closure-v0.16.0`
-- **منهج العمل:** `EVIDENCE-FIRST / REVIEWED`
-- **بوابة ما قبل التأليف:** `CLOSED / PASS`
-- **تدقيق ما بعد التأليف:** `CLOSED / PASS`
-- **المراجعة المستقلة:** `COMPLETED / APPROVED`
-- **البناء المحلي المتزامن:** `PASS / FF-ONLY / SOURCE-BUILD`
-- **PDF المحلي:** `184 PAGES / SHA256 3BF0BCE828DDF09C03D6527117992806FAD06010B161FC1B242472D0B5367749`
-- **فحوص رأس الإغلاق قبل الدمج:** `QUALITY #311 / PDF #306 / SUCCESS`
-- **PR #20:** `MERGED`
-- **Bombieri--Vinogradov:** `DEFERRED`
+- **رأس `main` عند بدء المرحلة:** `607c6f8ad76f8085828f49ce6b566c846950ab2a`
+- **فرع العمل:** `agent/chapter-13-bombieri-vinogradov-v0.17.0`
+- **منهج العمل:** `EVIDENCE-FIRST / AUTHORING-BLOCKED`
+- **بوابة ما قبل التأليف:** `OPEN`
+- **المسار المرشح:** `VAUGHAN IDENTITY + LARGE SIEVE`
+- **الهدف المركزي:** `TARGET / NOT YET ADOPTED`
+- **مستوى التوزيع المستهدف:** `1/2 WITH LOGARITHMIC LOSS`
+- **تدقيق الاعتمادات:** `OPEN`
+- **تدقيق الخسائر اللوغاريتمية:** `OPEN`
+- **تدقيق الفعالية:** `OPEN`
 - **آخر تحديث:** 2026-07-21
 
 ```text
-CHAPTER-12                = REVIEWED / MERGED
-VERSION                   = 0.16.0-dev
-MAIN-HEAD                 = b1f09a3388aa34194eb8836b6977fe05f86aee7a
-PR-20                     = MERGED
-INDEPENDENT-REVIEW        = APPROVED
-QUALITY-CHECKS            = RUN-311 / SUCCESS
-PDF-BUILD                 = RUN-306 / SUCCESS
-LOCAL-SYNC                = PASS / FF-ONLY
-SOURCE-BUILD              = PASS
-LOCAL-PDF-PAGES           = 184
-LOCAL-PDF-SHA256          = 3BF0BCE828DDF09C03D6527117992806FAD06010B161FC1B242472D0B5367749
-EXPLICIT-FORMULA          = CITED / COMPOSITE-INPUT
-SIEGEL-CONSTANT           = INEFFECTIVE
-BOMBIERI-VINOGRADOV       = DEFERRED
+CHAPTER-13                = PRE-AUTHORING
+VERSION                   = 0.17.0-dev
+BASE-MAIN                 = 607c6f8ad76f8085828f49ce6b566c846950ab2a
+BRANCH                    = agent/chapter-13-bombieri-vinogradov-v0.17.0
+MODE                      = EVIDENCE-FIRST
+PRE-AUTHORING-GATE        = OPEN
+AUTHORING                 = BLOCKED
+CENTRAL-TARGET            = BOMBIERI--VINOGRADOV / NOT YET ADOPTED
+PROOF-ROUTE               = VAUGHAN-IDENTITY + LARGE-SIEVE / CANDIDATE
+LEVEL-OF-DISTRIBUTION     = 1/2 WITH LOGARITHMIC LOSS / TARGET
+DEPENDENCY-AUDIT          = OPEN
+LOG-LOSS-AUDIT            = OPEN
+EFFECTIVITY-AUDIT         = OPEN
 RELEASE-READY             = NO
 ```
 
 ## إغلاق المرحلة السابقة
 
 ```text
-CHAPTER-11          = REVIEWED / MERGED
-PR-17               = MERGED
-ISSUE-18            = CLOSED
-CHAPTER-11-MERGE    = fb1571eaa6328eac597ddbebda79b09d0ebd1696
-GOVERNANCE-PR-19    = MERGED
-GOVERNANCE-MERGE    = 9d02c583d416053550d22dfd7acc44d9c264a02c
+CHAPTER-12          = REVIEWED / MERGED
+PR-20               = MERGED
+GOVERNANCE-PR-21    = MERGED
+GOVERNANCE-MERGE    = 607c6f8ad76f8085828f49ce6b566c846950ab2a
+LOCAL-SOURCE-BUILD  = PASS / 184 PAGES
+RELEASE-READY       = NO
 ```
 
 ## لوحة التقدم
@@ -55,7 +53,7 @@ GOVERNANCE-MERGE    = 9d02c583d416053550d22dfd7acc44d9c264a02c
 | هيكل المستودع | مكتمل مبدئيًا | 100% |
 | أهداف المشروع | مكتملة للإصدار الأول | 100% |
 | نظام التوثيق والمتابعة | مكتمل مبدئيًا | 100% |
-| بناء PDF المحلي والآلي | تحقق Artifact وبناء مصدر محلي متزامن للفصل 12 | 100% |
+| بناء PDF المحلي والآلي | مسار محلي وآلي عامل | 100% |
 | الفصل الأول: التاريخ والمنهج | مدقق داخليًا؛ الإحالات التفصيلية باقية | 85% |
 | الفصل الثاني: اللغة التقاربية والجمع الجزئي | `VERIFIED` | 85% |
 | الفصل الثالث: التحليل المركب الموجّه | `VERIFIED`؛ التوسعات مؤجلة | 80% |
@@ -68,6 +66,7 @@ GOVERNANCE-MERGE    = 9d02c583d416053550d22dfd7acc44d9c264a02c
 | الفصل العاشر: PNT في المتتاليات الحسابية | `REVIEWED` | 94% |
 | الفصل الحادي عشر: المناطق الخالية والأصفار الاستثنائية | `REVIEWED / MERGED` | 95% |
 | الفصل الثاني عشر: Siegel--Walfisz | `REVIEWED / MERGED` | 95% |
+| الفصل الثالث عشر: Bombieri--Vinogradov | `PRE-AUTHORING` | 12% |
 | فصل الجبهات الحديثة | نواة أولية | 10% |
 | الملحق الحاسوبي | أول تجربة مسجلة وقابلة للتشغيل | 15% |
 
@@ -87,60 +86,54 @@ GOVERNANCE-MERGE    = 9d02c583d416053550d22dfd7acc44d9c264a02c
 | 10 | `REVIEWED` | أربعة تحسينات اختيارية وتدقيق إصدار |
 | 11 | `REVIEWED / MERGED` | ديون الإصدار قبل `RELEASE-READY` |
 | 12 | `REVIEWED / MERGED` | ديون المجلد والتنضيد قبل `RELEASE-READY` |
+| 13 | `PRE-AUTHORING` | إغلاق الاعتمادات وType I/II والفعالية وعدم الدور |
 
 التدقيق الداخلي والمراجعة المستقلة والدمج لا تجعل أي فصل `RELEASE-READY` تلقائيًا.
 
-## الفصل الثاني عشر — المنجز
+## الفصل الثالث عشر — المنجز
 
-- أُنشئ الفرع من رأس `main` الناتج من دمج PR #19.
-- رُفع الإصدار إلى `0.16.0-dev`.
-- بدأ المسح عبر Consensus ثم استكمل التحقق من arXiv وصفحات الناشرين والكتب القياسية.
-- أُنشئ سجل الأدلة وخريطة البرهان وتدقيق الاعتمادات.
-- فُصلت نتيجة الترديد الثابت عن Siegel--Walfisz وعن Bombieri--Vinogradov.
-- دُققت ديون بيرون وتحويل المسار، واعتمدت الصيغة الصريحة المقطوعة بحالة `CITED / COMPOSITE-INPUT`.
-- أُغلقت بوابة ما قبل التأليف قبل إنشاء المتن.
-- أُنشئ متن الفصل وربط بالكتاب.
-- سجلت تسع نتائج بمعرفات ثابتة وحالات منشأ صريحة.
-- أُثبت الرد إلى الجد البدائي وخطأ العوامل المحلية.
-- أُثبت اختيار \(T=e^{\kappa\sqrt{\log x}}\) وضبط الجزء غير الاستثنائي.
-- عُزل حد الصفر الاستثنائي قبل تطبيق مبرهنة Siegel.
-- أُثبتت صيغة Siegel--Walfisz في \(\psi\)، ثم صيغ الادخار اللوغاريتمي و\(\vartheta\) و\(\pi\).
-- دُقق الانتقال إلى \(\pi\) باستعمال هامش `2A` وتقسيم مجال الجمع الجزئي.
-- أُضيفت بيانات Thorner--Zaman وKoukoulopoulos وDrappeau--Fiorilli إلى BibTeX.
-- اجتاز الفصل تدقيق ما بعد التأليف والتحقق المرجعي.
-- أُغلقت ملاحظتا المراجعة R1 وR2 وأعيدت فحوص الجودة والبناء بنجاح.
-- اجتاز البناء المحلي المتزامن من مصدر مطابق: 184 صفحة وSHA256 مثبت أعلاه.
-- استُلم حكم المراجعة المستقلة `APPROVED` بصفر عوائق.
-- رُقّي الفصل إلى `REVIEWED` ودُمج PR #20 عند `b1f09a3388aa34194eb8836b6977fe05f86aee7a`.
+- دُمج PR #21 وأغلق الفصل الثاني عشر حوكميًا.
+- أُنشئ الفرع من رأس الدمج `607c6f8ad76f8085828f49ce6b566c846950ab2a`.
+- رُفع الإصدار إلى `0.17.0-dev`.
+- قُرئت ملفات README وROADMAP وPROGRESS وTODO وRESULTS_REGISTRY وCHANGELOG قبل التعديل.
+- بدأ المسح عبر Consensus.
+- تحققت بيانات أوراق Bombieri (1965)، وA. I. Vinogradov (1965)، وتصحيح Vinogradov (1966)، وGallagher (1968)، وVaughan (1975).
+- صيغ الهدف المركزي بصيغة \(\psi\) مع `max_{y\le x}` ومستوى \(1/2\) حتى خسارة لوغاريتمية.
+- فُصلت النتيجة عن Siegel--Walfisz وعن Elliott--Halberstam وعن النتائج الموزونة بعد حاجز \(1/2\).
+- أُنشئ سجل الأدلة وخريطة البرهان وتدقيق ما قبل التأليف.
+- ثُبت حكم `PASS-FOR-RESEARCH-INTAKE / FAIL-FOR-AUTHORING`.
 
-## النتائج المركزية
+## الهدف المركزي المرشح
 
-لكل \(A>0\)، وبانتظام عندما \(q\le(\log x)^A\) و\((a,q)=1\):
+لكل \(A>0\) يوجد \(B=B(A)>0\) بحيث، إذا
 
 \[
-\psi(x;q,a)
-=
-\frac{x}{\varphi(q)}
-+O_A\!\left(xe^{-c_A\sqrt{\log x}}\right).
+Q\le \frac{x^{1/2}}{(\log x)^B},
 \]
 
-ولكل \(A,B>0\):
+فإن
 
 \[
-\psi(x;q,a)
-=
-\frac{x}{\varphi(q)}
-+O_{A,B}\!\left(\frac{x}{(\log x)^B}\right),
+\sum_{q\le Q}\max_{(a,q)=1}\max_{2\le y\le x}
+\left|\psi(y;q,a)-\frac{y}{\varphi(q)}\right|
+\ll_A \frac{x}{(\log x)^A}.
 \]
 
-مع الصيغ الموافقة لـ\(\vartheta(x;q,a)\) و\(\pi(x;q,a)\). الثوابت العامة غير فعالة بسبب عقدة سيغل.
+هذه الصيغة ليست نتيجة معتمدة بعد.
 
-## حدود الفصل
+## العوائق الحالية
 
-لا يدعي الفصل فعالية الثابت العام، أو أفضل ثابت في الحد الأسي، أو برهانًا داخليًا كاملًا لصيغة بيرون وتحويل المسار، أو Bombieri--Vinogradov، أو Linnik، أو GRH.
+1. تثبيت صيغة الغربال الكبير وتطبيعها بالصفحات.
+2. إثبات هوية Vaughan وتدقيق حدود \(U,V\).
+3. إغلاق تقدير Type I.
+4. إغلاق تقدير Type II.
+5. تثبيت آلية `max_{y\le x}`.
+6. تدقيق الموصلات والشخصيات المستحثة.
+7. تدقيق الشخصية الرئيسية والعوامل المحلية.
+8. حساب الخسائر اللوغاريتمية وشرط \(B(A)\).
+9. الحكم على فعالية الثوابت.
+10. فحص عدم الدور وحجز معرفات النتائج.
 
 ## الخطوة التالية
 
-1. دمج تمرير مزامنة الحوكمة بعد نجاح CI وبأمر صريح من المالك.
-2. إبقاء `RELEASE-READY = NO` حتى بوابات المجلد والإصدار.
-3. تحديد المرحلة العلمية التالية من `main` بعد إغلاق الحوكمة.
+إغلاق عقدة الغربال الكبير أولًا، ثم كتابة هوية Vaughan في سجل تدقيق مستقل قبل أي إنشاء لملف الفصل.
