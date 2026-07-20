@@ -14,6 +14,7 @@
 - [الإصدار الحالي](docs/VERSION.md)
 - [دليل بناء PDF](docs/BUILD.md)
 - [التحقق المحلي من Artifact الفصل الثاني عشر](docs/LOCAL_ARTIFACT_VERIFICATION_2026-07-20.md)
+- [إيصال البناء المحلي المتزامن](docs/LOCAL_BUILD_RECEIPT.md)
 - [سياسة اعتماد النتائج](docs/RESULT_STATUS_POLICY.md)
 - [سجل النتائج المعتمدة](docs/RESULTS_REGISTRY.md)
 - [سجل أدلة الفصل الثاني عشر](research/literature-reviews/chapter-12-siegel-walfisz-evidence.md)
@@ -24,6 +25,8 @@
 - [تدقيق ما قبل تأليف الفصل الثاني عشر](docs/CHAPTER_12_PRE_AUTHORING_AUDIT_2026-07-20.md)
 - [التحقق المرجعي للفصل الثاني عشر](docs/CHAPTER_12_REFERENCE_VERIFICATION_2026-07-20.md)
 - [تدقيق ما بعد تأليف الفصل الثاني عشر](docs/CHAPTER_12_AUTHORING_AUDIT_2026-07-20.md)
+- [المراجعة المستقلة للفصل الثاني عشر](docs/CHAPTER_12_INDEPENDENT_REVIEW_2026-07-20.md)
+- [إيصال إغلاق مراجعة الفصل الثاني عشر](docs/CHAPTER_12_REVIEW_CLOSURE_2026-07-21.md)
 - [مراجعة الفصل السابع المستقلة](docs/CHAPTER_07_INDEPENDENT_REVIEW_2026-07-19.md)
 - [مراجعة الفصل الثامن المستقلة](docs/CHAPTER_08_INDEPENDENT_REVIEW_2026-07-20.md)
 - [المراجعة المستقلة للفصل التاسع](docs/CHAPTER_09_INDEPENDENT_REVIEW_2026-07-20.md)
@@ -37,22 +40,22 @@
 الإصدار: `v0.16.0-dev`
 
 ```text
-BASE-MAIN                 = 9d02c583d416053550d22dfd7acc44d9c264a02c
-BRANCH                    = agent/chapter-12-siegel-walfisz-v0.16.0
-CHAPTER-12                = VERIFIED
-PRE-AUTHORING-GATE        = CLOSED / PASS
-POST-AUTHORING-GATE       = CLOSED / PASS
-VERIFIED-MANUSCRIPT-HEAD  = e6c87affd453f6088b0d1f5400432f7e4228ed57
-VERIFIED-DOCS-HEAD        = 3aea2ba2b1533eefb933700b48c1eb7c39910c23
-QUALITY-CHECKS            = RUN-296 / SUCCESS
-PDF-BUILD                 = RUN-291 / SUCCESS
+MAIN-HEAD                 = b1f09a3388aa34194eb8836b6977fe05f86aee7a
+CHAPTER-12                = REVIEWED / MERGED
+PR-20                     = MERGED
+INDEPENDENT-REVIEW        = COMPLETED / APPROVED
+MATHEMATICAL-BLOCKERS     = 0
+REFERENCE-BLOCKERS        = 0
+TYPOGRAPHIC-BLOCKERS      = 0
+QUALITY-CHECKS            = RUN-311 / SUCCESS
+PDF-BUILD                 = RUN-306 / SUCCESS
+LOCAL-SYNC                = PASS / FF-ONLY
+SOURCE-BUILD              = PASS
 LOCAL-PDF-PAGES           = 184
-LOCAL-PDF-SHA256          = 71D8B628896529F100659AAA1029E7E53F793C529E5D568BB8F8BF5FA8FB6549
-LOCAL-VERIFICATION        = ARTIFACT-VERIFIED / SOURCE-BUILD-NOT-CLAIMED
-EXPLICIT-FORMULA          = CITED-INPUT
+LOCAL-PDF-SHA256          = 3BF0BCE828DDF09C03D6527117992806FAD06010B161FC1B242472D0B5367749
+EXPLICIT-FORMULA          = CITED / COMPOSITE-INPUT
 SIEGEL-CONSTANT           = INEFFECTIVE
 BOMBIERI-VINOGRADOV       = DEFERRED
-INDEPENDENT-REVIEW        = NOT YET STARTED
 RELEASE-READY             = NO
 ```
 
@@ -99,8 +102,8 @@ RELEASE-READY             = NO
 ## حالة الفصول
 
 - الفصول الاثنا عشر الأولى مرتبطة بالملف الجامع وتظهر في بناء PDF الحالي.
-- الفصول من السابع إلى الحادي عشر بحالة `REVIEWED` ومندمجة في `main`.
-- الفصل الثاني عشر بحالة `VERIFIED` بعد التدقيق الداخلي ونجاح الجودة والبناء، لكنه لم يخضع بعد لمراجعة ثانية مستقلة.
+- الفصول من السابع إلى الثاني عشر بحالة `REVIEWED` ومندمجة في `main`.
+- الفصل الثاني عشر اجتاز المراجعة المستقلة بحكم `APPROVED` ودُمج عبر PR #20 عند الالتزام `b1f09a3388aa34194eb8836b6977fe05f86aee7a`.
 - لا يصبح أي فصل `RELEASE-READY` بمجرد التدقيق أو المراجعة أو الدمج؛ تبقى ديون الإصدار المعلنة مستقلة.
 
 ## مبادئ التحرير
@@ -114,11 +117,11 @@ RELEASE-READY             = NO
 
 ## بناء PDF
 
-للمزامنة والبناء المحلي وتوليد إيصال:
+لمزامنة `main` والبناء المحلي:
 
 ```powershell
 cd "D:\analytic-number-theory-encyclopedia-ar"
-.\scripts\sync-build.ps1 -Open -CommitReceipt -Push
+.\scripts\sync-build.ps1 -Branch main -Open
 ```
 
 وللبناء فقط من الشجرة الحالية:
