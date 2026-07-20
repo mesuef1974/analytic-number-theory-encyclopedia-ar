@@ -15,25 +15,20 @@
 - [دليل بناء PDF](docs/BUILD.md)
 - [سياسة اعتماد النتائج](docs/RESULT_STATUS_POLICY.md)
 - [سجل النتائج المعتمدة](docs/RESULTS_REGISTRY.md)
-- [سجل نتائج الفصل الثاني عشر المحجوزة](docs/RESULTS_REGISTRY_CHAPTER_12_DRAFT.md)
+- [سجل أدلة الفصل الثاني عشر](research/literature-reviews/chapter-12-siegel-walfisz-evidence.md)
+- [خريطة برهان الفصل الثاني عشر](research/literature-reviews/chapter-12-siegel-walfisz-proof-map.md)
+- [تدقيق ديون بيرون والصيغة الصريحة](docs/CHAPTER_12_PERRON_CONTOUR_EXPLICIT_FORMULA_AUDIT_2026-07-20.md)
+- [تدقيق الصفر الاستثنائي وعدم الفعالية](docs/CHAPTER_12_EXCEPTIONAL_ZERO_INEFFECTIVITY_AUDIT_2026-07-20.md)
+- [التدقيق المنطقي للفصل الثاني عشر](docs/CHAPTER_12_LOGIC_AUDIT_2026-07-20.md)
+- [تدقيق ما قبل تأليف الفصل الثاني عشر](docs/CHAPTER_12_PRE_AUTHORING_AUDIT_2026-07-20.md)
+- [التحقق المرجعي للفصل الثاني عشر](docs/CHAPTER_12_REFERENCE_VERIFICATION_2026-07-20.md)
+- [تدقيق ما بعد تأليف الفصل الثاني عشر](docs/CHAPTER_12_AUTHORING_AUDIT_2026-07-20.md)
 - [مراجعة الفصل السابع المستقلة](docs/CHAPTER_07_INDEPENDENT_REVIEW_2026-07-19.md)
 - [مراجعة الفصل الثامن المستقلة](docs/CHAPTER_08_INDEPENDENT_REVIEW_2026-07-20.md)
 - [المراجعة المستقلة للفصل التاسع](docs/CHAPTER_09_INDEPENDENT_REVIEW_2026-07-20.md)
 - [المراجعة المستقلة للفصل العاشر](docs/CHAPTER_10_INDEPENDENT_REVIEW_2026-07-20.md)
-- [سجل أدلة الفصل الحادي عشر](research/literature-reviews/chapter-11-zero-free-regions-exceptional-zeros-evidence.md)
-- [خريطة برهان الفصل الحادي عشر](research/literature-reviews/chapter-11-zero-free-regions-exceptional-zeros-proof-map.md)
-- [تدقيق ما قبل تأليف الفصل الحادي عشر](docs/CHAPTER_11_PRE_AUTHORING_AUDIT_2026-07-20.md)
-- [التدقيق المنطقي للفصل الحادي عشر](docs/CHAPTER_11_LOGIC_AUDIT_2026-07-20.md)
-- [تدقيق ما بعد تأليف الفصل الحادي عشر](docs/CHAPTER_11_AUTHORING_AUDIT_2026-07-20.md)
-- [حزمة المراجعة المستقلة للفصل الحادي عشر](docs/CHAPTER_11_INDEPENDENT_REVIEW_PACKET_2026-07-20.md)
 - [المراجعة المستقلة للفصل الحادي عشر](docs/CHAPTER_11_INDEPENDENT_REVIEW_2026-07-20.md)
 - [إيصال إغلاق الفصل الحادي عشر](docs/CHAPTER_11_REVIEW_CLOSURE_2026-07-20.md)
-- [سجل أدلة الفصل الثاني عشر](research/literature-reviews/chapter-12-siegel-walfisz-evidence.md)
-- [خريطة برهان الفصل الثاني عشر](research/literature-reviews/chapter-12-siegel-walfisz-proof-map.md)
-- [تدقيق ديون بيرون والصيغة الصريحة للفصل الثاني عشر](docs/CHAPTER_12_PERRON_CONTOUR_EXPLICIT_FORMULA_AUDIT_2026-07-20.md)
-- [تدقيق الصفر الاستثنائي وعدم الفعالية](docs/CHAPTER_12_EXCEPTIONAL_ZERO_INEFFECTIVITY_AUDIT_2026-07-20.md)
-- [التدقيق المنطقي للفصل الثاني عشر](docs/CHAPTER_12_LOGIC_AUDIT_2026-07-20.md)
-- [تدقيق ما قبل تأليف الفصل الثاني عشر](docs/CHAPTER_12_PRE_AUTHORING_AUDIT_2026-07-20.md)
 - [سجل التجارب الحاسوبية](docs/EXPERIMENTS_REGISTRY.md)
 
 ## الحالة الحالية
@@ -41,58 +36,76 @@
 الإصدار: `v0.16.0-dev`
 
 ```text
-BASE-MAIN             = 9d02c583d416053550d22dfd7acc44d9c264a02c
-BRANCH                = agent/chapter-12-siegel-walfisz-v0.16.0
-CHAPTER-12            = PRE-AUTHORING / GATE-CLOSED
-AUTHORING             = AUTHORIZED / NOT YET STARTED
-PERRON-GENERAL-PROOF  = DEFERRED
-EXPLICIT-FORMULA      = CITED-INPUT
-SIEGEL-CONSTANT       = INEFFECTIVE
-BOMBIERI-VINOGRADOV   = DEFERRED
-RELEASE-READY         = NO
+BASE-MAIN              = 9d02c583d416053550d22dfd7acc44d9c264a02c
+BRANCH                 = agent/chapter-12-siegel-walfisz-v0.16.0
+CHAPTER-12             = VERIFIED
+PRE-AUTHORING-GATE     = CLOSED / PASS
+POST-AUTHORING-GATE    = CLOSED / PASS
+VALIDATED-HEAD         = 7ea41ec1f20d3821ea98aa832a710946f64277b8
+QUALITY-CHECKS         = RUN-272 / SUCCESS
+PDF-BUILD              = RUN-267 / SUCCESS
+EXPLICIT-FORMULA       = CITED-INPUT
+SIEGEL-CONSTANT        = INEFFECTIVE
+BOMBIERI-VINOGRADOV    = DEFERRED
+INDEPENDENT-REVIEW     = NOT YET STARTED
+RELEASE-READY          = NO
 ```
 
-يتضمن الفرع الحالي:
+## الفصل الثاني عشر
 
-- مراجعة أهداف المشروع وخارطة الطريق قبل التأليف.
-- إنشاء الفصل الثاني عشر من رأس `main` الناتج من دمج PR #19.
-- مسحًا علميًا بدأ عبر Consensus ثم تحقق من arXiv وصفحات الناشرين.
-- سجل أدلة وخريطة برهان واعتمادات.
-- تدقيقًا مستقلًا لديون بيرون وتحويل المسار والصيغة الصريحة.
-- فصلًا صريحًا بين نتيجة الترديد الثابت في الفصل العاشر وSiegel--Walfisz وBombieri--Vinogradov.
-- عزلًا صريحًا لمساهمة الصفر الاستثنائي قبل استعمال مبرهنة Siegel.
-- تثبيتًا لموضع عدم فعالية الثابت النهائي.
-- تدقيقًا منطقيًا بحكم `PASS` وإغلاقًا رسميًا لبوابة ما قبل التأليف.
-- تسعة معرفات نتائج محجوزة بحالة `DRAFT / NON-CITABLE`.
-- لا يوجد ملف متن للفصل الثاني عشر، ولم يربط فصل جديد بالكتاب بعد.
-
-## الهدف الرياضي للفصل الثاني عشر
-
-لكل \(A>0\)، تستهدف المرحلة إثبات صيغة موحدة من الشكل
+أضيف متن الفصل الثاني عشر وربط بالكتاب. يثبت الفصل، اعتمادًا على مدخلين كميين مقتبسين وعلى المنطقة الخالية من الفصل الحادي عشر، أنه لكل \(A>0\):
 
 \[
 \psi(x;q,a)
 =
 \frac{x}{\varphi(q)}
-+
-O_A\!\left(xe^{-c_A\sqrt{\log x}}\right),
++O_A\!\left(xe^{-c_A\sqrt{\log x}}\right),
 \qquad q\le(\log x)^A,
 \]
 
-ثم اشتقاق الصيغ الموافقة لـ\(\vartheta(x;q,a)\) و\(\pi(x;q,a)\). الثابت العام غير فعال لأن امتصاص حد الصفر الاستثنائي يعتمد على مبرهنة Siegel.
+بانتظام في الفئات المختزلة. كما يستنتج:
+
+\[
+\psi(x;q,a)
+=
+\frac{x}{\varphi(q)}
++O_{A,B}\!\left(\frac{x}{(\log x)^B}\right),
+\]
+
+والصيغ الموحدة الموافقة لـ\(\vartheta(x;q,a)\) و\(\pi(x;q,a)\).
+
+### ما ثبت داخل الفصل
+
+- رد الشخصية المستحثة إلى جدها البدائي مع ضبط خطأ العوامل المحلية.
+- اختيار ارتفاع القطع \(T=e^{\kappa\sqrt{\log x}}\).
+- ضبط مساهمة الأصفار غير الاستثنائية.
+- عزل الصفر الاستثنائي ثم امتصاصه باستعمال مبرهنة Siegel.
+- تجميع الشخصيات من دون خسارة إضافية في \(q\).
+- الانتقال الآمن إلى \(\vartheta\) و\(\pi\)، مع معالجة تغير شرط الترديد داخل التكامل.
+
+### ما اقتبس ولم ينسب إلى برهان داخلي
+
+- حد دو لا فاليه بوسان الفعال لمبرهنة الأعداد الأولية.
+- الصيغة الصريحة المقطوعة الموحدة بعد عزل الصفر الاستثنائي.
+
+تبقى صيغة بيرون العامة وتحويل المسار الكاملان دينين معلنين، ولا يدعي الفصل إغلاقهما من الصفر.
+
+### عدم الفعالية
+
+يبقى حد الصفر الاستثنائي ظاهرًا حتى تطبيق
+`ANT-COR-11-01`. هذا هو الموضع المحدد الذي تدخل فيه مبرهنة Siegel؛ لذلك تكون الثوابت النهائية في النسخة غير المشروطة العامة غير فعالة.
 
 ## الفصل بين النتائج
 
-1. **الفصل العاشر:** مبرهنة الأعداد الأولية في المتتاليات الحسابية لترديد ثابت، من دون انتظام في \(q\).
-2. **الفصل الثاني عشر:** Siegel--Walfisz بانتظام للترديدات \(q\le(\log x)^A\).
-3. **فصل لاحق:** Bombieri--Vinogradov، وهي نتيجة متوسطية على مجال أكبر من الترديدات ولا تستعمل في هذا البرهان.
+1. **الفصل العاشر:** نتيجة نوعية لترديد ثابت، بلا انتظام في \(q\).
+2. **الفصل الثاني عشر:** انتظام فردي للترديدات \(q\le(\log x)^A\).
+3. **فصل لاحق:** Bombieri--Vinogradov، وهي نتيجة متوسطية على مجال أكبر ولا تستعمل في برهان الفصل الثاني عشر.
 
-## حالة الفصول الموجودة
+## حالة الفصول
 
-- الفصول الأحد عشر الأولى موجودة داخل PDF.
-- الفصول السابع والثامن والتاسع والعاشر والحادي عشر بحالة `REVIEWED` ومندمجة في `main`.
-- الفصل الحادي عشر مدمج عند الالتزام `fb1571eaa6328eac597ddbebda79b09d0ebd1696`.
-- أغلقت حوكمة `0.15.0-dev` بدمج PR #19 عند الالتزام `9d02c583d416053550d22dfd7acc44d9c264a02c`.
+- الفصول الاثنا عشر الأولى مرتبطة بالملف الجامع وتظهر في بناء PDF الحالي.
+- الفصول من السابع إلى الحادي عشر بحالة `REVIEWED` ومندمجة في `main`.
+- الفصل الثاني عشر بحالة `VERIFIED` بعد التدقيق الداخلي ونجاح الجودة والبناء، لكنه لم يخضع بعد لمراجعة ثانية مستقلة.
 - لا يصبح أي فصل `RELEASE-READY` بمجرد التدقيق أو المراجعة أو الدمج؛ تبقى ديون الإصدار المعلنة مستقلة.
 
 ## مبادئ التحرير
