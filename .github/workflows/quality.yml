@@ -12,15 +12,12 @@ permissions:
 
 jobs:
   quality:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
+          show-progress: false
 
       - name: Run repository quality checks
-        run: python scripts/quality_check.py
+        run: python3 scripts/quality_check.py
