@@ -160,24 +160,28 @@ q\le (\log x)^A.
 \psi(x,\chi)-\psi_0(x,\chi)=O(\log(2x)).
 \]
 
-\begin{theorem}[الصيغة الصريحة المقطوعة بعد عزل الاستثناء]
+\begin{theorem}[مدخل كمي مركب للصيغة الصريحة بعد عزل الاستثناء]
 \label{thm:chapter12-truncated-explicit-formula}
 \resultid{ANT-THM-12-02}
-\citedresult{\cite{Davenport2000,MontgomeryVaughan2007,IwaniecKowalski2004}}
-توجد ثوابت مطلقة \(c,C>0\) بالخاصية الآتية. لتكن \(\chi\) شخصية بدائية
-غير رئيسية بموصل \(r\)، ولتكن \(x\ge3\) و\(r\le T\le x\). يمكن اختيار
-\(T_0\in[T,2T]\) لا يساوي ارتفاع صفر، بحيث
+\citedresult{\cite{Davenport2000,MontgomeryVaughan2007}}
+توجد ثوابت مطلقة فعالة \(c,C>0\) بالخاصية الآتية. لتكن \(\chi\) شخصية
+بدائية غير رئيسية بموصل \(r\)، ولتكن \(x\ge3\) و\(r\le T\le x\). يمكن
+اختيار ارتفاع
+\[
+U\in[T,2T]
+\]
+لا يساوي ارتفاع صفر، بحيث
 \[
 \psi_0(x,\chi)
 =
 -\mathbf 1_{\beta_\chi}
 \frac{x^{\beta_\chi}}{\beta_\chi}
 +O\!\left(
-xe^{-\frac{c\log x}{\log(r(T+2))}}\log^2(r(T+2))
+xe^{-\frac{c\log x}{\log(r(U+2))}}\log^2(r(U+2))
 +
-\frac{x\log^2(rxT)}{T}
+\frac{x\log^2(rxU)}{U}
 +
-\log^2(rxT)
+\log^2(rxU)
 \right).
 \tag{12.3}
 \]
@@ -186,8 +190,11 @@ xe^{-\frac{c\log x}{\log(r(T+2))}}\log^2(r(T+2))
 الثوابت في \((12.3)\) فعالة قبل امتصاص الحد الاستثنائي.
 \end{theorem}
 
-الصيغة \((12.3)\) هي نتيجة قياسية للصيغة الصريحة المقطوعة، وتقدير عد
-الأصفار، والمنطقة القياسية الخالية. وقد ضمت مساهمات الأصفار البديهية وعامل
+الصيغة \((12.3)\) ليست نقلًا حرفيًا لمبرهنة مفردة، بل مدخلًا مركبًا من:
+الصيغة الصريحة لـ\(\psi(x,\chi)\)، واختيار ارتفاع قطع جيد، وتقدير عد
+الأصفار، والمنطقة القياسية الخالية. مواضع المسار الكلاسيكي هي Davenport،
+الطبعة الثانية، الفصول 20--23، الصفحات 115--134، وMontgomery--Vaughan،
+الفصلان 11--12، الصفحات 358--418. وقد ضمت مساهمات الأصفار البديهية وعامل
 غاما وخطأ القطع في الحد المكتوب. لا نسجل هذه النتيجة
 \textenglish{PROVED-HERE} لأن إثباتها الكامل يحتاج صيغة بيرون المقطوعة
 وتحويل المسار وتقديرات رأسية لم تغلق بعد داخل الموسوعة.
@@ -230,20 +237,21 @@ T=e^{\kappa\sqrt L},
 \[
 r\le q\le L^A\le T\le x.
 \]
-كما أن
+طبّق المبرهنة \ref{thm:chapter12-truncated-explicit-formula} واختر الارتفاع
+\(U\in[T,2T]\) الذي تمنحه. عندئذ
 \[
-\log(r(T+2))
+\log(r(U+2))
 \le A\log L+\kappa\sqrt L+O(1)
 \ll_{A,\kappa}\sqrt L.
 \]
 ومن ثم
 \[
-\exp\!\left(-\frac{cL}{\log(r(T+2))}\right)
+\exp\!\left(-\frac{cL}{\log(r(U+2))}\right)
 \le e^{-c_{A,\kappa}\sqrt L}.
 \]
-وتعطي كلفة القطع
+وتعطي كلفة القطع، باستعمال \(U\ge T\) و\(U\le2T\)،
 \[
-\frac{x\log^2(rxT)}{T}
+\frac{x\log^2(rxU)}{U}
 \ll_A
 xe^{-\kappa\sqrt L}L^2,
 \]
@@ -512,9 +520,25 @@ e^{\sqrt{\log x}}=o\!\left(\frac{x}{(\log x)^B}\right).
 \qquad
 E(t)\ll_{A,B}\frac{t}{(\log t)^{B+3}}.
 \]
-نعوض في \((12.12)\). تجمع الحدود الرئيسية إلى
-\(\operatorname{Li}(x)/\varphi(q)\)، حتى ثابت محدود يمتص في الخطأ. أما
-الخطأ الطرفي والتكامل، فبعد تقسيم المجال عند \(\sqrt x\) عند الحاجة، يحققان
+تجمع مساهمة الحد الرئيسي في الطرف عند \(x\) والتكامل على \([y,x]\) إلى
+\[
+\frac1{\varphi(q)}
+\left(
+\frac{x}{\log x}
++\int_y^x\frac{dt}{\log^2t}
+\right)
+=
+\frac1{\varphi(q)}
+\left(
+\operatorname{Li}(x)-\operatorname{Li}(y)+\frac{y}{\log y}
+\right).
+\]
+ولذلك تختلف عن \(\operatorname{Li}(x)/\varphi(q)\) بمقدار
+\[
+O\!\left(\frac{\operatorname{Li}(y)+y/\log y}{\varphi(q)}\right)
+=O(y),
+\]
+وهو ممتص في الخطأ السابق. أما خطأ الطرف والتكامل، فيحققان
 \[
 \frac{E(x)}{\log x}
 +
@@ -522,7 +546,8 @@ E(t)\ll_{A,B}\frac{t}{(\log t)^{B+3}}.
 \ll_{A,B}
 \frac{x}{(\log x)^B}.
 \]
-فتنتج \((12.11)\).
+وللتفصيل، مساهمة \([y,\sqrt x]\) لا تتجاوز \(O(\sqrt x)\)، ومساهمة
+\([\sqrt x,x]\) لا تتجاوز \(O(x/(\log x)^{B+5})\). فتنتج \((12.11)\).
 \end{proof}
 
 \section{قراءة النتيجة وحدودها}
