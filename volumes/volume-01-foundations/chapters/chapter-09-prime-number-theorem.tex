@@ -2,7 +2,7 @@
 
 \section{نطاق الفصل وحالته}
 
-\noindent\textbf{حالة الفصل:} \textenglish{VERIFIED}. يثبت هذا الفصل الصيغة
+\noindent\textbf{حالة الفصل:} \textenglish{REVIEWED}. يثبت هذا الفصل الصيغة
 المركزية
 \[
 \psi(x)\sim x,
@@ -22,9 +22,13 @@ PDF، والتدقيق المنطقي الداخلي، والتحقق المرج
   \item \texttt{docs/CHAPTER\_09\_PRE\_AUTHORING\_AUDIT\_2026-07-20.md}.
   \item \texttt{docs/CHAPTER\_09\_LOGIC\_AUDIT\_2026-07-20.md}.
   \item \texttt{docs/CHAPTER\_09\_BIBLIOGRAPHIC\_VERIFICATION\_2026-07-20.md}.
+  \item \texttt{docs/CHAPTER\_09\_INDEPENDENT\_REVIEW\_2026-07-20.md}.
 \end{itemize}
-ولا تعني حالة \textenglish{VERIFIED} أن الفصل \textenglish{REVIEWED} أو
-\textenglish{RELEASE-READY}؛ فالمراجعة الثانية المستقلة لم تجر بعد.
+تعني حالة \textenglish{REVIEWED} أن الفصل اجتاز المراجعة الثانية
+المستقلة بحكم \textenglish{APPROVED} على الالتزام
+\texttt{44dc9e433f262ac71ceb52f59ed5b59c77e58832}، بلا تصحيحات إلزامية.
+ولا تعني هذه الحالة أن الفصل \textenglish{RELEASE-READY}، ولا تجيز دمج
+طلب السحب من دون أمر صريح من مالك المشروع.
 
 المسار الأساسي تاوبيري عبر مبرهنة Wiener--Ikehara. أما مسار
 Hadamard--de la Vallée Poussin الفعال فيعرض منفصلًا، لأن صيغة بيرون وتحويل
@@ -555,8 +559,10 @@ f(s)-\frac1{s-1}
 \cite{Apostol1976,Davenport2000,MontgomeryVaughan2007,
 IwaniecKowalski2004,Tenenbaum2015,Titchmarsh1986}.
 
-المرحلة التالية هي المراجعة الثانية المستقلة، لا الدمج. ولا يرفع الفصل إلى
-\textenglish{REVIEWED} قبل استلام حكم مستقل ومعالجة ملاحظاته.
+اجتاز الفصل المراجعة الثانية المستقلة بحكم \textenglish{APPROVED}، وسجل
+الحكم في
+\texttt{docs/CHAPTER\_09\_INDEPENDENT\_REVIEW\_2026-07-20.md}.
+ويبقى الدمج خطوة منفصلة لا تنفذ إلا بأمر صريح من مالك المشروع.
 
 \section{خلاصة الفصل}
 
