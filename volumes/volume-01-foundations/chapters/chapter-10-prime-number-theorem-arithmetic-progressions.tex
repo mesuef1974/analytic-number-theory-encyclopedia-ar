@@ -1,0 +1,599 @@
+\chapter{مبرهنة الأعداد الأولية في المتتاليات الحسابية}
+
+\section{نطاق الفصل وحالته}
+
+\noindent\textbf{حالة الفصل:} \textenglish{DRAFT}. يثبت هذا الفصل، لكل
+ترديد ثابت \(q\ge2\) ولكل فئة مختزلة \(a\pmod q\)، الصيغ النوعية
+\[
+\psi(x;q,a)\sim\frac{x}{\varphi(q)},
+\qquad
+\vartheta(x;q,a)\sim\frac{x}{\varphi(q)},
+\qquad
+\pi(x;q,a)\sim\frac{x}{\varphi(q)\log x}.
+\]
+
+بدأ التأليف بعد إغلاق بوابة
+\textenglish{EVIDENCE-FIRST / PRE-AUTHORING}. وتوجد مواد التدقيق السابقة
+للمتن في:
+\begin{itemize}
+  \item \texttt{research/literature-reviews/chapter-10-prime-number-theorem-}
+  \texttt{arithmetic-progressions-evidence.md}.
+  \item \texttt{research/literature-reviews/chapter-10-prime-number-theorem-}
+  \texttt{arithmetic-progressions-proof-map.md}.
+  \item \texttt{docs/CHAPTER\_10\_PRE\_AUTHORING\_AUDIT\_2026-07-20.md}.
+  \item \texttt{docs/CHAPTER\_10\_LOGIC\_AUDIT\_2026-07-20.md}.
+  \item \texttt{docs/CHAPTER\_10\_BIBLIOGRAPHIC\_VERIFICATION\_2026-07-20.md}.
+\end{itemize}
+
+المسار تاوبيري نوعي: نفكك سلسلة فون مانغولت في الفئة بواسطة شخصيات
+ديريشليه، ونثبت عدم انعدام دوال \(L\) على الخط \(\Re(s)=1\)، ثم نعزل
+قطب الشخصية الرئيسية ونطبق مبرهنة Wiener--Ikehara على سلسلة الفئة ذات
+المعاملات غير السالبة.
+
+لا يدعي الفصل انتظامًا عندما ينمو \(q\) مع \(x\)، ولا حد خطأ فعالًا، ولا
+مبرهنة Siegel--Walfisz، ولا مبرهنة Bombieri--Vinogradov، ولا نتيجة مشروطة
+بفرضية ريمان المعممة. تبقى هذه موضوعات مستقلة مؤجلة.
+
+\subsection{المتطلبات السابقة}
+
+يعتمد الفصل على:
+\begin{itemize}
+  \item الجمع الجزئي واللغة التقاربية من الفصل الثاني.
+  \item تعامد شخصيات ديريشليه وبنيتها التحليلية من الفصل السابع.
+  \item مرشح الفئة الحسابية من الفصل الثامن.
+  \item حد تشيبيشيف، وعدم انعدام زيتا على الخط، وصيغة Wiener--Ikehara من
+  الفصل التاسع.
+\end{itemize}
+
+\subsection{نواتج التعلم}
+
+بعد إتمام الفصل ينبغي أن يستطيع القارئ:
+\begin{enumerate}
+  \item تعريف دوال العد الموزونة وغير الموزونة داخل فئة حسابية مختزلة.
+  \item تحويل شرط التطابق إلى مجموع على شخصيات ديريشليه.
+  \item بناء سلسلة ديريشليه ذات معاملات غير سالبة للفئة نفسها.
+  \item إثبات المتراجحة الموزونة لدوال \(L\) حتى عند القيم
+  \(|\chi(n)|<1\).
+  \item إثبات عدم انعدام \(L(s,\chi)\) على \(\Re(s)=1\) من دون دور.
+  \item عزل قطب الشخصية الرئيسية وحساب الباقي \(1/\varphi(q)\).
+  \item تطبيق Wiener--Ikehara على \(\psi(x;q,a)\).
+  \item الانتقال إلى \(\vartheta(x;q,a)\) و\(\pi(x;q,a)\).
+  \item التمييز بين النتيجة النوعية لترديد ثابت والنتائج الكمية الموحدة.
+\end{enumerate}
+
+\section{دوال العد في فئة حسابية}
+
+نثبت في بقية الفصل عددًا صحيحًا \(q\ge2\)، وعددًا صحيحًا \(a\) يحقق
+\((a,q)=1\). ولكل \(x\ge1\) نعرف
+\[
+\pi(x;q,a)
+=
+\sum_{\substack{p\le x\\p\equiv a\pmod q}}1,
+\]
+\[
+\vartheta(x;q,a)
+=
+\sum_{\substack{p\le x\\p\equiv a\pmod q}}\log p,
+\]
+و
+\[
+\psi(x;q,a)
+=
+\sum_{\substack{n\le x\\n\equiv a\pmod q}}\Lambda(n).
+\]
+
+بما أن الفئة \(a\pmod q\) مختزلة، فإن كل عدد \(n\equiv a\pmod q\)
+أولي مع \(q\). وهذه الملاحظة تجعل مرشح الشخصيات صالحًا على جميع الأعداد
+الداخلة في السلسلة.
+
+\section{سلسلة فون مانغولت في الفئة}
+
+عندما \(\Re(s)>1\)، نضع
+\[
+F_{q,a}(s)
+=
+\sum_{\substack{n\ge1\\n\equiv a\pmod q}}
+\frac{\Lambda(n)}{n^s}.
+\]
+
+\begin{proposition}[تفكيك سلسلة الفئة بواسطة الشخصيات]
+\label{prop:class-von-mangoldt-dirichlet-series}
+\resultid{ANT-PROP-10-01}
+\draftresult
+إذا كان \(\Re(s)>1\)، فإن
+\[
+F_{q,a}(s)
+=
+\frac1{\varphi(q)}
+\sum_{\chi\bmod q}
+\overline{\chi(a)}
+\left(-\frac{L'}{L}(s,\chi)\right).
+\]
+\end{proposition}
+
+\begin{proof}
+من علاقة التعامد في \textenglish{\texttt{ANT-COR-07-01}}:
+\[
+\frac1{\varphi(q)}
+\sum_{\chi\bmod q}\overline{\chi(a)}\chi(n)
+=
+\begin{cases}
+1,& n\equiv a\pmod q,\\
+0,& n\not\equiv a\pmod q.
+\end{cases}
+\]
+إذا كان \((n,q)>1\)، فإن جميع الشخصيات تنعدم عند \(n\)، كما أن
+\(n\not\equiv a\pmod q\) لأن \(a\) مختزل؛ لذلك تبقى الهوية صحيحة في هذه
+الحالة أيضًا.
+
+وباستعمال التقارب المطلق، ثم
+\textenglish{\texttt{ANT-PROP-07-06}}، نحصل على
+\begin{align*}
+F_{q,a}(s)
+&=
+\sum_{n=1}^{\infty}
+\frac{\Lambda(n)}{n^s}
+\frac1{\varphi(q)}
+\sum_{\chi\bmod q}\overline{\chi(a)}\chi(n)\\
+&=
+\frac1{\varphi(q)}
+\sum_{\chi\bmod q}\overline{\chi(a)}
+\sum_{n=1}^{\infty}\frac{\Lambda(n)\chi(n)}{n^s}\\
+&=
+\frac1{\varphi(q)}
+\sum_{\chi\bmod q}\overline{\chi(a)}
+\left(-\frac{L'}{L}(s,\chi)\right).
+\end{align*}
+\end{proof}
+
+\section{المتراجحة الموزونة لدوال \(L\)}
+
+الحجة الحدية تحتاج موجبية أوسع قليلًا من الهوية المثلثية على دائرة
+الوحدة، لأن الشخصية قد تنعدم عند الأعداد غير الأولية مع الترديد.
+
+\begin{lemma}[المتراجحة الموزونة للمشتقات اللوغاريتمية]
+\label{lem:weighted-dirichlet-l-log-derivatives}
+\resultid{ANT-LEM-10-01}
+\draftresult
+لكل شخصية ديريشليه \(\chi\pmod q\)، ولكل \(\sigma>1\) و
+\(t\in\mathbb R\):
+\[
+-3\frac{\zeta'}{\zeta}(\sigma)
+-4\Re\frac{L'}{L}(\sigma+it,\chi)
+-\Re\frac{L'}{L}(\sigma+2it,\chi^2)
+\ge0.
+\]
+\end{lemma}
+
+\begin{proof}
+من التقارب المطلق لمتسلسلات المشتقات اللوغاريتمية:
+\begin{align*}
+&-3\frac{\zeta'}{\zeta}(\sigma)
+-4\Re\frac{L'}{L}(\sigma+it,\chi)
+-\Re\frac{L'}{L}(\sigma+2it,\chi^2)\\
+&\quad=
+\sum_{n=1}^{\infty}\frac{\Lambda(n)}{n^\sigma}
+\left(3+4\Re z_n+\Re(z_n^2)\right),
+\end{align*}
+حيث
+\[
+z_n=\chi(n)n^{-it},
+\qquad |z_n|\le1.
+\]
+
+يكفي إثبات أن
+\[
+3+4\Re z+\Re(z^2)\ge0
+\qquad(|z|\le1).
+\]
+اكتب \(z=re^{i\theta}\)، حيث \(0\le r\le1\)، وضع
+\(u=\cos\theta\). عندئذ
+\[
+3+4\Re z+\Re(z^2)
+=
+2r^2u^2+4ru+3-r^2.
+\]
+مشتقة الطرف الأيمن بالنسبة إلى \(u\) هي
+\[
+4r(ru+1)\ge0
+\qquad(-1\le u\le1),
+\]
+لأن \(ru+1\ge1-r\ge0\). لذلك تقع القيمة الدنيا عند \(u=-1\)،
+وتساوي
+\[
+3-4r+r^2=(1-r)(3-r)\ge0.
+\]
+وبما أن \(\Lambda(n)n^{-\sigma}\ge0\)، تنتج المتراجحة.
+\end{proof}
+
+\section{عدم انعدام دوال \(L\) على الخط الواحد}
+
+\begin{theorem}[عدم الانعدام على \(\Re(s)=1\)]
+\label{thm:dirichlet-l-nonvanishing-on-one-line}
+\resultid{ANT-THM-10-01}
+\draftresult
+لتكن \(\chi\pmod q\) شخصية ديريشليه.
+\begin{enumerate}
+  \item إذا كانت \(\chi\) غير رئيسية، فإن
+  \[
+  L(1+it,\chi)\ne0
+  \qquad(t\in\mathbb R).
+  \]
+  \item إذا كانت \(\chi=\chi_0\) رئيسية، فإن \(L(s,\chi_0)\) لها قطب
+  بسيط عند \(s=1\)، وتحقق
+  \[
+  L(1+it,\chi_0)\ne0
+  \qquad(t\ne0).
+  \]
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+عند \(t=0\)، تعطي
+\textenglish{\texttt{ANT-THM-07-09}} عدم انعدام \(L(1,\chi)\) لكل شخصية
+غير رئيسية. أما الشخصية الرئيسية فلها قطب بسيط عند \(1\) من
+\textenglish{\texttt{ANT-PROP-07-02}}.
+
+افترض الآن أن \(t\ne0\)، وأن \(L(1+it,\chi)\) لها صفر رتبته
+\(m\ge1\). عندما \(\sigma\downarrow1\)، يعطينا قطب زيتا البسيط
+\[
+\frac{\zeta'}{\zeta}(\sigma)
+=-\frac1{\sigma-1}+O(1),
+\]
+ويعطينا التحليل المحلي عند الصفر
+\[
+\Re\frac{L'}{L}(\sigma+it,\chi)
+=
+\frac{m}{\sigma-1}+O(1).
+\]
+
+لا يمكن أن يكون لـ\(L(s,\chi^2)\) قطب عند \(1+2it\)، لأن قطب الشخصية
+الرئيسية الوحيد يقع عند \(1\)، و\(t\ne0\). ولتكن \(m_2\ge0\) رتبة الصفر
+عند \(1+2it\)، مع \(m_2=0\) إذا لم تكن النقطة صفرًا. عندئذ
+\[
+\Re\frac{L'}{L}(\sigma+2it,\chi^2)
+=
+\frac{m_2}{\sigma-1}+O(1).
+\]
+
+إذن الطرف الأيسر في المتراجحة الموزونة يساوي
+\[
+\frac{3-4m-m_2}{\sigma-1}+O(1).
+\]
+لكن
+\[
+3-4m-m_2\le-1,
+\]
+فيصبح الطرف سالبًا عندما تكون \(\sigma-1\) موجبة وصغيرة، وهذا يناقض
+المتراجحة.
+\end{proof}
+
+\begin{remark}[الشخصيات غير البدائية]
+البرهان السابق يعمل مباشرة لكل شخصية، ولا يحتاج اختزالها أولًا إلى شخصية
+بدائية. ويمكن التحقق أيضًا من صيغة الاستحداث: العوامل المحلية المحذوفة
+\[
+1-\chi^*(p)p^{-s}
+\]
+لا تنعدم على \(\Re(s)=1\)، لأن
+\[
+|\chi^*(p)p^{-s}|\le p^{-1}<1.
+\]
+\end{remark}
+
+\begin{remark}[عدم الدور]
+لم يستعمل البرهان مبرهنة الأعداد الأولية في المتتاليات الحسابية، ولا حد
+خطأ في الفئات، ولا منطقة خالية كمية، ولا صيغة صريحة للفئات. اعتمد فقط على
+المنتجات الأويلرية في \(\Re(s)>1\)، وقطب زيتا، وعدم الانعدام عند
+\(s=1\) المثبت في الفصل السابع، والموجبية السابقة.
+\end{remark}
+
+\section{عزل قطب الشخصية الرئيسية}
+
+\begin{proposition}[امتداد سلسلة الفئة بعد طرح القطب]
+\label{prop:class-series-pole-removal}
+\resultid{ANT-PROP-10-02}
+\draftresult
+تمتد الدالة
+\[
+F_{q,a}(s)-\frac1{\varphi(q)(s-1)}
+\]
+هولومورفيًا إلى جوار كل نقطة من الخط \(\Re(s)=1\).
+\end{proposition}
+
+\begin{proof}
+للشخصية الرئيسية \(\chi_0\pmod q\):
+\[
+L(s,\chi_0)
+=
+\zeta(s)P_q(s),
+\qquad
+P_q(s)=\prod_{p\mid q}(1-p^{-s}).
+\]
+الدالة \(P_q\) هولومورفية وغير منعدمة في جوار \(s=1\). لذلك
+\[
+-\frac{L'}{L}(s,\chi_0)
+=
+-\frac{\zeta'}{\zeta}(s)-\frac{P_q'}{P_q}(s)
+=
+\frac1{s-1}+H_q(s),
+\]
+حيث \(H_q\) هولومورفية قرب \(1\).
+
+وبما أن \((a,q)=1\)، فإن \(\chi_0(a)=1\). ومن تفكيك
+\textenglish{\texttt{ANT-PROP-10-01}} يكون الباقي عند \(s=1\):
+\[
+\operatorname*{Res}_{s=1}F_{q,a}(s)
+=
+\frac1{\varphi(q)}.
+\]
+جميع حدود الشخصيات غير الرئيسية هولومورفية قرب \(1\)، لأن دوالها تامة
+وغير منعدمة عند \(1\) من المبرهنة السابقة.
+
+وعند نقطة \(1+it\) مع \(t\ne0\)، تكون جميع دوال \(L(s,\chi)\)
+هولومورفية وغير منعدمة في جوار النقطة؛ فتكون مشتقاتها اللوغاريتمية
+هولومورفية. كما أن \(1/(s-1)\) هولومورفية قرب تلك النقطة. ينتج الامتداد
+المطلوب على طول الخط كله.
+\end{proof}
+
+\section{الصيغة المركزية في الفئة}
+
+نطبق الآن مبرهنة Wiener--Ikehara المسجلة في
+\textenglish{\texttt{ANT-THM-09-02}} بحالة \textenglish{\texttt{CITED}}،
+ومصدرها \cite[Theorem 1.1، الصفحات 1107--1108]{Korevaar2006}.
+
+\begin{theorem}[مبرهنة الأعداد الأولية الموزونة في فئة ثابتة]
+\label{thm:pnt-ap-psi}
+\resultid{ANT-THM-10-02}
+\draftresult
+إذا كان \(q\ge2\) ثابتًا و\((a,q)=1\)، فإن
+\[
+\psi(x;q,a)
+\sim
+\frac{x}{\varphi(q)}
+\qquad(x\to\infty).
+\]
+\end{theorem}
+
+\begin{proof}
+نطبق Wiener--Ikehara على المعاملات
+\[
+b_n
+=
+\Lambda(n)\mathbf 1_{n\equiv a\pmod q}.
+\]
+هذه المعاملات غير سالبة، وسلسلتها الديريشلية هي \(F_{q,a}(s)\)، المتقاربة
+في \(\Re(s)>1\). ومجاميعها الجزئية هي
+\[
+B(x)=\sum_{n\le x}b_n=\psi(x;q,a).
+\]
+كما أن
+\[
+0\le\psi(x;q,a)\le\psi(x)\ll x
+\]
+من \textenglish{\texttt{ANT-LEM-09-02}}. وأثبتنا أن
+\[
+F_{q,a}(s)-\frac1{\varphi(q)(s-1)}
+\]
+يمتد عبر الخط \(\Re(s)=1\). إذن تعطي المبرهنة، مع
+\(A=1/\varphi(q)\):
+\[
+\psi(n;q,a)\sim\frac{n}{\varphi(q)}
+\]
+للأعداد الصحيحة \(n\). ولعدد حقيقي \(x\):
+\[
+\psi(x;q,a)=\psi(\lfloor x\rfloor;q,a),
+\]
+ومن \(\lfloor x\rfloor\sim x\) تنتج الصيغة المطلوبة.
+\end{proof}
+
+\section{إزالة القوى الأولية العليا}
+
+\begin{corollary}[الصيغة الموزونة على الأوليات فقط]
+\label{cor:pnt-ap-theta}
+\resultid{ANT-COR-10-01}
+\draftresult
+إذا كان \(q\) ثابتًا و\((a,q)=1\)، فإن
+\[
+\vartheta(x;q,a)
+\sim
+\frac{x}{\varphi(q)}.
+\]
+\end{corollary}
+
+\begin{proof}
+الفرق \(\psi(x;q,a)-\vartheta(x;q,a)\) هو مساهمة القوى الأولية
+\(p^m\le x\) ذات \(m\ge2\) الواقعة في الفئة. لذلك
+\[
+0\le
+\psi(x;q,a)-\vartheta(x;q,a)
+\le
+\psi(x)-\vartheta(x).
+\]
+ومن \textenglish{\texttt{ANT-LEM-09-02}}:
+\[
+\psi(x)-\vartheta(x)
+\ll\sqrt{x}\log x=o(x).
+\]
+وبضم ذلك إلى
+\(\psi(x;q,a)=x/\varphi(q)+o(x)\)، نحصل على النتيجة.
+\end{proof}
+
+\section{الانتقال إلى دالة العد}
+
+\begin{corollary}[مبرهنة الأعداد الأولية في متتالية حسابية ثابتة]
+\label{cor:pnt-ap-pi}
+\resultid{ANT-COR-10-02}
+\draftresult
+إذا كان \(q\ge2\) ثابتًا و\((a,q)=1\)، فإن
+\[
+\pi(x;q,a)
+\sim
+\frac{x}{\varphi(q)\log x}.
+\]
+\end{corollary}
+
+\begin{proof}
+يعطي الجمع الجزئي، كما في برهان
+\textenglish{\texttt{ANT-THM-02-04}}:
+\[
+\pi(x;q,a)
+=
+\frac{\vartheta(x;q,a)}{\log x}
++
+\int_2^x
+\frac{\vartheta(t;q,a)}{t(\log t)^2}\,dt.
+\]
+من النتيجة السابقة
+\[
+\vartheta(t;q,a)
+=
+\frac{t}{\varphi(q)}+o(t),
+\qquad
+\vartheta(t;q,a)\ll t.
+\]
+إذن
+\[
+\frac{\vartheta(x;q,a)}{\log x}
+=
+\frac{x}{\varphi(q)\log x}
++o\!\left(\frac{x}{\log x}\right),
+\]
+بينما
+\[
+\int_2^x
+\frac{\vartheta(t;q,a)}{t(\log t)^2}\,dt
+\ll
+\int_2^x\frac{dt}{(\log t)^2}
+\ll
+\frac{x}{(\log x)^2}.
+\]
+وهذا حد أصغر من الحد الرئيسي، فتنتج الدعوى.
+\end{proof}
+
+\section{ماذا تعني النتيجة؟}
+
+لكل فئة مختزلة ثابتة \(a\pmod q\)، يكون نصيبها التقاربي من الكتلة
+الأولية مساويًا
+\[
+\frac1{\varphi(q)}.
+\]
+أي أن الفئات المختزلة تتقاسم الأوليات بالتساوي في الحد الرئيسي عندما يكون
+الترديد ثابتًا. وهذه نتيجة أقوى جوهريًا من مجرد وجود عدد لا نهائي من
+الأوليات في كل فئة، المثبت في الفصل الثامن.
+
+لكن عبارة ``بالتساوي'' هنا تقاربية فقط، ولا تعطي سرعة التقارب ولا سلوك
+الخطأ لفئة معينة عند ارتفاعات محددة.
+
+\section{ما الذي لم يثبت؟}
+
+لا يثبت المسار الحالي تقديرًا من نوع
+\[
+\psi(x;q,a)
+=
+\frac{x}{\varphi(q)}+E(x;q,a)
+\]
+مع حد فعال أو موحد لـ\(E(x;q,a)\). وللحصول على نتائج كمية نحتاج عادة إلى:
+\begin{enumerate}
+  \item مناطق خالية كمية لدوال \(L(s,\chi)\).
+  \item ضبط الأصفار الحقيقية القريبة من \(1\) وإمكان الصفر الاستثنائي.
+  \item صيغ صريحة أو تحويل مسار مع تقديرات موحدة.
+  \item أدوات إضافية عندما يتغير \(q\) مع \(x\).
+\end{enumerate}
+
+لذلك تبقى مبرهنتا Siegel--Walfisz وBombieri--Vinogradov، والنتائج تحت
+GRH، موضوعات منفصلة لاحقة. ولا يجوز نسبتها إلى هذا الفصل.
+
+\section{خريطة الاعتماد المنطقي}
+
+\begin{enumerate}
+  \item تعامد الشخصيات يحول شرط التطابق إلى مجموع ملتوي.
+  \item المشتقة اللوغاريتمية تحول الالتواء إلى دوال \(L\).
+  \item الموجبية الموزونة تمنع أصفار \(L\) على \(\Re(s)=1\).
+  \item الشخصية الرئيسية وحدها تعطي قطبًا عند \(1\).
+  \item مرشح الفئة يقسم باقي القطب على \(\varphi(q)\).
+  \item Wiener--Ikehara تحول القطب وعدم الانعدام إلى
+  \(\psi(x;q,a)\sim x/\varphi(q)\).
+  \item ضبط القوى الأولية العليا يعطي صيغة \(\vartheta\).
+  \item الجمع الجزئي يعطي صيغة \(\pi\).
+\end{enumerate}
+
+لا توجد حافة تعود من النتيجة النهائية إلى برهان عدم الانعدام أو إلى
+تحليل القطب.
+
+\section{أخطاء شائعة}
+
+\begin{enumerate}
+  \item تطبيق Wiener--Ikehara مباشرة على سلسلة ملتوية ذات معاملات مركبة.
+  \item استعمال الهوية \(3+4\cos u+\cos2u\ge0\) من دون معالجة حالة
+  \(\chi(n)=0\).
+  \item الخلط بين عدم انعدام \(L(1,\chi)\) وعدم الانعدام على الخط كله.
+  \item إغفال العوامل المحلية عند الشخصيات غير البدائية.
+  \item نسيان أن قطب الشخصية الرئيسية وحده هو الذي يولد الحد الرئيسي.
+  \item اعتبار النتيجة موحدة في \(q\) مع أنها مثبتة لكل \(q\) ثابت.
+  \item استنتاج حد خطأ فعال من صيغة تقاربية تاوبيرية مجردة.
+\end{enumerate}
+
+\section{أسئلة تفسير البرهان}
+
+\begin{enumerate}
+  \item لماذا نطبق الأداة التاوبيرية على سلسلة الفئة لا على كل التواء منفرد؟
+  \item أين استعملت فرضية \((a,q)=1\)؟
+  \item لماذا لا يسبب \(L(s,\chi^2)\) قطبًا عند \(1+2it\) عندما
+  \(t\ne0\)؟
+  \item كيف يظهر العامل \(1/\varphi(q)\) من مرشح الشخصيات؟
+  \item ما الفرق المنطقي بين الفصل الثامن والفصل الحالي؟
+  \item لماذا لا تكفي النتيجة الحالية لإثبات Siegel--Walfisz؟
+\end{enumerate}
+
+\section{تمارين}
+
+\subsection{المستوى الأول}
+\begin{enumerate}
+  \item تحقق من مرشح الفئة عندما \((n,q)>1\).
+  \item أثبت أن \(P_q(1)=\prod_{p\mid q}(1-p^{-1})=\varphi(q)/q\).
+  \item بين أن \(\psi(x;q,a)\le\psi(x)\).
+  \item أثبت أن فرق \(\psi(x;q,a)-\vartheta(x;q,a)\) غير سالب.
+\end{enumerate}
+
+\subsection{المستوى الثاني}
+\begin{enumerate}
+  \item أثبت مباشرة أن
+  \[
+  3+4\Re z+\Re(z^2)\ge0
+  \qquad(|z|\le1).
+  \]
+  \item اشتق المتراجحة الموزونة حدًا حدًا من متسلسلات المشتقات
+  اللوغاريتمية.
+  \item تحقق من أن العوامل المحلية المحذوفة لا تنعدم على \(\Re(s)=1\).
+  \item احسب باقي \(F_{q,a}\) عند \(s=1\) من تفكيك الشخصيات.
+\end{enumerate}
+
+\subsection{المستوى الثالث}
+\begin{enumerate}
+  \item طابق فروض Wiener--Ikehara بندًا بندًا مع معاملات سلسلة الفئة.
+  \item أعد برهان الانتقال من \(\vartheta(x;q,a)\) إلى \(\pi(x;q,a)\)
+  مع تقدير التكامل المتبقي.
+  \item حدد الموضع الذي يفشل فيه البرهان إذا سمحنا لـ\(q\) بالنمو مع
+  \(x\).
+  \item صمم خريطة منفصلة للانتقال من النتيجة النوعية إلى Siegel--Walfisz،
+  مع وسم كل أداة غير متاحة حاليًا.
+\end{enumerate}
+
+\section{المراجع ومسار التوسع}
+
+للأصل التاريخي انظر \cite{DeLaValleePoussin1896}. وللمعالجات القياسية
+للأوليات في المتتاليات الحسابية والخواص التحليلية لدوال \(L\)، راجع
+\cite{Davenport2000,MontgomeryVaughan2007,Tenenbaum2015,
+IwaniecKowalski2004}.
+
+اعتمد الفصل صيغة Wiener--Ikehara الموثقة في الفصل التاسع من
+\cite{Korevaar2006}. أما النتائج الكمية والموحدة فتبقى خارج نطاق هذه
+المسودة.
+
+\section{خلاصة الفصل}
+
+حوّل تعامد الشخصيات شرط التطابق إلى مجموع من المشتقات اللوغاريتمية لدوال
+\(L\). ومنعت المتراجحة الموزونة أصفار هذه الدوال على الخط \(\Re(s)=1\)،
+فبقي قطب الشخصية الرئيسية وحده، وباقيه داخل سلسلة الفئة
+\(1/\varphi(q)\). ثم حولت Wiener--Ikehara هذه المعلومة التحليلية إلى
+التوزيع المتساوي النوعي للأوليات بين الفئات المختزلة عند الترديد الثابت.
