@@ -13,6 +13,7 @@
 - [قائمة المهام](docs/TODO.md)
 - [الإصدار الحالي](docs/VERSION.md)
 - [دليل بناء PDF](docs/BUILD.md)
+- [التحقق المحلي من Artifact الفصل الثاني عشر](docs/LOCAL_ARTIFACT_VERIFICATION_2026-07-20.md)
 - [سياسة اعتماد النتائج](docs/RESULT_STATUS_POLICY.md)
 - [سجل النتائج المعتمدة](docs/RESULTS_REGISTRY.md)
 - [سجل أدلة الفصل الثاني عشر](research/literature-reviews/chapter-12-siegel-walfisz-evidence.md)
@@ -36,21 +37,26 @@
 الإصدار: `v0.16.0-dev`
 
 ```text
-BASE-MAIN              = 9d02c583d416053550d22dfd7acc44d9c264a02c
-BRANCH                 = agent/chapter-12-siegel-walfisz-v0.16.0
-CHAPTER-12             = VERIFIED
-PRE-AUTHORING-GATE     = CLOSED / PASS
-POST-AUTHORING-GATE    = CLOSED / PASS
-FINAL-HEAD             = 19a1a7b13be3e7b64fd484b66f6457ffee95cd96
-QUALITY-CHECKS         = RUN-286 / SUCCESS
-PDF-BUILD              = RUN-281 / SUCCESS
-PDF-ARTIFACT-SHA256    = a31df8167c42b33a22904f1f13597c9088524cce7fc0b049855acc4ea0460485
-EXPLICIT-FORMULA       = CITED-INPUT
-SIEGEL-CONSTANT        = INEFFECTIVE
-BOMBIERI-VINOGRADOV    = DEFERRED
-INDEPENDENT-REVIEW     = NOT YET STARTED
-RELEASE-READY          = NO
+BASE-MAIN                 = 9d02c583d416053550d22dfd7acc44d9c264a02c
+BRANCH                    = agent/chapter-12-siegel-walfisz-v0.16.0
+CHAPTER-12                = VERIFIED
+PRE-AUTHORING-GATE        = CLOSED / PASS
+POST-AUTHORING-GATE       = CLOSED / PASS
+VERIFIED-MANUSCRIPT-HEAD  = e6c87affd453f6088b0d1f5400432f7e4228ed57
+QUALITY-CHECKS            = RUN-287 / SUCCESS
+PDF-BUILD                 = RUN-282 / SUCCESS
+CI-ARTIFACT-SHA256        = eaaddb7d7cdd6c95c5ea09a0f2354b48b47c408f4208cd6f4f41fd98ac2d6eab
+LOCAL-PDF-PAGES           = 184
+LOCAL-PDF-SHA256          = 8614C02802E080121875CB0AE7FFD06194D73236E226DB1A41112A8D9E30D763
+LOCAL-VERIFICATION        = ARTIFACT-VERIFIED / SOURCE-BUILD-NOT-CLAIMED
+EXPLICIT-FORMULA          = CITED-INPUT
+SIEGEL-CONSTANT           = INEFFECTIVE
+BOMBIERI-VINOGRADOV       = DEFERRED
+INDEPENDENT-REVIEW        = NOT YET STARTED
+RELEASE-READY             = NO
 ```
+
+`CI-ARTIFACT-SHA256` هو digest لأرشيف Artifact، بينما `LOCAL-PDF-SHA256` هو SHA256 لملف PDF المفكوك نفسه؛ لذلك لا يفترض أن يتطابقا.
 
 ## الفصل الثاني عشر
 
@@ -110,13 +116,20 @@ RELEASE-READY          = NO
 
 ## بناء PDF
 
-على Windows:
+للمزامنة والبناء المحلي وتوليد إيصال:
+
+```powershell
+cd "D:\analytic-number-theory-encyclopedia-ar"
+.\scripts\sync-build.ps1 -Open -CommitReceipt -Push
+```
+
+وللبناء فقط من الشجرة الحالية:
 
 ```powershell
 .\scripts\build.ps1 -Clean -Open
 ```
 
-وعلى GitHub يُبنى PDF تلقائيًا بعد كل Push يؤثر في ملفات الكتاب، ثم يُرفع كـArtifact. راجع [دليل بناء PDF](docs/BUILD.md).
+على GitHub يُبنى PDF تلقائيًا بعد كل Push يؤثر في ملفات الكتاب، ثم يُرفع كـArtifact. راجع [دليل بناء PDF](docs/BUILD.md).
 
 ## هيكل المشروع
 
