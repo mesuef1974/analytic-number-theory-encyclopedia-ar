@@ -17,26 +17,14 @@
 - [سجل النتائج المعتمدة](docs/RESULTS_REGISTRY.md)
 - [مراجعة الفصل السابع المستقلة](docs/CHAPTER_07_INDEPENDENT_REVIEW_2026-07-19.md)
 - [مراجعة الفصل الثامن المستقلة](docs/CHAPTER_08_INDEPENDENT_REVIEW_2026-07-20.md)
-- [التحقق المرجعي للفصل الثامن](docs/CHAPTER_08_BIBLIOGRAPHIC_VERIFICATION_2026-07-20.md)
-- [مراجعة أدبيات الفصل الثامن](research/literature-reviews/chapter-08-dirichlet-primes.md)
-- [سجل أدلة الفصل التاسع](research/literature-reviews/chapter-09-prime-number-theorem-evidence.md)
-- [خريطة برهان الفصل التاسع](research/literature-reviews/chapter-09-prime-number-theorem-proof-map.md)
-- [تدقيق ما قبل تأليف الفصل التاسع](docs/CHAPTER_09_PRE_AUTHORING_AUDIT_2026-07-20.md)
-- [التدقيق المنطقي للفصل التاسع](docs/CHAPTER_09_LOGIC_AUDIT_2026-07-20.md)
-- [التحقق المرجعي للفصل التاسع](docs/CHAPTER_09_BIBLIOGRAPHIC_VERIFICATION_2026-07-20.md)
 - [المراجعة المستقلة للفصل التاسع](docs/CHAPTER_09_INDEPENDENT_REVIEW_2026-07-20.md)
-- [سجل أدلة الفصل العاشر](research/literature-reviews/chapter-10-prime-number-theorem-arithmetic-progressions-evidence.md)
-- [خريطة برهان الفصل العاشر](research/literature-reviews/chapter-10-prime-number-theorem-arithmetic-progressions-proof-map.md)
-- [تدقيق ما قبل تأليف الفصل العاشر](docs/CHAPTER_10_PRE_AUTHORING_AUDIT_2026-07-20.md)
-- [التدقيق المنطقي للفصل العاشر](docs/CHAPTER_10_LOGIC_AUDIT_2026-07-20.md)
-- [التحقق المرجعي للفصل العاشر](docs/CHAPTER_10_BIBLIOGRAPHIC_VERIFICATION_2026-07-20.md)
-- [تدقيق ما بعد تأليف الفصل العاشر](docs/CHAPTER_10_AUTHORING_AUDIT_2026-07-20.md)
-- [حزمة المراجعة المستقلة للفصل العاشر](docs/CHAPTER_10_INDEPENDENT_REVIEW_PACKET_2026-07-20.md)
 - [المراجعة المستقلة للفصل العاشر](docs/CHAPTER_10_INDEPENDENT_REVIEW_2026-07-20.md)
 - [سجل أدلة الفصل الحادي عشر](research/literature-reviews/chapter-11-zero-free-regions-exceptional-zeros-evidence.md)
 - [خريطة برهان الفصل الحادي عشر](research/literature-reviews/chapter-11-zero-free-regions-exceptional-zeros-proof-map.md)
 - [تدقيق ما قبل تأليف الفصل الحادي عشر](docs/CHAPTER_11_PRE_AUTHORING_AUDIT_2026-07-20.md)
-- [التحقق المرجعي الأولي للفصل الحادي عشر](docs/CHAPTER_11_REFERENCE_VERIFICATION_2026-07-20.md)
+- [التدقيق المنطقي للفصل الحادي عشر](docs/CHAPTER_11_LOGIC_AUDIT_2026-07-20.md)
+- [تدقيق ما بعد تأليف الفصل الحادي عشر](docs/CHAPTER_11_AUTHORING_AUDIT_2026-07-20.md)
+- [حزمة المراجعة المستقلة للفصل الحادي عشر](docs/CHAPTER_11_INDEPENDENT_REVIEW_PACKET_2026-07-20.md)
 - [سجل التجارب الحاسوبية](docs/EXPERIMENTS_REGISTRY.md)
 
 ## الحالة الحالية
@@ -47,7 +35,7 @@
 
 - بنية المستودع ونظام إدارة الإصدارات والتوثيق العلمي.
 - بناء PDF محليًا وعلى GitHub Actions.
-- الفصول العشرة الأولى من المجلد التأسيسي:
+- الفصول الأحد عشر الأولى من المجلد التأسيسي:
   1. التاريخ والمنهج.
   2. اللغة التقاربية والجمع الجزئي لأبيل.
   3. التحليل المركب الموجّه لنظرية الأعداد.
@@ -58,25 +46,20 @@
   8. مبرهنة ديريشليه للأوليات في المتتاليات الحسابية.
   9. مبرهنة الأعداد الأولية.
   10. مبرهنة الأعداد الأولية في المتتاليات الحسابية لترديد ثابت.
-- الفصل السابع بحالة `REVIEWED` بعد اعتماد المراجعة الخارجية وإغلاق ملاحظاتها ودمج PR #7.
-- الفصل الثامن بحالة `REVIEWED` بعد مراجعة مستقلة عميقة والتحقق المرجعي من مواضع المصادر، وهو مدمج في `main` عبر PR #9.
-- الفصل التاسع بحالة `REVIEWED` بعد حكم مستقل `APPROVED` ونجاح البناء النهائي، وهو مدمج في `main` عبر PR #13 عند التزام الدمج `601d8eef29e973e882f6d2213a382d15e3870d42`.
-- الفصل العاشر بحالة `REVIEWED` بعد مراجعة مستقلة كاملة بحكم `APPROVED` من دون تصحيحات حاجزة، وهو مدمج في `main` عبر PR #15 عند التزام الدمج `6815324de91b20da4b4224522d07424279fd0b41`.
-- نجح الرأس النهائي للفصل العاشر `ffafb2f018d14c29a120f1f1718e62d991071e68` في `Quality checks` run #213 و`Build PDF` run #212.
-- يثبت الفصل العاشر، لكل \(q\) ثابت ولكل \((a,q)=1\):
-  \(\psi(x;q,a)\sim x/\varphi(q)\)، ثم \(\vartheta(x;q,a)\sim x/\varphi(q)\)، ثم \(\pi(x;q,a)\sim x/(\varphi(q)\log x)\).
-- لا يدعي الفصل العاشر انتظامًا في \(q\)، ولا حد خطأ فعالًا، ولا Siegel--Walfisz، ولا Bombieri--Vinogradov، ولا GRH.
-- المرحلة الحالية هي الفصل الحادي عشر عن المناطق الخالية من الأصفار والأصفار الاستثنائية لدوال ديريشليه \(L\).
-- فُتح Draft PR #17 على فرع `agent/chapter-11-zero-free-regions-exceptional-zeros-v0.15.0`.
-- حالة الفصل الحادي عشر `EVIDENCE-FIRST / PRE-AUTHORING`؛ بوابة التأليف مفتوحة والتأليف محجوب حتى اكتمال تدقيق الصيغ الكمية وعدم الدور.
-- بدأ البحث عبر Consensus أولًا، ثم جرى تثبيت البيانات الببليوغرافية من صفحات الناشرين وarXiv.
-- فُصلت ثلاث طبقات مختلفة لفرادة الصفر الاستثنائي: دالة فردية، حاصل ضرب جميع الشخصيات بترديد ثابت، ومبرهنة Landau--Page عبر الموصلات حتى \(Q\).
+  11. المناطق الخالية من الأصفار والأصفار الاستثنائية.
+- الفصول السابع والثامن والتاسع والعاشر بحالة `REVIEWED` ومندمجة في `main`.
+- الفصل الحادي عشر بحالة `VERIFIED` بعد إغلاق بوابة ما قبل التأليف، ونجاح التدقيق المنطقي وتدقيق ما بعد التأليف والبناء.
+- نجح رأس المراجعة المجمد `617549dfd76cd2582c85217d39fab94ffaad1a9f` في `Quality checks` run #247 و`Build PDF` run #243.
+- جمدت نسخة المراجعة في الفرع `review/chapter-11-zero-free-regions-exceptional-zeros-rc1`.
+- فتح Issue #18 لطلب المراجعة المستقلة.
+- PR #17 ما يزال `DRAFT / UNMERGED`، والدمج غير مصرح به.
+- النتائج الداخلية للفصل الحادي عشر مسجلة `PROVED-HERE`، ومبرهنتا Siegel وDeuring--Heilbronn مسجلتان `CITED`، والنتيجة التشخيصية للصيغة الصريحة `DEFERRED`.
+- لا يدعي الفصل أفضل ثابت عددي، ولا برهانًا كاملًا لـDeuring--Heilbronn، ولا Linnik أو Siegel--Walfisz أو Bombieri--Vinogradov أو GRH.
 - معرفات ثابتة للنتائج وحالات منشأ ظاهرة داخل PDF.
-- سجل نتائج يميز البرهان الداخلي من الاستشهاد والنتيجة المؤجلة والمسودة.
 - تجربة Hardy Z منخفضة الارتفاع، مسجلة وقابلة لإعادة التشغيل ومطابقة لإحداثيات LMFDB، بسقف `NO_RH_EVIDENCE`.
 - نواة أولية لفصل الجبهات البحثية الحديثة.
 
-الفصول الحالية متفاوتة الاكتمال، ولا يعد أي فصل `RELEASE-READY` قبل اجتياز بوابة الجودة والمراجعة الثانية وإغلاق ديونه المعلنة. الفصول الثامن والتاسع والعاشر بحالة `REVIEWED`. الفصل الحادي عشر لم يدخل التأليف بعد.
+الفصول الحالية متفاوتة الاكتمال، ولا يعد أي فصل `RELEASE-READY` قبل اجتياز بوابة الجودة والمراجعة الثانية وإغلاق ديونه المعلنة. الفصل الحادي عشر لا يرتفع إلى `REVIEWED` قبل وصول حكم مستقل مكتوب.
 
 ## مبادئ التحرير
 
