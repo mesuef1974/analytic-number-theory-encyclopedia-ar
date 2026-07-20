@@ -8,34 +8,42 @@ VERSION       = 0.15.0-dev
 BRANCH        = agent/chapter-11-zero-free-regions-exceptional-zeros-v0.15.0
 BASE-COMMIT   = 6815324de91b20da4b4224522d07424279fd0b41
 AUDIT-DATE    = 2026-07-20
-AUDIT-STATE   = OPEN
-AUTHORING     = BLOCKED
+AUDIT-STATE   = CLOSED / PASS
+AUTHORING     = AUTHORIZED
 ```
 
 ## المواد الداخلة في التدقيق
 
 - `research/literature-reviews/chapter-11-zero-free-regions-exceptional-zeros-evidence.md`
 - `research/literature-reviews/chapter-11-zero-free-regions-exceptional-zeros-proof-map.md`
+- `docs/CHAPTER_11_REFERENCE_VERIFICATION_2026-07-20.md`
+- `docs/CHAPTER_11_LOG_DERIVATIVE_SIGN_AUDIT_2026-07-20.md`
+- `docs/CHAPTER_11_QUANTITATIVE_INEQUALITY_AUDIT_2026-07-20.md`
+- `docs/CHAPTER_11_UNIFORM_REMAINDER_AUDIT_2026-07-20.md`
+- `docs/CHAPTER_11_STANDARD_ZERO_FREE_REGION_LOGIC_AUDIT_2026-07-20.md`
+- `docs/CHAPTER_11_LANDAU_PAGE_LOGIC_AUDIT_2026-07-20.md`
+- `docs/CHAPTER_11_SIEGEL_INEFFECTIVITY_AUDIT_2026-07-20.md`
+- `docs/CHAPTER_11_DEURING_HEILBRONN_VERIFICATION_2026-07-20.md`
+- `docs/CHAPTER_11_LOGIC_AUDIT_2026-07-20.md`
 - الفصل السابع ونتائجه المسجلة عن الشخصيات البدائية والدالة المكتملة والمعادلة الوظيفية.
 - الفصل العاشر ونتيجته المسجلة عن عدم الانعدام على الخط \(\Re(s)=1\).
-- المراجع القياسية: Davenport، Montgomery--Vaughan، Iwaniec--Kowalski.
-- المراجع المتخصصة: McCurley، Li، Heath-Brown، Kadiri، Khale، Benli--Goel--Twiss--Zaman، Bordignon.
 
-## الحكم الأولي
+## الحكم النهائي
 
 ```text
 EVIDENCE-FIRST        = PASS
 SCOPE-SEPARATION      = PASS
-REFERENCE-COVERAGE    = PARTIAL
-PROOF-MAP             = COMPLETE-CANDIDATE
-LOGIC-AUDIT           = NOT PASSED
-PRE-AUTHORING-GATE    = OPEN
-AUTHORING              = BLOCKED
+REFERENCE-COVERAGE    = PASS-FOR-ADOPTED-SCOPE
+PROOF-MAP             = PASS
+LOGIC-AUDIT           = PASS
+SIGN-AUDIT            = PASS
+CIRCULARITY           = PASS
+PRE-AUTHORING-GATE    = CLOSED
+AUTHORING              = AUTHORIZED
+BLOCKING-CORRECTIONS  = NONE
 ```
 
-السبب في إبقاء البوابة مفتوحة ليس نقص الموضوع أو المراجع، بل وجود عقد كمية دقيقة يجب تثبيت إشاراتها وصيغها قبل تحويلها إلى متن موسوعي.
-
-## قائمة الفحص
+## قائمة الفحص المغلقة
 
 ### A. النطاق والادعاءات
 
@@ -45,110 +53,109 @@ AUTHORING              = BLOCKED
 - [x] فصل النتائج الفعالة عن ثابت Siegel غير الفعال.
 - [x] تأجيل Siegel--Walfisz وBombieri--Vinogradov وLinnik.
 - [x] عدم ادعاء أفضل ثابت عددي.
-- [ ] تثبيت الصيغة النهائية للمقياس \(\mathcal L(q,t)\).
-- [ ] تثبيت نطاق الترديد والارتفاع في صياغة النتيجة المركزية.
+- [x] تثبيت المقياس \(\mathcal L(q,t)=\log(q(|t|+2))\).
+- [x] تثبيت نطاق النتيجة المركزية وثابت مطلق غير محسن.
 
 ### B. التبعيات الداخلية
 
-- [x] التحقق من وجود `ANT-THM-07-02` في سجل النتائج.
-- [x] التحقق من وجود `ANT-THM-07-04` و`ANT-PROP-07-03` للبدائية والعوامل المحلية.
-- [x] التحقق من وجود `ANT-THM-07-08` للمعادلة الوظيفية.
-- [x] التحقق من وجود `ANT-COR-07-05` و`ANT-PROP-07-04` للأصفار وتناظراتها.
-- [x] التحقق من وجود `ANT-PROP-07-06` للمشتقة اللوغاريتمية في \(\Re(s)>1\).
-- [x] التحقق من وجود `ANT-THM-07-09` لعدم الانعدام عند \(1\).
-- [x] التحقق من وجود `ANT-LEM-07-01` للموجبية المثلثية.
-- [x] التحقق من وجود `ANT-THM-10-01` لعدم الانعدام على الخط.
-- [ ] تحديد هل يحتاج الفصل إلى جداء هادامار مستقل لدوال \(L\) المكتملة أو يكفي اقتباس الصيغة القياسية للمشتقة اللوغاريتمية.
+- [x] تثبيت الاعتماد على بنية الفصل السابع.
+- [x] تثبيت الاعتماد على عدم الانعدام على الخط من الفصل العاشر.
+- [x] اشتقاق صيغة الكسور الجزئية من هادامار العام والدالة المكتملة.
+- [x] وسم هادامار العام والنمو من الرتبة الأولى كمكوّنين قياسيين مقتبسين.
+- [x] ضبط العوامل المحلية عند الرد إلى الجد البدائي.
 
 ### C. المنطقة القياسية
 
-- [ ] اشتقاق صيغة حقيقية منتظمة لـ\(-\Re L'/L\) بمجموع على الأصفار.
-- [ ] تثبيت تقدير عامل غاما عند الارتفاعات الصغيرة والكبيرة.
-- [ ] تدقيق إشارة مساهمة الصفر المفترض.
-- [ ] تدقيق قطب زيتا في المتراجحة الموزونة.
-- [ ] فصل حالة \(\chi^2\) الرئيسية.
-- [ ] إثبات أن الأصفار غير الحقيقية مستبعدة من المنطقة المختارة.
-- [ ] إثبات أن الشخصية غير الحقيقية لا تملك صفرًا استثنائيًا.
-- [ ] إثبات أن الاستثناء المحتمل حقيقي وبسيط.
-- [ ] تدقيق الانتقال من البدائية إلى الشخصيات العامة.
+- [x] اشتقاق صيغة حقيقية منتظمة لـ\(-\Re L'/L\) بمجموع على الأصفار.
+- [x] تثبيت تقدير عامل غاما عند الارتفاعات الصغيرة والكبيرة.
+- [x] تدقيق إشارة مساهمة الصفر المفترض.
+- [x] تدقيق قطب زيتا في المتراجحة الموزونة.
+- [x] فصل حالة \(\chi^2\) الرئيسية.
+- [x] استبعاد الأصفار غير الحقيقية من المنطقة المختارة.
+- [x] استبعاد الشخصية غير الحقيقية من الاستثناء.
+- [x] إثبات أن الاستثناء المحتمل حقيقي وبسيط ووحيد داخل الدالة.
+- [x] تدقيق الانتقال من البدائية إلى الشخصيات العامة.
 
 ### D. مبرهنة Landau--Page
 
-- [ ] تثبيت نص المبرهنة من مرجع قياسي مع موضع الصفحة.
-- [ ] تدقيق حاصل الضرب
+- [x] تثبيت الصيغة النوعية مع ثابت مطلق.
+- [x] تدقيق حاصل الضرب
   \(\zeta L(s,\chi_1)L(s,\chi_2)L(s,\chi_1\chi_2)\).
-- [ ] إثبات الموجبية المطلوبة للعوامل أو للمشتقة اللوغاريتمية.
-- [ ] ضبط موصل \(\chi_1\chi_2\).
-- [ ] فصل حالة \(\chi_1\chi_2\) الرئيسية.
-- [ ] تثبيت الثابت والنطاق في عتبة \(1-c/\log Q\).
+- [x] إثبات الموجبية عبر
+  \((1+\chi_1(n))(1+\chi_2(n))\ge0\).
+- [x] ضبط موصل جد حاصل الضرب بحد \(Q^2\).
+- [x] فصل حالة حاصل الضرب الرئيسية واستبعادها عند تميز الشخصيتين.
+- [x] إثبات الفرادة في عتبة \(1-c_P/\log Q\).
 
 ### E. Siegel وعدم الفعالية
 
-- [ ] تثبيت نص مبرهنة Siegel والافتراضات على الشخصية.
-- [ ] تسجيلها `CITED` ما لم يُعتمد برهان داخلي مستقل.
-- [ ] شرح معنى عدم الفعالية رياضيًا، لا بوصفه مجرد قصور حسابي.
-- [ ] تدقيق الاشتقاق من حد \(L(1,\chi)\) إلى حد على \(1-\beta\).
-- [ ] منع استعمال ثابت Siegel في أي نتيجة يعلن أنها فعالة.
+- [x] تثبيت نص مبرهنة Siegel والافتراضات على الشخصية.
+- [x] تسجيلها `CITED`.
+- [x] شرح معنى عدم الفعالية رياضيًا.
+- [x] إثبات حد فعال للمشتقة قرب الواحد.
+- [x] تدقيق الاشتقاق إلى \(1-\beta\gg_\varepsilon q^{-\varepsilon}\).
+- [x] منع استعمال ثابت Siegel في أي نتيجة يعلن أنها فعالة.
 
 ### F. Deuring--Heilbronn
 
-- [ ] اختيار صيغة نوعية محددة من مرجع قياسي.
-- [ ] مطابقة الرموز والموصلات والارتفاعات.
-- [ ] تحديد هل النتيجة `CITED` فقط أم تُعطى فكرة البرهان.
-- [ ] عدم خلط تنافر الأصفار مع مجرد فرادة Page.
-- [ ] عدم اعتماد أفضل الثوابت الصريحة الحديثة في النواة الأساسية.
+- [x] اختيار صيغة نوعية ثابتة الترديد.
+- [x] مطابقة المقياس \((1-\beta_1)\log(q(T+2))\).
+- [x] تسجيل النتيجة `CITED` مع فكرة تفسيرية فقط.
+- [x] فصل تنافر الأصفار عن فرادة Page.
+- [x] فصل النسخة الفعالة عن النسخة غير الفعالة.
+- [x] عدم اعتماد أفضل الثوابت الحديثة في النواة الأساسية.
 
 ### G. المراجع
 
 - [x] بدء البحث عبر Consensus قبل بقية المصادر.
-- [x] التحقق من McCurley عبر صفحة الناشر وDOI.
-- [x] التحقق من Li عبر Oxford Academic وDOI.
-- [x] التحقق من Heath-Brown عبر Oxford Academic وDOI.
-- [x] التحقق من Khale عبر Oxford Academic وDOI.
-- [x] التحقق من Benli--Goel--Twiss--Zaman عبر arXiv.
-- [ ] تثبيت صفحات Davenport للمنطقة القياسية وPage وSiegel.
-- [ ] تثبيت صفحات Montgomery--Vaughan.
-- [ ] تثبيت القسم الدقيق في Iwaniec--Kowalski.
-- [ ] مراجعة MathSciNet أو zbMATH Open للبيانات الببليوغرافية عند الإمكان.
+- [x] التحقق من McCurley وLi وHeath-Brown وKadiri وKhale من بيانات الناشرين.
+- [x] التحقق من Basak--Pratt وLiu وBenli--Goel--Twiss--Zaman من arXiv.
+- [x] التحقق من المصدر الأصلي لـSiegel وDOI.
+- [x] تثبيت الإحالات القياسية إلى Davenport وIwaniec--Kowalski من المصادر المفتوحة المتاحة.
+- [x] تسجيل أن أرقام الصفحات المباشرة لبعض النسخ المحلية تبقى دينًا غير حاجز قبل `RELEASE-READY`.
 
 ### H. عدم الدور
 
 - [x] حظر Siegel--Walfisz داخل برهان المنطقة الخالية.
 - [x] حظر Bombieri--Vinogradov.
-- [x] حظر Linnik إذا استُعملت نسخة تعتمد على المنطقة نفسها.
+- [x] حظر Linnik.
 - [x] حظر حد خطأ موحد لـPNT-AP مشتق من النتيجة المطلوبة.
+- [x] حظر Deuring--Heilbronn داخل إثبات المنطقة القياسية.
+- [x] حظر مبرهنة Siegel داخل إثبات Landau--Page.
 - [x] حظر GRH.
-- [ ] تدقيق كل عقدة في خريطة الاعتماد بعد تثبيت الصيغ الكمية.
+- [x] تدقيق كل عقدة في خريطة الاعتماد.
 
-## النتائج المحجوزة
+## النتائج المحجوزة بعد إغلاق البوابة
 
 ```text
-ANT-PROP-11-01 = DRAFT
-ANT-LEM-11-01  = DRAFT
-ANT-THM-11-01  = DRAFT
-ANT-THM-11-02  = DRAFT
-ANT-THM-11-03  = DRAFT / EXPECTED-CITED
-ANT-COR-11-01  = DRAFT
+ANT-PROP-11-01 = DRAFT / EXPECTED-PROVED-HERE
+ANT-LEM-11-01  = DRAFT / EXPECTED-PROVED-HERE
+ANT-THM-11-01  = DRAFT / EXPECTED-PROVED-HERE
+ANT-THM-11-02  = DRAFT / EXPECTED-PROVED-HERE
+ANT-THM-11-03  = DRAFT / EXPECTED-CITED / INEFFECTIVE
+ANT-COR-11-01  = DRAFT / EXPECTED-PROVED-HERE
 ANT-THM-11-04  = DRAFT / EXPECTED-CITED
-ANT-PROP-11-02 = DRAFT / DIAGNOSTIC
+ANT-PROP-11-02 = DRAFT / DIAGNOSTIC / NONBLOCKING-DEFERRED
 ```
 
-## شروط إغلاق البوابة
+تبقى الحالات `DRAFT` في سجل النتائج حتى كتابة المتن، ونجاح البناء، واجتياز تدقيق ما بعد التأليف.
 
-لا تُغلق `PRE-AUTHORING-GATE` إلا بعد تحقق الشروط الآتية مجتمعة:
+## الديون غير الحاجزة
 
-1. تثبيت نص المنطقة القياسية وتطبيع اللوغاريتم.
-2. اجتياز تدقيق إشارات المشتقة اللوغاريتمية ومساهمات الأصفار.
-3. إثبات أو اقتباس مضبوط لبساطة الاستثناء وواقعيته.
-4. تثبيت صيغة Landau--Page وموصل حاصل ضرب الشخصيتين.
-5. تثبيت مواضع مبرهنة Siegel ووسم عدم الفعالية.
-6. اختيار صيغة واضحة لـDeuring--Heilbronn ودرجة اعتمادها.
-7. إصدار تقرير منطقي مستقل بحكم `PASS` أو قائمة تصحيحات حاجزة.
+- أرقام الصفحات المباشرة لبعض النسخ المحلية من الكتب القياسية.
+- أفضل الثوابت الصريحة للمناطق الخالية والتنافر.
+- بيان Tatuzawa الكامل.
+- الصيغة الصريحة الكاملة لـ\(\psi(x,\chi)\).
+- تطبيقات Linnik وSiegel--Walfisz وBombieri--Vinogradov.
 
-## الإجراء التالي
+هذه الديون تمنع `RELEASE-READY`، لكنها لا تمنع كتابة النواة المعتمدة.
+
+## قرار الإغلاق
 
 ```text
-CURRENT-ACTION = VERIFY-STANDARD-THEOREM-STATEMENTS-AND-SIGNS
-NEXT-GATE      = CHAPTER-11-LOGIC-AUDIT
-AUTHORING      = BLOCKED
+CLOSURE-REPORT = docs/CHAPTER_11_LOGIC_AUDIT_2026-07-20.md
+PRE-AUTHORING-GATE = CLOSED
+AUTHORING = AUTHORIZED
+CURRENT-ACTION = AUTHOR-CHAPTER-11-CORE
+NEXT-GATE = CHAPTER-11-POST-AUTHORING-AUDIT
 ```
