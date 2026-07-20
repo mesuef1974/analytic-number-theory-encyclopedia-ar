@@ -1,0 +1,575 @@
+\chapter{مبرهنة الأعداد الأولية}
+
+\section{نطاق الفصل وحالته}
+
+\noindent\textbf{حالة الفصل:} \textenglish{REVIEWED}. يثبت هذا الفصل الصيغة
+المركزية
+\[
+\psi(x)\sim x,
+\]
+ثم يستنتج
+\[
+\vartheta(x)\sim x
+\qquad\text{و}\qquad
+\pi(x)\sim\frac{x}{\log x}.
+\]
+
+بدأت كتابة الفصل بعد إغلاق بوابة
+\textenglish{EVIDENCE-FIRST / PRE-AUTHORING}، ثم اجتاز فحوص الجودة وبناء
+PDF، والتدقيق المنطقي الداخلي، والتحقق المرجعي للمسار المعتمد. تسجل هذه
+الجولات في:
+\begin{itemize}
+  \item \texttt{docs/CHAPTER\_09\_PRE\_AUTHORING\_AUDIT\_2026-07-20.md}.
+  \item \texttt{docs/CHAPTER\_09\_LOGIC\_AUDIT\_2026-07-20.md}.
+  \item \texttt{docs/CHAPTER\_09\_BIBLIOGRAPHIC\_VERIFICATION\_2026-07-20.md}.
+  \item \texttt{docs/CHAPTER\_09\_INDEPENDENT\_REVIEW\_2026-07-20.md}.
+\end{itemize}
+تعني حالة \textenglish{REVIEWED} أن الفصل اجتاز المراجعة الثانية
+المستقلة بحكم \textenglish{APPROVED} على الالتزام
+\texttt{44dc9e433f262ac71ceb52f59ed5b59c77e58832}، بلا تصحيحات إلزامية.
+ولا تعني هذه الحالة أن الفصل \textenglish{RELEASE-READY}، ولا تجيز دمج
+طلب السحب من دون أمر صريح من مالك المشروع.
+
+المسار الأساسي تاوبيري عبر مبرهنة Wiener--Ikehara. أما مسار
+Hadamard--de la Vallée Poussin الفعال فيعرض منفصلًا، لأن صيغة بيرون وتحويل
+المسار ما زالا دينين علميين معلنين. ويبقى برهان Selberg--Erdős الأولي
+مسارًا لاحقًا مستقلًا لا يخلط بالمسار التحليلي.
+
+\subsection{المتطلبات السابقة}
+
+يفترض الفصل:
+\begin{itemize}
+  \item لغة التقارب والجمع الجزئي من الفصل الثاني.
+  \item الاستمرار الميرومورفي ومبدأ الهوية من الفصل الثالث.
+  \item دالة فون مانغولت وهويتها الالتفافية من الفصل الرابع.
+  \item المشتقة اللوغاريتمية لزيتا في \(\Re(s)>1\) من الفصل الخامس.
+  \item قطب زيتا البسيط عند \(s=1\) واستمرارها الميرومورفي من الفصل السادس.
+  \item متراجحة ديريشليه المثلثية من الفصل السابع.
+\end{itemize}
+
+\subsection{نواتج التعلم}
+
+بعد إتمام الفصل ينبغي أن يستطيع القارئ:
+\begin{enumerate}
+  \item التمييز بين \(\pi(x)\)، و\(\vartheta(x)\)، و\(\psi(x)\).
+  \item إثبات حد تشيبيشيف الخطي باستعمال المعامل الثنائي.
+  \item ضبط مساهمة القوى الأولية العليا من دون استعمال مبرهنة الأعداد الأولية.
+  \item اشتقاق المتراجحة الموزونة للمشتقة اللوغاريتمية لزيتا.
+  \item إثبات عدم وجود أصفار لزيتا على الخط \(\Re(s)=1\) من دون دور منطقي.
+  \item مطابقة فروض صيغة Wiener--Ikehara مع معاملات فون مانغولت.
+  \item استنتاج \(\psi(x)\sim x\)، ثم \(\vartheta(x)\sim x\)، ثم
+  \(\pi(x)\sim x/\log x\).
+  \item شرح الفرق بين النتيجة النوعية وحد الخطأ الفعال.
+\end{enumerate}
+
+\section{دوال عد الأوليات}
+
+لكل \(x\ge1\) نعرف
+\[
+\pi(x)=\sum_{p\le x}1,
+\qquad
+\vartheta(x)=\sum_{p\le x}\log p,
+\qquad
+\psi(x)=\sum_{n\le x}\Lambda(n).
+\]
+
+بما أن \(\Lambda(n)=\log p\) إذا كان \(n=p^m\) قوة أولية، وتساوي صفرًا
+في غير ذلك، فإن
+\[
+\psi(x)
+=
+\sum_{p^m\le x}\log p
+=
+\sum_{m\ge1}\vartheta\!\left(x^{1/m}\right).
+\]
+المجموع الأخير منته، إذ لا يظهر حد بعد \(m>\log_2x\).
+
+الهدف العميق هو إثبات \(\psi(x)\sim x\). أما الانتقال من
+\(\vartheta(x)\sim x\) إلى \(\pi(x)\sim x/\log x\) فقد ثبت في
+\textenglish{\texttt{ANT-THM-02-04}} بواسطة الجمع الجزئي.
+
+\section{حد تشيبيشيف وضبط القوى الأولية العليا}
+
+\begin{lemma}[حد تشيبيشيف ولمّة القوى الأولية العليا]
+\label{lem:chebyshev-and-higher-prime-powers}
+\resultid{ANT-LEM-09-02}
+\provedhere
+عندما \(x\ge2\):
+\[
+\vartheta(x)\ll x,
+\qquad
+\psi(x)\ll x,
+\]
+وكذلك
+\[
+0\le\psi(x)-\vartheta(x)
+\ll\sqrt{x}\log x=o(x).
+\]
+\end{lemma}
+
+\begin{proof}
+ليكن \(n\ge1\) عددًا صحيحًا. كل أولي \(p\) يحقق
+\(n<p\le2n\) يقسم المعامل الثنائي \(\binom{2n}{n}\). لذلك
+\[
+\vartheta(2n)-\vartheta(n)
+\le
+\log\binom{2n}{n}.
+\]
+ومن
+\[
+\binom{2n}{n}
+\le
+\sum_{j=0}^{2n}\binom{2n}{j}
+=2^{2n}
+\]
+نحصل على
+\[
+\vartheta(2n)-\vartheta(n)
+\le2n\log2.
+\]
+
+اختر \(k\) بحيث \(2^k\le x<2^{k+1}\). بالتقسيم إلى فترات ثنائية:
+\begin{align*}
+\vartheta(x)
+&\le\vartheta(2^{k+1})\\
+&=
+\sum_{j=0}^{k}
+\bigl(\vartheta(2^{j+1})-\vartheta(2^j)\bigr)\\
+&\le
+\sum_{j=0}^{k}2^{j+1}\log2
+<4x\log2.
+\end{align*}
+إذن \(\vartheta(x)\ll x\).
+
+ومن الهوية السابقة ينتج
+\begin{align*}
+0\le\psi(x)-\vartheta(x)
+&=
+\sum_{2\le m\le\log_2x}
+\vartheta\!\left(x^{1/m}\right)\\
+&\ll
+\sum_{2\le m\le\log_2x}x^{1/m}\\
+&\ll
+\sqrt{x}\log x.
+\end{align*}
+وهذا \(o(x)\). وبضم الحد إلى \(\vartheta(x)\ll x\) نحصل على
+\(\psi(x)\ll x\).
+\end{proof}
+
+هذه اللمّة مستقلة عن مبرهنة الأعداد الأولية. فلا يجوز استبدالها بتقدير
+\(\pi(y)\sim y/\log y\)، لأن ذلك يجعل الاستنتاج دائريًا.
+
+\section{المشتقة اللوغاريتمية وتمثيل ستيلتج}
+
+أثبت الفصل الخامس أنه عندما \(\Re(s)>1\):
+\[
+-\frac{\zeta'}{\zeta}(s)
+=
+\sum_{n=1}^{\infty}\frac{\Lambda(n)}{n^s}.
+\]
+
+\begin{proposition}[تمثيل المشتقة اللوغاريتمية بواسطة \(\psi\)]
+\label{prop:psi-stieltjes-representation}
+\resultid{ANT-PROP-09-01}
+\provedhere
+إذا كان \(\Re(s)>1\)، فإن
+\[
+-\frac{\zeta'}{\zeta}(s)
+=
+\int_{1^-}^{\infty}x^{-s}\,d\psi(x)
+=
+s\int_1^{\infty}\psi(x)x^{-s-1}\,dx.
+\]
+\end{proposition}
+
+\begin{proof}
+الدالة \(\psi\) درجية متصلة من اليمين، وتقفز عند العدد الصحيح \(n\)
+بمقدار \(\Lambda(n)\). لذلك
+\[
+\int_{1^-}^{\infty}x^{-s}\,d\psi(x)
+=
+\sum_{n=1}^{\infty}\frac{\Lambda(n)}{n^s}
+=
+-\frac{\zeta'}{\zeta}(s).
+\]
+التقارب المطلق صحيح في \(\Re(s)>1\). وبالتكامل بالتجزئة على \([1,X]\):
+\[
+\int_{1^-}^{X}x^{-s}\,d\psi(x)
+=
+\psi(X)X^{-s}
++s\int_1^X\psi(x)x^{-s-1}\,dx.
+\]
+من اللمّة السابقة \(\psi(X)\ll X\)، فيؤول الحد الطرفي إلى صفر عندما
+\(X\to\infty\)، ويتقارب التكامل لأن \(\Re(s)>1\).
+\end{proof}
+
+\section{المتراجحة الموزونة لزيتا}
+
+أثبت الفصل السابع
+\[
+3+4\cos u+\cos2u=2(1+\cos u)^2\ge0.
+\]
+ولا نسجل هذه الهوية مرة ثانية؛ بل نسجل تطبيقها التحليلي التالي.
+
+\begin{lemma}[المتراجحة الموزونة للمشتقة اللوغاريتمية]
+\label{lem:zeta-weighted-log-derivative-inequality}
+\resultid{ANT-LEM-09-01}
+\provedhere
+لكل \(\sigma>1\) ولكل \(t\in\mathbb R\):
+\[
+-3\frac{\zeta'}{\zeta}(\sigma)
+-4\Re\frac{\zeta'}{\zeta}(\sigma+it)
+-\Re\frac{\zeta'}{\zeta}(\sigma+2it)
+\ge0.
+\]
+\end{lemma}
+
+\begin{proof}
+من التقارب المطلق لمتسلسلة المشتقة اللوغاريتمية:
+\begin{align*}
+&-3\frac{\zeta'}{\zeta}(\sigma)
+-4\Re\frac{\zeta'}{\zeta}(\sigma+it)
+-\Re\frac{\zeta'}{\zeta}(\sigma+2it)\\
+&\quad=
+\sum_{n=1}^{\infty}
+\frac{\Lambda(n)}{n^\sigma}
+\left(
+3+4\cos(t\log n)+\cos(2t\log n)
+\right).
+\end{align*}
+كل معامل \(\Lambda(n)n^{-\sigma}\) غير سالب، والقوس غير سالب من
+\textenglish{\texttt{ANT-LEM-07-01}}، فتنتج الدعوى.
+\end{proof}
+
+\section{عدم وجود أصفار على الخط \(\Re(s)=1\)}
+
+\begin{theorem}[مبرهنة Hadamard--de la Vallée Poussin النوعية]
+\label{thm:zeta-nonvanishing-on-one-line}
+\resultid{ANT-THM-09-01}
+\provedhere
+لكل \(t\in\mathbb R\setminus\{0\}\):
+\[
+\zeta(1+it)\ne0.
+\]
+أما النقطة \(s=1\) فهي قطب بسيط لزيتا، وليست صفرًا.
+\end{theorem}
+
+\begin{proof}
+افترض عكس المطلوب، ولتكن رتبة الصفر عند \(1+it\) مساوية \(m\ge1\).
+ولتكن \(m_2\ge0\) رتبة الصفر عند \(1+2it\)، مع \(m_2=0\) إذا لم تكن
+تلك النقطة صفرًا.
+
+من قطب زيتا البسيط عند \(1\):
+\[
+\frac{\zeta'}{\zeta}(\sigma)
+=-\frac1{\sigma-1}+O(1)
+\qquad(\sigma\downarrow1).
+\]
+ومن التحليل المحلي عند الصفر ذي الرتبة \(m\):
+\[
+\Re\frac{\zeta'}{\zeta}(\sigma+it)
+=
+\frac{m}{\sigma-1}+O(1),
+\]
+وكذلك
+\[
+\Re\frac{\zeta'}{\zeta}(\sigma+2it)
+=
+\frac{m_2}{\sigma-1}+O(1).
+\]
+إذن الطرف الأيسر في المتراجحة السابقة يساوي
+\[
+\frac{3-4m-m_2}{\sigma-1}+O(1).
+\]
+لكن \(3-4m-m_2\le-1\)، فيصبح الطرف سالبًا عندما تكون
+\(\sigma-1\) موجبة وصغيرة، وهذا يناقض المتراجحة.
+\end{proof}
+
+\begin{remark}[عدم الدور]
+لم يستعمل البرهان مبرهنة الأعداد الأولية، ولا الصيغة الصريحة، ولا منطقة
+خالية كمية. اعتمد فقط على المشتقة اللوغاريتمية في \(\Re(s)>1\)، وقطب زيتا
+البسيط، والمتراجحة المثلثية غير السالبة.
+\end{remark}
+
+\section{مبرهنة Wiener--Ikehara}
+
+نستعمل صيغة خاصة مناسبة للمتسلسلات الديريشلية. هذه النتيجة ليست مثبتة داخل
+الموسوعة في هذا الإصدار، ولذلك توسم صراحة بأنها مستشهد بها.
+
+\begin{theorem}[Wiener--Ikehara، صيغة المتسلسلات الديريشلية]
+\label{thm:wiener-ikehara-dirichlet-series}
+\resultid{ANT-THM-09-02}
+\citedresult{\cite[Theorem 1.1، الصفحات 1107--1108]{Korevaar2006}}
+لتكن
+\[
+f(s)=\sum_{n=1}^{\infty}\frac{a_n}{n^s},
+\qquad a_n\ge0,
+\]
+متقاربة في \(\Re(s)>1\)، وضع \(S(x)=\sum_{n\le x}a_n\). افترض أن
+\(S(n)=O(n)\)، وأن
+\[
+f(s)-\frac{A}{s-1}
+\]
+يمتد تحليليًا أو باستمرار إلى نصف المستوى المغلق \(\Re(s)\ge1\). عندئذ
+\[
+S(n)\sim An.
+\]
+\end{theorem}
+
+يرجع الأصل التاريخي إلى Wiener وIkehara
+\cite{Wiener1930,Ikehara1931}. واعتمدنا صيغة Korevaar لأنها تصرح بفروض
+المتسلسلة الديريشلية وحد المجاميع الجزئية بالصورة التي نحتاجها، وتعرض
+تطبيقها على مبرهنة الأعداد الأولية في الصفحتين 1108--1109.
+
+\section{إزالة القطب عند الواحد}
+
+من \textenglish{\texttt{ANT-THM-06-01}} توجد دالة \(h\) هولومورفية قرب
+\(1\)، تحقق
+\[
+\zeta(s)=\frac{h(s)}{s-1},
+\qquad h(1)=1.
+\]
+وبتصغير الجوار تكون \(h\) غير منعدمة. لذلك
+\[
+-\frac{\zeta'}{\zeta}(s)
+=
+\frac1{s-1}-\frac{h'}{h}(s),
+\]
+ومن ثم
+\[
+-\frac{\zeta'}{\zeta}(s)-\frac1{s-1}
+=-\frac{h'}{h}(s)
+\]
+هولومورفية قرب \(1\).
+
+وعند كل نقطة \(1+it\) مع \(t\ne0\)، تكون زيتا هولومورفية وغير منعدمة من
+المبرهنة السابقة، فتكون مشتقتها اللوغاريتمية هولومورفية في جوار النقطة.
+إذن الباقي بعد طرح \(1/(s-1)\) يمتد تحليليًا عبر كل نقطة من الخط
+\(\Re(s)=1\).
+
+\section{الصيغة المركزية لمبرهنة الأعداد الأولية}
+
+\begin{theorem}[مبرهنة الأعداد الأولية بصيغة فون مانغولت]
+\label{thm:prime-number-theorem-psi}
+\resultid{ANT-THM-09-03}
+\provedhere
+عندما \(x\to\infty\):
+\[
+\psi(x)\sim x.
+\]
+\end{theorem}
+
+\begin{proof}
+طبق مبرهنة Wiener--Ikehara على
+\[
+a_n=\Lambda(n),
+\qquad
+f(s)=-\frac{\zeta'}{\zeta}(s).
+\]
+المعاملات غير سالبة، والسلسلة تتقارب في \(\Re(s)>1\) من الفصل الخامس.
+كما أن
+\[
+S(n)=\sum_{k\le n}\Lambda(k)=\psi(n)\ll n
+\]
+من لمّة تشيبيشيف. وأثبتنا أن
+\[
+f(s)-\frac1{s-1}
+\]
+يمتد تحليليًا عبر الخط \(\Re(s)=1\). لذلك تعطي المبرهنة مع \(A=1\):
+\[
+\psi(n)\sim n.
+\]
+
+ولعدد حقيقي \(x\ge1\):
+\[
+\psi(x)=\psi(\lfloor x\rfloor).
+\]
+وبما أن \(\lfloor x\rfloor\sim x\)، نحصل على
+\[
+\psi(x)
+=
+\psi(\lfloor x\rfloor)
+\sim
+\lfloor x\rfloor
+\sim x.
+\]
+\end{proof}
+
+\section{الانتقال إلى \(\vartheta\) و\(\pi\)}
+
+\begin{corollary}[الصيغة المكافئة بدالة تشيبيشيف الأولى]
+\label{cor:prime-number-theorem-theta}
+\resultid{ANT-COR-09-01}
+\provedhere
+عندما \(x\to\infty\):
+\[
+\vartheta(x)\sim x.
+\]
+\end{corollary}
+
+\begin{proof}
+من لمّة القوى الأولية العليا:
+\[
+0\le\psi(x)-\vartheta(x)=o(x).
+\]
+ومع \(\psi(x)=x+o(x)\) ينتج
+\[
+\vartheta(x)
+=
+\psi(x)-\bigl(\psi(x)-\vartheta(x)\bigr)
+=x+o(x).
+\]
+\end{proof}
+
+\begin{corollary}[مبرهنة الأعداد الأولية]
+\label{cor:prime-number-theorem-pi}
+\resultid{ANT-COR-09-02}
+\provedhere
+عندما \(x\to\infty\):
+\[
+\pi(x)\sim\frac{x}{\log x}.
+\]
+\end{corollary}
+
+\begin{proof}
+هذا تطبيق مباشر لـ\textenglish{\texttt{ANT-THM-02-04}} على النتيجة
+\(\vartheta(x)\sim x\).
+\end{proof}
+
+\section{ما الذي لم يثبته المسار النوعي؟}
+
+النتيجة السابقة لا تعطي وحدها حد خطأ صريحًا في
+\[
+\psi(x)-x
+\qquad\text{أو}\qquad
+\pi(x)-\operatorname{Li}(x).
+\]
+المسار الكلاسيكي الفعال يحتاج:
+\begin{enumerate}
+  \item منطقة كمية خالية من الأصفار قرب \(\Re(s)=1\).
+  \item تقديرات مناسبة لـ\(\zeta'/\zeta\).
+  \item صيغة بيرون مقطوعة أو مملسة.
+  \item تحويل المسار وضبط التكاملات على الأضلاع.
+  \item استخراج الصيغة الصريحة أو تقدير تكاملي مباشر.
+\end{enumerate}
+
+في حالة المستودع الحالية، المنطقة الكلاسيكية الخالية مسجلة
+\textenglish{\texttt{CITED}} في \textenglish{\texttt{ANT-THM-06-09}}،
+والصيغة الصريحة مسجلة \textenglish{\texttt{CITED}} في
+\textenglish{\texttt{ANT-THM-06-08}}، أما بيرون وتحويل المسار فبراهينهما
+التفصيلية مؤجلة. لذلك لا ننسب إلى الفصل حد خطأ فعالًا.
+
+\section{المسار الأولي المنفصل}
+
+أثبت Selberg وErdős مبرهنة الأعداد الأولية بطرائق أولية بمعنى أنها لا
+تستعمل نظرية الدوال العقدية لزيتا. هذا الوصف لا يعني أن البرهان قصير أو
+بسيط؛ فهو يبني هويات وتقديرات مستقلة. سيعالج ذلك المسار لاحقًا بوصفه وحدة
+منفصلة، ولا تستعمل نتائجه داخل البرهان التاوبيري الحالي.
+
+\section{خريطة الاعتماد المنطقي}
+
+\begin{enumerate}
+  \item حد المعامل الثنائي يعطي \(\vartheta(x)\ll x\).
+  \item جمع القوى الأولية يعطي \(\psi(x)\ll x\) و
+  \(\psi(x)-\vartheta(x)=o(x)\).
+  \item المنتج الأويلري يعطي متسلسلة \(-\zeta'/\zeta\).
+  \item المتراجحة المثلثية تعطي المتراجحة الموزونة.
+  \item المتراجحة والقطب البسيط يمنعان أصفار الخط \(\Re(s)=1\).
+  \item عدم الانعدام يزيل جميع الشذوذ الحدية عدا القطب المعلوم عند \(1\).
+  \item Wiener--Ikehara تحول المعلومة التحليلية إلى \(\psi(x)\sim x\).
+  \item حد القوى العليا يعطي \(\vartheta(x)\sim x\).
+  \item الجمع الجزئي السابق يعطي \(\pi(x)\sim x/\log x\).
+\end{enumerate}
+
+لا توجد حافة في هذه الخريطة تعود من مبرهنة الأعداد الأولية إلى فرض سابق.
+
+\section{أخطاء شائعة}
+
+\begin{enumerate}
+  \item استعمال عدم انعدام زيتا في \(\Re(s)>1\) كما لو كان يشمل الخط
+  \(\Re(s)=1\).
+  \item القول إن عدم الانعدام على الخط يعطي وحده مبرهنة الأعداد الأولية من
+  دون أداة تاوبيرية أو بديل تحليلي.
+  \item تطبيق Wiener--Ikehara من دون التحقق من عدم سلبية المعاملات وحد
+  المجاميع الجزئية.
+  \item تقدير القوى الأولية العليا باستعمال PNT نفسها.
+  \item اعتبار الصيغة الصريحة مثبتة داخل الموسوعة مع أن حالتها
+  \textenglish{\texttt{CITED}}.
+  \item الخلط بين \(\psi(x)\sim x\) وحد خطأ فعال.
+  \item وصف برهان Selberg--Erdős بأنه النسخة نفسها بعد حذف زيتا.
+\end{enumerate}
+
+\section{أسئلة تفسير البرهان}
+
+\begin{enumerate}
+  \item لماذا تدخل \(\psi\) قبل \(\pi\) في المسار التحليلي؟
+  \item أين استعملت عدم سلبية \(\Lambda(n)\)؟
+  \item لماذا لا يكفي قطب زيتا عند \(1\) من دون معرفة بقية الخط؟
+  \item لماذا يجعل الصفر المفترض عند \(1+it\) المتراجحة الموزونة سالبة؟
+  \item ما الدور المختلف لكل من حد تشيبيشيف ومبرهنة Wiener--Ikehara؟
+  \item لماذا لا يحمل الانتقال من \(\psi\) إلى \(\vartheta\) دورًا؟
+  \item أي أداة إضافية نحتاجها للحصول على حد خطأ فعال؟
+\end{enumerate}
+
+\section{تمارين}
+
+\subsection{المستوى الأول}
+\begin{enumerate}
+  \item أثبت أن كل أولي \(p\) يحقق \(n<p\le2n\) يقسم
+  \(\binom{2n}{n}\).
+  \item أثبت \(\binom{2n}{n}\le4^n\).
+  \item تحقق من الهوية
+  \[
+  \psi(x)=\sum_{m\ge1}\vartheta(x^{1/m}).
+  \]
+  \item أثبت أن \(\sqrt{x}\log x=o(x)\).
+\end{enumerate}
+
+\subsection{المستوى الثاني}
+\begin{enumerate}
+  \item اشتق المتراجحة الموزونة حدًا حدًا من متسلسلة
+  \(-\zeta'/\zeta\).
+  \item اكتب التوسع المحلي لـ\(\zeta'/\zeta\) عند صفر من الرتبة \(m\).
+  \item تحقق من إزالة القطب عند \(1\) بكتابة
+  \(\zeta(s)=h(s)/(s-1)\).
+  \item أثبت صيغة التكامل في
+  \textenglish{\texttt{ANT-PROP-09-01}} بالتكامل بالتجزئة لستيلتج.
+\end{enumerate}
+
+\subsection{المستوى الثالث}
+\begin{enumerate}
+  \item بين بدقة أن فروض صيغة Wiener--Ikehara المعتمدة تتحقق عند
+  \(a_n=\Lambda(n)\).
+  \item قارن بين المسار التاوبيري والمسار القائم على بيرون: ما المعلومة
+  الإضافية التي يمكن أن يعطيها الثاني؟
+  \item فسر لماذا لا يمكن استنتاج حد خطأ من صيغة تقاربية مجردة.
+  \item صمم خريطة اعتماد مستقلة للمسار الأولي من دون استعمال نتائج هذا
+  الفصل داخل مقدماته.
+\end{enumerate}
+
+\section{المراجع ومسار التوسع}
+
+للبرهانين التاريخيين انظر
+\cite{Hadamard1896,DeLaValleePoussin1896}. وللأصل التاوبيري انظر
+\cite{Wiener1930,Ikehara1931}. والصيغة الدقيقة المعتمدة وتطبيقها على PNT
+موجودان في
+\cite[Theorem 1.1 والقسم 2، الصفحات 1107--1109]{Korevaar2006}.
+
+للمعالجات القياسية راجع
+\cite{Apostol1976,Davenport2000,MontgomeryVaughan2007,
+IwaniecKowalski2004,Tenenbaum2015,Titchmarsh1986}.
+
+اجتاز الفصل المراجعة الثانية المستقلة بحكم \textenglish{APPROVED}، وسجل
+الحكم في
+\texttt{docs/CHAPTER\_09\_INDEPENDENT\_REVIEW\_2026-07-20.md}.
+ويبقى الدمج خطوة منفصلة لا تنفذ إلا بأمر صريح من مالك المشروع.
+
+\section{خلاصة الفصل}
+
+جاء الحد الخطي الأولي من المعامل الثنائي، ومنع عدم الانعدام أصفار الحافة
+اليمنى لزيتا، ثم حولت Wiener--Ikehara هذه المعلومة التحليلية إلى
+\(\psi(x)\sim x\). بعد ذلك أزالت لمّة القوى الأولية العليا الفرق بين
+\(\psi\) و\(\vartheta\)، وأكمل الجمع الجزئي الانتقال إلى \(\pi\).
+
+هذا يثبت مبرهنة الأعداد الأولية نوعيًا. أما التقديرات الفعالة فتحتاج أدوات
+إضافية لم ندع اكتمالها في هذه النسخة.
