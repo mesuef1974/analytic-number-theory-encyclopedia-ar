@@ -2,7 +2,7 @@
 
 \section{نطاق الفصل وحالته}
 
-\noindent\textbf{حالة الفصل:} \textenglish{DRAFT}. يثبت هذا الفصل، لكل
+\noindent\textbf{حالة الفصل:} \textenglish{VERIFIED}. يثبت هذا الفصل، لكل
 ترديد ثابت \(q\ge2\) ولكل فئة مختزلة \(a\pmod q\)، الصيغ النوعية
 \[
 \psi(x;q,a)\sim\frac{x}{\varphi(q)},
@@ -13,8 +13,7 @@
 \]
 
 بدأ التأليف بعد إغلاق بوابة
-\textenglish{EVIDENCE-FIRST / PRE-AUTHORING}. وتوجد مواد التدقيق السابقة
-للمتن في:
+\textenglish{EVIDENCE-FIRST / PRE-AUTHORING}. وتوجد مواد التدقيق في:
 \begin{itemize}
   \item \texttt{research/literature-reviews/chapter-10-prime-number-theorem-}
   \texttt{arithmetic-progressions-evidence.md}.
@@ -23,7 +22,12 @@
   \item \texttt{docs/CHAPTER\_10\_PRE\_AUTHORING\_AUDIT\_2026-07-20.md}.
   \item \texttt{docs/CHAPTER\_10\_LOGIC\_AUDIT\_2026-07-20.md}.
   \item \texttt{docs/CHAPTER\_10\_BIBLIOGRAPHIC\_VERIFICATION\_2026-07-20.md}.
+  \item \texttt{docs/CHAPTER\_10\_AUTHORING\_AUDIT\_2026-07-20.md}.
 \end{itemize}
+
+تعني حالة \textenglish{VERIFIED} أن النتائج الداخلية السبع اجتازت تدقيق
+الإشارات وعدم الدور، والتحقق المرجعي، وتدقيق ما بعد التأليف. ولا تعني هذه
+الحالة \textenglish{REVIEWED}؛ فالمراجعة الثانية المستقلة ما تزال مطلوبة.
 
 المسار تاوبيري نوعي: نفكك سلسلة فون مانغولت في الفئة بواسطة شخصيات
 ديريشليه، ونثبت عدم انعدام دوال \(L\) على الخط \(\Re(s)=1\)، ثم نعزل
@@ -99,7 +103,7 @@ F_{q,a}(s)
 \begin{proposition}[تفكيك سلسلة الفئة بواسطة الشخصيات]
 \label{prop:class-von-mangoldt-dirichlet-series}
 \resultid{ANT-PROP-10-01}
-\draftresult
+\provedhere
 إذا كان \(\Re(s)>1\)، فإن
 \[
 F_{q,a}(s)
@@ -154,7 +158,7 @@ F_{q,a}(s)
 \begin{lemma}[المتراجحة الموزونة للمشتقات اللوغاريتمية]
 \label{lem:weighted-dirichlet-l-log-derivatives}
 \resultid{ANT-LEM-10-01}
-\draftresult
+\provedhere
 لكل شخصية ديريشليه \(\chi\pmod q\)، ولكل \(\sigma>1\) و
 \(t\in\mathbb R\):
 \[
@@ -211,7 +215,7 @@ z_n=\chi(n)n^{-it},
 \begin{theorem}[عدم الانعدام على \(\Re(s)=1\)]
 \label{thm:dirichlet-l-nonvanishing-on-one-line}
 \resultid{ANT-THM-10-01}
-\draftresult
+\provedhere
 لتكن \(\chi\pmod q\) شخصية ديريشليه.
 \begin{enumerate}
   \item إذا كانت \(\chi\) غير رئيسية، فإن
@@ -292,7 +296,7 @@ z_n=\chi(n)n^{-it},
 \begin{proposition}[امتداد سلسلة الفئة بعد طرح القطب]
 \label{prop:class-series-pole-removal}
 \resultid{ANT-PROP-10-02}
-\draftresult
+\provedhere
 تمتد الدالة
 \[
 F_{q,a}(s)-\frac1{\varphi(q)(s-1)}
@@ -344,7 +348,7 @@ P_q(s)=\prod_{p\mid q}(1-p^{-s}).
 \begin{theorem}[مبرهنة الأعداد الأولية الموزونة في فئة ثابتة]
 \label{thm:pnt-ap-psi}
 \resultid{ANT-THM-10-02}
-\draftresult
+\provedhere
 إذا كان \(q\ge2\) ثابتًا و\((a,q)=1\)، فإن
 \[
 \psi(x;q,a)
@@ -391,7 +395,7 @@ F_{q,a}(s)-\frac1{\varphi(q)(s-1)}
 \begin{corollary}[الصيغة الموزونة على الأوليات فقط]
 \label{cor:pnt-ap-theta}
 \resultid{ANT-COR-10-01}
-\draftresult
+\provedhere
 إذا كان \(q\) ثابتًا و\((a,q)=1\)، فإن
 \[
 \vartheta(x;q,a)
@@ -423,7 +427,7 @@ F_{q,a}(s)-\frac1{\varphi(q)(s-1)}
 \begin{corollary}[مبرهنة الأعداد الأولية في متتالية حسابية ثابتة]
 \label{cor:pnt-ap-pi}
 \resultid{ANT-COR-10-02}
-\draftresult
+\provedhere
 إذا كان \(q\ge2\) ثابتًا و\((a,q)=1\)، فإن
 \[
 \pi(x;q,a)
@@ -588,7 +592,7 @@ IwaniecKowalski2004}.
 
 اعتمد الفصل صيغة Wiener--Ikehara الموثقة في الفصل التاسع من
 \cite{Korevaar2006}. أما النتائج الكمية والموحدة فتبقى خارج نطاق هذه
-المسودة.
+النسخة.
 
 \section{خلاصة الفصل}
 
