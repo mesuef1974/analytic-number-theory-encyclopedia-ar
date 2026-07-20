@@ -2,7 +2,7 @@
 
 \section{نطاق الفصل وحالته}
 
-\noindent\textbf{حالة الفصل:} \textenglish{DRAFT}. يطوّر هذا الفصل عدم
+\noindent\textbf{حالة الفصل:} \textenglish{VERIFIED}. يطوّر هذا الفصل عدم
 الانعدام النوعي على الخط \(\Re(s)=1\)، المثبت في الفصل العاشر، إلى منطقة
 كمية قرب الخط لدوال ديريشليه \(L\). كما يعزل الصفر الحقيقي الاستثنائي
 الممكن، ويثبت فرادته عبر الموصلات المحدودة بمبرهنة Landau--Page، ثم يفصل
@@ -11,11 +11,13 @@
 
 بدأ التأليف بعد إغلاق بوابة
 \textenglish{EVIDENCE-FIRST / PRE-AUTHORING} بحكم \textenglish{PASS} في
-\texttt{docs/CHAPTER\_11\_LOGIC\_AUDIT\_2026-07-20.md}. ولا يدعي الفصل
-أفضل ثابت عددي، ولا يثبت البرهان الكامل لظاهرة Deuring--Heilbronn، ولا
-يتناول Siegel--Walfisz أو Bombieri--Vinogradov أو Linnik، ولا يستعمل فرضية
-ريمان المعممة. وتبقى منطقة Vinogradov--Korobov وتقديرات كثافة الأصفار
-موضوعين متقدمين مؤجلين.
+\texttt{docs/CHAPTER\_11\_LOGIC\_AUDIT\_2026-07-20.md}، ثم اجتاز تدقيق
+ما بعد التأليف بحكم \textenglish{PASS} في
+\texttt{docs/CHAPTER\_11\_AUTHORING\_AUDIT\_2026-07-20.md}. ولا يدعي
+الفصل أفضل ثابت عددي، ولا يثبت البرهان الكامل لظاهرة
+Deuring--Heilbronn، ولا يتناول Siegel--Walfisz أو Bombieri--Vinogradov أو
+Linnik، ولا يستعمل فرضية ريمان المعممة. وتبقى منطقة Vinogradov--Korobov
+وتقديرات كثافة الأصفار موضوعين متقدمين مؤجلين.
 
 \subsection{المتطلبات السابقة}
 
@@ -39,7 +41,7 @@
   \item إثبات المنطقة القياسية مع استثناء حقيقي بسيط ممكن.
   \item التمييز بين الفرادة داخل دالة واحدة، والفرادة عند ترديد ثابت،
   وفرادة Landau--Page عبر الموصلات.
-  \item شرح مبرهنة Siegel ومعنى عدم فعالية ثابتتها.
+  \item شرح مبرهنة Siegel ومعنى عدم فعالية ثابتها.
   \item تفسير ظاهرة Deuring--Heilbronn بوصفها تنافرًا كميًا للأصفار.
 \end{enumerate}
 
@@ -70,7 +72,7 @@ s=\sigma+it.
 \begin{proposition}[الأصفار القريبة من الواحد والجد البدائي]
 \label{prop:chapter11-primitive-reduction}
 \resultid{ANT-PROP-11-01}
-\draftresult
+\provedhere
 لتكن \(\chi\pmod q\) شخصية مستحثة من شخصية بدائية
 \(\chi^*\pmod r\). عندئذ
 \[
@@ -131,7 +133,7 @@ a_\chi=\frac{1-\chi(-1)}2\in\{0,1\},
 \begin{lemma}[صيغة المشتقة اللوغاريتمية بمجموع على الأصفار]
 \label{lem:chapter11-log-derivative-zeros}
 \resultid{ANT-LEM-11-01}
-\draftresult
+\provedhere
 إذا كانت \(\chi\) بدائية وغير رئيسية، و\(\Re(s)>1\)، فإن
 \[
 -\Re\frac{L'}{L}(s,\chi)=
@@ -178,7 +180,7 @@ a_\chi=\frac{1-\chi(-1)}2\in\{0,1\},
 
 \begin{lemma}[ضبط الباقي المنتظم]
 \label{lem:chapter11-uniform-remainder}
-\draftresult
+\provedhere
 يوجد ثابت مطلق \(C>0\) بحيث لكل شخصية بدائية غير رئيسية \(\chi\)، ولكل
 \(1<\sigma\le2\):
 \[
@@ -231,7 +233,7 @@ L(s,\chi_0)=\zeta(s)\prod_{p\mid q}(1-p^{-s}),
 \begin{theorem}[المنطقة القياسية والاستثناء الحقيقي]
 \label{thm:chapter11-standard-zero-free-region}
 \resultid{ANT-THM-11-01}
-\draftresult
+\provedhere
 يوجد ثابت مطلق \(c_0>0\) بحيث لكل شخصية ديريشليه بدائية غير رئيسية
 \(\chi\) بموصل \(q\ge3\)، تملك \(L(s,\chi)\) على الأكثر صفرًا واحدًا في
 المنطقة
@@ -338,7 +340,7 @@ G(1,v)=-1-\frac3{1+v^2}\le-1,
 \begin{theorem}[مبرهنة Landau--Page النوعية]
 \label{thm:chapter11-landau-page}
 \resultid{ANT-THM-11-02}
-\draftresult
+\provedhere
 يوجد ثابت مطلق \(c_P>0\) بحيث لكل \(Q\ge3\)، توجد على الأكثر شخصية
 ديريشليه حقيقية بدائية واحدة \(\chi\) موصلها \(q\le Q\) وتملك صفرًا
 حقيقيًا \(\beta\) يحقق
@@ -396,7 +398,7 @@ F(s)=\zeta(s)L(s,\chi_1)L(s,\chi_2)L(s,\chi).
 \begin{theorem}[مبرهنة Siegel]
 \label{thm:chapter11-siegel}
 \resultid{ANT-THM-11-03}
-\draftresult
+\citedresult{\cite{Siegel1935,Liu2022Siegel}}
 لكل \(\varepsilon>0\)، يوجد ثابت \(c(\varepsilon)>0\) بحيث لكل شخصية
 ديريشليه حقيقية بدائية غير رئيسية \(\chi\) بموصل \(q\):
 \[
@@ -406,13 +408,9 @@ F(s)=\zeta(s)L(s,\chi_1)L(s,\chi_2)L(s,\chi).
 الثابت \(c(\varepsilon)\) غير فعال.
 \end{theorem}
 
-\noindent هذه النتيجة مستشهد بها من عمل Siegel الأصلي
-\cite{Siegel1935}، ويمكن مراجعة برهان تحليلي حديث في
-\cite{Liu2022Siegel}.
-
 \begin{lemma}[حد المشتقة قرب الواحد]
 \label{lem:chapter11-derivative-near-one}
-\draftresult
+\provedhere
 يوجد ثابت مطلق \(C>0\) بحيث، إذا كانت \(\chi\) غير رئيسية بترديد \(q\)،
 وكان
 \[
@@ -450,7 +448,7 @@ L'(\sigma,\chi)={}&-
 \begin{corollary}[الإبعاد غير الفعال للصفر الاستثنائي]
 \label{cor:chapter11-siegel-zero-distance}
 \resultid{ANT-COR-11-01}
-\draftresult
+\provedhere
 لكل \(\varepsilon>0\)، يوجد ثابت غير فعال \(c_\varepsilon>0\) بحيث إذا
 كان \(\beta\) صفرًا استثنائيًا لدالة شخصية حقيقية بدائية بموصل \(q\)، فإن
 \[
@@ -487,7 +485,7 @@ L(1,\chi)=\int_\beta^1L'(u,\chi)\,du,
 \begin{theorem}[ظاهرة Deuring--Heilbronn، صيغة نوعية]
 \label{thm:chapter11-deuring-heilbronn}
 \resultid{ANT-THM-11-04}
-\draftresult
+\citedresult{\cite{BenliGoelTwissZaman2026}}
 توجد ثوابت مطلقة فعالة موجبة \(c_0,c_1,c_2\) بحيث إذا كان \(T\ge2\)،
 وكانت \(\mathcal D_q\) تملك صفرًا استثنائيًا \(\beta_1\) يحقق
 \[
@@ -503,9 +501,8 @@ L(1,\chi)=\int_\beta^1L'(u,\chi)\,du,
 \]
 \end{theorem}
 
-\noindent النتيجة مقتبسة بصيغتها النوعية من النسخة الصريحة الحديثة
-\cite{BenliGoelTwissZaman2026}. ولا ندعي هنا البرهان الكامل، الذي يستعمل
-أدوات تتجاوز الفصول الحالية.
+\noindent لا ندعي هنا البرهان الكامل، الذي يستعمل أدوات تتجاوز الفصول
+الحالية.
 
 \begin{remark}[الفرادة ليست التنافر]
 Landau--Page تمنع استثناءين مستقلين من الاقتراب معًا من الواحد. أما
@@ -526,14 +523,11 @@ Deuring--Heilbronn فتدفع كل صفر آخر بعيدًا بمقدار يز�
 \begin{proposition}[خريطة الأثر في الصيغة الصريحة]
 \label{prop:chapter11-explicit-formula-diagnostic}
 \resultid{ANT-PROP-11-02}
-\draftresult
+\deferredresult{الصيغة الصريحة الكاملة لدوال الشخصيات مؤجلة إلى فصل كمي لاحق}
 تضبط المنطقة القياسية مساهمة الأصفار غير الاستثنائية، بينما يساهم الصفر
 الحقيقي الاستثنائي بحد منفرد يجب إظهاره صراحة. وتمنح ظاهرة
 Deuring--Heilbronn تعويضًا جزئيًا بدفع بقية الأصفار بعيدًا.
 \end{proposition}
-
-\noindent هذه نتيجة تشخيصية في النسخة الحالية؛ أما الصيغة الصريحة الكاملة
-لدوال الشخصيات، مع القطع وتقدير الأخطاء، فمؤجلة إلى فصل كمي لاحق.
 
 \section{حدود الفعالية}
 
