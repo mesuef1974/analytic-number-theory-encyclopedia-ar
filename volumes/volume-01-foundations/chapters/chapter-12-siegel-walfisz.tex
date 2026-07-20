@@ -1,0 +1,641 @@
+\chapter{مبرهنة سيغل--فالفش والتوزيع المنتظم للأعداد الأولية}
+
+\section{نطاق الفصل وحالته}
+
+\noindent\textbf{حالة الفصل:} \textenglish{DRAFT}. يرقّي هذا الفصل نتيجة
+الفصل العاشر من مبرهنة نوعية عند ترديد ثابت إلى تقدير كمي موحد عندما ينمو
+الترديد مع \(x\) في المجال
+\[
+q\le (\log x)^A.
+\]
+والنتيجة المركزية هي أنه لكل \(A>0\) يوجد ثابت \(c_A>0\) بحيث، بانتظام في
+الفئات المختزلة \(a\pmod q\)،
+\[
+\psi(x;q,a)
+=
+\frac{x}{\varphi(q)}
++O_A\!\left(xe^{-c_A\sqrt{\log x}}\right).
+\]
+الثابت \(c_A\)، والثوابت الضمنية الناتجة من المسار غير المشروط العام، غير
+فعالة بسبب استعمال مبرهنة سيغل لإبعاد الصفر الاستثنائي.
+
+بدأ التأليف بعد إغلاق بوابة
+\textenglish{EVIDENCE-FIRST / PRE-AUTHORING} في
+\texttt{docs/CHAPTER\_12\_PRE\_AUTHORING\_AUDIT\_2026-07-20.md}. وتوجد
+خريطة البرهان وتدقيق الديون التحليلية في:
+\begin{itemize}
+  \item \texttt{research/literature-reviews/chapter-12-siegel-walfisz-evidence.md}.
+  \item \texttt{research/literature-reviews/chapter-12-siegel-walfisz-proof-map.md}.
+  \item \texttt{docs/CHAPTER\_12\_PERRON\_CONTOUR\_EXPLICIT\_FORMULA\_AUDIT\_2026-07-20.md}.
+  \item \texttt{docs/CHAPTER\_12\_EXCEPTIONAL\_ZERO\_INEFFECTIVITY\_AUDIT\_2026-07-20.md}.
+  \item \texttt{docs/CHAPTER\_12\_LOGIC\_AUDIT\_2026-07-20.md}.
+\end{itemize}
+
+لا يثبت الفصل صيغة بيرون المقطوعة أو تحويل المسار من الصفر. بل يقتبس صيغة
+صريحة موحدة محددة، ثم يثبت داخليًا اختيار ارتفاع القطع، وضبط الجزء غير
+الاستثنائي، وامتصاص الصفر الاستثنائي، وتجميع الشخصيات. ولا يستعمل الفصل
+مبرهنة Bombieri--Vinogradov أو Linnik أو فرضية ريمان المعممة.
+
+\subsection{ثلاث طبقات يجب عدم خلطها}
+
+\begin{enumerate}
+  \item يثبت الفصل العاشر أنه لكل \(q\) ثابت:
+  \[
+  \psi(x;q,a)\sim \frac{x}{\varphi(q)}.
+  \]
+  لا تسمح هذه العبارة باستبدال \(q\) بترديد يعتمد على \(x\).
+  \item يثبت هذا الفصل الانتظام الفردي لكل
+  \(q\le(\log x)^A\)، مع حد خطأ موحد وغير فعال.
+  \item مبرهنة Bombieri--Vinogradov نتيجة متوسطية على الترديدات في مجال
+  أكبر بكثير، وتحتاج أدوات إضافية؛ لذلك تبقى مؤجلة.
+\end{enumerate}
+
+\subsection{نواتج التعلم}
+
+بعد إتمام الفصل ينبغي أن يستطيع القارئ:
+\begin{enumerate}
+  \item تفسير الفرق بين الترديد الثابت والانتظام في الترديد.
+  \item رد مجموع فون مانغولت لشخصية مستحثة إلى جدها البدائي.
+  \item استعمال الصيغة الصريحة المقطوعة من دون إخفاء ديون بيرون وتحويل المسار.
+  \item اختيار ارتفاع قطع من رتبة \(e^{\kappa\sqrt{\log x}}\).
+  \item عزل حد الصفر الاستثنائي قبل أخذ القيم المطلقة.
+  \item تحديد الموضع الوحيد الذي تستعمل فيه مبرهنة سيغل.
+  \item اشتقاق صيغ موحدة للدوال \(\psi\)، و\(\vartheta\)، و\(\pi\).
+  \item تفسير سبب عدم فعالية الثوابت النهائية.
+\end{enumerate}
+
+\section{دوال العد والمرشح بالشخصيات}
+
+لكل شخصية ديريشليه \(\chi\pmod q\)، نضع
+\[
+\psi(x,\chi)=\sum_{n\le x}\chi(n)\Lambda(n).
+\]
+ولكل فئة مختزلة \((a,q)=1\)، نعيد استعمال تعامد الشخصيات لنحصل على الهوية
+الدقيقة
+\[
+\psi(x;q,a)
+=
+\frac1{\varphi(q)}
+\sum_{\chi\bmod q}\overline{\chi(a)}\,\psi(x,\chi).
+\tag{12.1}
+\]
+هذه هي النسخة المنتهية من التفكيك المسجل في
+\textenglish{\texttt{ANT-PROP-10-01}}. ولأن عدد الشخصيات هو \(\varphi(q)\)،
+فإن تقديرًا موحدًا لكل شخصية لا يخسر عاملًا إضافيًا من رتبة \(q\) عند
+التجميع في \((12.1)\).
+
+\section{الرد إلى الجد البدائي}
+
+\begin{lemma}[رد مجموع فون مانغولت إلى الشخصية البدائية]
+\label{lem:chapter12-primitive-psi-reduction}
+\resultid{ANT-LEM-12-01}
+\provedhere
+لتكن \(\chi\pmod q\) مستحثة من شخصية بدائية \(\chi^*\pmod r\)، حيث
+\(r\mid q\). عندئذ، لكل \(x\ge2\)،
+\[
+\psi(x,\chi)
+=
+\psi(x,\chi^*)+O(\log(2q)\log(2x)),
+\]
+بثابت مطلق.
+\end{lemma}
+
+\begin{proof}
+إذا كان \((n,q)=1\)، فإن \(\chi(n)=\chi^*(n)\). ولا يمكن أن يختلف الطرفان
+على قوة أولية \(p^k\) إلا إذا كان \(p\mid q\) وحذف العامل المحلي الموافق
+عند الاستحثاث. لذلك
+\[
+\psi(x,\chi)-\psi(x,\chi^*)
+=
+-\sum_{\substack{p^k\le x\\p\mid q,\ p\nmid r}}
+\chi^*(p)^k\log p.
+\]
+ومن ثم
+\begin{align*}
+\left|\psi(x,\chi)-\psi(x,\chi^*)\right|
+&\le
+\sum_{p\mid q}\left\lfloor\frac{\log x}{\log p}\right\rfloor\log p\\
+&\le \omega(q)\log x\\
+&\ll \log(2q)\log(2x).
+\end{align*}
+\end{proof}
+
+في المجال \(q\le(\log x)^A\)، يكون هذا الخطأ متعدد اللوغاريتمات، ولذلك
+يمتص في كل من الحد الأسي المستهدف وأي ادخار لوغاريتمي ثابت.
+
+\section{مدخلان مقتبسان من النظرية الكمية}
+
+المسار الكمي لا ينتج من مبرهنة Wiener--Ikehara النوعية وحدها. نحتاج حدًا
+فعالًا للشخصية الرئيسية، وصيغة صريحة مقطوعة موحدة للشخصيات البدائية.
+
+\begin{theorem}[حد دو لا فاليه بوسان لمبرهنة الأعداد الأولية]
+\label{thm:chapter12-effective-pnt}
+\resultid{ANT-THM-12-01}
+\citedresult{\cite{DeLaValleePoussin1896,Davenport2000,MontgomeryVaughan2007}}
+توجد ثوابت مطلقة فعالة \(c,C>0\) بحيث، لكل \(x\ge3\)،
+\[
+\psi(x)=x+O\!\left(Cxe^{-c\sqrt{\log x}}\right).
+\tag{12.2}
+\]
+\end{theorem}
+
+هذه النتيجة أقوى كميًا من \textenglish{\texttt{ANT-THM-09-03}}، الذي يثبت
+فقط \(\psi(x)\sim x\). لا نستخرج \((12.2)\) من النتيجة النوعية.
+
+لتجنب مشكلة نقاط القفز، نعرف النسخة المنصفة
+\[
+\psi_0(x,\chi)
+=
+\frac12\left(\sum_{n<x}\chi(n)\Lambda(n)+
+              \sum_{n\le x}\chi(n)\Lambda(n)\right).
+\]
+ولدينا دائمًا
+\[
+\psi(x,\chi)-\psi_0(x,\chi)=O(\log(2x)).
+\]
+
+\begin{theorem}[الصيغة الصريحة المقطوعة بعد عزل الاستثناء]
+\label{thm:chapter12-truncated-explicit-formula}
+\resultid{ANT-THM-12-02}
+\citedresult{\cite{Davenport2000,MontgomeryVaughan2007,IwaniecKowalski2004}}
+توجد ثوابت مطلقة \(c,C>0\) بالخاصية الآتية. لتكن \(\chi\) شخصية بدائية
+غير رئيسية بموصل \(r\)، ولتكن \(x\ge3\) و\(r\le T\le x\). يمكن اختيار
+\(T_0\in[T,2T]\) لا يساوي ارتفاع صفر، بحيث
+\[
+\psi_0(x,\chi)
+=
+-\mathbf 1_{\beta_\chi}
+\frac{x^{\beta_\chi}}{\beta_\chi}
++O\!\left(
+xe^{-\frac{c\log x}{\log(r(T+2))}}\log^2(r(T+2))
++
+\frac{x\log^2(rxT)}{T}
++
+\log^2(rxT)
+\right).
+\tag{12.3}
+\]
+هنا \(\beta_\chi\) هو الصفر الحقيقي الاستثنائي الممكن في المنطقة القياسية
+من الفصل الحادي عشر، ويكون الحد الأول غائبًا إذا لم يوجد هذا الصفر.
+الثوابت في \((12.3)\) فعالة قبل امتصاص الحد الاستثنائي.
+\end{theorem}
+
+الصيغة \((12.3)\) هي نتيجة قياسية للصيغة الصريحة المقطوعة، وتقدير عد
+الأصفار، والمنطقة القياسية الخالية. وقد ضمت مساهمات الأصفار البديهية وعامل
+غاما وخطأ القطع في الحد المكتوب. لا نسجل هذه النتيجة
+\textenglish{PROVED-HERE} لأن إثباتها الكامل يحتاج صيغة بيرون المقطوعة
+وتحويل المسار وتقديرات رأسية لم تغلق بعد داخل الموسوعة.
+
+\section{اختيار ارتفاع القطع وضبط الجزء غير الاستثنائي}
+
+\begin{lemma}[اختيار الارتفاع اللوغاريتمي]
+\label{lem:chapter12-nonexceptional-zero-bound}
+\resultid{ANT-LEM-12-02}
+\provedhere
+ليكن \(A>0\). توجد ثوابت \(\kappa_A,c_A,C_A>0\) فعالة بحيث إذا
+\[
+q\le(\log x)^A,
+\qquad
+\chi^*\pmod r,
+\qquad
+r\mid q,
+\]
+وكانت \(\chi^*\) بدائية وغير رئيسية، فإن الجزء غير الاستثنائي في
+\((12.3)\) يحقق
+\[
+\psi(x,\chi^*)
++
+\mathbf 1_{\beta_{\chi^*}}
+\frac{x^{\beta_{\chi^*}}}{\beta_{\chi^*}}
+\ll_A
+xe^{-c_A\sqrt{\log x}}.
+\tag{12.4}
+\]
+الثوابت هنا فعالة؛ عدم الفعالية لم تدخل بعد.
+\end{lemma}
+
+\begin{proof}
+ضع \(L=\log x\)، واختر
+\[
+T=e^{\kappa\sqrt L},
+\]
+حيث \(\kappa>0\) ثابت صغير سيحدد بحسب الثوابت المطلقة في
+\((12.3)\). عند كبر \(x\)، لدينا
+\[
+r\le q\le L^A\le T\le x.
+\]
+كما أن
+\[
+\log(r(T+2))
+\le A\log L+\kappa\sqrt L+O(1)
+\ll_{A,\kappa}\sqrt L.
+\]
+ومن ثم
+\[
+\exp\!\left(-\frac{cL}{\log(r(T+2))}\right)
+\le e^{-c_{A,\kappa}\sqrt L}.
+\]
+وتعطي كلفة القطع
+\[
+\frac{x\log^2(rxT)}{T}
+\ll_A
+xe^{-\kappa\sqrt L}L^2,
+\]
+بينما لا يتجاوز الحد الأخير قوة ثابتة من \(L\). وتمتص كل خسارة متعددة
+اللوغاريتمات بعد تصغير ثابت الأس، لأن
+\[
+L^D e^{-c\sqrt L}\le e^{-c'\sqrt L}
+\]
+لكل \(D\) ثابت ولكبر \(L\). وأخيرًا يمتص الفرق بين \(\psi\) و\(\psi_0\)
+في الحد نفسه. أما المجال المحدود من قيم \(x\)، فيمتص بتكبير الثابت
+\(C_A\).
+\end{proof}
+
+\section{الصفر الاستثنائي وموضع استعمال مبرهنة سيغل}
+
+اللمّة السابقة لا تسمح بحذف الحد
+\[
+-\frac{x^{\beta_\chi}}{\beta_\chi}.
+\]
+يجب إبقاؤه ظاهرًا حتى هذه النقطة.
+
+\begin{lemma}[امتصاص حد الصفر الاستثنائي]
+\label{lem:chapter12-exceptional-zero-absorption}
+\resultid{ANT-LEM-12-03}
+\provedhere
+ليكن \(A>0\). يوجد ثابت غير فعال \(c_A>0\) بحيث إذا
+\(r\le q\le(\log x)^A\)، وكانت شخصية حقيقية بدائية بموصل \(r\) تملك
+صفرًا استثنائيًا \(\beta\)، فإن
+\[
+\frac{x^\beta}{\beta}
+\ll_A
+xe^{-c_A\sqrt{\log x}}.
+\tag{12.5}
+\]
+\end{lemma}
+
+\begin{proof}
+الصفر الاستثنائي قريب من الواحد، ولذلك \(\beta\ge1/2\) بعد امتصاص مجال
+محدود من الموصلات، ومن ثم \(1/\beta\le2\). من
+\textenglish{\texttt{ANT-COR-11-01}}، لكل \(\varepsilon>0\)،
+\[
+1-\beta\ge c_\varepsilon r^{-\varepsilon},
+\]
+حيث \(c_\varepsilon\) غير فعال. اختر \(\varepsilon>0\) بحيث
+\(A\varepsilon=1/2\). عندئذ
+\[
+r^{-\varepsilon}
+\ge q^{-\varepsilon}
+\ge(\log x)^{-A\varepsilon}
+=(\log x)^{-1/2}.
+\]
+إذًا
+\[
+(1-\beta)\log x
+\ge c_\varepsilon\sqrt{\log x},
+\]
+ومن ثم
+\[
+x^\beta
+=x\exp(-(1-\beta)\log x)
+\le xe^{-c_\varepsilon\sqrt{\log x}}.
+\]
+هذا هو الموضع الوحيد الذي تدخل فيه مبرهنة سيغل في المسار الأدنى، ويرث
+الثابت عدم فعاليتها.
+\end{proof}
+
+\begin{remark}[لماذا لا يجوز إخفاء الاستثناء مبكرًا؟]
+قبل اللمّة السابقة قد يكون \(x^\beta\) قريبًا من \(x\). المنطقة القياسية
+وحدها لا تبعد \(\beta\) بما يكفي عندما ينمو الموصل. لذلك فإن وضع الحد في
+رمز \(O\) قبل استعمال سيغل يفقد المعلومة الحاسمة ويخفي مصدر عدم الفعالية.
+\end{remark}
+
+\section{مبرهنة سيغل--فالفش}
+
+\begin{theorem}[مبرهنة سيغل--فالفش في صيغة \(\psi\)]
+\label{thm:chapter12-siegel-walfisz-psi}
+\resultid{ANT-THM-12-03}
+\provedhere
+لكل \(A>0\)، توجد ثوابت \(c_A,C_A>0\)، غير فعالة في المسار غير المشروط
+العام، بحيث لكل \(x\ge3\)، ولكل
+\[
+1\le q\le(\log x)^A,
+\qquad (a,q)=1,
+\]
+لدينا
+\[
+\psi(x;q,a)
+=
+\frac{x}{\varphi(q)}
++O\!\left(C_Axe^{-c_A\sqrt{\log x}}\right),
+\tag{12.6}
+\]
+بانتظام في \(q\) و\(a\).
+\end{theorem}
+
+\begin{proof}
+نبدأ من مرشح الشخصيات \((12.1)\).
+
+\paragraph{الشخصية الرئيسية.}
+إذا كانت \(\chi_0\pmod q\) رئيسية، فهي مستحثة من الشخصية التافهة. من
+اللمّة \ref{lem:chapter12-primitive-psi-reduction} ومبرهنة
+\ref{thm:chapter12-effective-pnt}:
+\[
+\psi(x,\chi_0)
+=
+\psi(x)+O(\log(2q)\log(2x))
+=
+x+O_A\!\left(xe^{-c\sqrt{\log x}}\right).
+\tag{12.7}
+\]
+
+\paragraph{الشخصيات غير الرئيسية.}
+لتكن \(\chi\pmod q\) غير رئيسية، ولتكن \(\chi^*\pmod r\) جدها البدائي.
+تعطي اللمّة \ref{lem:chapter12-nonexceptional-zero-bound} تقديرًا أسيًا
+فعالًا لكل الجزء غير الاستثنائي. وإذا وجد صفر استثنائي، تمتص مساهمته
+باللمّة \ref{lem:chapter12-exceptional-zero-absorption}. ثم تعيد اللمّة
+\ref{lem:chapter12-primitive-psi-reduction} الشخصية المستحثة، فنحصل على
+\[
+\psi(x,\chi)
+\ll_A
+xe^{-c_A\sqrt{\log x}}
++
+\log(2q)\log(2x).
+\]
+ولأن \(q\le L^A\)، فإن
+\[
+\log(2q)\log(2x)
+\ll_A L\log(2L)
+=o\!\left(xe^{-c_A\sqrt L}\right)
+\]
+بعد تصغير \(c_A\) عند الحاجة. إذن
+\[
+\psi(x,\chi)
+\ll_A xe^{-c_A\sqrt{\log x}}
+\tag{12.8}
+\]
+موحدًا لكل شخصية غير رئيسية.
+
+ندخل \((12.7)\) و\((12.8)\) في \((12.1)\). تساهم الشخصية الرئيسية بالحد
+\(x/\varphi(q)\). أما بقية الشخصيات، فعددها لا يتجاوز \(\varphi(q)\)،
+ويلغي عامل \(1/\varphi(q)\) هذه الكثرة من دون خسارة إضافية. تنتج
+\((12.6)\).
+\end{proof}
+
+\begin{remark}[مقارنة بمسارات أحدث]
+توجد صيغ أقوى وأكثر انتظامًا تعزل الصفر الاستثنائي وتستعمل مناطق
+Vinogradov--Korobov وتقديرات كثافة خالية من اللوغاريتم وتنافر
+Deuring--Heilbronn؛ انظر \cite{ThornerZaman2024}. كما توجد براهين حديثة
+من منظور الدوال الضربية الادعائية \cite{Koukoulopoulos2013}. لا يحتاج
+المسار الكلاسيكي الأدنى هنا إلى هذه التحسينات.
+\end{remark}
+
+\section{الادخار اللوغاريتمي الاعتباطي}
+
+\begin{corollary}[صيغة سيغل--فالفش اللوغاريتمية]
+\label{cor:chapter12-siegel-walfisz-log-saving}
+\resultid{ANT-COR-12-01}
+\provedhere
+لكل \(A,B>0\)، يوجد ثابت غير فعال \(C_{A,B}>0\) بحيث، بانتظام في
+\(q\le(\log x)^A\) و\((a,q)=1\)،
+\[
+\psi(x;q,a)
+=
+\frac{x}{\varphi(q)}
++O_{A,B}\!\left(\frac{x}{(\log x)^B}\right).
+\tag{12.9}
+\]
+\end{corollary}
+
+\begin{proof}
+لكل \(c,B>0\)، لدينا
+\[
+e^{-c\sqrt{\log x}}\ll_{c,B}(\log x)^{-B},
+\]
+لأن \(\sqrt{\log x}\) يغلب \(\log\log x\). نطبق ذلك على \((12.6)\).
+\end{proof}
+
+\section{الانتقال إلى \(\vartheta(x;q,a)\)}
+
+\begin{corollary}[التوزيع المنتظم للدالة \(\vartheta\)]
+\label{cor:chapter12-siegel-walfisz-theta}
+\resultid{ANT-COR-12-02}
+\provedhere
+لكل \(A,B>0\)، بانتظام في \(q\le(\log x)^A\) و\((a,q)=1\)،
+\[
+\vartheta(x;q,a)
+=
+\frac{x}{\varphi(q)}
++O_{A,B}\!\left(\frac{x}{(\log x)^B}\right),
+\tag{12.10}
+\]
+والثابت غير فعال في الصيغة العامة.
+\end{corollary}
+
+\begin{proof}
+لدينا
+\[
+0\le
+\psi(x;q,a)-\vartheta(x;q,a)
+\le
+\sum_{\substack{p^k\le x\\k\ge2}}\log p.
+\]
+ومن حد القوى الأولية العليا في \textenglish{\texttt{ANT-LEM-09-02}}:
+\[
+\sum_{\substack{p^k\le x\\k\ge2}}\log p
+\ll \sqrt x\log^2(2x).
+\]
+وهذا أصغر من \(x/(\log x)^B\) لكل \(B\) ثابت عند كبر \(x\). نطبق
+\((12.9)\) ونمتص المجال المحدود في الثابت.
+\end{proof}
+
+\section{الانتقال إلى \(\pi(x;q,a)\)}
+
+نعرف
+\[
+\operatorname{Li}(x)=\int_2^x\frac{dt}{\log t}.
+\]
+
+\begin{corollary}[التوزيع المنتظم لعدد الأوليات]
+\label{cor:chapter12-siegel-walfisz-pi}
+\resultid{ANT-COR-12-03}
+\provedhere
+لكل \(A,B>0\)، بانتظام في \(q\le(\log x)^A\) و\((a,q)=1\)،
+\[
+\pi(x;q,a)
+=
+\frac{\operatorname{Li}(x)}{\varphi(q)}
++O_{A,B}\!\left(\frac{x}{(\log x)^B}\right),
+\tag{12.11}
+\]
+والثابت غير فعال في الصيغة العامة.
+\end{corollary}
+
+\begin{proof}
+من الجمع الجزئي:
+\[
+\pi(x;q,a)
+=
+\frac{\vartheta(x;q,a)}{\log x}
++
+\int_2^x\frac{\vartheta(t;q,a)}{t\log^2t}\,dt.
+\tag{12.12}
+\]
+لا يجوز تطبيق \((12.10)\) آليًا على كل \(t\le x\)، لأن الشرط
+\(q\le(\log t)^A\) قد يفشل في الجزء الصغير. نعالج ذلك بهامش في الأس.
+
+طبق \((12.10)\) بالمعلم \(2A\) وبقوة لوغاريتمية أكبر من \(B+3\)، وضع
+\[
+y=\exp\!\left(q^{1/(2A)}\right).
+\]
+لـ\(t\ge y\)، لدينا \(q\le(\log t)^{2A}\)، فتصلح الصيغة الموحدة. ومن
+الفرض \(q\le(\log x)^A\) ينتج
+\[
+y\le e^{\sqrt{\log x}}.
+\]
+
+في المجال \([2,y]\)، نستعمل حد تشيبيشيف التافه
+\(\vartheta(t;q,a)\le\vartheta(t)\ll t\)، فتكون مساهمته في \((12.12)\)
+من رتبة \(O(y)\)، وهي
+\[
+e^{\sqrt{\log x}}=o\!\left(\frac{x}{(\log x)^B}\right).
+\]
+وفي المجال \([y,x]\)، نكتب
+\[
+\vartheta(t;q,a)=\frac{t}{\varphi(q)}+E(t),
+\qquad
+E(t)\ll_{A,B}\frac{t}{(\log t)^{B+3}}.
+\]
+نعوض في \((12.12)\). تجمع الحدود الرئيسية إلى
+\(\operatorname{Li}(x)/\varphi(q)\)، حتى ثابت محدود يمتص في الخطأ. أما
+الخطأ الطرفي والتكامل، فبعد تقسيم المجال عند \(\sqrt x\) عند الحاجة، يحققان
+\[
+\frac{E(x)}{\log x}
++
+\int_y^x\frac{E(t)}{t\log^2t}\,dt
+\ll_{A,B}
+\frac{x}{(\log x)^B}.
+\]
+فتنتج \((12.11)\).
+\end{proof}
+
+\section{قراءة النتيجة وحدودها}
+
+\subsection{ما الذي أضيف إلى الفصل العاشر؟}
+
+الفصل العاشر يثبت النهاية عند كل ترديد ثابت، لكنه لا يحدد سرعة التقارب
+بانتظام في \(q\). أما هذا الفصل فيعطي مجالًا واحدًا من الترديدات المتغيرة
+وحدًا واحدًا صالحًا لها جميعًا. ولذلك يمكن استعمال النتيجة في مسائل تحتاج
+جمعًا أو مقارنة على ترديدات لوغاريتمية، وهو ما لا تسمح به النتيجة النوعية
+وحدها.
+
+\subsection{لماذا المجال لوغاريتمي؟}
+
+من المنطقة القياسية نحصل، تقريبًا، على عامل
+\[
+\exp\!\left(-\frac{c\log x}{\log(qT)}\right).
+\]
+وعند اختيار \(T=e^{\kappa\sqrt{\log x}}\)، يبقى المقام من رتبة
+\(\sqrt{\log x}\) ما دام \(\log q\ll\log\log x\)، أي عندما يكون \(q\)
+قوة ثابتة من \(\log x\). أما الوصول إلى ترديدات من رتبة قوة موجبة من
+\(x\)، فيحتاج آليات أخرى أو متوسطًا على الترديدات.
+
+\subsection{الفعالية وعدم الفعالية}
+
+كل جزء من البرهان قبل اللمّة
+\ref{lem:chapter12-exceptional-zero-absorption} يمكن جعله فعالًا ضمن
+المداخل المقتبسة الفعالة. عدم الفعالية تدخل فقط من الثابت
+\(c_\varepsilon\) في مبرهنة سيغل. وإذا عزل المرء الترديدات المرتبطة
+بالشخصية الاستثنائية بدل امتصاصها، أمكن كتابة صيغ فعالة تحتوي حد
+\(x^\beta/\beta\) ظاهرًا.
+
+\subsection{ما الذي لا تثبته المبرهنة؟}
+
+لا تثبت سيغل--فالفش:
+\begin{itemize}
+  \item انتظامًا فرديًا لكل \(q\le x^\delta\) مع \(\delta>0\).
+  \item مبرهنة Bombieri--Vinogradov أو مستوى توزيع \(1/2\).
+  \item حدًا فعالًا عامًا بعد حذف الصفر الاستثنائي دون تتبعه.
+  \item أصغر أولي في فئة حسابية بحد لينك.
+  \item أي نتيجة مشروطة بفرضية ريمان المعممة.
+\end{itemize}
+
+\section{أمثلة تفسيرية}
+
+\begin{example}[ترديد ثابت]
+إذا ثبت \(q=10\)، فإن الفصل العاشر يكفي لإثبات التكافؤ التقاربي. تعطي
+سيغل--فالفش أكثر من ذلك: حدًا كميًا صالحًا للترديد نفسه ولجميع الترديدات
+حتى قوة ثابتة من \(\log x\).
+\end{example}
+
+\begin{example}[ترديد يتحرك ببطء]
+إذا كان
+\[
+q(x)=\left\lfloor(\log x)^3\right\rfloor,
+\]
+واختيرت فئة \(a(x)\) مختزلة مع \(q(x)\)، فلا يجوز تطبيق مبرهنة الفصل
+العاشر مباشرة؛ لأن الترديد لم يعد ثابتًا. أما المبرهنة
+\ref{thm:chapter12-siegel-walfisz-psi} فتطبق بالمعلم \(A=3\).
+\end{example}
+
+\begin{example}[أثر إشارة الشخصية الاستثنائية]
+قبل استعمال سيغل، يظهر الحد الثانوي في الفئة على الصورة
+\[
+-\frac{\overline{\chi_1(a)}}{\varphi(q)}
+\frac{x^{\beta_1}}{\beta_1}.
+\]
+لذلك يمكن أن تختلف إشارة الانحياز بين الفئات بحسب قيمة الشخصية الحقيقية.
+هذه البنية لا تختفي منطقيًا إلا بعد إثبات أن الحد صغير في المجال
+اللوغاريتمي. وتبقى آثار الأصفار الاستثنائية مهمة عند دراسة مجالات أكبر أو
+متوسطات أدق؛ انظر \cite{DrappeauFiorilli2021,ThornerZaman2024}.
+\end{example}
+
+\section{تمارين}
+
+\begin{enumerate}
+  \item أثبت بدقة الهوية \((12.1)\) من تعامد شخصيات ديريشليه.
+  \item حسن برهان اللمّة \ref{lem:chapter12-primitive-psi-reduction} إلى
+  الحد
+  \[
+  \sum_{p\mid q}\log p\left\lfloor\frac{\log x}{\log p}\right\rfloor.
+  \]
+  \item تحقق من أن \(L^D e^{-c\sqrt L}\le e^{-c\sqrt L/2}\) لكل \(D\)
+  ثابت ولكبر \(L\).
+  \item بيّن أن اختيار \(T=e^{\kappa\sqrt L}\) يوازن بين خطأ القطع
+  \(x/T\) والمنطقة الخالية القياسية.
+  \item حدد موضع استعمال مبرهنة سيغل في برهان المبرهنة المركزية، وفسر لماذا
+  لا تنتقل عدم الفعالية إلى اللمّة \ref{lem:chapter12-nonexceptional-zero-bound}.
+  \item أثبت أن
+  \[
+  \sqrt x\log^2x=o\!\left(x(\log x)^{-B}\right)
+  \]
+  لكل \(B>0\).
+  \item أكمل تفاصيل تقدير التكامل في برهان
+  \ref{cor:chapter12-siegel-walfisz-pi} بعد تقسيمه عند \(\sqrt x\).
+  \item اشرح لماذا لا تكفي مبرهنة الترديد الثابت لإثبات النتيجة عندما
+  \(q=\lfloor\log x\rfloor\).
+  \item قارن منطقيًا بين عبارة سيغل--فالفش الفردية وعبارة
+  Bombieri--Vinogradov المتوسطية، من دون محاولة إثبات الأخيرة.
+\end{enumerate}
+
+\section{خلاصة الفصل}
+
+المسار الكامل هو
+\[
+\text{مرشح الشخصيات}
+\longrightarrow
+\text{الرد إلى الجد البدائي}
+\longrightarrow
+\text{الصيغة الصريحة المقطوعة}
+\longrightarrow
+\text{المنطقة الخالية}
+\longrightarrow
+\text{عزل الصفر الاستثنائي}
+\longrightarrow
+\text{مبرهنة سيغل}.
+\]
+الجزء غير الاستثنائي يعطي ادخارًا أسيًا فعالًا بعد اختيار ارتفاع القطع.
+أما الحد الاستثنائي فيمتص فقط باستعمال مبرهنة سيغل، ولذلك يكون الثابت
+النهائي غير فعال. وينتج عن ذلك توزيع موحد للأوليات في جميع الفئات المختزلة
+للترديدات \(q\le(\log x)^A\)، مع بقاء Bombieri--Vinogradov مرحلة مستقلة
+لاحقة.
