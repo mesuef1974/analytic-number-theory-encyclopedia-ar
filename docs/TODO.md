@@ -63,7 +63,7 @@
 - [x] فصل نتيجة الترديد الثابت عن Siegel--Walfisz.
 - [x] تأجيل Bombieri--Vinogradov إلى فصل لاحق.
 - [x] تدقيق ديون بيرون وتحويل المسار والصيغة الصريحة.
-- [x] اعتماد الصيغة الصريحة المقطوعة بحالة `CITED`.
+- [x] اعتماد الصيغة الصريحة المقطوعة بحالة `CITED / COMPOSITE-INPUT`.
 - [x] تدقيق الرد إلى الشخصية البدائية.
 - [x] عزل الصفر الاستثنائي قبل امتصاصه.
 - [x] تثبيت موضع استعمال مبرهنة Siegel.
@@ -86,30 +86,30 @@
 - [x] إضافة التحقق المرجعي ومراجع Thorner--Zaman وKoukoulopoulos وDrappeau--Fiorilli.
 - [x] مزامنة حالات النتائج التسع في السجل المركزي.
 - [x] إجراء تدقيق ما بعد التأليف بحكم `PASS`.
-- [x] نجاح فحص الجودة النهائي #284 على الرأس `ce466deff36c3927f9a89864395bc565f41f62d5`.
-- [x] نجاح بناء PDF النهائي #279 على الرأس نفسه.
-- [x] رفع الفصل إلى `VERIFIED`.
+- [x] رفع الفصل إلى `VERIFIED` بعد نجاح فحوص الجودة والبناء.
 
 #### المراجعة المستقلة والدمج
 
-- [ ] إعداد حزمة مراجعة مستقلة وقائمة فحص ونموذج حكم.
-- [ ] تجميد نسخة مرشحة في فرع مراجعة.
-- [ ] فتح Issue للمراجعة الثانية المستقلة.
-- [ ] استلام تقرير مستقل مكتوب.
-- [ ] تطبيق أي تصحيح حاجز وإعادة الفحوص.
-- [ ] رفع الفصل إلى `REVIEWED` إذا استوفى الحكم.
-- [ ] الدمج بأمر صريح من مالك المشروع فقط.
+- [x] إعداد تقرير مراجعة مستقلة مكتوب.
+- [x] تثبيت رأس المحتوى المصحح للمراجعة.
+- [x] تطبيق تصحيحي R1 وR2 وإعادة فحوص الجودة والبناء.
+- [x] تنفيذ مزامنة وبناء مصدر محليين وتسجيل SHA256 وعدد الصفحات.
+- [x] استلام حكم `APPROVED` بصفر عوائق.
+- [x] رفع الفصل إلى `REVIEWED`.
+- [x] دمج PR #20 بأمر صريح من مالك المشروع.
+- [ ] تدخيل صيغة Perron المقطوعة وتحويل المسار في فصل كمي لاحق؛ بند اختياري غير حاجز.
 
 ```text
-CHAPTER-12          = VERIFIED
-FINAL-HEAD          = ce466deff36c3927f9a89864395bc565f41f62d5
-QUALITY-CHECKS      = RUN-284 / SUCCESS
-PDF-BUILD           = RUN-279 / SUCCESS
-PDF-ARTIFACT-SHA256 = 9e2dc515aa49e4173d0aa1bd21819c80eee19797bd84cc458997727d695c124a
-EXPLICIT-FORMULA    = CITED-INPUT
+CHAPTER-12          = REVIEWED / MERGED
+MAIN-HEAD           = b1f09a3388aa34194eb8836b6977fe05f86aee7a
+PR-20               = MERGED
+INDEPENDENT-REVIEW  = APPROVED
+QUALITY-CHECKS      = RUN-311 / SUCCESS
+PDF-BUILD           = RUN-306 / SUCCESS
+LOCAL-SOURCE-BUILD  = PASS / 184 PAGES
+EXPLICIT-FORMULA    = CITED / COMPOSITE-INPUT
 SIEGEL-CONSTANT     = INEFFECTIVE
 BOMBIERI-VINOGRADOV = DEFERRED
-REVIEW              = PENDING
 RELEASE-READY       = NO
 ```
 
