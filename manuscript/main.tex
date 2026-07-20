@@ -39,5 +39,16 @@
 \input{volumes/volume-15-modern-frontiers/chapters/chapter-01-frontiers-map}
 
 \backmatter
-\printbibliography[heading=bibintoc,title={المراجع}]
+\nocite{*}
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{المراجع}
+\thispagestyle{plain}
+\vspace*{15mm}
+\noindent{\LARGE\bfseries المراجع\par}
+\bigskip
+\begin{english}
+\footnotesize
+\printbibliography[heading=none]
+\end{english}
 \end{document}
