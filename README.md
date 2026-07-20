@@ -17,33 +17,26 @@
 - [سجل النتائج المعتمدة](docs/RESULTS_REGISTRY.md)
 - [مراجعة الفصل السابع المستقلة](docs/CHAPTER_07_INDEPENDENT_REVIEW_2026-07-19.md)
 - [مراجعة الفصل الثامن المستقلة](docs/CHAPTER_08_INDEPENDENT_REVIEW_2026-07-20.md)
-- [التحقق المرجعي للفصل الثامن](docs/CHAPTER_08_BIBLIOGRAPHIC_VERIFICATION_2026-07-20.md)
-- [مراجعة أدبيات الفصل الثامن](research/literature-reviews/chapter-08-dirichlet-primes.md)
-- [سجل أدلة الفصل التاسع](research/literature-reviews/chapter-09-prime-number-theorem-evidence.md)
-- [خريطة برهان الفصل التاسع](research/literature-reviews/chapter-09-prime-number-theorem-proof-map.md)
-- [تدقيق ما قبل تأليف الفصل التاسع](docs/CHAPTER_09_PRE_AUTHORING_AUDIT_2026-07-20.md)
-- [التدقيق المنطقي للفصل التاسع](docs/CHAPTER_09_LOGIC_AUDIT_2026-07-20.md)
-- [التحقق المرجعي للفصل التاسع](docs/CHAPTER_09_BIBLIOGRAPHIC_VERIFICATION_2026-07-20.md)
 - [المراجعة المستقلة للفصل التاسع](docs/CHAPTER_09_INDEPENDENT_REVIEW_2026-07-20.md)
-- [سجل أدلة الفصل العاشر](research/literature-reviews/chapter-10-prime-number-theorem-arithmetic-progressions-evidence.md)
-- [خريطة برهان الفصل العاشر](research/literature-reviews/chapter-10-prime-number-theorem-arithmetic-progressions-proof-map.md)
-- [تدقيق ما قبل تأليف الفصل العاشر](docs/CHAPTER_10_PRE_AUTHORING_AUDIT_2026-07-20.md)
-- [التدقيق المنطقي للفصل العاشر](docs/CHAPTER_10_LOGIC_AUDIT_2026-07-20.md)
-- [التحقق المرجعي للفصل العاشر](docs/CHAPTER_10_BIBLIOGRAPHIC_VERIFICATION_2026-07-20.md)
-- [تدقيق ما بعد تأليف الفصل العاشر](docs/CHAPTER_10_AUTHORING_AUDIT_2026-07-20.md)
-- [حزمة المراجعة المستقلة للفصل العاشر](docs/CHAPTER_10_INDEPENDENT_REVIEW_PACKET_2026-07-20.md)
 - [المراجعة المستقلة للفصل العاشر](docs/CHAPTER_10_INDEPENDENT_REVIEW_2026-07-20.md)
+- [سجل أدلة الفصل الحادي عشر](research/literature-reviews/chapter-11-zero-free-regions-exceptional-zeros-evidence.md)
+- [خريطة برهان الفصل الحادي عشر](research/literature-reviews/chapter-11-zero-free-regions-exceptional-zeros-proof-map.md)
+- [تدقيق ما قبل تأليف الفصل الحادي عشر](docs/CHAPTER_11_PRE_AUTHORING_AUDIT_2026-07-20.md)
+- [التدقيق المنطقي للفصل الحادي عشر](docs/CHAPTER_11_LOGIC_AUDIT_2026-07-20.md)
+- [تدقيق ما بعد تأليف الفصل الحادي عشر](docs/CHAPTER_11_AUTHORING_AUDIT_2026-07-20.md)
+- [حزمة المراجعة المستقلة للفصل الحادي عشر](docs/CHAPTER_11_INDEPENDENT_REVIEW_PACKET_2026-07-20.md)
+- [المراجعة المستقلة للفصل الحادي عشر](docs/CHAPTER_11_INDEPENDENT_REVIEW_2026-07-20.md)
 - [سجل التجارب الحاسوبية](docs/EXPERIMENTS_REGISTRY.md)
 
 ## الحالة الحالية
 
-الإصدار: `v0.14.0-dev`
+الإصدار: `v0.15.0-dev`
 
 يتضمن هذا الإصدار:
 
 - بنية المستودع ونظام إدارة الإصدارات والتوثيق العلمي.
 - بناء PDF محليًا وعلى GitHub Actions.
-- الفصول العشرة الأولى من المجلد التأسيسي:
+- الفصول الأحد عشر الأولى من المجلد التأسيسي:
   1. التاريخ والمنهج.
   2. اللغة التقاربية والجمع الجزئي لأبيل.
   3. التحليل المركب الموجّه لنظرية الأعداد.
@@ -54,22 +47,22 @@
   8. مبرهنة ديريشليه للأوليات في المتتاليات الحسابية.
   9. مبرهنة الأعداد الأولية.
   10. مبرهنة الأعداد الأولية في المتتاليات الحسابية لترديد ثابت.
-- الفصل السابع بحالة `REVIEWED` بعد اعتماد المراجعة الخارجية وإغلاق ملاحظاتها ودمج PR #7.
-- الفصل الثامن بحالة `REVIEWED` بعد مراجعة مستقلة عميقة والتحقق المرجعي من مواضع المصادر، وهو مدمج في `main` عبر PR #9.
-- الفصل التاسع بحالة `REVIEWED` بعد حكم مستقل `APPROVED` ونجاح البناء النهائي، وهو مدمج في `main` عبر PR #13 عند التزام الدمج `601d8eef29e973e882f6d2213a382d15e3870d42`.
-- الفصل العاشر بحالة `REVIEWED` بعد مراجعة مستقلة كاملة بحكم `APPROVED` من دون تصحيحات حاجزة.
-- الرأس الرياضي الذي خضع للمراجعة هو `6e4c4b11a2eba3f36dbbbf4b87484326b45912e8`؛ نجح `Quality checks` run #199 و`Build PDF` run #198.
-- سُجل الحكم في `docs/CHAPTER_10_INDEPENDENT_REVIEW_2026-07-20.md`، وأُغلقت بوابة المراجعة الثانية في Issue #16.
-- PR #15 ما يزال Draft وغير مدمج؛ الدمج يحتاج أمرًا صريحًا من مالك المشروع.
-- يثبت الفصل العاشر، لكل \(q\) ثابت ولكل \((a,q)=1\):
-  \(\psi(x;q,a)\sim x/\varphi(q)\)، ثم \(\vartheta(x;q,a)\sim x/\varphi(q)\)، ثم \(\pi(x;q,a)\sim x/(\varphi(q)\log x)\).
-- لا يدعي الفصل العاشر انتظامًا في \(q\)، ولا حد خطأ فعالًا، ولا Siegel--Walfisz، ولا Bombieri--Vinogradov، ولا GRH.
+  11. المناطق الخالية من الأصفار والأصفار الاستثنائية.
+- الفصول السابع والثامن والتاسع والعاشر والحادي عشر بحالة `REVIEWED`؛ الفصول حتى العاشر مدمجة في `main`.
+- اجتاز الفصل الحادي عشر مراجعة مستقلة كاملة لم تكشف خطأ رياضيًا، وكشفت تصحيحًا ببليوغرافيًا واحدًا في مدخل Basak--Pratt.
+- صُحح اسم المؤلف إلى Debmalya Basak، وسجلت بيانات النشر في *Research in Number Theory* 12(1)، المقالة 17 (2026)، DOI `10.1007/s40993-025-00695-x`.
+- أضيف arXiv:2410.06082 إلى مدخل Benli--Goel--Twiss--Zaman، ووصف Liu (2022) بوصفه preprint.
+- نجح رأس التصحيح والمراجعة في `Quality checks` run #253 و`Build PDF` run #249.
+- جمدت نسخة المراجعة الأصلية عند الرأس `617549dfd76cd2582c85217d39fab94ffaad1a9f` في الفرع `review/chapter-11-zero-free-regions-exceptional-zeros-rc1`.
+- أُغلقت بوابة المراجعة المستقلة في Issue #18 بعد تسجيل الحكم والتصحيح.
+- PR #17 ما يزال `DRAFT / UNMERGED`، والدمج غير مصرح به.
+- النتائج الداخلية للفصل الحادي عشر مسجلة `PROVED-HERE`، ومبرهنتا Siegel وDeuring--Heilbronn مسجلتان `CITED`، والنتيجة التشخيصية للصيغة الصريحة `DEFERRED`.
+- لا يدعي الفصل أفضل ثابت عددي، ولا برهانًا كاملًا لـDeuring--Heilbronn، ولا Linnik أو Siegel--Walfisz أو Bombieri--Vinogradov أو GRH.
 - معرفات ثابتة للنتائج وحالات منشأ ظاهرة داخل PDF.
-- سجل نتائج يميز البرهان الداخلي من الاستشهاد والنتيجة المؤجلة والمسودة.
 - تجربة Hardy Z منخفضة الارتفاع، مسجلة وقابلة لإعادة التشغيل ومطابقة لإحداثيات LMFDB، بسقف `NO_RH_EVIDENCE`.
 - نواة أولية لفصل الجبهات البحثية الحديثة.
 
-الفصول الحالية متفاوتة الاكتمال، ولا يعد أي فصل `RELEASE-READY` قبل اجتياز بوابة الجودة والمراجعة الثانية وإغلاق ديونه المعلنة. الفصول الثامن والتاسع والعاشر بحالة `REVIEWED`. ويبقى PR #15 Draft وغير مدمج حتى أمر مالك المشروع.
+الفصول الحالية متفاوتة الاكتمال، ولا يعد أي فصل `RELEASE-READY` قبل إغلاق ديونه المعلنة وتدقيق الإصدار. الفصل الحادي عشر `REVIEWED` لكنه غير مدمج، ودمج PR #17 يحتاج أمرًا صريحًا من مالك المشروع.
 
 ## مبادئ التحرير
 

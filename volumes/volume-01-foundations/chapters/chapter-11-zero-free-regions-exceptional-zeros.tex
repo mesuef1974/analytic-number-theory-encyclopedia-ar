@@ -1,0 +1,590 @@
+\chapter{المناطق الخالية من الأصفار والأصفار الاستثنائية}
+
+\section{نطاق الفصل وحالته}
+
+\noindent\textbf{حالة الفصل:} \textenglish{REVIEWED}. يطوّر هذا الفصل عدم
+الانعدام النوعي على الخط \(\Re(s)=1\)، المثبت في الفصل العاشر، إلى منطقة
+كمية قرب الخط لدوال ديريشليه \(L\). كما يعزل الصفر الحقيقي الاستثنائي
+الممكن، ويثبت فرادته عبر الموصلات المحدودة بمبرهنة Landau--Page، ثم يفصل
+بين مبرهنة Siegel غير الفعالة وظاهرة Deuring--Heilbronn لتنافر بقية
+الأصفار.
+
+بدأ التأليف بعد إغلاق بوابة
+\textenglish{EVIDENCE-FIRST / PRE-AUTHORING} بحكم \textenglish{PASS} في
+\texttt{docs/CHAPTER\_11\_LOGIC\_AUDIT\_2026-07-20.md}، ثم اجتاز تدقيق
+ما بعد التأليف بحكم \textenglish{PASS} في
+\texttt{docs/CHAPTER\_11\_AUTHORING\_AUDIT\_2026-07-20.md}. ولا يدعي
+الفصل أفضل ثابت عددي، ولا يثبت البرهان الكامل لظاهرة
+Deuring--Heilbronn، ولا يتناول Siegel--Walfisz أو Bombieri--Vinogradov أو
+Linnik، ولا يستعمل فرضية ريمان المعممة. وتبقى منطقة Vinogradov--Korobov
+وتقديرات كثافة الأصفار موضوعين متقدمين مؤجلين.
+
+\subsection{المتطلبات السابقة}
+
+يعتمد الفصل على:
+\begin{itemize}
+  \item الشخصيات البدائية والموصل والدالة المكتملة والمعادلة الوظيفية من
+  الفصل السابع.
+  \item صيغة ستيرلينغ المنتظمة من الفصل السادس.
+  \item المتراجحة الموزونة وعدم الانعدام على الخط \(\Re(s)=1\) من الفصل
+  العاشر.
+  \item جداء هادامار للدوال التامة من الرتبة الأولى بوصفه نتيجة قياسية في
+  التحليل المركب.
+\end{itemize}
+
+\subsection{نواتج التعلم}
+
+بعد إتمام الفصل ينبغي أن يستطيع القارئ:
+\begin{enumerate}
+  \item تفسير ظهور المقياس \(\log(q(|t|+2))\) قرب الخط الواحد.
+  \item اشتقاق صيغة المشتقة اللوغاريتمية بمجموع على الأصفار.
+  \item إثبات المنطقة القياسية مع استثناء حقيقي بسيط ممكن.
+  \item التمييز بين الفرادة داخل دالة واحدة، والفرادة عند ترديد ثابت،
+  وفرادة Landau--Page عبر الموصلات.
+  \item شرح مبرهنة Siegel ومعنى عدم فعالية ثابتها.
+  \item تفسير ظاهرة Deuring--Heilbronn بوصفها تنافرًا كميًا للأصفار.
+\end{enumerate}
+
+\section{المقياس التحليلي وثلاثة معاني للفرادة}
+
+لتكن \(\chi\) شخصية بدائية غير رئيسية بموصل \(q\ge3\)، ولتكن
+\[
+s=\sigma+it.
+\]
+نستعمل المقياس
+\[
+\mathcal L_q(t)=\log\bigl(q(|t|+2)\bigr).
+\]
+يجمع هذا المقياس كلفة الموصل \(\log q\) وكلفة عامل غاما عند الارتفاع
+\(|t|\). ويجب فصل العبارات الآتية:
+\begin{enumerate}
+  \item داخل دالة بدائية واحدة، يوجد على الأكثر صفر حقيقي واحد في المنطقة
+  القياسية، ويكون بسيطًا.
+  \item عند ترديد ثابت، يملك حاصل ضرب جميع دوال الشخصيات على الأكثر صفرًا
+  استثنائيًا واحدًا في منطقة صريحة مناسبة؛ انظر
+  \cite{McCurley1984,Kadiri2018}.
+  \item عبر الموصلات حتى \(Q\)، تمنع مبرهنة Landau--Page وجود شخصيتين
+  بدائيتين مختلفتين لهما صفران شديدا القرب من الواحد.
+\end{enumerate}
+
+\section{الرد إلى الشخصية البدائية}
+
+\begin{proposition}[الأصفار القريبة من الواحد والجد البدائي]
+\label{prop:chapter11-primitive-reduction}
+\resultid{ANT-PROP-11-01}
+\provedhere
+لتكن \(\chi\pmod q\) شخصية مستحثة من شخصية بدائية
+\(\chi^*\pmod r\). عندئذ
+\[
+L(s,\chi)=L(s,\chi^*)
+\prod_{\substack{p\mid q\\p\nmid r}}
+\left(1-\chi^*(p)p^{-s}\right).
+\]
+ولا ينعدم أي عامل محلي في \(\Re(s)>0\). كما أن الفرق بين المشتقتين
+اللوغاريتميتين هو \(O(\log q)\) عندما \(\Re(s)>1\).
+\end{proposition}
+
+\begin{proof}
+صيغة العوامل المحلية هي
+\textenglish{\texttt{ANT-PROP-07-03}}. وإذا \(\sigma>0\)، فإن
+\[
+|\chi^*(p)p^{-s}|\le p^{-\sigma}<1,
+\]
+فلا ينعدم العامل. وبالتفاضل اللوغاريتمي:
+\[
+\frac{L'}{L}(s,\chi)=\frac{L'}{L}(s,\chi^*)+
+\sum_{\substack{p\mid q\\p\nmid r}}
+\frac{\chi^*(p)(\log p)p^{-s}}
+     {1-\chi^*(p)p^{-s}}.
+\]
+ولـ\(\sigma>1\):
+\[
+\left|
+\frac{\chi^*(p)(\log p)p^{-s}}
+     {1-\chi^*(p)p^{-s}}
+\right|
+\le \frac{\log p}{p^\sigma-1}\le\log p.
+\]
+ومن ثم لا يتجاوز مجموع الحدود
+\[
+\sum_{p\mid q}\log p=\log\operatorname{rad}(q)\le\log q.
+\]
+\end{proof}
+
+\section{الدالة المكتملة والمشتقة اللوغاريتمية}
+
+ضع
+\[
+a_\chi=\frac{1-\chi(-1)}2\in\{0,1\},
+\]
+وعرف
+\[
+\Lambda(s,\chi)=
+\left(\frac q\pi\right)^{(s+a_\chi)/2}
+\Gamma\!\left(\frac{s+a_\chi}{2}\right)L(s,\chi).
+\]
+الدالة \(\Lambda(s,\chi)\) تامة من الرتبة الأولى، وتحقق
+\[
+\Lambda(s,\chi)=\varepsilon_\chi
+\Lambda(1-s,\overline\chi),
+\qquad |\varepsilon_\chi|=1.
+\]
+
+\begin{lemma}[صيغة المشتقة اللوغاريتمية بمجموع على الأصفار]
+\label{lem:chapter11-log-derivative-zeros}
+\resultid{ANT-LEM-11-01}
+\provedhere
+إذا كانت \(\chi\) بدائية وغير رئيسية، و\(\Re(s)>1\)، فإن
+\[
+-\Re\frac{L'}{L}(s,\chi)=
+\frac12\log\frac q\pi+
+\frac12\Re\frac{\Gamma'}{\Gamma}
+\!\left(\frac{s+a_\chi}{2}\right)
+-
+\sum_\rho^*\Re\frac1{s-\rho},
+\]
+حيث يجري الجمع المتماثل على الأصفار غير البديهية. وبخاصة، مساهمة كل صفر
+في \(-\Re L'/L\) سالبة.
+\end{lemma}
+
+\begin{proof}
+تعطي مبرهنة هادامار العامة
+\[
+\Lambda(s,\chi)=
+\exp(A_\chi+B_\chi s)
+\prod_\rho
+\left(1-\frac{s}{\rho}\right)e^{s/\rho}.
+\]
+وبالتفاضل اللوغاريتمي والتجميع المتماثل:
+\[
+\frac{\Lambda'}{\Lambda}(s,\chi)=
+ b_\chi+\sum_\rho^*\frac1{s-\rho}.
+\]
+تجعل المعادلة الوظيفية وتناظر الأصفار الجزء الحقيقي للثابت المنتظم
+\(b_\chi\) مساويًا للصفر. ومن تعريف \(\Lambda\):
+\[
+\frac{\Lambda'}{\Lambda}(s,\chi)=
+\frac12\log\frac q\pi+
+\frac12\frac{\Gamma'}{\Gamma}
+\!\left(\frac{s+a_\chi}{2}\right)+
+\frac{L'}{L}(s,\chi).
+\]
+أخذ الجزء الحقيقي وإعادة الترتيب يعطي الهوية. وإذا
+\(s=\sigma+it\) و\(\rho=\beta+i\gamma\)، فإن
+\[
+\Re\frac1{s-\rho}=
+\frac{\sigma-\beta}
+{(\sigma-\beta)^2+(t-\gamma)^2}>0.
+\]
+\end{proof}
+
+\begin{lemma}[ضبط الباقي المنتظم]
+\label{lem:chapter11-uniform-remainder}
+\provedhere
+يوجد ثابت مطلق \(C>0\) بحيث لكل شخصية بدائية غير رئيسية \(\chi\)، ولكل
+\(1<\sigma\le2\):
+\[
+-\Re\frac{L'}{L}(\sigma+it,\chi)
+\le C\mathcal L_q(t).
+\]
+وإذا عزلنا أصفارًا محددة، أمكن إبقاء مساهماتها السالبة صراحة. أما الشخصية
+الرئيسية \(\chi_0\pmod q\)، فتخضع للحد
+\[
+-\Re\frac{L'}{L}(\sigma+it,\chi_0)
+\le \Re\frac1{\sigma-1+it}+C\mathcal L_q(t).
+\]
+\end{lemma}
+
+\begin{proof}
+تعطي صيغة ستيرلينغ المنتظمة، في الشريط \(1\le\sigma\le2\)،
+\[
+\left|
+\Re\frac{\Gamma'}{\Gamma}
+\!\left(\frac{\sigma+a_\chi+it}{2}\right)
+\right|\ll\log(|t|+2).
+\]
+وحذف مجموع الأصفار المطروح من اللمّة السابقة يعطي حدًا علويًا من رتبة
+\(\log q+\log(|t|+2)\). وللشخصية الرئيسية نكتب
+\[
+L(s,\chi_0)=\zeta(s)\prod_{p\mid q}(1-p^{-s}),
+\]
+فنحتفظ بقطب زيتا صراحة، ونضبط غاما والعوامل المحلية كما في القضية السابقة.
+\end{proof}
+
+\section{المتراجحة الموزونة}
+
+نستعمل النتيجة \textenglish{\texttt{ANT-LEM-10-01}}:
+\[
+-3\frac{\zeta'}{\zeta}(\sigma)
+-4\Re\frac{L'}{L}(\sigma+it,\chi)
+-\Re\frac{L'}{L}(\sigma+2it,\chi^2)
+\ge0
+\qquad(\sigma>1).
+\tag{11.1}
+\]
+مصدرها الموجبية
+\[
+3+4\Re z+\Re(z^2)\ge0
+\qquad(|z|\le1).
+\]
+
+\section{المنطقة القياسية الخالية}
+
+\begin{theorem}[المنطقة القياسية والاستثناء الحقيقي]
+\label{thm:chapter11-standard-zero-free-region}
+\resultid{ANT-THM-11-01}
+\provedhere
+يوجد ثابت مطلق \(c_0>0\) بحيث لكل شخصية ديريشليه بدائية غير رئيسية
+\(\chi\) بموصل \(q\ge3\)، تملك \(L(s,\chi)\) على الأكثر صفرًا واحدًا في
+المنطقة
+\[
+\Re(s)>
+1-\frac{c_0}{\log(q(|\Im(s)|+2))}.
+\tag{11.2}
+\]
+إذا وجد الصفر، فهو حقيقي وبسيط، وتكون \(\chi\) شخصية حقيقية تربيعية.
+\end{theorem}
+
+\begin{proof}
+نكتب
+\[
+\delta=\sigma-1>0,
+\qquad \eta=1-\beta\ge0,
+\qquad \mathcal L=\log(q(|\gamma|+2)),
+\]
+ونختار \(\delta=A/\mathcal L\)، حيث \(A>0\) ثابت مطلق صغير.
+
+\paragraph{الشخصية غير الحقيقية.}
+إذا كان \(\rho=\beta+i\gamma\) صفرًا وكانت \(\chi\) غير حقيقية، فإن
+\(\chi^2\) غير رئيسية. نأخذ \(t=\gamma\) في (11.1)، ونعزل الصفر، فنحصل
+على
+\[
+0\le
+\frac3\delta-
+\frac4{\delta+\eta}+C\mathcal L.
+\tag{11.3}
+\]
+إذا افترضنا \(\eta\le c/\mathcal L\)، صار الطرف الأيمن بعد القسمة على
+\(\mathcal L\) لا يزيد على
+\[
+\frac3A-\frac4{A+c}+C.
+\]
+نختار \(A\) بحيث \(1/A>2C\)، ثم نختار \(c>0\) صغيرًا بما يكفي، فيصبح
+التعبير سالبًا، وهو تناقض.
+
+\paragraph{الشخصية الحقيقية والصفر غير الحقيقي.}
+إذا كانت \(\chi\) حقيقية و\(\gamma\ne0\)، فإن
+\(\overline\rho=\beta-i\gamma\) صفر أيضًا، و\(\chi^2\) رئيسية. بعد عزل
+الصفرين وقطب الحد الثالث:
+\[
+0\le
+\frac3\delta+
+\frac{\delta}{\delta^2+4\gamma^2}-
+\frac4{\delta+\eta}-
+\frac{4(\delta+\eta)}{(\delta+\eta)^2+4\gamma^2}
++C\mathcal L.
+\tag{11.4}
+\]
+ضع
+\[
+r=\frac{\delta+\eta}{\delta},
+\qquad v=\frac{2|\gamma|}{\delta}.
+\]
+بعد ضرب الجزء الكسري في \(\delta\)، يصبح
+\[
+G(r,v)=3+\frac1{1+v^2}-\frac4r-
+\frac{4r}{r^2+v^2}.
+\]
+لدينا
+\[
+G(1,v)=-1-\frac3{1+v^2}\le-1,
+\qquad
+\left|\frac{\partial G}{\partial r}(r,v)\right|\le8.
+\]
+فإذا \(\eta\le\delta/16\)، أعطت مبرهنة القيمة المتوسطة
+\(G(r,v)\le-1/2\). ومن ثم
+\[
+0\le-\frac1{2\delta}+C\mathcal L,
+\]
+وهو تناقض عندما \(1/(2A)>C\).
+
+\paragraph{الصفر الحقيقي وبساطته.}
+افترض وجود أصفار حقيقية \(\beta_j=1-\eta_j\) في المنطقة، محسوبة مع
+الرتب. عند \(t=0\)، يعطي قطبا الحدين الأول والثالث \(4/\delta\)، وتعطي
+الأصفار
+\[
+-4\sum_j\frac1{\delta+\eta_j}.
+\]
+إذا كان مجموع الرتب على الأقل اثنين، وكانت \(\eta_j\le\delta/2\)، فإن
+\[
+-4\sum_j\frac1{\delta+\eta_j}
+\le-\frac{16}{3\delta}.
+\]
+فتصبح المتراجحة
+\[
+0\le-\frac4{3\delta}+C\log(2q),
+\]
+وتناقض اختيار \(A\) صغيرًا. إذن يوجد على الأكثر صفر حقيقي واحد، وتكون
+رتبته واحدًا. وبجمع الثوابت الصغيرة المستعملة نحصل على \(c_0\).
+\end{proof}
+
+\begin{remark}[الثوابت الصريحة]
+أثبت McCurley منطقة صريحة لحاصل ضرب دوال الشخصيات بترديد ثابت
+\cite{McCurley1984}، وحسن Kadiri ثوابت عددية في نطاقات محددة
+\cite{Kadiri2018}. لا يجوز نقل ثابت من صيغة إلى تطبيع لوغاريتمي مختلف من
+دون إعادة الحساب.
+\end{remark}
+
+\section{مبرهنة Landau--Page}
+
+\begin{theorem}[مبرهنة Landau--Page النوعية]
+\label{thm:chapter11-landau-page}
+\resultid{ANT-THM-11-02}
+\provedhere
+يوجد ثابت مطلق \(c_P>0\) بحيث لكل \(Q\ge3\)، توجد على الأكثر شخصية
+ديريشليه حقيقية بدائية واحدة \(\chi\) موصلها \(q\le Q\) وتملك صفرًا
+حقيقيًا \(\beta\) يحقق
+\[
+1-\frac{c_P}{\log Q}<\beta<1.
+\]
+\end{theorem}
+
+\begin{proof}
+نفترض وجود شخصيتين حقيقيتين بدائيتين متميزتين
+\(\chi_i\pmod{q_i}\)، حيث \(q_i\le Q\)، ولكل منهما صفر
+\(\beta_i=1-\eta_i\) مع \(\eta_i\le c/\log Q\). على الترديد
+\(m=\operatorname{lcm}(q_1,q_2)\)، ضع
+\[
+\chi(n)=\chi_1(n)\chi_2(n).
+\]
+هي غير رئيسية، وإلا اتفق جدا الشخصيتين البدائيان. نعرف
+\[
+F(s)=\zeta(s)L(s,\chi_1)L(s,\chi_2)L(s,\chi).
+\]
+في \(\sigma>1\):
+\[
+-\frac{F'}{F}(\sigma)=
+\sum_{n\ge1}\frac{\Lambda(n)}{n^\sigma}
+(1+\chi_1(n))(1+\chi_2(n))\ge0.
+\]
+نحتفظ بشخصية حاصل الضرب كما هي للمحافظة على الموجبية. وعند تقدير مشتقتها
+نردها إلى جدها البدائي، الذي لا يتجاوز موصله \(q_1q_2\le Q^2\).
+
+بوضع \(\delta=\sigma-1\) وعزل الصفرين نحصل على
+\[
+0\le
+\frac1\delta-
+\frac1{\delta+\eta_1}-
+\frac1{\delta+\eta_2}+C\log Q.
+\tag{11.5}
+\]
+نختار \(\delta=A/\log Q\). وإذا كانت
+\(\eta_i\le c/\log Q\)، صار الطرف الأيمن بعد القسمة على \(\log Q\) لا
+يزيد على
+\[
+\frac1A-\frac2{A+c}+C.
+\]
+نختار \(A\) بحيث \(1/A>2C\)، ثم \(c_P\) صغيرًا بما يكفي، فنحصل على
+تناقض.
+\end{proof}
+
+\begin{remark}[ما الذي تثبته Page؟]
+لا تثبت المبرهنة وجود صفر استثنائي، بل فرادته إذا ظهر. انظر
+\cite{Davenport2000,BasakPratt2026}.
+\end{remark}
+
+\section{مبرهنة Siegel وعدم الفعالية}
+
+\begin{theorem}[مبرهنة Siegel]
+\label{thm:chapter11-siegel}
+\resultid{ANT-THM-11-03}
+\citedresult{\cite{Siegel1935,Liu2022Siegel}}
+لكل \(\varepsilon>0\)، يوجد ثابت \(c(\varepsilon)>0\) بحيث لكل شخصية
+ديريشليه حقيقية بدائية غير رئيسية \(\chi\) بموصل \(q\):
+\[
+|L(1,\chi)|\ge c(\varepsilon)q^{-\varepsilon}.
+\tag{11.6}
+\]
+الثابت \(c(\varepsilon)\) غير فعال.
+\end{theorem}
+
+\begin{lemma}[حد المشتقة قرب الواحد]
+\label{lem:chapter11-derivative-near-one}
+\provedhere
+يوجد ثابت مطلق \(C>0\) بحيث، إذا كانت \(\chi\) غير رئيسية بترديد \(q\)،
+وكان
+\[
+1-\frac{c_0}{\log(2q)}\le\sigma\le1,
+\]
+فإن
+\[
+|L'(\sigma,\chi)|\le C\log^2(2q).
+\]
+\end{lemma}
+
+\begin{proof}
+ضع \(S(x)=\sum_{n\le x}\chi(n)\). من الدورية وانعدام مجموع دورة كاملة
+لدينا \(|S(x)|\le q\). وبالجمع الجزئي عند \(q\):
+\[
+L(s,\chi)=
+\sum_{n\le q}\frac{\chi(n)}{n^s}+
+ s\int_q^\infty\frac{S(x)}{x^{s+1}}\,dx
+\qquad(\Re(s)>0).
+\]
+وبالتفاضل عند \(s=\sigma\) الحقيقي:
+\begin{align*}
+L'(\sigma,\chi)={}&-
+\sum_{n\le q}\frac{\chi(n)\log n}{n^\sigma}+
+\int_q^\infty\frac{S(x)}{x^{\sigma+1}}\,dx\\
+&-
+\sigma\int_q^\infty
+\frac{S(x)\log x}{x^{\sigma+1}}\,dx.
+\end{align*}
+في المجال المحدد \(q^{1-\sigma}\le e^{c_0}\). لذلك لا يتجاوز الحد
+المنتهي \(O(\log^2(2q))\)، ولا يتجاوز التكاملان تباعًا
+\(O(1)\) و\(O(\log(2q))\).
+\end{proof}
+
+\begin{corollary}[الإبعاد غير الفعال للصفر الاستثنائي]
+\label{cor:chapter11-siegel-zero-distance}
+\resultid{ANT-COR-11-01}
+\provedhere
+لكل \(\varepsilon>0\)، يوجد ثابت غير فعال \(c_\varepsilon>0\) بحيث إذا
+كان \(\beta\) صفرًا استثنائيًا لدالة شخصية حقيقية بدائية بموصل \(q\)، فإن
+\[
+1-\beta\ge c_\varepsilon q^{-\varepsilon}.
+\]
+\end{corollary}
+
+\begin{proof}
+لدينا
+\[
+L(1,\chi)=\int_\beta^1L'(u,\chi)\,du,
+\]
+فتعطي اللمّة السابقة
+\[
+|L(1,\chi)|\ll(1-\beta)\log^2(2q).
+\]
+نطبق مبرهنة Siegel بالأس \(\varepsilon/2\)، ثم نستعمل
+\(\log^2(2q)\ll_\varepsilon q^{\varepsilon/2}\)، فنحصل على النتيجة. ويرث
+الثابت عدم الفعالية من مبرهنة Siegel.
+\end{proof}
+
+\begin{remark}[منع إساءة استعمال مبرهنة Siegel]
+كل نتيجة تعتمد على ثابت Siegel من دون بديل فعال ترث عدم الفعالية. لذلك لا
+يجوز إدخال هذا الثابت في حد خطأ ثم وصف الحد بأنه فعال.
+\end{remark}
+
+\section{ظاهرة Deuring--Heilbronn}
+
+للترديد الثابت \(q\)، ضع
+\[
+\mathcal D_q(s)=\prod_{\chi\bmod q}L(s,\chi).
+\]
+
+\begin{theorem}[ظاهرة Deuring--Heilbronn، صيغة نوعية]
+\label{thm:chapter11-deuring-heilbronn}
+\resultid{ANT-THM-11-04}
+\citedresult{\cite{BenliGoelTwissZaman2026}}
+توجد ثوابت مطلقة فعالة موجبة \(c_0,c_1,c_2\) بحيث إذا كان \(T\ge2\)،
+وكانت \(\mathcal D_q\) تملك صفرًا استثنائيًا \(\beta_1\) يحقق
+\[
+\lambda_1=(1-\beta_1)\log(q(T+2))\le c_0,
+\]
+فإن كل صفر آخر \(\rho=\beta+i\gamma\) لـ\(\mathcal D_q\)، مع
+\(|\gamma|\le T\)، يحقق
+\[
+1-\beta\ge
+\frac{c_1}{\log(q(T+2))}
+\log\!\left(\frac{c_2}{\lambda_1}\right).
+\tag{11.7}
+\]
+\end{theorem}
+
+\noindent لا ندعي هنا البرهان الكامل، الذي يستعمل أدوات تتجاوز الفصول
+الحالية.
+
+\begin{remark}[الفرادة ليست التنافر]
+Landau--Page تمنع استثناءين مستقلين من الاقتراب معًا من الواحد. أما
+Deuring--Heilbronn فتدفع كل صفر آخر بعيدًا بمقدار يزداد عندما يقترب
+\(\beta_1\) أكثر من الواحد.
+\end{remark}
+
+\section{الأثر في توزيع الأوليات}
+
+تشرح الصيغة الصريحة الإرشادية
+\[
+\psi(x,\chi)\approx-
+\sum_\rho\frac{x^\rho}{\rho}+\text{حدود أخرى}
+\]
+سبب خطورة الصفر الاستثنائي. فإذا كان \(\beta\) قريبًا من الواحد، ظهر حد
+كبير من رتبة \(-x^\beta/\beta\).
+
+\begin{proposition}[خريطة الأثر في الصيغة الصريحة]
+\label{prop:chapter11-explicit-formula-diagnostic}
+\resultid{ANT-PROP-11-02}
+\deferredresult{الصيغة الصريحة الكاملة لدوال الشخصيات مؤجلة إلى فصل كمي لاحق}
+تضبط المنطقة القياسية مساهمة الأصفار غير الاستثنائية، بينما يساهم الصفر
+الحقيقي الاستثنائي بحد منفرد يجب إظهاره صراحة. وتمنح ظاهرة
+Deuring--Heilbronn تعويضًا جزئيًا بدفع بقية الأصفار بعيدًا.
+\end{proposition}
+
+\section{حدود الفعالية}
+
+\begin{center}
+\begin{tabular}{|p{0.28\textwidth}|p{0.19\textwidth}|p{0.38\textwidth}|}
+\hline
+\textbf{النتيجة} & \textbf{الفعالية} & \textbf{الملاحظة} \\
+\hline
+المنطقة القياسية الفردية & فعالة من حيث المبدأ & الثابت غير محسن \\
+\hline
+Landau--Page النوعية & فعالة من حيث المبدأ & تثبت الفرادة فقط \\
+\hline
+مبرهنة Siegel & غير فعالة & ثابت \(c(\varepsilon)\) غير معلوم حسابيًا \\
+\hline
+الإبعاد \(1-\beta\gg_\varepsilon q^{-\varepsilon}\) & غير فعال & يرث ثابت Siegel \\
+\hline
+Deuring--Heilbronn الصريحة & فعالة & مقتبسة؛ البرهان الكامل مؤجل \\
+\hline
+\end{tabular}
+\end{center}
+
+\section{تمارين}
+
+\begin{enumerate}
+  \item أثبت أن
+  \[
+  \sum_{p\mid q}\frac{\log p}{p^\sigma-1}\le\log q
+  \qquad(\sigma>1).
+  \]
+  \item تحقق من أن الشخصية غير الحقيقية لا يمكن أن يكون مربعها شخصية
+  رئيسية.
+  \item أثبت الحد \(|\partial G/\partial r|\le8\) المستعمل في برهان
+  المنطقة القياسية.
+  \item استخرج قيمًا صريحة غير مثلى للثوابت بدلالة ثابت الباقي \(C\).
+  \item أثبت أن شخصية حاصل الضرب في برهان Landau--Page غير رئيسية عندما
+  تكون \(\chi_1,\chi_2\) بدائيتين متميزتين.
+  \item تحقق من الموجبية
+  \[
+  1+\chi_1(n)+\chi_2(n)+\chi_1(n)\chi_2(n)
+  =(1+\chi_1(n))(1+\chi_2(n))\ge0.
+  \]
+  \item أثبت حد المشتقة قرب الواحد باستعمال دورية الشخصية والجمع الجزئي.
+  \item اشرح لماذا لا تنتج مبرهنة Siegel خوارزمية لحصر جميع الأصفار
+  الاستثنائية حتى موصل معلوم.
+  \item قارن بين مستويات الفرادة الثلاثة المذكورة في بداية الفصل.
+  \item اشرح من الصيغة الإرشادية لـ\(\psi(x,\chi)\) خطورة الحد
+  \(x^\beta/\beta\).
+\end{enumerate}
+
+\section{خلاصة الفصل}
+
+حوّلت المشتقة اللوغاريتمية هندسة الأصفار إلى متراجحات حقيقية: كل صفر يعطي
+مساهمة سالبة، بينما لا تتجاوز كلفة الموصل وغاما رتبة
+\(\log(q(|t|+2))\). وبضم ذلك إلى كثيرة حدود مثلثية غير سالبة حصلنا على
+المنطقة القياسية، مع إمكان استثناء حقيقي بسيط لشخصية تربيعية.
+
+ثم أثبتنا مبرهنة Landau--Page من حاصل ضرب أويلري موجب، وفصلنا مبرهنة
+Siegel غير الفعالة عن النتائج الفعالة، وسجلنا ظاهرة Deuring--Heilbronn
+بوصفها نتيجة مقتبسة لتنافر بقية الأصفار. وهذه الأدوات هي المدخل الطبيعي
+لمبرهنة Siegel--Walfisz وتقديرات الكثافة وBombieri--Vinogradov.
