@@ -1,0 +1,331 @@
+name: Chapter 12 governance sync
+
+on:
+  push:
+    branches:
+      - agent/chapter-12-governance-closure-v0.16.0
+
+permissions:
+  contents: write
+
+jobs:
+  synchronize:
+    if: ${{ !contains(github.event.head_commit.message, '[skip governance-sync]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Synchronize REVIEWED and MERGED state
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          MERGE = "b1f09a3388aa34194eb8836b6977fe05f86aee7a"
+          LOCAL_SHA = "3BF0BCE828DDF09C03D6527117992806FAD06010B161FC1B242472D0B5367749"
+
+          def read(path):
+              return Path(path).read_text(encoding="utf-8-sig")
+
+          def write(path, text):
+              Path(path).write_text(text, encoding="utf-8")
+
+          def replace_once(text, old, new, label):
+              count = text.count(old)
+              if count != 1:
+                  raise SystemExit(f"{label}: expected exactly one match, found {count}")
+              return text.replace(old, new, 1)
+
+          def sub_once(text, pattern, repl, label, flags=0):
+              updated, count = re.subn(pattern, repl, text, count=1, flags=flags)
+              if count != 1:
+                  raise SystemExit(f"{label}: expected exactly one regex match, found {count}")
+              return updated
+
+          # README
+          p = "README.md"
+          s = read(p)
+          s = replace_once(
+              s,
+              "- [تدقيق ما بعد تأليف الفصل الثاني عشر](docs/CHAPTER_12_AUTHORING_AUDIT_2026-07-20.md)\n",
+              "- [تدقيق ما بعد تأليف الفصل الثاني عشر](docs/CHAPTER_12_AUTHORING_AUDIT_2026-07-20.md)\n"
+              "- [المراجعة المستقلة للفصل الثاني عشر](docs/CHAPTER_12_INDEPENDENT_REVIEW_2026-07-20.md)\n"
+              "- [إيصال إغلاق مراجعة الفصل الثاني عشر](docs/CHAPTER_12_REVIEW_CLOSURE_2026-07-21.md)\n"
+              "- [إيصال البناء المحلي المتزامن](docs/LOCAL_BUILD_RECEIPT.md)\n",
+              "README document links",
+          )
+          state = f'''## الحالة الحالية
+
+الإصدار: `v0.16.0-dev`
+
+```text
+MAIN-HEAD                 = {MERGE}
+CHAPTER-12                = REVIEWED / MERGED
+PR-20                     = MERGED
+INDEPENDENT-REVIEW        = COMPLETED / APPROVED
+MATHEMATICAL-BLOCKERS     = 0
+REFERENCE-BLOCKERS        = 0
+TYPOGRAPHIC-BLOCKERS      = 0
+QUALITY-CHECKS            = RUN-311 / SUCCESS
+PDF-BUILD                 = RUN-306 / SUCCESS
+LOCAL-SYNC                = PASS / FF-ONLY
+SOURCE-BUILD              = PASS
+LOCAL-PDF-PAGES           = 184
+LOCAL-PDF-SHA256          = {LOCAL_SHA}
+EXPLICIT-FORMULA          = CITED / COMPOSITE-INPUT
+SIEGEL-CONSTANT           = INEFFECTIVE
+BOMBIERI-VINOGRADOV       = DEFERRED
+RELEASE-READY             = NO
+```
+
+'''
+          s = sub_once(s, r"## الحالة الحالية\n.*?(?=## الفصل الثاني عشر)", state, "README state", re.S)
+          s = replace_once(
+              s,
+              "- الفصول من السابع إلى الحادي عشر بحالة `REVIEWED` ومندمجة في `main`.\n- الفصل الثاني عشر بحالة `VERIFIED` بعد التدقيق الداخلي ونجاح الجودة والبناء، لكنه لم يخضع بعد لمراجعة ثانية مستقلة.",
+              "- الفصول من السابع إلى الثاني عشر بحالة `REVIEWED` ومندمجة في `main`.\n- الفصل الثاني عشر اجتاز المراجعة المستقلة بحكم `APPROVED` ودُمج عبر PR #20 عند الالتزام `b1f09a3388aa34194eb8836b6977fe05f86aee7a`.",
+              "README chapter states",
+          )
+          s = replace_once(
+              s,
+              ".\\scripts\\sync-build.ps1 -Open -CommitReceipt -Push",
+              ".\\scripts\\sync-build.ps1 -Branch main -Open",
+              "README build command",
+          )
+          write(p, s)
+
+          # PROGRESS
+          p = "docs/PROGRESS.md"
+          s = read(p)
+          general = f'''## الحالة العامة
+
+- **الإصدار التطويري الحالي:** `0.16.0-dev`
+- **المرحلة:** إغلاق الفصل الثاني عشر بعد المراجعة المستقلة والدمج.
+- **حالة الفصل:** `REVIEWED / MERGED`
+- **الفرع المستقر:** `main`
+- **رأس `main` الحالي:** `{MERGE}`
+- **فرع الإغلاق الحوكمي:** `agent/chapter-12-governance-closure-v0.16.0`
+- **منهج العمل:** `EVIDENCE-FIRST / REVIEWED`
+- **بوابة ما قبل التأليف:** `CLOSED / PASS`
+- **تدقيق ما بعد التأليف:** `CLOSED / PASS`
+- **المراجعة المستقلة:** `COMPLETED / APPROVED`
+- **البناء المحلي المتزامن:** `PASS / FF-ONLY / SOURCE-BUILD`
+- **PDF المحلي:** `184 PAGES / SHA256 {LOCAL_SHA}`
+- **فحوص رأس الإغلاق قبل الدمج:** `QUALITY #311 / PDF #306 / SUCCESS`
+- **PR #20:** `MERGED`
+- **Bombieri--Vinogradov:** `DEFERRED`
+- **آخر تحديث:** 2026-07-21
+
+```text
+CHAPTER-12                = REVIEWED / MERGED
+VERSION                   = 0.16.0-dev
+MAIN-HEAD                 = {MERGE}
+PR-20                     = MERGED
+INDEPENDENT-REVIEW        = APPROVED
+QUALITY-CHECKS            = RUN-311 / SUCCESS
+PDF-BUILD                 = RUN-306 / SUCCESS
+LOCAL-SYNC                = PASS / FF-ONLY
+SOURCE-BUILD              = PASS
+LOCAL-PDF-PAGES           = 184
+LOCAL-PDF-SHA256          = {LOCAL_SHA}
+EXPLICIT-FORMULA          = CITED / COMPOSITE-INPUT
+SIEGEL-CONSTANT           = INEFFECTIVE
+BOMBIERI-VINOGRADOV       = DEFERRED
+RELEASE-READY             = NO
+```
+
+'''
+          s = sub_once(s, r"## الحالة العامة\n.*?(?=## إغلاق المرحلة السابقة)", general, "PROGRESS general", re.S)
+          s = replace_once(s, "| بناء PDF المحلي والآلي | مسار آلي موجود؛ تحقق Artifact محلي من الفصل 12 | 100% |", "| بناء PDF المحلي والآلي | تحقق Artifact وبناء مصدر محلي متزامن للفصل 12 | 100% |", "PROGRESS build row")
+          s = replace_once(s, "| الفصل الثاني عشر: Siegel--Walfisz | `VERIFIED` | 88% |", "| الفصل الثاني عشر: Siegel--Walfisz | `REVIEWED / MERGED` | 95% |", "PROGRESS chapter row")
+          s = replace_once(s, "| 12 | `VERIFIED` | مراجعة ثانية مستقلة قبل `REVIEWED` |", "| 12 | `REVIEWED / MERGED` | ديون المجلد والتنضيد قبل `RELEASE-READY` |", "PROGRESS gate row")
+          s = replace_once(
+              s,
+              "- رفع الفصل إلى `VERIFIED`؛ المراجعة المستقلة ما تزال مطلوبة.",
+              "- رُفع الفصل إلى `VERIFIED` بعد التدقيق الداخلي.\n- أُغلقت ملاحظتا المراجعة R1 وR2 وأعيدت الفحوص بنجاح.\n- اجتاز البناء المحلي المتزامن من مصدر مطابق: 184 صفحة وSHA256 مثبت أعلاه.\n- استُلم حكم المراجعة المستقلة `APPROVED` بصفر عوائق.\n- رُقّي الفصل إلى `REVIEWED` ودُمج PR #20 عند `b1f09a3388aa34194eb8836b6977fe05f86aee7a`.",
+              "PROGRESS completed bullets",
+          )
+          s = sub_once(
+              s,
+              r"## الخطوة التالية\n.*\Z",
+              "## الخطوة التالية\n\n1. دمج تمرير مزامنة الحوكمة بعد نجاح CI وبأمر صريح من المالك.\n2. إبقاء `RELEASE-READY = NO` حتى بوابات المجلد والإصدار.\n3. تحديد المرحلة العلمية التالية من `main` بعد إغلاق الحوكمة.\n",
+              "PROGRESS next",
+              re.S,
+          )
+          write(p, s)
+
+          # ROADMAP
+          p = "docs/ROADMAP.md"
+          s = read(p)
+          s = sub_once(
+              s,
+              r"- \[ \] إعداد حزمة المراجعة المستقلة\.\n- \[ \] تجميد نسخة مرشحة في فرع مراجعة\.\n- \[ \] فتح Issue للمراجعة الثانية المستقلة\.\n- \[ \] استلام حكم مستقل ورفع الفصل إلى `REVIEWED` إن استوفى الشروط\.\n- \[ \] الدمج بأمر صريح من مالك المشروع فقط\.",
+              "- [x] إعداد تقرير المراجعة المستقلة وتثبيت رأس المحتوى المصحح.\n- [x] إغلاق ملاحظتي الصيغة الصريحة والانتقال إلى `pi`.\n- [x] نجاح المزامنة والبناء المحليين وتسجيل إيصال 184 صفحة.\n- [x] استلام حكم مستقل `APPROVED` بصفر عوائق.\n- [x] رفع الفصل إلى `REVIEWED`.\n- [x] دمج PR #20 بأمر صريح من مالك المشروع عند `b1f09a3388aa34194eb8836b6977fe05f86aee7a`.",
+              "ROADMAP review checklist",
+              re.S,
+          )
+          s = sub_once(
+              s,
+              r"```text\nCHAPTER-12\s+= VERIFIED\nFINAL-HEAD.*?RELEASE-READY\s+= NO\n```",
+              f'''```text
+CHAPTER-12          = REVIEWED / MERGED
+MAIN-HEAD           = {MERGE}
+PR-20               = MERGED
+INDEPENDENT-REVIEW  = APPROVED
+QUALITY-CHECKS      = RUN-311 / SUCCESS
+PDF-BUILD           = RUN-306 / SUCCESS
+LOCAL-SOURCE-BUILD  = PASS / 184 PAGES
+EXPLICIT-FORMULA    = CITED / COMPOSITE-INPUT
+SIEGEL-CONSTANT     = INEFFECTIVE
+BOMBIERI-VINOGRADOV = DEFERRED
+RELEASE-READY       = NO
+```''',
+              "ROADMAP state block",
+              re.S,
+          )
+          write(p, s)
+
+          # TODO
+          p = "docs/TODO.md"
+          s = read(p)
+          s = sub_once(
+              s,
+              r"- \[ \] إعداد حزمة مراجعة مستقلة وقائمة فحص ونموذج حكم\.\n- \[ \] تجميد نسخة مرشحة في فرع مراجعة\.\n- \[ \] فتح Issue للمراجعة الثانية المستقلة\.\n- \[ \] استلام تقرير مستقل مكتوب\.\n- \[ \] تطبيق أي تصحيح حاجز وإعادة الفحوص\.\n- \[ \] رفع الفصل إلى `REVIEWED` إذا استوفى الحكم\.\n- \[ \] الدمج بأمر صريح من مالك المشروع فقط\.",
+              "- [x] إعداد تقرير مراجعة مستقلة مكتوب.\n- [x] تثبيت رأس المحتوى المصحح للمراجعة.\n- [x] تطبيق تصحيحي R1 وR2 وإعادة فحوص الجودة والبناء.\n- [x] تنفيذ مزامنة وبناء مصدر محليين وتسجيل SHA256 وعدد الصفحات.\n- [x] استلام حكم `APPROVED` بصفر عوائق.\n- [x] رفع الفصل إلى `REVIEWED`.\n- [x] دمج PR #20 بأمر صريح من مالك المشروع.\n- [ ] تدخيل صيغة Perron المقطوعة وتحويل المسار في فصل كمي لاحق؛ بند اختياري غير حاجز.",
+              "TODO review checklist",
+              re.S,
+          )
+          s = sub_once(
+              s,
+              r"```text\nCHAPTER-12\s+= VERIFIED\nFINAL-HEAD.*?RELEASE-READY\s+= NO\n```",
+              f'''```text
+CHAPTER-12          = REVIEWED / MERGED
+MAIN-HEAD           = {MERGE}
+PR-20               = MERGED
+INDEPENDENT-REVIEW  = APPROVED
+QUALITY-CHECKS      = RUN-311 / SUCCESS
+PDF-BUILD           = RUN-306 / SUCCESS
+LOCAL-SOURCE-BUILD  = PASS / 184 PAGES
+EXPLICIT-FORMULA    = CITED / COMPOSITE-INPUT
+SIEGEL-CONSTANT     = INEFFECTIVE
+BOMBIERI-VINOGRADOV = DEFERRED
+RELEASE-READY       = NO
+```''',
+              "TODO state block",
+              re.S,
+          )
+          write(p, s)
+
+          # VERSION
+          p = "docs/VERSION.md"
+          s = read(p)
+          phase = f'''## المرحلة الحالية
+
+أُغلقت مرحلة `0.16.0-dev` الخاصة بالفصل الثاني عشر علميًا وحوكميًا بعد المراجعة المستقلة والدمج، مع بقاء النسخة تطويرية وغير جاهزة للإصدار.
+
+**مبرهنة Siegel--Walfisz والتوزيع المنتظم للأعداد الأولية في المتتاليات الحسابية.**
+
+```text
+MAIN-HEAD              = {MERGE}
+CHAPTER-12             = REVIEWED / MERGED
+PR-20                  = MERGED
+INDEPENDENT-REVIEW     = APPROVED
+MATHEMATICAL-BLOCKERS  = 0
+REFERENCE-BLOCKERS     = 0
+TYPOGRAPHIC-BLOCKERS   = 0
+QUALITY-CHECKS         = RUN-311 / SUCCESS
+PDF-BUILD              = RUN-306 / SUCCESS
+LOCAL-SYNC             = PASS / FF-ONLY
+SOURCE-BUILD           = PASS
+LOCAL-PDF-PAGES        = 184
+LOCAL-PDF-SHA256       = {LOCAL_SHA}
+EXPLICIT-FORMULA       = CITED / COMPOSITE-INPUT
+SIEGEL-CONSTANT        = INEFFECTIVE
+BOMBIERI-VINOGRADOV    = DEFERRED
+RELEASE-READY          = NO
+```
+
+'''
+          s = sub_once(s, r"## المرحلة الحالية\n.*?(?=## النتيجة المركزية)", phase, "VERSION phase", re.S)
+          write(p, s)
+
+          # RESULTS REGISTRY
+          p = "docs/RESULTS_REGISTRY.md"
+          s = read(p)
+          s = replace_once(s, "آخر مراجعة: 2026-07-20", "آخر مراجعة: 2026-07-21", "RESULTS date")
+          s = replace_once(
+              s,
+              "الفصول من السابع إلى الحادي عشر بحالة `REVIEWED` ومندمجة في `main`. نتائج الفصل الثاني عشر مسجلة أعلاه وفق منشئها؛ ولا يرتفع الفصل نفسه إلى `REVIEWED` قبل تدقيق ما بعد التأليف ومراجعة ثانية مستقلة.",
+              "الفصول من السابع إلى الثاني عشر بحالة `REVIEWED` ومندمجة في `main`. اجتاز الفصل الثاني عشر المراجعة المستقلة بحكم `APPROVED` ودُمج عبر PR #20؛ تبقى حالات النتائج الفردية أعلاه مرتبطة بمنشئها البرهاني، ولا تعني حالة الفصل `RELEASE-READY`.",
+              "RESULTS closing state",
+          )
+          write(p, s)
+
+          # Chapter manuscript
+          p = "volumes/volume-01-foundations/chapters/chapter-12-siegel-walfisz.tex"
+          s = read(p)
+          s = replace_once(s, "\\noindent\\textbf{حالة الفصل:} \\textenglish{VERIFIED}.", "\\noindent\\textbf{حالة الفصل:} \\textenglish{REVIEWED}.", "chapter heading state")
+          s = replace_once(
+              s,
+              "  \\item \\texttt{docs/CHAPTER\\_12\\_REFERENCE\\_VERIFICATION\\_2026-07-20.md}.\n",
+              "  \\item \\texttt{docs/CHAPTER\\_12\\_REFERENCE\\_VERIFICATION\\_2026-07-20.md}.\n"
+              "  \\item \\texttt{docs/CHAPTER\\_12\\_INDEPENDENT\\_REVIEW\\_2026-07-20.md}.\n"
+              "  \\item \\texttt{docs/CHAPTER\\_12\\_REVIEW\\_CLOSURE\\_2026-07-21.md}.\n",
+              "chapter review links",
+          )
+          s = sub_once(
+              s,
+              r"ولا تعني\nحالة \\textenglish\{VERIFIED\} أن الفصل خضع لمراجعة ثانية مستقلة أو أصبح\n\\textenglish\{RELEASE-READY\}\.",
+              "واجتاز الفصل مراجعة ثانية مستقلة بحكم \\textenglish{APPROVED}، ورُقّي إلى\n\\textenglish{REVIEWED} ودُمج عبر PR \\#20. ولا تعني هذه الحالة أنه أصبح\n\\textenglish{RELEASE-READY}.",
+              "chapter review paragraph",
+          )
+          if "\\textenglish{VERIFIED}" in s:
+              raise SystemExit("chapter still contains an unhandled VERIFIED marker")
+          write(p, s)
+
+          # CHANGELOG
+          p = "CHANGELOG.md"
+          s = read(p)
+          s = replace_once(
+              s,
+              "### أضيف\n",
+              "### أضيف\n- إضافة تقرير المراجعة المستقلة للفصل الثاني عشر بحكم `APPROVED` بصفر عوائق.\n- إضافة إيصال إغلاق مراجعة الفصل الثاني عشر وتسجيل إذن الترقية والدمج.\n",
+              "CHANGELOG added",
+          )
+          s = replace_once(
+              s,
+              "### تغيّر\n",
+              "### تغيّر\n- ترقية الفصل الثاني عشر إلى `REVIEWED` ودمج PR #20 عند `b1f09a3388aa34194eb8836b6977fe05f86aee7a`، مع إبقاء `RELEASE-READY = NO`.\n- مزامنة README وPROGRESS وROADMAP وTODO وVERSION وسجل النتائج ومتن الفصل مع حالة `REVIEWED / MERGED`.\n",
+              "CHANGELOG changed",
+          )
+          write(p, s)
+
+          # Global stale-state audit for files in scope.
+          scoped = [
+              "README.md",
+              "docs/PROGRESS.md",
+              "docs/ROADMAP.md",
+              "docs/TODO.md",
+              "docs/VERSION.md",
+              "docs/RESULTS_REGISTRY.md",
+              "volumes/volume-01-foundations/chapters/chapter-12-siegel-walfisz.tex",
+          ]
+          stale = []
+          for path in scoped:
+              text = read(path)
+              if "CHAPTER-12                = VERIFIED" in text or "CHAPTER-12          = VERIFIED" in text or "CHAPTER-12             = VERIFIED" in text:
+                  stale.append(path)
+          if stale:
+              raise SystemExit(f"stale chapter status remains in: {stale}")
+          PY
+
+          git diff --check
+          git status --short
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md CHANGELOG.md docs/PROGRESS.md docs/ROADMAP.md docs/TODO.md docs/VERSION.md docs/RESULTS_REGISTRY.md volumes/volume-01-foundations/chapters/chapter-12-siegel-walfisz.tex
+          git commit -m "docs(governance): synchronize chapter 12 reviewed state [skip governance-sync]"
+          git push origin HEAD
