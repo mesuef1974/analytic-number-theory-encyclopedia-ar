@@ -11,9 +11,9 @@
 - **منهج العمل:** `EVIDENCE-FIRST / AUTHORED`
 - **بوابة ما قبل التأليف:** `CLOSED / PASS`
 - **تدقيق ما بعد التأليف:** `CLOSED / PASS`
-- **الرأس المختبر:** `7ea41ec1f20d3821ea98aa832a710946f64277b8`
-- **فحص الجودة:** `RUN-272 / SUCCESS`
-- **بناء PDF:** `RUN-267 / SUCCESS`
+- **رأس PR المختبر النهائي:** `9e54acc3b69f31740d82fc67f94c804dde0f8b81`
+- **فحص الجودة النهائي:** `RUN-282 / SUCCESS`
+- **بناء PDF النهائي:** `RUN-277 / SUCCESS`
 - **المراجعة المستقلة:** `NOT YET STARTED`
 - **Bombieri--Vinogradov:** `DEFERRED`
 - **آخر تحديث:** 2026-07-20
@@ -23,9 +23,10 @@ CHAPTER-12             = VERIFIED
 VERSION                = 0.16.0-dev
 BASE-MAIN              = 9d02c583d416053550d22dfd7acc44d9c264a02c
 BRANCH                 = agent/chapter-12-siegel-walfisz-v0.16.0
-VALIDATED-HEAD         = 7ea41ec1f20d3821ea98aa832a710946f64277b8
-QUALITY-CHECKS         = RUN-272 / SUCCESS
-PDF-BUILD              = RUN-267 / SUCCESS
+FINAL-HEAD             = 9e54acc3b69f31740d82fc67f94c804dde0f8b81
+QUALITY-CHECKS         = RUN-282 / SUCCESS
+PDF-BUILD              = RUN-277 / SUCCESS
+PDF-ARTIFACT-SHA256    = 3ae4b34da1c88f094297b860d797439b4ff26c70cb2f3ed2ded3cc283c562e4d
 EXPLICIT-FORMULA       = CITED-INPUT
 SIEGEL-CONSTANT        = INEFFECTIVE
 INDEPENDENT-REVIEW     = NOT YET STARTED
@@ -103,7 +104,7 @@ GOVERNANCE-MERGE    = 9d02c583d416053550d22dfd7acc44d9c264a02c
 - دُقق الانتقال إلى \(\pi\) باستعمال هامش `2A` وتقسيم مجال الجمع الجزئي.
 - أُضيفت بيانات Thorner--Zaman وKoukoulopoulos وDrappeau--Fiorilli إلى BibTeX.
 - اجتاز الفصل تدقيق ما بعد التأليف والتحقق المرجعي.
-- نجح `Quality checks` #272 وبناء PDF #267 على الرأس `7ea41ec1f20d3821ea98aa832a710946f64277b8`.
+- نجح `Quality checks` #282 وبناء PDF #277 على الرأس `9e54acc3b69f31740d82fc67f94c804dde0f8b81`.
 - رفع الفصل إلى `VERIFIED`؛ المراجعة المستقلة ما تزال مطلوبة.
 
 ## النتائج المركزية
@@ -130,15 +131,7 @@ GOVERNANCE-MERGE    = 9d02c583d416053550d22dfd7acc44d9c264a02c
 
 ## حدود الفصل
 
-لا يدعي الفصل:
-
-- فعالية الثابت العام.
-- أفضل ثابت في الحد الأسي.
-- برهانًا داخليًا كاملًا لصيغة بيرون أو تحويل المسار أو الصيغة الصريحة المقطوعة.
-- مجال ترديدات من رتبة قوة موجبة لـ\(x\).
-- Bombieri--Vinogradov أو Elliott--Halberstam.
-- Linnik أو نتائج الفترات القصيرة.
-- GRH.
+لا يدعي الفصل فعالية الثابت العام، أو أفضل ثابت في الحد الأسي، أو برهانًا داخليًا كاملًا لصيغة بيرون وتحويل المسار، أو Bombieri--Vinogradov، أو Linnik، أو GRH.
 
 ## الخطوة التالية
 
