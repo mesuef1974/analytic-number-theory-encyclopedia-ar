@@ -1,0 +1,42 @@
+name: Promote chapter 11 reviewed status
+
+on:
+  push:
+    branches:
+      - agent/chapter-11-zero-free-regions-exceptional-zeros-v0.15.0
+
+permissions:
+  contents: write
+
+jobs:
+  promote:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/chapter-11-zero-free-regions-exceptional-zeros-v0.15.0
+          fetch-depth: 0
+
+      - name: Promote manuscript status and remove one-shot workflow
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          path = Path('volumes/volume-01-foundations/chapters/chapter-11-zero-free-regions-exceptional-zeros.tex')
+          text = path.read_text(encoding='utf-8')
+          old = r'\textenglish{VERIFIED}'
+          new = r'\textenglish{REVIEWED}'
+          if old not in text:
+              raise SystemExit('Expected VERIFIED status was not found.')
+          path.write_text(text.replace(old, new, 1), encoding='utf-8')
+          PY
+
+          git rm .github/workflows/promote-chapter-11-reviewed.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add volumes/volume-01-foundations/chapters/chapter-11-zero-free-regions-exceptional-zeros.tex
+          git commit -m "docs(chapter-11): display reviewed status in manuscript"
+          git push origin HEAD:agent/chapter-11-zero-free-regions-exceptional-zeros-v0.15.0
