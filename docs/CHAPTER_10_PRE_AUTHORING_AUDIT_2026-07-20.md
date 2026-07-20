@@ -12,21 +12,25 @@ MODE          = EVIDENCE-FIRST / PRE-AUTHORING
 
 تحقق أن فرع العمل كان مطابقًا تمامًا لالتزام دمج الفصل التاسع عند بداية المرحلة.
 
-## قرار البوابة الحالي
+## قرار البوابة النهائي
 
 ```text
-PRE-AUTHORING-GATE = OPEN
-AUTHORING = BLOCKED
-CHAPTER-FILE = NOT CREATED
-MAIN-TEX-LINK = NOT AUTHORIZED
+PRE-AUTHORING-GATE = CLOSED
+AUTHORING = AUTHORIZED
+CHAPTER-FILE = MAY BE CREATED
+MAIN-TEX-LINK = AUTHORIZED AFTER FILE CREATION
 ```
 
-## المواد المتاحة
+## المواد المعتمدة
 
 - سجل الأدلة:
   `research/literature-reviews/chapter-10-prime-number-theorem-arithmetic-progressions-evidence.md`
 - خريطة البرهان:
   `research/literature-reviews/chapter-10-prime-number-theorem-arithmetic-progressions-proof-map.md`
+- التدقيق المنطقي:
+  `docs/CHAPTER_10_LOGIC_AUDIT_2026-07-20.md`
+- التحقق المرجعي:
+  `docs/CHAPTER_10_BIBLIOGRAPHIC_VERIFICATION_2026-07-20.md`
 - الفصول المعتمدة السابقة: الثاني، السابع، الثامن، التاسع.
 - صيغة Wiener--Ikehara المعتمدة بحالة `CITED` في `ANT-THM-09-02`.
 
@@ -42,7 +46,7 @@ MAIN-TEX-LINK = NOT AUTHORIZED
 \pi(x;q,a)\sim\frac{x}{\varphi(q)\log x}.
 \]
 
-## الادعاءات المحظورة في هذه المرحلة
+## الادعاءات المحظورة
 
 - أي حد خطأ فعال.
 - أي انتظام عندما ينمو \(q\) مع \(x\).
@@ -57,16 +61,16 @@ MAIN-TEX-LINK = NOT AUTHORIZED
 - [x] تثبيت الهدف النوعي لترديد ثابت.
 - [x] تحديد سلسلة ديريشليه ذات معاملات غير سالبة لكل فئة.
 - [x] تحديد دور مرشح الشخصيات.
-- [x] تحديد النتيجة الحدية المطلوبة: عدم انعدام \(L(s,\chi)\) على \(\Re(s)=1\).
+- [x] تحديد النتيجة الحدية المطلوبة: عدم انعدام \(L(s,\chi)\) على ‎\(\Re(s)=1\).
 - [x] فصل حالة \(t=0\) عن \(t\ne0\).
-- [x] تسجيل معالجة الشخصيات غير البدائية.
+- [x] تدقيق الشخصيات غير البدائية والعوامل المحلية.
 - [x] تحديد القطب الرئيسي وباقيه \(1/\varphi(q)\).
-- [x] تحديد تطبيق Wiener--Ikehara.
+- [x] مطابقة فروض Wiener--Ikehara بندًا بندًا.
 - [x] فصل القوى الأولية العليا والجمع الجزئي.
-- [ ] إجراء تدقيق إشارات مستقل للمتراجحة الموزونة.
-- [ ] إجراء تدقيق عدم الدور مستقل.
-- [ ] التحقق المرجعي الدقيق من مواضع Davenport وMontgomery--Vaughan وTenenbaum.
-- [ ] إصدار حكم `PASS` أو `FAIL` على خريطة البرهان.
+- [x] إجراء تدقيق إشارات مستقل للمتراجحة الموزونة.
+- [x] إجراء تدقيق عدم الدور مستقل.
+- [x] التحقق المرجعي الدقيق من مواضع المراجع المعتمدة.
+- [x] إصدار حكم `PASS` على خريطة البرهان.
 
 ## المعرّفات المحجوزة
 
@@ -80,22 +84,24 @@ ANT-COR-10-01  = DRAFT
 ANT-COR-10-02  = DRAFT
 ```
 
-لا يجوز الاستشهاد بهذه المعرّفات ما دامت `DRAFT`.
+تبقى المعرّفات `DRAFT` أثناء التأليف، ولا يجوز الاستشهاد بها حتى اكتمال
+البراهين واجتياز التدقيق الداخلي اللاحق.
 
-## شروط إغلاق البوابة
+## إغلاق الشروط
 
-لا تتحول `AUTHORING` إلى `AUTHORIZED` إلا بعد:
+1. المتراجحة الموزونة لكل ‎\(|z|\le1\): `PASS`.
+2. عدم الانعدام على الخط لكل الشخصيات من دون استعمال PNT-AP: `PASS`.
+3. الشخصيات غير البدائية والعوامل المحلية: `PASS`.
+4. القطب الوحيد وباقيه \(1/\varphi(q)\): `PASS`.
+5. فروض Wiener--Ikehara: `PASS`.
+6. التدقيق المنطقي المكتوب: `PASS`.
+7. التحقق المرجعي: `PASS-FOR-AUTHORING`.
 
-1. إثبات المتراجحة الموزونة لكل ‎\(|z|\le1\) مع تدقيق الإشارة.
-2. إثبات عدم الانعدام على الخط لكل الشخصيات من دون استعمال PNT-AP.
-3. التحقق من الشخصيات غير البدائية والعوامل المحلية.
-4. إثبات أن القطب الوحيد في سلسلة الفئة هو قطب الرئيسية بباقٍ \(1/\varphi(q)\).
-5. مطابقة فروض Wiener--Ikehara بندًا بندًا.
-6. إصدار تدقيق منطقي مكتوب بحكم `PASS`.
-
-## الحكم الحالي
+## الحكم
 
 ```text
-VERDICT = PRE-AUTHORING REMAINS OPEN
-NEXT ACTION = LOGIC AND BIBLIOGRAPHIC AUDIT
+VERDICT = AUTHORING AUTHORIZED
+LOGIC-GATE = PASS
+BIBLIOGRAPHIC-GATE = PASS
+NEXT ACTION = CREATE CHAPTER DRAFT AND LINK MANUSCRIPT
 ```
