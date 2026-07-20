@@ -3,40 +3,37 @@
 ## الحالة العامة
 
 - **الإصدار التطويري الحالي:** `0.16.0-dev`
-- **المرحلة:** الفصل الثاني عشر — مبرهنة Siegel--Walfisz والتوزيع المنتظم للأعداد الأولية في المتتاليات الحسابية.
-- **حالة الفصل:** `VERIFIED`
+- **المرحلة:** إغلاق الفصل الثاني عشر بعد المراجعة المستقلة والدمج.
+- **حالة الفصل:** `REVIEWED / MERGED`
 - **الفرع المستقر:** `main`
-- **رأس `main` عند بدء المرحلة:** `9d02c583d416053550d22dfd7acc44d9c264a02c`
-- **فرع العمل:** `agent/chapter-12-siegel-walfisz-v0.16.0`
-- **منهج العمل:** `EVIDENCE-FIRST / AUTHORED`
+- **رأس `main` الحالي:** `b1f09a3388aa34194eb8836b6977fe05f86aee7a`
+- **فرع الإغلاق الحوكمي:** `agent/chapter-12-governance-closure-v0.16.0`
+- **منهج العمل:** `EVIDENCE-FIRST / REVIEWED`
 - **بوابة ما قبل التأليف:** `CLOSED / PASS`
 - **تدقيق ما بعد التأليف:** `CLOSED / PASS`
-- **رأس المتن المختبر:** `e6c87affd453f6088b0d1f5400432f7e4228ed57`
-- **فحص جودة المتن:** `RUN-287 / SUCCESS`
-- **بناء PDF للمتن:** `RUN-282 / SUCCESS`
-- **التحقق المحلي من PDF:** `ARTIFACT-VERIFIED / 184 PAGES`
-- **بناء المصدر محليًا داخل بيئة الوكيل:** `NOT CLAIMED / SOURCE SYNC BLOCKED`
-- **مسار البناء المتزامن على Windows:** `scripts/sync-build.ps1`
-- **المراجعة المستقلة:** `NOT YET STARTED`
+- **المراجعة المستقلة:** `COMPLETED / APPROVED`
+- **البناء المحلي المتزامن:** `PASS / FF-ONLY / SOURCE-BUILD`
+- **PDF المحلي:** `184 PAGES / SHA256 3BF0BCE828DDF09C03D6527117992806FAD06010B161FC1B242472D0B5367749`
+- **فحوص رأس الإغلاق قبل الدمج:** `QUALITY #311 / PDF #306 / SUCCESS`
+- **PR #20:** `MERGED`
 - **Bombieri--Vinogradov:** `DEFERRED`
-- **آخر تحديث:** 2026-07-20
+- **آخر تحديث:** 2026-07-21
 
 ```text
-CHAPTER-12                = VERIFIED
+CHAPTER-12                = REVIEWED / MERGED
 VERSION                   = 0.16.0-dev
-BASE-MAIN                 = 9d02c583d416053550d22dfd7acc44d9c264a02c
-BRANCH                    = agent/chapter-12-siegel-walfisz-v0.16.0
-VERIFIED-MANUSCRIPT-HEAD  = e6c87affd453f6088b0d1f5400432f7e4228ed57
-QUALITY-CHECKS            = RUN-287 / SUCCESS
-PDF-BUILD                 = RUN-282 / SUCCESS
-CI-ARTIFACT-SHA256        = eaaddb7d7cdd6c95c5ea09a0f2354b48b47c408f4208cd6f4f41fd98ac2d6eab
+MAIN-HEAD                 = b1f09a3388aa34194eb8836b6977fe05f86aee7a
+PR-20                     = MERGED
+INDEPENDENT-REVIEW        = APPROVED
+QUALITY-CHECKS            = RUN-311 / SUCCESS
+PDF-BUILD                 = RUN-306 / SUCCESS
+LOCAL-SYNC                = PASS / FF-ONLY
+SOURCE-BUILD              = PASS
 LOCAL-PDF-PAGES           = 184
-LOCAL-PDF-SIZE-BYTES      = 740994
-LOCAL-PDF-SHA256          = 8614C02802E080121875CB0AE7FFD06194D73236E226DB1A41112A8D9E30D763
-LOCAL-VERIFICATION        = ARTIFACT-VERIFIED / SOURCE-BUILD-NOT-CLAIMED
-EXPLICIT-FORMULA          = CITED-INPUT
+LOCAL-PDF-SHA256          = 3BF0BCE828DDF09C03D6527117992806FAD06010B161FC1B242472D0B5367749
+EXPLICIT-FORMULA          = CITED / COMPOSITE-INPUT
 SIEGEL-CONSTANT           = INEFFECTIVE
-INDEPENDENT-REVIEW        = NOT YET STARTED
+BOMBIERI-VINOGRADOV       = DEFERRED
 RELEASE-READY             = NO
 ```
 
@@ -58,7 +55,7 @@ GOVERNANCE-MERGE    = 9d02c583d416053550d22dfd7acc44d9c264a02c
 | هيكل المستودع | مكتمل مبدئيًا | 100% |
 | أهداف المشروع | مكتملة للإصدار الأول | 100% |
 | نظام التوثيق والمتابعة | مكتمل مبدئيًا | 100% |
-| بناء PDF المحلي والآلي | مسار آلي موجود؛ تحقق Artifact محلي من الفصل 12 | 100% |
+| بناء PDF المحلي والآلي | تحقق Artifact وبناء مصدر محلي متزامن للفصل 12 | 100% |
 | الفصل الأول: التاريخ والمنهج | مدقق داخليًا؛ الإحالات التفصيلية باقية | 85% |
 | الفصل الثاني: اللغة التقاربية والجمع الجزئي | `VERIFIED` | 85% |
 | الفصل الثالث: التحليل المركب الموجّه | `VERIFIED`؛ التوسعات مؤجلة | 80% |
@@ -70,7 +67,7 @@ GOVERNANCE-MERGE    = 9d02c583d416053550d22dfd7acc44d9c264a02c
 | الفصل التاسع: مبرهنة الأعداد الأولية | `REVIEWED` | 92% |
 | الفصل العاشر: PNT في المتتاليات الحسابية | `REVIEWED` | 94% |
 | الفصل الحادي عشر: المناطق الخالية والأصفار الاستثنائية | `REVIEWED / MERGED` | 95% |
-| الفصل الثاني عشر: Siegel--Walfisz | `VERIFIED` | 88% |
+| الفصل الثاني عشر: Siegel--Walfisz | `REVIEWED / MERGED` | 95% |
 | فصل الجبهات الحديثة | نواة أولية | 10% |
 | الملحق الحاسوبي | أول تجربة مسجلة وقابلة للتشغيل | 15% |
 
@@ -89,7 +86,7 @@ GOVERNANCE-MERGE    = 9d02c583d416053550d22dfd7acc44d9c264a02c
 | 9 | `REVIEWED` | الديون الفعالة والتحريرية |
 | 10 | `REVIEWED` | أربعة تحسينات اختيارية وتدقيق إصدار |
 | 11 | `REVIEWED / MERGED` | ديون الإصدار قبل `RELEASE-READY` |
-| 12 | `VERIFIED` | مراجعة ثانية مستقلة قبل `REVIEWED` |
+| 12 | `REVIEWED / MERGED` | ديون المجلد والتنضيد قبل `RELEASE-READY` |
 
 التدقيق الداخلي والمراجعة المستقلة والدمج لا تجعل أي فصل `RELEASE-READY` تلقائيًا.
 
@@ -100,7 +97,7 @@ GOVERNANCE-MERGE    = 9d02c583d416053550d22dfd7acc44d9c264a02c
 - بدأ المسح عبر Consensus ثم استكمل التحقق من arXiv وصفحات الناشرين والكتب القياسية.
 - أُنشئ سجل الأدلة وخريطة البرهان وتدقيق الاعتمادات.
 - فُصلت نتيجة الترديد الثابت عن Siegel--Walfisz وعن Bombieri--Vinogradov.
-- دُققت ديون بيرون وتحويل المسار، واعتمدت الصيغة الصريحة المقطوعة بحالة `CITED`.
+- دُققت ديون بيرون وتحويل المسار، واعتمدت الصيغة الصريحة المقطوعة بحالة `CITED / COMPOSITE-INPUT`.
 - أُغلقت بوابة ما قبل التأليف قبل إنشاء المتن.
 - أُنشئ متن الفصل وربط بالكتاب.
 - سجلت تسع نتائج بمعرفات ثابتة وحالات منشأ صريحة.
@@ -111,10 +108,10 @@ GOVERNANCE-MERGE    = 9d02c583d416053550d22dfd7acc44d9c264a02c
 - دُقق الانتقال إلى \(\pi\) باستعمال هامش `2A` وتقسيم مجال الجمع الجزئي.
 - أُضيفت بيانات Thorner--Zaman وKoukoulopoulos وDrappeau--Fiorilli إلى BibTeX.
 - اجتاز الفصل تدقيق ما بعد التأليف والتحقق المرجعي.
-- نجح `Quality checks` #287 وبناء PDF #282 على رأس المتن `e6c87affd453f6088b0d1f5400432f7e4228ed57`.
-- نُزّل Artifact البناء وفُحص PDF محليًا: 184 صفحة، 740994 بايت، وSHA256 مثبت أعلاه.
-- أضيف `scripts/sync-build.ps1` للبناء المحلي المتزامن وإنشاء إيصال على جهاز Windows.
-- رفع الفصل إلى `VERIFIED`؛ المراجعة المستقلة ما تزال مطلوبة.
+- أُغلقت ملاحظتا المراجعة R1 وR2 وأعيدت فحوص الجودة والبناء بنجاح.
+- اجتاز البناء المحلي المتزامن من مصدر مطابق: 184 صفحة وSHA256 مثبت أعلاه.
+- استُلم حكم المراجعة المستقلة `APPROVED` بصفر عوائق.
+- رُقّي الفصل إلى `REVIEWED` ودُمج PR #20 عند `b1f09a3388aa34194eb8836b6977fe05f86aee7a`.
 
 ## النتائج المركزية
 
@@ -144,7 +141,6 @@ GOVERNANCE-MERGE    = 9d02c583d416053550d22dfd7acc44d9c264a02c
 
 ## الخطوة التالية
 
-1. إعداد حزمة مراجعة مستقلة للفصل الثاني عشر.
-2. تجميد رأس مرشح للمراجعة.
-3. فتح Issue للمراجعة الثانية المستقلة.
-4. إبقاء PR #20 غير مدمج حتى حكم المراجعة وأمر المالك الصريح.
+1. دمج تمرير مزامنة الحوكمة بعد نجاح CI وبأمر صريح من المالك.
+2. إبقاء `RELEASE-READY = NO` حتى بوابات المجلد والإصدار.
+3. تحديد المرحلة العلمية التالية من `main` بعد إغلاق الحوكمة.
