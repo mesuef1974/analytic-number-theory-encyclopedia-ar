@@ -11,26 +11,33 @@
 - **منهج العمل:** `EVIDENCE-FIRST / AUTHORED`
 - **بوابة ما قبل التأليف:** `CLOSED / PASS`
 - **تدقيق ما بعد التأليف:** `CLOSED / PASS`
-- **رأس PR المختبر النهائي:** `9e54acc3b69f31740d82fc67f94c804dde0f8b81`
-- **فحص الجودة النهائي:** `RUN-282 / SUCCESS`
-- **بناء PDF النهائي:** `RUN-277 / SUCCESS`
+- **رأس المتن المختبر:** `e6c87affd453f6088b0d1f5400432f7e4228ed57`
+- **فحص جودة المتن:** `RUN-287 / SUCCESS`
+- **بناء PDF للمتن:** `RUN-282 / SUCCESS`
+- **التحقق المحلي من PDF:** `ARTIFACT-VERIFIED / 184 PAGES`
+- **بناء المصدر محليًا داخل بيئة الوكيل:** `NOT CLAIMED / SOURCE SYNC BLOCKED`
+- **مسار البناء المتزامن على Windows:** `scripts/sync-build.ps1`
 - **المراجعة المستقلة:** `NOT YET STARTED`
 - **Bombieri--Vinogradov:** `DEFERRED`
 - **آخر تحديث:** 2026-07-20
 
 ```text
-CHAPTER-12             = VERIFIED
-VERSION                = 0.16.0-dev
-BASE-MAIN              = 9d02c583d416053550d22dfd7acc44d9c264a02c
-BRANCH                 = agent/chapter-12-siegel-walfisz-v0.16.0
-FINAL-HEAD             = 9e54acc3b69f31740d82fc67f94c804dde0f8b81
-QUALITY-CHECKS         = RUN-282 / SUCCESS
-PDF-BUILD              = RUN-277 / SUCCESS
-PDF-ARTIFACT-SHA256    = 3ae4b34da1c88f094297b860d797439b4ff26c70cb2f3ed2ded3cc283c562e4d
-EXPLICIT-FORMULA       = CITED-INPUT
-SIEGEL-CONSTANT        = INEFFECTIVE
-INDEPENDENT-REVIEW     = NOT YET STARTED
-RELEASE-READY          = NO
+CHAPTER-12                = VERIFIED
+VERSION                   = 0.16.0-dev
+BASE-MAIN                 = 9d02c583d416053550d22dfd7acc44d9c264a02c
+BRANCH                    = agent/chapter-12-siegel-walfisz-v0.16.0
+VERIFIED-MANUSCRIPT-HEAD  = e6c87affd453f6088b0d1f5400432f7e4228ed57
+QUALITY-CHECKS            = RUN-287 / SUCCESS
+PDF-BUILD                 = RUN-282 / SUCCESS
+CI-ARTIFACT-SHA256        = eaaddb7d7cdd6c95c5ea09a0f2354b48b47c408f4208cd6f4f41fd98ac2d6eab
+LOCAL-PDF-PAGES           = 184
+LOCAL-PDF-SIZE-BYTES      = 740994
+LOCAL-PDF-SHA256          = 8614C02802E080121875CB0AE7FFD06194D73236E226DB1A41112A8D9E30D763
+LOCAL-VERIFICATION        = ARTIFACT-VERIFIED / SOURCE-BUILD-NOT-CLAIMED
+EXPLICIT-FORMULA          = CITED-INPUT
+SIEGEL-CONSTANT           = INEFFECTIVE
+INDEPENDENT-REVIEW        = NOT YET STARTED
+RELEASE-READY             = NO
 ```
 
 ## إغلاق المرحلة السابقة
@@ -51,7 +58,7 @@ GOVERNANCE-MERGE    = 9d02c583d416053550d22dfd7acc44d9c264a02c
 | هيكل المستودع | مكتمل مبدئيًا | 100% |
 | أهداف المشروع | مكتملة للإصدار الأول | 100% |
 | نظام التوثيق والمتابعة | مكتمل مبدئيًا | 100% |
-| بناء PDF المحلي والآلي | مكتمل مبدئيًا | 100% |
+| بناء PDF المحلي والآلي | مسار آلي موجود؛ تحقق Artifact محلي من الفصل 12 | 100% |
 | الفصل الأول: التاريخ والمنهج | مدقق داخليًا؛ الإحالات التفصيلية باقية | 85% |
 | الفصل الثاني: اللغة التقاربية والجمع الجزئي | `VERIFIED` | 85% |
 | الفصل الثالث: التحليل المركب الموجّه | `VERIFIED`؛ التوسعات مؤجلة | 80% |
@@ -104,7 +111,9 @@ GOVERNANCE-MERGE    = 9d02c583d416053550d22dfd7acc44d9c264a02c
 - دُقق الانتقال إلى \(\pi\) باستعمال هامش `2A` وتقسيم مجال الجمع الجزئي.
 - أُضيفت بيانات Thorner--Zaman وKoukoulopoulos وDrappeau--Fiorilli إلى BibTeX.
 - اجتاز الفصل تدقيق ما بعد التأليف والتحقق المرجعي.
-- نجح `Quality checks` #282 وبناء PDF #277 على الرأس `9e54acc3b69f31740d82fc67f94c804dde0f8b81`.
+- نجح `Quality checks` #287 وبناء PDF #282 على رأس المتن `e6c87affd453f6088b0d1f5400432f7e4228ed57`.
+- نُزّل Artifact البناء وفُحص PDF محليًا: 184 صفحة، 740994 بايت، وSHA256 مثبت أعلاه.
+- أضيف `scripts/sync-build.ps1` للبناء المحلي المتزامن وإنشاء إيصال على جهاز Windows.
 - رفع الفصل إلى `VERIFIED`؛ المراجعة المستقلة ما تزال مطلوبة.
 
 ## النتائج المركزية
