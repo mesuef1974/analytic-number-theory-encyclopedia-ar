@@ -1,7 +1,7 @@
 # الإصدار الحالي
 
 ```text
-0.15.0-dev
+0.16.0-dev
 ```
 
 هذا الملف هو **المصدر الوحيد المعتمد لرقم الإصدار**. تُحدَّث النسخ المكررة في بقية الملفات بواسطة:
@@ -19,40 +19,55 @@
 
 ## المرحلة الحالية
 
-استهدف `0.15.0-dev` الفصل الحادي عشر:
-
-**المناطق الخالية من الأصفار والأصفار الاستثنائية لدوال ديريشليه \(L\).**
-
-الحالة المعتمدة:
-
-```text
-MODE         = EVIDENCE-FIRST / AUTHORED / REVIEWED
-CHAPTER-11   = REVIEWED / MERGED
-PR-17        = MERGED
-ISSUE-18     = CLOSED
-MERGE-HEAD   = fb1571eaa6328eac597ddbebda79b09d0ebd1696
-PHASE        = ADMINISTRATIVELY CLOSED
-RELEASE-READY = NO
-```
-
-أغلقت بوابة ما قبل التأليف، واكتمل المتن والتدقيق والمراجعة المستقلة، وطُبق التصحيح الببليوغرافي الحاجز، ثم دُمج PR #17 في `main`. لا يعني الإغلاق الإداري أن الفصل `RELEASE-READY`؛ تبقى ديون الإصدار المعلنة مستقلة عن حكم المراجعة والدمج.
-
-## تحقق النسخة المحلية
-
-```text
-PDF-PAGES   = 171
-PDF-SHA256  = C5A09974D6440C24EBBFAE69F574350D9A09626976A0E7784E8E523999626C50
-BUILD       = SUCCESS
-```
-
-## الإصدار المستهدف التالي
-
-```text
-0.16.0-dev
-```
-
-يُخصص للفصل الثاني عشر:
+تستهدف `0.16.0-dev` الفصل الثاني عشر:
 
 **مبرهنة Siegel--Walfisz والتوزيع المنتظم للأعداد الأولية في المتتاليات الحسابية.**
 
-ويبدأ بمنهج `EVIDENCE-FIRST / PRE-AUTHORING` بعد إنشاء فرعه من رأس `main` المعتمد وإغلاق بوابته العلمية قبل كتابة المتن.
+```text
+BASE-MAIN             = 9d02c583d416053550d22dfd7acc44d9c264a02c
+BRANCH                = agent/chapter-12-siegel-walfisz-v0.16.0
+MODE                  = EVIDENCE-FIRST / PRE-AUTHORING
+EVIDENCE-LEDGER       = CREATED
+PROOF-MAP             = CREATED
+PERRON-DEBT-AUDIT     = PASS-FOR-CITED-INPUT-ROUTE
+LOGIC-AUDIT           = PASS
+PRE-AUTHORING-GATE    = CLOSED / PASS
+AUTHORING             = AUTHORIZED / NOT YET STARTED
+BOMBIERI-VINOGRADOV   = DEFERRED
+RELEASE-READY         = NO
+```
+
+## النطاق المعتمد
+
+يفصل الفصل بين:
+
+1. نتيجة الترديد الثابت في الفصل العاشر.
+2. مبرهنة Siegel--Walfisz للترديدات
+   \(q\le(\log x)^A\).
+3. مبرهنة Bombieri--Vinogradov المتوسطية المؤجلة إلى فصل لاحق.
+
+الصيغة المركزية المخططة هي
+
+\[
+\psi(x;q,a)
+=
+\frac{x}{\varphi(q)}
++
+O_A\!\left(xe^{-c_A\sqrt{\log x}}\right),
+\qquad q\le(\log x)^A,
+\]
+
+مع وسم صريح بأن الثابت العام غير فعال بسبب استعمال مبرهنة Siegel في امتصاص مساهمة الصفر الاستثنائي.
+
+## المرحلة السابقة
+
+أغلقت `0.15.0-dev` إداريًا بعد دمج الفصل الحادي عشر ومراجعة حوكمته:
+
+```text
+CHAPTER-11          = REVIEWED / MERGED
+PR-17               = MERGED
+ISSUE-18            = CLOSED
+CHAPTER-11-MERGE    = fb1571eaa6328eac597ddbebda79b09d0ebd1696
+GOVERNANCE-PR-19    = MERGED
+GOVERNANCE-MERGE    = 9d02c583d416053550d22dfd7acc44d9c264a02c
+```
