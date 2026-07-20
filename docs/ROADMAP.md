@@ -122,7 +122,7 @@
 - [x] إضافة التحقق المرجعي وتحديث BibTeX.
 - [x] مزامنة المعرفات التسعة في سجل النتائج المركزي.
 - [x] إجراء تدقيق ما بعد التأليف بحكم `PASS`.
-- [x] نجاح `Quality checks` #272 وبناء PDF #267 على الرأس `7ea41ec1f20d3821ea98aa832a710946f64277b8`.
+- [x] نجاح فحص الجودة النهائي #285 وبناء PDF النهائي #280 على الرأس `5a9064c2a328543eb2b7d197b4aa49da57723646`.
 - [x] رفع الفصل إلى `VERIFIED`.
 - [ ] إعداد حزمة المراجعة المستقلة.
 - [ ] تجميد نسخة مرشحة في فرع مراجعة.
@@ -132,9 +132,10 @@
 
 ```text
 CHAPTER-12          = VERIFIED
-VALIDATED-HEAD      = 7ea41ec1f20d3821ea98aa832a710946f64277b8
-QUALITY-CHECKS      = RUN-272 / SUCCESS
-PDF-BUILD           = RUN-267 / SUCCESS
+FINAL-HEAD          = 5a9064c2a328543eb2b7d197b4aa49da57723646
+QUALITY-CHECKS      = RUN-285 / SUCCESS
+PDF-BUILD           = RUN-280 / SUCCESS
+PDF-ARTIFACT-SHA256 = 7705aca3bab9e0ddb725b13b64d5ceae1c8cb2ba6294449748c252e779f41e01
 EXPLICIT-FORMULA    = CITED-INPUT
 SIEGEL-CONSTANT     = INEFFECTIVE
 BOMBIERI-VINOGRADOV = DEFERRED
