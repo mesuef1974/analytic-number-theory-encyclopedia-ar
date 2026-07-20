@@ -3,12 +3,18 @@
 ## بيانات التدقيق
 
 ```text
-CHAPTER       = 12 — مبرهنة Siegel--Walfisz
-VERSION       = 0.16.0-dev
-BRANCH        = agent/chapter-12-siegel-walfisz-v0.16.0
-DATE          = 2026-07-20
-AUDIT-STATE   = LOGIC-PASS / CI-PENDING
-CHAPTER-STATE = DRAFT
+CHAPTER          = 12 — مبرهنة Siegel--Walfisz
+VERSION          = 0.16.0-dev
+BRANCH           = agent/chapter-12-siegel-walfisz-v0.16.0
+DATE             = 2026-07-20
+VALIDATED-HEAD   = 7ea41ec1f20d3821ea98aa832a710946f64277b8
+AUDIT-STATE      = CLOSED / PASS
+CHAPTER-STATE    = VERIFIED
+QUALITY-CHECKS   = RUN-272 / SUCCESS
+PDF-BUILD        = RUN-267 / SUCCESS
+PDF-ARTIFACT     = analytic-number-theory-encyclopedia-preview
+ARTIFACT-SHA256  = b59d8302a0d8490bd28da3e929fa40cb2e4bb64364d767ebc3b0e4c873f6dabb
+ARTIFACT-SIZE    = 725727 bytes
 ```
 
 ## المواد المدققة
@@ -146,7 +152,7 @@ ANT-COR-12-03 = PROVED-HERE / INEFFECTIVE-CONSTANT
 
 ## J. المراجع
 
-أضيفت بيانات Thorner--Zaman وKoukoulopoulos وDrappeau--Fiorilli إلى BibTeX بعد التحقق من صفحات الناشرين وarXiv. لا يعتمد البرهان الأدنى على الورقتين المقارنتين.
+أضيفت بيانات Thorner--Zaman وKoukoulopoulos وDrappeau--Fiorilli إلى BibTeX بعد التحقق من صفحات الناشرين وarXiv. لا يعتمد البرهان الأدنى على المراجع المقارنة الحديثة.
 
 ```text
 REFERENCE-VERIFICATION = PASS-FOR-ADOPTED-ROUTE
@@ -167,23 +173,31 @@ REFERENCE-VERIFICATION = PASS-FOR-ADOPTED-ROUTE
 CIRCULARITY = PASS
 ```
 
-## ملاحظات قبل رفع الحالة
+## L. فحوص البناء
 
-يلزم قبل رفع الفصل إلى `VERIFIED`:
-
-1. نجاح `Quality checks` على الرأس المؤلف.
-2. نجاح بناء PDF الكامل.
-3. فحص سجل XeLaTeX وBiber وعدم وجود مراجع مفقودة.
-4. تحديث هذا التقرير بأرقام التشغيل والرأس النهائي.
-
-## الحكم المرحلي
+اجتاز الرأس `7ea41ec1f20d3821ea98aa832a710946f64277b8` فحص الجودة وتشغيل XeLaTeX وBiber الكامل. أنشئ Artifact للمعاينة بحجم وملخص SHA256 مسجلين أعلاه.
 
 ```text
-AUTHORING-CONTENT = PASS
-LOGIC             = PASS
-REFERENCES        = PASS-FOR-ADOPTED-ROUTE
-QUALITY-CHECKS    = PENDING
-PDF-BUILD         = PENDING
-CHAPTER-STATE     = DRAFT
-NEXT-ACTION       = RUN-CI-AND-PDF
+VERSION-CONSISTENCY = PASS
+UNICODE-CHECK       = PASS
+RESULT-ID-CHECK     = PASS
+XELATEX              = PASS
+BIBER                = PASS
+PDF-EXISTS           = PASS
+ARTIFACT-UPLOAD      = PASS
+```
+
+## الحكم النهائي
+
+```text
+AUTHORING-CONTENT    = PASS
+LOGIC                = PASS
+REFERENCES           = PASS-FOR-ADOPTED-ROUTE
+QUALITY-CHECKS       = RUN-272 / SUCCESS
+PDF-BUILD            = RUN-267 / SUCCESS
+POST-AUTHORING-GATE  = CLOSED / PASS
+CHAPTER-STATE        = VERIFIED
+REVIEW-STATE         = NOT YET INDEPENDENTLY REVIEWED
+RELEASE-READY        = NO
+NEXT-ACTION          = PREPARE-INDEPENDENT-REVIEW-PACKET
 ```
