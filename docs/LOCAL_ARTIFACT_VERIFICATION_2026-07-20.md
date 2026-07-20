@@ -5,16 +5,20 @@
 ```text
 DATE                    = 2026-07-20
 BRANCH                  = agent/chapter-12-siegel-walfisz-v0.16.0
-VERIFIED-CI-HEAD        = e6c87affd453f6088b0d1f5400432f7e4228ed57
-QUALITY-CHECKS          = RUN-287 / SUCCESS
-PDF-BUILD               = RUN-282 / SUCCESS
-ARTIFACT-ID             = 8474272515
+VERIFIED-HEAD           = fe9d5ab1d7dbcfd2684b592713151ba0349cf86c
+QUALITY-CHECKS          = RUN-294 / SUCCESS
+PDF-BUILD               = RUN-289 / SUCCESS
+ARTIFACT-ID             = 8474714284
+ARTIFACT-ARCHIVE-SHA256 = A8DCCBBCEC4B8F2F68DBD117D5385C9DB3B7498158183B9AB37C7689CF18412D
 ARTIFACT-DOWNLOADED     = YES
 LOCAL-PDF-OPEN          = PASS
 LOCAL-PDF-PREFLIGHT     = PASS
+LOCAL-VISUAL-SAMPLE     = PASS / PAGES 1, 150, 170, 184
 PDF-PAGES               = 184
 PDF-SIZE-BYTES          = 740994
-PDF-SHA256              = 8614C02802E080121875CB0AE7FFD06194D73236E226DB1A41112A8D9E30D763
+PDF-SHA256              = C379E7404416007B6BAABDCF45966601A1398B8BE7951BB9FAA20A4D439B1BFF
+PDF-PAGE-SIZE           = A4
+PDF-ENCRYPTED           = NO
 SOURCE-SYNC-IN-AGENT    = BLOCKED / NO-DNS-TO-GITHUB
 SOURCE-BUILD-IN-AGENT   = NOT CLAIMED
 RELEASE-READY           = NO
@@ -22,14 +26,20 @@ RELEASE-READY           = NO
 
 ## ما تم فعليًا
 
-نُزّل ملف `analytic-number-theory-encyclopedia-preview.pdf` من Artifact الخاص بتشغيل GitHub Actions رقم 282 إلى بيئة محلية مستقلة، ثم:
+نُزّل ملف `analytic-number-theory-encyclopedia-preview.pdf` من Artifact الخاص بتشغيل GitHub Actions رقم 289 إلى بيئة محلية مستقلة، ثم:
 
 1. فُك ضغط ملف Artifact محليًا.
 2. طُبق فحص فتح وبنية PDF بواسطة `pdfinfo` وPyMuPDF.
-3. تحقق أن الملف غير مشفر وقابل للفتح وغير ممسوح ضوئيًا.
-4. عُدّت الصفحات: 184 صفحة.
+3. تحقق أن الملف غير مشفر، قابل للفتح، بحجم A4، وليس ملفًا ممسوحًا ضوئيًا.
+4. عُدت الصفحات: 184 صفحة.
 5. حُسب SHA256 مباشرة من ملف PDF المحلي.
-6. طابق SHA256 الملف النصي المرفق داخل Artifact.
+6. رُندرت عينات من الصفحات 1 و150 و170 و184، وفُحصت بصريًا من دون ظهور قص أو تراكب أو مربعات سوداء أو تلف في العربية والمعادلات.
+
+## تفسير قيم SHA256
+
+- `ARTIFACT-ARCHIVE-SHA256` هو digest لأرشيف ZIP الذي أنشأه GitHub Actions.
+- `PDF-SHA256` هو SHA256 لملف PDF بعد فك الأرشيف محليًا.
+- لا يفترض أن تتطابق القيمتان لأنهما تخصان ملفين مختلفين.
 
 ## حد الادعاء
 
