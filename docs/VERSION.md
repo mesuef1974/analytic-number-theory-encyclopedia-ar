@@ -1,7 +1,7 @@
 # الإصدار الحالي
 
 ```text
-0.16.0-dev
+0.17.0-dev
 ```
 
 هذا الملف هو **المصدر الوحيد المعتمد لرقم الإصدار**. تُحدَّث النسخ المكررة في بقية الملفات بواسطة:
@@ -19,68 +19,61 @@
 
 ## المرحلة الحالية
 
-أُغلقت مرحلة `0.16.0-dev` الخاصة بالفصل الثاني عشر علميًا وحوكميًا بعد المراجعة المستقلة والدمج، مع بقاء النسخة تطويرية وغير جاهزة للإصدار.
+تستهدف `0.17.0-dev` الفصل الثالث عشر:
 
-**مبرهنة Siegel--Walfisz والتوزيع المنتظم للأعداد الأولية في المتتاليات الحسابية.**
+**مبرهنة بومبييري--فينوغرادوف والتوزيع المتوسطي للأعداد الأولية في المتتاليات الحسابية.**
 
 ```text
-MAIN-HEAD              = b1f09a3388aa34194eb8836b6977fe05f86aee7a
-CHAPTER-12             = REVIEWED / MERGED
-PR-20                  = MERGED
-INDEPENDENT-REVIEW     = APPROVED
-MATHEMATICAL-BLOCKERS  = 0
-REFERENCE-BLOCKERS     = 0
-TYPOGRAPHIC-BLOCKERS   = 0
-QUALITY-CHECKS         = RUN-311 / SUCCESS
-PDF-BUILD              = RUN-306 / SUCCESS
-LOCAL-SYNC             = PASS / FF-ONLY
-SOURCE-BUILD           = PASS
-LOCAL-PDF-PAGES        = 184
-LOCAL-PDF-SHA256       = 3BF0BCE828DDF09C03D6527117992806FAD06010B161FC1B242472D0B5367749
-EXPLICIT-FORMULA       = CITED / COMPOSITE-INPUT
-SIEGEL-CONSTANT        = INEFFECTIVE
-BOMBIERI-VINOGRADOV    = DEFERRED
+BASE-MAIN              = 607c6f8ad76f8085828f49ce6b566c846950ab2a
+BRANCH                 = agent/chapter-13-bombieri-vinogradov-v0.17.0
+MODE                   = EVIDENCE-FIRST / PRE-AUTHORING
+CHAPTER-13             = PRE-AUTHORING
+PRE-AUTHORING-GATE     = OPEN
+AUTHORING              = BLOCKED
+CENTRAL-TARGET         = BOMBIERI--VINOGRADOV / NOT YET ADOPTED
+PROOF-ROUTE            = VAUGHAN-IDENTITY + LARGE-SIEVE / CANDIDATE
+LEVEL-OF-DISTRIBUTION  = 1/2 WITH LOGARITHMIC LOSS / TARGET
+DEPENDENCY-AUDIT       = OPEN
+LOG-LOSS-AUDIT         = OPEN
+EFFECTIVITY-AUDIT      = OPEN
 RELEASE-READY          = NO
 ```
 
-## النتيجة المركزية
+## الهدف المرشح
 
-لكل \(A>0\)، توجد ثوابت غير فعالة في المسار العام بحيث، بانتظام عندما
-\(q\le(\log x)^A\) و\((a,q)=1\):
+لكل \(A>0\) يوجد \(B=B(A)>0\) بحيث، عندما
 
 \[
-\psi(x;q,a)
-=
-\frac{x}{\varphi(q)}
-+O_A\!\left(xe^{-c_A\sqrt{\log x}}\right).
+Q\le \frac{x^{1/2}}{(\log x)^B},
 \]
 
-وسجل الفصل أيضًا صيغة الادخار اللوغاريتمي الاعتباطي والصيغ الموافقة للدالتين
-\(\vartheta(x;q,a)\) و\(\pi(x;q,a)\).
+تكون الكمية
 
-## الفصل بين النتائج
+\[
+\sum_{q\le Q}\max_{(a,q)=1}\max_{2\le y\le x}
+\left|\psi(y;q,a)-\frac{y}{\varphi(q)}\right|
+\]
 
-1. الفصل العاشر يثبت النتيجة النوعية لترديد ثابت.
-2. الفصل الثاني عشر يثبت الانتظام للترديدات \(q\le(\log x)^A\).
-3. Bombieri--Vinogradov نتيجة متوسطية مؤجلة إلى فصل لاحق.
+من رتبة \(O_A(x/(\log x)^A)\). هذه الصيغة هدف بحثي للفصل ولم تعتمد بعد نتيجة قابلة للاستشهاد.
 
 ## النزاهة البرهانية
 
-- حد PNT الفعال والصيغة الصريحة المقطوعة مسجلان `CITED`، والثانية موصوفة بدقة بأنها `COMPOSITE-INPUT`.
-- صيغة بيرون العامة وتحويل المسار الكاملان ما يزالان دينين معلنين.
-- حد الصفر الاستثنائي عُزل قبل امتصاصه.
-- تدخل مبرهنة Siegel عند عقدة واحدة محددة، ومنها تأتي عدم فعالية الثابت النهائي.
-- لا يستعمل الفصل Bombieri--Vinogradov أو Linnik أو GRH.
+- الغربال الكبير للشخصيات مرشح لأن يسجل `CITED` أو `COMPOSITE-INPUT` بعد التحقق المرجعي.
+- هوية Vaughan مرشحة لبرهان داخلي.
+- تقديرا Type I وType II ومبرهنة القيمة المتوسطة لم تغلق بعد.
+- لا يدعي الفصل تجاوز حاجز \(1/2\).
+- Elliott--Halberstam ونتائج الأوزان الخاصة بعد \(1/2\) خارج النطاق المركزي.
+- لا يجوز بدء التأليف قبل إغلاق تدقيق الموصلات والحد الرئيسي والـ`max` والخسائر اللوغاريتمية والفعالية وعدم الدور.
 
 ## المرحلة السابقة
 
-أغلقت `0.15.0-dev` إداريًا بعد دمج الفصل الحادي عشر ومراجعة حوكمته:
+أُغلقت `0.16.0-dev` الخاصة بالفصل الثاني عشر علميًا وحوكميًا:
 
 ```text
-CHAPTER-11          = REVIEWED / MERGED
-PR-17               = MERGED
-ISSUE-18            = CLOSED
-CHAPTER-11-MERGE    = fb1571eaa6328eac597ddbebda79b09d0ebd1696
-GOVERNANCE-PR-19    = MERGED
-GOVERNANCE-MERGE    = 9d02c583d416053550d22dfd7acc44d9c264a02c
+CHAPTER-12          = REVIEWED / MERGED
+PR-20               = MERGED
+GOVERNANCE-PR-21    = MERGED
+GOVERNANCE-MERGE    = 607c6f8ad76f8085828f49ce6b566c846950ab2a
+LOCAL-SOURCE-BUILD  = PASS / 184 PAGES
+RELEASE-READY       = NO
 ```
