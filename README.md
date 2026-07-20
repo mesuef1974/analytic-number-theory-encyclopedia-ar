@@ -13,73 +13,95 @@
 - [قائمة المهام](docs/TODO.md)
 - [الإصدار الحالي](docs/VERSION.md)
 - [دليل بناء PDF](docs/BUILD.md)
+- [التحقق المحلي من Artifact الفصل الثاني عشر](docs/LOCAL_ARTIFACT_VERIFICATION_2026-07-20.md)
 - [سياسة اعتماد النتائج](docs/RESULT_STATUS_POLICY.md)
 - [سجل النتائج المعتمدة](docs/RESULTS_REGISTRY.md)
+- [سجل أدلة الفصل الثاني عشر](research/literature-reviews/chapter-12-siegel-walfisz-evidence.md)
+- [خريطة برهان الفصل الثاني عشر](research/literature-reviews/chapter-12-siegel-walfisz-proof-map.md)
+- [تدقيق ديون بيرون والصيغة الصريحة](docs/CHAPTER_12_PERRON_CONTOUR_EXPLICIT_FORMULA_AUDIT_2026-07-20.md)
+- [تدقيق الصفر الاستثنائي وعدم الفعالية](docs/CHAPTER_12_EXCEPTIONAL_ZERO_INEFFECTIVITY_AUDIT_2026-07-20.md)
+- [التدقيق المنطقي للفصل الثاني عشر](docs/CHAPTER_12_LOGIC_AUDIT_2026-07-20.md)
+- [تدقيق ما قبل تأليف الفصل الثاني عشر](docs/CHAPTER_12_PRE_AUTHORING_AUDIT_2026-07-20.md)
+- [التحقق المرجعي للفصل الثاني عشر](docs/CHAPTER_12_REFERENCE_VERIFICATION_2026-07-20.md)
+- [تدقيق ما بعد تأليف الفصل الثاني عشر](docs/CHAPTER_12_AUTHORING_AUDIT_2026-07-20.md)
 - [مراجعة الفصل السابع المستقلة](docs/CHAPTER_07_INDEPENDENT_REVIEW_2026-07-19.md)
 - [مراجعة الفصل الثامن المستقلة](docs/CHAPTER_08_INDEPENDENT_REVIEW_2026-07-20.md)
 - [المراجعة المستقلة للفصل التاسع](docs/CHAPTER_09_INDEPENDENT_REVIEW_2026-07-20.md)
 - [المراجعة المستقلة للفصل العاشر](docs/CHAPTER_10_INDEPENDENT_REVIEW_2026-07-20.md)
-- [سجل أدلة الفصل الحادي عشر](research/literature-reviews/chapter-11-zero-free-regions-exceptional-zeros-evidence.md)
-- [خريطة برهان الفصل الحادي عشر](research/literature-reviews/chapter-11-zero-free-regions-exceptional-zeros-proof-map.md)
-- [تدقيق ما قبل تأليف الفصل الحادي عشر](docs/CHAPTER_11_PRE_AUTHORING_AUDIT_2026-07-20.md)
-- [التدقيق المنطقي للفصل الحادي عشر](docs/CHAPTER_11_LOGIC_AUDIT_2026-07-20.md)
-- [تدقيق ما بعد تأليف الفصل الحادي عشر](docs/CHAPTER_11_AUTHORING_AUDIT_2026-07-20.md)
-- [حزمة المراجعة المستقلة للفصل الحادي عشر](docs/CHAPTER_11_INDEPENDENT_REVIEW_PACKET_2026-07-20.md)
 - [المراجعة المستقلة للفصل الحادي عشر](docs/CHAPTER_11_INDEPENDENT_REVIEW_2026-07-20.md)
 - [إيصال إغلاق الفصل الحادي عشر](docs/CHAPTER_11_REVIEW_CLOSURE_2026-07-20.md)
 - [سجل التجارب الحاسوبية](docs/EXPERIMENTS_REGISTRY.md)
 
 ## الحالة الحالية
 
-الإصدار: `v0.15.0-dev`
+الإصدار: `v0.16.0-dev`
 
 ```text
-CHAPTER-11  = REVIEWED / MERGED
-PR-17       = MERGED
-ISSUE-18    = CLOSED
-MERGE-HEAD  = fb1571eaa6328eac597ddbebda79b09d0ebd1696
+BASE-MAIN                 = 9d02c583d416053550d22dfd7acc44d9c264a02c
+BRANCH                    = agent/chapter-12-siegel-walfisz-v0.16.0
+CHAPTER-12                = VERIFIED
+PRE-AUTHORING-GATE        = CLOSED / PASS
+POST-AUTHORING-GATE       = CLOSED / PASS
+VERIFIED-MANUSCRIPT-HEAD  = e6c87affd453f6088b0d1f5400432f7e4228ed57
+VERIFIED-DOCS-HEAD        = 3aea2ba2b1533eefb933700b48c1eb7c39910c23
+QUALITY-CHECKS            = RUN-296 / SUCCESS
+PDF-BUILD                 = RUN-291 / SUCCESS
+LOCAL-PDF-PAGES           = 184
+LOCAL-PDF-SHA256          = 71D8B628896529F100659AAA1029E7E53F793C529E5D568BB8F8BF5FA8FB6549
+LOCAL-VERIFICATION        = ARTIFACT-VERIFIED / SOURCE-BUILD-NOT-CLAIMED
+EXPLICIT-FORMULA          = CITED-INPUT
+SIEGEL-CONSTANT           = INEFFECTIVE
+BOMBIERI-VINOGRADOV       = DEFERRED
+INDEPENDENT-REVIEW        = NOT YET STARTED
+RELEASE-READY             = NO
 ```
 
-يتضمن هذا الإصدار:
+## الفصل الثاني عشر
 
-- بنية المستودع ونظام إدارة الإصدارات والتوثيق العلمي.
-- بناء PDF محليًا وعلى GitHub Actions.
-- الفصول الأحد عشر الأولى من المجلد التأسيسي:
-  1. التاريخ والمنهج.
-  2. اللغة التقاربية والجمع الجزئي لأبيل.
-  3. التحليل المركب الموجّه لنظرية الأعداد.
-  4. الدوال الحسابية والالتفاف الديريشلي.
-  5. سلاسل ديريشليه والمنتجات الأويلرية.
-  6. دالة زيتا لريمان: الاستمرار التحليلي والمعادلة الوظيفية.
-  7. دوال ديريشليه \(L\): الشخصيات والبنية التحليلية.
-  8. مبرهنة ديريشليه للأوليات في المتتاليات الحسابية.
-  9. مبرهنة الأعداد الأولية.
-  10. مبرهنة الأعداد الأولية في المتتاليات الحسابية لترديد ثابت.
-  11. المناطق الخالية من الأصفار والأصفار الاستثنائية.
-- الفصول السابع والثامن والتاسع والعاشر والحادي عشر بحالة `REVIEWED`، وكلها مدمجة في `main`.
-- اجتاز الفصل الحادي عشر مراجعة مستقلة كاملة لم تكشف خطأ رياضيًا، وكشفت تصحيحًا ببليوغرافيًا واحدًا في مدخل Basak--Pratt.
-- صُحح اسم المؤلف إلى Debmalya Basak، وسجلت بيانات النشر في *Research in Number Theory* 12(1)، المقالة 17 (2026)، DOI `10.1007/s40993-025-00695-x`.
-- أضيف arXiv:2410.06082 إلى مدخل Benli--Goel--Twiss--Zaman، ووصف Liu (2022) بوصفه preprint.
-- نجح رأس التصحيح والمراجعة في `Quality checks` run #253 و`Build PDF` run #249.
-- جمدت نسخة المراجعة الأصلية عند الرأس `617549dfd76cd2582c85217d39fab94ffaad1a9f` في الفرع `review/chapter-11-zero-free-regions-exceptional-zeros-rc1`.
-- أُغلقت بوابة المراجعة المستقلة في Issue #18 بعد تسجيل الحكم والتصحيح.
-- دُمج PR #17 في `main` عند الالتزام `fb1571eaa6328eac597ddbebda79b09d0ebd1696`.
-- تحقق البناء المحلي بعد الدمج: 171 صفحة، وSHA256 `C5A09974D6440C24EBBFAE69F574350D9A09626976A0E7784E8E523999626C50`.
-- النتائج الداخلية للفصل الحادي عشر مسجلة `PROVED-HERE`، ومبرهنتا Siegel وDeuring--Heilbronn مسجلتان `CITED`، والنتيجة التشخيصية للصيغة الصريحة `DEFERRED`.
-- لا يدعي الفصل أفضل ثابت عددي، ولا برهانًا كاملًا لـDeuring--Heilbronn، ولا Linnik أو Siegel--Walfisz أو Bombieri--Vinogradov أو GRH.
-- معرفات ثابتة للنتائج وحالات منشأ ظاهرة داخل PDF.
-- تجربة Hardy Z منخفضة الارتفاع، مسجلة وقابلة لإعادة التشغيل ومطابقة لإحداثيات LMFDB، بسقف `NO_RH_EVIDENCE`.
-- نواة أولية لفصل الجبهات البحثية الحديثة.
+أضيف متن الفصل الثاني عشر وربط بالكتاب. يثبت الفصل، اعتمادًا على مدخلين كميين مقتبسين وعلى المنطقة الخالية من الفصل الحادي عشر، أنه لكل \(A>0\):
 
-الفصول الحالية متفاوتة الاكتمال، ولا يعد أي فصل `RELEASE-READY` قبل إغلاق ديونه المعلنة وتدقيق الإصدار. الفصل الحادي عشر `REVIEWED / MERGED`، لكن هذا لا يرفعه تلقائيًا إلى `RELEASE-READY`.
+\[
+\psi(x;q,a)
+=
+\frac{x}{\varphi(q)}
++O_A\!\left(xe^{-c_A\sqrt{\log x}}\right),
+\qquad q\le(\log x)^A,
+\]
 
-## المرحلة التالية
+بانتظام في الفئات المختزلة. كما يستنتج صيغة الادخار اللوغاريتمي الاعتباطي والصيغ الموحدة الموافقة لـ\(\vartheta(x;q,a)\) و\(\pi(x;q,a)\).
 
-الإصدار المخطط `0.16.0-dev` مخصص للفصل الثاني عشر:
+### ما ثبت داخل الفصل
 
-**مبرهنة Siegel--Walfisz والتوزيع المنتظم للأعداد الأولية في المتتاليات الحسابية.**
+- رد الشخصية المستحثة إلى جدها البدائي مع ضبط خطأ العوامل المحلية.
+- اختيار ارتفاع القطع \(T=e^{\kappa\sqrt{\log x}}\).
+- ضبط مساهمة الأصفار غير الاستثنائية.
+- عزل الصفر الاستثنائي ثم امتصاصه باستعمال مبرهنة Siegel.
+- تجميع الشخصيات من دون خسارة إضافية في \(q\).
+- الانتقال الآمن إلى \(\vartheta\) و\(\pi\)، مع معالجة تغير شرط الترديد داخل التكامل.
 
-تبدأ المرحلة بمنهج `EVIDENCE-FIRST / PRE-AUTHORING`، مع فصل صريح بين نتيجة الترديد الثابت في الفصل العاشر، وSiegel--Walfisz للترديدات \(q\le (\log x)^A\)، وBombieri--Vinogradov المؤجل إلى فصل لاحق.
+### ما اقتبس ولم ينسب إلى برهان داخلي
+
+- حد دو لا فاليه بوسان الفعال لمبرهنة الأعداد الأولية.
+- الصيغة الصريحة المقطوعة الموحدة بعد عزل الصفر الاستثنائي.
+
+تبقى صيغة بيرون العامة وتحويل المسار الكاملان دينين معلنين، ولا يدعي الفصل إغلاقهما من الصفر.
+
+### عدم الفعالية
+
+يبقى حد الصفر الاستثنائي ظاهرًا حتى تطبيق `ANT-COR-11-01`. هذا هو الموضع المحدد الذي تدخل فيه مبرهنة Siegel؛ لذلك تكون الثوابت النهائية في النسخة غير المشروطة العامة غير فعالة.
+
+## الفصل بين النتائج
+
+1. **الفصل العاشر:** نتيجة نوعية لترديد ثابت، بلا انتظام في \(q\).
+2. **الفصل الثاني عشر:** انتظام فردي للترديدات \(q\le(\log x)^A\).
+3. **فصل لاحق:** Bombieri--Vinogradov، وهي نتيجة متوسطية على مجال أكبر ولا تستعمل في برهان الفصل الثاني عشر.
+
+## حالة الفصول
+
+- الفصول الاثنا عشر الأولى مرتبطة بالملف الجامع وتظهر في بناء PDF الحالي.
+- الفصول من السابع إلى الحادي عشر بحالة `REVIEWED` ومندمجة في `main`.
+- الفصل الثاني عشر بحالة `VERIFIED` بعد التدقيق الداخلي ونجاح الجودة والبناء، لكنه لم يخضع بعد لمراجعة ثانية مستقلة.
+- لا يصبح أي فصل `RELEASE-READY` بمجرد التدقيق أو المراجعة أو الدمج؛ تبقى ديون الإصدار المعلنة مستقلة.
 
 ## مبادئ التحرير
 
@@ -92,13 +114,20 @@ MERGE-HEAD  = fb1571eaa6328eac597ddbebda79b09d0ebd1696
 
 ## بناء PDF
 
-على Windows:
+للمزامنة والبناء المحلي وتوليد إيصال:
+
+```powershell
+cd "D:\analytic-number-theory-encyclopedia-ar"
+.\scripts\sync-build.ps1 -Open -CommitReceipt -Push
+```
+
+وللبناء فقط من الشجرة الحالية:
 
 ```powershell
 .\scripts\build.ps1 -Clean -Open
 ```
 
-وعلى GitHub يُبنى PDF تلقائيًا بعد كل Push يؤثر في ملفات الكتاب، ثم يُرفع كـArtifact. راجع [دليل بناء PDF](docs/BUILD.md).
+على GitHub يُبنى PDF تلقائيًا بعد كل Push يؤثر في ملفات الكتاب، ثم يُرفع كـArtifact. راجع [دليل بناء PDF](docs/BUILD.md).
 
 ## هيكل المشروع
 

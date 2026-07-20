@@ -48,6 +48,34 @@ cd "D:\analytic-number-theory-encyclopedia-ar"
 .\scripts\build.ps1
 ```
 
+## المزامنة والبناء وإصدار إيصال
+
+لتجنب البناء من فرع أو رأس قديم، استخدم المسار المتزامن:
+
+```powershell
+cd "D:\analytic-number-theory-encyclopedia-ar"
+.\scripts\sync-build.ps1 -Open
+```
+
+ينفذ السكربت بالترتيب:
+
+1. يرفض العمل إذا كانت شجرة Git غير نظيفة.
+2. ينفذ `git fetch --prune origin`.
+3. ينتقل إلى فرع الفصل الثاني عشر.
+4. ينفذ `git pull --ff-only` لمنع الدمج المحلي العرضي.
+5. يتحقق من تطابق `HEAD` المحلي مع `origin/<branch>`.
+6. يشغّل `scripts/build.ps1 -Clean`.
+7. يحسب SHA256 وحجم PDF وعدد الصفحات عندما تتوفر `pdfinfo` أو `mutool` أو Python مع `pypdf`.
+8. ينشئ `docs/LOCAL_BUILD_RECEIPT.md` من النتائج الفعلية.
+
+لتسجيل الإيصال في Git ودفعه إلى الفرع نفسه:
+
+```powershell
+.\scripts\sync-build.ps1 -Open -CommitReceipt -Push
+```
+
+لا تستعمل `-Push` من دون `-CommitReceipt`. ولا يجعل نجاح البناء المحلي الفصل `REVIEWED` أو `RELEASE-READY` تلقائيًا.
+
 ## تنظيف الملفات
 
 ```powershell
@@ -77,6 +105,21 @@ Build encyclopedia PDF
    `analytic-number-theory-encyclopedia-preview`.
 
 ملف Artifact مؤقت للمعاينة، وليس إصدارًا رسميًا.
+
+## التحقق المحلي من Artifact
+
+يمكن تنزيل Artifact إلى بيئة أخرى وفحص ملف PDF محليًا. يجب التمييز بين:
+
+- `SOURCE-BUILD`: بناء PDF من ملفات المصدر المحلية بعد مزامنة Git.
+- `ARTIFACT-VERIFICATION`: فتح وفحص PDF الذي بناه GitHub Actions بعد تنزيله.
+
+يسجل التحقق المنفذ للفصل الثاني عشر في:
+
+```text
+docs/LOCAL_ARTIFACT_VERIFICATION_2026-07-20.md
+```
+
+ولا يجوز تحويل تحقق Artifact إلى ادعاء بناء مصدر محلي.
 
 ## التحقق العددي المسجل
 
