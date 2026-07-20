@@ -1,12 +1,12 @@
 \documentclass[12pt,oneside]{book}
 \input{manuscript/preamble}
-% Governance closure: Chapter 11 merged at fb1571eaa6328eac597ddbebda79b09d0ebd1696.
-% Chapter 12 pre-authoring gate closed on branch agent/chapter-12-siegel-walfisz-v0.16.0.
+% Chapter 12 governance closed and merged at 607c6f8ad76f8085828f49ce6b566c846950ab2a.
+% Chapter 13 is in EVIDENCE-FIRST / PRE-AUTHORING; no manuscript input exists yet.
 
 \title{الموسوعة الشاملة في نظرية الأعداد التحليلية\\
 \large من الأسس إلى الجبهات البحثية الحديثة}
 \author{mesuef1974}
-\date{نسخة معاينة — الإصدار التطويري 0.16.0\\20 يوليو 2026}
+\date{نسخة معاينة — الإصدار التطويري 0.17.0\\21 يوليو 2026}
 
 \begin{document}
 \frontmatter
@@ -39,16 +39,5 @@
 \input{volumes/volume-15-modern-frontiers/chapters/chapter-01-frontiers-map}
 
 \backmatter
-\nocite{*}
-\clearpage
-\phantomsection
-\addcontentsline{toc}{chapter}{المراجع}
-\thispagestyle{plain}
-\vspace*{15mm}
-\noindent{\LARGE\bfseries المراجع\par}
-\bigskip
-\begin{english}
-\footnotesize
-\printbibliography[heading=none]
-\end{english}
+\printbibliography[heading=bibintoc,title={المراجع}]
 \end{document}
