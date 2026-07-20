@@ -1,0 +1,34 @@
+name: Quality diagnostics
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Run quality check and comment result
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          set +e
+          python scripts/quality_check.py > quality-diagnostics.txt 2>&1
+          status=$?
+          {
+            echo 'Temporary quality diagnostics:'
+            echo
+            echo '```text'
+            cat quality-diagnostics.txt
+            echo '```'
+          } > quality-comment.md
+          gh pr comment "$PR_NUMBER" --body-file quality-comment.md
+          exit 0
