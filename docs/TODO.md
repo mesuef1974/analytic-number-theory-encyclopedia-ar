@@ -86,8 +86,8 @@
 - [x] إضافة التحقق المرجعي ومراجع Thorner--Zaman وKoukoulopoulos وDrappeau--Fiorilli.
 - [x] مزامنة حالات النتائج التسع في السجل المركزي.
 - [x] إجراء تدقيق ما بعد التأليف بحكم `PASS`.
-- [x] نجاح `Quality checks` #272 على الرأس `7ea41ec1f20d3821ea98aa832a710946f64277b8`.
-- [x] نجاح بناء PDF #267 على الرأس نفسه.
+- [x] نجاح فحص الجودة النهائي #284 على الرأس `ce466deff36c3927f9a89864395bc565f41f62d5`.
+- [x] نجاح بناء PDF النهائي #279 على الرأس نفسه.
 - [x] رفع الفصل إلى `VERIFIED`.
 
 #### المراجعة المستقلة والدمج
@@ -102,9 +102,10 @@
 
 ```text
 CHAPTER-12          = VERIFIED
-VALIDATED-HEAD      = 7ea41ec1f20d3821ea98aa832a710946f64277b8
-QUALITY-CHECKS      = RUN-272 / SUCCESS
-PDF-BUILD           = RUN-267 / SUCCESS
+FINAL-HEAD          = ce466deff36c3927f9a89864395bc565f41f62d5
+QUALITY-CHECKS      = RUN-284 / SUCCESS
+PDF-BUILD           = RUN-279 / SUCCESS
+PDF-ARTIFACT-SHA256 = 9e2dc515aa49e4173d0aa1bd21819c80eee19797bd84cc458997727d695c124a
 EXPLICIT-FORMULA    = CITED-INPUT
 SIEGEL-CONSTANT     = INEFFECTIVE
 BOMBIERI-VINOGRADOV = DEFERRED
