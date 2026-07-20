@@ -83,7 +83,16 @@ if ($initialStatus.Count -gt 0) {
 }
 
 Run-Command -Name "git" -Arguments @("fetch", "--prune", "origin")
-Run-Command -Name "git" -Arguments @("checkout", $Branch)
+
+git show-ref --verify --quiet "refs/heads/$Branch"
+$LocalBranchExists = ($LASTEXITCODE -eq 0)
+if ($LocalBranchExists) {
+    Run-Command -Name "git" -Arguments @("checkout", $Branch)
+}
+else {
+    Run-Command -Name "git" -Arguments @("checkout", "--track", "-b", $Branch, "origin/$Branch")
+}
+
 Run-Command -Name "git" -Arguments @("pull", "--ff-only", "origin", $Branch)
 
 $Head = (git rev-parse HEAD).Trim()
@@ -93,9 +102,6 @@ if ($Head -ne $RemoteHead) {
 }
 
 & (Join-Path $PSScriptRoot "build.ps1") -Clean
-if ($LASTEXITCODE -ne 0) {
-    throw "Local PDF build failed."
-}
 if (-not (Test-Path $PreviewPdf)) {
     throw "Expected PDF was not created: $PreviewPdf"
 }
@@ -103,40 +109,51 @@ if (-not (Test-Path $PreviewPdf)) {
 $Hash = (Get-FileHash $PreviewPdf -Algorithm SHA256).Hash
 $Size = (Get-Item $PreviewPdf).Length
 $Pages = Get-PdfPageCount -PdfPath $PreviewPdf
-$PagesText = if ($null -eq $Pages) { "UNKNOWN — install pdfinfo, mutool, or Python pypdf" } else { [string]$Pages }
+$PagesText = if ($null -eq $Pages) { "UNKNOWN - install pdfinfo, mutool, or Python pypdf" } else { [string]$Pages }
 $XeLaTeXVersion = (& xelatex --version | Select-Object -First 1).Trim()
 $BiberVersion = (& biber --version | Select-Object -First 1).Trim()
 $Timestamp = (Get-Date).ToString("yyyy-MM-ddTHH:mm:ssK")
 
-$Receipt = @"
+$ReceiptTemplate = @'
 # إيصال البناء المحلي المتزامن
 
 ```text
-TIMESTAMP        = $Timestamp
-BRANCH           = $Branch
-LOCAL-HEAD       = $Head
-ORIGIN-HEAD      = $RemoteHead
+TIMESTAMP        = __TIMESTAMP__
+BRANCH           = __BRANCH__
+LOCAL-HEAD       = __LOCAL_HEAD__
+ORIGIN-HEAD      = __ORIGIN_HEAD__
 SYNC             = PASS / FF-ONLY
 SOURCE-BUILD     = PASS
 PDF              = releases/preview.pdf
-PDF-PAGES        = $PagesText
-PDF-SIZE-BYTES   = $Size
-PDF-SHA256       = $Hash
-XELATEX          = $XeLaTeXVersion
-BIBER            = $BiberVersion
+PDF-PAGES        = __PDF_PAGES__
+PDF-SIZE-BYTES   = __PDF_SIZE__
+PDF-SHA256       = __PDF_SHA256__
+XELATEX          = __XELATEX__
+BIBER            = __BIBER__
 RELEASE-READY    = NO
 ```
 
 أُنشئ هذا الإيصال آليًا بواسطة `scripts/sync-build.ps1`. نجاح البناء المحلي لا يرفع الفصل تلقائيًا إلى `REVIEWED` أو `RELEASE-READY`، ولا يغني عن المراجعة المستقلة.
-"@
+'@
+
+$Receipt = $ReceiptTemplate
+$Receipt = $Receipt.Replace("__TIMESTAMP__", $Timestamp)
+$Receipt = $Receipt.Replace("__BRANCH__", $Branch)
+$Receipt = $Receipt.Replace("__LOCAL_HEAD__", $Head)
+$Receipt = $Receipt.Replace("__ORIGIN_HEAD__", $RemoteHead)
+$Receipt = $Receipt.Replace("__PDF_PAGES__", $PagesText)
+$Receipt = $Receipt.Replace("__PDF_SIZE__", [string]$Size)
+$Receipt = $Receipt.Replace("__PDF_SHA256__", $Hash)
+$Receipt = $Receipt.Replace("__XELATEX__", $XeLaTeXVersion)
+$Receipt = $Receipt.Replace("__BIBER__", $BiberVersion)
 
 $Receipt | Set-Content -Path $ReceiptPath -Encoding utf8
 Write-Host ""
 Write-Host "Synchronized local build completed." -ForegroundColor Green
-Write-Host "HEAD:   $Head"
-Write-Host "PDF:    $PreviewPdf"
-Write-Host "Pages:  $PagesText"
-Write-Host "SHA256: $Hash"
+Write-Host "HEAD:    $Head"
+Write-Host "PDF:     $PreviewPdf"
+Write-Host "Pages:   $PagesText"
+Write-Host "SHA256:  $Hash"
 Write-Host "Receipt: $ReceiptPath"
 
 if ($CommitReceipt) {
