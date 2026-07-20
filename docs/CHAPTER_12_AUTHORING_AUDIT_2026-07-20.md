@@ -9,15 +9,18 @@ BRANCH               = agent/chapter-12-siegel-walfisz-v0.16.0
 DATE                 = 2026-07-20
 AUTHORING-HEAD       = 7ea41ec1f20d3821ea98aa832a710946f64277b8
 SYNCHRONIZED-HEAD    = 6a5388fa6c58d3cec921d352c66814aa89761ae0
+FINAL-PR-HEAD        = 671835539c2f2feb4fc053f3940ff99234fa454e
 AUDIT-STATE          = CLOSED / PASS
 CHAPTER-STATE        = VERIFIED
 AUTHORING-QUALITY    = RUN-272 / SUCCESS
 AUTHORING-PDF        = RUN-267 / SUCCESS
-FINAL-QUALITY        = RUN-280 / SUCCESS
-FINAL-PDF            = RUN-275 / SUCCESS
+SYNCHRONIZED-QUALITY = RUN-280 / SUCCESS
+SYNCHRONIZED-PDF     = RUN-275 / SUCCESS
+FINAL-QUALITY        = RUN-281 / SUCCESS
+FINAL-PDF            = RUN-276 / SUCCESS
 PDF-ARTIFACT         = analytic-number-theory-encyclopedia-preview
-ARTIFACT-SHA256      = 5d9746daee8dec19c25ced8e47756abceee53ee1c481241560c7c022ab13d13a
-ARTIFACT-SIZE        = 726239 bytes
+ARTIFACT-SHA256      = c253dd2dbbe4c9429330e4ec854287acf19f46d564992ca8cb30878052d4f9a0
+ARTIFACT-SIZE        = 726238 bytes
 ```
 
 ## المواد المدققة
@@ -167,7 +170,7 @@ CIRCULARITY = PASS
 
 ## L. فحوص البناء
 
-اجتاز رأس التأليف فحوص #272/#267، ثم جرى توحيد حالة الفصل ووثائق الحوكمة وسجل التغييرات. اجتاز الرأس المتزامن `6a5388fa6c58d3cec921d352c66814aa89761ae0` فحص الجودة #280 وبناء PDF #275، ورفع Artifact جديدًا بملخص SHA256 المسجل أعلاه.
+اجتاز رأس التأليف فحوص #272/#267. وبعد توحيد حالة الفصل ووثائق الحوكمة، اجتاز الرأس `6a5388fa6c58d3cec921d352c66814aa89761ae0` الفحوص #280/#275. ثم اجتاز رأس PR النهائي `671835539c2f2feb4fc053f3940ff99234fa454e` فحص الجودة #281 وبناء PDF #276، ورفع Artifact بملخص SHA256 المسجل أعلاه.
 
 ```text
 VERSION-CONSISTENCY = PASS
@@ -185,8 +188,8 @@ ARTIFACT-UPLOAD      = PASS
 AUTHORING-CONTENT    = PASS
 LOGIC                = PASS
 REFERENCES           = PASS-FOR-ADOPTED-ROUTE
-QUALITY-CHECKS       = RUN-280 / SUCCESS
-PDF-BUILD            = RUN-275 / SUCCESS
+QUALITY-CHECKS       = RUN-281 / SUCCESS
+PDF-BUILD            = RUN-276 / SUCCESS
 POST-AUTHORING-GATE  = CLOSED / PASS
 CHAPTER-STATE        = VERIFIED
 REVIEW-STATE         = NOT YET INDEPENDENTLY REVIEWED
