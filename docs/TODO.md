@@ -98,9 +98,18 @@
 - [x] نجاح `Quality checks` #247 وبناء PDF #243 على الرأس `617549dfd76cd2582c85217d39fab94ffaad1a9f`.
 - [x] تجميد نسخة المراجعة في `review/chapter-11-zero-free-regions-exceptional-zeros-rc1`.
 - [x] فتح Issue #18 للمراجعة الثانية المستقلة.
-- [ ] استلام حكم المراجعة المستقلة وتسجيله.
-- [ ] رفع الفصل إلى `REVIEWED` فقط إذا كان الحكم يسمح بذلك.
-- [ ] دمج PR #17 بأمر صريح من مالك المشروع فقط.
+- [x] استلام حكم المراجعة المستقلة `APPROVED-AFTER-BIBLIOGRAPHIC-CORRECTION` وتسجيله.
+- [x] رفع الفصل إلى `REVIEWED` بعد تطبيق التصحيح ونجاح الفحوص.
+- [x] إغلاق Issue #18 بحالة `COMPLETED`.
+- [x] دمج PR #17 عند الالتزام `fb1571eaa6328eac597ddbebda79b09d0ebd1696`.
+- [x] إغلاق المرحلة `0.15.0-dev` إداريًا.
+
+```text
+CHAPTER-11  = REVIEWED / MERGED
+PR-17       = MERGED
+ISSUE-18    = CLOSED
+MERGE-HEAD  = fb1571eaa6328eac597ddbebda79b09d0ebd1696
+```
 
 ## قريب
 
