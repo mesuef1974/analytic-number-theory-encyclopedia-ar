@@ -19,25 +19,27 @@
 
 ## المرحلة الحالية
 
-تستهدف `0.16.0-dev` الفصل الثاني عشر:
+أُغلقت مرحلة `0.16.0-dev` الخاصة بالفصل الثاني عشر علميًا وحوكميًا بعد المراجعة المستقلة والدمج، مع بقاء النسخة تطويرية وغير جاهزة للإصدار.
 
 **مبرهنة Siegel--Walfisz والتوزيع المنتظم للأعداد الأولية في المتتاليات الحسابية.**
 
 ```text
-BASE-MAIN              = 9d02c583d416053550d22dfd7acc44d9c264a02c
-BRANCH                 = agent/chapter-12-siegel-walfisz-v0.16.0
-MODE                   = EVIDENCE-FIRST / AUTHORED
-PRE-AUTHORING-GATE     = CLOSED / PASS
-POST-AUTHORING-GATE    = CLOSED / PASS
-CHAPTER-12             = VERIFIED
-FINAL-HEAD             = b2fae17de3e598b2d3ec96e77ca3d24b191229fc
-QUALITY-CHECKS         = RUN-283 / SUCCESS
-PDF-BUILD              = RUN-278 / SUCCESS
-PDF-ARTIFACT-SHA256    = a8ead92a87ab43d3e7779fd58c936e6f98f97f0d268ff913441421f48c30df75
-EXPLICIT-FORMULA       = CITED-INPUT
+MAIN-HEAD              = b1f09a3388aa34194eb8836b6977fe05f86aee7a
+CHAPTER-12             = REVIEWED / MERGED
+PR-20                  = MERGED
+INDEPENDENT-REVIEW     = APPROVED
+MATHEMATICAL-BLOCKERS  = 0
+REFERENCE-BLOCKERS     = 0
+TYPOGRAPHIC-BLOCKERS   = 0
+QUALITY-CHECKS         = RUN-311 / SUCCESS
+PDF-BUILD              = RUN-306 / SUCCESS
+LOCAL-SYNC             = PASS / FF-ONLY
+SOURCE-BUILD           = PASS
+LOCAL-PDF-PAGES        = 184
+LOCAL-PDF-SHA256       = 3BF0BCE828DDF09C03D6527117992806FAD06010B161FC1B242472D0B5367749
+EXPLICIT-FORMULA       = CITED / COMPOSITE-INPUT
 SIEGEL-CONSTANT        = INEFFECTIVE
 BOMBIERI-VINOGRADOV    = DEFERRED
-INDEPENDENT-REVIEW     = NOT YET STARTED
 RELEASE-READY          = NO
 ```
 
@@ -64,7 +66,7 @@ RELEASE-READY          = NO
 
 ## النزاهة البرهانية
 
-- حد PNT الفعال والصيغة الصريحة المقطوعة مسجلان `CITED`.
+- حد PNT الفعال والصيغة الصريحة المقطوعة مسجلان `CITED`، والثانية موصوفة بدقة بأنها `COMPOSITE-INPUT`.
 - صيغة بيرون العامة وتحويل المسار الكاملان ما يزالان دينين معلنين.
 - حد الصفر الاستثنائي عُزل قبل امتصاصه.
 - تدخل مبرهنة Siegel عند عقدة واحدة محددة، ومنها تأتي عدم فعالية الثابت النهائي.
