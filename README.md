@@ -41,9 +41,10 @@ BRANCH                 = agent/chapter-12-siegel-walfisz-v0.16.0
 CHAPTER-12             = VERIFIED
 PRE-AUTHORING-GATE     = CLOSED / PASS
 POST-AUTHORING-GATE    = CLOSED / PASS
-VALIDATED-HEAD         = 7ea41ec1f20d3821ea98aa832a710946f64277b8
-QUALITY-CHECKS         = RUN-272 / SUCCESS
-PDF-BUILD              = RUN-267 / SUCCESS
+FINAL-HEAD             = 19a1a7b13be3e7b64fd484b66f6457ffee95cd96
+QUALITY-CHECKS         = RUN-286 / SUCCESS
+PDF-BUILD              = RUN-281 / SUCCESS
+PDF-ARTIFACT-SHA256    = a31df8167c42b33a22904f1f13597c9088524cce7fc0b049855acc4ea0460485
 EXPLICIT-FORMULA       = CITED-INPUT
 SIEGEL-CONSTANT        = INEFFECTIVE
 BOMBIERI-VINOGRADOV    = DEFERRED
@@ -63,16 +64,7 @@ RELEASE-READY          = NO
 \qquad q\le(\log x)^A,
 \]
 
-بانتظام في الفئات المختزلة. كما يستنتج:
-
-\[
-\psi(x;q,a)
-=
-\frac{x}{\varphi(q)}
-+O_{A,B}\!\left(\frac{x}{(\log x)^B}\right),
-\]
-
-والصيغ الموحدة الموافقة لـ\(\vartheta(x;q,a)\) و\(\pi(x;q,a)\).
+بانتظام في الفئات المختزلة. كما يستنتج صيغة الادخار اللوغاريتمي الاعتباطي والصيغ الموحدة الموافقة لـ\(\vartheta(x;q,a)\) و\(\pi(x;q,a)\).
 
 ### ما ثبت داخل الفصل
 
@@ -92,8 +84,7 @@ RELEASE-READY          = NO
 
 ### عدم الفعالية
 
-يبقى حد الصفر الاستثنائي ظاهرًا حتى تطبيق
-`ANT-COR-11-01`. هذا هو الموضع المحدد الذي تدخل فيه مبرهنة Siegel؛ لذلك تكون الثوابت النهائية في النسخة غير المشروطة العامة غير فعالة.
+يبقى حد الصفر الاستثنائي ظاهرًا حتى تطبيق `ANT-COR-11-01`. هذا هو الموضع المحدد الذي تدخل فيه مبرهنة Siegel؛ لذلك تكون الثوابت النهائية في النسخة غير المشروطة العامة غير فعالة.
 
 ## الفصل بين النتائج
 
