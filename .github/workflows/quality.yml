@@ -12,14 +12,15 @@ permissions:
 
 jobs:
   quality:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
     steps:
-      - name: Fetch pull request merge commit
-        run: |
-          git init -q
-          git remote add origin "https://github.com/${GITHUB_REPOSITORY}.git"
-          git fetch -q --depth=1 origin "${GITHUB_SHA}"
-          git checkout -q --detach FETCH_HEAD
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
 
       - name: Run repository quality checks
-        run: python3 scripts/quality_check.py
+        run: python scripts/quality_check.py
