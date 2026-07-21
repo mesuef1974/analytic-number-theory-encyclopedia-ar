@@ -9,6 +9,7 @@ PRIMARY-SOURCES        = VERIFIED
 TECHNICAL-THEOREMS     = VERIFIED BY NUMBER AND PRINTED PAGE
 BIBTEX-KEYS            = VERIFIED / UNIQUE
 CORRECTION-RECORD      = INCLUDED
+REFERENCE-CORRECTIONS  = 3 / CLOSED
 VERDICT                = PASS-FOR-AUTHORING
 REFERENCE-BLOCKERS     = 0
 RELEASE-READY          = NO
@@ -119,23 +120,28 @@ VOLUME    = 218
 ISBN      = 9781009445054
 EISBN     = 9781009445030
 DOI       = 10.1017/9781009445030
-STATUS    = VERIFIED / CAMBRIDGE CORE AND AUTHOR PDF
+STATUS    = VERIFIED / CAMBRIDGE CORE AND FULL PDF
 ```
 
 صفحة الناشر تثبت أن الفصل 19 هو **The Large Sieve** في الصفحات 149--188،
-وأن الفصل 20 هو **Primes in Arithmetic Progressions: III**. استعملت نسخة
-المؤلف لمطابقة أرقام المبرهنات والصفحات المطبوعة الآتية.
+وأن الفصل 20 هو **Primes in Arithmetic Progressions: III**. استعملت النسخة
+الكاملة لمطابقة أرقام المبرهنات والصيغ والصفحات المطبوعة الآتية.
 
 ## 6. المطابقة التقنية بالمبرهنة والصفحة
 
 | الاستعمال في الفصل 13 | الموضع المتحقق |
 |---|---|
 | هوية Vaughan ذات الحدود الأربعة | الصيغة (17.5)، الصفحتان 55--56 |
-| الغربال الكبير للشخصيات البدائية مع الوزن \(q/\varphi(q)\) | المبرهنة 19.16، الصفحة 175 |
-| المدخل الثنائي العظمى مع `sup_y` | المبرهنة 19.19، الصيغة (19.34)، الصفحة 181 |
+| الغربال الكبير للشخصيات البدائية مع الوزن \(q/\varphi(q)\) | المبرهنة 19.16، الصفحة 174 |
+| المدخل الثنائي الأعظمي مع `sup_y` | المبرهنة 19.19، الصيغة (19.35)، الصفحة 181 |
+| الأداة العظمى السابقة المستعملة في المسار | الصيغة (19.34)، الصفحة 180 |
 | مبرهنة القيمة المتوسطة لـ\(\psi(y,\chi)\) | المبرهنة 20.1، الصفحة 189 |
-| Bombieri--Vinogradov في صيغة \(E^*(x,q)\) | المبرهنة 20.2، الصفحة 195 |
-| الرد من الترديد إلى الموصل واستعمال Siegel--Walfisz للصغار | برهان المبرهنة 20.2، الصفحتان 196--197 |
+| Bombieri--Vinogradov في صيغة \(E^*(x,q)\) | المبرهنة 20.2، الصفحة 194 |
+| رد الترديد إلى الموصل واستعمال Siegel--Walfisz للصغار | برهان المبرهنة 20.2، الصفحات 195--197 |
+
+سجل التصحيحات الدقيق:
+
+`docs/CHAPTER_13_REFERENCE_CORRECTIONS_2026-07-21.md`
 
 ### الصيغ التي تمت مطابقتها
 
@@ -146,6 +152,21 @@ STATUS    = VERIFIED / CAMBRIDGE CORE AND AUTHOR PDF
 \sum_{\chi\bmod q}^{*}
 \left|\sum_{M<n\le M+N}c_n\chi(n)\right|^2
 \le (N+Q^2)\sum|c_n|^2.
+\]
+
+المدخل الثنائي الأعظمي:
+
+\[
+\sum_{q\le Q}\frac q{\varphi(q)}
+\sum_{\chi\bmod q}^{*}
+\sup_y
+\left|
+\sum_{\substack{m\le M,\ n\le N\\mn\le y}}
+ a_m b_n\chi(mn)
+\right|
+\ll
+(M+Q^2)^{1/2}(N+Q^2)^{1/2}
+\|a\|_2\|b\|_2\log(2MN).
 \]
 
 القيمة المتوسطة:
@@ -203,8 +224,9 @@ STATUS    = VERIFIED / CAMBRIDGE CORE AND AUTHOR PDF
 
 ## 9. حدود التحقق
 
-- بيانات الصفحات داخل كتاب 2026 طابقت نسخة المؤلف؛ بيانات النشر وDOI وISBN
-  طابقت صفحة Cambridge الرسمية.
+- بيانات الصفحات والصيغ داخل كتاب 2026 طابقت النسخة الكاملة؛ بيانات النشر
+  وDOI وISBN طابقت صفحة Cambridge الرسمية.
+- صُححت ثلاثة مواضع مرجعية من دون أي تغيير في الصيغ الرياضية أو منشأ النتائج.
 - لا تنسب الموسوعة البرهان الكامل للغربال الكبير إلى نفسها.
 - لا تستعمل الأوراق الحديثة التي تتجاوز حاجز \(1/2\) مصدرًا للمبرهنة
   الكلاسيكية.
@@ -214,7 +236,8 @@ STATUS    = VERIFIED / CAMBRIDGE CORE AND AUTHOR PDF
 ## 10. الحكم
 
 ```text
-REFERENCE-BLOCKERS = 0
-BIBLIOGRAPHIC-DEBT = 0 FOR PRE-AUTHORING
-VERDICT            = PASS-FOR-AUTHORING
+REFERENCE-CORRECTIONS = 3 / CLOSED
+REFERENCE-BLOCKERS    = 0
+BIBLIOGRAPHIC-DEBT    = 0 FOR PRE-AUTHORING
+VERDICT               = PASS-FOR-AUTHORING
 ```
