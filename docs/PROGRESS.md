@@ -2,52 +2,42 @@
 
 ## الحالة العامة
 
-- **الإصدار التطويري الحالي:** `0.17.0-dev`
-- **المرحلة:** الفصل الثالث عشر — مبرهنة Bombieri--Vinogradov والتوزيع المتوسطي للأعداد الأولية.
-- **حالة الفصل:** `REVIEWED / MERGED`
+- **الإصدار التطويري الحالي:** `0.18.0-dev`
+- **المرحلة:** الفصل الرابع عشر — مبرهنة Barban--Davenport--Halberstam ومتوسط مربعات أخطاء التوزيع.
+- **حالة الفصل:** `RESEARCH-INTAKE`
 - **الفرع المستقر:** `main`
-- **رأس `main` عند بدء المرحلة:** `607c6f8ad76f8085828f49ce6b566c846950ab2a`
-- **فرع العمل:** `agent/chapter-13-bombieri-vinogradov-v0.17.0`
-- **بوابة ما قبل التأليف:** `CLOSED / PASS`
-- **تدقيق ما بعد التأليف:** `PASS`
-- **التدقيق المنطقي:** `PASS`
-- **التحقق المرجعي:** `PASS`
-- **عدد النتائج:** `11`
-- **حالة المراجعة المستقلة:** `COMPLETED / APPROVED-WITH-NONBLOCKING-CORRECTIONS`
+- **رأس `main` عند بدء المرحلة:** `d2588c893d8d07be1e961813628e1bb210e0eece`
+- **فرع العمل:** `agent/chapter-14-barban-davenport-halberstam-v0.18.0`
+- **بوابة ما قبل التأليف:** `OPEN`
+- **التأليف:** `BLOCKED`
+- **التحقق المرجعي:** `NOT STARTED`
+- **عدد النتائج:** `0 / NOT RESERVED`
+- **Issue:** `#25 / OPEN`
 - **آخر تحديث:** 2026-07-21
 
 ```text
-CHAPTER-13                = REVIEWED / MERGED
-VERSION                   = 0.17.0-dev
-BASE-MAIN                 = 607c6f8ad76f8085828f49ce6b566c846950ab2a
-BRANCH                    = agent/chapter-13-bombieri-vinogradov-v0.17.0
-PRE-AUTHORING-GATE        = CLOSED / PASS
-POST-AUTHORING-AUDIT      = PASS
-LOGIC-AUDIT               = PASS
-REFERENCE-VERIFICATION    = PASS
-RESULTS                   = 11
-LARGE-SIEVE               = CITED / COMPOSITE-INPUT
-VAUGHAN-IDENTITY          = PROVED-HERE
-TYPE-I                    = PROVED-HERE
-TYPE-II                   = PROVED-HERE
-BOMBIERI-VINOGRADOV       = PROVED-HERE / INEFFECTIVE-CONSTANT
-QUALITY-CHECKS            = RUN-372 / SUCCESS
-PDF-BUILD                 = RUN-366 / SUCCESS
-INDEPENDENT-REVIEW        = COMPLETED / APPROVED-WITH-NONBLOCKING-CORRECTIONS
-PROMOTION                 = OWNER-AUTHORIZED / EXECUTED
-PR-22                     = MERGED
-MERGE-COMMIT               = 2e28e51bd8334cd748d59f1e8cc9998975058a8c
+CHAPTER-14                = RESEARCH-INTAKE
+VERSION                   = 0.18.0-dev
+BASE-MAIN                 = d2588c893d8d07be1e961813628e1bb210e0eece
+BRANCH                    = agent/chapter-14-barban-davenport-halberstam-v0.18.0
+ISSUE                     = #25 / OPEN
+PRE-AUTHORING-GATE        = OPEN
+AUTHORING                 = BLOCKED
+RESULTS                   = 0 / NOT RESERVED
+REFERENCE-VERIFICATION    = NOT STARTED
+PROOF-MAP                 = INITIAL / UNVERIFIED
+QUALITY-CHECKS            = PENDING
+PDF-BUILD                 = NOT APPLICABLE / NO MANUSCRIPT DELTA
 RELEASE-READY             = NO
 ```
 
 ## إغلاق المرحلة السابقة
 
 ```text
-CHAPTER-12          = REVIEWED / MERGED
-PR-20               = MERGED
-GOVERNANCE-PR-21    = MERGED
-GOVERNANCE-MERGE    = 607c6f8ad76f8085828f49ce6b566c846950ab2a
-LOCAL-SOURCE-BUILD  = PASS / 184 PAGES
+CHAPTER-13          = REVIEWED / MERGED
+PR-22               = MERGED
+MERGE-COMMIT        = 2e28e51bd8334cd748d59f1e8cc9998975058a8c
+GOVERNANCE-COMMIT   = d2588c893d8d07be1e961813628e1bb210e0eece
 RELEASE-READY       = NO
 ```
 
@@ -72,6 +62,7 @@ RELEASE-READY       = NO
 | الفصل الحادي عشر: المناطق الخالية والأصفار الاستثنائية | `REVIEWED / MERGED` | 95% |
 | الفصل الثاني عشر: Siegel--Walfisz | `REVIEWED / MERGED` | 95% |
 | الفصل الثالث عشر: Bombieri--Vinogradov | `REVIEWED / MERGED` | 95% |
+| الفصل الرابع عشر: Barban--Davenport--Halberstam | `RESEARCH-INTAKE` | 5% |
 | فصل الجبهات الحديثة | نواة أولية | 10% |
 | الملحق الحاسوبي | أول تجربة مسجلة وقابلة للتشغيل | 15% |
 
@@ -92,55 +83,41 @@ RELEASE-READY       = NO
 | 11 | `REVIEWED / MERGED` | ديون الإصدار قبل `RELEASE-READY` |
 | 12 | `REVIEWED / MERGED` | ديون المجلد والتنضيد قبل `RELEASE-READY` |
 | 13 | `REVIEWED / MERGED` | ديون الإصدار قبل `RELEASE-READY` |
+| 14 | `RESEARCH-INTAKE` | إغلاق المصادر والتطبيع وخريطة البرهان ومجال `Q` والفعالية |
 
 التدقيق الداخلي والمراجعة المستقلة والدمج لا تجعل أي فصل `RELEASE-READY` تلقائيًا.
 
 ## الفصل الثالث عشر — المنجز
 
-- دُمج PR #21 وأغلق الفصل الثاني عشر حوكميًا.
-- أُنشئ الفرع من رأس الدمج `607c6f8ad76f8085828f49ce6b566c846950ab2a`.
-- رُفع الإصدار إلى `0.17.0-dev`.
-- قُرئت ملفات الحوكمة قبل التعديل، وبدأ المسح عبر Consensus.
-- تحققت المصادر الأصلية والحديثة، بما فيها تصحيح Vinogradov سنة 1966.
-- أُغلقت بوابة ما قبل التأليف بحكم `PASS-FOR-AUTHORING`.
-- اعتمدت حزمة الغربال الكبير بحالة `CITED / COMPOSITE-INPUT`.
-- أُثبتت هوية Vaughan وPólya--Vinogradov وتقديرا Type I وType II داخليًا.
-- أُثبتت مبرهنة القيمة المتوسطة مع `sup_{y<=x}`.
-- أُثبت رد الموصلات وفصل الشخصية الرئيسية والعوامل المحلية.
-- أُثبتت مبرهنة Bombieri--Vinogradov عند المستوى \(1/2\) حتى خسارة لوغاريتمية.
-- أُثبتت النسخ الموافقة لـ\(\vartheta\) و\(\pi\) و«تقريبًا كل الترديدات».
-- سجلت 11 نتيجة بحالات منشأ صحيحة.
-- اجتاز الفصل التدقيق المنطقي والتحقق المرجعي وتدقيق ما بعد التأليف.
-- نجح `Quality checks` #340 وبناء PDF #334.
-- رُفع الفصل إلى `VERIFIED`.
+- دُمج PR #22 في `main`.
 - اكتملت المراجعة المستقلة بحكم `APPROVED-WITH-NONBLOCKING-CORRECTIONS` بصفر عوائق.
-- اعتمد مالك المشروع ترقية الفصل إلى `REVIEWED` دون دمج PR #22.
+- اعتمد مالك المشروع ترقية الفصل إلى `REVIEWED`.
+- أُغلقت الحوكمة عند `d2588c893d8d07be1e961813628e1bb210e0eece`.
 
-## النتيجة المركزية
+## الفصل الرابع عشر — الإدخال البحثي
 
-لكل \(A>0\)، وبانتظام عندما
+- أُنشئ الفرع من رأس `main` المغلق حوكميًا.
+- رُفع الإصدار إلى `0.18.0-dev`.
+- فُتحت Issue #25.
+- أُنشئ سجل أدلة أولي وخريطة برهان أولية.
+- ثُبتت كمية التباين المرشحة مع إبقاء التطبيع ومجال `Q` والصيغة النهائية غير معتمدة.
+- لم يُنشأ متن LaTeX ولم تُحجز نتائج.
+
+## الهدف المرشح
 
 \[
-Q\le \frac{x^{1/2}}{(\log x)^{A+3}},
+V(x,Q)=
+\sum_{q\le Q}
+\sum_{\substack{a\bmod q\\(a,q)=1}}
+\left|\psi(x;q,a)-\frac{x}{\varphi(q)}\right|^2.
 \]
 
-لدينا
-
-\[
-\sum_{q\le Q}\max_{(a,q)=1}\sup_{2\le y\le x}
-\left|\psi(y;q,a)-\frac{y}{\varphi(q)}\right|
-\ll_A \frac{x}{(\log x)^A}.
-\]
-
-الثابت الضمني غير فعال بسبب استعمال Siegel--Walfisz للموصلات الصغيرة.
-
-## حدود الفصل
-
-لا يدعي الفصل Elliott--Halberstam، أو مستوى توزيع عامًا أكبر من \(1/2\)، أو Barban--Davenport--Halberstam، أو نتائج الفترات القصيرة، أو تطبيقات الفجوات المحدودة وغولدباخ.
+هذه صيغة عمل أولية، وليست بعد مبرهنة معتمدة داخل المشروع.
 
 ## الخطوة التالية
 
-1. اكتملت المراجعة المستقلة بحكم `APPROVED-WITH-NONBLOCKING-CORRECTIONS`.
-2. اعتمد مالك المشروع ترقية الفصل الثالث عشر إلى `REVIEWED`.
-3. أُغلقت بوابة Issue #23 بعد تنفيذ قرار الترقية.
-4. دُمج PR #22 في `main` عند `2e28e51bd8334cd748d59f1e8cc9998975058a8c`، وأغلقت حوكمة الفصل الثالث عشر.
+1. التحقق من المصادر الأصلية لـBarban وDavenport وHalberstam.
+2. تثبيت التطبيع ومجال `Q` والتمييز بين الحد العلوي والصيغة التقاربية.
+3. إعادة اشتقاق التحويل بالشخصيات.
+4. تحديد مدخل القيمة المتوسطة والحد الرئيسي والفعالية.
+5. إصدار حكم صريح `PASS-FOR-AUTHORING` قبل إنشاء المتن.
