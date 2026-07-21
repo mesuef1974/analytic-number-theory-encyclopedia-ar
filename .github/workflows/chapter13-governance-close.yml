@@ -1,0 +1,105 @@
+name: Close Chapter 13 governance
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/chapter13-governance-close.yml
+
+permissions:
+  contents: write
+
+jobs:
+  close-governance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Apply governance closure
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          MERGE = "2e28e51bd8334cd748d59f1e8cc9998975058a8c"
+
+          def patch(path, replacements):
+              p = Path(path)
+              text = p.read_text(encoding="utf-8")
+              original = text
+              for old, new in replacements:
+                  if old in text:
+                      text = text.replace(old, new)
+              if text != original:
+                  p.write_text(text, encoding="utf-8")
+
+          patch("README.md", [
+              ("CHAPTER-13                = REVIEWED", "CHAPTER-13                = REVIEWED / MERGED"),
+              ("PR-22                     = DRAFT / UNMERGED", "PR-22                     = MERGED"),
+              ("MERGE                     = NOT AUTHORIZED", f"MERGE-COMMIT               = {MERGE}"),
+              ("- الفصل الثالث عشر بحالة `REVIEWED` بعد مراجعة مستقلة مكتملة؛ ويبقى PR #22 غير مدمج.", "- الفصل الثالث عشر بحالة `REVIEWED / MERGED` بعد مراجعة مستقلة مكتملة ودمج PR #22."),
+          ])
+
+          patch("docs/VERSION.md", [
+              ("CHAPTER-13             = REVIEWED", "CHAPTER-13             = REVIEWED / MERGED"),
+              ("PR-22                  = DRAFT / UNMERGED", "PR-22                  = MERGED"),
+              ("MERGE                  = NOT AUTHORIZED", f"MERGE-COMMIT            = {MERGE}"),
+          ])
+
+          patch("docs/PROGRESS.md", [
+              ("- **حالة الفصل:** `REVIEWED`", "- **حالة الفصل:** `REVIEWED / MERGED`"),
+              ("CHAPTER-13                = REVIEWED", "CHAPTER-13                = REVIEWED / MERGED"),
+              ("PR-22                     = DRAFT / UNMERGED", "PR-22                     = MERGED"),
+              ("MERGE                     = NOT AUTHORIZED", f"MERGE-COMMIT               = {MERGE}"),
+              ("| الفصل الثالث عشر: Bombieri--Vinogradov | `REVIEWED` | 95% |", "| الفصل الثالث عشر: Bombieri--Vinogradov | `REVIEWED / MERGED` | 95% |"),
+              ("| 13 | `REVIEWED` | دمج PR #22 وديون الإصدار قبل `RELEASE-READY` |", "| 13 | `REVIEWED / MERGED` | ديون الإصدار قبل `RELEASE-READY` |"),
+              ("4. يبقى PR #22 مسودة وغير مدمج حتى إذن دمج مستقل وصريح.", f"4. دُمج PR #22 في `main` عند `{MERGE}`، وأغلقت حوكمة الفصل الثالث عشر."),
+          ])
+
+          patch("docs/ROADMAP.md", [
+              ("- [ ] الدمج بأمر صريح من مالك المشروع فقط.", f"- [x] دمج PR #22 بأمر صريح من مالك المشروع عند `{MERGE}`."),
+              ("CHAPTER-13             = REVIEWED", "CHAPTER-13             = REVIEWED / MERGED"),
+              ("MERGE                  = NOT AUTHORIZED", f"MERGE-COMMIT            = {MERGE}"),
+          ])
+
+          patch("docs/TODO.md", [
+              ("- [ ] دمج PR #22 بأمر صريح من مالك المشروع فقط.", f"- [x] دمج PR #22 بأمر صريح من مالك المشروع عند `{MERGE}`."),
+              ("CHAPTER-13          = REVIEWED", "CHAPTER-13          = REVIEWED / MERGED"),
+              ("PR-22               = DRAFT / UNMERGED", "PR-22               = MERGED"),
+              ("MERGE               = NOT AUTHORIZED", f"MERGE-COMMIT         = {MERGE}"),
+          ])
+
+          p = Path("CHANGELOG.md")
+          text = p.read_text(encoding="utf-8")
+          line = f"- دمج PR #22 وإغلاق حوكمة الفصل الثالث عشر عند `{MERGE}`، مع إبقاء `RELEASE-READY = NO`.\n"
+          if line not in text:
+              text = text.replace("### تغيّر\n", "### تغيّر\n" + line, 1)
+              p.write_text(text, encoding="utf-8")
+
+          Path("docs/CHAPTER_13_GOVERNANCE_CLOSURE_2026-07-21.md").write_text(f"""# إغلاق حوكمة الفصل الثالث عشر
+
+التاريخ: 2026-07-21
+
+```text
+CHAPTER-13      = REVIEWED / MERGED
+PR-22           = MERGED
+MERGE-COMMIT    = {MERGE}
+ISSUE-23        = CLOSED / COMPLETED
+GOVERNANCE      = CLOSED
+RELEASE-READY   = NO
+```
+
+أُغلق المسار الحوكمي للفصل الثالث عشر بعد نجاح المراجعة المستقلة، وترقية الفصل إلى `REVIEWED`، ثم دمج PR #22 بأمر صريح من مالك المشروع. لا تعني هذه الخطوة جاهزية الإصدار.
+""", encoding="utf-8")
+          PY
+
+          rm .github/workflows/chapter13-governance-close.yml
+
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add README.md CHANGELOG.md docs/PROGRESS.md docs/ROADMAP.md docs/TODO.md docs/VERSION.md docs/CHAPTER_13_GOVERNANCE_CLOSURE_2026-07-21.md .github/workflows/chapter13-governance-close.yml
+          git commit -m "docs(chapter-13): close governance after merge"
+          git push origin HEAD:main
