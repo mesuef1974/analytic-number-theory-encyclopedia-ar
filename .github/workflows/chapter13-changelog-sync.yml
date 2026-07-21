@@ -1,0 +1,64 @@
+name: Chapter 13 changelog sync
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  synchronize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out PR branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+
+      - name: Patch changelog exactly once
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          p = Path('CHANGELOG.md')
+          text = p.read_text(encoding='utf-8')
+          changed = False
+
+          additions = (
+              '- إضافة متن الفصل الثالث عشر كاملًا عن مبرهنة Bombieri--Vinogradov وربطه بالكتاب.\n'
+              '- إضافة أحد عشر نتيجة للفصل الثالث عشر، منها حزمة غربال كبير مقتبسة وعشر نتائج داخلية.\n'
+              '- إضافة التدقيق المنطقي والمرجعي وتدقيق ما بعد التأليف للفصل الثالث عشر بأحكام `PASS`.\n'
+          )
+          if 'إضافة متن الفصل الثالث عشر كاملًا' not in text:
+              if text.count('### أضيف\n') != 1:
+                  raise SystemExit('CHANGELOG: additions heading is not unique')
+              text = text.replace('### أضيف\n', '### أضيف\n' + additions, 1)
+              changed = True
+
+          changes = (
+              '- رفع الفصل الثالث عشر إلى `VERIFIED` بعد نجاح Quality #340 وبناء PDF #334.\n'
+              '- تثبيت الخسارة اللوغاريتمية `A+3` وعدم فعالية الثابت العام في المسار المعتمد.\n'
+              '- تفعيل سجل نتائج الفصل الثالث عشر وإزالة Bombieri--Vinogradov من قائمة النتائج المؤجلة.\n'
+          )
+          if 'رفع الفصل الثالث عشر إلى `VERIFIED`' not in text:
+              if text.count('### تغيّر\n') != 1:
+                  raise SystemExit('CHANGELOG: changes heading is not unique')
+              text = text.replace('### تغيّر\n', '### تغيّر\n' + changes, 1)
+              changed = True
+
+          if changed:
+              p.write_text(text, encoding='utf-8')
+          PY
+
+          if git diff --quiet -- CHANGELOG.md; then
+            echo 'CHANGELOG already synchronized.'
+            exit 0
+          fi
+
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add CHANGELOG.md
+          git commit -m "Synchronize Chapter 13 VERIFIED changelog"
+          git push origin HEAD:${{ github.event.pull_request.head.ref }}
