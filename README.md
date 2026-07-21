@@ -15,86 +15,59 @@
 - [دليل بناء PDF](docs/BUILD.md)
 - [سياسة اعتماد النتائج](docs/RESULT_STATUS_POLICY.md)
 - [سجل النتائج المعتمدة](docs/RESULTS_REGISTRY.md)
-- [سجل نتائج الفصل الثالث عشر](docs/RESULTS_REGISTRY_CHAPTER_13.md)
-- [سجل أدلة الفصل الثالث عشر](research/literature-reviews/chapter-13-bombieri-vinogradov-evidence.md)
-- [خريطة برهان الفصل الثالث عشر](research/literature-reviews/chapter-13-bombieri-vinogradov-proof-map.md)
-- [تدقيق ما قبل تأليف الفصل الثالث عشر](docs/CHAPTER_13_PRE_AUTHORING_AUDIT_2026-07-21.md)
-- [تدقيق الغربال الكبير والقيمة المتوسطة](docs/CHAPTER_13_LARGE_SIEVE_MEAN_VALUE_AUDIT_2026-07-21.md)
-- [تدقيق هوية Vaughan](docs/CHAPTER_13_VAUGHAN_IDENTITY_AUDIT_2026-07-21.md)
-- [تدقيق Type I وType II](docs/CHAPTER_13_TYPE_I_TYPE_II_MEAN_VALUE_AUDIT_2026-07-21.md)
-- [تدقيق الموصل والشخصية الرئيسية](docs/CHAPTER_13_CONDUCTOR_PRINCIPAL_BV_AUDIT_2026-07-21.md)
-- [التدقيق المنطقي للفصل الثالث عشر](docs/CHAPTER_13_LOGIC_AUDIT_2026-07-21.md)
-- [التحقق المرجعي للفصل الثالث عشر](docs/CHAPTER_13_REFERENCE_VERIFICATION_2026-07-21.md)
-- [تدقيق ما بعد تأليف الفصل الثالث عشر](docs/CHAPTER_13_AUTHORING_AUDIT_2026-07-21.md)
-- [التحقق المرجعي بعد التأليف](docs/CHAPTER_13_POST_AUTHORING_REFERENCE_AUDIT_2026-07-21.md)
-- [المراجعة المستقلة للفصل الثالث عشر](docs/CHAPTER_13_INDEPENDENT_REVIEW_2026-07-21.md)
-- [تصحيحات الإحالات المرجعية للفصل الثالث عشر](docs/CHAPTER_13_REFERENCE_CORRECTIONS_2026-07-21.md)
-- [إيصال ترقية الفصل الثالث عشر إلى REVIEWED](docs/CHAPTER_13_REVIEWED_PROMOTION_2026-07-21.md)
-- [المراجعة المستقلة للفصل الثاني عشر](docs/CHAPTER_12_INDEPENDENT_REVIEW_2026-07-20.md)
-- [إيصال إغلاق مراجعة الفصل الثاني عشر](docs/CHAPTER_12_REVIEW_CLOSURE_2026-07-21.md)
+- [إغلاق حوكمة الفصل الثالث عشر](docs/CHAPTER_13_GOVERNANCE_CLOSURE_2026-07-21.md)
+- [سجل أدلة الفصل الرابع عشر](research/literature-reviews/chapter-14-barban-davenport-halberstam-evidence.md)
+- [خريطة برهان الفصل الرابع عشر](research/literature-reviews/chapter-14-barban-davenport-halberstam-proof-map.md)
 - [سجل التجارب الحاسوبية](docs/EXPERIMENTS_REGISTRY.md)
 
 ## الحالة الحالية
 
-الإصدار: `v0.17.0-dev`
+الإصدار: `v0.18.0-dev`
 
 ```text
-BASE-MAIN                 = 607c6f8ad76f8085828f49ce6b566c846950ab2a
-BRANCH                    = agent/chapter-13-bombieri-vinogradov-v0.17.0
-CHAPTER-12                = REVIEWED / MERGED
+BASE-MAIN                 = d2588c893d8d07be1e961813628e1bb210e0eece
+BRANCH                    = agent/chapter-14-barban-davenport-halberstam-v0.18.0
 CHAPTER-13                = REVIEWED / MERGED
-PRE-AUTHORING-GATE        = CLOSED / PASS
-POST-AUTHORING-AUDIT      = PASS
-LOGIC-AUDIT               = PASS
-REFERENCE-VERIFICATION    = PASS
-RESULTS                   = 11
-LARGE-SIEVE               = CITED / COMPOSITE-INPUT
-VAUGHAN-IDENTITY          = PROVED-HERE
-TYPE-I                    = PROVED-HERE
-TYPE-II                   = PROVED-HERE
-BOMBIERI-VINOGRADOV       = PROVED-HERE / INEFFECTIVE-CONSTANT
-QUALITY-CHECKS            = RUN-372 / SUCCESS
-PDF-BUILD                 = RUN-366 / SUCCESS
-INDEPENDENT-REVIEW        = COMPLETED / APPROVED-WITH-NONBLOCKING-CORRECTIONS
-PROMOTION                 = OWNER-AUTHORIZED / EXECUTED
-PR-22                     = MERGED
-MERGE-COMMIT               = 2e28e51bd8334cd748d59f1e8cc9998975058a8c
+CHAPTER-14                = RESEARCH-INTAKE
+ISSUE                     = #25 / OPEN
+PRE-AUTHORING-GATE        = OPEN
+AUTHORING                 = BLOCKED
+RESULTS                   = 0 / NOT RESERVED
+REFERENCE-VERIFICATION    = NOT STARTED
+PROOF-MAP                 = INITIAL / UNVERIFIED
 RELEASE-READY             = NO
 ```
 
-## الفصل الثالث عشر
+## الفصل الرابع عشر
 
-يثبت الفصل مبرهنة بومبييري--فينوغرادوف في الصيغة:
+الهدف المرشح هو دراسة متوسط مربعات أخطاء توزيع دالة فون مانغولت في المتتاليات الحسابية:
 
 \[
+V(x,Q)=
 \sum_{q\le Q}
-\max_{(a,q)=1}
-\sup_{2\le y\le x}
-\left|
-\psi(y;q,a)-\frac{y}{\varphi(q)}
-\right|
-\ll_A \frac{x}{(\log x)^A},
-\qquad
-Q\le \frac{x^{1/2}}{(\log x)^{A+3}}.
+\sum_{\substack{a\bmod q\\(a,q)=1}}
+\left|\psi(x;q,a)-\frac{x}{\varphi(q)}\right|^2.
 \]
 
-كما يثبت النسخ الموافقة لـ\(\vartheta\) و\(\pi\)، ونتيجة «تقريبًا كل الترديدات». يعتمد على حزمة الغربال الكبير بوصفها مدخلًا مقتبسًا، ويثبت داخليًا هوية Vaughan وPólya--Vinogradov وتقديري Type I وType II ومبرهنة القيمة المتوسطة ورد الموصلات.
+هذه صيغة عمل أولية. لم يُعتمد بعد التطبيع النهائي، أو مجال \(Q\)، أو التمييز بين الحد العلوي والصيغة التقاربية ذات الحد الرئيسي. لذلك لا يوجد متن للفصل ولا نتائج محجوزة، والتأليف محجوب حتى صدور حكم `PASS-FOR-AUTHORING`.
 
-الثابت النهائي غير فعال لأن المسار يستعمل Siegel--Walfisz للموصلات الصغيرة. لا يثبت الفصل Elliott--Halberstam أو مستوى توزيع عامًا أكبر من \(1/2\)، ولا يعالج الفترات القصيرة أو Barban--Davenport--Halberstam.
+## بوابة ما قبل التأليف
 
-## الفصل بين النتائج
+يلزم قبل إنشاء متن الفصل:
 
-1. **الفصل العاشر:** نتيجة نوعية لترديد ثابت.
-2. **الفصل الثاني عشر:** انتظام فردي عندما \(q\le(\log x)^A\).
-3. **الفصل الثالث عشر:** انتظام متوسطي حتى مستوى \(1/2\) مع خسارة لوغاريتمية.
-4. **Elliott--Halberstam:** تخمين أقوى خارج النطاق.
-5. **نتائج ما بعد \(1/2\):** تحتاج أوزانًا أو بنى خاصة، ولا تثبت التخمين العام.
+1. فحص المصادر الأصلية لـBarban وDavenport وHalberstam.
+2. تثبيت التطبيع ومجال المتغيرات.
+3. إعادة اشتقاق التحويل بالشخصيات.
+4. تحديد مدخل القيمة المتوسطة وما إذا كان الغربال الكبير من الفصل الثالث عشر يكفي.
+5. تثبيت الحد الرئيسي والخطأ والفعالية.
+6. فصل ما سيُقتبس عما سيُثبت داخل الموسوعة.
 
 ## حالة الفصول
 
 - الفصول الثلاثة عشر الأولى مرتبطة بالملف الجامع وتظهر في بناء PDF الحالي.
 - الفصول من السابع إلى الثالث عشر بحالة `REVIEWED`.
-- الفصل الثالث عشر بحالة `REVIEWED / MERGED` بعد مراجعة مستقلة مكتملة ودمج PR #22.
+- الفصل الثالث عشر بحالة `REVIEWED / MERGED` وحوكمته مغلقة.
+- الفصل الرابع عشر في `RESEARCH-INTAKE` ولا يظهر في المتن بعد.
 - لا يصبح أي فصل `RELEASE-READY` بمجرد التدقيق أو المراجعة أو الدمج.
 
 ## مبادئ التحرير
