@@ -21,53 +21,38 @@
 
 تستهدف `0.17.0-dev` الفصل الثالث عشر:
 
-**مبرهنة بومبييري--فينوغرادوف والتوزيع المتوسطي للأعداد الأولية في المتتاليات الحسابية.**
+**مبرهنة Bombieri--Vinogradov والتوزيع المتوسطي للأعداد الأولية في المتتاليات الحسابية.**
 
 ```text
 BASE-MAIN              = 607c6f8ad76f8085828f49ce6b566c846950ab2a
 BRANCH                 = agent/chapter-13-bombieri-vinogradov-v0.17.0
-MODE                   = EVIDENCE-FIRST / PRE-AUTHORING
-CHAPTER-13             = PRE-AUTHORING
-PRE-AUTHORING-GATE     = OPEN
-AUTHORING              = BLOCKED
-CENTRAL-TARGET         = BOMBIERI--VINOGRADOV / NOT YET ADOPTED
-PROOF-ROUTE            = VAUGHAN-IDENTITY + LARGE-SIEVE / CANDIDATE
-LEVEL-OF-DISTRIBUTION  = 1/2 WITH LOGARITHMIC LOSS / TARGET
-DEPENDENCY-AUDIT       = OPEN
-LOG-LOSS-AUDIT         = OPEN
-EFFECTIVITY-AUDIT      = OPEN
+CHAPTER-13             = VERIFIED
+PRE-AUTHORING-GATE     = CLOSED / PASS
+POST-AUTHORING-AUDIT   = PASS
+LOGIC-AUDIT            = PASS
+REFERENCE-VERIFICATION = PASS
+RESULTS                = 11
+QUALITY-CHECKS         = RUN-340 / SUCCESS
+PDF-BUILD              = RUN-334 / SUCCESS
+INDEPENDENT-REVIEW     = NOT YET STARTED
+PR-22                  = DRAFT / UNMERGED
+MERGE                  = NOT AUTHORIZED
 RELEASE-READY          = NO
 ```
 
-## الهدف المرشح
+## النتيجة المركزية
 
-لكل \(A>0\) يوجد \(B=B(A)>0\) بحيث، عندما
+لكل `A>0`، إذا
 
-\[
-Q\le \frac{x^{1/2}}{(\log x)^B},
-\]
+```text
+Q <= x^(1/2) / (log x)^(A+3),
+```
 
-تكون الكمية
+فإن متوسط أكبر خطأ في `psi(y;q,a)` على `q<=Q` والفئات المختزلة و`y<=x` هو من رتبة `x/(log x)^A`.
 
-\[
-\sum_{q\le Q}\max_{(a,q)=1}\max_{2\le y\le x}
-\left|\psi(y;q,a)-\frac{y}{\varphi(q)}\right|
-\]
-
-من رتبة \(O_A(x/(\log x)^A)\). هذه الصيغة هدف بحثي للفصل ولم تعتمد بعد نتيجة قابلة للاستشهاد.
-
-## النزاهة البرهانية
-
-- الغربال الكبير للشخصيات مرشح لأن يسجل `CITED` أو `COMPOSITE-INPUT` بعد التحقق المرجعي.
-- هوية Vaughan مرشحة لبرهان داخلي.
-- تقديرا Type I وType II ومبرهنة القيمة المتوسطة لم تغلق بعد.
-- لا يدعي الفصل تجاوز حاجز \(1/2\).
-- Elliott--Halberstam ونتائج الأوزان الخاصة بعد \(1/2\) خارج النطاق المركزي.
-- لا يجوز بدء التأليف قبل إغلاق تدقيق الموصلات والحد الرئيسي والـ`max` والخسائر اللوغاريتمية والفعالية وعدم الدور.
+الثابت العام غير فعال بسبب استعمال Siegel--Walfisz للموصلات الصغيرة. لا يدعي الفصل Elliott--Halberstam أو مستوى توزيع عامًا أكبر من `1/2`.
 
 ## المرحلة السابقة
-
-أُغلقت `0.16.0-dev` الخاصة بالفصل الثاني عشر علميًا وحوكميًا:
 
 ```text
 CHAPTER-12          = REVIEWED / MERGED
