@@ -4,34 +4,38 @@
 
 - **الإصدار التطويري الحالي:** `0.17.0-dev`
 - **المرحلة:** الفصل الثالث عشر — مبرهنة Bombieri--Vinogradov والتوزيع المتوسطي للأعداد الأولية.
-- **حالة الفصل:** `PRE-AUTHORING`
+- **حالة الفصل:** `VERIFIED`
 - **الفرع المستقر:** `main`
 - **رأس `main` عند بدء المرحلة:** `607c6f8ad76f8085828f49ce6b566c846950ab2a`
 - **فرع العمل:** `agent/chapter-13-bombieri-vinogradov-v0.17.0`
-- **منهج العمل:** `EVIDENCE-FIRST / AUTHORING-BLOCKED`
-- **بوابة ما قبل التأليف:** `OPEN`
-- **المسار المرشح:** `VAUGHAN IDENTITY + LARGE SIEVE`
-- **الهدف المركزي:** `TARGET / NOT YET ADOPTED`
-- **مستوى التوزيع المستهدف:** `1/2 WITH LOGARITHMIC LOSS`
-- **تدقيق الاعتمادات:** `OPEN`
-- **تدقيق الخسائر اللوغاريتمية:** `OPEN`
-- **تدقيق الفعالية:** `OPEN`
+- **بوابة ما قبل التأليف:** `CLOSED / PASS`
+- **تدقيق ما بعد التأليف:** `PASS`
+- **التدقيق المنطقي:** `PASS`
+- **التحقق المرجعي:** `PASS`
+- **عدد النتائج:** `11`
+- **حالة المراجعة المستقلة:** `NOT YET STARTED`
 - **آخر تحديث:** 2026-07-21
 
 ```text
-CHAPTER-13                = PRE-AUTHORING
+CHAPTER-13                = VERIFIED
 VERSION                   = 0.17.0-dev
 BASE-MAIN                 = 607c6f8ad76f8085828f49ce6b566c846950ab2a
 BRANCH                    = agent/chapter-13-bombieri-vinogradov-v0.17.0
-MODE                      = EVIDENCE-FIRST
-PRE-AUTHORING-GATE        = OPEN
-AUTHORING                 = BLOCKED
-CENTRAL-TARGET            = BOMBIERI--VINOGRADOV / NOT YET ADOPTED
-PROOF-ROUTE               = VAUGHAN-IDENTITY + LARGE-SIEVE / CANDIDATE
-LEVEL-OF-DISTRIBUTION     = 1/2 WITH LOGARITHMIC LOSS / TARGET
-DEPENDENCY-AUDIT          = OPEN
-LOG-LOSS-AUDIT            = OPEN
-EFFECTIVITY-AUDIT         = OPEN
+PRE-AUTHORING-GATE        = CLOSED / PASS
+POST-AUTHORING-AUDIT      = PASS
+LOGIC-AUDIT               = PASS
+REFERENCE-VERIFICATION    = PASS
+RESULTS                   = 11
+LARGE-SIEVE               = CITED / COMPOSITE-INPUT
+VAUGHAN-IDENTITY          = PROVED-HERE
+TYPE-I                    = PROVED-HERE
+TYPE-II                   = PROVED-HERE
+BOMBIERI-VINOGRADOV       = PROVED-HERE / INEFFECTIVE-CONSTANT
+QUALITY-CHECKS            = RUN-340 / SUCCESS
+PDF-BUILD                 = RUN-334 / SUCCESS
+INDEPENDENT-REVIEW        = NOT YET STARTED
+PR-22                     = DRAFT / UNMERGED
+MERGE                     = NOT AUTHORIZED
 RELEASE-READY             = NO
 ```
 
@@ -66,7 +70,7 @@ RELEASE-READY       = NO
 | الفصل العاشر: PNT في المتتاليات الحسابية | `REVIEWED` | 94% |
 | الفصل الحادي عشر: المناطق الخالية والأصفار الاستثنائية | `REVIEWED / MERGED` | 95% |
 | الفصل الثاني عشر: Siegel--Walfisz | `REVIEWED / MERGED` | 95% |
-| الفصل الثالث عشر: Bombieri--Vinogradov | `PRE-AUTHORING` | 12% |
+| الفصل الثالث عشر: Bombieri--Vinogradov | `VERIFIED` | 90% |
 | فصل الجبهات الحديثة | نواة أولية | 10% |
 | الملحق الحاسوبي | أول تجربة مسجلة وقابلة للتشغيل | 15% |
 
@@ -86,7 +90,7 @@ RELEASE-READY       = NO
 | 10 | `REVIEWED` | أربعة تحسينات اختيارية وتدقيق إصدار |
 | 11 | `REVIEWED / MERGED` | ديون الإصدار قبل `RELEASE-READY` |
 | 12 | `REVIEWED / MERGED` | ديون المجلد والتنضيد قبل `RELEASE-READY` |
-| 13 | `PRE-AUTHORING` | إغلاق الاعتمادات وType I/II والفعالية وعدم الدور |
+| 13 | `VERIFIED` | مراجعة ثانية مستقلة قبل `REVIEWED` |
 
 التدقيق الداخلي والمراجعة المستقلة والدمج لا تجعل أي فصل `RELEASE-READY` تلقائيًا.
 
@@ -95,45 +99,45 @@ RELEASE-READY       = NO
 - دُمج PR #21 وأغلق الفصل الثاني عشر حوكميًا.
 - أُنشئ الفرع من رأس الدمج `607c6f8ad76f8085828f49ce6b566c846950ab2a`.
 - رُفع الإصدار إلى `0.17.0-dev`.
-- قُرئت ملفات README وROADMAP وPROGRESS وTODO وRESULTS_REGISTRY وCHANGELOG قبل التعديل.
-- بدأ المسح عبر Consensus.
-- تحققت بيانات أوراق Bombieri (1965)، وA. I. Vinogradov (1965)، وتصحيح Vinogradov (1966)، وGallagher (1968)، وVaughan (1975).
-- صيغ الهدف المركزي بصيغة \(\psi\) مع `max_{y\le x}` ومستوى \(1/2\) حتى خسارة لوغاريتمية.
-- فُصلت النتيجة عن Siegel--Walfisz وعن Elliott--Halberstam وعن النتائج الموزونة بعد حاجز \(1/2\).
-- أُنشئ سجل الأدلة وخريطة البرهان وتدقيق ما قبل التأليف.
-- ثُبت حكم `PASS-FOR-RESEARCH-INTAKE / FAIL-FOR-AUTHORING`.
+- قُرئت ملفات الحوكمة قبل التعديل، وبدأ المسح عبر Consensus.
+- تحققت المصادر الأصلية والحديثة، بما فيها تصحيح Vinogradov سنة 1966.
+- أُغلقت بوابة ما قبل التأليف بحكم `PASS-FOR-AUTHORING`.
+- اعتمدت حزمة الغربال الكبير بحالة `CITED / COMPOSITE-INPUT`.
+- أُثبتت هوية Vaughan وPólya--Vinogradov وتقديرا Type I وType II داخليًا.
+- أُثبتت مبرهنة القيمة المتوسطة مع `sup_{y<=x}`.
+- أُثبت رد الموصلات وفصل الشخصية الرئيسية والعوامل المحلية.
+- أُثبتت مبرهنة Bombieri--Vinogradov عند المستوى \(1/2\) حتى خسارة لوغاريتمية.
+- أُثبتت النسخ الموافقة لـ\(\vartheta\) و\(\pi\) و«تقريبًا كل الترديدات».
+- سجلت 11 نتيجة بحالات منشأ صحيحة.
+- اجتاز الفصل التدقيق المنطقي والتحقق المرجعي وتدقيق ما بعد التأليف.
+- نجح `Quality checks` #340 وبناء PDF #334.
+- رُفع الفصل إلى `VERIFIED`.
 
-## الهدف المركزي المرشح
+## النتيجة المركزية
 
-لكل \(A>0\) يوجد \(B=B(A)>0\) بحيث، إذا
+لكل \(A>0\)، وبانتظام عندما
 
 \[
-Q\le \frac{x^{1/2}}{(\log x)^B},
+Q\le \frac{x^{1/2}}{(\log x)^{A+3}},
 \]
 
-فإن
+لدينا
 
 \[
-\sum_{q\le Q}\max_{(a,q)=1}\max_{2\le y\le x}
+\sum_{q\le Q}\max_{(a,q)=1}\sup_{2\le y\le x}
 \left|\psi(y;q,a)-\frac{y}{\varphi(q)}\right|
 \ll_A \frac{x}{(\log x)^A}.
 \]
 
-هذه الصيغة ليست نتيجة معتمدة بعد.
+الثابت الضمني غير فعال بسبب استعمال Siegel--Walfisz للموصلات الصغيرة.
 
-## العوائق الحالية
+## حدود الفصل
 
-1. تثبيت صيغة الغربال الكبير وتطبيعها بالصفحات.
-2. إثبات هوية Vaughan وتدقيق حدود \(U,V\).
-3. إغلاق تقدير Type I.
-4. إغلاق تقدير Type II.
-5. تثبيت آلية `max_{y\le x}`.
-6. تدقيق الموصلات والشخصيات المستحثة.
-7. تدقيق الشخصية الرئيسية والعوامل المحلية.
-8. حساب الخسائر اللوغاريتمية وشرط \(B(A)\).
-9. الحكم على فعالية الثوابت.
-10. فحص عدم الدور وحجز معرفات النتائج.
+لا يدعي الفصل Elliott--Halberstam، أو مستوى توزيع عامًا أكبر من \(1/2\)، أو Barban--Davenport--Halberstam، أو نتائج الفترات القصيرة، أو تطبيقات الفجوات المحدودة وغولدباخ.
 
 ## الخطوة التالية
 
-إغلاق عقدة الغربال الكبير أولًا، ثم كتابة هوية Vaughan في سجل تدقيق مستقل قبل أي إنشاء لملف الفصل.
+1. إعداد حزمة المراجعة المستقلة للفصل الثالث عشر.
+2. تجميد الرأس المرشح للمراجعة بعد نجاح CI النهائي.
+3. فتح Issue للمراجعة الثانية المستقلة.
+4. إبقاء PR #22 غير مدمج حتى حكم المراجعة وأمر المالك الصريح.
