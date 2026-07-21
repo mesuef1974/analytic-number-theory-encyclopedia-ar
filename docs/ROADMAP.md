@@ -89,68 +89,75 @@
 
 ### الفصل الثاني عشر: مبرهنة Siegel--Walfisz والتوزيع المنتظم
 
-#### الأدلة وما قبل التأليف
-
-- [x] إنشاء الفرع `agent/chapter-12-siegel-walfisz-v0.16.0` من رأس `main` المعتمد `9d02c583d416053550d22dfd7acc44d9c264a02c`.
-- [x] رفع الإصدار إلى `0.16.0-dev` ومزامنة نسخه.
-- [x] مراجعة أهداف المشروع وخارطة الطريق.
-- [x] بدء المسح عبر Consensus قبل بقية المصادر.
-- [x] التحقق من arXiv وصفحات الناشرين والكتب القياسية.
+- [x] إنشاء الفرع ورفع الإصدار إلى `0.16.0-dev`.
 - [x] إنشاء سجل الأدلة وخريطة البرهان والاعتمادات.
-- [x] فصل نتيجة الترديد الثابت عن النتيجة الموحدة.
-- [x] تثبيت مجال \(q\le(\log x)^A\).
-- [x] تأجيل Bombieri--Vinogradov صراحة.
 - [x] تدقيق ديون بيرون وتحويل المسار والصيغة الصريحة.
 - [x] اعتماد الصيغة الصريحة المقطوعة بحالة `CITED / COMPOSITE-INPUT`.
-- [x] تدقيق الرد إلى الجد البدائي واختيار ارتفاع القطع.
-- [x] عزل الصفر الاستثنائي وتثبيت موضع استعمال مبرهنة Siegel.
-- [x] وسم الثابت النهائي بأنه غير فعال.
-- [x] تدقيق الانتقال إلى \(\vartheta\) و\(\pi\).
-- [x] إصدار تدقيق منطقي شامل بحكم `PASS`.
 - [x] إغلاق `PRE-AUTHORING-GATE` رسميًا.
+- [x] إنشاء ملف الفصل وربطه بالكتاب.
+- [x] إثبات Siegel--Walfisz والصيغ الموحدة لـ\(\vartheta\) و\(\pi\).
+- [x] نجاح التحقق المرجعي وتدقيق ما بعد التأليف والبناء المحلي والآلي.
+- [x] استلام حكم مستقل `APPROVED` بصفر عوائق.
+- [x] رفع الفصل إلى `REVIEWED` ودمج PR #20.
+- [x] دمج إغلاق الحوكمة عبر PR #21 عند `607c6f8ad76f8085828f49ce6b566c846950ab2a`.
+
+```text
+CHAPTER-12          = REVIEWED / MERGED
+GOVERNANCE-MERGE    = 607c6f8ad76f8085828f49ce6b566c846950ab2a
+LOCAL-SOURCE-BUILD  = PASS / 184 PAGES
+EXPLICIT-FORMULA    = CITED / COMPOSITE-INPUT
+SIEGEL-CONSTANT     = INEFFECTIVE
+RELEASE-READY       = NO
+```
+
+### الفصل الثالث عشر: مبرهنة Bombieri--Vinogradov
+
+#### الأدلة وما قبل التأليف
+
+- [x] إنشاء الفرع من رأس `main` المعتمد ورفع الإصدار إلى `0.17.0-dev`.
+- [x] قراءة ملفات الحوكمة وبدء المسح عبر Consensus.
+- [x] التحقق من Bombieri وVinogradov وتصحيحه وGallagher وVaughan وMontgomery--Vaughan II.
+- [x] تثبيت حزمة الغربال الكبير بحالة `CITED / COMPOSITE-INPUT`.
+- [x] إثبات هوية Vaughan وPólya--Vinogradov داخليًا.
+- [x] إغلاق Type I وType II ومبرهنة القيمة المتوسطة.
+- [x] إغلاق الشخصية الرئيسية والموصلات والخسارة اللوغاريتمية وعدم الدور.
+- [x] حجز أحد عشر معرفًا وتحديث BibTeX.
+- [x] إغلاق `PRE-AUTHORING-GATE` بحكم `PASS-FOR-AUTHORING`.
 
 #### التأليف والتدقيق
 
 - [x] إنشاء ملف الفصل وربطه بالكتاب.
-- [x] كتابة النواة البرهانية مع فصل المقتبس عن المثبت داخليًا.
-- [x] كتابة حد PNT الفعال والصيغة الصريحة المقطوعة بحالة `CITED / COMPOSITE-INPUT`.
-- [x] إثبات ضبط الأصفار غير الاستثنائية.
-- [x] إثبات امتصاص الصفر الاستثنائي وشرح عدم الفعالية.
-- [x] إثبات مبرهنة Siegel--Walfisz وصيغة الادخار اللوغاريتمي.
-- [x] إثبات الصيغ الموحدة لـ\(\vartheta\) و\(\pi\).
+- [x] كتابة الغربال الكبير وهوية Vaughan وتفكيك Type I/II.
+- [x] إثبات مبرهنة القيمة المتوسطة.
+- [x] إثبات Bombieri--Vinogradov في صيغة \(\psi\).
+- [x] اشتقاق النسخ لـ\(\vartheta\) و\(\pi\) و«تقريبًا كل الترديدات».
 - [x] إضافة الأمثلة والتمارين وحدود الادعاء.
-- [x] إضافة التحقق المرجعي وتحديث BibTeX.
-- [x] مزامنة المعرفات التسعة في سجل النتائج المركزي.
-- [x] إجراء تدقيق ما بعد التأليف بحكم `PASS`.
-- [x] رفع الفصل إلى `VERIFIED` بعد نجاح فحوص الجودة والبناء.
-
-#### المراجعة المستقلة والدمج
-
-- [x] إعداد تقرير المراجعة المستقلة وتثبيت رأس المحتوى المصحح.
-- [x] إغلاق ملاحظتي الصيغة الصريحة والانتقال إلى \(\pi\).
-- [x] نجاح المزامنة والبناء المحليين وتسجيل إيصال 184 صفحة.
-- [x] استلام حكم مستقل `APPROVED` بصفر عوائق.
-- [x] رفع الفصل إلى `REVIEWED`.
-- [x] دمج PR #20 بأمر صريح من مالك المشروع عند `b1f09a3388aa34194eb8836b6977fe05f86aee7a`.
+- [x] اجتياز التدقيق المنطقي والتحقق المرجعي وتدقيق ما بعد التأليف.
+- [x] نجاح `Quality checks` #340 وبناء PDF #334.
+- [x] رفع الفصل إلى `VERIFIED`.
+- [x] إعداد حزمة المراجعة المستقلة وتجميد الرأس `d2495dba9cb5cc17a74c6bbb0ac55a914313d3f9`.
+- [x] فتح Issue #23 للمراجعة الثانية المستقلة.
+- [x] استلام الحكم المستقل `APPROVED-WITH-NONBLOCKING-CORRECTIONS`.
+- [x] رفع الفصل إلى `REVIEWED` بقرار صريح من مالك المشروع.
+- [ ] الدمج بأمر صريح من مالك المشروع فقط.
 
 ```text
-CHAPTER-12          = REVIEWED / MERGED
-MAIN-HEAD           = b1f09a3388aa34194eb8836b6977fe05f86aee7a
-PR-20               = MERGED
-INDEPENDENT-REVIEW  = APPROVED
-QUALITY-CHECKS      = RUN-311 / SUCCESS
-PDF-BUILD           = RUN-306 / SUCCESS
-LOCAL-SOURCE-BUILD  = PASS / 184 PAGES
-EXPLICIT-FORMULA    = CITED / COMPOSITE-INPUT
-SIEGEL-CONSTANT     = INEFFECTIVE
-BOMBIERI-VINOGRADOV = DEFERRED
-RELEASE-READY       = NO
+CHAPTER-13             = REVIEWED
+RESULTS                = 11
+LARGE-SIEVE            = CITED / COMPOSITE-INPUT
+BOMBIERI-VINOGRADOV    = PROVED-HERE / INEFFECTIVE-CONSTANT
+QUALITY-CHECKS         = RUN-372 / SUCCESS
+PDF-BUILD              = RUN-366 / SUCCESS
+INDEPENDENT-REVIEW     = COMPLETED / APPROVED-WITH-NONBLOCKING-CORRECTIONS
+PROMOTION              = OWNER-AUTHORIZED / EXECUTED
+MERGE                  = NOT AUTHORIZED
+RELEASE-READY          = NO
 ```
 
 ### موضوعات المرحلة اللاحقة
 
-- [ ] Bombieri--Vinogradov.
 - [ ] الفترات القصيرة.
+- [ ] Barban--Davenport--Halberstam.
 - [ ] الغربال والفجوات بين الأوليات.
 - [ ] غولدباخ ووارينغ.
 

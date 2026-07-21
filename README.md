@@ -13,98 +13,89 @@
 - [قائمة المهام](docs/TODO.md)
 - [الإصدار الحالي](docs/VERSION.md)
 - [دليل بناء PDF](docs/BUILD.md)
-- [التحقق المحلي من Artifact الفصل الثاني عشر](docs/LOCAL_ARTIFACT_VERIFICATION_2026-07-20.md)
-- [إيصال البناء المحلي المتزامن](docs/LOCAL_BUILD_RECEIPT.md)
 - [سياسة اعتماد النتائج](docs/RESULT_STATUS_POLICY.md)
 - [سجل النتائج المعتمدة](docs/RESULTS_REGISTRY.md)
-- [سجل أدلة الفصل الثاني عشر](research/literature-reviews/chapter-12-siegel-walfisz-evidence.md)
-- [خريطة برهان الفصل الثاني عشر](research/literature-reviews/chapter-12-siegel-walfisz-proof-map.md)
-- [تدقيق ديون بيرون والصيغة الصريحة](docs/CHAPTER_12_PERRON_CONTOUR_EXPLICIT_FORMULA_AUDIT_2026-07-20.md)
-- [تدقيق الصفر الاستثنائي وعدم الفعالية](docs/CHAPTER_12_EXCEPTIONAL_ZERO_INEFFECTIVITY_AUDIT_2026-07-20.md)
-- [التدقيق المنطقي للفصل الثاني عشر](docs/CHAPTER_12_LOGIC_AUDIT_2026-07-20.md)
-- [تدقيق ما قبل تأليف الفصل الثاني عشر](docs/CHAPTER_12_PRE_AUTHORING_AUDIT_2026-07-20.md)
-- [التحقق المرجعي للفصل الثاني عشر](docs/CHAPTER_12_REFERENCE_VERIFICATION_2026-07-20.md)
-- [تدقيق ما بعد تأليف الفصل الثاني عشر](docs/CHAPTER_12_AUTHORING_AUDIT_2026-07-20.md)
+- [سجل نتائج الفصل الثالث عشر](docs/RESULTS_REGISTRY_CHAPTER_13.md)
+- [سجل أدلة الفصل الثالث عشر](research/literature-reviews/chapter-13-bombieri-vinogradov-evidence.md)
+- [خريطة برهان الفصل الثالث عشر](research/literature-reviews/chapter-13-bombieri-vinogradov-proof-map.md)
+- [تدقيق ما قبل تأليف الفصل الثالث عشر](docs/CHAPTER_13_PRE_AUTHORING_AUDIT_2026-07-21.md)
+- [تدقيق الغربال الكبير والقيمة المتوسطة](docs/CHAPTER_13_LARGE_SIEVE_MEAN_VALUE_AUDIT_2026-07-21.md)
+- [تدقيق هوية Vaughan](docs/CHAPTER_13_VAUGHAN_IDENTITY_AUDIT_2026-07-21.md)
+- [تدقيق Type I وType II](docs/CHAPTER_13_TYPE_I_TYPE_II_MEAN_VALUE_AUDIT_2026-07-21.md)
+- [تدقيق الموصل والشخصية الرئيسية](docs/CHAPTER_13_CONDUCTOR_PRINCIPAL_BV_AUDIT_2026-07-21.md)
+- [التدقيق المنطقي للفصل الثالث عشر](docs/CHAPTER_13_LOGIC_AUDIT_2026-07-21.md)
+- [التحقق المرجعي للفصل الثالث عشر](docs/CHAPTER_13_REFERENCE_VERIFICATION_2026-07-21.md)
+- [تدقيق ما بعد تأليف الفصل الثالث عشر](docs/CHAPTER_13_AUTHORING_AUDIT_2026-07-21.md)
+- [التحقق المرجعي بعد التأليف](docs/CHAPTER_13_POST_AUTHORING_REFERENCE_AUDIT_2026-07-21.md)
+- [المراجعة المستقلة للفصل الثالث عشر](docs/CHAPTER_13_INDEPENDENT_REVIEW_2026-07-21.md)
+- [تصحيحات الإحالات المرجعية للفصل الثالث عشر](docs/CHAPTER_13_REFERENCE_CORRECTIONS_2026-07-21.md)
+- [إيصال ترقية الفصل الثالث عشر إلى REVIEWED](docs/CHAPTER_13_REVIEWED_PROMOTION_2026-07-21.md)
 - [المراجعة المستقلة للفصل الثاني عشر](docs/CHAPTER_12_INDEPENDENT_REVIEW_2026-07-20.md)
 - [إيصال إغلاق مراجعة الفصل الثاني عشر](docs/CHAPTER_12_REVIEW_CLOSURE_2026-07-21.md)
-- [مراجعة الفصل السابع المستقلة](docs/CHAPTER_07_INDEPENDENT_REVIEW_2026-07-19.md)
-- [مراجعة الفصل الثامن المستقلة](docs/CHAPTER_08_INDEPENDENT_REVIEW_2026-07-20.md)
-- [المراجعة المستقلة للفصل التاسع](docs/CHAPTER_09_INDEPENDENT_REVIEW_2026-07-20.md)
-- [المراجعة المستقلة للفصل العاشر](docs/CHAPTER_10_INDEPENDENT_REVIEW_2026-07-20.md)
-- [المراجعة المستقلة للفصل الحادي عشر](docs/CHAPTER_11_INDEPENDENT_REVIEW_2026-07-20.md)
-- [إيصال إغلاق الفصل الحادي عشر](docs/CHAPTER_11_REVIEW_CLOSURE_2026-07-20.md)
 - [سجل التجارب الحاسوبية](docs/EXPERIMENTS_REGISTRY.md)
 
 ## الحالة الحالية
 
-الإصدار: `v0.16.0-dev`
+الإصدار: `v0.17.0-dev`
 
 ```text
-MAIN-HEAD                 = b1f09a3388aa34194eb8836b6977fe05f86aee7a
+BASE-MAIN                 = 607c6f8ad76f8085828f49ce6b566c846950ab2a
+BRANCH                    = agent/chapter-13-bombieri-vinogradov-v0.17.0
 CHAPTER-12                = REVIEWED / MERGED
-PR-20                     = MERGED
-INDEPENDENT-REVIEW        = COMPLETED / APPROVED
-MATHEMATICAL-BLOCKERS     = 0
-REFERENCE-BLOCKERS        = 0
-TYPOGRAPHIC-BLOCKERS      = 0
-QUALITY-CHECKS            = RUN-311 / SUCCESS
-PDF-BUILD                 = RUN-306 / SUCCESS
-LOCAL-SYNC                = PASS / FF-ONLY
-SOURCE-BUILD              = PASS
-LOCAL-PDF-PAGES           = 184
-LOCAL-PDF-SHA256          = 3BF0BCE828DDF09C03D6527117992806FAD06010B161FC1B242472D0B5367749
-EXPLICIT-FORMULA          = CITED / COMPOSITE-INPUT
-SIEGEL-CONSTANT           = INEFFECTIVE
-BOMBIERI-VINOGRADOV       = DEFERRED
+CHAPTER-13                = REVIEWED
+PRE-AUTHORING-GATE        = CLOSED / PASS
+POST-AUTHORING-AUDIT      = PASS
+LOGIC-AUDIT               = PASS
+REFERENCE-VERIFICATION    = PASS
+RESULTS                   = 11
+LARGE-SIEVE               = CITED / COMPOSITE-INPUT
+VAUGHAN-IDENTITY          = PROVED-HERE
+TYPE-I                    = PROVED-HERE
+TYPE-II                   = PROVED-HERE
+BOMBIERI-VINOGRADOV       = PROVED-HERE / INEFFECTIVE-CONSTANT
+QUALITY-CHECKS            = RUN-372 / SUCCESS
+PDF-BUILD                 = RUN-366 / SUCCESS
+INDEPENDENT-REVIEW        = COMPLETED / APPROVED-WITH-NONBLOCKING-CORRECTIONS
+PROMOTION                 = OWNER-AUTHORIZED / EXECUTED
+PR-22                     = DRAFT / UNMERGED
+MERGE                     = NOT AUTHORIZED
 RELEASE-READY             = NO
 ```
 
-## الفصل الثاني عشر
+## الفصل الثالث عشر
 
-أضيف متن الفصل الثاني عشر وربط بالكتاب. يثبت الفصل، اعتمادًا على مدخلين كميين مقتبسين وعلى المنطقة الخالية من الفصل الحادي عشر، أنه لكل \(A>0\):
+يثبت الفصل مبرهنة بومبييري--فينوغرادوف في الصيغة:
 
 \[
-\psi(x;q,a)
-=
-\frac{x}{\varphi(q)}
-+O_A\!\left(xe^{-c_A\sqrt{\log x}}\right),
-\qquad q\le(\log x)^A,
+\sum_{q\le Q}
+\max_{(a,q)=1}
+\sup_{2\le y\le x}
+\left|
+\psi(y;q,a)-\frac{y}{\varphi(q)}
+\right|
+\ll_A \frac{x}{(\log x)^A},
+\qquad
+Q\le \frac{x^{1/2}}{(\log x)^{A+3}}.
 \]
 
-بانتظام في الفئات المختزلة. كما يستنتج صيغة الادخار اللوغاريتمي الاعتباطي والصيغ الموحدة الموافقة لـ\(\vartheta(x;q,a)\) و\(\pi(x;q,a)\).
+كما يثبت النسخ الموافقة لـ\(\vartheta\) و\(\pi\)، ونتيجة «تقريبًا كل الترديدات». يعتمد على حزمة الغربال الكبير بوصفها مدخلًا مقتبسًا، ويثبت داخليًا هوية Vaughan وPólya--Vinogradov وتقديري Type I وType II ومبرهنة القيمة المتوسطة ورد الموصلات.
 
-### ما ثبت داخل الفصل
-
-- رد الشخصية المستحثة إلى جدها البدائي مع ضبط خطأ العوامل المحلية.
-- اختيار ارتفاع القطع \(T=e^{\kappa\sqrt{\log x}}\).
-- ضبط مساهمة الأصفار غير الاستثنائية.
-- عزل الصفر الاستثنائي ثم امتصاصه باستعمال مبرهنة Siegel.
-- تجميع الشخصيات من دون خسارة إضافية في \(q\).
-- الانتقال الآمن إلى \(\vartheta\) و\(\pi\)، مع معالجة تغير شرط الترديد داخل التكامل.
-
-### ما اقتبس ولم ينسب إلى برهان داخلي
-
-- حد دو لا فاليه بوسان الفعال لمبرهنة الأعداد الأولية.
-- الصيغة الصريحة المقطوعة الموحدة بعد عزل الصفر الاستثنائي.
-
-تبقى صيغة بيرون العامة وتحويل المسار الكاملان دينين معلنين، ولا يدعي الفصل إغلاقهما من الصفر.
-
-### عدم الفعالية
-
-يبقى حد الصفر الاستثنائي ظاهرًا حتى تطبيق `ANT-COR-11-01`. هذا هو الموضع المحدد الذي تدخل فيه مبرهنة Siegel؛ لذلك تكون الثوابت النهائية في النسخة غير المشروطة العامة غير فعالة.
+الثابت النهائي غير فعال لأن المسار يستعمل Siegel--Walfisz للموصلات الصغيرة. لا يثبت الفصل Elliott--Halberstam أو مستوى توزيع عامًا أكبر من \(1/2\)، ولا يعالج الفترات القصيرة أو Barban--Davenport--Halberstam.
 
 ## الفصل بين النتائج
 
-1. **الفصل العاشر:** نتيجة نوعية لترديد ثابت، بلا انتظام في \(q\).
-2. **الفصل الثاني عشر:** انتظام فردي للترديدات \(q\le(\log x)^A\).
-3. **فصل لاحق:** Bombieri--Vinogradov، وهي نتيجة متوسطية على مجال أكبر ولا تستعمل في برهان الفصل الثاني عشر.
+1. **الفصل العاشر:** نتيجة نوعية لترديد ثابت.
+2. **الفصل الثاني عشر:** انتظام فردي عندما \(q\le(\log x)^A\).
+3. **الفصل الثالث عشر:** انتظام متوسطي حتى مستوى \(1/2\) مع خسارة لوغاريتمية.
+4. **Elliott--Halberstam:** تخمين أقوى خارج النطاق.
+5. **نتائج ما بعد \(1/2\):** تحتاج أوزانًا أو بنى خاصة، ولا تثبت التخمين العام.
 
 ## حالة الفصول
 
-- الفصول الاثنا عشر الأولى مرتبطة بالملف الجامع وتظهر في بناء PDF الحالي.
-- الفصول من السابع إلى الثاني عشر بحالة `REVIEWED` ومندمجة في `main`.
-- الفصل الثاني عشر اجتاز المراجعة المستقلة بحكم `APPROVED` ودُمج عبر PR #20 عند الالتزام `b1f09a3388aa34194eb8836b6977fe05f86aee7a`.
-- لا يصبح أي فصل `RELEASE-READY` بمجرد التدقيق أو المراجعة أو الدمج؛ تبقى ديون الإصدار المعلنة مستقلة.
+- الفصول الثلاثة عشر الأولى مرتبطة بالملف الجامع وتظهر في بناء PDF الحالي.
+- الفصول من السابع إلى الثالث عشر بحالة `REVIEWED`.
+- الفصل الثالث عشر بحالة `REVIEWED` بعد مراجعة مستقلة مكتملة؛ ويبقى PR #22 غير مدمج.
+- لا يصبح أي فصل `RELEASE-READY` بمجرد التدقيق أو المراجعة أو الدمج.
 
 ## مبادئ التحرير
 
@@ -130,7 +121,7 @@ cd "D:\analytic-number-theory-encyclopedia-ar"
 .\scripts\build.ps1 -Clean -Open
 ```
 
-على GitHub يُبنى PDF تلقائيًا بعد كل Push يؤثر في ملفات الكتاب، ثم يُرفع كـArtifact. راجع [دليل بناء PDF](docs/BUILD.md).
+على GitHub يُبنى PDF تلقائيًا بعد كل Push يؤثر في ملفات الكتاب، ثم يُرفع كـArtifact.
 
 ## هيكل المشروع
 

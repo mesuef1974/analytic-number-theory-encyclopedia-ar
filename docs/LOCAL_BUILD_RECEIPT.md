@@ -1,19 +1,19 @@
-﻿# ط¥ظٹطµط§ظ„ ط§ظ„ط¨ظ†ط§ط، ط§ظ„ظ…ط­ظ„ظٹ ط§ظ„ظ…طھط²ط§ظ…ظ†
+﻿# إيصال البناء المحلي المتزامن
 
 ```text
-TIMESTAMP        = 2026-07-21T01:23:12+03:00
-BRANCH           = agent/chapter-12-siegel-walfisz-v0.16.0
-LOCAL-HEAD       = 62fac059604136fd18ece01213a71fc90a5bded4
-ORIGIN-HEAD      = 62fac059604136fd18ece01213a71fc90a5bded4
+TIMESTAMP        = 2026-07-21T08:01:31+03:00
+BRANCH           = agent/chapter-13-bombieri-vinogradov-v0.17.0
+LOCAL-HEAD       = 059c15716990fb6ef0c3cde9ed302bdbf2745073
+ORIGIN-HEAD      = 059c15716990fb6ef0c3cde9ed302bdbf2745073
 SYNC             = PASS / FF-ONLY
 SOURCE-BUILD     = PASS
 PDF              = releases/preview.pdf
-PDF-PAGES        = 184
-PDF-SIZE-BYTES   = 741765
-PDF-SHA256       = 3BF0BCE828DDF09C03D6527117992806FAD06010B161FC1B242472D0B5367749
+PDF-PAGES        = 199
+PDF-SIZE-BYTES   = 792803
+PDF-SHA256       = 9D25646A4C4D965368D9702CD7D35FFCF594DCE0BD990FA01282183009439331
 XELATEX          = MiKTeX-XeTeX 4.18 (MiKTeX 26.5)
 BIBER            = biber version: 2.21
 RELEASE-READY    = NO
 ```
 
-ط£ظڈظ†ط´ط¦ ظ‡ط°ط§ ط§ظ„ط¥ظٹطµط§ظ„ ط¢ظ„ظٹظ‹ط§ ط¨ظˆط§ط³ط·ط© `scripts/sync-build.ps1`. ظ†ط¬ط§ط­ ط§ظ„ط¨ظ†ط§ط، ط§ظ„ظ…ط­ظ„ظٹ ظ„ط§ ظٹط±ظپط¹ ط§ظ„ظپطµظ„ طھظ„ظ‚ط§ط¦ظٹظ‹ط§ ط¥ظ„ظ‰ `REVIEWED` ط£ظˆ `RELEASE-READY`طŒ ظˆظ„ط§ ظٹط؛ظ†ظٹ ط¹ظ† ط§ظ„ظ…ط±ط§ط¬ط¹ط© ط§ظ„ظ…ط³طھظ‚ظ„ط©.
+أُنشئ هذا الإيصال آليًا بواسطة `scripts/sync-build.ps1`. نجاح البناء المحلي لا يرفع الفصل تلقائيًا إلى `REVIEWED` أو `RELEASE-READY`، ولا يغني عن المراجعة المستقلة.
