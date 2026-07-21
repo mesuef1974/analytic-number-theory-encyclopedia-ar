@@ -1,0 +1,846 @@
+\chapter{مبرهنة بومبييري--فينوغرادوف والتوزيع المتوسطي للأعداد الأولية}
+
+\section{نطاق الفصل وحالته}
+
+\noindent\textbf{حالة الفصل:} \textenglish{DRAFT}. أُنشئ هذا المتن بعد
+إغلاق بوابة ما قبل التأليف بحكم \textenglish{PASS-FOR-AUTHORING}. يثبت
+الفصل مبرهنة بومبييري--فينوغرادوف في صيغة دالة فون مانغولت، ثم يستنتج
+الصيغ الموافقة لـ\(\vartheta\) و\(\pi\) ونتيجة ``تقريبًا كل الترديدات''.
+
+الانتقال المفاهيمي من الفصل الثاني عشر جوهري. فمبرهنة سيغل--فالفش تعطي
+تقديرًا فرديًا موحدًا لكل ترديد
+\[
+q\le (\log x)^A,
+\]
+أما هنا فنسمح للترديدات بأن تبلغ تقريبًا \(x^{1/2}\)، لكن بعد أخذ متوسط
+الأخطاء على \(q\). النتيجة المركزية هي أنه لكل \(A>0\)، وبانتظام عندما
+\[
+Q\le \frac{x^{1/2}}{(\log x)^{A+3}},
+\]
+لدينا
+\[
+\sum_{q\le Q}
+\max_{(a,q)=1}
+\sup_{2\le y\le x}
+\left|
+\psi(y;q,a)-\frac{y}{\varphi(q)}
+\right|
+\ll_A \frac{x}{(\log x)^A}.
+\]
+
+الثابت الضمني في المسار المعتمد غير فعال؛ فالبرهان يستعمل مبرهنة
+سيغل--فالفش للموصلات الصغيرة. لا يثبت الفصل فرضية إليوت--هالبرستام، ولا
+يتجاوز مستوى التوزيع \(1/2\) في الصيغة العامة غير الموزونة، ولا يعالج
+الفترات القصيرة أو مبرهنة باربان--دافنبورت--هالبرستام.
+
+الملفات الحاكمة للتأليف هي:
+\begin{itemize}
+  \item \texttt{research/literature-reviews/chapter-13-bombieri-vinogradov-evidence.md}.
+  \item \texttt{research/literature-reviews/chapter-13-bombieri-vinogradov-proof-map.md}.
+  \item \texttt{docs/CHAPTER\_13\_LARGE\_SIEVE\_MEAN\_VALUE\_AUDIT\_2026-07-21.md}.
+  \item \texttt{docs/CHAPTER\_13\_VAUGHAN\_IDENTITY\_AUDIT\_2026-07-21.md}.
+  \item \texttt{docs/CHAPTER\_13\_TYPE\_I\_TYPE\_II\_MEAN\_VALUE\_AUDIT\_2026-07-21.md}.
+  \item \texttt{docs/CHAPTER\_13\_CONDUCTOR\_PRINCIPAL\_BV\_AUDIT\_2026-07-21.md}.
+  \item \texttt{docs/CHAPTER\_13\_LOGIC\_AUDIT\_2026-07-21.md}.
+  \item \texttt{docs/CHAPTER\_13\_REFERENCE\_VERIFICATION\_2026-07-21.md}.
+\end{itemize}
+
+\subsection{نواتج التعلم}
+
+بعد إتمام الفصل ينبغي أن يستطيع القارئ:
+\begin{enumerate}
+  \item تفسير الفرق بين الانتظام الفردي والانتظام المتوسطي في الترديد.
+  \item استعمال الغربال الكبير للشخصيات البدائية بوزنه الصحيح.
+  \item إثبات هوية فوغان بتفاف ديريشليه.
+  \item رد حدود هوية فوغان إلى مجاميع من النمطين الأول والثاني.
+  \item إثبات متراجحة بوليا--فينوغرادوف من تحويل فورييه المنتهي.
+  \item اختيار معاملي القطع \(U,V\) في المجالات المختلفة لـ\(Q\).
+  \item فصل الشخصية الرئيسية ورد الشخصيات المستحثة إلى موصلاتها.
+  \item تحديد الموضع الذي تدخل فيه عدم فعالية مبرهنة سيغل--فالفش.
+  \item اشتقاق النسخ الموافقة لـ\(\vartheta\) و\(\pi\).
+  \item تحويل تقدير متوسط إلى عبارة ``تقريبًا كل الترديدات''.
+\end{enumerate}
+
+\section{الأخطاء ومستوى التوزيع}
+
+لكل \((a,q)=1\)، نضع
+\[
+E(y;q,a)
+=
+\psi(y;q,a)-\frac{y}{\varphi(q)},
+\]
+ونعرف
+\[
+E^*(x,q)
+=
+\max_{(a,q)=1}
+\sup_{2\le y\le x}|E(y;q,a)|.
+\]
+
+\begin{definition}[مستوى توزيع متوسط]
+نقول، بصورة غير رسمية في هذا الفصل، إن الأوليات تملك مستوى توزيع
+\(\theta\) إذا أمكن ضبط
+\[
+\sum_{q\le x^{\theta-o(1)}}E^*(x,q)
+\]
+بادخار لوغاريتمي اعتباطي. تثبت مبرهنة بومبييري--فينوغرادوف المستوى
+\(\theta=1/2\) حتى خسارة من قوة اللوغاريتم.
+\end{definition}
+
+لا تعني هذه العبارة أن كل ترديد مفرد حتى \(x^{1/2}\) يحقق تقديرًا من نوع
+سيغل--فالفش. قد توجد ترديدات ذات خطأ أكبر، لكن مجموع الأخطاء على الترديدات
+يبقى صغيرًا.
+
+\section{حزمة الغربال الكبير}
+
+\begin{theorem}[الغربال الكبير للشخصيات والنسخة الثنائية العظمى]
+\label{thm:chapter13-large-sieve-package}
+\resultid{ANT-THM-13-01}
+\citedresult{\cite{Bombieri1965LargeSieve,MontgomeryVaughan2026}}
+لتكن \(Q\ge1\).
+
+أولًا، لكل معاملات مركبة \(a_n\):
+\[
+\sum_{q\le Q}\frac{q}{\varphi(q)}
+\sum_{\chi\bmod q}^{*}
+\left|
+\sum_{M<n\le M+N}a_n\chi(n)
+\right|^2
+\le
+(N+Q^2)
+\sum_{M<n\le M+N}|a_n|^2.
+\tag{13.1}
+\]
+
+ثانيًا، لكل متتاليتين مركبتين \(a_m,b_n\):
+\begin{align*}
+&\sum_{q\le Q}\frac{q}{\varphi(q)}
+\sum_{\chi\bmod q}^{*}
+\sup_Y
+\left|
+\sum_{\substack{m\le M,\ n\le N\\mn\le Y}}
+ a_mb_n\chi(mn)
+\right|\\
+&\qquad\ll
+(M+Q^2)^{1/2}(N+Q^2)^{1/2}
+\left(\sum_{m\le M}|a_m|^2\right)^{1/2}
+\left(\sum_{n\le N}|b_n|^2\right)^{1/2}
+\log(2MN).
+\tag{13.2}
+\end{align*}
+والنجمة تعني الجمع على الشخصيات البدائية.
+\end{theorem}
+
+الصيغة \((13.1)\) هي صورة الغربال الكبير التربيعية، أما \((13.2)\) فهي
+حزمة مركبة تستخرج منها بكوشي وأداة قطع عظمى. لا ندعي في هذا الفصل برهانًا
+داخليًا كاملًا للحزمة؛ بل نستعملها مدخلًا مقتبسًا مضبوط المنشأ.
+
+\section{متراجحة بوليا--فينوغرادوف}
+
+\begin{lemma}[بوليا--فينوغرادوف للشخصيات البدائية]
+\label{lem:chapter13-polya-vinogradov}
+\resultid{ANT-LEM-13-04}
+\provedhere
+إذا كانت \(\chi\) شخصية بدائية غير رئيسية modulo \(q>1\)، فإن لكل فترة
+صحيحة
+\[
+M<n\le M+N
+\]
+لدينا
+\[
+\left|\sum_{M<n\le M+N}\chi(n)\right|
+\ll \sqrt q\log(2q),
+\tag{13.3}
+\]
+بثابت مطلق.
+\end{lemma}
+
+\begin{proof}
+من تحويل فورييه المنتهي للشخصية البدائية وقيمة مجموع غاوس المطلقة في الفصل
+السابع، نحصل -- مع مراعاة اصطلاح المرافق -- على صيغة عكسية من الشكل
+\[
+\chi(n)
+=
+\frac1{\tau(\overline\chi)}
+\sum_{a=1}^{q}\overline\chi(a)e(an/q),
+\qquad
+|\tau(\overline\chi)|=\sqrt q.
+\]
+لذلك
+\[
+\left|\sum_{n\le N}\chi(n)\right|
+\le
+\frac1{\sqrt q}
+\sum_{a=1}^{q-1}
+\left|\sum_{n\le N}e(an/q)\right|.
+\]
+ويعطي تقدير المتسلسلة الهندسية
+\[
+\left|\sum_{n\le N}e(an/q)\right|
+\ll
+\min\left(N,\frac1{\|a/q\|}\right).
+\]
+وبتناظر \(a\) و\(q-a\):
+\[
+\sum_{a=1}^{q-1}
+\min\left(N,\frac1{\|a/q\|}\right)
+\ll
+q\sum_{1\le a\le q/2}\frac1a
+\ll q\log(2q).
+\]
+فتكون مجاميع البداية \(O(\sqrt q\log(2q))\)، ويعطي طرح مجموعي بدايتين
+التقدير نفسه لأي فترة.
+\end{proof}
+
+\section{هوية فوغان}
+
+لكل \(U,V\ge1\)، نضع
+\[
+\Lambda_U(n)=\Lambda(n)\mathbf1_{n\le U},
+\qquad
+\mu_V(n)=\mu(n)\mathbf1_{n\le V}.
+\]
+
+\begin{lemma}[هوية فوغان]
+\label{lem:chapter13-vaughan-identity}
+\resultid{ANT-LEM-13-01}
+\provedhere
+لكل \(n\ge1\):
+\[
+\Lambda(n)=c_1(n)+c_2(n)+c_3(n)+c_4(n),
+\tag{13.4}
+\]
+حيث
+\begin{align*}
+c_1(n)
+&=\Lambda(n)\mathbf1_{n\le U},\\
+c_2(n)
+&=-\sum_{\substack{rdk=n\\d\le U\\k\le V}}
+\Lambda(d)\mu(k),\\
+c_3(n)
+&=\sum_{\substack{mk=n\\k\le V}}
+\mu(k)\log m,\\
+c_4(n)
+&=\sum_{\substack{mk=n\\m>U\\k>V}}
+\left(\sum_{\substack{d\mid m\\d>U}}\Lambda(d)\right)
+\mu(k).
+\end{align*}
+\end{lemma}
+
+\begin{proof}
+على مستوى الدوال الحسابية والتفاف ديريشليه، تكون الحدود الأربعة
+\[
+\Lambda_U,
+\qquad
+-\mathbf1*\Lambda_U*\mu_V,
+\qquad
+\log*\mu_V,
+\qquad
+(\log-\mathbf1*\Lambda_U)*(\mu-\mu_V).
+\]
+بالتوسع والتجميع:
+\begin{align*}
+c_1+c_2+c_3+c_4
+&=
+\Lambda_U+\log*\mu-\mathbf1*\Lambda_U*\mu.
+\end{align*}
+ومن هويتي
+\[
+\log=\mathbf1*\Lambda,
+\qquad
+\mathbf1*\mu=\varepsilon,
+\]
+نحصل على
+\[
+\log*\mu=\Lambda,
+\qquad
+\mathbf1*\Lambda_U*\mu=\Lambda_U.
+\]
+إذن مجموع الحدود هو \(\Lambda\).
+
+أما صيغة \(c_4\) المفصلة، فتنتج من
+\[
+\log m-
+\sum_{\substack{d\mid m\\d\le U}}\Lambda(d)
+=
+\sum_{\substack{d\mid m\\d>U}}\Lambda(d).
+\]
+هذا العامل ينعدم عند \(m\le U\)، كما ينعدم \(\mu-\mu_V\) عند \(k\le V\)،
+فتظهر شروط الدعم في \(c_4\) تلقائيًا.
+\end{proof}
+
+\section{الرد إلى النمطين الأول والثاني}
+
+لتكن \(f\) دالة حسابية مركبة، ونضع
+\[
+S(Y;f)=\sum_{n\le Y}\Lambda(n)f(n).
+\]
+
+\begin{proposition}[تفكيك مجاميع فون مانغولت]
+\label{prop:chapter13-type-decomposition}
+\resultid{ANT-PROP-13-01}
+\provedhere
+تكتب \(S(Y;f)\) مجموع أربعة حدود، منها حد قصير، وحدان من النمط الأول، وحد
+ثنائي من النمط الثاني:
+\begin{align*}
+S_1(Y)
+&=\sum_{n\le\min(Y,U)}\Lambda(n)f(n),\\
+S_2(Y)
+&=\sum_{t\le UV}a(t)
+\sum_{r\le Y/t}f(tr),
+\qquad |a(t)|\le\log t,\\
+S_3(Y)
+&=\sum_{k\le V}\mu(k)
+\sum_{m\le Y/k}f(km)\log m,\\
+S_4(Y)
+&=\sum_{\substack{mk\le Y\\m>U\\k>V}}
+ b(m)\mu(k)f(mk),
+\qquad |b(m)|\le\log m.
+\end{align*}
+\end{proposition}
+
+\begin{proof}
+نعوض هوية فوغان في تعريف \(S\)، ثم نضع
+\[
+a(t)=-\sum_{\substack{dk=t\\d\le U\\k\le V}}
+\Lambda(d)\mu(k),
+\qquad
+b(m)=\sum_{\substack{d\mid m\\d>U}}\Lambda(d).
+\]
+ومن هوية فون مانغولت
+\[
+\sum_{d\mid t}\Lambda(d)=\log t
+\]
+نجد \(|a(t)|\le\log t\) و\(|b(m)|\le\log m\). ويكون \(S_2,S_3\) من
+النمط الأول لأن أحد المتغيرين قصير، بينما يكون \(S_4\) ثنائيًا لأن
+\(m>U\) و\(k>V\).
+\end{proof}
+
+\section{متوسط مجاميع الشخصيات}
+
+لكل عائلة \(T(Y,\chi)\)، نضع
+\[
+\mathcal M(T)
+=
+\sum_{q\le Q}\frac{q}{\varphi(q)}
+\sum_{\chi\bmod q}^{*}
+\sup_{Y\le x}|T(Y,\chi)|.
+\]
+
+\subsection{تقدير النمط الأول}
+
+\begin{lemma}[تقديرات Type I]
+\label{lem:chapter13-type-one}
+\resultid{ANT-LEM-13-02}
+\provedhere
+في تفكيك فوغان مع \(f(n)=\chi(n)\)، إذا قسمنا \(S_2=S_2'+S_2''\)
+بحسب \(t\le U\) أو \(t>U\)، فإن
+\[
+\mathcal M(S_2')
+\ll
+\left(x+Q^{5/2}U\right)(\log(2Qx))^2,
+\tag{13.5}
+\]
+و
+\[
+\mathcal M(S_3)
+\ll
+\left(x+Q^{5/2}V\right)(\log(2Qx))^2.
+\tag{13.6}
+\]
+\end{lemma}
+
+\begin{proof}
+تعالج الشخصية الوحيدة modulo \(1\) تافهًا بمساهمة
+\(O(x(\log 2x)^2)\). ولـ\(q>1\)، تعطي بوليا--فينوغرادوف
+\[
+\sup_z\left|\sum_{r\le z}\chi(rt)\right|
+\le |\chi(t)|\sqrt q\log(2q).
+\]
+وباستعمال \(|a(t)|\le\log t\):
+\[
+\sup_{Y\le x}|S_2'(Y,\chi)|
+\ll U\sqrt q\,(\log(2qU))^2.
+\]
+عدد الشخصيات البدائية لا يتجاوز \(\varphi(q)\)، ومع الوزن
+\(q/\varphi(q)\) يظهر
+\[
+\sum_{q\le Q}q^{3/2}\ll Q^{5/2},
+\]
+فتنتج \((13.5)\).
+
+أما \(S_3\)، فالجمع الجزئي يرد عامل \(\log m\) إلى مجاميع جزئية للشخصية
+مع خسارة \(O(\log x)\). ثم تعطي بوليا--فينوغرادوف، بعد الجمع على
+\(k\le V\)، الصيغة \((13.6)\).
+\end{proof}
+
+\subsection{تقدير النمط الثاني}
+
+\begin{lemma}[تقديرات Type II]
+\label{lem:chapter13-type-two}
+\resultid{ANT-LEM-13-03}
+\provedhere
+لدينا
+\[
+\mathcal M(S_4)
+\ll
+\left(
+x+QxU^{-1/2}+QxV^{-1/2}+Q^2x^{1/2}
+\right)(\log 2x)^3,
+\tag{13.7}
+\]
+كما أن الجزء \(S_2''\) يحقق
+\[
+\mathcal M(S_2'')
+\ll
+\left(
+x+QxU^{-1/2}+Qx^{1/2}(UV)^{1/2}+Q^2x^{1/2}
+\right)(\log 2x)^3.
+\tag{13.8}
+\]
+\end{lemma}
+
+\begin{proof}
+نقسم المتغير الطويل إلى كتل ديادية \(M<m\le2M\). في كتلة من \(S_4\)،
+تكون معياريات المعاملات
+\[
+\sum_m|b(m)|^2\ll M(\log 2x)^2,
+\qquad
+\sum_{k\le x/M}|\mu(k)|^2\le x/M.
+\]
+بتطبيق النسخة الثنائية العظمى \((13.2)\):
+\[
+\mathcal M(S_{4,M})
+\ll
+(M+Q^2)^{1/2}(x/M+Q^2)^{1/2}
+ x^{1/2}(\log 2x)^2.
+\]
+وبتوسيع حاصل الضرب تحت الجذر، ثم جمع الكتل، تهيمن النهاية الدنيا \(U\)
+على حدود \(M^{-1/2}\)، والنهاية العليا \(x/V\) على حدود \(M^{1/2}\)،
+فتنتج \((13.7)\).
+
+ولـ\(S_2''\)، نطبق الحساب نفسه مع المعاملين \(a(t)\) و\(1\)، وعلى المجال
+\(U<t\le UV\). فتكون النهاية العليا \(UV\)، وينتج الحد
+\(Qx^{1/2}(UV)^{1/2}\) في \((13.8)\).
+\end{proof}
+
+\begin{theorem}[مبرهنة القيمة المتوسطة للشخصيات البدائية]
+\label{thm:chapter13-character-mean-value}
+\resultid{ANT-THM-13-02}
+\provedhere
+لكل \(Q\ge1\) و\(x\ge2\):
+\[
+\sum_{q\le Q}\frac{q}{\varphi(q)}
+\sum_{\chi\bmod q}^{*}
+\sup_{Y\le x}|\psi(Y,\chi)|
+\ll
+\left(x+x^{5/6}Q+x^{1/2}Q^2\right)(\log 2x)^3.
+\tag{13.9}
+\]
+\end{theorem}
+
+\begin{proof}
+من حد تشيبيشيف، يكون
+\[
+\mathcal M(S_1)\ll Q^2U,
+\]
+ويمتص هذا في \(Q^{5/2}U\). بجمع اللمتين السابقتين نحصل على
+\begin{align*}
+\mathcal M(\psi)
+\ll
+\Bigl(&x+QxU^{-1/2}+QxV^{-1/2}+Q^2x^{1/2}\\
+&+Qx^{1/2}(UV)^{1/2}+Q^{5/2}U+Q^{5/2}V\Bigr)
+(\log(2xUV))^3.
+\tag{13.10}
+\end{align*}
+
+إذا \(Q\le x^{1/3}\)، نأخذ \(U=V=x^{1/3}\). وإذا
+\(x^{1/3}\le Q\le x^{1/2}\)، نأخذ
+\[
+U=V=x^{2/3}/Q.
+\]
+في الحالتين تمتص كل حدود \((13.10)\) في الطرف الأيمن من \((13.9)\).
+
+إذا \(Q>x^{1/2}\)، نطبق \((13.2)\) مباشرة مع
+\[
+M=1,
+\qquad a_1=1,
+\qquad b_n=\Lambda(n)\mathbf1_{n\le x}.
+\]
+ومن
+\[
+\sum_{n\le x}\Lambda(n)^2
+\le(\log x)\psi(x)
+\ll x\log(2x),
+\]
+نحصل على حد يغطّيه \(Q^2x^{1/2}(\log 2x)^3\). وهذا يكمل البرهان.
+\end{proof}
+
+\section{من الشخصيات إلى الفئات الحسابية}
+
+لكل شخصية \(\chi\pmod q\)، نضع
+\[
+\psi'(Y,\chi)
+=
+\psi(Y,\chi)-\mathbf1_{\chi=\chi_0}Y.
+\]
+من تعامد الشخصيات:
+\[
+E(Y;q,a)
+=
+\frac1{\varphi(q)}
+\sum_{\chi\bmod q}
+\overline{\chi(a)}\psi'(Y,\chi),
+\tag{13.11}
+\]
+ومن ثم
+\[
+E^*(x,q)
+\le
+\frac1{\varphi(q)}
+\sum_{\chi\bmod q}
+\sup_{Y\le x}|\psi'(Y,\chi)|.
+\tag{13.12}
+\]
+
+إذا كانت \(\chi\pmod q\) مستحثة من شخصية بدائية \(\chi^*\pmod d\)، فإن
+الفرق مدعوم على القوى الأولية المحذوفة، ولذلك
+\[
+|\psi'(Y,\chi)-\psi'(Y,\chi^*)|
+\ll(\log(2qY))^2.
+\tag{13.13}
+\]
+
+نحتاج أيضًا إلى اللمّة الأولية
+\[
+\sum_{m\le X}\frac1{\varphi(m)}\ll\log(2X).
+\tag{13.14}
+\]
+فهي تنتج من الهوية
+\[
+\frac n{\varphi(n)}
+=
+\sum_{r\mid n}\frac{\mu^2(r)}{\varphi(r)}
+\]
+وتقارب
+\[
+\sum_{r\ge1}\frac{\mu^2(r)}{r\varphi(r)}.
+\]
+وبما أن \(\varphi(dm)\ge\varphi(d)\varphi(m)\)، نحصل على
+\[
+\sum_{\substack{q\le Q\\d\mid q}}
+\frac1{\varphi(q)}
+\ll
+\frac1{\varphi(d)}\log\frac{2Q}{d}.
+\tag{13.15}
+\]
+
+من \((13.12)\)--\((13.15)\):
+\begin{align*}
+\sum_{q\le Q}E^*(x,q)
+&\ll
+Q(\log(2Qx))^2\\
+&\quad+
+\sum_{d\le Q}
+\frac{\log(2Q/d)}{\varphi(d)}
+\sum_{\chi\bmod d}^{*}
+\sup_{Y\le x}|\psi'(Y,\chi)|.
+\tag{13.16}
+\end{align*}
+
+\section{مبرهنة بومبييري--فينوغرادوف}
+
+\begin{theorem}[بومبييري--فينوغرادوف]
+\label{thm:chapter13-bombieri-vinogradov}
+\resultid{ANT-THM-13-03}
+\provedhere
+لكل \(A>0\)، وبانتظام عندما
+\[
+Q\le\frac{x^{1/2}}{(\log x)^{A+3}},
+\]
+لدينا
+\[
+\sum_{q\le Q}
+\max_{(a,q)=1}
+\sup_{2\le Y\le x}
+\left|
+\psi(Y;q,a)-\frac{Y}{\varphi(q)}
+\right|
+\ll_A
+\frac{x}{(\log x)^A}.
+\tag{13.17}
+\]
+الثابت الضمني غير فعال في المسار المعتمد.
+\end{theorem}
+
+\begin{proof}
+نضع
+\[
+L=\log x,
+\qquad
+D=L^{A+4}.
+\]
+نفصل مجموع \((13.16)\) عند \(d=D\).
+
+\paragraph{الموصلات الصغيرة.}
+إذا \(d\le D\)، فإن مبرهنة سيغل--فالفش من الفصل الثاني عشر، مع أس
+كبير بما يكفي، تعطي لكل شخصية بدائية غير رئيسية
+\[
+\sup_{Y\le x}|\psi(Y,\chi)|
+\ll_A xe^{-c_A\sqrt L}.
+\tag{13.18}
+\]
+وللشخصية ذات الموصل \(1\)، تعطي مبرهنة الأعداد الأولية الفعالة التقدير
+نفسه لـ\(|\psi(Y)-Y|\). لتوحيد القيمة العظمى، نطبق سيغل--فالفش عندما
+\(Y\ge e^{\sqrt L}\)، ونعالج \(Y<e^{\sqrt L}\) تافهًا. لذلك تكون مساهمة
+\(d\le D\)
+\[
+\ll_A D\log(2Q)xe^{-c_A\sqrt L}
+\ll_A xL^{-A}.
+\tag{13.19}
+\]
+هذا هو موضع عدم الفعالية.
+
+\paragraph{الموصلات الكبيرة.}
+نقسم \(D<d\le Q\) إلى كتل ديادية \(U<d\le2U\). في هذه الكتل تكون
+الشخصيات البدائية غير رئيسية، ومن
+\[
+\frac1{\varphi(d)}
+\le
+\frac1U\frac d{\varphi(d)}
+\]
+ومبرهنة القيمة المتوسطة نحصل على
+\begin{align*}
+&\sum_{U<d\le2U}
+\frac{\log(2Q/d)}{\varphi(d)}
+\sum_{\chi\bmod d}^{*}
+\sup_{Y\le x}|\psi(Y,\chi)|\\
+&\qquad\ll
+\left(
+\frac xU+x^{5/6}+x^{1/2}U
+\right)L^3\log(4Q/U).
+\end{align*}
+بعد جمع الكتل تكون المساهمة
+\[
+\ll
+xD^{-1}L^4+x^{5/6}L^5+x^{1/2}QL^3.
+\tag{13.20}
+\]
+
+نأخذ
+\[
+Q_0=x^{1/2}L^{-(A+3)}.
+\]
+عندئذ
+\[
+xD^{-1}L^4=xL^{-A},
+\qquad
+x^{1/2}Q_0L^3=xL^{-A},
+\]
+كما أن \(x^{5/6}L^5\ll_A xL^{-A}\). ويمتص الخطأ المحلي الأول في
+\((13.16)\) أيضًا. فتنتج \((13.17)\) عند \(Q_0\)، ثم تمتد إلى كل
+\(Q\le Q_0\) برتابة الطرف الأيسر.
+\end{proof}
+
+\section{نتائج تابعة}
+
+\begin{corollary}[النسخة الموافقة لـ\(\vartheta\)]
+\label{cor:chapter13-theta}
+\resultid{ANT-COR-13-01}
+\provedhere
+لكل \(A>0\)، إذا
+\[
+Q\le\frac{x^{1/2}}{(\log x)^{A+3}},
+\]
+فإن
+\[
+\sum_{q\le Q}
+\max_{(a,q)=1}
+\sup_{2\le Y\le x}
+\left|
+\vartheta(Y;q,a)-\frac{Y}{\varphi(q)}
+\right|
+\ll_A\frac{x}{(\log x)^A}.
+\tag{13.21}
+\]
+\end{corollary}
+
+\begin{proof}
+من ضبط القوى الأولية العليا في الفصل التاسع:
+\[
+|\psi(Y;q,a)-\vartheta(Y;q,a)|
+\le\psi(Y)-\vartheta(Y)
+\ll Y^{1/2}\log(2Y).
+\]
+وبجمع هذا الخطأ على \(q\le Q\)، نحصل على
+\[
+Qx^{1/2}\log(2x)
+\le x(\log x)^{-(A+2)},
+\]
+فيمتص في \((13.17)\).
+\end{proof}
+
+\begin{corollary}[النسخة الموافقة لـ\(\pi\)]
+\label{cor:chapter13-pi}
+\resultid{ANT-COR-13-02}
+\provedhere
+لكل \(A>0\)، إذا
+\[
+Q\le\frac{x^{1/2}}{(\log x)^{A+4}},
+\]
+فإن
+\[
+\sum_{q\le Q}
+\max_{(a,q)=1}
+\sup_{2\le Y\le x}
+\left|
+\pi(Y;q,a)-\frac{\operatorname{Li}(Y)}{\varphi(q)}
+\right|
+\ll_A\frac{x}{(\log x)^A}.
+\tag{13.22}
+\]
+\end{corollary}
+
+\begin{proof}
+بالتجميع الجزئي:
+\[
+\pi(Y;q,a)
+=
+\frac{\vartheta(Y;q,a)}{\log Y}
++
+\int_2^Y
+\frac{\vartheta(t;q,a)}{t(\log t)^2}\,dt.
+\]
+بعد طرح \(\operatorname{Li}(Y)/\varphi(q)\)، يضبط الخطأ بأكبر خطأ في
+\(\vartheta\) مضافًا إليه حد مطلق. نطبق النتيجة السابقة بأس الادخار
+\(A+1\)، ولذلك يصبح مجال الترديد \(A+4\). أما مجموع الحدود المطلقة على
+\(q\le Q\) فيمتص في الطرف المطلوب.
+\end{proof}
+
+\begin{corollary}[تقريبًا كل الترديدات]
+\label{cor:chapter13-almost-all-moduli}
+\resultid{ANT-COR-13-03}
+\provedhere
+لتكن \(B,C>0\)، وافترض
+\[
+Q\le\frac{x^{1/2}}{(\log x)^{B+C+3}}.
+\]
+عندئذ، جميع الترديدات \(q\le Q\) عدا
+\[
+O_{B,C}\left(\frac{Q}{(\log x)^C}\right)
+\]
+منها تحقق
+\[
+E^*(x,q)
+\le
+\frac{x}{Q(\log x)^B}.
+\tag{13.23}
+\]
+\end{corollary}
+
+\begin{proof}
+نسمي \(q\) سيئًا إذا خالف \((13.23)\)، وليكن عدد الترديدات السيئة \(R\).
+بتطبيق مبرهنة بومبييري--فينوغرادوف بالأس \(B+C\):
+\[
+R\frac{x}{Q(\log x)^B}
+\le
+\sum_{q\le Q}E^*(x,q)
+\ll_{B,C}
+\frac{x}{(\log x)^{B+C}}.
+\]
+ومن ثم \(R\ll Q(\log x)^{-C}\).
+\end{proof}
+
+\section{مقارنة النتائج الثلاث}
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+النتيجة & نوع الانتظام & مجال الترديد \\
+\hline
+الفصل العاشر & فردي، \(q\) ثابت & ثابت \\
+\hline
+سيغل--فالفش & فردي موحد & \(q\le(\log x)^A\) \\
+\hline
+بومبييري--فينوغرادوف & متوسط على \(q\) & \(q\le x^{1/2}(\log x)^{-A-3}\) \\
+\hline
+إليوت--هالبرستام & متوسط تخميني & \(q\le x^{1-\varepsilon}\) \\
+\hline
+\end{tabular}
+\end{center}
+
+مستوى \(1/2\) ليس حدًا منطقيًا مطلقًا لكل مسألة؛ توجد نتائج تتجاوزه بأوزان
+خاصة أو بقيود بنيوية على الترديدات. لكن هذه النتائج لا تثبت فرضية
+إليوت--هالبرستام العامة، ولذلك تبقى خارج النواة البرهانية لهذا الفصل.
+
+\section{مثال تفسيري}
+
+إذا أخذنا \(A=2\)، تسمح المبرهنة بالترديدات حتى
+\[
+Q\le\frac{x^{1/2}}{(\log x)^5},
+\]
+وتعطي
+\[
+\sum_{q\le Q}E^*(x,q)
+\ll\frac{x}{(\log x)^2}.
+\]
+لا نستنتج من ذلك أن كل \(E^*(x,q)\) أصغر من
+\(x/(Q(\log x)^2)\). لكن نتيجة تقريبًا كل الترديدات تبين أن عدد الترديدات
+ذات الخطأ الأكبر من عتبة مختارة صغير نسبيًا، بعد تخصيص ادخار لوغاريتمي
+إضافي.
+
+\section{حدود الادعاء}
+
+\begin{itemize}
+  \item حزمة الغربال الكبير \((13.1)\)--\((13.2)\) مقتبسة، لا مثبتة من
+  الصفر في هذا الفصل.
+  \item هوية فوغان وPólya--Vinogradov وتقديرا Type I وType II ومبرهنة
+  القيمة المتوسطة مثبتة داخل الفصل اعتمادًا على الحزمة المقتبسة.
+  \item الثوابت النهائية غير فعالة بسبب استعمال سيغل--فالفش للموصلات
+  الصغيرة.
+  \item لا يثبت الفصل Elliott--Halberstam أو Barban--Davenport--Halberstam.
+  \item لا يعالج الفصل الفترات القصيرة أو تطبيقات الفجوات المحدودة أو
+  غولدباخ؛ هذه موضوعات لاحقة.
+  \item لا تعني حالة \textenglish{DRAFT} أن الفصل اجتاز التحقق المرجعي
+  للمتن أو تدقيق ما بعد التأليف أو المراجعة المستقلة.
+\end{itemize}
+
+\section{أسئلة تفسير وتمارين}
+
+\begin{enumerate}
+  \item اشرح لماذا لا تناقض مبرهنة بومبييري--فينوغرادوف احتمال وجود ترديد
+  مفرد ذي خطأ كبير نسبيًا.
+  \item تحقق مباشرة من هوية فوغان عند \(n=p\)، وعند \(n=p^2\)، لعدة علاقات
+  بين \(p,U,V\).
+  \item أثبت الهوية
+  \[
+  \frac n{\varphi(n)}
+  =
+  \sum_{d\mid n}\frac{\mu^2(d)}{\varphi(d)}.
+  \]
+  \item أكمل تفاصيل الجمع الجزئي في تقدير \(S_3\).
+  \item تحقق من كل متراجحات اختيار \(U,V\) في المجال
+  \(x^{1/3}\le Q\le x^{1/2}\).
+  \item بيّن أن
+  \[
+  \sum_{n\le x}\Lambda(n)^2\ll x\log x
+  \]
+  باستعمال حد تشيبيشيف.
+  \item استخرج من \((13.17)\) عبارة ``تقريبًا كل الترديدات'' بعتبة مختلفة
+  عن \((13.23)\).
+  \item اشرح بدقة لماذا يؤدي استعمال سيغل--فالفش في الموصلات الصغيرة إلى
+  عدم فعالية الثابت النهائي.
+  \item قارن منطقيًا بين مبرهنة بومبييري--فينوغرادوف وفرضية
+  إليوت--هالبرستام، من دون الخلط بين نتيجة موزونة تتجاوز \(1/2\) والفرضية
+  العامة.
+\end{enumerate}
+
+\section{خلاصة الفصل}
+
+بدأ الفصل من غربال كبير مقتبس للشخصيات البدائية، وأثبت داخليًا هوية فوغان
+ومتراجحة بوليا--فينوغرادوف، ثم ضبط مجاميع النمطين الأول والثاني، فحصل على
+مبرهنة قيمة متوسطة لمجاميع فون مانغولت الملتوية. بعد رد الشخصيات المستحثة
+إلى موصلاتها وفصل الشخصية الرئيسية والموصلات الصغيرة، نتجت مبرهنة
+بومبييري--فينوغرادوف عند مستوى توزيع \(1/2\) حتى خسارة لوغاريتمية. وأخيرًا
+انتقل البرهان إلى \(\vartheta\) و\(\pi\) واستخرج نتيجة تقريبًا كل
+الترديدات، مع بقاء عدم الفعالية وحدود النطاق معلنة بوضوح.
