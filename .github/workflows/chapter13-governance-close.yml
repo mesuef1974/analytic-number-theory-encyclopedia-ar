@@ -1,5 +1,6 @@
 name: Close Chapter 13 governance
 
+# One-shot governance closure trigger.
 on:
   push:
     branches:
