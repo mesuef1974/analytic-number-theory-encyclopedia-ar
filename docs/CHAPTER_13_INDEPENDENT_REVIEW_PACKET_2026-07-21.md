@@ -10,7 +10,8 @@ CHAPTER-STATE             = VERIFIED
 RESULTS                   = 11
 QUALITY-CHECKS            = RUN-357 / SUCCESS
 PDF-BUILD                 = RUN-351 / SUCCESS
-INDEPENDENT-REVIEW        = REQUESTED / ISSUE #23 / OPEN
+REFERENCE-CORRECTIONS     = 3 / CLOSED
+INDEPENDENT-REVIEW        = IN PROGRESS / ISSUE #23 / OPEN
 MERGE                     = NOT AUTHORIZED
 RELEASE-READY             = NO
 ```
@@ -165,7 +166,8 @@ Q\le \frac{x^{1/2}}{(\log x)^{A+3}},
 
 التحقق المرجعي التفصيلي:
 
-`docs/CHAPTER_13_REFERENCE_VERIFICATION_2026-07-21.md`
+- `docs/CHAPTER_13_REFERENCE_VERIFICATION_2026-07-21.md`
+- `docs/CHAPTER_13_REFERENCE_CORRECTIONS_2026-07-21.md`
 
 المصادر الأساسية:
 
@@ -175,13 +177,14 @@ Q\le \frac{x^{1/2}}{(\log x)^{A+3}},
 - Vaughan (1975), *Mean Value Theorems in Prime Number Theory*.
 - Montgomery--Vaughan (2026), *Multiplicative Number Theory II*.
 
-المواضع التقنية المعتمدة في Montgomery--Vaughan II:
+المواضع التقنية المصححة والمعتمدة في Montgomery--Vaughan II:
 
 - هوية Vaughan: الصيغة (17.5)، ص. 55--56.
-- الغربال الكبير: المبرهنة 19.16، ص. 175.
-- المدخل الثنائي العظمى: المبرهنة 19.19، الصيغة (19.34)، ص. 181.
+- الغربال الكبير: المبرهنة 19.16، ص. 174.
+- الأداة العظمى السابقة: الصيغة (19.34)، ص. 180.
+- المدخل الثنائي الأعظمي: المبرهنة 19.19، الصيغة (19.35)، ص. 181.
 - القيمة المتوسطة: المبرهنة 20.1، ص. 189.
-- Bombieri--Vinogradov: المبرهنة 20.2، ص. 195، والرد ص. 196--197.
+- Bombieri--Vinogradov: المبرهنة 20.2، ص. 194، والبرهان ورد الموصلات ص. 195--197.
 
 ## 8. الملفات الداعمة
 
