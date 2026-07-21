@@ -13,7 +13,7 @@
 - **التدقيق المنطقي:** `PASS`
 - **التحقق المرجعي:** `PASS`
 - **عدد النتائج:** `11`
-- **حالة المراجعة المستقلة:** `NOT YET STARTED`
+- **حالة المراجعة المستقلة:** `REQUESTED / ISSUE #23 / OPEN`
 - **آخر تحديث:** 2026-07-21
 
 ```text
@@ -33,7 +33,7 @@ TYPE-II                   = PROVED-HERE
 BOMBIERI-VINOGRADOV       = PROVED-HERE / INEFFECTIVE-CONSTANT
 QUALITY-CHECKS            = RUN-340 / SUCCESS
 PDF-BUILD                 = RUN-334 / SUCCESS
-INDEPENDENT-REVIEW        = NOT YET STARTED
+INDEPENDENT-REVIEW        = REQUESTED / ISSUE #23 / OPEN
 PR-22                     = DRAFT / UNMERGED
 MERGE                     = NOT AUTHORIZED
 RELEASE-READY             = NO
@@ -137,7 +137,7 @@ Q\le \frac{x^{1/2}}{(\log x)^{A+3}},
 
 ## الخطوة التالية
 
-1. إعداد حزمة المراجعة المستقلة للفصل الثالث عشر.
-2. تجميد الرأس المرشح للمراجعة بعد نجاح CI النهائي.
-3. فتح Issue للمراجعة الثانية المستقلة.
-4. إبقاء PR #22 غير مدمج حتى حكم المراجعة وأمر المالك الصريح.
+1. حزمة المراجعة المستقلة مكتملة.
+2. الرأس `af0457207e73178831c815be9aa3f5c1cae10d34` مجمد للمراجعة.
+3. Issue #23 مفتوحة للمراجعة الثانية المستقلة.
+4. إبقاء PR #22 غير مدمج حتى الحكم وأمر المالك الصريح.

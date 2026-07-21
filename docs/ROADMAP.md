@@ -135,7 +135,8 @@ RELEASE-READY       = NO
 - [x] اجتياز التدقيق المنطقي والتحقق المرجعي وتدقيق ما بعد التأليف.
 - [x] نجاح `Quality checks` #340 وبناء PDF #334.
 - [x] رفع الفصل إلى `VERIFIED`.
-- [ ] إعداد حزمة المراجعة المستقلة وتجميد رأس مرشح.
+- [x] إعداد حزمة المراجعة المستقلة وتجميد الرأس `af0457207e73178831c815be9aa3f5c1cae10d34`.
+- [x] فتح Issue #23 للمراجعة الثانية المستقلة.
 - [ ] استلام حكم مستقل ورفع الفصل إلى `REVIEWED` إذا استوفى الشروط.
 - [ ] الدمج بأمر صريح من مالك المشروع فقط.
 
@@ -146,7 +147,7 @@ LARGE-SIEVE            = CITED / COMPOSITE-INPUT
 BOMBIERI-VINOGRADOV    = PROVED-HERE / INEFFECTIVE-CONSTANT
 QUALITY-CHECKS         = RUN-340 / SUCCESS
 PDF-BUILD              = RUN-334 / SUCCESS
-INDEPENDENT-REVIEW     = NOT YET STARTED
+INDEPENDENT-REVIEW     = REQUESTED / ISSUE #23 / OPEN
 MERGE                  = NOT AUTHORIZED
 RELEASE-READY          = NO
 ```
