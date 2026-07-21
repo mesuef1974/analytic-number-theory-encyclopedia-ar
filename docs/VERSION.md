@@ -1,7 +1,7 @@
 # الإصدار الحالي
 
 ```text
-0.17.0-dev
+0.18.0-dev
 ```
 
 هذا الملف هو **المصدر الوحيد المعتمد لرقم الإصدار**. تُحدَّث النسخ المكررة في بقية الملفات بواسطة:
@@ -19,47 +19,52 @@
 
 ## المرحلة الحالية
 
-تستهدف `0.17.0-dev` الفصل الثالث عشر:
+تستهدف `0.18.0-dev` الفصل الرابع عشر:
 
-**مبرهنة Bombieri--Vinogradov والتوزيع المتوسطي للأعداد الأولية في المتتاليات الحسابية.**
+**مبرهنة Barban--Davenport--Halberstam ومتوسط مربعات أخطاء توزيع الأعداد الأولية في المتتاليات الحسابية.**
 
 ```text
-BASE-MAIN              = 607c6f8ad76f8085828f49ce6b566c846950ab2a
-BRANCH                 = agent/chapter-13-bombieri-vinogradov-v0.17.0
-CHAPTER-13             = REVIEWED / MERGED
-PRE-AUTHORING-GATE     = CLOSED / PASS
-POST-AUTHORING-AUDIT   = PASS
-LOGIC-AUDIT            = PASS
-REFERENCE-VERIFICATION = PASS
-RESULTS                = 11
-QUALITY-CHECKS         = RUN-372 / SUCCESS
-PDF-BUILD              = RUN-366 / SUCCESS
-INDEPENDENT-REVIEW     = COMPLETED / APPROVED-WITH-NONBLOCKING-CORRECTIONS
-PROMOTION              = OWNER-AUTHORIZED / EXECUTED
-PR-22                  = MERGED
-MERGE-COMMIT            = 2e28e51bd8334cd748d59f1e8cc9998975058a8c
+BASE-MAIN              = d2588c893d8d07be1e961813628e1bb210e0eece
+BRANCH                 = agent/chapter-14-barban-davenport-halberstam-v0.18.0
+CHAPTER-14             = RESEARCH-INTAKE
+ISSUE                  = #25 / OPEN
+PRE-AUTHORING-GATE     = OPEN
+AUTHORING              = BLOCKED
+RESULTS                = 0 / NOT RESERVED
+REFERENCE-VERIFICATION = NOT STARTED
+PROOF-MAP              = NOT STARTED
+QUALITY-CHECKS         = PENDING
+PDF-BUILD              = NOT APPLICABLE / NO MANUSCRIPT DELTA
 RELEASE-READY          = NO
 ```
 
-## النتيجة المركزية
+## الكمية المرشحة
 
-لكل `A>0`، إذا
+تبدأ المرحلة بدراسة التباين
 
 ```text
-Q <= x^(1/2) / (log x)^(A+3),
+V(x,Q) = sum_{q<=Q} sum_{a mod q, (a,q)=1}
+         |psi(x;q,a) - x/phi(q)|^2.
 ```
 
-فإن متوسط أكبر خطأ في `psi(y;q,a)` على `q<=Q` والفئات المختزلة و`y<=x` هو من رتبة `x/(log x)^A`.
+هذه صيغة عمل أولية فقط. يجب تثبيت التطبيع ومجال `Q` والتمييز بين الحد العلوي والصيغة التقاربية ذات الحد الرئيسي قبل إنشاء متن الفصل أو حجز نتائج.
 
-الثابت العام غير فعال بسبب استعمال Siegel--Walfisz للموصلات الصغيرة. لا يدعي الفصل Elliott--Halberstam أو مستوى توزيع عامًا أكبر من `1/2`.
+## بوابة ما قبل التأليف
+
+لا يبدأ التأليف قبل:
+
+1. التحقق من المصادر الأصلية لـBarban وDavenport وHalberstam.
+2. تثبيت النطاق الدقيق للمتغيرين `x` و`Q`.
+3. تحديد ما سيُقتبس وما سيُثبت داخليًا.
+4. إعداد خريطة برهان وتدقيق الثوابت والفعالية.
+5. إصدار حكم صريح `PASS-FOR-AUTHORING`.
 
 ## المرحلة السابقة
 
 ```text
-CHAPTER-12          = REVIEWED / MERGED
-PR-20               = MERGED
-GOVERNANCE-PR-21    = MERGED
-GOVERNANCE-MERGE    = 607c6f8ad76f8085828f49ce6b566c846950ab2a
-LOCAL-SOURCE-BUILD  = PASS / 184 PAGES
+CHAPTER-13          = REVIEWED / MERGED
+PR-22               = MERGED
+MERGE-COMMIT        = 2e28e51bd8334cd748d59f1e8cc9998975058a8c
+GOVERNANCE-COMMIT   = d2588c893d8d07be1e961813628e1bb210e0eece
 RELEASE-READY       = NO
 ```
