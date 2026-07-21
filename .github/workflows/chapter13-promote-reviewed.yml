@@ -1,0 +1,304 @@
+name: Promote Chapter 13 to REVIEWED
+
+on:
+  push:
+    branches:
+      - agent/chapter-13-bombieri-vinogradov-v0.17.0
+    paths:
+      - .github/workflows/chapter13-promote-reviewed.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: chapter13-reviewed-promotion
+  cancel-in-progress: false
+
+jobs:
+  promote:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out working branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/chapter-13-bombieri-vinogradov-v0.17.0
+          fetch-depth: 0
+
+      - name: Synchronize latest branch head
+        run: |
+          git pull --ff-only origin agent/chapter-13-bombieri-vinogradov-v0.17.0
+
+      - name: Apply owner-authorized REVIEWED promotion
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          BASE_HEAD = "805172b06e399c7da13e1bc9c5c5104d61b40518"
+
+          def read(path: str) -> str:
+              return Path(path).read_text(encoding="utf-8")
+
+          def write(path: str, text: str) -> None:
+              Path(path).write_text(text, encoding="utf-8")
+
+          def replace_once(path: str, old: str, new: str, *, required: bool = True) -> None:
+              text = read(path)
+              if old in text:
+                  text = text.replace(old, new, 1)
+                  write(path, text)
+                  return
+              if new in text:
+                  return
+              if required:
+                  raise SystemExit(f"{path}: expected marker missing: {old!r}")
+
+          def insert_after_once(path: str, marker: str, insertion: str, unique_token: str) -> None:
+              text = read(path)
+              if unique_token in text:
+                  return
+              if text.count(marker) != 1:
+                  raise SystemExit(f"{path}: insertion marker is not unique: {marker!r}")
+              text = text.replace(marker, marker + insertion, 1)
+              write(path, text)
+
+          # Scientific manuscript state: metadata only; no mathematical formula changes.
+          replace_once(
+              "volumes/volume-01-foundations/chapters/chapter-13-bombieri-vinogradov.tex",
+              r"\noindent\textbf{حالة الفصل:} \textenglish{VERIFIED}. أُنشئ هذا المتن بعد",
+              r"\noindent\textbf{حالة الفصل:} \textenglish{REVIEWED}. أُنشئ هذا المتن بعد",
+          )
+
+          # README.
+          insert_after_once(
+              "README.md",
+              "- [التحقق المرجعي بعد التأليف](docs/CHAPTER_13_POST_AUTHORING_REFERENCE_AUDIT_2026-07-21.md)\n",
+              "- [المراجعة المستقلة للفصل الثالث عشر](docs/CHAPTER_13_INDEPENDENT_REVIEW_2026-07-21.md)\n"
+              "- [تصحيحات الإحالات المرجعية للفصل الثالث عشر](docs/CHAPTER_13_REFERENCE_CORRECTIONS_2026-07-21.md)\n"
+              "- [إيصال ترقية الفصل الثالث عشر إلى REVIEWED](docs/CHAPTER_13_REVIEWED_PROMOTION_2026-07-21.md)\n",
+              "CHAPTER_13_REVIEWED_PROMOTION_2026-07-21.md",
+          )
+          for old, new in [
+              ("CHAPTER-13                = VERIFIED", "CHAPTER-13                = REVIEWED"),
+              ("QUALITY-CHECKS            = RUN-340 / SUCCESS", "QUALITY-CHECKS            = RUN-372 / SUCCESS"),
+              ("PDF-BUILD                 = RUN-334 / SUCCESS", "PDF-BUILD                 = RUN-366 / SUCCESS"),
+              ("INDEPENDENT-REVIEW        = REQUESTED / ISSUE #23 / OPEN", "INDEPENDENT-REVIEW        = COMPLETED / APPROVED-WITH-NONBLOCKING-CORRECTIONS"),
+              ("- الفصول من السابع إلى الثاني عشر بحالة `REVIEWED`.", "- الفصول من السابع إلى الثالث عشر بحالة `REVIEWED`."),
+              ("- الفصل الثالث عشر بحالة `VERIFIED`، وتبقى المراجعة المستقلة مطلوبة قبل `REVIEWED`.", "- الفصل الثالث عشر بحالة `REVIEWED` بعد مراجعة مستقلة مكتملة؛ ويبقى PR #22 غير مدمج."),
+          ]:
+              replace_once("README.md", old, new)
+          insert_after_once(
+              "README.md",
+              "INDEPENDENT-REVIEW        = COMPLETED / APPROVED-WITH-NONBLOCKING-CORRECTIONS\n",
+              "PROMOTION                 = OWNER-AUTHORIZED / EXECUTED\n",
+              "PROMOTION                 = OWNER-AUTHORIZED / EXECUTED",
+          )
+
+          # Version snapshot.
+          for old, new in [
+              ("CHAPTER-13             = VERIFIED", "CHAPTER-13             = REVIEWED"),
+              ("QUALITY-CHECKS         = RUN-340 / SUCCESS", "QUALITY-CHECKS         = RUN-372 / SUCCESS"),
+              ("PDF-BUILD              = RUN-334 / SUCCESS", "PDF-BUILD              = RUN-366 / SUCCESS"),
+              ("INDEPENDENT-REVIEW     = REQUESTED / ISSUE #23 / OPEN", "INDEPENDENT-REVIEW     = COMPLETED / APPROVED-WITH-NONBLOCKING-CORRECTIONS"),
+          ]:
+              replace_once("docs/VERSION.md", old, new)
+          insert_after_once(
+              "docs/VERSION.md",
+              "INDEPENDENT-REVIEW     = COMPLETED / APPROVED-WITH-NONBLOCKING-CORRECTIONS\n",
+              "PROMOTION              = OWNER-AUTHORIZED / EXECUTED\n",
+              "PROMOTION              = OWNER-AUTHORIZED / EXECUTED",
+          )
+
+          # Progress ledger.
+          for old, new in [
+              ("- **حالة الفصل:** `VERIFIED`", "- **حالة الفصل:** `REVIEWED`"),
+              ("- **حالة المراجعة المستقلة:** `REQUESTED / ISSUE #23 / OPEN`", "- **حالة المراجعة المستقلة:** `COMPLETED / APPROVED-WITH-NONBLOCKING-CORRECTIONS`"),
+              ("CHAPTER-13                = VERIFIED", "CHAPTER-13                = REVIEWED"),
+              ("QUALITY-CHECKS            = RUN-340 / SUCCESS", "QUALITY-CHECKS            = RUN-372 / SUCCESS"),
+              ("PDF-BUILD                 = RUN-334 / SUCCESS", "PDF-BUILD                 = RUN-366 / SUCCESS"),
+              ("INDEPENDENT-REVIEW        = REQUESTED / ISSUE #23 / OPEN", "INDEPENDENT-REVIEW        = COMPLETED / APPROVED-WITH-NONBLOCKING-CORRECTIONS"),
+              ("| الفصل الثالث عشر: Bombieri--Vinogradov | `VERIFIED` | 90% |", "| الفصل الثالث عشر: Bombieri--Vinogradov | `REVIEWED` | 95% |"),
+              ("| 13 | `VERIFIED` | مراجعة ثانية مستقلة قبل `REVIEWED` |", "| 13 | `REVIEWED` | دمج PR #22 وديون الإصدار قبل `RELEASE-READY` |"),
+              (
+                  "1. حزمة المراجعة المستقلة مكتملة.\n2. الرأس `d2495dba9cb5cc17a74c6bbb0ac55a914313d3f9` مجمد للمراجعة.\n3. Issue #23 مفتوحة للمراجعة الثانية المستقلة.\n4. إبقاء PR #22 غير مدمج حتى الحكم وأمر المالك الصريح.",
+                  "1. اكتملت المراجعة المستقلة بحكم `APPROVED-WITH-NONBLOCKING-CORRECTIONS`.\n2. اعتمد مالك المشروع ترقية الفصل الثالث عشر إلى `REVIEWED`.\n3. أُغلقت بوابة Issue #23 بعد تنفيذ قرار الترقية.\n4. يبقى PR #22 مسودة وغير مدمج حتى إذن دمج مستقل وصريح.",
+              ),
+          ]:
+              replace_once("docs/PROGRESS.md", old, new)
+          insert_after_once(
+              "docs/PROGRESS.md",
+              "INDEPENDENT-REVIEW        = COMPLETED / APPROVED-WITH-NONBLOCKING-CORRECTIONS\n",
+              "PROMOTION                 = OWNER-AUTHORIZED / EXECUTED\n",
+              "PROMOTION                 = OWNER-AUTHORIZED / EXECUTED",
+          )
+          insert_after_once(
+              "docs/PROGRESS.md",
+              "- رُفع الفصل إلى `VERIFIED`.\n",
+              "- اكتملت المراجعة المستقلة بحكم `APPROVED-WITH-NONBLOCKING-CORRECTIONS` بصفر عوائق.\n"
+              "- اعتمد مالك المشروع ترقية الفصل إلى `REVIEWED` دون دمج PR #22.\n",
+              "اعتمد مالك المشروع ترقية الفصل إلى `REVIEWED` دون دمج PR #22",
+          )
+
+          # Roadmap.
+          replace_once(
+              "docs/ROADMAP.md",
+              "- [ ] استلام حكم مستقل ورفع الفصل إلى `REVIEWED` إذا استوفى الشروط.",
+              "- [x] استلام الحكم المستقل `APPROVED-WITH-NONBLOCKING-CORRECTIONS`.\n- [x] رفع الفصل إلى `REVIEWED` بقرار صريح من مالك المشروع.",
+          )
+          for old, new in [
+              ("CHAPTER-13             = VERIFIED", "CHAPTER-13             = REVIEWED"),
+              ("QUALITY-CHECKS         = RUN-340 / SUCCESS", "QUALITY-CHECKS         = RUN-372 / SUCCESS"),
+              ("PDF-BUILD              = RUN-334 / SUCCESS", "PDF-BUILD              = RUN-366 / SUCCESS"),
+              ("INDEPENDENT-REVIEW     = REQUESTED / ISSUE #23 / OPEN", "INDEPENDENT-REVIEW     = COMPLETED / APPROVED-WITH-NONBLOCKING-CORRECTIONS"),
+          ]:
+              replace_once("docs/ROADMAP.md", old, new)
+          insert_after_once(
+              "docs/ROADMAP.md",
+              "INDEPENDENT-REVIEW     = COMPLETED / APPROVED-WITH-NONBLOCKING-CORRECTIONS\n",
+              "PROMOTION              = OWNER-AUTHORIZED / EXECUTED\n",
+              "PROMOTION              = OWNER-AUTHORIZED / EXECUTED",
+          )
+
+          # TODO.
+          for old, new in [
+              ("- [ ] استلام تقرير مستقل مكتوب.", "- [x] استلام تقرير مستقل مكتوب بحكم `APPROVED-WITH-NONBLOCKING-CORRECTIONS`."),
+              ("- [ ] تطبيق أي تصحيح حاجز وإعادة الفحوص.", "- [x] إغلاق التصحيحات المرجعية الثلاثة وإعادة الفحوص النهائية؛ لا توجد تصحيحات حاجزة."),
+              ("- [ ] رفع الفصل إلى `REVIEWED` إذا استوفى الحكم.", "- [x] رفع الفصل إلى `REVIEWED` بقرار صريح من مالك المشروع."),
+              ("CHAPTER-13          = VERIFIED", "CHAPTER-13          = REVIEWED"),
+              ("REVIEW              = REQUESTED / ISSUE #23 / OPEN", "REVIEW              = COMPLETED / APPROVED-WITH-NONBLOCKING-CORRECTIONS"),
+          ]:
+              replace_once("docs/TODO.md", old, new)
+          insert_after_once(
+              "docs/TODO.md",
+              "REVIEW              = COMPLETED / APPROVED-WITH-NONBLOCKING-CORRECTIONS\n",
+              "PROMOTION           = OWNER-AUTHORIZED / EXECUTED\n",
+              "PROMOTION           = OWNER-AUTHORIZED / EXECUTED",
+          )
+
+          # Chapter-scoped results registry.
+          for old, new in [
+              ("CHAPTER-STATE = VERIFIED", "CHAPTER-STATE = REVIEWED"),
+              ("REVIEWED      = NO", "REVIEWED      = YES"),
+              ("QUALITY-CHECKS            = RUN-340 / SUCCESS", "QUALITY-CHECKS            = RUN-372 / SUCCESS"),
+              ("PDF-BUILD                 = RUN-334 / SUCCESS", "PDF-BUILD                 = RUN-366 / SUCCESS"),
+              ("INDEPENDENT-REVIEW        = NOT YET STARTED", "INDEPENDENT-REVIEW        = COMPLETED / APPROVED-WITH-NONBLOCKING-CORRECTIONS"),
+          ]:
+              replace_once("docs/RESULTS_REGISTRY_CHAPTER_13.md", old, new)
+
+          # Independent review report and packet.
+          insert_after_once(
+              "docs/CHAPTER_13_INDEPENDENT_REVIEW_2026-07-21.md",
+              "TOPIC                      = BOMBIERI--VINOGRADOV\n",
+              "CHAPTER-STATE              = REVIEWED\n",
+              "CHAPTER-STATE              = REVIEWED",
+          )
+          replace_once(
+              "docs/CHAPTER_13_INDEPENDENT_REVIEW_2026-07-21.md",
+              "PROMOTE-TO-REVIEWED        = RECOMMENDED / OWNER ACTION REQUIRED",
+              "PROMOTE-TO-REVIEWED        = OWNER-AUTHORIZED / EXECUTED",
+          )
+          report = Path("docs/CHAPTER_13_INDEPENDENT_REVIEW_2026-07-21.md")
+          text = report.read_text(encoding="utf-8")
+          if "## قرار مالك المشروع" not in text:
+              text += (
+                  "\n## قرار مالك المشروع\n\n"
+                  "بتاريخ 2026-07-21 صدر إذن صريح بترقية الفصل الثالث عشر من "
+                  "`VERIFIED` إلى `REVIEWED` دون دمج PR #22. نُفذت الترقية، "
+                  "وبقي الدمج بوابة مستقلة غير مأذون بها.\n\n"
+                  "```text\n"
+                  "OWNER-AUTHORIZATION = EXPLICIT\n"
+                  "CHAPTER-13          = REVIEWED\n"
+                  "PR-22              = DRAFT / UNMERGED\n"
+                  "MERGE              = NOT AUTHORIZED / NOT PERFORMED\n"
+                  "RELEASE-READY      = NO\n"
+                  "```\n"
+              )
+              report.write_text(text, encoding="utf-8")
+
+          for old, new in [
+              ("CHAPTER-STATE             = VERIFIED", "CHAPTER-STATE             = REVIEWED"),
+              ("PROMOTE-TO-REVIEWED       = RECOMMENDED / OWNER ACTION REQUIRED", "PROMOTE-TO-REVIEWED       = OWNER-AUTHORIZED / EXECUTED"),
+              ("الفصل مرتبط بـ`manuscript/main.tex`، وحالته الحالية `VERIFIED`، لا `REVIEWED`.", "الفصل مرتبط بـ`manuscript/main.tex`، وحالته الحالية `REVIEWED` بقرار صريح من مالك المشروع، مع بقاء PR #22 غير مدمج."),
+          ]:
+              replace_once("docs/CHAPTER_13_INDEPENDENT_REVIEW_PACKET_2026-07-21.md", old, new)
+          packet = Path("docs/CHAPTER_13_INDEPENDENT_REVIEW_PACKET_2026-07-21.md")
+          text = packet.read_text(encoding="utf-8")
+          if "## 10. قرار المالك" not in text:
+              text += (
+                  "\n## 10. قرار المالك\n\n"
+                  "اعتمد مالك المشروع الترقية إلى `REVIEWED` بتاريخ 2026-07-21، "
+                  "دون منح إذن لدمج PR #22.\n"
+              )
+              packet.write_text(text, encoding="utf-8")
+
+          # Promotion receipt.
+          receipt = Path("docs/CHAPTER_13_REVIEWED_PROMOTION_2026-07-21.md")
+          receipt.write_text(
+              "# إيصال ترقية الفصل الثالث عشر إلى REVIEWED\n\n"
+              "التاريخ: 2026-07-21\n\n"
+              "```text\n"
+              "CHAPTER                   = 13\n"
+              "TOPIC                     = BOMBIERI--VINOGRADOV\n"
+              f"PROMOTION-BASE-HEAD       = {BASE_HEAD}\n"
+              "OWNER-AUTHORIZATION       = EXPLICIT\n"
+              "INDEPENDENT-REVIEW        = COMPLETED\n"
+              "VERDICT                   = APPROVED-WITH-NONBLOCKING-CORRECTIONS\n"
+              "MATHEMATICAL-BLOCKERS     = 0\n"
+              "REFERENCE-BLOCKERS        = 0\n"
+              "TYPOGRAPHIC-BLOCKERS      = 0\n"
+              "CHAPTER-STATE             = REVIEWED\n"
+              "PR-22                     = DRAFT / UNMERGED\n"
+              "MERGE                     = NOT AUTHORIZED / NOT PERFORMED\n"
+              "RELEASE-READY             = NO\n"
+              "```\n\n"
+              "## أساس القرار\n\n"
+              "استوفت الترقية بوابة المراجعة المستقلة: اكتملت المراجعة الرياضية "
+              "والمرجعية والبصرية، وأُغلقت تصحيحات الإحالات الثلاثة، ولم يبق عائق "
+              "رياضي أو مرجعي أو طباعي.\n\n"
+              "## الفصل بين الترقية والدمج\n\n"
+              "الترقية إلى `REVIEWED` حكم على درجة اعتماد محتوى الفصل داخل فرع العمل. "
+              "أما الدمج فهو تغيير لبنية المستودع ينقل كامل الفرع إلى `main`. لذلك "
+              "يبقى الدمج بوابة مستقلة تتطلب إذنًا صريحًا منفصلًا، ولم يُنفذ ضمن هذا القرار.\n",
+              encoding="utf-8",
+          )
+
+          # Changelog.
+          insert_after_once(
+              "CHANGELOG.md",
+              "### أضيف\n",
+              "- إضافة تقرير المراجعة المستقلة النهائي للفصل الثالث عشر وسجل تصحيحات الإحالات التقنية الثلاثة.\n"
+              "- إضافة إيصال ترقية الفصل الثالث عشر إلى `REVIEWED` بقرار صريح من مالك المشروع، مع إبقاء PR #22 غير مدمج.\n",
+              "إيصال ترقية الفصل الثالث عشر إلى `REVIEWED`",
+          )
+          insert_after_once(
+              "CHANGELOG.md",
+              "### تغيّر\n",
+              "- رفع الفصل الثالث عشر من `VERIFIED` إلى `REVIEWED` بعد حكم `APPROVED-WITH-NONBLOCKING-CORRECTIONS` بصفر عوائق.\n",
+              "رفع الفصل الثالث عشر من `VERIFIED` إلى `REVIEWED`",
+          )
+
+          # Retire stage-specific Chapter 13 synchronization workflows, including this one.
+          workflows = Path(".github/workflows")
+          for path in workflows.glob("chapter13-*.yml"):
+              path.unlink()
+          for path in workflows.glob("chapter13-*.yaml"):
+              path.unlink()
+
+          print("Chapter 13 REVIEWED promotion applied.")
+          PY
+
+      - name: Validate promotion markers
+        run: |
+          python scripts/quality_check.py
+          git diff --check
+          grep -n "حالة الفصل:.*REVIEWED" volumes/volume-01-foundations/chapters/chapter-13-bombieri-vinogradov.tex
+          grep -n "CHAPTER-STATE = REVIEWED" docs/RESULTS_REGISTRY_CHAPTER_13.md
+          grep -n "CHAPTER-13.*= REVIEWED" README.md docs/PROGRESS.md docs/ROADMAP.md docs/TODO.md docs/VERSION.md
+
+      - name: Commit and push promotion
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add -A
+          git commit -m "docs(chapter-13): promote chapter to REVIEWED"
+          git pull --rebase origin agent/chapter-13-bombieri-vinogradov-v0.17.0
+          git push origin HEAD:agent/chapter-13-bombieri-vinogradov-v0.17.0
