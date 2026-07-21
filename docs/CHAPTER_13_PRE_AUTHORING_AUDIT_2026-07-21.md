@@ -7,119 +7,94 @@ CHAPTER              = 13
 TOPIC                = BOMBIERI--VINOGRADOV
 BASE-MAIN            = 607c6f8ad76f8085828f49ce6b566c846950ab2a
 BRANCH               = agent/chapter-13-bombieri-vinogradov-v0.17.0
-AUDIT-STATUS         = OPEN / PARTIALLY-CLOSED
-PRE-AUTHORING-GATE   = OPEN
-AUTHORING            = BLOCKED
-LARGE-SIEVE          = CLOSED / CITED
-LOG-LOSS             = CLOSED / B(A)=A+3
-EFFECTIVITY          = INEFFECTIVE-IN-ADOPTED-ROUTE
+AUDIT-STATUS         = CLOSED / PASS
+PRE-AUTHORING-GATE   = CLOSED / PASS
+AUTHORING            = AUTHORIZED / NOT YET STARTED
+CENTRAL-TARGET       = ADOPTED-FOR-AUTHORING
+LARGE-SIEVE          = CITED / COMPOSITE-INPUT
+VAUGHAN-IDENTITY     = PROVED-HERE
+TYPE-I               = PROVED-HERE
+TYPE-II              = PROVED-HERE
+MEAN-VALUE           = PROVED-HERE FROM CITED PACKAGE
+LOG-LOSS             = B(A)=A+3
+EFFECTIVITY          = INEFFECTIVE-CONSTANT
+LOGIC-AUDIT          = PASS
+REFERENCE-AUDIT      = PASS
 RELEASE-READY        = NO
 ```
 
-## الحكم الحالي
+## الحكم النهائي
 
-`PASS-FOR-RESEARCH-INTAKE / FAIL-FOR-AUTHORING`
+`PASS-FOR-AUTHORING`
 
-تم تحديد المراجع الأصلية والهدف المركزي ومسار البرهان، وأُغلقت عقدة الغربال
-الكبير والخسارة اللوغاريتمية والفعالية على مستوى المصدر. ما تزال هوية Vaughan
-وتقديرا Type I وType II وعدم الدور عوائق حاجزة للتأليف.
+أُغلقت جميع الديون العلمية والمنطقية والمرجعية اللازمة لبدء كتابة متن الفصل.
+هذا الإغلاق يسمح بالتأليف فقط؛ ولا يرفع الفصل إلى `DRAFT` قبل إنشاء ملفه،
+ولا إلى `VERIFIED` أو `REVIEWED`، ولا يعني `RELEASE-READY`.
 
-## ما أُغلق
+## قائمة الإغلاق
 
-- [x] قراءة README وROADMAP وPROGRESS وTODO وRESULTS_REGISTRY وCHANGELOG من
-  `main` بعد دمج PR #21.
-- [x] إنشاء فرع مستقل من رأس `main` المعتمد.
+### الأدلة والمصادر
+
+- [x] قراءة README وROADMAP وPROGRESS وTODO وRESULTS_REGISTRY وCHANGELOG قبل التعديل.
 - [x] بدء المسح عبر Consensus.
-- [x] التحقق من بيانات ورقة Bombieri الأصلية.
-- [x] التحقق من بيانات ورقة A. I. Vinogradov الأصلية.
-- [x] تسجيل تصحيح Vinogradov المنشور سنة 1966.
-- [x] التحقق من ورقة Gallagher ذات البرهان القصير.
-- [x] تحديد ورقة Vaughan لمبرهنات القيمة المتوسطة.
-- [x] الفصل بين Siegel--Walfisz وBombieri--Vinogradov وElliott--Halberstam.
-- [x] تثبيت أن نتائج ما بعد حاجز \(1/2\) ذات الأوزان أو البنى الخاصة خارج
-  النطاق المركزي.
-- [x] إنشاء سجل الأدلة وخريطة الاعتماد.
-- [x] تثبيت صيغة الغربال الكبير للشخصيات البدائية من المبرهنة 19.16 في
-  Montgomery--Vaughan II.
-- [x] اعتماد الغربال الكبير بحالة `CITED`.
-- [x] تثبيت وجود `sup_{y\le x}` داخل المبرهنة 20.1.
-- [x] تثبيت مبرهنة Bombieri--Vinogradov المرجعية في المبرهنة 20.2.
-- [x] حساب الخسارة اللوغاريتمية الصريحة \(B(A)=A+3\).
-- [x] التحقق من بنية الرد من الترديد إلى الموصل في المصدر.
-- [x] حسم الفعالية: المسار الحالي غير فعال لأنه يستعمل Siegel--Walfisz
-  للترديدات الصغيرة.
+- [x] التحقق من Bombieri 1965.
+- [x] التحقق من A. I. Vinogradov 1965 وتصحيح 1966.
+- [x] التحقق من Gallagher 1968 وVaughan 1975.
+- [x] التحقق من Montgomery--Vaughan II وبياناته الرسمية.
+- [x] مطابقة هوية Vaughan والغِربال الكبير ومبرهنتي القيمة المتوسطة وBombieri--Vinogradov بأرقام المبرهنات والصفحات.
+- [x] إنشاء ملف BibTeX مستقل وربطه ببناء Biber.
 
-## العوائق الحاجزة المتبقية
+### الاعتمادات البرهانية
 
-### A1 — هوية Vaughan
+- [x] تثبيت حزمة الغربال الكبير التربيعية والثنائية العظمى بحالة `CITED / COMPOSITE-INPUT`.
+- [x] إثبات هوية Vaughan داخليًا بالتفاف ديريشليه.
+- [x] تدقيق الإشارات والدعم وحدود القطع في الهوية.
+- [x] إثبات Pólya--Vinogradov داخليًا من نتائج الفصل السابع.
+- [x] إثبات تقدير Type I.
+- [x] إثبات تقدير Type II.
+- [x] تدخيل `sup_{y\le x}` بواسطة المدخل الثنائي العظمى.
+- [x] تحسين المعلمات في المجالات الثلاثة لـ\(Q\).
+- [x] إثبات مبرهنة القيمة المتوسطة للشخصيات البدائية.
+- [x] تدقيق الشخصية الرئيسية.
+- [x] تدقيق العوامل المحلية للشخصيات المستحثة.
+- [x] إثبات الانتقال من الموصل إلى الترديد.
+- [x] فصل الموصلات الصغيرة والكبيرة.
+- [x] إثبات مبرهنة Bombieri--Vinogradov في صيغة `psi`.
+- [x] إثبات النتائج الموافقة لـ`theta` و`pi` و«تقريبًا كل الترديدات».
 
-يجب كتابة الهوية خارج المتن أولًا والتحقق جبريًا من معاملات الالتفاف وحدود
-\(U,V\). لا يكفي الاستشهاد باسم الهوية.
+### الخسائر والفعالية والنطاق
 
-### A2 — تقدير Type I
+- [x] تثبيت الخسارة اللوغاريتمية الصريحة \(B(A)=A+3\) في صيغة `psi`.
+- [x] تثبيت المجال \(A+4\) في صيغة `pi` الناتجة من استعمال ادخار إضافي.
+- [x] تثبيت أن المسار غير فعال بسبب Siegel--Walfisz للموصلات الصغيرة.
+- [x] فصل Elliott--Halberstam وBarban--Davenport--Halberstam والفترات القصيرة والنتائج الموزونة بعد حاجز \(1/2\) عن نطاق الفصل.
+- [x] اجتياز فحص عدم الدور.
 
-يجب تسجيل أطوال المجاميع، والجمع الجزئي، وموضع تطبيق الغربال الكبير، وقوة
-اللوغاريتم الناتجة.
+### الحوكمة
 
-### A3 — تقدير Type II
-
-يجب إجراء الحساب الثنائي كاملًا، وتسجيل موضع كوشي، وطولي المتغيرين، واختيار
-\(U,V\)، ومنع أي استعمال دائري للنتيجة المركزية.
-
-### A4 — تدخيل القيمة العظمى
-
-وجود `sup_{y\le x}` ثابت في المصدر، لكن يجب أن يظهر داخل البرهان الداخلي
-لمبرهنة القيمة المتوسطة، لا أن يضاف بعد انتهاء التقدير.
-
-### A5 — الانتقال الداخلي من الموصل إلى الترديد
-
-تحققت البنية مرجعيًا، لكن يجب كتابة عدد الاستحثاثات والعوامل المحلية ومجموع
-القواسم داخل تدقيق مستقل متوافق مع ترميز الفصول السابقة.
-
-### A6 — الشخصية الرئيسية
-
-يجب فصل PNT الفعال عن أخطاء حذف الأوليات القاسمة للترديد، ثم جمع الخطأ على
-\(q\le Q\).
-
-### A7 — عدم الدور
-
-يجب إثبات أن تقديرات Type I/II لا تستعمل Bombieri--Vinogradov أو نتيجة
-مكافئة لها، وأن كل اعتماد يعود إلى فصول سابقة أو إلى الغربال الكبير المقتبس.
-
-### A8 — الحجز والمراجع
-
-يجب حجز معرفات النتائج وتحديث BibTeX بمفاتيح Bombieri وVinogradov وتصحيحه
-وGallagher وVaughan وMontgomery--Vaughan II.
-
-## قائمة التحقق قبل إغلاق البوابة
-
-- [x] تحقق مرجعي بالصفحة للغربال الكبير.
-- [x] تحقق مرجعي بالصفحة لمبرهنة Vaughan المتوسطة.
-- [ ] برهان مستقل لهوية Vaughan.
-- [ ] تدقيق Type I.
-- [ ] تدقيق Type II.
-- [x] تثبيت `max_{y\le x}` على مستوى المصدر.
-- [ ] تدخيل `max_{y\le x}` في البرهان الداخلي.
-- [x] تحقق بنية الموصل/الترديد على مستوى المصدر.
-- [ ] تدقيق الموصل/الترديد الداخلي.
-- [ ] تدقيق الشخصية الرئيسية.
-- [x] حساب \(B(A)=A+3\).
-- [x] حكم الفعالية: `INEFFECTIVE-IN-ADOPTED-ROUTE`.
-- [ ] فحص عدم الدور.
-- [ ] حجز معرفات النتائج.
-- [ ] تحديث BibTeX والتحقق من المفاتيح.
+- [x] حجز أحد عشر معرفًا للنتائج بحالة `NON-CITABLE`.
+- [x] إصدار التدقيق المنطقي النهائي بحكم `PASS-FOR-AUTHORING`.
+- [x] إصدار التحقق المرجعي النهائي بحكم `PASS-FOR-AUTHORING`.
+- [x] بقاء نقل النتائج إلى السجل المركزي محجوبًا حتى كتابة المتن وتدقيقه.
 
 ## الملفات الحاكمة
 
 - `research/literature-reviews/chapter-13-bombieri-vinogradov-evidence.md`
 - `research/literature-reviews/chapter-13-bombieri-vinogradov-proof-map.md`
 - `docs/CHAPTER_13_LARGE_SIEVE_MEAN_VALUE_AUDIT_2026-07-21.md`
-- هذا التدقيق.
+- `docs/CHAPTER_13_VAUGHAN_IDENTITY_AUDIT_2026-07-21.md`
+- `docs/CHAPTER_13_TYPE_I_TYPE_II_MEAN_VALUE_AUDIT_2026-07-21.md`
+- `docs/CHAPTER_13_CONDUCTOR_PRINCIPAL_BV_AUDIT_2026-07-21.md`
+- `docs/CHAPTER_13_LOGIC_AUDIT_2026-07-21.md`
+- `docs/CHAPTER_13_REFERENCE_VERIFICATION_2026-07-21.md`
+- `docs/CHAPTER_13_RESULTS_RESERVATION.md`
 
 ## القرار
 
 ```text
 RESEARCH MAY CONTINUE = YES
-AUTHORING MAY START   = NO
-NEXT AUDIT            = VAUGHAN IDENTITY
+AUTHORING MAY START   = YES
+RESULT-REGISTRY-SYNC  = NO / WAIT FOR AUTHORED MANUSCRIPT
+MERGE                 = NOT AUTHORIZED
+RELEASE-READY         = NO
 ```
