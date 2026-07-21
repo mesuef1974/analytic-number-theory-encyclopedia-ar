@@ -3,7 +3,7 @@ name: Close Chapter 13 governance
 on:
   push:
     branches:
-      - agent/chapter-13-governance-close-v0.17.0
+      - main
     paths:
       - .github/workflows/chapter13-governance-close.yml
 
@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: agent/chapter-13-governance-close-v0.17.0
+          ref: main
           fetch-depth: 0
 
       - name: Apply governance closure
@@ -79,8 +79,7 @@ jobs:
               text = text.replace("### تغيّر\n", "### تغيّر\n" + line, 1)
               p.write_text(text, encoding="utf-8")
 
-          receipt = Path("docs/CHAPTER_13_GOVERNANCE_CLOSURE_2026-07-21.md")
-          receipt.write_text(f"""# إغلاق حوكمة الفصل الثالث عشر
+          Path("docs/CHAPTER_13_GOVERNANCE_CLOSURE_2026-07-21.md").write_text(f"""# إغلاق حوكمة الفصل الثالث عشر
 
 التاريخ: 2026-07-21
 
@@ -103,4 +102,4 @@ RELEASE-READY   = NO
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add README.md CHANGELOG.md docs/PROGRESS.md docs/ROADMAP.md docs/TODO.md docs/VERSION.md docs/CHAPTER_13_GOVERNANCE_CLOSURE_2026-07-21.md .github/workflows/chapter13-governance-close.yml
           git commit -m "docs(chapter-13): close governance after merge"
-          git push origin HEAD:agent/chapter-13-governance-close-v0.17.0
+          git push origin HEAD:main
