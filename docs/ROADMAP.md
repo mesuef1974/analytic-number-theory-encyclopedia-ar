@@ -137,17 +137,19 @@ RELEASE-READY       = NO
 - [x] رفع الفصل إلى `VERIFIED`.
 - [x] إعداد حزمة المراجعة المستقلة وتجميد الرأس `d2495dba9cb5cc17a74c6bbb0ac55a914313d3f9`.
 - [x] فتح Issue #23 للمراجعة الثانية المستقلة.
-- [ ] استلام حكم مستقل ورفع الفصل إلى `REVIEWED` إذا استوفى الشروط.
+- [x] استلام الحكم المستقل `APPROVED-WITH-NONBLOCKING-CORRECTIONS`.
+- [x] رفع الفصل إلى `REVIEWED` بقرار صريح من مالك المشروع.
 - [ ] الدمج بأمر صريح من مالك المشروع فقط.
 
 ```text
-CHAPTER-13             = VERIFIED
+CHAPTER-13             = REVIEWED
 RESULTS                = 11
 LARGE-SIEVE            = CITED / COMPOSITE-INPUT
 BOMBIERI-VINOGRADOV    = PROVED-HERE / INEFFECTIVE-CONSTANT
-QUALITY-CHECKS         = RUN-340 / SUCCESS
-PDF-BUILD              = RUN-334 / SUCCESS
-INDEPENDENT-REVIEW     = REQUESTED / ISSUE #23 / OPEN
+QUALITY-CHECKS         = RUN-372 / SUCCESS
+PDF-BUILD              = RUN-366 / SUCCESS
+INDEPENDENT-REVIEW     = COMPLETED / APPROVED-WITH-NONBLOCKING-CORRECTIONS
+PROMOTION              = OWNER-AUTHORIZED / EXECUTED
 MERGE                  = NOT AUTHORIZED
 RELEASE-READY          = NO
 ```

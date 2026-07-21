@@ -4,7 +4,7 @@
 
 - **الإصدار التطويري الحالي:** `0.17.0-dev`
 - **المرحلة:** الفصل الثالث عشر — مبرهنة Bombieri--Vinogradov والتوزيع المتوسطي للأعداد الأولية.
-- **حالة الفصل:** `VERIFIED`
+- **حالة الفصل:** `REVIEWED`
 - **الفرع المستقر:** `main`
 - **رأس `main` عند بدء المرحلة:** `607c6f8ad76f8085828f49ce6b566c846950ab2a`
 - **فرع العمل:** `agent/chapter-13-bombieri-vinogradov-v0.17.0`
@@ -13,11 +13,11 @@
 - **التدقيق المنطقي:** `PASS`
 - **التحقق المرجعي:** `PASS`
 - **عدد النتائج:** `11`
-- **حالة المراجعة المستقلة:** `REQUESTED / ISSUE #23 / OPEN`
+- **حالة المراجعة المستقلة:** `COMPLETED / APPROVED-WITH-NONBLOCKING-CORRECTIONS`
 - **آخر تحديث:** 2026-07-21
 
 ```text
-CHAPTER-13                = VERIFIED
+CHAPTER-13                = REVIEWED
 VERSION                   = 0.17.0-dev
 BASE-MAIN                 = 607c6f8ad76f8085828f49ce6b566c846950ab2a
 BRANCH                    = agent/chapter-13-bombieri-vinogradov-v0.17.0
@@ -31,9 +31,10 @@ VAUGHAN-IDENTITY          = PROVED-HERE
 TYPE-I                    = PROVED-HERE
 TYPE-II                   = PROVED-HERE
 BOMBIERI-VINOGRADOV       = PROVED-HERE / INEFFECTIVE-CONSTANT
-QUALITY-CHECKS            = RUN-340 / SUCCESS
-PDF-BUILD                 = RUN-334 / SUCCESS
-INDEPENDENT-REVIEW        = REQUESTED / ISSUE #23 / OPEN
+QUALITY-CHECKS            = RUN-372 / SUCCESS
+PDF-BUILD                 = RUN-366 / SUCCESS
+INDEPENDENT-REVIEW        = COMPLETED / APPROVED-WITH-NONBLOCKING-CORRECTIONS
+PROMOTION                 = OWNER-AUTHORIZED / EXECUTED
 PR-22                     = DRAFT / UNMERGED
 MERGE                     = NOT AUTHORIZED
 RELEASE-READY             = NO
@@ -70,7 +71,7 @@ RELEASE-READY       = NO
 | الفصل العاشر: PNT في المتتاليات الحسابية | `REVIEWED` | 94% |
 | الفصل الحادي عشر: المناطق الخالية والأصفار الاستثنائية | `REVIEWED / MERGED` | 95% |
 | الفصل الثاني عشر: Siegel--Walfisz | `REVIEWED / MERGED` | 95% |
-| الفصل الثالث عشر: Bombieri--Vinogradov | `VERIFIED` | 90% |
+| الفصل الثالث عشر: Bombieri--Vinogradov | `REVIEWED` | 95% |
 | فصل الجبهات الحديثة | نواة أولية | 10% |
 | الملحق الحاسوبي | أول تجربة مسجلة وقابلة للتشغيل | 15% |
 
@@ -90,7 +91,7 @@ RELEASE-READY       = NO
 | 10 | `REVIEWED` | أربعة تحسينات اختيارية وتدقيق إصدار |
 | 11 | `REVIEWED / MERGED` | ديون الإصدار قبل `RELEASE-READY` |
 | 12 | `REVIEWED / MERGED` | ديون المجلد والتنضيد قبل `RELEASE-READY` |
-| 13 | `VERIFIED` | مراجعة ثانية مستقلة قبل `REVIEWED` |
+| 13 | `REVIEWED` | دمج PR #22 وديون الإصدار قبل `RELEASE-READY` |
 
 التدقيق الداخلي والمراجعة المستقلة والدمج لا تجعل أي فصل `RELEASE-READY` تلقائيًا.
 
@@ -112,6 +113,8 @@ RELEASE-READY       = NO
 - اجتاز الفصل التدقيق المنطقي والتحقق المرجعي وتدقيق ما بعد التأليف.
 - نجح `Quality checks` #340 وبناء PDF #334.
 - رُفع الفصل إلى `VERIFIED`.
+- اكتملت المراجعة المستقلة بحكم `APPROVED-WITH-NONBLOCKING-CORRECTIONS` بصفر عوائق.
+- اعتمد مالك المشروع ترقية الفصل إلى `REVIEWED` دون دمج PR #22.
 
 ## النتيجة المركزية
 
@@ -137,7 +140,7 @@ Q\le \frac{x^{1/2}}{(\log x)^{A+3}},
 
 ## الخطوة التالية
 
-1. حزمة المراجعة المستقلة مكتملة.
-2. الرأس `d2495dba9cb5cc17a74c6bbb0ac55a914313d3f9` مجمد للمراجعة.
-3. Issue #23 مفتوحة للمراجعة الثانية المستقلة.
-4. إبقاء PR #22 غير مدمج حتى الحكم وأمر المالك الصريح.
+1. اكتملت المراجعة المستقلة بحكم `APPROVED-WITH-NONBLOCKING-CORRECTIONS`.
+2. اعتمد مالك المشروع ترقية الفصل الثالث عشر إلى `REVIEWED`.
+3. أُغلقت بوابة Issue #23 بعد تنفيذ قرار الترقية.
+4. يبقى PR #22 مسودة وغير مدمج حتى إذن دمج مستقل وصريح.

@@ -27,6 +27,9 @@
 - [التحقق المرجعي للفصل الثالث عشر](docs/CHAPTER_13_REFERENCE_VERIFICATION_2026-07-21.md)
 - [تدقيق ما بعد تأليف الفصل الثالث عشر](docs/CHAPTER_13_AUTHORING_AUDIT_2026-07-21.md)
 - [التحقق المرجعي بعد التأليف](docs/CHAPTER_13_POST_AUTHORING_REFERENCE_AUDIT_2026-07-21.md)
+- [المراجعة المستقلة للفصل الثالث عشر](docs/CHAPTER_13_INDEPENDENT_REVIEW_2026-07-21.md)
+- [تصحيحات الإحالات المرجعية للفصل الثالث عشر](docs/CHAPTER_13_REFERENCE_CORRECTIONS_2026-07-21.md)
+- [إيصال ترقية الفصل الثالث عشر إلى REVIEWED](docs/CHAPTER_13_REVIEWED_PROMOTION_2026-07-21.md)
 - [المراجعة المستقلة للفصل الثاني عشر](docs/CHAPTER_12_INDEPENDENT_REVIEW_2026-07-20.md)
 - [إيصال إغلاق مراجعة الفصل الثاني عشر](docs/CHAPTER_12_REVIEW_CLOSURE_2026-07-21.md)
 - [سجل التجارب الحاسوبية](docs/EXPERIMENTS_REGISTRY.md)
@@ -39,7 +42,7 @@
 BASE-MAIN                 = 607c6f8ad76f8085828f49ce6b566c846950ab2a
 BRANCH                    = agent/chapter-13-bombieri-vinogradov-v0.17.0
 CHAPTER-12                = REVIEWED / MERGED
-CHAPTER-13                = VERIFIED
+CHAPTER-13                = REVIEWED
 PRE-AUTHORING-GATE        = CLOSED / PASS
 POST-AUTHORING-AUDIT      = PASS
 LOGIC-AUDIT               = PASS
@@ -50,9 +53,10 @@ VAUGHAN-IDENTITY          = PROVED-HERE
 TYPE-I                    = PROVED-HERE
 TYPE-II                   = PROVED-HERE
 BOMBIERI-VINOGRADOV       = PROVED-HERE / INEFFECTIVE-CONSTANT
-QUALITY-CHECKS            = RUN-340 / SUCCESS
-PDF-BUILD                 = RUN-334 / SUCCESS
-INDEPENDENT-REVIEW        = REQUESTED / ISSUE #23 / OPEN
+QUALITY-CHECKS            = RUN-372 / SUCCESS
+PDF-BUILD                 = RUN-366 / SUCCESS
+INDEPENDENT-REVIEW        = COMPLETED / APPROVED-WITH-NONBLOCKING-CORRECTIONS
+PROMOTION                 = OWNER-AUTHORIZED / EXECUTED
 PR-22                     = DRAFT / UNMERGED
 MERGE                     = NOT AUTHORIZED
 RELEASE-READY             = NO
@@ -89,8 +93,8 @@ Q\le \frac{x^{1/2}}{(\log x)^{A+3}}.
 ## حالة الفصول
 
 - الفصول الثلاثة عشر الأولى مرتبطة بالملف الجامع وتظهر في بناء PDF الحالي.
-- الفصول من السابع إلى الثاني عشر بحالة `REVIEWED`.
-- الفصل الثالث عشر بحالة `VERIFIED`، وتبقى المراجعة المستقلة مطلوبة قبل `REVIEWED`.
+- الفصول من السابع إلى الثالث عشر بحالة `REVIEWED`.
+- الفصل الثالث عشر بحالة `REVIEWED` بعد مراجعة مستقلة مكتملة؛ ويبقى PR #22 غير مدمج.
 - لا يصبح أي فصل `RELEASE-READY` بمجرد التدقيق أو المراجعة أو الدمج.
 
 ## مبادئ التحرير

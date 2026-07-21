@@ -6,14 +6,14 @@
 CHAPTER                   = 13
 TOPIC                     = BOMBIERI--VINOGRADOV
 REVIEW-CANDIDATE-HEAD     = d2495dba9cb5cc17a74c6bbb0ac55a914313d3f9
-CHAPTER-STATE             = VERIFIED
+CHAPTER-STATE             = REVIEWED
 RESULTS                   = 11
 QUALITY-CHECKS            = RUN-357 / SUCCESS
 PDF-BUILD                 = RUN-351 / SUCCESS
 REFERENCE-CORRECTIONS     = 3 / CLOSED
 INDEPENDENT-REVIEW        = COMPLETED / APPROVED-WITH-NONBLOCKING-CORRECTIONS
 REVIEW-REPORT             = docs/CHAPTER_13_INDEPENDENT_REVIEW_2026-07-21.md
-PROMOTE-TO-REVIEWED       = RECOMMENDED / OWNER ACTION REQUIRED
+PROMOTE-TO-REVIEWED       = OWNER-AUTHORIZED / EXECUTED
 MERGE                     = NOT AUTHORIZED
 RELEASE-READY             = NO
 ```
@@ -42,7 +42,7 @@ APPROVED-WITH-NONBLOCKING-CORRECTIONS
 
 `volumes/volume-01-foundations/chapters/chapter-13-bombieri-vinogradov.tex`
 
-الفصل مرتبط بـ`manuscript/main.tex`، وحالته الحالية `VERIFIED`، لا `REVIEWED`.
+الفصل مرتبط بـ`manuscript/main.tex`، وحالته الحالية `REVIEWED` بقرار صريح من مالك المشروع، مع بقاء PR #22 غير مدمج.
 
 ## 3. النتيجة المركزية
 
@@ -214,3 +214,7 @@ PROMOTE-TO-REVIEWED      = YES / RECOMMENDED / OWNER ACTION REQUIRED
 MERGE-AUTHORIZATION      = OUT OF REVIEW SCOPE
 RELEASE-READY            = NO
 ```
+
+## 10. قرار المالك
+
+اعتمد مالك المشروع الترقية إلى `REVIEWED` بتاريخ 2026-07-21، دون منح إذن لدمج PR #22.

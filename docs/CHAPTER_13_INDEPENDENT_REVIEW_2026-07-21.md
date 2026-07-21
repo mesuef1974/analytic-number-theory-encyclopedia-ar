@@ -5,6 +5,7 @@
 ```text
 CHAPTER                    = 13
 TOPIC                      = BOMBIERI--VINOGRADOV
+CHAPTER-STATE              = REVIEWED
 SCIENTIFIC-CANDIDATE-HEAD  = d2495dba9cb5cc17a74c6bbb0ac55a914313d3f9
 REVIEW-MODE                = CONSOLIDATED MATHEMATICAL / REFERENCE / TYPOGRAPHIC REVIEW
 MATHEMATICAL-REVIEW        = PASS
@@ -14,7 +15,7 @@ MATHEMATICAL-BLOCKERS      = 0
 REFERENCE-BLOCKERS         = 0
 TYPOGRAPHIC-BLOCKERS       = 0
 VERDICT                    = APPROVED-WITH-NONBLOCKING-CORRECTIONS
-PROMOTE-TO-REVIEWED        = RECOMMENDED / OWNER ACTION REQUIRED
+PROMOTE-TO-REVIEWED        = OWNER-AUTHORIZED / EXECUTED
 MERGE-AUTHORIZATION        = OUT OF REVIEW SCOPE
 RELEASE-READY              = NO
 ```
@@ -260,3 +261,15 @@ RELEASE-READY              = NO
 
 يوصى للمالك بترقية الفصل إلى `REVIEWED` بعد تثبيت هذا التقرير ونجاح الفحوص
 النهائية على رأس المراجعة. لا تنفذ هذه الوثيقة الترقية ولا الدمج بنفسها.
+
+## قرار مالك المشروع
+
+بتاريخ 2026-07-21 صدر إذن صريح بترقية الفصل الثالث عشر من `VERIFIED` إلى `REVIEWED` دون دمج PR #22. نُفذت الترقية، وبقي الدمج بوابة مستقلة غير مأذون بها.
+
+```text
+OWNER-AUTHORIZATION = EXPLICIT
+CHAPTER-13          = REVIEWED
+PR-22              = DRAFT / UNMERGED
+MERGE              = NOT AUTHORIZED / NOT PERFORMED
+RELEASE-READY      = NO
+```

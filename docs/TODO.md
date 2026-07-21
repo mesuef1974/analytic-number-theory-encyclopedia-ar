@@ -90,15 +90,16 @@
 - [x] إعداد حزمة المراجعة المستقلة.
 - [x] تجميد الرأس `d2495dba9cb5cc17a74c6bbb0ac55a914313d3f9`.
 - [x] فتح Issue #23 للمراجعة الثانية المستقلة.
-- [ ] استلام تقرير مستقل مكتوب.
-- [ ] تطبيق أي تصحيح حاجز وإعادة الفحوص.
-- [ ] رفع الفصل إلى `REVIEWED` إذا استوفى الحكم.
+- [x] استلام تقرير مستقل مكتوب بحكم `APPROVED-WITH-NONBLOCKING-CORRECTIONS`.
+- [x] إغلاق التصحيحات المرجعية الثلاثة وإعادة الفحوص النهائية؛ لا توجد تصحيحات حاجزة.
+- [x] رفع الفصل إلى `REVIEWED` بقرار صريح من مالك المشروع.
 - [ ] دمج PR #22 بأمر صريح من مالك المشروع فقط.
 
 ```text
-CHAPTER-13          = VERIFIED
+CHAPTER-13          = REVIEWED
 RESULTS             = 11
-REVIEW              = REQUESTED / ISSUE #23 / OPEN
+REVIEW              = COMPLETED / APPROVED-WITH-NONBLOCKING-CORRECTIONS
+PROMOTION           = OWNER-AUTHORIZED / EXECUTED
 PR-22               = DRAFT / UNMERGED
 MERGE               = NOT AUTHORIZED
 RELEASE-READY       = NO
