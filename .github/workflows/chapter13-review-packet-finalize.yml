@@ -1,0 +1,48 @@
+name: Chapter 13 review packet finalization
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out PR branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+
+      - name: Finalize packet
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          p = Path('docs/CHAPTER_13_INDEPENDENT_REVIEW_PACKET_2026-07-21.md')
+          text = p.read_text(encoding='utf-8')
+          text2 = text.replace(
+              'PDF-BUILD                 = RUN-351 / IN-PROGRESS',
+              'PDF-BUILD                 = RUN-351 / SUCCESS'
+          ).replace(
+              'INDEPENDENT-REVIEW        = REQUESTED / NOT YET STARTED',
+              'INDEPENDENT-REVIEW        = REQUESTED / ISSUE #23 / OPEN'
+          )
+          if text2 == text:
+              print('Review packet already finalized.')
+          else:
+              p.write_text(text2, encoding='utf-8')
+          PY
+
+          if git diff --quiet -- docs/CHAPTER_13_INDEPENDENT_REVIEW_PACKET_2026-07-21.md; then
+            exit 0
+          fi
+
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add docs/CHAPTER_13_INDEPENDENT_REVIEW_PACKET_2026-07-21.md
+          git commit -m "Finalize Chapter 13 review packet"
+          git push origin HEAD:${{ github.event.pull_request.head.ref }}
