@@ -4,7 +4,7 @@
 
 - **الإصدار التطويري الحالي:** `0.17.0-dev`
 - **المرحلة:** الفصل الثالث عشر — مبرهنة Bombieri--Vinogradov والتوزيع المتوسطي للأعداد الأولية.
-- **حالة الفصل:** `REVIEWED`
+- **حالة الفصل:** `REVIEWED / MERGED`
 - **الفرع المستقر:** `main`
 - **رأس `main` عند بدء المرحلة:** `607c6f8ad76f8085828f49ce6b566c846950ab2a`
 - **فرع العمل:** `agent/chapter-13-bombieri-vinogradov-v0.17.0`
@@ -17,7 +17,7 @@
 - **آخر تحديث:** 2026-07-21
 
 ```text
-CHAPTER-13                = REVIEWED
+CHAPTER-13                = REVIEWED / MERGED
 VERSION                   = 0.17.0-dev
 BASE-MAIN                 = 607c6f8ad76f8085828f49ce6b566c846950ab2a
 BRANCH                    = agent/chapter-13-bombieri-vinogradov-v0.17.0
@@ -35,8 +35,8 @@ QUALITY-CHECKS            = RUN-372 / SUCCESS
 PDF-BUILD                 = RUN-366 / SUCCESS
 INDEPENDENT-REVIEW        = COMPLETED / APPROVED-WITH-NONBLOCKING-CORRECTIONS
 PROMOTION                 = OWNER-AUTHORIZED / EXECUTED
-PR-22                     = DRAFT / UNMERGED
-MERGE                     = NOT AUTHORIZED
+PR-22                     = MERGED
+MERGE-COMMIT               = 2e28e51bd8334cd748d59f1e8cc9998975058a8c
 RELEASE-READY             = NO
 ```
 
@@ -71,7 +71,7 @@ RELEASE-READY       = NO
 | الفصل العاشر: PNT في المتتاليات الحسابية | `REVIEWED` | 94% |
 | الفصل الحادي عشر: المناطق الخالية والأصفار الاستثنائية | `REVIEWED / MERGED` | 95% |
 | الفصل الثاني عشر: Siegel--Walfisz | `REVIEWED / MERGED` | 95% |
-| الفصل الثالث عشر: Bombieri--Vinogradov | `REVIEWED` | 95% |
+| الفصل الثالث عشر: Bombieri--Vinogradov | `REVIEWED / MERGED` | 95% |
 | فصل الجبهات الحديثة | نواة أولية | 10% |
 | الملحق الحاسوبي | أول تجربة مسجلة وقابلة للتشغيل | 15% |
 
@@ -91,7 +91,7 @@ RELEASE-READY       = NO
 | 10 | `REVIEWED` | أربعة تحسينات اختيارية وتدقيق إصدار |
 | 11 | `REVIEWED / MERGED` | ديون الإصدار قبل `RELEASE-READY` |
 | 12 | `REVIEWED / MERGED` | ديون المجلد والتنضيد قبل `RELEASE-READY` |
-| 13 | `REVIEWED` | دمج PR #22 وديون الإصدار قبل `RELEASE-READY` |
+| 13 | `REVIEWED / MERGED` | ديون الإصدار قبل `RELEASE-READY` |
 
 التدقيق الداخلي والمراجعة المستقلة والدمج لا تجعل أي فصل `RELEASE-READY` تلقائيًا.
 
@@ -143,4 +143,4 @@ Q\le \frac{x^{1/2}}{(\log x)^{A+3}},
 1. اكتملت المراجعة المستقلة بحكم `APPROVED-WITH-NONBLOCKING-CORRECTIONS`.
 2. اعتمد مالك المشروع ترقية الفصل الثالث عشر إلى `REVIEWED`.
 3. أُغلقت بوابة Issue #23 بعد تنفيذ قرار الترقية.
-4. يبقى PR #22 مسودة وغير مدمج حتى إذن دمج مستقل وصريح.
+4. دُمج PR #22 في `main` عند `2e28e51bd8334cd748d59f1e8cc9998975058a8c`، وأغلقت حوكمة الفصل الثالث عشر.

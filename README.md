@@ -42,7 +42,7 @@
 BASE-MAIN                 = 607c6f8ad76f8085828f49ce6b566c846950ab2a
 BRANCH                    = agent/chapter-13-bombieri-vinogradov-v0.17.0
 CHAPTER-12                = REVIEWED / MERGED
-CHAPTER-13                = REVIEWED
+CHAPTER-13                = REVIEWED / MERGED
 PRE-AUTHORING-GATE        = CLOSED / PASS
 POST-AUTHORING-AUDIT      = PASS
 LOGIC-AUDIT               = PASS
@@ -57,8 +57,8 @@ QUALITY-CHECKS            = RUN-372 / SUCCESS
 PDF-BUILD                 = RUN-366 / SUCCESS
 INDEPENDENT-REVIEW        = COMPLETED / APPROVED-WITH-NONBLOCKING-CORRECTIONS
 PROMOTION                 = OWNER-AUTHORIZED / EXECUTED
-PR-22                     = DRAFT / UNMERGED
-MERGE                     = NOT AUTHORIZED
+PR-22                     = MERGED
+MERGE-COMMIT               = 2e28e51bd8334cd748d59f1e8cc9998975058a8c
 RELEASE-READY             = NO
 ```
 
@@ -94,7 +94,7 @@ Q\le \frac{x^{1/2}}{(\log x)^{A+3}}.
 
 - الفصول الثلاثة عشر الأولى مرتبطة بالملف الجامع وتظهر في بناء PDF الحالي.
 - الفصول من السابع إلى الثالث عشر بحالة `REVIEWED`.
-- الفصل الثالث عشر بحالة `REVIEWED` بعد مراجعة مستقلة مكتملة؛ ويبقى PR #22 غير مدمج.
+- الفصل الثالث عشر بحالة `REVIEWED / MERGED` بعد مراجعة مستقلة مكتملة ودمج PR #22.
 - لا يصبح أي فصل `RELEASE-READY` بمجرد التدقيق أو المراجعة أو الدمج.
 
 ## مبادئ التحرير

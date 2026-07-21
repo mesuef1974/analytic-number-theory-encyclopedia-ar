@@ -139,10 +139,10 @@ RELEASE-READY       = NO
 - [x] فتح Issue #23 للمراجعة الثانية المستقلة.
 - [x] استلام الحكم المستقل `APPROVED-WITH-NONBLOCKING-CORRECTIONS`.
 - [x] رفع الفصل إلى `REVIEWED` بقرار صريح من مالك المشروع.
-- [ ] الدمج بأمر صريح من مالك المشروع فقط.
+- [x] دمج PR #22 بأمر صريح من مالك المشروع عند `2e28e51bd8334cd748d59f1e8cc9998975058a8c`.
 
 ```text
-CHAPTER-13             = REVIEWED
+CHAPTER-13             = REVIEWED / MERGED
 RESULTS                = 11
 LARGE-SIEVE            = CITED / COMPOSITE-INPUT
 BOMBIERI-VINOGRADOV    = PROVED-HERE / INEFFECTIVE-CONSTANT
@@ -150,7 +150,7 @@ QUALITY-CHECKS         = RUN-372 / SUCCESS
 PDF-BUILD              = RUN-366 / SUCCESS
 INDEPENDENT-REVIEW     = COMPLETED / APPROVED-WITH-NONBLOCKING-CORRECTIONS
 PROMOTION              = OWNER-AUTHORIZED / EXECUTED
-MERGE                  = NOT AUTHORIZED
+MERGE-COMMIT            = 2e28e51bd8334cd748d59f1e8cc9998975058a8c
 RELEASE-READY          = NO
 ```
 

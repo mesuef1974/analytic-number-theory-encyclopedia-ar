@@ -93,15 +93,15 @@
 - [x] استلام تقرير مستقل مكتوب بحكم `APPROVED-WITH-NONBLOCKING-CORRECTIONS`.
 - [x] إغلاق التصحيحات المرجعية الثلاثة وإعادة الفحوص النهائية؛ لا توجد تصحيحات حاجزة.
 - [x] رفع الفصل إلى `REVIEWED` بقرار صريح من مالك المشروع.
-- [ ] دمج PR #22 بأمر صريح من مالك المشروع فقط.
+- [x] دمج PR #22 بأمر صريح من مالك المشروع عند `2e28e51bd8334cd748d59f1e8cc9998975058a8c`.
 
 ```text
-CHAPTER-13          = REVIEWED
+CHAPTER-13          = REVIEWED / MERGED
 RESULTS             = 11
 REVIEW              = COMPLETED / APPROVED-WITH-NONBLOCKING-CORRECTIONS
 PROMOTION           = OWNER-AUTHORIZED / EXECUTED
-PR-22               = DRAFT / UNMERGED
-MERGE               = NOT AUTHORIZED
+PR-22               = MERGED
+MERGE-COMMIT         = 2e28e51bd8334cd748d59f1e8cc9998975058a8c
 RELEASE-READY       = NO
 ```
 

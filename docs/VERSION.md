@@ -26,7 +26,7 @@
 ```text
 BASE-MAIN              = 607c6f8ad76f8085828f49ce6b566c846950ab2a
 BRANCH                 = agent/chapter-13-bombieri-vinogradov-v0.17.0
-CHAPTER-13             = REVIEWED
+CHAPTER-13             = REVIEWED / MERGED
 PRE-AUTHORING-GATE     = CLOSED / PASS
 POST-AUTHORING-AUDIT   = PASS
 LOGIC-AUDIT            = PASS
@@ -36,8 +36,8 @@ QUALITY-CHECKS         = RUN-372 / SUCCESS
 PDF-BUILD              = RUN-366 / SUCCESS
 INDEPENDENT-REVIEW     = COMPLETED / APPROVED-WITH-NONBLOCKING-CORRECTIONS
 PROMOTION              = OWNER-AUTHORIZED / EXECUTED
-PR-22                  = DRAFT / UNMERGED
-MERGE                  = NOT AUTHORIZED
+PR-22                  = MERGED
+MERGE-COMMIT            = 2e28e51bd8334cd748d59f1e8cc9998975058a8c
 RELEASE-READY          = NO
 ```
 
