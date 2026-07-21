@@ -8,6 +8,7 @@ AUDIT                = POST-AUTHORING-REFERENCE
 CITATION-KEYS        = PASS
 BIBER                = SUCCESS
 PROVENANCE-LABELS    = PASS
+REFERENCE-CORRECTIONS= 3 / CLOSED
 REFERENCE-BLOCKERS   = 0
 VERDICT              = PASS
 RELEASE-READY        = NO
@@ -19,6 +20,7 @@ RELEASE-READY        = NO
 - `manuscript/chapter-13-bibliography.bib`
 - `manuscript/preamble.tex`
 - `docs/CHAPTER_13_REFERENCE_VERIFICATION_2026-07-21.md`
+- `docs/CHAPTER_13_REFERENCE_CORRECTIONS_2026-07-21.md`
 
 ## 2. مفاتيح الاستشهاد في المتن
 
@@ -56,22 +58,30 @@ Vaughan1975MeanValue
 
 | الموضع في المتن | المرجع الحاكم | الحكم |
 |---|---|---|
-| الغربال الكبير التربيعي | Montgomery--Vaughan II، المبرهنة 19.16، ص. 175 | `PASS` |
-| المدخل الثنائي العظمى | المبرهنة 19.19، الصيغة (19.34)، ص. 181 | `PASS` |
+| الغربال الكبير التربيعي | Montgomery--Vaughan II، المبرهنة 19.16، ص. 174 | `PASS` |
+| المدخل الثنائي الأعظمي | المبرهنة 19.19، الصيغة (19.35)، ص. 181 | `PASS` |
+| الأداة العظمى السابقة | الصيغة (19.34)، ص. 180 | `PASS / SUPPORTING` |
 | صيغة هوية Vaughan | الصيغة (17.5)، ص. 55--56 | `PASS` |
 | الشكل النهائي لمبرهنة القيمة المتوسطة | المبرهنة 20.1، ص. 189 | `PASS` |
-| شكل \(E^*(x,q)\) ومستوى \(1/2\) | المبرهنة 20.2، ص. 195 | `PASS` |
-| رد الموصلات واستعمال Siegel--Walfisz | برهان المبرهنة 20.2، ص. 196--197 | `PASS` |
+| شكل \(E^*(x,q)\) ومستوى \(1/2\) | المبرهنة 20.2، ص. 194 | `PASS` |
+| رد الموصلات واستعمال Siegel--Walfisz | برهان المبرهنة 20.2، ص. 195--197 | `PASS` |
 
 المتن لا ينسخ برهان المصدر حرفيًا؛ بل يعيد بناء المسار من المدخل المقتبس
 والهويات واللمم المثبتة داخل الموسوعة.
 
-## 5. التصحيح التاريخي
+## 5. التصحيحات المرجعية
+
+أغلق السجل
+`docs/CHAPTER_13_REFERENCE_CORRECTIONS_2026-07-21.md`
+ثلاثة أخطاء إحالة في الصفحة أو رقم الصيغة. لم تتغير أي صيغة رياضية، ولا حالة
+منشأ، ولا نتيجة من نتائج الفصل.
+
+## 6. التصحيح التاريخي
 
 يبقى تصحيح A. I. Vinogradov المنشور سنة 1966 مسجلًا في BibTeX وفي التحقق
 المرجعي، فلا تعرض ورقة 1965 منفردة من دون سجل التصويب.
 
-## 6. نتيجة البناء
+## 7. نتيجة البناء
 
 ```text
 QUALITY-CHECKS #340 = SUCCESS
@@ -82,12 +92,13 @@ BIBER                = SUCCESS
 هذا يثبت سلامة مفاتيح المراجع وبنية BibLaTeX في بيئة CI. لا يثبت فحصًا بصريًا
 نهائيًا لقائمة المراجع أو جاهزية إصدار.
 
-## 7. الحكم
+## 8. الحكم
 
 ```text
 REFERENCE-VERIFICATION = PASS
+REFERENCE-CORRECTIONS  = 3 / CLOSED
 REFERENCE-BLOCKERS     = 0
 PROMOTION              = VERIFIED ALLOWED
-INDEPENDENT-REVIEW     = NOT YET STARTED
+INDEPENDENT-REVIEW     = IN PROGRESS
 RELEASE-READY          = NO
 ```
