@@ -69,7 +69,7 @@
 - [x] فتح مرحلة `0.14.0-dev` من رأس `main` المعتمد.
 - [x] سجل الأدلة وخريطة البرهان والتدقيق المرجعي.
 - [x] عدم انعدام دوال \(L\) على الخط وتطبيق Wiener--Ikehara.
-- [x] إثبات الصيغ النوعية لـ\(\psi\)، و\(\vartheta\)، و\(\pi\) لترديد ثابت.
+- [x] إثبات الصيغ النوعية لـ\(\psi\)، و\(artheta\)، و\(\pi\) لترديد ثابت.
 - [x] تدقيق ما بعد التأليف ورفع الفصل إلى `VERIFIED`.
 - [x] مراجعة مستقلة `APPROVED` ورفع الفصل إلى `REVIEWED`.
 - [x] دمج PR #15 عند الالتزام `6815324de91b20da4b4224522d07424279fd0b41`.
@@ -95,7 +95,7 @@
 - [x] اعتماد الصيغة الصريحة المقطوعة بحالة `CITED / COMPOSITE-INPUT`.
 - [x] إغلاق `PRE-AUTHORING-GATE` رسميًا.
 - [x] إنشاء ملف الفصل وربطه بالكتاب.
-- [x] إثبات Siegel--Walfisz والصيغ الموحدة لـ\(\vartheta\) و\(\pi\).
+- [x] إثبات Siegel--Walfisz والصيغ الموحدة لـ\(artheta\) و\(\pi\).
 - [x] نجاح التحقق المرجعي وتدقيق ما بعد التأليف والبناء المحلي والآلي.
 - [x] استلام حكم مستقل `APPROVED` بصفر عوائق.
 - [x] رفع الفصل إلى `REVIEWED` ودمج PR #20.
@@ -112,52 +112,42 @@ RELEASE-READY       = NO
 
 ### الفصل الثالث عشر: مبرهنة Bombieri--Vinogradov
 
-#### بدء المرحلة والأدلة
+#### الأدلة وما قبل التأليف
 
-- [x] إنشاء الفرع `agent/chapter-13-bombieri-vinogradov-v0.17.0` من رأس `main` المعتمد `607c6f8ad76f8085828f49ce6b566c846950ab2a`.
-- [x] رفع الإصدار إلى `0.17.0-dev`.
-- [x] قراءة ملفات الحوكمة الأساسية قبل التعديل.
-- [x] بدء المسح عبر Consensus.
-- [x] التحقق من Bombieri 1965 وVinogradov 1965 وتصحيح 1966.
-- [x] التحقق من Gallagher 1968 وVaughan 1975.
-- [x] إنشاء سجل الأدلة وخريطة البرهان.
-- [x] فصل النتيجة عن Siegel--Walfisz وElliott--Halberstam والنتائج الموزونة بعد \(1/2\).
-- [x] فتح تدقيق ما قبل التأليف بحكم `PASS-FOR-RESEARCH-INTAKE / FAIL-FOR-AUTHORING`.
-
-#### بوابة ما قبل التأليف
-
-- [ ] تثبيت صيغة الغربال الكبير بالصفحات والتطبيع.
-- [ ] تحديد حالة منشأ الغربال الكبير: `CITED` أو `COMPOSITE-INPUT`.
-- [ ] إثبات هوية Vaughan والتحقق من حدود القطع.
-- [ ] تدقيق Type I.
-- [ ] تدقيق Type II.
-- [ ] تثبيت مبرهنة القيمة المتوسطة و`max_{y\le x}`.
-- [ ] تدقيق الموصلات والشخصيات المستحثة.
-- [ ] تدقيق الشخصية الرئيسية والعوامل المحلية.
-- [ ] حساب الخسائر اللوغاريتمية وتحديد شرط \(B(A)\).
-- [ ] الحكم بشأن فعالية الثوابت.
-- [ ] فحص عدم الدور.
-- [ ] حجز معرفات النتائج وتحديث BibTeX.
-- [ ] إغلاق `PRE-AUTHORING-GATE`.
+- [x] إنشاء الفرع من رأس `main` المعتمد ورفع الإصدار إلى `0.17.0-dev`.
+- [x] قراءة ملفات الحوكمة وبدء المسح عبر Consensus.
+- [x] التحقق من Bombieri وVinogradov وتصحيحه وGallagher وVaughan وMontgomery--Vaughan II.
+- [x] تثبيت حزمة الغربال الكبير بحالة `CITED / COMPOSITE-INPUT`.
+- [x] إثبات هوية Vaughan وPólya--Vinogradov داخليًا.
+- [x] إغلاق Type I وType II ومبرهنة القيمة المتوسطة.
+- [x] إغلاق الشخصية الرئيسية والموصلات والخسارة اللوغاريتمية وعدم الدور.
+- [x] حجز أحد عشر معرفًا وتحديث BibTeX.
+- [x] إغلاق `PRE-AUTHORING-GATE` بحكم `PASS-FOR-AUTHORING`.
 
 #### التأليف والتدقيق
 
-- [ ] إنشاء ملف الفصل وربطه بالكتاب بعد إغلاق البوابة.
-- [ ] كتابة الغربال الكبير وهوية Vaughan وتفكيك Type I/II.
-- [ ] إثبات مبرهنة القيمة المتوسطة.
-- [ ] إثبات Bombieri--Vinogradov في صيغة \(\psi\).
-- [ ] اشتقاق النسخ لـ\(\vartheta\) و\(\pi\) و«تقريبًا كل الترديدات».
-- [ ] إضافة الأمثلة والتمارين وحدود الادعاء.
-- [ ] إجراء التحقق المرجعي وتدقيق ما بعد التأليف.
-- [ ] رفع الفصل إلى `VERIFIED` بعد نجاح CI.
-- [ ] المراجعة المستقلة ثم `REVIEWED` والدمج بأمر المالك.
+- [x] إنشاء ملف الفصل وربطه بالكتاب.
+- [x] كتابة الغربال الكبير وهوية Vaughan وتفكيك Type I/II.
+- [x] إثبات مبرهنة القيمة المتوسطة.
+- [x] إثبات Bombieri--Vinogradov في صيغة \(\psi\).
+- [x] اشتقاق النسخ لـ\(artheta\) و\(\pi\) و«تقريبًا كل الترديدات».
+- [x] إضافة الأمثلة والتمارين وحدود الادعاء.
+- [x] اجتياز التدقيق المنطقي والتحقق المرجعي وتدقيق ما بعد التأليف.
+- [x] نجاح `Quality checks` #340 وبناء PDF #334.
+- [x] رفع الفصل إلى `VERIFIED`.
+- [ ] إعداد حزمة المراجعة المستقلة وتجميد رأس مرشح.
+- [ ] استلام حكم مستقل ورفع الفصل إلى `REVIEWED` إذا استوفى الشروط.
+- [ ] الدمج بأمر صريح من مالك المشروع فقط.
 
 ```text
-CHAPTER-13             = PRE-AUTHORING
-CENTRAL-TARGET         = BOMBIERI--VINOGRADOV / NOT YET ADOPTED
-PROOF-ROUTE            = VAUGHAN + LARGE SIEVE / CANDIDATE
-LEVEL-OF-DISTRIBUTION  = 1/2 WITH LOGARITHMIC LOSS / TARGET
-AUTHORING              = BLOCKED
+CHAPTER-13             = VERIFIED
+RESULTS                = 11
+LARGE-SIEVE            = CITED / COMPOSITE-INPUT
+BOMBIERI-VINOGRADOV    = PROVED-HERE / INEFFECTIVE-CONSTANT
+QUALITY-CHECKS         = RUN-340 / SUCCESS
+PDF-BUILD              = RUN-334 / SUCCESS
+INDEPENDENT-REVIEW     = NOT YET STARTED
+MERGE                  = NOT AUTHORIZED
 RELEASE-READY          = NO
 ```
 
