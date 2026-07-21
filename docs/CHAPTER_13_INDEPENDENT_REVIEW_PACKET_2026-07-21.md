@@ -5,7 +5,7 @@
 ```text
 CHAPTER                   = 13
 TOPIC                     = BOMBIERI--VINOGRADOV
-REVIEW-CANDIDATE-HEAD     = af0457207e73178831c815be9aa3f5c1cae10d34
+REVIEW-CANDIDATE-HEAD     = d2495dba9cb5cc17a74c6bbb0ac55a914313d3f9
 CHAPTER-STATE             = VERIFIED
 RESULTS                   = 11
 QUALITY-CHECKS            = RUN-357 / SUCCESS
@@ -197,7 +197,7 @@ Q\le \frac{x^{1/2}}{(\log x)^{A+3}},
 ## 9. نموذج الحكم
 
 ```text
-REVIEWED-CANDIDATE-HEAD = af0457207e73178831c815be9aa3f5c1cae10d34
+REVIEWED-CANDIDATE-HEAD = d2495dba9cb5cc17a74c6bbb0ac55a914313d3f9
 VERDICT                 =
 MATHEMATICAL-BLOCKERS    =
 REFERENCE-BLOCKERS       =

@@ -1,4 +1,4 @@
-[CmdletBinding()]
+﻿[CmdletBinding()]
 param(
     [string]$Branch = "agent/chapter-12-siegel-walfisz-v0.16.0",
     [switch]$Open,
