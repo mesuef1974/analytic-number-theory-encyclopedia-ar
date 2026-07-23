@@ -10,9 +10,10 @@ AUDIT                         = MEAN-VALUE-ROUTE / NON-CIRCULARITY
 CHAPTER-13-INPUT              = AVAILABLE / INSUFFICIENT-AS-STATED
 DIRECT-LARGE-SIEVE            = INSUFFICIENT-FOR-TARGET-ORDER
 BARBAN-MEAN-SQUARE-ROUTE      = SELECTED
-SOURCE-TEXT-PINNING           = PARTIAL
+PROOF-POLICY                  = FULL-INTERNALIZATION-FIRST
+REFERENCE-AUDIT               = AFTER-INTERNAL-PROOF
 MEAN-VALUE-ROUTE-GATE         = CLOSED / ROUTE-SELECTED
-MEAN-VALUE-THEOREM-GATE       = OPEN / PROOF-NOT-INTERNALIZED
+MEAN-VALUE-THEOREM-GATE       = OPEN / INTERNAL-PROOF-PENDING
 PRE-AUTHORING-GATE            = OPEN
 AUTHORING                     = BLOCKED
 RELEASE-READY                 = NO
@@ -65,7 +66,7 @@ V_\psi(x,Q)\ll_M xQ\log x
 
 ## 3. فشل التطبيق المباشر للغربال الكبير
 
-إذا وضعنا ببساطة
+إذا وضعنا
 
 \[
 c_n=\Lambda(n),
@@ -86,78 +87,83 @@ c_n=\Lambda(n),
 (x+R^2)x\log x.
 \]
 
-هذا ليس من رتبة `xR log x` المطلوبة لـBDH، خصوصًا عندما `R` أصغر كثيرًا من `x^{1/2}`. إذن الغربال الكبير الخام لا يلتقط البنية الإضافية التي تخفض العامل من `x+R^2` إلى المقياس المتوسط المناسب.
+هذا ليس من رتبة `xR log x` المطلوبة لـBDH. إذن الغربال الكبير الخام لا يلتقط البنية الإضافية التي تخفض العامل إلى المقياس المتوسط الصحيح.
 
 ```text
 DIRECT-LARGE-SIEVE => CORRECT BUT TOO LARGE
 ```
 
-## 4. لماذا لا نستخدم Bombieri--Vinogradov عكسيًا
+## 4. منع الاستدلال العكسي من Bombieri--Vinogradov
 
-Bombieri--Vinogradov يضبط متوسطًا من الرتبة الأولى لأكبر خطأ:
-
-\[
-\sum_{q\le Q}\max_{(a,q)=1}|E(x;q,a)|.
-\]
-
-أما BDH فيضبط
-
-\[
-\sum_{q\le Q}\sum_{(a,q)=1}|E(x;q,a)|^2.
-\]
-
-الانتقال من الأول إلى الثاني يحتاج حدًا نقطيًا إضافيًا، ويؤدي في المسار الساذج إلى خسارة لا تستعيد رتبة `xQ log x`. لذلك يمنع هذا التدقيق أي استدلال عكسي من الفصل الثالث عشر إلى الفصل الرابع عشر.
+Bombieri--Vinogradov يضبط متوسطًا من الرتبة الأولى لأكبر خطأ، بينما BDH يضبط متوسط مربعات الأخطاء على الترديدات والفئات معًا. الانتقال الساذج بينهما يحتاج حدًا نقطيًا إضافيًا ويؤدي إلى خسارة لا تستعيد رتبة `xQ log x`. لذلك يمنع هذا التدقيق أي استدلال عكسي من الفصل الثالث عشر إلى الفصل الرابع عشر.
 
 ## 5. المسار المختار
-
-اعتمد المسار التالي:
 
 ```text
 CHARACTER PARSEVAL
     -> PRIMITIVE-CONDUCTOR REDUCTION
-    -> BARBAN GENERAL MEAN-SQUARE THEOREM
+    -> INTERNAL PROOF OF BARBAN GENERAL MEAN-SQUARE THEOREM
     -> SPECIALIZATION TO VON MANGOLDT COEFFICIENTS
     -> PRINCIPAL / LOCAL CORRECTIONS
-    -> BDH CLASSICAL UPPER BOUND
+    -> INTERNAL PROOF OF BDH CLASSICAL UPPER BOUND
+    -> LOGIC AUDIT
+    -> REFERENCE AUDIT
+    -> INDEPENDENT REVIEW
 ```
 
-المكوّن الحاسم هو **مبرهنة باربان العامة للقيمة المتوسطة التربيعية** أو برهان مكافئ لها كما يعرضه Montgomery في الفصل «The mean value theorem of Barban» من *Topics in Multiplicative Number Theory*، الصفحات 145--154.
+المكوّن الحاسم هو مبرهنة باربان العامة للقيمة المتوسطة التربيعية أو صيغة مكافئة لها. لكن قرار المشروع هو عدم اعتمادها صندوقًا أسود في الفصل الرابع عشر.
 
-هذا المسار مستقل منطقيًا عن Bombieri--Vinogradov. يمكنه استعمال الغربال الكبير بوصفه أداة داخل برهان باربان، لكنه لا يستبدل برهان باربان بتطبيق مباشر للغربال.
+## 6. سياسة الإثبات الداخلي
 
-## 6. قرار المنشأ
+اعتمد المالك السياسة الآتية:
 
-حتى فحص النص الكامل وإعادة بناء البرهان:
+```text
+INTERNAL-PROOF-FIRST = YES
+CITATION-AS-SUBSTITUTE-FOR-PROOF = NO
+REFERENCE-CHECK-DURING-PROOF = ORIENTATION-ONLY
+FORMAL-AUDIT-BEFORE-PROOF-COMPLETE = NO
+FORMAL-AUDIT-AFTER-PROOF-COMPLETE = REQUIRED
+```
 
-| المكوّن | القرار |
+وعليه:
+
+1. يعاد بناء البرهان كاملًا داخل ملفات البحث أولًا.
+2. يسمح باستعمال المراجع لتحديد الطريق ومنع إعادة اختراع مسار خاطئ، لكن لا تمنح نتيجة `CITED` بدل الإثبات.
+3. كل خطوة تصنف مؤقتًا `PROVED-HERE-DRAFT` بعد اشتقاقها، ولا تصبح `PROVED-HERE` إلا بعد التدقيق.
+4. لا تبدأ كتابة متن الفصل قبل اكتمال سلسلة البرهان وإغلاق تدقيق ما قبل التأليف.
+5. بعد اكتمال البرهان تجرى ثلاثة تدقيقات منفصلة: منطقي، مرجعي، ومستقل.
+
+## 7. وحدات البرهان المطلوبة
+
+يُقسّم الإثبات الداخلي إلى الوحدات الآتية:
+
+```text
+MV-01  weighted conductor decomposition
+MV-02  duality / character large-sieve preparation
+MV-03  bilinear decomposition of arithmetic coefficients
+MV-04  diagonal contribution
+MV-05  off-diagonal contribution
+MV-06  Barban general mean-square estimate
+MV-07  specialization to Lambda
+MV-08  principal-character and local-prime corrections
+MV-09  dyadic summation and Q-range
+MV-10  classical BDH upper bound
+```
+
+لا تغلق بوابة مبرهنة القيمة المتوسطة إلا بعد اكتمال `MV-01` إلى `MV-06`. ولا يغلق الحد الكلاسيكي إلا بعد اكتمال `MV-07` إلى `MV-10`.
+
+## 8. قرار المنشأ المؤقت
+
+| المكوّن | الحالة الحالية |
 |---|---|
-| الغربال الكبير | `CITED / FROM CHAPTER 13` |
+| الغربال الكبير | `CITED-TOOL / FROM CHAPTER 13` |
 | تحويل التباين بالشخصيات | `PROVED-HERE` |
 | رد الموصلات | `PROVED-HERE` |
-| مبرهنة باربان العامة | `TARGET / SOURCE-PINNING-PARTIAL` |
+| مبرهنة باربان العامة | `TARGET / INTERNAL-PROOF-REQUIRED` |
 | تطبيقها على `Lambda` | `OPEN` |
 | حد BDH النهائي | `OPEN` |
 
-لا تسجل مبرهنة باربان العامة `CITED` بعد؛ لأن موضع الفصل معروف لكن نص الفرضيات والتطبيع والثوابت لم يثبت بعد من النص الكامل.
-
-## 7. المصادر المثبتة في هذا التدقيق
-
-1. H. L. Montgomery, *Topics in Multiplicative Number Theory*, LNM 227 (1971):
-   - فصل «The mean value theorem of Barban»؛
-   - الصفحات 145--154.
-2. R. C. Vaughan, “Mean Value Theorems in Prime Number Theory”, JLMS (2) 10 (1975), 153--162، DOI `10.1112/jlms/s2-10.2.153`.
-3. P. X. Gallagher, “Bombieri's mean value theorem”, Mathematika 15 (1968), 1--6، DOI `10.1112/S002557930000231X`.
-4. H. L. Montgomery and R. C. Vaughan, *Multiplicative Number Theory II: Primes and Sieves* (2026), الفصلان 19 و20، للغربال الكبير ومسار Bombieri--Vinogradov؛ وهما مدخل مقارنة لا مصدرًا لبرهان BDH في حالته الحالية.
-
-## 8. البوابة التالية
-
-يلزم إغلاق البنود الآتية قبل التأليف:
-
-1. فحص النص الكامل للفصل 18 من Montgomery 1971 أو مصدر أولي مكافئ.
-2. استخراج الصيغة العامة الدقيقة لمبرهنة باربان، بما فيها شروط المعاملات ونطاق `Q`.
-3. إعادة بناء البرهان مع منع استعمال BDH أو نتيجة مكافئة بصورة دورية.
-4. تطبيق الصيغة على معاملات فون مانغولت مع ضبط الحد القطري وتصحيحات الموصل.
-5. تثبيت رتبة `xQ log x` ومجال `Q` والفعالية.
+المراجع لا تستعمل لإغلاق المبرهنة، بل لمقارنة البرهان الداخلي بعد اكتماله.
 
 ## 9. الحكم
 
@@ -166,7 +172,7 @@ CHAPTER-13-MEAN-VALUE         = NOT-A-BDH-SECOND-MOMENT
 DIRECT-LARGE-SIEVE            = INSUFFICIENT-FOR-xQlogx
 BOMBIERI-VINOGRADOV-REVERSE   = REJECTED
 BARBAN-GENERAL-MEAN-SQUARE    = ADOPTED ROUTE
-NON-CIRCULARITY               = PASS AT ROUTE LEVEL
-PROOF-INTERNALIZATION         = OPEN
+PROOF-INTERNALIZATION         = MANDATORY
+AUDIT-ORDER                   = PROOF -> LOGIC -> REFERENCES -> INDEPENDENT
 PASS-FOR-AUTHORING            = NO
 ```
