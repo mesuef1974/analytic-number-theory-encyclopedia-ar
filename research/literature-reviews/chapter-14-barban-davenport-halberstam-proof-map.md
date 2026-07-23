@@ -3,15 +3,9 @@
 التاريخ: 2026-07-24
 
 ```text
-STATUS                     = PARTIALLY VERIFIED
-PRE-AUTHORING-GATE         = OPEN
-AUTHORING                   = BLOCKED
-NORMALIZATION-GATE          = CLOSED / PASS
-CHARACTER-TRANSFORM-GATE    = CLOSED / PASS
-IMPRIMITIVE-REDUCTION       = OPEN
-MEAN-VALUE-INPUT            = OPEN
-CLASSICAL-UPPER-BOUND       = OPEN
-ASYMPTOTIC-LAYER            = DEFERRED
+STATUS             = PARTIALLY-VERIFIED / ROUTE-SELECTED
+PRE-AUTHORING-GATE = OPEN
+AUTHORING           = BLOCKED
 ```
 
 ## الهدف
@@ -25,15 +19,9 @@ V_\psi(x,Q)=
 \left|\psi(x;q,a)-\frac{x}{\varphi(q)}\right|^2,
 \]
 
-مع الفصل الصريح بين ثلاثة أهداف لا يجوز خلطها:
+مع الفصل بين الحد العلوي الكلاسيكي، والصيغة التقاربية ذات الحد الرئيسي، والنسخ الملساء أو القصيرة.
 
-1. الحد العلوي الكلاسيكي من نوع Barban--Davenport--Halberstam.
-2. الصيغة التقاربية Montgomery--Hooley ذات الحد الرئيسي الأدق.
-3. النسخ الملساء أو المدمجة أو المعدلة في التطبيع ومجال المتغيرات.
-
-الطبقة الأساسية للفصل هي الهدف الأول فقط. أما الصيغة التقاربية فتبقى طبقة مستقلة مؤجلة حتى يثبت الحد الرئيسي والثابت ومجال `Q` من نص مصدر كامل.
-
-## السلسلة البرهانية الحالية
+## سلسلة الاعتماد المعتمدة
 
 ```text
 ORTHOGONALITY OF CHARACTERS
@@ -44,182 +32,144 @@ RESIDUE-CLASS VARIANCE <-> CHARACTER SECOND MOMENT
         +--> PRINCIPAL CHARACTER / PRIME-DIVISOR CORRECTIONS
         |
         v
-REDUCTION OF IMPRIMITIVE CHARACTERS TO CONDUCTORS
+IMPRIMITIVE CHARACTER -> PRIMITIVE CONDUCTOR REDUCTION
+        |
+        +--> LOCAL CORRECTION = CONTROLLED
+        +--> W_Q(r) = sum_{m<=Q/r} 1/phi(rm)
         |
         v
-LARGE-SIEVE / ANALYTIC MEAN-VALUE INPUT
+BARBAN GENERAL MEAN-SQUARE THEOREM
+        |
+        +--> LARGE SIEVE AS AN INTERNAL TOOL
+        +--> DIAGONAL / OFF-DIAGONAL DECOMPOSITION
+        +--> SPECIALIZATION TO VON MANGOLDT COEFFICIENTS
         |
         v
-DYADIC OR SMOOTH DECOMPOSITION
+CLASSICAL BDH UPPER BOUND
         |
+        +--> RANGE OF Q
+        +--> EFFECTIVITY
         v
-SECOND-MOMENT ESTIMATE
-        |
-        +--> CLASSICAL UPPER BOUND
-        |
-        +--> MAIN-TERM ANALYSIS (SEPARATE DEFERRED GATE)
-        v
-FINAL BDH STATEMENT + Q-RANGE + EFFECTIVITY
+SEPARATE ASYMPTOTIC LAYER (MONTGOMERY--HOOLEY / DEFERRED)
 ```
 
-## ما أُغلق
+## ما ثبت داخليًا
 
-### 1. التطبيع
-
-اعتمد نهائيًا:
-
-\[
-\psi(x;q,a)=\sum_{\substack{n\le x\\n\equiv a\pmod q}}\Lambda(n),
-\qquad
-E(x;q,a)=\psi(x;q,a)-\frac{x}{\varphi(q)},
-\]
-
-مع الجمع على الفئات المختزلة فقط. الشخصية الرئيسية لا تُسقط، وتصحيح الأوليات القاسمة لـ`q` يبقى ظاهرًا.
-
-الحالة:
-
-```text
-REDUCED-RESIDUE-CLASSES = FINAL
-MAIN-TERM               = x / phi(q)
-PRINCIPAL-CHARACTER     = EXPLICITLY RETAINED
-GATE-2 NORMALIZATION    = CLOSED / PASS
-```
-
-### 2. التحويل بالشخصيات
-
-ثبتت داخليًا هوية بارسيفال الدقيقة:
+### التطبيع والتحويل بالشخصيات
 
 \[
 \sum_{\substack{a\bmod q\\(a,q)=1}}
 \left|\psi(x;q,a)-\frac{x}{\varphi(q)}\right|^2
 =
-\frac{1}{\varphi(q)}
-\sum_{\chi\bmod q}
-\left|\Psi^{\circ}(x,\chi)\right|^2,
+\frac1{\varphi(q)}
+\sum_{\chi\bmod q}|\Psi^\circ(x,\chi)|^2.
 \]
 
-حيث
+```text
+GATE-2 NORMALIZATION       = CLOSED / PASS
+GATE-3 CHARACTER-TRANSFORM = CLOSED / PASS
+```
+
+### الشخصية الرئيسية
 
 \[
-\Psi^{\circ}(x,\chi)
+\Psi(x,\chi_0)-x
 =
-\Psi(x,\chi)-\delta_{\chi=\chi_0}x.
+\psi(x)-x-
+\sum_{\substack{p^k\le x\\p\mid q}}\log p.
 \]
 
-هذه هوية منتهية مستقلة عن أي تقدير تحليلي.
+### رد الشخصيات غير البدائية
 
-الحالة:
+إذا كانت `chi mod q` مستحثة من `chi* mod r`، حيث `r|q`، فثبت
+
+\[
+\Psi^\circ(x,\chi)
+=
+\Psi^\circ(x,\chi^*)-C(x;q,r,\chi^*),
+\qquad
+|C(x;q,r,\chi^*)|\le \omega(q/r)\log x.
+\]
+
+وكلفة التصحيحات المجمعة من رتبة
+
+\[
+O\!\left(Q(\log Q)^2(\log x)^2\right).
+\]
 
 ```text
-CHARACTER-ORTHOGONALITY = PROVED-HERE
-PARSEVAL-IDENTITY       = PROVED-HERE
-PRINCIPAL-SEPARATION    = PROVED-HERE
-GATE-3A TRANSFORM       = CLOSED / PASS
+GATE-4 IMPRIMITIVE-REDUCTION = CLOSED / PASS
 ```
 
-## الديون المفتوحة
+## تدقيق مدخل القيمة المتوسطة
 
-### 3. رد الشخصيات غير البدائية
+### ما لا يكفي
 
-يجب اشتقاق صيغة دقيقة تقارن
-
-\[
-\Psi(x,\chi)
-\]
-
-بالشخصية البدائية المحفزة `\chi^*` ذات الموصل `r\mid q`، مع تسجيل كلفة العوامل الأولية عند `q/r` وعدم دفنها داخل رمز خطأ غير مضبوط.
-
-المطلوب:
-
-- هوية الرد إلى الموصل.
-- حد موحد لتصحيح الأوليات القاسمة لـ`q` وغير القاسمة للموصل.
-- عدّ عدد الشخصيات modulo `q` المحفزة من موصل ثابت.
-- التحقق من أن الجمع الموزون بـ`1/\varphi(q)` لا يخلق خسارة أكبر من المسموح.
-
-### 4. المدخل التحليلي المتوسط
-
-لم يثبت بعد أن حزمة الغربال الكبير المستعملة في الفصل الثالث عشر تكفي وحدها لإنتاج رتبة
+1. مبرهنة القيمة المتوسطة في الفصل الثالث عشر من الرتبة الأولى لـ`|psi(y,chi)|`، وليست متوسطًا تربيعيًا.
+2. تطبيق الغربال الكبير مباشرة مع `c_n=Lambda(n)` يعطي
 
 \[
-V_\psi(x,Q)\ll xQ\log x.
+(x+R^2)x\log x,
 \]
 
-يجب تحديد أحد المسارين بوضوح:
+وهو أكبر من رتبة `xR log x` المطلوبة.
+3. لا يجوز استنتاج BDH عكسيًا من Bombieri--Vinogradov دون خسارة حادة.
 
-1. استدعاء مبرهنة قيمة متوسطة مقتبسة بصياغة مطابقة تمامًا؛ أو
-2. بناء البرهان داخل الفصل من الغربال الكبير مع تفكيك دالة فون مانغولت وضبط الحدود القطرية وغير القطرية.
+### المسار المختار
 
-يمنع استعمال نتيجة مكافئة لـBDH بوصفها مدخلًا، لأن ذلك سيكون استدلالًا دائريًا.
+اعتمدت مبرهنة باربان العامة للقيمة المتوسطة التربيعية، أو برهان مكافئ لها، بوصفها العقدة التحليلية المركزية التي يجب تدخيلها من المصدر الكامل.
 
-### 5. الصيغة الكلاسيكية النهائية
+المصدر التعليمي الحاكم المرشح:
 
-الصيغة المرشحة حاليًا هي
+- H. L. Montgomery, *Topics in Multiplicative Number Theory*, LNM 227 (1971)، الفصل «The mean value theorem of Barban»، الصفحات 145--154.
 
-\[
-V_\psi(x,Q)\ll_M xQ\log x
-\]
+مصادر المقارنة:
 
-في مجال من الشكل
-
-\[
-\frac{x}{(\log x)^M}\le Q\le x.
-\]
-
-لكن المجال واعتماد الثابت على `M` لا يزالان `PROVISIONAL` حتى فحص نص كامل للمصدر البرهاني المعتمد.
-
-### 6. الفعالية
-
-لا تنقل عدم الفعالية من فصل Bombieri--Vinogradov آليًا. يجب تحديد ما إذا كان مسار BDH المختار يستعمل:
-
-- Siegel--Walfisz؛
-- منطقة خالية من الأصفار؛
-- تقديرًا فعالًا محضًا من الغربال الكبير؛
-- أو مزيجًا منها.
-
-ولا يثبت وصف الثابت النهائي قبل حسم هذا الاعتماد.
-
-## طبقة الصيغة التقاربية
-
-صيغة Montgomery--Hooley والحد الرئيسي الأدق خارج نتيجة الفصل الأساسية حاليًا.
+- R. C. Vaughan, “Mean Value Theorems in Prime Number Theory”, JLMS (2) 10 (1975), 153--162.
+- P. X. Gallagher, “Bombieri's mean value theorem”, Mathematika 15 (1968), 1--6.
 
 ```text
-ASYMPTOTIC-MAIN-TERM = UNVERIFIED
-ARITHMETIC-CONSTANT  = UNVERIFIED
-ASYMPTOTIC-Q-RANGE   = UNVERIFIED
-STATUS               = DEFERRED / SEPARATE RESULT FAMILY
+GATE-5 MEAN-VALUE-ROUTE   = CLOSED / ROUTE-SELECTED
+GATE-6 MEAN-VALUE-THEOREM = OPEN / FULL-PROOF-PENDING
+NON-CIRCULARITY            = PASS AT ROUTE LEVEL
 ```
-
-لا تسجل هذه الطبقة في سجل النتائج قبل فحص Montgomery 1970، والفصل 18 من Montgomery 1971، والجزء المحدد من سلسلة Hooley الذي سيُستعمل.
 
 ## تصنيف المنشأ الحالي
 
 | المكوّن | الحالة |
 |---|---|
 | تعامد الشخصيات | `PROVED-HERE` |
-| تحويل التباين إلى متوسط شخصيات | `PROVED-HERE` |
+| تحويل التباين | `PROVED-HERE` |
 | فصل الشخصية الرئيسية | `PROVED-HERE` |
-| رد الشخصيات غير البدائية | `OPEN` |
-| الغربال الكبير | `CITED / CHAPTER 13 CANDIDATE INPUT` |
-| مبرهنة القيمة المتوسطة اللازمة | `UNCLASSIFIED / OPEN` |
-| حد BDH العلوي | `UNPROVED / TARGET` |
-| الصيغة التقاربية | `DEFERRED` |
-| مجال `Q` النهائي | `PROVISIONAL` |
-| الفعالية | `OPEN` |
+| رد الموصلات | `PROVED-HERE` |
+| الغربال الكبير | `CITED / FROM CHAPTER 13` |
+| مبرهنة باربان العامة | `TARGET / SOURCE-PINNING-PARTIAL` |
+| تطبيقها على `Lambda` | `OPEN` |
+| حد BDH النهائي | `OPEN` |
+| صيغة Montgomery--Hooley | `DEFERRED` |
 
-## بوابات الإغلاق
+## البوابات
 
 ```text
-GATE-1 ORIGINAL-SOURCES          = PARTIAL / FULL-TEXT PINNING OPEN
-GATE-2 NORMALIZATION             = CLOSED / PASS
-GATE-3 CHARACTER-TRANSFORM       = CLOSED / PASS
-GATE-3B IMPRIMITIVE-REDUCTION    = OPEN
-GATE-4 MEAN-VALUE-INPUT          = OPEN
-GATE-5 CLASSICAL-UPPER-BOUND     = OPEN
-GATE-5B ASYMPTOTIC-MAIN-TERM     = DEFERRED
-GATE-6 RANGE-AND-EFFECTIVITY     = OPEN
-PASS-FOR-AUTHORING               = NO
+GATE-1 ORIGINAL-SOURCES        = PARTIAL / FULL-TEXT-PENDING
+GATE-2 NORMALIZATION           = CLOSED / PASS
+GATE-3 CHARACTER-TRANSFORM     = CLOSED / PASS
+GATE-4 IMPRIMITIVE-REDUCTION   = CLOSED / PASS
+GATE-5 MEAN-VALUE-ROUTE        = CLOSED / ROUTE-SELECTED
+GATE-6 MEAN-VALUE-THEOREM      = OPEN
+GATE-7 CLASSICAL-UPPER-BOUND   = OPEN
+GATE-8 RANGE-AND-EFFECTIVITY   = OPEN
+GATE-9 INDEPENDENT-PRE-AUDIT   = OPEN
 ```
 
-## الإجراء التالي
+## الخطوة التالية
 
-الإجراء العلمي التالي هو إغلاق رد الشخصيات غير البدائية إلى الموصلات، ثم مطابقة الناتج مع مدخل متوسط غير دائري. لا يبدأ متن LaTeX قبل اكتمال ذلك وتثبيت صيغة الحد العلوي ومجال `Q` من مصدر كامل.
+1. استخراج الصيغة العامة الدقيقة لمبرهنة باربان وشروطها.
+2. تدخيل البرهان أو اعتمادها كمدخل مقتبس بموضع دقيق.
+3. تطبيقها على معاملات فون مانغولت وضبط الحد القطري والوزن `W_Q(r)`.
+4. تثبيت مجال `Q` والفعالية.
+5. إجراء تدقيق مستقل قبل السماح بالتأليف.
+
+```text
+PASS-FOR-AUTHORING = NO
+```
