@@ -8,11 +8,11 @@ VERSION                    = 0.21.0-dev
 TOPIC                      = CIRCLE METHOD / GOLDBACH / WARING
 ISSUE                      = #32 / OPEN
 BRANCH                     = agent/chapter-17-circle-method-goldbach-waring-v0.21.0
-EVIDENCE-LEDGER            = UPDATED
+EVIDENCE-LEDGER            = FINALIZED FOR FROZEN SCOPE
 PROOF-MAP                  = INITIALIZED
 PRIMARY-SOURCE-AUDIT       = PASS
 NONCIRCULARITY-AUDIT       = PASS
-RESULT-IDS                 = 7 / PROVISIONALLY RESERVED
+RESULT-IDS                 = 7 / RESERVED / NON-CITABLE
 REFERENCE-BLOCKERS         = 0
 SCOPE-BLOCKERS             = 0
 TECHNICAL-BLOCKERS         = 0
@@ -24,7 +24,7 @@ MERGE                      = NOT AUTHORIZED
 RELEASE-READY              = NO
 ```
 
-## 1. النطاق المعتمد
+## النطاق المعتمد
 
 1. التعامد الفورييري وصيغة تكامل عدد التمثيلات.
 2. الأقواس الكبرى والأقواس الصغرى.
@@ -35,7 +35,7 @@ RELEASE-READY              = NO
 7. غولدباخ الثنائية بحالة `HYPOTHESIS / OPEN`.
 8. إبقاء النظرية العامة للمجاميع الأسية وفان دير كوربوت للفصل الثامن عشر.
 
-## 2. القرارات المغلقة
+## القرارات المغلقة
 
 ```text
 WARING-TARGET            = CLASSICAL ASYMPTOTIC FORMULA / FROZEN
@@ -43,23 +43,22 @@ MINOR-ARC-INPUTS         = SOURCE-VERIFIED / CITED COMPOSITE INPUT
 VINOGRADOV-ATTRIBUTION   = SOURCE-VERIFIED
 HELFGOTT-SCOPE           = INCLUDE AS CITED MODERN COMPLETION
 NORMALIZATION            = FROZEN
+RESULT-REGISTRY          = ALIGNED
 ```
 
 مرجع فينوغرادوف المعتمد:
 
-I. M. Vinogradov, *Representation of an odd number as the sum of three primes*,
-*Doklady Akademii Nauk SSSR* 15 (1937), 129--132.
+I. M. Vinogradov, *Representation of an odd number as the sum of three primes*, *Doklady Akademii Nauk SSSR* 15 (1937), 129--132.
 
 مرجع وارينغ المؤسس:
 
-G. H. Hardy and J. E. Littlewood, *Some problems of Partitio Numerorum IV: The singular series in Waring's Problem and the value of G(k)*,
-*Mathematische Zeitschrift* 12 (1922), 161--188, DOI `10.1007/BF01482074`.
+G. H. Hardy and J. E. Littlewood, *Some problems of Partitio Numerorum IV: The singular series in Waring's Problem and the value of G(k)*, *Mathematische Zeitschrift* 12 (1922), 161--188, DOI `10.1007/BF01482074`.
 
-المسار التقني المفسر للأقواس ومسألة وارينغ:
+المسار التقني المفسر:
 
 R. C. Vaughan, *The Hardy--Littlewood Method*, 2nd ed., Cambridge University Press, 1997.
 
-## 3. التطبيع المجمد
+## التطبيع المجمد
 
 \[
 e(t)=e^{2\pi i t},
@@ -91,7 +90,7 @@ r_{s,k}(N)=\int_0^1 f_k(\alpha;P)^s e(-N\alpha)\,d\alpha.
 \mathfrak J_{s,k}(N).
 \]
 
-## 4. مدخل الأقواس الصغرى
+## مدخل الأقواس الصغرى
 
 يُقتبس، لمسار وارينغ فقط، وجود `\delta=\delta(k,s)>0` عندما يكون `s` كبيرًا بما يكفي بدلالة `k` بحيث
 
@@ -102,7 +101,7 @@ r_{s,k}(N)=\int_0^1 f_k(\alpha;P)^s e(-N\alpha)\,d\alpha.
 
 هذه نتيجة `CITED / COMPOSITE INPUT`، ولا تُقدّم بوصفها برهانًا داخليًا أو أفضل حد حديث.
 
-## 5. اختبارات الإغلاق
+## اختبارات الإغلاق
 
 - [x] `WARING-TARGET = FROZEN`.
 - [x] `MINOR-ARC-INPUTS = SOURCE-VERIFIED`.
@@ -115,7 +114,7 @@ r_{s,k}(N)=\int_0^1 f_k(\alpha;P)^s e(-N\alpha)\,d\alpha.
 - [ ] صدور تدقيق مستقل للبوابة بحكم `PASS`.
 - [ ] إصدار وثيقة مستقلة لـ`PASS-FOR-AUTHORING`.
 
-## 6. الحكم الحالي
+## الحكم الحالي
 
 ```text
 RESEARCH-INTAKE       = COMPLETE
@@ -127,7 +126,7 @@ CHAPTER-TEX           = DO NOT CREATE
 MANUSCRIPT-MAIN       = DO NOT EDIT
 ```
 
-حزمة الإغلاق التقنية موجودة في:
+حزمة الإغلاق التقنية:
 
 `docs/CHAPTER_17_SOURCE_NORMALIZATION_AND_MINOR_ARC_CLOSURE_2026-07-25.md`.
 
