@@ -4,7 +4,7 @@
 
 - **الإصدار التطويري الحالي:** `0.21.0-dev`
 - **المرحلة الحالية:** الفصل السابع عشر — الطريقة الدائرية ومدخل إلى غولدباخ ووارينغ.
-- **حالة الفصل السابع عشر:** `AUTHORED-DRAFT / INTERNAL-INDEPENDENT-REVIEW`
+- **حالة الفصل السابع عشر:** `READY-FOR-OWNER-ADOPTION / INTERNAL-INDEPENDENT-REVIEW`
 - **رأس الأساس من main:** `0bd442bc48490115bed48b18ed32783ad5bd1c9c`
 - **فرع العمل:** `agent/chapter-17-circle-method-goldbach-waring-v0.21.0`
 - **Issue:** `#32 / OPEN`
@@ -16,34 +16,34 @@
 - **التدقيق المرجعي:** `INITIAL PASS / BUILD VERIFIED`
 - **تدقيق الاصطلاحات:** `PASS`
 - **المراجعة المستقلة الداخلية:** `APPROVED-WITH-NONBLOCKING-CORRECTIONS`
-- **بناء PDF:** `PASS / 237 PAGES AFTER AUDIT-03`
-- **البناء النهائي بعد تدقيق 04:** `PENDING`
+- **البناء النهائي بعد تدقيق 04:** `PASS / 238 PAGES`
+- **اعتماد المالك:** `PENDING`
 - **الموسوعة:** `NOT-RELEASE-READY`
 - **آخر تحديث:** 2026-07-25
 
 ```text
-CHAPTER-16                 = REVIEWED / OWNER-ADOPTION APPROVED / MERGED
-PR-31                      = MERGED
-MERGE-COMMIT               = 0bd442bc48490115bed48b18ed32783ad5bd1c9c
-PDF-BUILD-16               = PASS / 227 PAGES
-CHAPTER-17                 = AUTHORED-DRAFT / INTERNAL-INDEPENDENT-REVIEW
-VERSION                    = 0.21.0-dev
-BRANCH                     = agent/chapter-17-circle-method-goldbach-waring-v0.21.0
-ISSUE                      = #32 / OPEN
-PR                         = #33 / DRAFT / OPEN / UNMERGED
-PRE-AUTHORING-GATE         = CLOSED
-PASS-FOR-AUTHORING         = YES
-AUTHORING                  = AUDIT-04 LINKED
-RESULTS                    = 9 / AUTHORED-DRAFT
-REFERENCE-AUDIT            = INITIAL PASS / BUILD VERIFIED
-MATHEMATICAL-AUDIT         = FOCUSED PASS
-TERMINOLOGY-AUDIT          = PASS
+CHAPTER-16                  = REVIEWED / OWNER-ADOPTION APPROVED / MERGED
+PR-31                       = MERGED
+MERGE-COMMIT                = 0bd442bc48490115bed48b18ed32783ad5bd1c9c
+PDF-BUILD-16                = PASS / 227 PAGES
+CHAPTER-17                  = READY-FOR-OWNER-ADOPTION
+VERSION                     = 0.21.0-dev
+BRANCH                      = agent/chapter-17-circle-method-goldbach-waring-v0.21.0
+ISSUE                       = #32 / OPEN
+PR                          = #33 / DRAFT / OPEN / UNMERGED
+PRE-AUTHORING-GATE          = CLOSED
+PASS-FOR-AUTHORING          = YES
+AUTHORING                   = AUDIT-04 LINKED
+RESULTS                     = 9 / AUTHORED-DRAFT
+REFERENCE-AUDIT             = INITIAL PASS / BUILD VERIFIED
+MATHEMATICAL-AUDIT          = FOCUSED PASS
+TERMINOLOGY-AUDIT           = PASS
 INTERNAL-INDEPENDENT-REVIEW = APPROVED-WITH-NONBLOCKING-CORRECTIONS
-PDF-BUILD                  = PASS / 237 PAGES AFTER AUDIT-03
-FINAL-POST-AUDIT-04-BUILD  = PENDING
-OWNER-ADOPTION             = REQUIRED
-MERGE                      = NOT AUTHORIZED
-RELEASE-READY              = NO
+FINAL-POST-AUDIT-04-BUILD   = PASS / 238 PAGES
+PDF-SHA256                  = 69150082F1EA7A7F6657F4F2ECBC3991F95F401541E6ABD80BCC5E009AE84B22
+OWNER-ADOPTION              = PENDING
+MERGE                       = NOT AUTHORIZED
+RELEASE-READY               = NO
 ```
 
 ## لوحة التقدم
@@ -53,8 +53,8 @@ RELEASE-READY              = NO
 | الفصول 5--16 | `REVIEWED` بدرجات الحوكمة المسجلة |
 | الفصل 15 | `REVIEWED / MERGED` |
 | الفصل 16 | `REVIEWED / OWNER-ADOPTED / MERGED` |
-| الفصل 17 | `AUTHORED-DRAFT / INTERNAL-INDEPENDENT-REVIEW` |
-| بناء PDF الأخير | `PASS / 237 PAGES` بعد تدقيق 03 |
+| الفصل 17 | `READY-FOR-OWNER-ADOPTION` |
+| بناء PDF الأخير | `PASS / 238 PAGES` بعد تدقيق 04 |
 
 ## ما أُنجز في الفصل السادس عشر
 
@@ -84,10 +84,10 @@ RELEASE-READY              = NO
 - نجاح بناء ما بعد التدقيق 03: 237 صفحة، بلا مراجع أو إحالات غير معرّفة، وبلا أخطاء LaTeX قاتلة.
 - توحيد اصطلاح وارينغ إلى `N_+={1,2,3,...}` وقراءة الحد المنتهي بواسطة `floor(P)`.
 - إتمام مراجعة مستقلة داخلية المسار بحكم `APPROVED-WITH-NONBLOCKING-CORRECTIONS`.
+- نجاح البناء النهائي بعد تدقيق 04: 238 صفحة، بلا مراجع أو إحالات غير معرّفة، وبلا أخطاء LaTeX قاتلة.
 
 ## البنود المفتوحة قبل الترقية
 
-1. بناء PDF نهائي بعد إدراج تدقيق 04 وفحص الإحالات.
-2. قرار المالك الصريح بشأن اعتماد حكم المراجعة.
-3. معالجة تحذيرات الخطوط العربية و`Overfull/Underfull hbox` بوصفها ديونًا تحريرية غير حاجزة.
-4. لا ترقية إلى `REVIEWED` ولا دمج دون قرار المالك وإذنه الصريح.
+1. قرار المالك الصريح بشأن اعتماد حكم المراجعة وترقية الفصل.
+2. معالجة تحذيرات الخطوط العربية و`Overfull/Underfull hbox` بوصفها ديونًا تحريرية غير حاجزة.
+3. لا ترقية إلى `REVIEWED` ولا دمج دون قرار المالك وإذنه الصريح.
