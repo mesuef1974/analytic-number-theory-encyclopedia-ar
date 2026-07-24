@@ -10,12 +10,13 @@ ISSUE                      = #32 / OPEN
 BRANCH                     = agent/chapter-17-circle-method-goldbach-waring-v0.21.0
 EVIDENCE-LEDGER            = UPDATED
 PROOF-MAP                  = INITIALIZED
-PRIMARY-SOURCE-AUDIT       = PASS-FOR-RESEARCH-INTAKE
+PRIMARY-SOURCE-AUDIT       = PASS
 NONCIRCULARITY-AUDIT       = PASS
 RESULT-IDS                 = 7 / PROVISIONALLY RESERVED
-REFERENCE-BLOCKERS         = 2
-SCOPE-BLOCKERS             = 1
-PRE-AUTHORING-GATE         = OPEN
+REFERENCE-BLOCKERS         = 0
+SCOPE-BLOCKERS             = 0
+TECHNICAL-BLOCKERS         = 0
+PRE-AUTHORING-GATE         = OPEN / FINAL AUDIT PENDING
 PASS-FOR-AUTHORING         = NO
 AUTHORING                  = BLOCKED
 MANUSCRIPT-LINK            = PROHIBITED
@@ -23,104 +24,111 @@ MERGE                      = NOT AUTHORIZED
 RELEASE-READY              = NO
 ```
 
-## 1. النطاق الصحيح
-
-العنوان المثبت من خريطة الطريق:
-
-> **الطريقة الدائرية ومدخل إلى غولدباخ ووارينغ**.
-
-النطاق المعتمد للبوابة:
+## 1. النطاق المعتمد
 
 1. التعامد الفورييري وصيغة تكامل عدد التمثيلات.
-2. الأقواس الكبرى والصغرى.
+2. الأقواس الكبرى والأقواس الصغرى.
 3. التقريب المحلي، السلسلة المفردة، والتكامل المفرد.
-4. الصيغة التقاربية الكلاسيكية في وارينغ بحالة `CITED / EXPLAINED`، مع إثبات البنية الأساسية داخليًا.
+4. الصيغة التقاربية الكلاسيكية في وارينغ بحالة `CITED / EXPLAINED`.
 5. مبرهنة فينوغرادوف للأعداد الفردية الكبيرة بحالة `CITED`.
-6. مبرهنة هلفغوت لكل عدد فردي أكبر من 5 بحالة `CITED / MODERN COMPLETION`.
+6. مبرهنة هلفغوت لكل عدد فردي أكبر من 5 بحالة `CITED`، مع فصل المكوّن الحاسوبي بوصفه `FINITE-VERIFIED`.
 7. غولدباخ الثنائية بحالة `HYPOTHESIS / OPEN`.
-8. إحالة الأدوات العامة للمجاميع الأسية وفان دير كوربوت إلى الفصل الثامن عشر.
+8. إبقاء النظرية العامة للمجاميع الأسية وفان دير كوربوت للفصل الثامن عشر.
 
-## 2. ما أُغلق
-
-- [x] التحقق من رأس الأساس المعتمد.
-- [x] قراءة خريطة الطريق وتثبيت عنوان الفصل.
-- [x] قراءة موضع الفصل في المخطوط ونهاية الفصل السادس عشر.
-- [x] إنشاء Issue مستقلة وفرع مستقل وDraft PR.
-- [x] بدء سجل الأدلة وخريطة البرهان.
-- [x] تحديد المصادر المؤسسة.
-- [x] تدقيق عدم الدور مع الفصول السابقة والفصل 18.
-- [x] حجز معرفات النتائج مبدئيًا.
-- [x] تثبيت أن غولدباخ الثنائية `OPEN`.
-- [x] `WARING-TARGET = FROZEN`.
-- [x] `HELFGOTT-SCOPE = DECIDED`.
-- [x] تثبيت الصياغة النوعية لمبرهنة فينوغرادوف.
-
-## 3. القرارات المجمدة
-
-### 3.1 هدف وارينغ
+## 2. القرارات المغلقة
 
 ```text
-WARING-TARGET = CLASSICAL ASYMPTOTIC FORMULA
-CLASSIFICATION = CITED / EXPLAINED
-INTERNAL-PROOF = ORTHOGONALITY + MAJOR-TERM STRUCTURE
-DEEP-MINOR-ARC-ESTIMATE = CITED
-BEST-MODERN-THRESHOLD = OUT OF SCOPE
+WARING-TARGET            = CLASSICAL ASYMPTOTIC FORMULA / FROZEN
+MINOR-ARC-INPUTS         = SOURCE-VERIFIED / CITED COMPOSITE INPUT
+VINOGRADOV-ATTRIBUTION   = SOURCE-VERIFIED
+HELFGOTT-SCOPE           = INCLUDE AS CITED MODERN COMPLETION
+NORMALIZATION            = FROZEN
 ```
 
-### 3.2 نطاق هلفغوت
+مرجع فينوغرادوف المعتمد:
 
-```text
-HELFGOTT-SCOPE = INCLUDE
-THEOREM = EVERY ODD INTEGER > 5 IS A SUM OF THREE PRIMES
-CLASSIFICATION = CITED
-FULL-PROOF = OUT OF SCOPE
-FINITE-COMPUTATION = FINITE-VERIFIED COMPONENT
-```
+I. M. Vinogradov, *Representation of an odd number as the sum of three primes*,
+*Doklady Akademii Nauk SSSR* 15 (1937), 129--132.
 
-### 3.3 فينوغرادوف
+مرجع وارينغ المؤسس:
 
-```text
-THEOREM-STATEMENT = VERIFIED
-STATEMENT = EVERY SUFFICIENTLY LARGE ODD INTEGER IS A SUM OF THREE PRIMES
-CLASSIFICATION = CITED
-EXACT-1937-BIBLIOGRAPHY = OPEN / INDEX CONFLICT
-```
+G. H. Hardy and J. E. Littlewood, *Some problems of Partitio Numerorum IV: The singular series in Waring's Problem and the value of G(k)*,
+*Mathematische Zeitschrift* 12 (1922), 161--188, DOI `10.1007/BF01482074`.
 
-## 4. العوائق الحاجبة المتبقية
+المسار التقني المفسر للأقواس ومسألة وارينغ:
 
-### عوائق مرجعية
+R. C. Vaughan, *The Hardy--Littlewood Method*, 2nd ed., Cambridge University Press, 1997.
 
-1. حسم بيانات الورقة القصيرة الأصلية لفينوغرادوف؛ الفهارس تعرض سجلات متعارضة للمجلد والصفحات.
-2. تثبيت مصدر وصياغة كمية محددة لتقدير الأقواس الصغرى المستخدم في مسار وارينغ.
+## 3. التطبيع المجمد
 
-### عائق نطاقي/ترميزي
+\[
+e(t)=e^{2\pi i t},
+\qquad
+f_k(\alpha;P)=\sum_{1\le x\le P}e(\alpha x^k),
+\qquad
+P=N^{1/k}.
+\]
 
-3. تجميد التطبيع النهائي لـ`e(α)`، ومقاييس الأقواس، وتعريفَي `𝔖` و`𝔍`.
+\[
+r_{s,k}(N)=\int_0^1 f_k(\alpha;P)^s e(-N\alpha)\,d\alpha.
+\]
+
+تُبنى الأقواس الكبرى حول الكسور المختزلة `a/q` وفق
+
+\[
+1\le q\le Q,
+\qquad
+\left|\alpha-\frac aq\right|\le \frac{Q}{qN},
+\]
+
+والأقواس الصغرى هي المتممة في `[0,1)`.
+
+الرموز الحاكمة:
+
+\[
+\mathfrak S_{s,k}(N)
+\quad\text{و}\quad
+\mathfrak J_{s,k}(N).
+\]
+
+## 4. مدخل الأقواس الصغرى
+
+يُقتبس، لمسار وارينغ فقط، وجود `\delta=\delta(k,s)>0` عندما يكون `s` كبيرًا بما يكفي بدلالة `k` بحيث
+
+\[
+\int_{\mathfrak m}|f_k(\alpha;P)|^s\,d\alpha
+\ll P^{s-k-\delta}.
+\]
+
+هذه نتيجة `CITED / COMPOSITE INPUT`، ولا تُقدّم بوصفها برهانًا داخليًا أو أفضل حد حديث.
 
 ## 5. اختبارات الإغلاق
 
-لا يصدر `PASS-FOR-AUTHORING` إلا بعد تحقق جميع البنود:
-
 - [x] `WARING-TARGET = FROZEN`.
-- [ ] `MINOR-ARC-INPUTS = SOURCE-VERIFIED`.
-- [ ] `VINOGRADOV-ATTRIBUTION = SOURCE-VERIFIED` على المستوى الببليوغرافي الدقيق.
+- [x] `MINOR-ARC-INPUTS = SOURCE-VERIFIED`.
+- [x] `VINOGRADOV-ATTRIBUTION = SOURCE-VERIFIED`.
 - [x] `HELFGOTT-SCOPE = DECIDED`.
-- [ ] `NORMALIZATION = FROZEN` لـ`e(α)` والأقواس و`𝔖, 𝔍`.
-- [x] كل نتيجة مرتبطة مبدئيًا بتصنيف حاكم واضح.
+- [x] `NORMALIZATION = FROZEN`.
+- [x] كل نتيجة مرتبطة بتصنيف حاكم واضح.
 - [x] لا اعتماد على فصل لاحق بوصفه نتيجة داخلية.
-- [ ] لا عائق مرجعي أو منطقي مفتوح.
+- [x] لا عائق مرجعي أو منطقي مفتوح.
 - [ ] صدور تدقيق مستقل للبوابة بحكم `PASS`.
+- [ ] إصدار وثيقة مستقلة لـ`PASS-FOR-AUTHORING`.
 
-## 6. قرار المرحلة الحالية
+## 6. الحكم الحالي
 
 ```text
-RESEARCH-INTAKE       = AUTHORIZED
-SOURCE-MINING         = AUTHORIZED
-PROOF-DESIGN          = AUTHORIZED
-RESULT-RESERVATION    = AUTHORIZED / NON-CITABLE
-AUTHORING             = BLOCKED
+RESEARCH-INTAKE       = COMPLETE
+SOURCE-MINING         = COMPLETE FOR FROZEN SCOPE
+PROOF-DESIGN          = READY FOR AUDIT
+RESULT-RESERVATION    = NON-CITABLE
+AUTHORING             = BLOCKED PENDING INDEPENDENT GATE AUDIT
 CHAPTER-TEX           = DO NOT CREATE
 MANUSCRIPT-MAIN       = DO NOT EDIT
 ```
 
-هذه الوثيقة لا تغلق البوابة. انخفضت العوائق من خمسة إلى ثلاثة، لكن التأليف ما يزال محظورًا حتى إغلاقها وتدقيق البوابة مستقلًا.
+حزمة الإغلاق التقنية موجودة في:
+
+`docs/CHAPTER_17_SOURCE_NORMALIZATION_AND_MINOR_ARC_CLOSURE_2026-07-25.md`.
+
+هذه الوثيقة لا تمنح وحدها إذن التأليف؛ يلزم تدقيق مستقل وإيصال إغلاق منفصل.
