@@ -20,6 +20,17 @@ It also records the source status of the finite Selberg minimization proof, alth
 
 The entries are stored in `manuscript/chapter-15-bibliography.bib` and loaded from `manuscript/preamble.tex`.
 
+## Build verification
+
+A clean local build after restoring the full governance macro layer completed successfully:
+
+- Biber read `manuscript/chapter-15-bibliography.bib`.
+- The final PDF contains 218 pages.
+- Chapter 15 cross-references and the existing `IwaniecKowalski2004` citations resolve in the final XeLaTeX pass.
+- Historical font, bidi, and overfull-box warnings remain outside the scope of this chapter audit.
+
+Status: `POST-AUTHORING-BUILD-AUDIT = PASS`.
+
 ## Text-location verification
 
 ### Selberg sieve framework and minimization
@@ -40,6 +51,12 @@ Status: `TEXT-LOCATION-VERIFIED` at chapter and page-range level.
 
 The manuscript deliberately uses an abstract one-sided formulation and does not claim a specific numerical decay rate for the structural error term. Matching a precise theorem number and normalization remains open.
 
+The manuscript citation should therefore use:
+
+```tex
+\cite[Chapter~4, pp.~29--42]{DiamondHalberstamGalway2008}
+```
+
 ### Selberg denominator asymptotic
 
 The manuscript states
@@ -52,7 +69,9 @@ The constant passes the internal checks at \(\kappa=1\) and \(\kappa=2\). Iwanie
 
 Status: `BIBLIOGRAPHY-VERIFIED / EXACT-THEOREM-LOCATION-OPEN`.
 
-This item blocks `REFERENCE-AUDIT = PASS` until the exact theorem or lemma number and page are checked against a full text.
+The current chapter-level citation must remain conservative. No exact page or theorem number is to be inserted until checked against a full text.
+
+This item blocks `REFERENCE-AUDIT = PASS`.
 
 ### Parity barrier
 
@@ -61,6 +80,8 @@ Iwaniec–Kowalski Chapter 6 is a standard chapter-level reference for elementar
 Status: `CONCEPT-VERIFIED / EXACT-BOOK-LOCATION-OPEN`.
 
 The manuscript's wording must remain diagnostic rather than absolute: classical local-divisibility sieve data alone do not distinguish prime parity patterns sufficiently to yield the desired lower bounds.
+
+A supporting conceptual citation may include `FriedlanderIwaniec1998AsymptoticSieve`, but this does not close the exact book-location requirement.
 
 ## Current decision
 
