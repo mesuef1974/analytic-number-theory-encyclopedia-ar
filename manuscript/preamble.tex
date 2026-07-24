@@ -79,15 +79,45 @@
   \resultbadge{gray!15}{معرّف النتيجة}%
   \quad
   \textenglish{\texttt{#1}}%
+  \par
 }
 
 \newcommand{\provedhere}{%
-  \quad\resultbadge{green!15}{مبرهنة هنا}%
+  \noindent
+  \resultbadge{green!20}{مثبت هنا}%
+  \quad
+  مثبتة داخل الموسوعة ببرهان كامل.%
+  \par
 }
 
 \newcommand{\citedresult}[1]{%
-  \quad\resultbadge{blue!12}{نتيجة مقتبسة}%
+  \noindent
+  \resultbadge{blue!15}{مستشهد بها}%
+  \quad
+  منقولة من المرجع #1.%
   \par
-  \smallskip
-  \noindent\emph{منقولة من المرجع #1.}%
+}
+
+\newcommand{\deferredresult}[1]{%
+  \noindent
+  \resultbadge{gray!20}{برهان مؤجل}%
+  \quad
+  سيظهر البرهان الكامل في #1.%
+  \par
+}
+
+\newcommand{\conditionalresult}[1]{%
+  \noindent
+  \resultbadge{orange!20}{نتيجة مشروطة}%
+  \quad
+  صحيحة بشرط #1.%
+  \par
+}
+
+\newcommand{\draftresult}{%
+  \noindent
+  \resultbadge{red!15}{مسودة}%
+  \quad
+  النتيجة أو البرهان قيد المراجعة.%
+  \par
 }
