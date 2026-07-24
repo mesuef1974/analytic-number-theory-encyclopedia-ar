@@ -26,7 +26,7 @@
 ```text
 BASE-MAIN                    = d2588c893d8d07be1e961813628e1bb210e0eece
 BRANCH                       = agent/chapter-14-barban-davenport-halberstam-v0.18.0
-CHAPTER-14                   = AUTHORED-DRAFT / FINAL-REVIEW-CHANGES-REQUIRED
+CHAPTER-14                   = READY-FOR-REVIEWED-DECISION
 ISSUE                        = #25 / OPEN
 PR                           = #26 / DRAFT / OPEN / UNMERGED
 PRE-AUTHORING-GATE           = CLOSED
@@ -39,12 +39,13 @@ INDEPENDENT-REVIEW           = APPROVED-WITH-NONBLOCKING-CORRECTIONS
 NONBLOCKING-CORRECTIONS      = 5 / 5 CLOSED
 POST-AUTHORING-BUILD-AUDIT   = PASS
 PDF-BUILD                    = PASS / 208 PAGES
-FINAL-MANUSCRIPT-REVIEW      = CHANGES-REQUIRED
+FINAL-MANUSCRIPT-REVIEW      = PASS
+FINAL-MANUSCRIPT-CORRECTIONS = 2 / 2 CLOSED
 MATHEMATICAL-BLOCKERS        = 0
-TEXTUAL-BLOCKERS             = 2
-TRACKING-DOCS-SYNC           = IN PROGRESS
-QUALITY-CHECKS               = PASS EXCEPT FINAL TEXTUAL CORRECTIONS
-REVIEWED                     = NO
+TEXTUAL-BLOCKERS             = 0
+TRACKING-DOCS-SYNC           = COMPLETE
+QUALITY-CHECKS               = PASS
+REVIEWED                     = PENDING OWNER DECISION
 MERGE                        = NOT AUTHORIZED
 RELEASE-READY                = NO
 ```
@@ -68,12 +69,9 @@ V_psi(x,Q) = sum_{q<=Q} sum_{a mod q, (a,q)=1}
 
 الثابت غير فعال في المسار الحالي بسبب مدخل Siegel--Walfisz للموصلات الصغيرة. لا يدعي الفصل الصيغة التقاربية لمونتغمري--هولي، ولا مبرهنة باربان العامة في كل المجالات.
 
-## ما يمنع تصنيف `REVIEWED`
+## القرار التالي
 
-1. تصحيح ملاحظة المقارنة مع الفصل الثالث عشر بحيث تميز بين مبرهنة Bombieri--Vinogradov وحزمة الغربال الكبير المستعملة فعلًا.
-2. حذف الاختصار الدخيل غير المعرّف `PVG` من قسم الحدود المفتوحة.
-3. مزامنة `PROGRESS.md` و`CHANGELOG.md` مع الحالة الحالية.
-4. إعادة بناء نهائية بعد التصحيحين النصيين وتسجيل نتيجة المراجعة.
+أُغلقت جميع العوائق الرياضية والنصية والتقنية للمراجعة النهائية. لا تتحول حالة الفصل إلى `REVIEWED`، ولا يتحول PR #26 من Draft، ولا يُدمج في `main`، إلا بقرار صريح من مالك المشروع.
 
 ## المرحلة السابقة
 
