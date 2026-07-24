@@ -16,7 +16,7 @@ It also records the source status of the finite Selberg minimization proof, alth
 - Harold G. Diamond, H. Halberstam, and William F. Galway, *A Higher-Dimensional Sieve Method* (Cambridge University Press, 2008).
 - Heini Halberstam and Hans-Egon Richert, *Sieve Methods* (Academic Press, 1974).
 - John Friedlander and Henryk Iwaniec, *Opera de Cribro* (AMS, 2010).
-- John Friedlander and Henryk Iwaniec, “Asymptotic Sieve for Primes” (1998 preprint).
+- John Friedlander and Henryk Iwaniec, “Asymptotic Sieve for Primes” (Annals of Mathematics 148 (1998), 1041–1065; arXiv:math/9811186).
 - D. R. Heath-Brown, *Lectures on Sieves* (2002 lecture notes, arXiv:math/0209360).
 
 The entries are stored in `manuscript/chapter-15-bibliography.bib` and loaded from `manuscript/preamble.tex`.
@@ -26,10 +26,12 @@ The entries are stored in `manuscript/chapter-15-bibliography.bib` and loaded fr
 A clean local build after restoring the full governance macro layer completed successfully:
 
 - Biber read `manuscript/chapter-15-bibliography.bib`.
-- The final PDF contains 218 pages.
+- The final PDF contains 219 pages.
+- `build/main.pdf` and `releases/preview.pdf` have equal size and timestamp.
+- SHA256 of the final PDF: `95F828F35D7A862DCB094910CB5BEB06850F097A6295C9CEAFBE5DC69309FE5D`.
 - Chapter 15 cross-references and citations resolve in the final XeLaTeX pass.
 - A final search of `build/main.log` returned no undefined citations, references, or global undefined-reference warning.
-- The branch and remote were synchronized at commit `6fbfabf`, with a clean working tree before the denominator-location update.
+- The branch and remote were synchronized at commit `7bbe5c4`, with a clean working tree.
 - Historical font, bidi, and overfull-box warnings remain outside the scope of this chapter audit.
 
 Status: `POST-AUTHORING-BUILD-AUDIT = PASS`.
@@ -52,7 +54,7 @@ The chapter's finite minimization proof is self-contained after the post-authori
 
 Status: `TEXT-LOCATION-VERIFIED` at chapter and page-range level.
 
-The manuscript deliberately uses an abstract one-sided formulation and does not claim a specific numerical decay rate for the structural error term. Matching a precise theorem number and normalization remains open.
+The manuscript deliberately uses an abstract one-sided formulation and does not claim a specific numerical decay rate for the structural error term.
 
 The manuscript citation is:
 
@@ -80,38 +82,44 @@ which matches the chapter's regularity hypothesis after the identification `g(p)
 
 Status: `TEXT-LOCATION-VERIFIED / NORMALIZATION-MATCHED`.
 
-The manuscript citation should be updated to:
+The manuscript citation is:
 
 ```tex
 \cite[p.~21]{HeathBrown2002LecturesSieves};
 \cite[(5.3.1)]{HalberstamRichert1974}
 ```
 
-This item no longer blocks the reference audit.
-
 ### Parity barrier
 
-Iwaniec–Kowalski Chapter 6 is a standard chapter-level reference for elementary sieve limitations. Friedlander–Iwaniec's asymptotic sieve paper explicitly describes the classical parity problem and the additional axiom used to break it in their setting.
+Friedlander–Iwaniec, *Asymptotic Sieve for Primes*, gives the exact textual match:
 
-Status: `CONCEPT-VERIFIED / EXACT-BOOK-LOCATION-OPEN`.
+- p. 1042: the limitation of the original sieve framework is identified explicitly as the “parity problem” of sieve theory.
+- pp. 1044–1045: the authors state that the classical remainder hypothesis alone cannot capture primes, even at level `D(x)=x^{1-\varepsilon}`, and explain that an additional bilinear hypothesis is what resolves the parity problem and permits prime detection.
 
-The manuscript's wording must remain diagnostic rather than absolute: classical local-divisibility sieve data alone do not distinguish prime parity patterns sufficiently to yield the desired lower bounds.
+This matches the chapter's deliberately diagnostic wording: classical local-divisibility and remainder data alone are insufficient to distinguish the prime-parity structure needed for a lower-bound prime-detection result; additional analytic input can breach the barrier.
 
-The supporting conceptual citation includes `FriedlanderIwaniec1998AsymptoticSieve`, but this does not close the exact book-location requirement.
+Status: `TEXT-LOCATION-VERIFIED / CLAIM-MATCHED`.
+
+The manuscript citation should use:
+
+```tex
+\cite[pp.~1042, 1044--1045]{FriedlanderIwaniec1998AsymptoticSieve}
+```
 
 ## Current decision
 
 ```text
 POST-AUTHORING-BUILD-AUDIT = PASS
 REFERENCE-BIBLIOGRAPHY      = PASS
-REFERENCE-TEXT-MATCHING     = PARTIAL
+REFERENCE-TEXT-MATCHING     = PASS
 SELBERG-DENOMINATOR         = TEXT-LOCATION-VERIFIED / NORMALIZATION-MATCHED
 FUNDAMENTAL-LEMMA           = CHAPTER/PAGE-RANGE-VERIFIED
-PARITY-BARRIER              = CONCEPT-VERIFIED / EXACT-LOCATION-OPEN
-REFERENCE-AUDIT             = OPEN
+PARITY-BARRIER              = TEXT-LOCATION-VERIFIED / CLAIM-MATCHED
+REFERENCE-AUDIT             = PASS
 CHAPTER-15                  = AUTHORED-DRAFT
+INDEPENDENT-REVIEW          = PENDING
 REVIEWED                    = NO
 PR-28                       = DRAFT / OPEN / UNMERGED
 ```
 
-No merge is authorized by this audit.
+The reference audit is closed. No merge is authorized by this audit.
