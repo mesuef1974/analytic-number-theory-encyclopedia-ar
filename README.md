@@ -23,15 +23,18 @@
 ```text
 BASE-MAIN                  = 0bd442bc48490115bed48b18ed32783ad5bd1c9c
 VERSION                    = 0.21.0-dev
-CHAPTERS-IN-MANUSCRIPT     = 1--16
+CHAPTERS-IN-MANUSCRIPT     = 1--17 ON WORK BRANCH
 CHAPTER-16                 = REVIEWED / OWNER-ADOPTED / MERGED
 PR-31                      = MERGED
-CHAPTER-17                 = EVIDENCE-FIRST / PRE-AUTHORING
+CHAPTER-17                 = AUTHORED-DRAFT / BATCH-02
 BRANCH-17                  = agent/chapter-17-circle-method-goldbach-waring-v0.21.0
 ISSUE-32                   = OPEN
 PR-33                      = DRAFT / OPEN / UNMERGED
-PRE-AUTHORING-GATE-17      = OPEN
-PASS-FOR-AUTHORING-17      = NO
+PRE-AUTHORING-GATE-17      = CLOSED
+PASS-FOR-AUTHORING-17      = YES
+REFERENCE-AUDIT-17         = INITIAL PASS
+MATHEMATICAL-AUDIT-17      = INITIAL PASS WITH OPEN ITEMS
+PDF-BUILD-17               = NOT YET RUN
 RELEASE-READY              = NO
 ```
 
@@ -47,11 +50,23 @@ RELEASE-READY              = NO
 
 ## المرحلة الجارية
 
-الفصل السابع عشر: **الطريقة الدائرية ومدخل إلى غولدباخ ووارينغ**. التأليف محجوب حتى إغلاق سجل الأدلة، خريطة البرهان، تدقيق المصادر الأولية، تدقيق عدم الدور، وتثبيت نطاق الأقواس الكبرى والصغرى.
+الفصل السابع عشر: **الطريقة الدائرية ومدخل إلى غولدباخ ووارينغ**.
+
+أُنجزت دفعتا التأليف الأولى والثانية، وتشملان:
+
+- تعامد الدوال الأسية وهوية عد التمثيلات.
+- الأقواس الكبرى والصغرى.
+- المجموع المحلي والتقريب الأرخميدي.
+- السلسلة المفردة والتكامل المفرد.
+- الصيغة الكلاسيكية في وارينغ بوصفها `CITED / EXPLAINED`.
+- مبرهنتي فينوغرادوف وهلفغوت بوصفهما `CITED`.
+- غولدباخ الثنائية بوصفها `HYPOTHESIS / OPEN`.
+
+لا يزال بناء PDF والتدقيق الرياضي والمرجعي النهائي والمراجعة المستقلة مطلوبًا قبل أي ترقية.
 
 ## بناء PDF
 
-آخر بناء كامل معتمد:
+آخر بناء كامل معتمد يخص الفصل السادس عشر:
 
 ```text
 XeLaTeX -> Biber -> XeLaTeX -> XeLaTeX
