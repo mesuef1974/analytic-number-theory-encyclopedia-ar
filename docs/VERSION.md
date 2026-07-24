@@ -1,71 +1,61 @@
 # الإصدار الحالي
 
 ```text
-0.18.0-dev
+0.19.0-dev
 ```
 
 هذا الملف هو **المصدر الوحيد المعتمد لرقم الإصدار وحالة المرحلة الحالية**.
 
-## معنى رقم الإصدار
-
-- الرقم الأول: إصدار موسوعي رئيسي.
-- الرقم الثاني: مرحلة علمية كبيرة أو فصل رئيسي.
-- الرقم الثالث: تحديث تحريري أو تقني.
-- اللاحقة `dev`: النسخة لا تزال قيد التطوير ولم تُعتمد للنشر.
-
-## المرحلة المغلقة
+## المرحلة الحالية
 
 ```text
-CHAPTER-14                   = REVIEWED / MERGED
-PR                           = #26 / MERGED
-MERGE-COMMIT                 = 8c208e1c43f42fda754e4ed3dadb51a0256b5e60
-ISSUE                        = #25 / CLOSED
-PASS-FOR-AUTHORING           = YES / OWNER-AUTHORIZED
-AUTHORING                    = COMPLETE
-RESULTS                      = 5 / ACTIVE
-LOGIC-AUDIT                  = PASS
-REFERENCE-AUDIT              = PASS
-INDEPENDENT-REVIEW           = APPROVED-WITH-NONBLOCKING-CORRECTIONS
-NONBLOCKING-CORRECTIONS      = 5 / 5 CLOSED
-POST-AUTHORING-BUILD-AUDIT   = PASS
-PDF-BUILD                    = PASS / 208 PAGES
-FINAL-MANUSCRIPT-REVIEW      = PASS
-FINAL-MANUSCRIPT-CORRECTIONS = 2 / 2 CLOSED
-MATHEMATICAL-BLOCKERS        = 0
-TEXTUAL-BLOCKERS             = 0
-TRACKING-DOCS-SYNC           = COMPLETE
-QUALITY-CHECKS               = PASS
-OWNER-REVIEWED-DECISION      = YES
-MERGE                        = COMPLETE
-RELEASE-READY                = NO
+BASE-MAIN             = 5a8263ee9cc3072b2442dce961786ee00d20712e
+BRANCH                = agent/chapter-15-selberg-sieve-v0.19.0
+VERSION               = 0.19.0-dev
+CHAPTER               = 15
+TOPIC                 = BASIC SIEVE METHODS / SELBERG SIEVE / PARITY BARRIER
+ISSUE                 = #27 / OPEN
+PR                    = PENDING CREATION
+RESEARCH-INTAKE       = OPEN
+PRE-AUTHORING-GATE    = OPEN
+AUTHORING             = BLOCKED
+RESULTS               = 0 / NOT RESERVED
+REFERENCE-VERIFICATION = NOT STARTED
+PROOF-MAP             = INITIAL
+LOGIC-AUDIT           = NOT STARTED
+RELEASE-READY         = NO
 ```
 
-## النتيجة المؤلَّفة
+## نطاق المرحلة
 
-لكل ثابت `A>0`، وبانتظام في
+يستهدف الفصل الخامس عشر بناء أساس منضبط لطرق الغربال، ويشمل مبدئيًا:
+
+1. الصياغة المجردة لمشكلة الغربال.
+2. دالة الكثافة المحلية والبعد الغربالي.
+3. غربال سيلبرغ والحد العلوي.
+4. موقع اللمّة الأساسية للغربال.
+5. الحدود العليا والسفلى.
+6. عائق التكافؤ وحدود ما يمكن أن تثبته طرق الغربال وحدها.
+7. تطبيقات تعليمية مضبوطة على الأعداد شبه الأولية ومسائل الأزواج الأولية.
+
+## بوابة ما قبل التأليف
+
+لا ينشأ متن الفصل ولا تحجز معرفات نتائجه قبل:
+
+- اكتمال سجل الأدلة.
+- تثبيت خريطة البرهان والاعتمادات.
+- تصنيف الأدوات إلى `PROVED-HERE`, `CITED`, و`DEFERRED`.
+- تدقيق عدم الدور.
+- تثبيت حدود الادعاء وعائق التكافؤ.
+- صدور `PASS-FOR-AUTHORING` صريح.
+
+## المرحلة السابقة
 
 ```text
-x >= 3,
-x/(log x)^A <= Q <= x,
+CHAPTER-14     = REVIEWED / MERGED
+PR-26          = MERGED
+ISSUE-25       = CLOSED
+MERGE-COMMIT   = 8c208e1c43f42fda754e4ed3dadb51a0256b5e60
+PDF-BUILD      = PASS / 208 PAGES
+RELEASE-READY  = NO
 ```
-
-يثبت الفصل:
-
-```text
-V_psi(x,Q) <<_A x Q log x.
-```
-
-الثابت غير فعال بسبب مدخل Siegel--Walfisz للموصلات الصغيرة.
-
-## المرحلة التالية
-
-أُغلقت مزامنة ملفات حوكمة الفصل الرابع عشر. يجوز الآن فتح المرحلة:
-
-```text
-VERSION-NEXT  = 0.19.0-dev
-CHAPTER-NEXT  = 15
-TOPIC-NEXT    = BASIC SIEVE METHODS / SELBERG SIEVE / PARITY BARRIER
-STATE-NEXT    = AUTHORIZED-FOR-INITIALIZATION / NOT YET AUTHORED
-```
-
-لا يبدأ التأليف قبل إنشاء سجل الأدلة وخريطة البرهان وإغلاق بوابة ما قبل التأليف. لا يترتب على الانتقال إلى المرحلة التالية تصنيف `RELEASE-READY`.
