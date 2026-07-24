@@ -41,6 +41,26 @@ if ($Clean -and (Test-Path $BuildDir)) {
     Remove-Item $BuildDir -Recurse -Force
 }
 
+if ($Clean) {
+    $RootAuxiliaryFiles = @(
+        "main.aux",
+        "main.bcf",
+        "main.bbl",
+        "main.blg",
+        "main.log",
+        "main.out",
+        "main.run.xml",
+        "main.toc"
+    )
+
+    foreach ($FileName in $RootAuxiliaryFiles) {
+        $FilePath = Join-Path $RepoRoot $FileName
+        if (Test-Path $FilePath) {
+            Remove-Item $FilePath -Force
+        }
+    }
+}
+
 New-Item -ItemType Directory -Force $BuildDir | Out-Null
 New-Item -ItemType Directory -Force $ReleaseDir | Out-Null
 

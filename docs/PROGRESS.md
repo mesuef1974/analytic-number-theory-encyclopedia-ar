@@ -2,42 +2,42 @@
 
 ## الحالة العامة
 
-- **الإصدار التطويري الحالي:** `0.18.0-dev`
-- **المرحلة المغلقة:** الفصل الرابع عشر — مبرهنة Barban--Davenport--Halberstam.
-- **حالة الفصل:** `REVIEWED / MERGED`
-- **رأس الدمج:** `8c208e1c43f42fda754e4ed3dadb51a0256b5e60`
-- **رأس الحوكمة الحالي:** `be99a28e5444b41294cffeea1f7052b5c747f926`
-- **Issue:** `#25 / CLOSED`
-- **PR:** `#26 / MERGED`
-- **بناء PDF:** `PASS / 208 PAGES`
-- **نتائج الفصل:** `5 / ACTIVE`
-- **العوائق الرياضية:** `0`
-- **العوائق النصية:** `0`
-- **المرحلة التالية:** فتح `0.19.0-dev` للفصل الخامس عشر بعد اكتمال مزامنة الحوكمة.
+- **الإصدار التطويري الحالي:** `0.19.0-dev`
+- **المرحلة الحالية:** الفصل الخامس عشر — طرق الغربال الأساسية وغربال سيلبرغ وعائق التكافؤ.
+- **حالة الفصل:** `AUTHORED-DRAFT`
+- **رأس الأساس من main:** `5a8263ee9cc3072b2442dce961786ee00d20712e`
+- **فرع العمل:** `agent/chapter-15-selberg-sieve-v0.19.0`
+- **Issue:** `#27 / OPEN`
+- **PR:** `#28 / DRAFT / OPEN / UNMERGED`
+- **بوابة ما قبل التأليف:** `CLOSED`
+- **إذن التأليف:** `PASS-FOR-AUTHORING = YES`
+- **نتائج الفصل:** `9 / AUTHORED-DRAFT`
+- **تدقيق ما بعد التأليف:** `IN PROGRESS`
+- **التحقق المرجعي:** `PENDING`
+- **بناء PDF:** `IN PROGRESS`
+- **العوائق الرياضية:** `0 / PRE-AUDIT`
+- **العوائق النصية:** `1 DETECTED / CORRECTION PENDING`
 - **آخر تحديث:** 2026-07-24
 
 ```text
-CHAPTER-14                   = REVIEWED / MERGED
-VERSION                      = 0.18.0-dev
-PR                           = #26 / MERGED
-ISSUE                        = #25 / CLOSED
-PASS-FOR-AUTHORING           = YES / OWNER-AUTHORIZED
-AUTHORING                    = COMPLETE
-RESULTS                      = 5 / ACTIVE
-LOGIC-AUDIT                  = PASS
-REFERENCE-AUDIT              = PASS
-INDEPENDENT-REVIEW           = APPROVED-WITH-NONBLOCKING-CORRECTIONS
-NONBLOCKING-CORRECTIONS      = 5 / 5 CLOSED
-POST-AUTHORING-BUILD-AUDIT   = PASS
-PDF-BUILD                    = PASS / 208 PAGES
-FINAL-MANUSCRIPT-REVIEW      = PASS
-FINAL-MANUSCRIPT-CORRECTIONS = 2 / 2 CLOSED
-MATHEMATICAL-BLOCKERS        = 0
-TEXTUAL-BLOCKERS             = 0
-TRACKING-DOCS-SYNC           = IN PROGRESS
-QUALITY-CHECKS               = PASS
-REVIEWED                     = YES / OWNER-APPROVED
-MERGE                        = COMPLETE
+CHAPTER-15                   = AUTHORED-DRAFT
+VERSION                      = 0.19.0-dev
+BASE-MAIN                    = 5a8263ee9cc3072b2442dce961786ee00d20712e
+BRANCH                       = agent/chapter-15-selberg-sieve-v0.19.0
+ISSUE                        = #27 / OPEN
+PR                           = #28 / DRAFT / OPEN / UNMERGED
+PRE-AUTHORING-GATE           = CLOSED
+PASS-FOR-AUTHORING           = YES
+AUTHORING                    = COMPLETE-AS-DRAFT
+RESULTS                      = 9 / AUTHORED-DRAFT
+POST-AUTHORING-AUDIT         = IN PROGRESS
+REFERENCE-AUDIT              = PENDING
+QUALITY-CHECKS               = RERUN PENDING AFTER VERSION SYNC
+PDF-BUILD                    = IN PROGRESS
+MATHEMATICAL-BLOCKERS        = 0 / PRE-AUDIT
+TEXTUAL-BLOCKERS             = 1 / CORRECTION PENDING
+REVIEWED                     = NO
+MERGE                        = NOT AUTHORIZED
 RELEASE-READY                = NO
 ```
 
@@ -47,8 +47,8 @@ RELEASE-READY                = NO
 |---|---:|---:|
 | هيكل المستودع | مكتمل مبدئيًا | 100% |
 | أهداف المشروع | مكتملة للإصدار الأول | 100% |
-| نظام التوثيق والمتابعة | عامل؛ تمرير مزامنة جارٍ | 98% |
-| بناء PDF المحلي والآلي | عامل | 100% |
+| نظام التوثيق والمتابعة | عامل | 100% |
+| بناء PDF المحلي والآلي | بناء الفصل 15 جارٍ | 98% |
 | الفصل الأول: التاريخ والمنهج | `DRAFT`؛ إحالات وحلول باقية | 85% |
 | الفصل الثاني: اللغة التقاربية والجمع الجزئي | `VERIFIED` | 85% |
 | الفصل الثالث: التحليل المركب الموجّه | `VERIFIED`؛ توسعات مؤجلة | 80% |
@@ -63,24 +63,46 @@ RELEASE-READY                = NO
 | الفصل الثاني عشر: Siegel--Walfisz | `REVIEWED / MERGED` | 95% |
 | الفصل الثالث عشر: Bombieri--Vinogradov | `REVIEWED / MERGED` | 95% |
 | الفصل الرابع عشر: Barban--Davenport--Halberstam | `REVIEWED / MERGED` | 100% |
+| الفصل الخامس عشر: غربال سيلبرغ وعائق التكافؤ | `AUTHORED-DRAFT` | 82% |
 | فصل الجبهات الحديثة | نواة أولية | 10% |
 | الملحق الحاسوبي | أول تجربة قابلة لإعادة التشغيل | 15% |
 
-## ما أُنجز في الفصل الرابع عشر
+## ما أُنجز في الفصل الخامس عشر
 
-- سجل أدلة وخريطة برهان قبل التأليف.
-- تدقيق منطقي ومرجعي مستقلان.
-- خمسة معرّفات نتائج مستقرة.
-- إثبات الحد الكلاسيكي في المجال
-  \[
-  x(\log x)^{-A}\le Q\le x.
-  \]
-- مراجعة مستقلة وإغلاق التصحيحات الخمسة.
-- مراجعة نهائية للمتن وإغلاق التصحيحين النصيين.
-- بناء Biber وXeLaTeX ناجح لملف من 208 صفحات.
-- اعتماد المالك، دمج PR #26، وإغلاق Issue #25.
+- إنشاء سجل أدلة وخريطة برهان قبل التأليف.
+- تدقيق التطبيع والفصل بين \(g\)، و\(h\)، و\(V\)، و\(G\)، و\(D\)، و\(z\)، و\(\kappa\).
+- اختيار مسار اللمّة الأساسية بوصفها `CITED / COMPOSITE-INPUT`.
+- تدقيق عائق التكافؤ وحدود الادعاء.
+- اختيار تطبيق الأزواج المنخولة \(n,n+h\).
+- إثبات حل مسألة التصغير والحد العلوي المنتهي لغربال سيلبرغ.
+- إثبات الكثافة المحلية والبعد الغربالي 2 للتطبيق المركزي.
+- حجز تسعة معرفات نتائج.
+- إغلاق بوابة ما قبل التأليف بحكم `PASS-FOR-AUTHORING = YES`.
+- إنشاء متن الفصل وربطه بالمخطوط.
 
-## الديون القديمة غير الحاجزة لبدء الفصل التالي
+## النتيجة المركزية المؤلفة
+
+لكل ثابت زوجي \(h\ne0\):
+
+\[
+S_h(x,z)
+=
+\#\{1\le n\le x:(n(n+h),P(z))=1\}
+\ll_h
+\frac{x}{(\log z)^2},
+\]
+
+بانتظام عندما
+
+\[
+x\ge3,
+\qquad
+3\le z\le x^{1/4}.
+\]
+
+لا يدعي الفصل وجود أزواج أولية أو حدًا سفليًا، ويعرض عائق التكافؤ بوصفه قيدًا على المعلومات الغربالية المحلية لا استحالة مطلقة لكل تقنية يدخل فيها غربال.
+
+## الديون القديمة غير الحاجزة
 
 - الفصل الأول: الإحالات التاريخية والحلول والمراجعة المستقلة.
 - الفصل الثاني: أويلر--ماكلوران وتطبيقات إضافية.
@@ -92,8 +114,8 @@ RELEASE-READY                = NO
 
 ## الخطوة التالية
 
-بعد إغلاق مزامنة الحوكمة، يفتح فرع جديد من `main` للإصدار `0.19.0-dev`. الموضوع المرشح للفصل الخامس عشر:
-
-**طرق الغربال الأساسية، غربال سيلبرغ، البعد الغربالي، الحدّان العلوي والسفلي، وعائق التكافؤ.**
-
-لا يترتب على بدء الفصل الخامس عشر تصنيف أي جزء من المجلد بأنه `RELEASE-READY`.
+1. تصحيح الملاحظة النصية المكتشفة في متن الفصل.
+2. إكمال تدقيق ما بعد التأليف الرياضي والمنطقي.
+3. تثبيت المواضع المرجعية الدقيقة للنتيجتين المقتبستين.
+4. إعادة فحص الجودة وبناء PDF.
+5. لا ترقية إلى `VERIFIED` قبل إغلاق هذه الخطوات رسميًا.
