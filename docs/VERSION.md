@@ -4,7 +4,7 @@
 0.18.0-dev
 ```
 
-هذا الملف هو **المصدر الوحيد المعتمد لرقم الإصدار**. تُحدَّث النسخ المكررة في بقية الملفات بواسطة:
+هذا الملف هو **المصدر الوحيد المعتمد لرقم الإصدار وحالة المرحلة الحالية**. تُحدَّث النسخ المكررة في بقية الملفات بواسطة:
 
 ```powershell
 .\scripts\sync-version.ps1
@@ -24,40 +24,56 @@
 **مبرهنة Barban--Davenport--Halberstam ومتوسط مربعات أخطاء توزيع الأعداد الأولية في المتتاليات الحسابية.**
 
 ```text
-BASE-MAIN              = d2588c893d8d07be1e961813628e1bb210e0eece
-BRANCH                 = agent/chapter-14-barban-davenport-halberstam-v0.18.0
-CHAPTER-14             = RESEARCH-INTAKE
-ISSUE                  = #25 / OPEN
-PRE-AUTHORING-GATE     = OPEN
-AUTHORING              = BLOCKED
-RESULTS                = 0 / NOT RESERVED
-REFERENCE-VERIFICATION = NOT STARTED
-PROOF-MAP              = NOT STARTED
-QUALITY-CHECKS         = PENDING
-PDF-BUILD              = NOT APPLICABLE / NO MANUSCRIPT DELTA
-RELEASE-READY          = NO
+BASE-MAIN                    = d2588c893d8d07be1e961813628e1bb210e0eece
+BRANCH                       = agent/chapter-14-barban-davenport-halberstam-v0.18.0
+CHAPTER-14                   = AUTHORED-DRAFT / FINAL-REVIEW-CHANGES-REQUIRED
+ISSUE                        = #25 / OPEN
+PR                           = #26 / DRAFT / OPEN / UNMERGED
+PRE-AUTHORING-GATE           = CLOSED
+PASS-FOR-AUTHORING           = YES / OWNER-AUTHORIZED
+AUTHORING                    = COMPLETE-AS-DRAFT
+RESULTS                      = 5 / RESERVED
+LOGIC-AUDIT                  = PASS
+REFERENCE-AUDIT              = PASS
+INDEPENDENT-REVIEW           = APPROVED-WITH-NONBLOCKING-CORRECTIONS
+NONBLOCKING-CORRECTIONS      = 5 / 5 CLOSED
+POST-AUTHORING-BUILD-AUDIT   = PASS
+PDF-BUILD                    = PASS / 208 PAGES
+FINAL-MANUSCRIPT-REVIEW      = CHANGES-REQUIRED
+MATHEMATICAL-BLOCKERS        = 0
+TEXTUAL-BLOCKERS             = 2
+TRACKING-DOCS-SYNC           = IN PROGRESS
+QUALITY-CHECKS               = PASS EXCEPT FINAL TEXTUAL CORRECTIONS
+REVIEWED                     = NO
+MERGE                        = NOT AUTHORIZED
+RELEASE-READY                = NO
 ```
 
-## الكمية المرشحة
+## النتيجة المؤلَّفة
 
-تبدأ المرحلة بدراسة التباين
+لكل ثابت `A>0`، وبانتظام في
 
 ```text
-V(x,Q) = sum_{q<=Q} sum_{a mod q, (a,q)=1}
-         |psi(x;q,a) - x/phi(q)|^2.
+x >= 3,
+x/(log x)^A <= Q <= x,
 ```
 
-هذه صيغة عمل أولية فقط. يجب تثبيت التطبيع ومجال `Q` والتمييز بين الحد العلوي والصيغة التقاربية ذات الحد الرئيسي قبل إنشاء متن الفصل أو حجز نتائج.
+يثبت الفصل الحد
 
-## بوابة ما قبل التأليف
+```text
+V_psi(x,Q) = sum_{q<=Q} sum_{a mod q, (a,q)=1}
+               |psi(x;q,a) - x/phi(q)|^2
+             <<_A x Q log x.
+```
 
-لا يبدأ التأليف قبل:
+الثابت غير فعال في المسار الحالي بسبب مدخل Siegel--Walfisz للموصلات الصغيرة. لا يدعي الفصل الصيغة التقاربية لمونتغمري--هولي، ولا مبرهنة باربان العامة في كل المجالات.
 
-1. التحقق من المصادر الأصلية لـBarban وDavenport وHalberstam.
-2. تثبيت النطاق الدقيق للمتغيرين `x` و`Q`.
-3. تحديد ما سيُقتبس وما سيُثبت داخليًا.
-4. إعداد خريطة برهان وتدقيق الثوابت والفعالية.
-5. إصدار حكم صريح `PASS-FOR-AUTHORING`.
+## ما يمنع تصنيف `REVIEWED`
+
+1. تصحيح ملاحظة المقارنة مع الفصل الثالث عشر بحيث تميز بين مبرهنة Bombieri--Vinogradov وحزمة الغربال الكبير المستعملة فعلًا.
+2. حذف الاختصار الدخيل غير المعرّف `PVG` من قسم الحدود المفتوحة.
+3. مزامنة `PROGRESS.md` و`CHANGELOG.md` مع الحالة الحالية.
+4. إعادة بناء نهائية بعد التصحيحين النصيين وتسجيل نتيجة المراجعة.
 
 ## المرحلة السابقة
 
