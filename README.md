@@ -15,92 +15,88 @@
 - [دليل بناء PDF](docs/BUILD.md)
 - [سياسة اعتماد النتائج](docs/RESULT_STATUS_POLICY.md)
 - [سجل النتائج المعتمدة](docs/RESULTS_REGISTRY.md)
-- [إغلاق حوكمة الفصل الثالث عشر](docs/CHAPTER_13_GOVERNANCE_CLOSURE_2026-07-21.md)
-- [سجل أدلة الفصل الرابع عشر](research/literature-reviews/chapter-14-barban-davenport-halberstam-evidence.md)
-- [خريطة برهان الفصل الرابع عشر](research/literature-reviews/chapter-14-barban-davenport-halberstam-proof-map.md)
+- [سجل نتائج الفصل الرابع عشر](docs/RESULTS_REGISTRY_CHAPTER_14.md)
+- [إغلاق الفصل الرابع عشر بعد الدمج](docs/CHAPTER_14_POST_MERGE_CLOSURE_2026-07-24.md)
 - [سجل التجارب الحاسوبية](docs/EXPERIMENTS_REGISTRY.md)
 
 ## الحالة الحالية
 
-الإصدار: `v0.18.0-dev`
-
 ```text
-BASE-MAIN                 = d2588c893d8d07be1e961813628e1bb210e0eece
-BRANCH                    = agent/chapter-14-barban-davenport-halberstam-v0.18.0
-CHAPTER-13                = REVIEWED / MERGED
-CHAPTER-14                = RESEARCH-INTAKE
-ISSUE                     = #25 / OPEN
-PRE-AUTHORING-GATE        = OPEN
-AUTHORING                 = BLOCKED
-RESULTS                   = 0 / NOT RESERVED
-REFERENCE-VERIFICATION    = NOT STARTED
-PROOF-MAP                 = INITIAL / UNVERIFIED
-RELEASE-READY             = NO
+MAIN-HEAD                  = be99a28e5444b41294cffeea1f7052b5c747f926
+VERSION                    = 0.18.0-dev
+CHAPTERS-IN-MANUSCRIPT     = 1--14
+CHAPTER-14                 = REVIEWED / MERGED
+PR-26                      = MERGED
+ISSUE-25                   = CLOSED
+RESULTS-14                 = 5 / ACTIVE
+PDF-BUILD                  = PASS / 208 PAGES
+MATHEMATICAL-BLOCKERS      = 0
+TEXTUAL-BLOCKERS           = 0
+NEXT-STAGE                 = PENDING CHAPTER-15 INITIALIZATION
+RELEASE-READY              = NO
 ```
 
-## الفصل الرابع عشر
+## آخر نتيجة مركزية
 
-الهدف المرشح هو دراسة متوسط مربعات أخطاء توزيع دالة فون مانغولت في المتتاليات الحسابية:
+يثبت الفصل الرابع عشر، لكل ثابت \(A>0\)، وبانتظام في
 
 \[
-V(x,Q)=
-\sum_{q\le Q}
-\sum_{\substack{a\bmod q\\(a,q)=1}}
-\left|\psi(x;q,a)-\frac{x}{\varphi(q)}\right|^2.
+x\ge 3,
+\qquad
+\frac{x}{(\log x)^A}\le Q\le x,
 \]
 
-هذه صيغة عمل أولية. لم يُعتمد بعد التطبيع النهائي، أو مجال \(Q\)، أو التمييز بين الحد العلوي والصيغة التقاربية ذات الحد الرئيسي. لذلك لا يوجد متن للفصل ولا نتائج محجوزة، والتأليف محجوب حتى صدور حكم `PASS-FOR-AUTHORING`.
+الحد
 
-## بوابة ما قبل التأليف
+\[
+V_\psi(x,Q)=
+\sum_{q\le Q}
+\sum_{\substack{a\bmod q\\(a,q)=1}}
+\left|\psi(x;q,a)-\frac{x}{\varphi(q)}\right|^2
+\ll_A xQ\log x.
+\]
 
-يلزم قبل إنشاء متن الفصل:
-
-1. فحص المصادر الأصلية لـBarban وDavenport وHalberstam.
-2. تثبيت التطبيع ومجال المتغيرات.
-3. إعادة اشتقاق التحويل بالشخصيات.
-4. تحديد مدخل القيمة المتوسطة وما إذا كان الغربال الكبير من الفصل الثالث عشر يكفي.
-5. تثبيت الحد الرئيسي والخطأ والفعالية.
-6. فصل ما سيُقتبس عما سيُثبت داخل الموسوعة.
+الثابت غير فعال بسبب مدخل Siegel--Walfisz للموصلات الصغيرة. لا يدعي الفصل الصيغة التقاربية لمونتغمري--هولي ولا مبرهنة باربان العامة في جميع المجالات.
 
 ## حالة الفصول
 
-- الفصول الثلاثة عشر الأولى مرتبطة بالملف الجامع وتظهر في بناء PDF الحالي.
-- الفصول من السابع إلى الثالث عشر بحالة `REVIEWED`.
-- الفصل الثالث عشر بحالة `REVIEWED / MERGED` وحوكمته مغلقة.
-- الفصل الرابع عشر في `RESEARCH-INTAKE` ولا يظهر في المتن بعد.
+- الفصول 1--14 مرتبطة بالملف الجامع.
+- الفصول 5--14 اجتازت مراجعات بدرجات مختلفة، والفصول 11--14 مغلقة حوكميًا على `main`.
+- الفصل الرابع عشر `REVIEWED / MERGED`.
+- لم تُفتح مرحلة الفصل الخامس عشر بعد.
 - لا يصبح أي فصل `RELEASE-READY` بمجرد التدقيق أو المراجعة أو الدمج.
+
+## الطريق التالي
+
+الأولوية المباشرة هي فتح المرحلة `0.19.0-dev` للفصل الخامس عشر بعد مزامنة ملفات الحوكمة. الموضوع المقترح للفصل الخامس عشر هو **طرق الغربال الأساسية وغربال سيلبرغ وعائق التكافؤ**؛ لأنه الامتداد الطبيعي للفصلين الثالث عشر والرابع عشر.
 
 ## مبادئ التحرير
 
 1. الدقة قبل الاختصار.
-2. الفصل بين النتائج المثبتة، والنتائج المشروطة، والتخمينات.
-3. إسناد كل ادعاء تاريخي أو بحثي إلى مصدر أصلي أو مرجع موثوق.
-4. تقديم الحدس، ثم الصياغة الدقيقة، ثم البرهان، ثم التطبيقات.
-5. تحديث فصل الجبهات الحديثة بحسب تاريخ إصدار كل نسخة.
-6. عدم الادعاء بالشمول المطلق؛ فالموسوعة مشروع قابل للتحديث المستمر.
+2. الفصل بين النتائج المثبتة والمقتبسة والمشروطة والتخمينات.
+3. إسناد الادعاءات التاريخية والبحثية إلى مصادر موثوقة.
+4. تقديم الحدس ثم الصياغة الدقيقة ثم البرهان ثم التطبيقات.
+5. تسجيل حدود الادعاء والديون العلمية صراحة.
+6. عدم الادعاء بالشمول المطلق أو `RELEASE-READY` دون بوابة مستقلة.
 
 ## بناء PDF
-
-لمزامنة `main` والبناء المحلي:
 
 ```powershell
 cd "D:\analytic-number-theory-encyclopedia-ar"
 .\scripts\sync-build.ps1 -Branch main -Open
 ```
 
-وللبناء فقط من الشجرة الحالية:
+وللبناء فقط:
 
 ```powershell
 .\scripts\build.ps1 -Clean -Open
 ```
 
-على GitHub يُبنى PDF تلقائيًا بعد كل Push يؤثر في ملفات الكتاب، ثم يُرفع كـArtifact.
-
 ## هيكل المشروع
 
 - `manuscript/`: الملف الجامع وإعدادات التنضيد.
 - `volumes/`: المجلدات والفصول.
-- `research/`: مراجعات الأدبيات وملفات الجبهات الحديثة.
-- `computational/`: تجارب Python وSageMath وPARI/GP.
+- `research/`: مراجعات الأدبيات وخرائط البرهان.
+- `computational/`: التجارب الحاسوبية.
 - `references/`: بيانات وملاحظات المراجع.
 - `releases/`: النسخ النهائية المنشورة.
