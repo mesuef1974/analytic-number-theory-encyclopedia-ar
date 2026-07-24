@@ -24,11 +24,11 @@
 **مبرهنة Barban--Davenport--Halberstam ومتوسط مربعات أخطاء توزيع الأعداد الأولية في المتتاليات الحسابية.**
 
 ```text
-BASE-MAIN                    = d2588c893d8d07be1e961813628e1bb210e0eece
+CHAPTER-14                   = REVIEWED / MERGED
+PR                           = #26 / MERGED
+MERGE-COMMIT                 = 8c208e1c43f42fda754e4ed3dadb51a0256b5e60
+ISSUE                        = #25 / CLOSED
 BRANCH                       = agent/chapter-14-barban-davenport-halberstam-v0.18.0
-CHAPTER-14                   = REVIEWED / MERGE-AUTHORIZED
-ISSUE                        = #25 / OPEN UNTIL MERGE
-PR                           = #26 / READY-FOR-REVIEW / MERGE-AUTHORIZED
 PRE-AUTHORING-GATE           = CLOSED
 PASS-FOR-AUTHORING           = YES / OWNER-AUTHORIZED
 AUTHORING                    = COMPLETE
@@ -45,8 +45,8 @@ MATHEMATICAL-BLOCKERS        = 0
 TEXTUAL-BLOCKERS             = 0
 TRACKING-DOCS-SYNC           = COMPLETE
 QUALITY-CHECKS               = PASS
-REVIEWED                     = YES / OWNER-APPROVED
-MERGE                        = AUTHORIZED
+OWNER-REVIEWED-DECISION      = YES
+MERGE                        = COMPLETE
 RELEASE-READY                = NO
 ```
 
@@ -69,9 +69,9 @@ V_psi(x,Q) = sum_{q<=Q} sum_{a mod q, (a,q)=1}
 
 الثابت غير فعال في المسار الحالي بسبب مدخل Siegel--Walfisz للموصلات الصغيرة. لا يدعي الفصل الصيغة التقاربية لمونتغمري--هولي، ولا مبرهنة باربان العامة في كل المجالات.
 
-## قرار المالك
+## إغلاق المرحلة
 
-اعتمد مالك المشروع الفصل الرابع عشر بحالة `REVIEWED`، وأذن بتحويل PR #26 إلى Ready for review ودمجه في `main`. لا يترتب على هذا القرار تصنيف `RELEASE-READY`.
+اعتمد مالك المشروع الفصل الرابع عشر بحالة `REVIEWED`. حُوّل PR #26 من Draft إلى Ready for review ثم دُمج في `main` عند الالتزام `8c208e1c43f42fda754e4ed3dadb51a0256b5e60`. لا يترتب على هذا الإغلاق تصنيف الفصل أو المجلد بأنه `RELEASE-READY`.
 
 ## المرحلة السابقة
 
