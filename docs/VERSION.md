@@ -1,10 +1,10 @@
 # الإصدار الحالي
 
 ```text
-0.17.0-dev
+0.18.0-dev
 ```
 
-هذا الملف هو **المصدر الوحيد المعتمد لرقم الإصدار**. تُحدَّث النسخ المكررة في بقية الملفات بواسطة:
+هذا الملف هو **المصدر الوحيد المعتمد لرقم الإصدار وحالة المرحلة الحالية**. تُحدَّث النسخ المكررة في بقية الملفات بواسطة:
 
 ```powershell
 .\scripts\sync-version.ps1
@@ -19,47 +19,66 @@
 
 ## المرحلة الحالية
 
-تستهدف `0.17.0-dev` الفصل الثالث عشر:
+تستهدف `0.18.0-dev` الفصل الرابع عشر:
 
-**مبرهنة Bombieri--Vinogradov والتوزيع المتوسطي للأعداد الأولية في المتتاليات الحسابية.**
-
-```text
-BASE-MAIN              = 607c6f8ad76f8085828f49ce6b566c846950ab2a
-BRANCH                 = agent/chapter-13-bombieri-vinogradov-v0.17.0
-CHAPTER-13             = REVIEWED / MERGED
-PRE-AUTHORING-GATE     = CLOSED / PASS
-POST-AUTHORING-AUDIT   = PASS
-LOGIC-AUDIT            = PASS
-REFERENCE-VERIFICATION = PASS
-RESULTS                = 11
-QUALITY-CHECKS         = RUN-372 / SUCCESS
-PDF-BUILD              = RUN-366 / SUCCESS
-INDEPENDENT-REVIEW     = COMPLETED / APPROVED-WITH-NONBLOCKING-CORRECTIONS
-PROMOTION              = OWNER-AUTHORIZED / EXECUTED
-PR-22                  = MERGED
-MERGE-COMMIT            = 2e28e51bd8334cd748d59f1e8cc9998975058a8c
-RELEASE-READY          = NO
-```
-
-## النتيجة المركزية
-
-لكل `A>0`، إذا
+**مبرهنة Barban--Davenport--Halberstam ومتوسط مربعات أخطاء توزيع الأعداد الأولية في المتتاليات الحسابية.**
 
 ```text
-Q <= x^(1/2) / (log x)^(A+3),
+BASE-MAIN                    = d2588c893d8d07be1e961813628e1bb210e0eece
+BRANCH                       = agent/chapter-14-barban-davenport-halberstam-v0.18.0
+CHAPTER-14                   = REVIEWED / MERGE-AUTHORIZED
+ISSUE                        = #25 / OPEN UNTIL MERGE
+PR                           = #26 / READY-FOR-REVIEW / MERGE-AUTHORIZED
+PRE-AUTHORING-GATE           = CLOSED
+PASS-FOR-AUTHORING           = YES / OWNER-AUTHORIZED
+AUTHORING                    = COMPLETE
+RESULTS                      = 5 / RESERVED
+LOGIC-AUDIT                  = PASS
+REFERENCE-AUDIT              = PASS
+INDEPENDENT-REVIEW           = APPROVED-WITH-NONBLOCKING-CORRECTIONS
+NONBLOCKING-CORRECTIONS      = 5 / 5 CLOSED
+POST-AUTHORING-BUILD-AUDIT   = PASS
+PDF-BUILD                    = PASS / 208 PAGES
+FINAL-MANUSCRIPT-REVIEW      = PASS
+FINAL-MANUSCRIPT-CORRECTIONS = 2 / 2 CLOSED
+MATHEMATICAL-BLOCKERS        = 0
+TEXTUAL-BLOCKERS             = 0
+TRACKING-DOCS-SYNC           = COMPLETE
+QUALITY-CHECKS               = PASS
+REVIEWED                     = YES / OWNER-APPROVED
+MERGE                        = AUTHORIZED
+RELEASE-READY                = NO
 ```
 
-فإن متوسط أكبر خطأ في `psi(y;q,a)` على `q<=Q` والفئات المختزلة و`y<=x` هو من رتبة `x/(log x)^A`.
+## النتيجة المؤلَّفة
 
-الثابت العام غير فعال بسبب استعمال Siegel--Walfisz للموصلات الصغيرة. لا يدعي الفصل Elliott--Halberstam أو مستوى توزيع عامًا أكبر من `1/2`.
+لكل ثابت `A>0`، وبانتظام في
+
+```text
+x >= 3,
+x/(log x)^A <= Q <= x,
+```
+
+يثبت الفصل الحد
+
+```text
+V_psi(x,Q) = sum_{q<=Q} sum_{a mod q, (a,q)=1}
+               |psi(x;q,a) - x/phi(q)|^2
+             <<_A x Q log x.
+```
+
+الثابت غير فعال في المسار الحالي بسبب مدخل Siegel--Walfisz للموصلات الصغيرة. لا يدعي الفصل الصيغة التقاربية لمونتغمري--هولي، ولا مبرهنة باربان العامة في كل المجالات.
+
+## قرار المالك
+
+اعتمد مالك المشروع الفصل الرابع عشر بحالة `REVIEWED`، وأذن بتحويل PR #26 إلى Ready for review ودمجه في `main`. لا يترتب على هذا القرار تصنيف `RELEASE-READY`.
 
 ## المرحلة السابقة
 
 ```text
-CHAPTER-12          = REVIEWED / MERGED
-PR-20               = MERGED
-GOVERNANCE-PR-21    = MERGED
-GOVERNANCE-MERGE    = 607c6f8ad76f8085828f49ce6b566c846950ab2a
-LOCAL-SOURCE-BUILD  = PASS / 184 PAGES
+CHAPTER-13          = REVIEWED / MERGED
+PR-22               = MERGED
+MERGE-COMMIT        = 2e28e51bd8334cd748d59f1e8cc9998975058a8c
+GOVERNANCE-COMMIT   = d2588c893d8d07be1e961813628e1bb210e0eece
 RELEASE-READY       = NO
 ```
