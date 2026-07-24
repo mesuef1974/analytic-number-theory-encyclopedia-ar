@@ -6,8 +6,8 @@
 \textenglish{AUTHORED-DRAFT / NOT-RELEASE-READY}.
 أُنشئ هذا المتن بعد إغلاق بوابة ما قبل التأليف وصدور
 \textenglish{PASS-FOR-AUTHORING = YES}. وقد اكتمل تدقيق المصادر الأولية وعدم الدور،
-لكن تدقيق ما بعد التأليف، وإدخال مفاتيح المراجع، والبناء الكامل، والمراجعة المستقلة
-ما تزال مطلوبة.
+وأُدخلت مفاتيح المراجع الأساسية، لكن تدقيق ما بعد التأليف، والبناء الكامل، والمراجعة
+المستقلة ما تزال مطلوبة.
 
 ينتقل هذا الفصل من الحد العلوي الغربالي المجرد في الفصل الخامس عشر إلى تطبيقات
 على الأزواج الأولية والأعداد شبه الأولية والفجوات بين الأوليات. ويُفصل صراحة بين
@@ -104,7 +104,8 @@
 \[
  \sum_{\substack{p\text{ أولي}\\p+h\text{ أولي}}}\frac1p.
 \]
-وبخاصة يتقارب مجموع مقلوبات الأوليات التوأم.
+وبخاصة يتقارب مجموع مقلوبات الأوليات التوأم، وهي النتيجة التاريخية المرتبطة
+بعمل برون \cite{Brun1919TwinPrimeReciprocals}.
 \end{corollary}
 
 \begin{proof}
@@ -134,7 +135,7 @@
 \begin{theorem}[مبرهنة تشن]
 \label{thm:chapter16-chen}
 \resultid{ANT-THM-16-02}
-\citedresult
+\citedresult{\cite{Chen1973PrimePlusP2}}
 كل عدد زوجي كبير بما يكفي يمكن كتابته على الصورة
 \[
  N=p+P_2,
@@ -152,7 +153,7 @@
 \begin{theorem}[Goldston--Pintz--Yıldırım]
 \label{thm:chapter16-gpy}
 \resultid{ANT-THM-16-03}
-\citedresult
+\citedresult{\cite{GoldstonPintzYildirim2009PrimesTuplesI}}
 لدينا
 \[
  \liminf_{n\to\infty}
@@ -173,7 +174,7 @@
 \begin{theorem}[Zhang]
 \label{thm:chapter16-zhang}
 \resultid{ANT-THM-16-04}
-\citedresult
+\citedresult{\cite{Zhang2014BoundedGaps}}
 أثبت Zhang أن
 \[
  H_1<7\times10^7.
@@ -220,7 +221,7 @@
 \begin{theorem}[Maynard]
 \label{thm:chapter16-maynard}
 \resultid{ANT-THM-16-05}
-\citedresult
+\citedresult{\cite{Maynard2015SmallGaps}}
 لكل \(m\ge1\)، لدينا
 \[
  H_m<\infty.
@@ -232,14 +233,16 @@
 \end{theorem}
 
 الميزة الأساسية أن الطريقة تعمل مع Bombieri--Vinogradov التقليدية، ولا تحتاج
-إلى تحسين Zhang الخاص بالمقامات الملساء لإثبات مجرد محدودية الفجوات.
+إلى تحسين Zhang الخاص بالمقامات الملساء لإثبات مجرد محدودية الفجوات. وقد طور
+Tao الفكرة بصورة مستقلة غير منشورة، بينما المرجع المنشور الحاكم هنا هو عمل
+Maynard ثم تعميم Polymath8b \cite{Polymath2014SelbergVariants}.
 
 \section{تحسين Polymath8b}
 
 \begin{theorem}[الحد المنشور لـPolymath8b]
 \label{thm:chapter16-polymath}
 \resultid{ANT-THM-16-06}
-\citedresult
+\citedresult{\cite{Polymath2014SelbergVariants,Polymath2015SelbergVariantsErratum}}
 لدينا دون شروط
 \[
  H_1\le246.
@@ -293,5 +296,5 @@ Maynard--Tao & وزن متعدد الأبعاد وBombieri--Vinogradov & لا ي
 \]
 
 أثبتنا داخليًا حد عد الأزواج الأولية وتقارب مجموع برون، واقتبسنا بدقة مبرهنات
-تشن وGPY وZhang وMaynard وPolymath8b. وتبقى كل ترقية للحالة مشروطة بإدخال
-المراجع، والبناء الكامل، والتدقيق الرياضي، والمراجعة المستقلة.
+تشن وGPY وZhang وMaynard وPolymath8b. وتبقى كل ترقية للحالة مشروطة بالبناء
+الكامل، والتدقيق الرياضي، والمراجعة المستقلة.
