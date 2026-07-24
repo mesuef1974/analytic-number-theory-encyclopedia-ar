@@ -7,10 +7,10 @@ STATUS                     = INTERNAL-PROOF-COMPLETE-AS-DRAFT
 PROOF-POLICY               = FULL-INTERNALIZATION-FIRST
 PRE-AUTHORING-GATE         = OPEN
 AUTHORING                   = BLOCKED
-NORMALIZATION-GATE          = CLOSED / PASS
-CHARACTER-TRANSFORM-GATE    = CLOSED / PASS
-IMPRIMITIVE-REDUCTION-GATE  = CLOSED / PASS
-MEAN-VALUE-ROUTE-GATE       = CLOSED / ROUTE-REPAIRED
+NORMALIZATION-GATE         = CLOSED / PASS
+CHARACTER-TRANSFORM-GATE   = CLOSED / PASS
+IMPRIMITIVE-REDUCTION-GATE = CLOSED / PASS
+MEAN-VALUE-ROUTE-GATE      = CLOSED / ROUTE-REPAIRED
 MV-01                       = COMPLETE / PROVED-HERE-DRAFT
 MV-02                       = COMPLETE / PROVED-HERE-DRAFT
 MV-03                       = COMPLETE / DEFERRED-FROM-ADOPTED-ROUTE
@@ -19,9 +19,9 @@ MV-04B                      = OBSTRUCTION-PROVED
 MV-04C                      = COMPLETE / PROVED-HERE-DRAFT
 MV-08                       = COMPLETE / PROVED-HERE-DRAFT
 MV-09                       = COMPLETE / PROVED-HERE-DRAFT
-MV-10 LOGIC-AUDIT           = PASS
-CLASSICAL-UPPER-BOUND       = LOGICALLY-CLOSED-AS-DRAFT
-REFERENCE-AUDIT             = PENDING
+MV-10 LOGIC-AUDIT          = PASS
+REFERENCE-AUDIT            = PASS
+CLASSICAL-UPPER-BOUND      = LOGICALLY-AND-REFERENTIALLY-CLOSED-AS-DRAFT
 INDEPENDENT-REVIEW          = PENDING
 ASYMPTOTIC-LAYER            = DEFERRED
 PASS-FOR-AUTHORING          = NO
@@ -81,7 +81,10 @@ MV-09 RANGE / SMALL-x / FINAL ASSEMBLY
 MV-10 END-TO-END LOGIC AUDIT = PASS
         |
         v
-REFERENCE AUDIT -> INDEPENDENT REVIEW -> AUTHORING DECISION
+REFERENCE AUDIT = PASS
+        |
+        v
+INDEPENDENT REVIEW -> AUTHORING DECISION
 ```
 
 ## العقد المثبتة
@@ -100,6 +103,7 @@ REFERENCE AUDIT -> INDEPENDENT REVIEW -> AUTHORING DECISION
 NORMALIZATION       = PROVED-HERE
 CHARACTER-TRANSFORM = PROVED-HERE
 MV-10-AUDIT         = PASS
+REFERENCE-ANCESTOR  = CHAPTER-07 / REVIEWED
 ```
 
 ### 2. رد الموصلات والتصحيحات المحلية
@@ -122,6 +126,7 @@ MV-01 EXACT-REINDEXING     = PROVED-HERE-DRAFT
 MV-01 WEIGHT-BOUND         = PROVED-HERE-DRAFT
 MV-01 CORRECTION-AGGREGATE = PROVED-HERE-DRAFT
 MV-10-AUDIT                = PASS
+REFERENCE-AUDIT            = PASS
 ```
 
 ### 3. الغربال الكبير الموزون
@@ -138,8 +143,10 @@ MV-10-AUDIT                = PASS
 \]
 
 ```text
-MV-02 = COMPLETE / PROVED-HERE-DRAFT
-MV-10-AUDIT = PASS
+MV-02              = COMPLETE / PROVED-HERE-DRAFT
+MV-10-AUDIT        = PASS
+REFERENCE-SOURCE   = MONTGOMERY--VAUGHAN II, THM 19.16, P.174
+REFERENCE-AUDIT    = PASS
 ```
 
 ### 4. فصل الموصلات
@@ -156,7 +163,7 @@ Y=\max\!\left(2,\frac{x}{Q}\log(2Q)\right).
 Y\ll_A(\log x)^{A+1}.
 \]
 
-- \(r\le Y\): Siegel--Walfisz.
+- \(r\le Y\): Siegel--Walfisz من الفصل الثاني عشر.
 - \(r>Y\): الغربال الكبير مباشرة على \(\Lambda\).
 
 وينتج
@@ -166,11 +173,31 @@ Y\ll_A(\log x)^{A+1}.
 \]
 
 ```text
-MV-04C = COMPLETE / PROVED-HERE-DRAFT
-MV-10-AUDIT = PASS
+MV-04C                    = COMPLETE / PROVED-HERE-DRAFT
+MV-10-AUDIT               = PASS
+SIEGEL-WALFISZ-REFERENCE  = CHAPTER-12 / REVIEWED / PASS
+REFERENCE-AUDIT           = PASS
 ```
 
-### 5. التجميع النهائي
+### 5. حد مربع فون مانغولت
+
+\[
+\sum_{n\le x}\Lambda(n)^2\ll x\log x
+\]
+
+يتبع من
+
+\[
+\Lambda(n)^2\le(\log x)\Lambda(n)
+\]
+
+وحد تشيبيشيف \(\psi(x)\ll x\) المثبت في الفصل التاسع.
+
+```text
+LAMBDA-SQUARE-BOUND = PROVED-HERE-FROM-REVIEWED-RESULTS / PASS
+```
+
+### 6. التجميع النهائي
 
 \[
 V_\psi(x,Q)=\mathcal S(x,Q)
@@ -178,9 +205,10 @@ V_\psi(x,Q)=\mathcal S(x,Q)
 \]
 
 ```text
-MV-08 = COMPLETE / PROVED-HERE-DRAFT
-MV-09 = COMPLETE / PROVED-HERE-DRAFT
-MV-10 LOGIC-AUDIT = PASS
+MV-08                 = COMPLETE / PROVED-HERE-DRAFT
+MV-09                 = COMPLETE / PROVED-HERE-DRAFT
+MV-10 LOGIC-AUDIT     = PASS
+REFERENCE-AUDIT       = PASS
 ```
 
 ## المسار المؤجل
@@ -188,11 +216,11 @@ MV-10 LOGIC-AUDIT = PASS
 `MV-03`, `MV-04`, `MV-04B` تحفظ بوصفها مواد بحثية:
 
 ```text
-VAUGHAN-DECOMPOSITION       = PROVED-HERE-DRAFT
-STRICT-DIAGONAL             = PROVED-HERE-DRAFT
-COLLISION-OBSTRUCTION       = PROVED-HERE-DRAFT
-USED-IN-FINAL-DEPENDENCY    = NO
-GENERAL-BARBAN-LAYER        = DEFERRED
+VAUGHAN-DECOMPOSITION    = PROVED-HERE-DRAFT
+STRICT-DIAGONAL          = PROVED-HERE-DRAFT
+COLLISION-OBSTRUCTION    = PROVED-HERE-DRAFT
+USED-IN-FINAL-DEPENDENCY = NO
+GENERAL-BARBAN-LAYER     = DEFERRED
 ```
 
 عائق التصادمات الضربية لم يُخفَ؛ بل تم تجاوزه في المجال الكلاسيكي بفصل الموصلات.
@@ -221,25 +249,26 @@ NON-CIRCULARITY = PASS
 - `docs/CHAPTER_14_MV08_PRINCIPAL_LOCAL_ASSEMBLY_2026-07-24.md`
 - `docs/CHAPTER_14_MV09_RANGE_FINAL_ASSEMBLY_2026-07-24.md`
 - `docs/CHAPTER_14_MV10_LOGIC_AUDIT_2026-07-24.md`
+- `docs/CHAPTER_14_REFERENCE_AUDIT_2026-07-24.md`
 
 ## سياسة المنشأ
 
 | المكوّن | الحالة |
 |---|---|
-| تعامد الشخصيات وتحويل التباين | `PROVED-HERE` |
+| تعامد الشخصيات وتحويل التباين | `PROVED-HERE / REVIEWED-ANCESTOR` |
 | رد الموصلات والتصحيحات | `PROVED-HERE-DRAFT` |
-| الغربال الكبير | `CITED-TOOL / FROM CHAPTER 13` |
-| Siegel--Walfisz | `CHAPTER-12 REVIEWED INPUT` |
-| حد مربع فون مانغولت | `STANDARD / REFERENCE-AUDIT-PENDING` |
+| الغربال الكبير | `CITED-TOOL / CHAPTER-13 REVIEWED / REFERENCE-PASS` |
+| Siegel--Walfisz | `CHAPTER-12 REVIEWED / REFERENCE-PASS` |
+| حد مربع فون مانغولت | `PROVED-HERE-FROM-REVIEWED-RESULTS` |
 | الفصل والجمع الديادي | `PROVED-HERE-DRAFT` |
-| الحد الكلاسيكي | `LOGICALLY-CLOSED-AS-DRAFT` |
+| الحد الكلاسيكي | `LOGICALLY-AND-REFERENTIALLY-CLOSED-AS-DRAFT` |
 
 ## الخطوة التالية
 
 ```text
-NEXT                 = REFERENCE-AUDIT
+NEXT                 = INDEPENDENT-REVIEW-PACKET
 LOGIC-AUDIT          = PASS
-REFERENCE-AUDIT      = PENDING
+REFERENCE-AUDIT      = PASS
 INDEPENDENT-REVIEW   = PENDING
 PASS-FOR-AUTHORING   = NO
 ```
