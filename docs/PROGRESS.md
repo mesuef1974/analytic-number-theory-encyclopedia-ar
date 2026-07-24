@@ -13,8 +13,8 @@
 - **إذن التأليف:** `PASS-FOR-AUTHORING = YES`
 - **نتائج الفصل:** `8 / AUTHORED-DRAFT`
 - **التدقيق الرياضي:** `INITIAL PASS WITH OPEN ITEMS`
-- **التدقيق المرجعي:** `INITIAL PASS / BUILD VERIFICATION PENDING`
-- **بناء PDF:** `NOT YET RUN`
+- **التدقيق المرجعي:** `INITIAL PASS / BUILD VERIFIED`
+- **بناء PDF:** `PASS / 235 PAGES`
 - **الموسوعة:** `NOT-RELEASE-READY`
 - **آخر تحديث:** 2026-07-25
 
@@ -32,9 +32,10 @@ PRE-AUTHORING-GATE         = CLOSED
 PASS-FOR-AUTHORING         = YES
 AUTHORING                  = BATCH-02 COMPLETE-AS-DRAFT
 RESULTS                    = 8 / AUTHORED-DRAFT
-REFERENCE-AUDIT            = INITIAL PASS
+REFERENCE-AUDIT            = INITIAL PASS / BUILD VERIFIED
 MATHEMATICAL-AUDIT         = INITIAL PASS WITH OPEN ITEMS
-PDF-BUILD                  = NOT YET RUN
+PDF-BUILD                  = PASS / 235 PAGES
+PDF-SHA256                 = AC8019DAB49A149C953ECAB7858452774FDE048BF1E52F91E979E289529ABBC3
 MERGE                      = NOT AUTHORIZED
 RELEASE-READY              = NO
 ```
@@ -47,7 +48,7 @@ RELEASE-READY              = NO
 | الفصل 15 | `REVIEWED / MERGED` |
 | الفصل 16 | `REVIEWED / OWNER-ADOPTED / MERGED` |
 | الفصل 17 | `AUTHORED-DRAFT / BATCH-02` |
-| بناء PDF الأخير | `PASS / 227 PAGES` للفصل 16 |
+| بناء PDF الأخير | `PASS / 235 PAGES` للفصل 17 |
 
 ## ما أُنجز في الفصل السادس عشر
 
@@ -69,12 +70,13 @@ RELEASE-READY              = NO
 - إدراج مراجع Hardy--Littlewood وVaughan وVinogradov وHelfgott داخل المتن.
 - فصل النتائج `PROVED-HERE` عن `CITED` و`FINITE-VERIFIED` و`HYPOTHESIS / OPEN`.
 - رفع سجل النتائج إلى ثمانية معرفات بحالة `AUTHORED-DRAFT`.
+- نجاح البناء المحلي الكامل: 235 صفحة، بلا مراجع أو إحالات غير معرّفة، وبلا أخطاء LaTeX قاتلة.
 
 ## البنود المفتوحة قبل الترقية
 
-1. بناء PDF كامل وفحص مفاتيح BibTeX والمراجع والإحالات.
-2. توحيد اصطلاح الأعداد الطبيعية في مسألة وارينغ.
-3. تدقيق الصيغة النهائية للتكامل المفرد وعامل القياس.
-4. تدقيق شروط تقارب وإيجابية السلسلة المفردة.
-5. إكمال برهان/تصنيف قضية الأقواس الكبرى أو إبقاؤها صراحة `AUTHORED-DRAFT / CITED INPUTS`.
+1. توحيد اصطلاح الأعداد الطبيعية في مسألة وارينغ.
+2. تدقيق الصيغة النهائية للتكامل المفرد وعامل القياس.
+3. تدقيق شروط تقارب وإيجابية السلسلة المفردة.
+4. إكمال برهان/تصنيف قضية الأقواس الكبرى أو إبقاؤها صراحة `AUTHORED-DRAFT / CITED INPUTS`.
+5. معالجة تحذيرات الخطوط العربية و`Overfull/Underfull hbox` بوصفها ديونًا تحريرية.
 6. تدقيق ما بعد التأليف والمراجعة المستقلة قبل أي ترقية إلى `VERIFIED` أو `REVIEWED`.
