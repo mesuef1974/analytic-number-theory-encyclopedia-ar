@@ -1,7 +1,7 @@
 # الإصدار الحالي
 
 ```text
-0.19.0-dev
+0.21.0-dev
 ```
 
 هذا الملف هو **المصدر الوحيد المعتمد لرقم الإصدار وحالة المرحلة الحالية**.
@@ -9,53 +9,41 @@
 ## المرحلة الحالية
 
 ```text
-BASE-MAIN             = 5a8263ee9cc3072b2442dce961786ee00d20712e
-BRANCH                = agent/chapter-15-selberg-sieve-v0.19.0
-VERSION               = 0.19.0-dev
-CHAPTER               = 15
-TOPIC                 = BASIC SIEVE METHODS / SELBERG SIEVE / PARITY BARRIER
-ISSUE                 = #27 / OPEN
-PR                    = PENDING CREATION
-RESEARCH-INTAKE       = OPEN
-PRE-AUTHORING-GATE    = OPEN
-AUTHORING             = BLOCKED
-RESULTS               = 0 / NOT RESERVED
-REFERENCE-VERIFICATION = NOT STARTED
-PROOF-MAP             = INITIAL
-LOGIC-AUDIT           = NOT STARTED
-RELEASE-READY         = NO
+BASE-MAIN              = 0bd442bc48490115bed48b18ed32783ad5bd1c9c
+BRANCH                 = agent/chapter-17-circle-method-goldbach-waring-v0.21.0
+VERSION                = 0.21.0-dev
+CHAPTER                = 17
+TOPIC                  = CIRCLE METHOD / GOLDBACH / WARING
+ISSUE                  = #32 / OPEN
+PR                     = #33 / DRAFT / OPEN / UNMERGED
+PRE-AUTHORING-GATE     = CLOSED
+PASS-FOR-AUTHORING     = YES
+AUTHORING              = BATCH-02 COMPLETE-AS-DRAFT
+RESULTS                = 8 / AUTHORED-DRAFT
+REFERENCE-AUDIT        = INITIAL PASS / BUILD VERIFICATION PENDING
+MATHEMATICAL-AUDIT     = INITIAL PASS WITH OPEN ITEMS
+PDF-BUILD              = NOT YET RUN
+MERGE                  = NOT AUTHORIZED
+RELEASE-READY          = NO
 ```
 
 ## نطاق المرحلة
 
-يستهدف الفصل الخامس عشر بناء أساس منضبط لطرق الغربال، ويشمل مبدئيًا:
-
-1. الصياغة المجردة لمشكلة الغربال.
-2. دالة الكثافة المحلية والبعد الغربالي.
-3. غربال سيلبرغ والحد العلوي.
-4. موقع اللمّة الأساسية للغربال.
-5. الحدود العليا والسفلى.
-6. عائق التكافؤ وحدود ما يمكن أن تثبته طرق الغربال وحدها.
-7. تطبيقات تعليمية مضبوطة على الأعداد شبه الأولية ومسائل الأزواج الأولية.
-
-## بوابة ما قبل التأليف
-
-لا ينشأ متن الفصل ولا تحجز معرفات نتائجه قبل:
-
-- اكتمال سجل الأدلة.
-- تثبيت خريطة البرهان والاعتمادات.
-- تصنيف الأدوات إلى `PROVED-HERE`, `CITED`, و`DEFERRED`.
-- تدقيق عدم الدور.
-- تثبيت حدود الادعاء وعائق التكافؤ.
-- صدور `PASS-FOR-AUTHORING` صريح.
+1. هوية التعامد وتمثيل مسائل الجمع بتكاملات فورييه.
+2. الأقواس الكبرى والأقواس الصغرى.
+3. المجموع المحلي والتقريب الأرخميدي.
+4. السلسلة المفردة والتكامل المفرد.
+5. الصيغة التقاربية الكلاسيكية في وارينغ بحالة `CITED / EXPLAINED`.
+6. مبرهنتا فينوغرادوف وهلفغوت بحالة `CITED`.
+7. غولدباخ الثنائية بحالة `HYPOTHESIS / OPEN`.
+8. إبقاء النظرية العامة للمجاميع الأسية وفان دير كوربوت للفصل الثامن عشر.
 
 ## المرحلة السابقة
 
 ```text
-CHAPTER-14     = REVIEWED / MERGED
-PR-26          = MERGED
-ISSUE-25       = CLOSED
-MERGE-COMMIT   = 8c208e1c43f42fda754e4ed3dadb51a0256b5e60
-PDF-BUILD      = PASS / 208 PAGES
-RELEASE-READY  = NO
+CHAPTER-16       = REVIEWED / OWNER-ADOPTION APPROVED / MERGED
+PR-31            = MERGED
+MERGE-COMMIT     = 0bd442bc48490115bed48b18ed32783ad5bd1c9c
+PDF-BUILD        = PASS / 227 PAGES
+RELEASE-READY    = NO
 ```
