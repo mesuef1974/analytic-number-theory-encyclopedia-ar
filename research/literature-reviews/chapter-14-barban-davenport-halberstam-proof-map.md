@@ -3,81 +3,69 @@
 التاريخ: 2026-07-24
 
 ```text
-STATUS                     = INTERNAL-PROOF-IN-PROGRESS
+STATUS                     = INTERNAL-PROOF-IN-PROGRESS / ROUTE-REPAIRED
 PROOF-POLICY               = FULL-INTERNALIZATION-FIRST
 PRE-AUTHORING-GATE         = OPEN
 AUTHORING                   = BLOCKED
 NORMALIZATION-GATE          = CLOSED / PASS
 CHARACTER-TRANSFORM-GATE    = CLOSED / PASS
 IMPRIMITIVE-REDUCTION-GATE  = CLOSED / PASS
-MEAN-VALUE-ROUTE-GATE       = CLOSED / ROUTE-SELECTED
 MV-01                       = COMPLETE / PROVED-HERE-DRAFT
 MV-02                       = COMPLETE / PROVED-HERE-DRAFT
-MV-03                       = OPEN
-MEAN-VALUE-THEOREM-GATE     = OPEN / INTERNAL-PROOF-PENDING
-CLASSICAL-UPPER-BOUND       = OPEN
+MV-03                       = COMPLETE / DEFERRED-FROM-ADOPTED-ROUTE
+MV-04                       = PARTIAL / STRICT-DIAGONAL-ONLY
+MV-04B                      = OBSTRUCTION-PROVED
+MV-04C                      = COMPLETE / PROVED-HERE-DRAFT
+PRIMITIVE-WEIGHTED-BOUND    = COMPLETE / PROVED-HERE-DRAFT
+PRINCIPAL-LOCAL-ASSEMBLY    = OPEN
+CLASSICAL-UPPER-BOUND       = OPEN / FINAL-ASSEMBLY-PENDING
+GENERAL-BARBAN-LAYER        = DEFERRED
 ASYMPTOTIC-LAYER            = DEFERRED
 PASS-FOR-AUTHORING          = NO
 ```
 
 ## الهدف
 
-إثبات الحد العلوي الكلاسيكي لكمية التباين
+إثبات
 
 \[
 V_\psi(x,Q)=
 \sum_{q\le Q}
 \sum_{\substack{a\bmod q\\(a,q)=1}}
 \left|\psi(x;q,a)-\frac{x}{\varphi(q)}\right|^2
+\ll_A xQ\log x
 \]
 
-ببرهان داخلي كامل، ثم إجراء التدقيق المنطقي والمرجعي والمستقل بعد اكتمال سلسلة البرهان.
+في المجال
 
-## سلسلة الاعتماد
+\[
+\frac{x}{(\log x)^A}\le Q\le x,
+\]
+
+ثم إجراء التدقيق المنطقي والمرجعي والمستقل قبل التأليف.
+
+## المسار المعتمد بعد الإصلاح
 
 ```text
-ORTHOGONALITY OF CHARACTERS
-        |
-        v
-RESIDUE-CLASS VARIANCE <-> CHARACTER SECOND MOMENT
-        |
-        v
-IMPRIMITIVE CHARACTER -> PRIMITIVE CONDUCTOR REDUCTION
-        |
-        v
-MV-01 WEIGHTED CONDUCTOR DECOMPOSITION
-        |
-        v
-MV-02 DUALITY / WEIGHTED LARGE-SIEVE PREPARATION
-        |
-        v
-MV-03 BILINEAR DECOMPOSITION
-        |
-        +--> MV-04 DIAGONAL
-        +--> MV-05 OFF-DIAGONAL
-        |
-        v
-MV-06 BARBAN GENERAL MEAN-SQUARE ESTIMATE
-        |
-        v
-MV-07 SPECIALIZATION TO LAMBDA
-        |
-        v
-MV-08 PRINCIPAL / LOCAL CORRECTIONS
-        |
-        v
-MV-09 DYADIC SUMMATION / Q-RANGE
-        |
-        v
-MV-10 CLASSICAL BDH UPPER BOUND
-        |
-        v
-LOGIC AUDIT -> REFERENCE AUDIT -> INDEPENDENT REVIEW
+CHARACTER ORTHOGONALITY
+ -> RESIDUE VARIANCE / CHARACTER SECOND MOMENT
+ -> IMPRIMITIVE TO PRIMITIVE CONDUCTOR REDUCTION
+ -> MV-01 WEIGHTED CONDUCTOR DECOMPOSITION
+ -> MV-02 WEIGHTED LARGE SIEVE
+ -> MV-04C CONDUCTOR SPLIT
+      Y = max(2,(x/Q)log(2Q))
+      SMALL r <= Y: CHAPTER-12 SIEGEL--WALFISZ
+      LARGE r > Y: DIRECT WEIGHTED LARGE SIEVE
+ -> PRINCIPAL / LOCAL CORRECTIONS
+ -> CLASSICAL BDH UPPER BOUND
+ -> LOGIC AUDIT
+ -> REFERENCE AUDIT
+ -> INDEPENDENT REVIEW
 ```
 
-## ما ثبت نهائيًا قبل سلسلة MV
+## النتائج السابقة على السلسلة
 
-### التطبيع والتحويل بالشخصيات
+ثبت داخليًا:
 
 \[
 \sum_{\substack{a\bmod q\\(a,q)=1}}
@@ -87,28 +75,16 @@ LOGIC AUDIT -> REFERENCE AUDIT -> INDEPENDENT REVIEW
 \sum_{\chi\bmod q}|\Psi^\circ(x,\chi)|^2.
 \]
 
-```text
-NORMALIZATION       = PROVED-HERE
-CHARACTER-TRANSFORM = PROVED-HERE
-```
-
-### رد الشخصيات غير البدائية
-
-إذا كانت \(\chi\bmod q\) مستحثة من \(\chi^*\bmod r\)، حيث \(r\mid q\)، فإن
+وإذا كانت \(\chi\bmod q\) مستحثة من \(\chi^*\bmod r\)، فإن
 
 \[
-\Psi^\circ(x,\chi)
-=
+\Psi^\circ(x,\chi)=
 \Psi^\circ(x,\chi^*)-C(x;q,r,\chi^*),
 \qquad
 |C(x;q,r,\chi^*)|\le \omega(q/r)\log x.
 \]
 
-```text
-IMPRIMITIVE-REDUCTION = PROVED-HERE
-```
-
-## MV-01 — تفكيك الموصلات الموزون
+## MV-01 — الوزن ورد الموصلات
 
 عُرّف
 
@@ -116,82 +92,44 @@ IMPRIMITIVE-REDUCTION = PROVED-HERE
 W_Q(r)=\sum_{m\le Q/r}\frac1{\varphi(rm)}.
 \]
 
-وثبت داخليًا كمسودة:
+وثبت
 
 \[
 \frac1{\varphi(r)}
 \le W_Q(r)
-\ll
-\frac{\log(2Q/r)}{\varphi(r)}.
+\ll \frac{\log(2Q/r)}{\varphi(r)}.
 \]
 
-وللمتوسطين
-
-\[
-\mathcal S(x,Q)=
-\sum_{q\le Q}\frac1{\varphi(q)}
-\sum_{\chi\bmod q}|\Psi^\circ(x,\chi)|^2
-\]
-
-و
+ولـ
 
 \[
 \mathcal P(x,Q)=
 \sum_{r\le Q}W_Q(r)
-\sum_{\chi^*\bmod r}^{*}
-|\Psi^\circ(x,\chi^*)|^2,
+\sum_{\chi^*\bmod r}^{*}|\Psi^\circ(x,\chi^*)|^2
 \]
 
 ثبت
 
 \[
 \mathcal S(x,Q)
-\le
-2\mathcal P(x,Q)+O\!\left(Q(\log x)^2\right).
+\le2\mathcal P(x,Q)+O\!\left(Q(\log x)^2\right).
 \]
-
-كما ثبت تقارب المتسلسلة
-
-\[
-\sum_{m\ge1}\frac{\omega(m)^2}{m\varphi(m)}<\infty,
-\]
-
-وهو ما يحسن كلفة تصحيحات الاستحثاث إلى
-
-\[
-O\!\left(Q(\log x)^2\right).
-\]
-
-```text
-MV-01 EXACT-REINDEXING      = PROVED-HERE-DRAFT
-MV-01 WEIGHT-BOUND          = PROVED-HERE-DRAFT
-MV-01 CORRECTION-AGGREGATE  = PROVED-HERE-DRAFT
-MV-01 FINAL-REDUCTION       = PROVED-HERE-DRAFT
-MV-01                       = COMPLETE-AS-DRAFT
-```
 
 ملف البرهان:
 
 - `docs/CHAPTER_14_MV01_WEIGHTED_CONDUCTOR_DECOMPOSITION_2026-07-24.md`
 
-## MV-02 — الازدواجية والغربال الكبير الموزون
+## MV-02 — الغربال الكبير الموزون
 
-على كتلة موصلات ديادية
-
-\[
-R<r\le2R,
-\]
-
-ثبتت المقارنة
+على \(R<r\le2R\):
 
 \[
 W_Q(r)
 \ll
-\frac{\log(2Q/R)}{R}
-\frac r{\varphi(r)}.
+\frac{\log(2Q/R)}{R}\frac r{\varphi(r)}.
 \]
 
-ومن الغربال الكبير للشخصيات البدائية ينتج، لكل متتالية \((c_n)\) مدعومة على فترة طولها \(N\):
+ومن ثم، لمتتالية مدعومة على فترة طولها \(N\):
 
 \[
 \sum_{R<r\le2R}W_Q(r)
@@ -203,81 +141,104 @@ W_Q(r)
 \sum_n|c_n|^2.
 \]
 
-وعرّف المؤثر
-
-\[
-(Tc)_{r,\chi}
-=
-\sqrt{W_Q(r)}\sum_n c_n\chi(n).
-\]
-
-بالازدواجية الهيلبرتية ثبتت الصورة المزدوجة
-
-\[
-\sum_n
-\left|
-\sum_{R<r\le2R}
-\sqrt{W_Q(r)}
-\sum_{\chi\bmod r}^{*}
- b_{r,\chi}\overline{\chi(n)}
-\right|^2
-\ll
-\left(\frac NR+R\right)
-\log\frac{2Q}{R}
-\sum_{R<r\le2R}\sum_{\chi\bmod r}^{*}|b_{r,\chi}|^2.
-\]
-
-الصيغتان صالحتان للفترات المنقولة، ولذلك يمكن استعمالهما على المستطيلات الديادية الناتجة من التفكيك الثنائي في `MV-03`.
-
-```text
-MV-02 DYADIC-WEIGHT-COMPARISON = PROVED-HERE-DRAFT
-MV-02 WEIGHTED-PRIMAL           = PROVED-HERE-DRAFT
-MV-02 WEIGHTED-DUAL             = PROVED-HERE-DRAFT
-MV-02 TRANSLATED-INTERVALS      = PROVED-HERE-DRAFT
-MV-02                           = COMPLETE-AS-DRAFT
-```
-
 ملف البرهان:
 
 - `docs/CHAPTER_14_MV02_DUALITY_WEIGHTED_LARGE_SIEVE_2026-07-24.md`
 
-## سبب عدم كفاية الفصل الثالث عشر وحده
+## المسار المستكشف ثم المؤجل
 
-1. مبرهنة القيمة المتوسطة في الفصل الثالث عشر من الرتبة الأولى، وليست متوسطًا تربيعيًا.
-2. التطبيق المباشر للغربال الكبير على \(c_n=\Lambda(n)\) يعطي حدًا من الشكل
+أثبت `MV-03` تفكيك Vaughan إلى Type I وType II. وأثبت `MV-04` القطر الصارم فقط. ثم أثبت `MV-04B` أن تجميع المستطيل الثنائي في
 
 \[
-(x+R^2)x\log x,
+c_n=\sum_{mk=n}\alpha_m\beta_k
 \]
 
-وهو أكبر من رتبة \(xR\log x\) المطلوبة.
-3. يمنع الاستدلال العكسي من Bombieri--Vinogradov.
+لا يعطي شكليًا إلا خسارة \(x^{o(1)}\) بسبب تصادمات حاصل الضرب. لذلك لا يعتمد هذا المسار للحد الكلاسيكي، لكنه يبقى مادة صحيحة لمسار مبرهنة باربان العامة المؤجل.
+
+الملفات:
+
+- `docs/CHAPTER_14_MV03_BILINEAR_DECOMPOSITION_2026-07-24.md`
+- `docs/CHAPTER_14_MV04_DIAGONAL_SPLIT_2026-07-24.md`
+- `docs/CHAPTER_14_MV04B_MULTIPLICATIVE_COLLISION_AUDIT_2026-07-24.md`
+
+## MV-04C — فصل الموصلات
+
+ضع
+
+\[
+Y=\max\!\left(2,\frac{x}{Q}\log(2Q)\right).
+\]
+
+إذا \(Q\ge x/(\log x)^A\)، فإن \(Y\ll_A(\log x)^{A+1}\).
+
+### الموصلات الصغيرة
+
+باستعمال Siegel--Walfisz من الفصل الثاني عشر:
+
+\[
+\mathcal P_{\le Y}=o_A(xQ\log x).
+\]
+
+### الموصلات الكبيرة
+
+بتطبيق `MV-02` مباشرة على \(c_n=\Lambda(n)\)، واستعمال
+
+\[
+\sum_{n\le x}\Lambda(n)^2\ll x\log x,
+\]
+
+ثم الجمع الديادي:
+
+\[
+\sum_R R\log\frac{2Q}{R}\ll Q,
+\]
+
+و
+
+\[
+\sum_R\frac{x}{R}\log\frac{2Q}{R}
+\ll\frac{x}{Y}\log(2Q/Y)\le Q.
+\]
+
+إذن
+
+\[
+\boxed{\mathcal P(x,Q)\ll_A xQ\log x}.
+\]
+
+ملف البرهان:
+
+- `docs/CHAPTER_14_MV04C_CONDUCTOR_SPLIT_ROUTE_REPAIR_2026-07-24.md`
 
 ## سياسة المنشأ
 
 | المكوّن | الحالة |
 |---|---|
-| تعامد الشخصيات | `PROVED-HERE` |
-| تحويل التباين | `PROVED-HERE` |
-| رد الموصلات | `PROVED-HERE` |
+| تعامد الشخصيات وتحويل التباين | `PROVED-HERE` |
+| رد الشخصيات غير البدائية | `PROVED-HERE` |
 | MV-01 | `PROVED-HERE-DRAFT` |
 | MV-02 | `PROVED-HERE-DRAFT` |
-| الغربال الكبير | `CITED-TOOL / FROM CHAPTER 13` |
-| MV-03 إلى MV-10 | `OPEN` |
-| صيغة Montgomery--Hooley | `DEFERRED` |
-
-كل حالة `PROVED-HERE-DRAFT` تبقى غير قابلة للاستشهاد حتى اكتمال البرهان ثم اجتياز التدقيق المنطقي والمرجعي والمستقل.
+| MV-03 | `PROVED-HERE-DRAFT / DEFERRED-FROM-ADOPTED-ROUTE` |
+| MV-04 strict diagonal | `PROVED-HERE-DRAFT` |
+| MV-04B obstruction | `PROVED-HERE-DRAFT` |
+| MV-04C conductor split | `PROVED-HERE-DRAFT` |
+| Siegel--Walfisz | `CHAPTER-12 INPUT / REVIEWED` |
+| الغربال الكبير | `CHAPTER-13 INPUT / REVIEWED` |
+| التجميع النهائي | `OPEN` |
+| مبرهنة باربان العامة | `DEFERRED` |
+| Montgomery--Hooley asymptotic | `DEFERRED` |
 
 ## الخطوة التالية
 
-`MV-03`:
+`MV-08`:
 
-1. اختيار هوية تفكيك صريحة للمعاملات الحسابية المستهدفة.
-2. تحويل المجاميع إلى حدود خطية وثنائية على مستطيلات ديادية.
-3. تسجيل قيود معاملات الطرفين ومعايير \(\ell^2\) اللازمة.
-4. منع أي استعمال ضمني لمبرهنة باربان أو BDH داخل التفكيك.
+1. تدقيق الموصل \(1\) والشخصية الرئيسية المتمركزة.
+2. إعادة إدخال تصحيحات الأوليات القاسمة للترديد.
+3. مقارنة حد التصحيحات \(Q(\log x)^2\) بالمقياس النهائي.
+4. نقل المتوسط على الشخصيات إلى تباين الفئات.
+5. تثبيت الاعتماد على \(A\) وعدم الفعالية الموروثة من Siegel--Walfisz.
 
 ```text
-NEXT = MV-03
+NEXT = MV-08 / PRINCIPAL-LOCAL-ASSEMBLY
 PASS-FOR-AUTHORING = NO
 ```
