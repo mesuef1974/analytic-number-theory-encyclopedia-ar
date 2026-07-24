@@ -4,31 +4,50 @@
 
 - **الإصدار التطويري الحالي:** `0.18.0-dev`
 - **المرحلة:** الفصل الرابع عشر — مبرهنة Barban--Davenport--Halberstam ومتوسط مربعات أخطاء التوزيع.
-- **حالة الفصل:** `RESEARCH-INTAKE`
+- **حالة الفصل:** `AUTHORED-DRAFT / FINAL-REVIEW-CHANGES-REQUIRED`
 - **الفرع المستقر:** `main`
 - **رأس `main` عند بدء المرحلة:** `d2588c893d8d07be1e961813628e1bb210e0eece`
 - **فرع العمل:** `agent/chapter-14-barban-davenport-halberstam-v0.18.0`
-- **بوابة ما قبل التأليف:** `OPEN`
-- **التأليف:** `BLOCKED`
-- **التحقق المرجعي:** `NOT STARTED`
-- **عدد النتائج:** `0 / NOT RESERVED`
+- **بوابة ما قبل التأليف:** `CLOSED`
+- **إذن التأليف:** `PASS-FOR-AUTHORING = YES`
+- **التأليف:** `COMPLETE-AS-DRAFT`
+- **التدقيق المنطقي:** `PASS`
+- **التحقق المرجعي:** `PASS`
+- **المراجعة المستقلة:** `APPROVED-WITH-NONBLOCKING-CORRECTIONS`
+- **التصحيحات غير الحاجزة:** `5 / 5 CLOSED`
+- **بناء PDF:** `PASS / 208 PAGES`
+- **المراجعة النهائية للمتن:** `CHANGES-REQUIRED`
+- **العوائق الرياضية:** `0`
+- **العوائق قبل الدمج:** تصحيحان نصيان ومزامنة ملفات التتبع.
 - **Issue:** `#25 / OPEN`
-- **آخر تحديث:** 2026-07-21
+- **PR:** `#26 / DRAFT / OPEN / UNMERGED`
+- **آخر تحديث:** 2026-07-24
 
 ```text
-CHAPTER-14                = RESEARCH-INTAKE
-VERSION                   = 0.18.0-dev
-BASE-MAIN                 = d2588c893d8d07be1e961813628e1bb210e0eece
-BRANCH                    = agent/chapter-14-barban-davenport-halberstam-v0.18.0
-ISSUE                     = #25 / OPEN
-PRE-AUTHORING-GATE        = OPEN
-AUTHORING                 = BLOCKED
-RESULTS                   = 0 / NOT RESERVED
-REFERENCE-VERIFICATION    = NOT STARTED
-PROOF-MAP                 = INITIAL / UNVERIFIED
-QUALITY-CHECKS            = PENDING
-PDF-BUILD                 = NOT APPLICABLE / NO MANUSCRIPT DELTA
-RELEASE-READY             = NO
+CHAPTER-14                   = AUTHORED-DRAFT / FINAL-REVIEW-CHANGES-REQUIRED
+VERSION                      = 0.18.0-dev
+BASE-MAIN                    = d2588c893d8d07be1e961813628e1bb210e0eece
+BRANCH                       = agent/chapter-14-barban-davenport-halberstam-v0.18.0
+ISSUE                        = #25 / OPEN
+PR                           = #26 / DRAFT / OPEN / UNMERGED
+PRE-AUTHORING-GATE           = CLOSED
+PASS-FOR-AUTHORING           = YES
+AUTHORING                    = COMPLETE-AS-DRAFT
+RESULTS                      = 5 / RESERVED
+LOGIC-AUDIT                  = PASS
+REFERENCE-AUDIT              = PASS
+INDEPENDENT-REVIEW           = APPROVED-WITH-NONBLOCKING-CORRECTIONS
+NONBLOCKING-CORRECTIONS      = 5 / 5 CLOSED
+POST-AUTHORING-BUILD-AUDIT   = PASS
+PDF-BUILD                    = PASS / 208 PAGES
+FINAL-MANUSCRIPT-REVIEW      = CHANGES-REQUIRED
+MATHEMATICAL-BLOCKERS        = 0
+TEXTUAL-BLOCKERS             = 2
+TRACKING-DOCS-SYNC           = IN PROGRESS
+QUALITY-CHECKS               = PASS EXCEPT FINAL TEXTUAL CORRECTIONS
+REVIEWED                     = NO
+MERGE                        = NOT AUTHORIZED
+RELEASE-READY                = NO
 ```
 
 ## إغلاق المرحلة السابقة
@@ -62,7 +81,7 @@ RELEASE-READY       = NO
 | الفصل الحادي عشر: المناطق الخالية والأصفار الاستثنائية | `REVIEWED / MERGED` | 95% |
 | الفصل الثاني عشر: Siegel--Walfisz | `REVIEWED / MERGED` | 95% |
 | الفصل الثالث عشر: Bombieri--Vinogradov | `REVIEWED / MERGED` | 95% |
-| الفصل الرابع عشر: Barban--Davenport--Halberstam | `RESEARCH-INTAKE` | 5% |
+| الفصل الرابع عشر: Barban--Davenport--Halberstam | `AUTHORED-DRAFT / FINAL-REVIEW` | 97% |
 | فصل الجبهات الحديثة | نواة أولية | 10% |
 | الملحق الحاسوبي | أول تجربة مسجلة وقابلة للتشغيل | 15% |
 
@@ -83,9 +102,9 @@ RELEASE-READY       = NO
 | 11 | `REVIEWED / MERGED` | ديون الإصدار قبل `RELEASE-READY` |
 | 12 | `REVIEWED / MERGED` | ديون المجلد والتنضيد قبل `RELEASE-READY` |
 | 13 | `REVIEWED / MERGED` | ديون الإصدار قبل `RELEASE-READY` |
-| 14 | `RESEARCH-INTAKE` | إغلاق المصادر والتطبيع وخريطة البرهان ومجال `Q` والفعالية |
+| 14 | `AUTHORED-DRAFT / FINAL-REVIEW` | تصحيح عبارتين نصيتين، مزامنة التتبع، وإعادة بناء نهائية |
 
-التدقيق الداخلي والمراجعة المستقلة والدمج لا تجعل أي فصل `RELEASE-READY` تلقائيًا.
+التدقيق الداخلي والمراجعة المستقلة والبناء لا تجعل أي فصل `RELEASE-READY` تلقائيًا.
 
 ## الفصل الثالث عشر — المنجز
 
@@ -94,30 +113,49 @@ RELEASE-READY       = NO
 - اعتمد مالك المشروع ترقية الفصل إلى `REVIEWED`.
 - أُغلقت الحوكمة عند `d2588c893d8d07be1e961813628e1bb210e0eece`.
 
-## الفصل الرابع عشر — الإدخال البحثي
+## الفصل الرابع عشر — المنجز
 
-- أُنشئ الفرع من رأس `main` المغلق حوكميًا.
-- رُفع الإصدار إلى `0.18.0-dev`.
-- فُتحت Issue #25.
-- أُنشئ سجل أدلة أولي وخريطة برهان أولية.
-- ثُبتت كمية التباين المرشحة مع إبقاء التطبيع ومجال `Q` والصيغة النهائية غير معتمدة.
-- لم يُنشأ متن LaTeX ولم تُحجز نتائج.
+- أُنشئ الفرع من رأس `main` المغلق حوكميًا، ورفع الإصدار إلى `0.18.0-dev`.
+- فُتحت Issue #25 وDraft PR #26.
+- أُنشئت سجلات الأدلة وخريطة البرهان قبل التأليف.
+- اكتمل البرهان الداخلي للحد الكلاسيكي في المجال
+  \[
+  \frac{x}{(\log x)^A}\le Q\le x.
+  \]
+- اجتاز البرهان التدقيق المنطقي والمرجعي.
+- أصدرت المراجعة المستقلة الحكم `APPROVED-WITH-NONBLOCKING-CORRECTIONS`.
+- أُغلقت التصحيحات الخمسة غير الحاجزة، ثم أصدر المالك `PASS-FOR-AUTHORING = YES`.
+- أُنشئ متن الفصل وربط بالمخطوط، وحُجزت خمسة معرّفات نتائج.
+- نجح Biber وبناء XeLaTeX في إنتاج `main.pdf` من 208 صفحات بصفر أخطاء قاتلة.
+- أُغلقت ملاحظتا التنضيد المحليتان: أمر `\atop` وعنوان المبرهنة الطويل.
+- أثبتت المراجعة النهائية أن المحتوى الرياضي مطابق للمسار المراجع، لكنها طلبت تصحيح عبارتين نصيتين ومزامنة ملفات التتبع قبل تصنيف `REVIEWED`.
 
-## الهدف المرشح
+## النتيجة المؤلَّفة
+
+لكل ثابت \(A>0\):
 
 \[
-V(x,Q)=
+V_\psi(x,Q)=
 \sum_{q\le Q}
 \sum_{\substack{a\bmod q\\(a,q)=1}}
-\left|\psi(x;q,a)-\frac{x}{\varphi(q)}\right|^2.
+\left|\psi(x;q,a)-\frac{x}{\varphi(q)}\right|^2
+\ll_A xQ\log x
 \]
 
-هذه صيغة عمل أولية، وليست بعد مبرهنة معتمدة داخل المشروع.
+بانتظام في
 
-## الخطوة التالية
+\[
+x\ge3,
+\qquad
+\frac{x}{(\log x)^A}\le Q\le x.
+\]
 
-1. التحقق من المصادر الأصلية لـBarban وDavenport وHalberstam.
-2. تثبيت التطبيع ومجال `Q` والتمييز بين الحد العلوي والصيغة التقاربية.
-3. إعادة اشتقاق التحويل بالشخصيات.
-4. تحديد مدخل القيمة المتوسطة والحد الرئيسي والفعالية.
-5. إصدار حكم صريح `PASS-FOR-AUTHORING` قبل إنشاء المتن.
+الثابت غير فعال بسبب استعمال Siegel--Walfisz للموصلات الصغيرة.
+
+## ما تبقى قبل `REVIEWED`
+
+1. تصحيح عبارة المقارنة مع Bombieri--Vinogradov بحيث تسجل أن الاعتماد الوحيد على الفصل الثالث عشر هو حزمة الغربال الكبير.
+2. حذف الاختصار غير المعرّف `PVG` من قائمة الحدود المفتوحة.
+3. إتمام مزامنة ملفات التتبع العليا.
+4. إعادة بناء نهائية وتسجيل حكم إغلاق المراجعة النهائية.
+5. لا تحويل لـPR #26 من Draft ولا دمج دون إذن صريح من المالك.
