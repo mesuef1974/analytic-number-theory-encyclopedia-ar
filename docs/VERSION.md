@@ -4,11 +4,7 @@
 0.18.0-dev
 ```
 
-هذا الملف هو **المصدر الوحيد المعتمد لرقم الإصدار وحالة المرحلة الحالية**. تُحدَّث النسخ المكررة في بقية الملفات بواسطة:
-
-```powershell
-.\scripts\sync-version.ps1
-```
+هذا الملف هو **المصدر الوحيد المعتمد لرقم الإصدار وحالة المرحلة الحالية**.
 
 ## معنى رقم الإصدار
 
@@ -17,22 +13,16 @@
 - الرقم الثالث: تحديث تحريري أو تقني.
 - اللاحقة `dev`: النسخة لا تزال قيد التطوير ولم تُعتمد للنشر.
 
-## المرحلة الحالية
-
-تستهدف `0.18.0-dev` الفصل الرابع عشر:
-
-**مبرهنة Barban--Davenport--Halberstam ومتوسط مربعات أخطاء توزيع الأعداد الأولية في المتتاليات الحسابية.**
+## المرحلة المغلقة
 
 ```text
 CHAPTER-14                   = REVIEWED / MERGED
 PR                           = #26 / MERGED
 MERGE-COMMIT                 = 8c208e1c43f42fda754e4ed3dadb51a0256b5e60
 ISSUE                        = #25 / CLOSED
-BRANCH                       = agent/chapter-14-barban-davenport-halberstam-v0.18.0
-PRE-AUTHORING-GATE           = CLOSED
 PASS-FOR-AUTHORING           = YES / OWNER-AUTHORIZED
 AUTHORING                    = COMPLETE
-RESULTS                      = 5 / RESERVED
+RESULTS                      = 5 / ACTIVE
 LOGIC-AUDIT                  = PASS
 REFERENCE-AUDIT              = PASS
 INDEPENDENT-REVIEW           = APPROVED-WITH-NONBLOCKING-CORRECTIONS
@@ -59,26 +49,23 @@ x >= 3,
 x/(log x)^A <= Q <= x,
 ```
 
-يثبت الفصل الحد
+يثبت الفصل:
 
 ```text
-V_psi(x,Q) = sum_{q<=Q} sum_{a mod q, (a,q)=1}
-               |psi(x;q,a) - x/phi(q)|^2
-             <<_A x Q log x.
+V_psi(x,Q) <<_A x Q log x.
 ```
 
-الثابت غير فعال في المسار الحالي بسبب مدخل Siegel--Walfisz للموصلات الصغيرة. لا يدعي الفصل الصيغة التقاربية لمونتغمري--هولي، ولا مبرهنة باربان العامة في كل المجالات.
+الثابت غير فعال بسبب مدخل Siegel--Walfisz للموصلات الصغيرة.
 
-## إغلاق المرحلة
+## المرحلة التالية
 
-اعتمد مالك المشروع الفصل الرابع عشر بحالة `REVIEWED`. حُوّل PR #26 من Draft إلى Ready for review ثم دُمج في `main` عند الالتزام `8c208e1c43f42fda754e4ed3dadb51a0256b5e60`. لا يترتب على هذا الإغلاق تصنيف الفصل أو المجلد بأنه `RELEASE-READY`.
-
-## المرحلة السابقة
+أُغلقت مزامنة ملفات حوكمة الفصل الرابع عشر. يجوز الآن فتح المرحلة:
 
 ```text
-CHAPTER-13          = REVIEWED / MERGED
-PR-22               = MERGED
-MERGE-COMMIT        = 2e28e51bd8334cd748d59f1e8cc9998975058a8c
-GOVERNANCE-COMMIT   = d2588c893d8d07be1e961813628e1bb210e0eece
-RELEASE-READY       = NO
+VERSION-NEXT  = 0.19.0-dev
+CHAPTER-NEXT  = 15
+TOPIC-NEXT    = BASIC SIEVE METHODS / SELBERG SIEVE / PARITY BARRIER
+STATE-NEXT    = AUTHORIZED-FOR-INITIALIZATION / NOT YET AUTHORED
 ```
+
+لا يبدأ التأليف قبل إنشاء سجل الأدلة وخريطة البرهان وإغلاق بوابة ما قبل التأليف. لا يترتب على الانتقال إلى المرحلة التالية تصنيف `RELEASE-READY`.
