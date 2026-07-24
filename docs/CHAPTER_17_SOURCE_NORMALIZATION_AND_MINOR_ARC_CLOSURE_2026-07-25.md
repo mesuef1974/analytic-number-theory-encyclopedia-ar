@@ -10,17 +10,16 @@ WARING-TARGET              = FROZEN
 MINOR-ARC-INPUTS           = SOURCE-VERIFIED / CITED
 HELFGOTT-SCOPE             = DECIDED
 NORMALIZATION              = FROZEN
+MAJOR-ARC-SCALE            = FROZEN
 AUTHORING                   = STILL BLOCKED PENDING INDEPENDENT GATE AUDIT
 RELEASE-READY               = NO
 ```
 
 ## 1. مبرهنة فينوغرادوف
 
-الصياغة المعتمدة في الفصل:
+الصياغة المعتمدة:
 
 > كل عدد صحيح فردي كبير بما يكفي يمكن تمثيله على صورة مجموع ثلاثة أعداد أولية.
-
-التصنيف:
 
 ```text
 RESULT         = CITED
@@ -33,13 +32,13 @@ ATTRIBUTION    = I. M. Vinogradov, 1937
 I. M. Vinogradov, *Representation of an odd number as the sum of three primes*,
 *Doklady Akademii Nauk SSSR* 15 (1937), 129--132.
 
-لا تُخلط هذه النتيجة مع مبرهنة هلفغوت الكاملة، التي تزيل قيد «كبير بما يكفي».
+لا تُخلط هذه النتيجة مع مبرهنة هلفغوت الكاملة التي تزيل قيد «كبير بما يكفي».
 
 ## 2. هدف وارينغ
 
-الهدف المثبت ليس أفضل حد حديث لـ`G(k)` أو `\widetilde G(k)`، بل الصيغة البنيوية الكلاسيكية التالية:
+الهدف ليس أفضل حد حديث لـ`G(k)` أو `\widetilde G(k)`، بل الصيغة البنيوية الكلاسيكية:
 
-لـ`k\ge2` و` s ` كبير بما يكفي بدلالة `k`، يكون عدد التمثيلات
+لـ`k\ge2` و`s` كبير بما يكفي بدلالة `k`، يكون عدد التمثيلات
 
 \[
 r_{s,k}(N)
@@ -54,12 +53,8 @@ N=x_1^k+\cdots+x_s^k\}
 r_{s,k}(N)
 =
 \mathfrak S_{s,k}(N)\,\mathfrak J_{s,k}(N)
-+o\!\left(N^{s/k-1}\right),
++o\!\left(N^{s/k-1}\right).
 \]
-
-بعد تثبيت التطبيع الدقيق في المتن.
-
-التصنيف:
 
 ```text
 ORTHOGONALITY IDENTITY      = PROVED-HERE
@@ -73,27 +68,26 @@ BEST MODERN VARIABLE BOUNDS = DEFERRED
 المصادر الحاكمة:
 
 1. G. H. Hardy and J. E. Littlewood, *Some problems of Partitio Numerorum IV: The singular series in Waring's Problem and the value of G(k)*, *Mathematische Zeitschrift* 12 (1922), 161--188, DOI `10.1007/BF01482074`.
-2. R. C. Vaughan, *The Hardy--Littlewood Method*, 2nd ed., Cambridge Tracts in Mathematics 125, Cambridge University Press, 1997؛ ولا سيما فصول وارينغ والأقواس الكبرى وطرق فينوغرادوف.
+2. R. C. Vaughan, *The Hardy--Littlewood Method*, 2nd ed., Cambridge Tracts in Mathematics 125, Cambridge University Press, 1997.
 
 ## 3. مدخل الأقواس الصغرى
 
-لن يثبت الفصل السابع عشر نظرية عامة جديدة للمجاميع الأسية. المدخل المسموح هو مبرهنة مقتبسة مضبوطة:
-
-إذا كان
+إذا
 
 \[
 f_k(\alpha;P)=\sum_{1\le x\le P}e(\alpha x^k),
 \qquad e(t)=e^{2\pi i t},
 \]
 
-فإنه عند اختيار نظام أقواس كبرى قياسي ومع `s` كبير بما يكفي بدلالة `k`، تتوافر قيمة `\delta=\delta(k,s)>0` بحيث
+فإنه، عندما يكون `s` كبيرًا بما يكفي بدلالة `k`، توجد قيمة
+`\delta=\delta(k,s)>0` بحيث
 
 \[
 \int_{\mathfrak m}|f_k(\alpha;P)|^s\,d\alpha
 \ll P^{s-k-\delta}.
 \]
 
-هذه الصياغة تستخدم فقط لإثبات أن مساهمة الأقواس الصغرى أصغر من الحد الرئيس. الثوابت المثلى وأفضل نطاق لـ`s` خارج نطاق الفصل.
+تستعمل هذه الصياغة فقط لإثبات أن مساهمة الأقواس الصغرى أصغر من الحد الرئيس. الثوابت المثلى وأفضل نطاق لـ`s` خارج النطاق.
 
 ```text
 MINOR-ARC ESTIMATE = CITED / COMPOSITE INPUT
@@ -104,11 +98,9 @@ CIRCULARITY        = NONE
 
 ## 4. نطاق هلفغوت
 
-تُذكر مبرهنة هلفغوت بوصفها الإكمال الحديث لغولدباخ الثلاثي:
+تذكر مبرهنة هلفغوت بوصفها الإكمال الحديث لغولدباخ الثلاثي:
 
 > كل عدد فردي أكبر من 5 هو مجموع ثلاثة أعداد أولية.
-
-التصنيف:
 
 ```text
 ANALYTIC THEOREM       = CITED
@@ -118,7 +110,7 @@ FULL PROOF IN CHAPTER  = NO
 
 ## 5. التطبيع المجمد
 
-يعتمد الفصل:
+يعتمد الفصل
 
 \[
 e(t)=e^{2\pi i t}.
@@ -137,17 +129,41 @@ f_k(\alpha;P)=\sum_{1\le x\le P}e(\alpha x^k),
 r_{s,k}(N)=\int_0^1 f_k(\alpha;P)^s e(-N\alpha)\,d\alpha.
 \]
 
-تُعرّف الأقواس الكبرى بواسطة الكسور المختزلة `a/q` مع
+## 6. مقياس الأقواس الكبرى المجمد
+
+يثبت ثابت صغير
 
 \[
-1\le q\le Q,
-\qquad
-\left|\alpha-\frac aq\right|\le \frac{Q}{qN},
+0<\eta<\frac{1}{4k},
+\qquad Q=P^\eta.
 \]
 
-حيث يثبت اختيار `Q` النهائي في خريطة البرهان قبل المتن. الأقواس الصغرى هي المتممة في `[0,1)`.
+ولكل كسر مختزل `a/q` مع `1\le q\le Q` نضع
 
-يستخدم الرمزان:
+\[
+\mathfrak M(q,a)
+=
+\left\{\alpha\in[0,1):
+\left|\alpha-\frac aq\right|
+\le \frac{Q}{qN}
+\right\}.
+\]
+
+ثم
+
+\[
+\mathfrak M
+=
+\bigcup_{q\le Q}
+\bigcup_{(a,q)=1}
+\mathfrak M(q,a),
+\qquad
+\mathfrak m=[0,1)\setminus\mathfrak M.
+\]
+
+هذا اختيار حاكم للعرض؛ لا يدعي أنه الاختيار الوحيد أو الأمثل. وأي تغيير لاحق فيه يستلزم إعادة فتح تدقيق التطبيع ومدخل الأقواس الصغرى.
+
+تستخدم الرموز
 
 \[
 \mathfrak S_{s,k}(N)
@@ -157,13 +173,15 @@ r_{s,k}(N)=\int_0^1 f_k(\alpha;P)^s e(-N\alpha)\,d\alpha.
 \quad\text{للتكامل المفرد}.
 \]
 
-## 6. الحكم
+## 7. الحكم
 
 ```text
 REFERENCE-BLOCKERS = 0
 SCOPE-BLOCKERS     = 0
-TECHNICAL-BLOCKERS = 0 BEFORE INDEPENDENT GATE AUDIT
+TECHNICAL-BLOCKERS = 0
+PARAMETER-BLOCKERS = 0
+NORMALIZATION      = FROZEN
 PASS-FOR-AUTHORING = NOT YET ISSUED
 ```
 
-لم تُغلق بوابة التأليف بهذه الوثيقة وحدها؛ يلزم تدقيق مستقل للبوابة وإيصال إغلاق منفصل.
+هذه الوثيقة تغلق فجوة `Q` التي كشفها التدقيق، لكنها لا تغلق بوابة التأليف وحدها؛ يلزم إيصال تدقيق مستقل منفصل.
