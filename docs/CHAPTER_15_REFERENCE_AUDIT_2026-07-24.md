@@ -17,6 +17,7 @@ It also records the source status of the finite Selberg minimization proof, alth
 - Heini Halberstam and Hans-Egon Richert, *Sieve Methods* (Academic Press, 1974).
 - John Friedlander and Henryk Iwaniec, *Opera de Cribro* (AMS, 2010).
 - John Friedlander and Henryk Iwaniec, “Asymptotic Sieve for Primes” (1998 preprint).
+- D. R. Heath-Brown, *Lectures on Sieves* (2002 lecture notes, arXiv:math/0209360).
 
 The entries are stored in `manuscript/chapter-15-bibliography.bib` and loaded from `manuscript/preamble.tex`.
 
@@ -26,7 +27,9 @@ A clean local build after restoring the full governance macro layer completed su
 
 - Biber read `manuscript/chapter-15-bibliography.bib`.
 - The final PDF contains 218 pages.
-- Chapter 15 cross-references and the existing `IwaniecKowalski2004` citations resolve in the final XeLaTeX pass.
+- Chapter 15 cross-references and citations resolve in the final XeLaTeX pass.
+- A final search of `build/main.log` returned no undefined citations, references, or global undefined-reference warning.
+- The branch and remote were synchronized at commit `6fbfabf`, with a clean working tree before the denominator-location update.
 - Historical font, bidi, and overfull-box warnings remain outside the scope of this chapter audit.
 
 Status: `POST-AUTHORING-BUILD-AUDIT = PASS`.
@@ -51,7 +54,7 @@ Status: `TEXT-LOCATION-VERIFIED` at chapter and page-range level.
 
 The manuscript deliberately uses an abstract one-sided formulation and does not claim a specific numerical decay rate for the structural error term. Matching a precise theorem number and normalization remains open.
 
-The manuscript citation should therefore use:
+The manuscript citation is:
 
 ```tex
 \cite[Chapter~4, pp.~29--42]{DiamondHalberstamGalway2008}
@@ -65,13 +68,26 @@ The manuscript states
 G(z,z)=\frac{e^{\gamma\kappa}}{\Gamma(\kappa+1)}V(z)^{-1}\left(1+O_{\kappa,A_1}(1/\log z)\right).
 \]
 
-The constant passes the internal checks at \(\kappa=1\) and \(\kappa=2\). Iwaniec–Kowalski Chapter 6 occupies pp. 153–168 and is a valid chapter-level sieve reference. Halberstam–Richert is also a standard source for the general dimension formalism.
+The exact constant and normalization are reproduced in D. R. Heath-Brown, *Lectures on Sieves*, p. 21. The notes explicitly identify the underlying source as Halberstam–Richert, equation (5.3.1). The same passage uses the dimension condition
 
-Status: `BIBLIOGRAPHY-VERIFIED / EXACT-THEOREM-LOCATION-OPEN`.
+\[
+\sum_{w\le p<z}\frac{\omega(p)\log p}{p}
+=
+\kappa\log(z/w)+O(1),
+\]
 
-The current chapter-level citation must remain conservative. No exact page or theorem number is to be inserted until checked against a full text.
+which matches the chapter's regularity hypothesis after the identification `g(p)=\omega(p)/p`.
 
-This item blocks `REFERENCE-AUDIT = PASS`.
+Status: `TEXT-LOCATION-VERIFIED / NORMALIZATION-MATCHED`.
+
+The manuscript citation should be updated to:
+
+```tex
+\cite[p.~21]{HeathBrown2002LecturesSieves};
+\cite[(5.3.1)]{HalberstamRichert1974}
+```
+
+This item no longer blocks the reference audit.
 
 ### Parity barrier
 
@@ -81,7 +97,7 @@ Status: `CONCEPT-VERIFIED / EXACT-BOOK-LOCATION-OPEN`.
 
 The manuscript's wording must remain diagnostic rather than absolute: classical local-divisibility sieve data alone do not distinguish prime parity patterns sufficiently to yield the desired lower bounds.
 
-A supporting conceptual citation may include `FriedlanderIwaniec1998AsymptoticSieve`, but this does not close the exact book-location requirement.
+The supporting conceptual citation includes `FriedlanderIwaniec1998AsymptoticSieve`, but this does not close the exact book-location requirement.
 
 ## Current decision
 
@@ -89,7 +105,7 @@ A supporting conceptual citation may include `FriedlanderIwaniec1998AsymptoticSi
 POST-AUTHORING-BUILD-AUDIT = PASS
 REFERENCE-BIBLIOGRAPHY      = PASS
 REFERENCE-TEXT-MATCHING     = PARTIAL
-SELBERG-DENOMINATOR         = EXACT-LOCATION-OPEN
+SELBERG-DENOMINATOR         = TEXT-LOCATION-VERIFIED / NORMALIZATION-MATCHED
 FUNDAMENTAL-LEMMA           = CHAPTER/PAGE-RANGE-VERIFIED
 PARITY-BARRIER              = CONCEPT-VERIFIED / EXACT-LOCATION-OPEN
 REFERENCE-AUDIT             = OPEN
