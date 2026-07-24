@@ -12,7 +12,8 @@ CHARACTER-TRANSFORM-GATE    = CLOSED / PASS
 IMPRIMITIVE-REDUCTION-GATE  = CLOSED / PASS
 MEAN-VALUE-ROUTE-GATE       = CLOSED / ROUTE-SELECTED
 MV-01                       = COMPLETE / PROVED-HERE-DRAFT
-MV-02                       = OPEN
+MV-02                       = COMPLETE / PROVED-HERE-DRAFT
+MV-03                       = OPEN
 MEAN-VALUE-THEOREM-GATE     = OPEN / INTERNAL-PROOF-PENDING
 CLASSICAL-UPPER-BOUND       = OPEN
 ASYMPTOTIC-LAYER            = DEFERRED
@@ -47,7 +48,7 @@ IMPRIMITIVE CHARACTER -> PRIMITIVE CONDUCTOR REDUCTION
 MV-01 WEIGHTED CONDUCTOR DECOMPOSITION
         |
         v
-MV-02 DUALITY / LARGE-SIEVE PREPARATION
+MV-02 DUALITY / WEIGHTED LARGE-SIEVE PREPARATION
         |
         v
 MV-03 BILINEAR DECOMPOSITION
@@ -173,6 +174,73 @@ MV-01                       = COMPLETE-AS-DRAFT
 
 - `docs/CHAPTER_14_MV01_WEIGHTED_CONDUCTOR_DECOMPOSITION_2026-07-24.md`
 
+## MV-02 — الازدواجية والغربال الكبير الموزون
+
+على كتلة موصلات ديادية
+
+\[
+R<r\le2R,
+\]
+
+ثبتت المقارنة
+
+\[
+W_Q(r)
+\ll
+\frac{\log(2Q/R)}{R}
+\frac r{\varphi(r)}.
+\]
+
+ومن الغربال الكبير للشخصيات البدائية ينتج، لكل متتالية \((c_n)\) مدعومة على فترة طولها \(N\):
+
+\[
+\sum_{R<r\le2R}W_Q(r)
+\sum_{\chi\bmod r}^{*}
+\left|\sum_n c_n\chi(n)\right|^2
+\ll
+\left(\frac NR+R\right)
+\log\frac{2Q}{R}
+\sum_n|c_n|^2.
+\]
+
+وعرّف المؤثر
+
+\[
+(Tc)_{r,\chi}
+=
+\sqrt{W_Q(r)}\sum_n c_n\chi(n).
+\]
+
+بالازدواجية الهيلبرتية ثبتت الصورة المزدوجة
+
+\[
+\sum_n
+\left|
+\sum_{R<r\le2R}
+\sqrt{W_Q(r)}
+\sum_{\chi\bmod r}^{*}
+ b_{r,\chi}\overline{\chi(n)}
+\right|^2
+\ll
+\left(\frac NR+R\right)
+\log\frac{2Q}{R}
+\sum_{R<r\le2R}\sum_{\chi\bmod r}^{*}|b_{r,\chi}|^2.
+\]
+
+الصيغتان صالحتان للفترات المنقولة، ولذلك يمكن استعمالهما على المستطيلات الديادية الناتجة من التفكيك الثنائي في `MV-03`.
+
+```text
+MV-02 DYADIC-WEIGHT-COMPARISON = PROVED-HERE-DRAFT
+MV-02 WEIGHTED-PRIMAL           = PROVED-HERE-DRAFT
+MV-02 WEIGHTED-DUAL             = PROVED-HERE-DRAFT
+MV-02 TRANSLATED-INTERVALS      = PROVED-HERE-DRAFT
+MV-02                           = COMPLETE-AS-DRAFT
+```
+
+ملف البرهان:
+
+- `docs/CHAPTER_14_MV02_DUALITY_WEIGHTED_LARGE_SIEVE_2026-07-24.md`
+
 ## سبب عدم كفاية الفصل الثالث عشر وحده
 
 1. مبرهنة القيمة المتوسطة في الفصل الثالث عشر من الرتبة الأولى، وليست متوسطًا تربيعيًا.
@@ -193,22 +261,23 @@ MV-01                       = COMPLETE-AS-DRAFT
 | تحويل التباين | `PROVED-HERE` |
 | رد الموصلات | `PROVED-HERE` |
 | MV-01 | `PROVED-HERE-DRAFT` |
+| MV-02 | `PROVED-HERE-DRAFT` |
 | الغربال الكبير | `CITED-TOOL / FROM CHAPTER 13` |
-| MV-02 إلى MV-10 | `OPEN` |
+| MV-03 إلى MV-10 | `OPEN` |
 | صيغة Montgomery--Hooley | `DEFERRED` |
 
 كل حالة `PROVED-HERE-DRAFT` تبقى غير قابلة للاستشهاد حتى اكتمال البرهان ثم اجتياز التدقيق المنطقي والمرجعي والمستقل.
 
 ## الخطوة التالية
 
-`MV-02`:
+`MV-03`:
 
-1. تثبيت صيغة الازدواجية اللازمة للمتوسط البدائي الموزون.
-2. تحديد الكتل الديادية في الموصل.
-3. إعادة صياغة وزن \(W_Q(r)\) في صورة متوافقة مع وزن الغربال الكبير \(r/\varphi(r)\).
-4. عزل ما يثبت مباشرة بالغربال الكبير وما يحتاج تفكيكًا ثنائيًا إضافيًا.
+1. اختيار هوية تفكيك صريحة للمعاملات الحسابية المستهدفة.
+2. تحويل المجاميع إلى حدود خطية وثنائية على مستطيلات ديادية.
+3. تسجيل قيود معاملات الطرفين ومعايير \(\ell^2\) اللازمة.
+4. منع أي استعمال ضمني لمبرهنة باربان أو BDH داخل التفكيك.
 
 ```text
-NEXT = MV-02
+NEXT = MV-03
 PASS-FOR-AUTHORING = NO
 ```
