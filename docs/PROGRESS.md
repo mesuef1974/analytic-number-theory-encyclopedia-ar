@@ -12,9 +12,9 @@
 - **بوابة ما قبل التأليف:** `CLOSED`
 - **إذن التأليف:** `PASS-FOR-AUTHORING = YES`
 - **نتائج الفصل:** `9 / AUTHORED-DRAFT`
-- **التدقيق الرياضي:** `FOCUSED PASS / POST-CORRECTION BUILD PENDING`
+- **التدقيق الرياضي:** `FOCUSED PASS / POST-CORRECTION BUILD VERIFIED`
 - **التدقيق المرجعي:** `INITIAL PASS / BUILD VERIFIED`
-- **بناء PDF:** `PASS / 235 PAGES BEFORE AUDIT-03`
+- **بناء PDF:** `PASS / 237 PAGES AFTER AUDIT-03`
 - **الموسوعة:** `NOT-RELEASE-READY`
 - **آخر تحديث:** 2026-07-25
 
@@ -34,8 +34,9 @@ AUTHORING                  = AUDIT-03 LINKED
 RESULTS                    = 9 / AUTHORED-DRAFT
 REFERENCE-AUDIT            = INITIAL PASS / BUILD VERIFIED
 MATHEMATICAL-AUDIT         = FOCUSED PASS
-PDF-BUILD                  = PASS / 235 PAGES BEFORE AUDIT-03
-POST-CORRECTION-BUILD      = PENDING
+PDF-BUILD                  = PASS / 237 PAGES AFTER AUDIT-03
+PDF-SHA256                 = 5266E8E87BFC3BB403F67D329451E28F3CB85B7328513CB1E7B0EF1286292858
+POST-CORRECTION-BUILD      = PASS
 MERGE                      = NOT AUTHORIZED
 RELEASE-READY              = NO
 ```
@@ -48,7 +49,7 @@ RELEASE-READY              = NO
 | الفصل 15 | `REVIEWED / MERGED` |
 | الفصل 16 | `REVIEWED / OWNER-ADOPTED / MERGED` |
 | الفصل 17 | `AUTHORED-DRAFT / MATHEMATICAL-AUDIT-03` |
-| بناء PDF الأخير | `PASS / 235 PAGES` قبل إدراج تدقيق 03 |
+| بناء PDF الأخير | `PASS / 237 PAGES` بعد تدقيق 03 |
 
 ## ما أُنجز في الفصل السادس عشر
 
@@ -69,17 +70,17 @@ RELEASE-READY              = NO
 - تعريف المجموع المحلي والتقريب الأرخميدي والسلسلة والتكامل المفردين.
 - إدراج مراجع Hardy--Littlewood وVaughan وVinogradov وHelfgott داخل المتن.
 - فصل النتائج `PROVED-HERE` عن `CITED` و`FINITE-VERIFIED` و`HYPOTHESIS / OPEN`.
-- نجاح البناء المحلي الكامل: 235 صفحة، بلا مراجع أو إحالات غير معرّفة، وبلا أخطاء LaTeX قاتلة.
+- نجاح البناء المحلي الكامل الأول: 235 صفحة، بلا مراجع أو إحالات غير معرّفة، وبلا أخطاء LaTeX قاتلة.
 - إغلاق عائق عامل القياس بإثبات `J(N)=N^(s/k-1) J*`.
 - تثبيت شرط `s>k` للتقارب المطلق للتكامل المفرد المطبع.
 - تصحيح شرط إيجابية السلسلة المفردة إلى حلول `p`-أدية غير منفردة مع تقارب حاصل الضرب المحلي.
 - تخفيض قضية الأقواس الكبرى إلى `CITED / EXPLAINED`.
 - رفع سجل النتائج إلى تسعة معرفات بحالة `AUTHORED-DRAFT`.
+- نجاح بناء ما بعد التدقيق 03: 237 صفحة، بلا مراجع أو إحالات غير معرّفة، وبلا أخطاء LaTeX قاتلة.
 
 ## البنود المفتوحة قبل الترقية
 
-1. إعادة بناء PDF بعد إدراج تدقيق 03 وفحص الإحالات الجديدة.
-2. توحيد اصطلاح الأعداد الطبيعية في مسألة وارينغ.
-3. تدقيق مستقل كامل لما بعد التأليف.
-4. معالجة تحذيرات الخطوط العربية و`Overfull/Underfull hbox` بوصفها ديونًا تحريرية.
-5. لا ترقية إلى `VERIFIED` أو `REVIEWED` ولا دمج دون قرار حوكمي مستقل وإذن المالك.
+1. توحيد اصطلاح الأعداد الطبيعية في مسألة وارينغ.
+2. تدقيق مستقل كامل لما بعد التأليف.
+3. معالجة تحذيرات الخطوط العربية و`Overfull/Underfull hbox` بوصفها ديونًا تحريرية.
+4. لا ترقية إلى `VERIFIED` أو `REVIEWED` ولا دمج دون قرار حوكمي مستقل وإذن المالك.
