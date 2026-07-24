@@ -23,6 +23,7 @@
 ```text
 BASE-MAIN                  = 0bd442bc48490115bed48b18ed32783ad5bd1c9c
 VERSION                    = 0.21.0-dev
+<<<<<<< HEAD
 CHAPTERS-IN-MANUSCRIPT     = 1--17 ON WORK BRANCH
 CHAPTER-16                 = REVIEWED / OWNER-ADOPTED / MERGED
 PR-31                      = MERGED
@@ -35,6 +36,17 @@ PASS-FOR-AUTHORING-17      = YES
 REFERENCE-AUDIT-17         = INITIAL PASS
 MATHEMATICAL-AUDIT-17      = INITIAL PASS WITH OPEN ITEMS
 PDF-BUILD-17               = NOT YET RUN
+=======
+CHAPTERS-IN-MANUSCRIPT     = 1--16
+CHAPTER-16                 = REVIEWED / OWNER-ADOPTED / MERGED
+PR-31                      = MERGED
+CHAPTER-17                 = EVIDENCE-FIRST / PRE-AUTHORING
+BRANCH-17                  = agent/chapter-17-circle-method-goldbach-waring-v0.21.0
+ISSUE-32                   = OPEN
+PR-33                      = DRAFT / OPEN / UNMERGED
+PRE-AUTHORING-GATE-17      = OPEN
+PASS-FOR-AUTHORING-17      = NO
+>>>>>>> origin/main
 RELEASE-READY              = NO
 ```
 
@@ -50,6 +62,7 @@ RELEASE-READY              = NO
 
 ## المرحلة الجارية
 
+<<<<<<< HEAD
 الفصل السابع عشر: **الطريقة الدائرية ومدخل إلى غولدباخ ووارينغ**.
 
 أُنجزت دفعتا التأليف الأولى والثانية، وتشملان:
@@ -67,6 +80,13 @@ RELEASE-READY              = NO
 ## بناء PDF
 
 آخر بناء كامل معتمد يخص الفصل السادس عشر:
+=======
+الفصل السابع عشر: **الطريقة الدائرية ومدخل إلى غولدباخ ووارينغ**. التأليف محجوب حتى إغلاق سجل الأدلة، خريطة البرهان، تدقيق المصادر الأولية، تدقيق عدم الدور، وتثبيت نطاق الأقواس الكبرى والصغرى.
+
+## بناء PDF
+
+آخر بناء كامل معتمد:
+>>>>>>> origin/main
 
 ```text
 XeLaTeX -> Biber -> XeLaTeX -> XeLaTeX
@@ -75,4 +95,8 @@ UNDEFINED CITATIONS = 0
 UNDEFINED REFERENCES = 0
 ```
 
+<<<<<<< HEAD
 لا تعني المراجعة أو الدمج أن الموسوعة `RELEASE-READY`.
+=======
+لا تعني المراجعة أو الدمج أن الموسوعة `RELEASE-READY`.
+>>>>>>> origin/main
