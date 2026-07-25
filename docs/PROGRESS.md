@@ -7,7 +7,7 @@
 - **حالة الفصل:** `REVIEWED / OWNER-ADOPTED / CITABLE`
 - **رأس البداية من `main`:** `2ec3f8fcb5eb365ca582af32771a7790bcded4b5`
 - **الفرع:** `agent/chapter-19-primes-short-intervals-v0.23.0`
-- **Issue:** `#36 / OPEN`
+- **Issue:** `#36 / CLOSED`
 - **PR:** `#37 / MERGED`
 - **بوابة ما قبل التأليف:** `CLOSED / PASS`
 - **إذن التأليف:** `PASS-FOR-AUTHORING = YES`
@@ -23,7 +23,7 @@ MAIN-START-HEAD      = 2ec3f8fcb5eb365ca582af32771a7790bcded4b5
 VERSION              = 0.23.0-dev
 CHAPTER              = 19
 TOPIC                = PRIMES IN SHORT INTERVALS
-ISSUE                = #36 / OPEN
+ISSUE                = #36 / CLOSED
 PR                   = #37 / MERGED
 PRE-AUTHORING-GATE   = CLOSED
 PASS-FOR-AUTHORING   = YES
