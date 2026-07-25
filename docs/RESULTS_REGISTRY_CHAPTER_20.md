@@ -16,11 +16,16 @@ AUTHORING            = AUTHORED-DRAFT
 | المعرّف | الوصف المحجوز | التصنيف الحالي | الحالة |
 |---|---|---|---|
 | ANT-DEF-20-01 | فعل الزمرة وقياس القطع الزائد | `PROVED-HERE` | `AUTHORED-DRAFT / NON-CITABLE` |
+| ANT-PROP-20-01 | هويات الفعل وثبات القياس الزائدي | `PROVED-HERE` | `AUTHORED-DRAFT / NON-CITABLE` |
 | ANT-DEF-20-02 | الأشكال المعيارية الهولومورفية وأشكال الحدبة | `CITED-DEFINITION` | `AUTHORED-DRAFT / NON-CITABLE` |
 | ANT-LEM-20-01 | توسع فورييه وشروط الرؤوس | `PROVED-HERE` | `AUTHORED-DRAFT / NON-CITABLE` |
+| ANT-DEF-20-04 | حاصل Petersson عند المستوى 1 | `CITED-DEFINITION` | `AUTHORED-DRAFT / NON-CITABLE` |
+| ANT-PROP-20-02 | سلامة تعريف حاصل Petersson | `PROVED-HERE` | `AUTHORED-DRAFT / NON-CITABLE` |
 | ANT-THM-20-01 | مؤثرات Hecke والعلاقات الأساسية | `CITED` | `AUTHORED-DRAFT / NON-CITABLE` |
 | ANT-DEF-20-03 | أشكال مااس ومؤثر لابلاس | `CITED-DEFINITION` | `AUTHORED-DRAFT / NON-CITABLE` |
 | ANT-THM-20-02 | التوسع Fourier--Whittaker | `CITED` | `AUTHORED-DRAFT / NON-CITABLE` |
+| ANT-DEF-20-05 | تعريف مجموع Kloosterman | `PROVED-HERE / DEFINITION` | `AUTHORED-DRAFT / NON-CITABLE` |
+| ANT-PROP-20-03 | تماثلات Kloosterman الأولية | `PROVED-HERE` | `AUTHORED-DRAFT / NON-CITABLE` |
 | ANT-THM-20-03 | حد Weil لمجاميع Kloosterman | `CITED` | `AUTHORED-DRAFT / NON-CITABLE` |
 | ANT-THM-20-04 | صيغة Petersson | `CITED-CORE` | `AUTHORED-DRAFT / NON-CITABLE` |
 | ANT-THM-20-05 | صيغة Kuznetsov | `CITED-CORE` | `AUTHORED-DRAFT / NON-CITABLE` |
