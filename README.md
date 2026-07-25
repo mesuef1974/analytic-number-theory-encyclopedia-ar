@@ -27,15 +27,15 @@ VERSION                    = 0.22.0-dev
 CHAPTERS-IN-MANUSCRIPT     = 1--18 ON WORK BRANCH
 CHAPTER-17                 = REVIEWED / OWNER-ADOPTED / MERGED
 PR-33                      = MERGED
-CHAPTER-18                 = REVIEWED-CANDIDATE / OWNER-ADOPTION-PENDING / NON-CITABLE
+CHAPTER-18                 = REVIEWED / OWNER-ADOPTED / CITABLE
 BRANCH-18                  = agent/chapter-18-exponential-sums-van-der-corput-v0.22.0
-ISSUE-34                   = OPEN
-PR-35                      = DRAFT / OPEN / UNMERGED
+ISSUE-34                   = OPEN / CLOSE-AFTER-MERGE
+PR-35                      = OPEN / MERGE-AUTHORIZED
 PRE-AUTHORING-GATE-18      = CLOSED
 PASS-FOR-AUTHORING-18      = YES
 POST-AUTHORING-CORRECTIONS = 3 / 3 CLOSED
 PDF-REBUILD-18             = RUN-524 / PASS / 249 PAGES
-INDEPENDENT-REVIEW-18      = PASS AFTER CORRECTIONS
+INDEPENDENT-REVIEW-18      = PASS AFTER CORRECTIONS / OWNER-ADOPTED
 RELEASE-READY              = NO
 ```
 
@@ -62,7 +62,7 @@ RELEASE-READY              = NO
 - تعريف الأزواج الأسية وعملية `B` مع مراجع فعلية.
 - إغلاق تصحيحات التدقيق الثلاثة بعد دفعة التأليف الثالثة.
 
-نجحت إعادة بناء PDF والمراجعة المستقلة الضيقة بعد التصحيحات. الفصل مرشح للمراجعة النهائية وينتظر قرار المالك؛ لا ترقية ولا دمج تلقائي.
+نجحت إعادة بناء PDF والمراجعة المستقلة الضيقة بعد التصحيحات، واعتمد المالك الفصل بحالة `REVIEWED` وأذن بدمج PR #35.
 
 ## بناء PDF
 
