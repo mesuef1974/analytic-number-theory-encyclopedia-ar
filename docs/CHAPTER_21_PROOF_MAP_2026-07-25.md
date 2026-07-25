@@ -2,7 +2,7 @@
 
 ## الحالة الحاكمة
 
-\`\`\`text
+~~~text
 PROOF-MAP            = FROZEN FOR REVIEW
 PRIMARY-SCOPE        = GL(2) OVER Q
 CIRCULARITY-AUDIT    = PASS WITH CITED-INPUT GUARD
@@ -10,7 +10,7 @@ INDEPENDENT-REVIEW   = PENDING
 PRE-AUTHORING-GATE   = OPEN
 PASS-FOR-AUTHORING   = NO
 AUTHORING            = BLOCKED
-\`\`\`
+~~~
 
 ## سلسلة الاعتماد المجمدة
 
