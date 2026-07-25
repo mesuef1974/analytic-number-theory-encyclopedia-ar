@@ -2,7 +2,7 @@
 
 التاريخ: 2026-07-25  
 تاريخ القطع الأدبي: 2026-07-25  
-الحالة: PRIMARY SOURCES FROZEN / INTERNAL DEPENDENCIES CLOSED / INDEPENDENT REVIEW PENDING
+الحالة: PRE-AUTHORING GATE CLOSED / AUTHORING OPEN
 
 ## 1. سؤال الفصل
 
@@ -156,9 +156,9 @@ p_{n+1}-p_n\le p_n^\theta
 - QUARANTINED: ادعاء \(0.52\).
 - OPTIONAL SEPARATE SECTION: نتائج تقريبًا كل فترة؛ لا تستخدم لإثبات حكم لكل \(x\).
 
-## 7. ما يزال حاجزًا
+## 7. إغلاق البوابة
 
-المحتوى العلمي والاعتمادات الداخلية مجمدة، لكن المراجعة المستقلة المنفصلة لم تُنفذ بعد. لذلك لا تفتح بوابة التأليف في هذا الالتزام.
+اجتازت الحزمة المراجعة المستقلة المسجلة في `CHAPTER_19_INDEPENDENT_PRE_AUTHORING_REVIEW_2026-07-25.md` بحكم `PASS` وصفر عوائق. فُتح التأليف ضمن النطاق المجمد، مع بقاء النتائج الثماني `RESERVED / NON-CITABLE` حتى استكمال المتن والبناء والتدقيق والاعتماد.
 
 ## الحكم
 
@@ -167,7 +167,8 @@ PRIMARY-SOURCE-AUDIT       = PASS WITH HOHEISEL NUMERICAL CONSTANT WITHHELD
 MODERN-FRONTIER-AUDIT      = PASS
 INTERNAL-DEPENDENCY-AUDIT  = PASS
 CIRCULARITY-AUDIT          = PASS
-INDEPENDENT-REVIEW         = PENDING
-PASS-FOR-AUTHORING         = NO
-AUTHORING                  = BLOCKED
+INDEPENDENT-REVIEW         = PASS
+PRE-AUTHORING-GATE         = CLOSED
+PASS-FOR-AUTHORING         = YES
+AUTHORING                  = OPEN
 ~~~
