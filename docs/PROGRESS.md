@@ -29,6 +29,7 @@ PRE-AUTHORING-GATE   = CLOSED
 PASS-FOR-AUTHORING   = YES
 AUTHORING            = AUTHORED-DRAFT
 RESULTS              = 8 AUTHORED-DRAFT / NON-CITABLE
+DRAFT-BUILD          = QUALITY-637 / PDF-558 / 261 PAGES / VISUAL PASS
 LITERATURE-CUTOFF    = 2026-07-25
 MERGE                = NOT AUTHORIZED
 RELEASE-READY        = NO
@@ -42,6 +43,7 @@ RELEASE-READY        = NO
 | الفصل 18 | `REVIEWED / OWNER-ADOPTED / MERGED` |
 | الفصل 19 | `AUTHORED-DRAFT / NON-CITABLE` |
 | آخر PDF معتمد | `RUN-531 / PASS / 249 PAGES` للفصل 18 |
+| بناء مسودة الفصل 19 | `QUALITY-637 / PDF-558 / 261 PAGES / VISUAL PASS` |
 | سجل الأدلة 19 | `PRIMARY SOURCES FROZEN / FRONTIER UPDATED` |
 | خريطة البرهان 19 | `FROZEN / CIRCULARITY PASS` |
 
@@ -61,4 +63,4 @@ RELEASE-READY        = NO
 
 ## الخطوة التالية
 
-تشغيل فحوص الجودة وبناء PDF على رأس المسودة، ثم تدقيق النتائج الداخلية والمراجع والفحص البصري. لا ترقية إلى `VERIFIED` أو `REVIEWED` قبل هذه البوابات.
+اكتمل بناء المسودة وفحصها البصري. الخطوة التالية تدقيق رياضي ومرجعي مستقل للمتن؛ لا ترقية إلى `VERIFIED` أو `REVIEWED` قبل هذه البوابة.
