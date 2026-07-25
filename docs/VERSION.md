@@ -16,15 +16,15 @@ CHAPTER                = 20
 TOPIC                  = MODULAR FORMS / MAASS FORMS / TRACE FORMULAS
 ISSUE                  = #38 / OPEN
 PR                     = #39 / DRAFT / OPEN / UNMERGED
-STATUS                 = PRE-AUTHORING / NON-CITABLE
-PRE-AUTHORING-GATE     = OPEN
-PASS-FOR-AUTHORING     = NO
-AUTHORING              = BLOCKED
-RESULTS                = RESERVED / NON-CITABLE
-INDEPENDENT-REVIEW     = PENDING
+STATUS                 = AUTHORED-DRAFT / NON-CITABLE
+PRE-AUTHORING-GATE     = CLOSED / PASS
+PASS-FOR-AUTHORING     = YES
+AUTHORING              = AUTHORED-DRAFT
+RESULTS                = AUTHORED-DRAFT / NON-CITABLE
+INDEPENDENT-REVIEW     = PRE-AUTHORING APPROVED / POST-AUTHORING PENDING
 OWNER-ADOPTION         = NOT REQUESTED
 MERGE                  = NOT AUTHORIZED
 RELEASE-READY          = NO
 ```
 
-افتُتحت المرحلة في 25 يوليو 2026. لا يُنشأ متن الفصل العشرين ولا تُفعّل نتائجه قبل إغلاق سجل الأدلة وخريطة البرهان وتدقيق عدم الدور، ثم اجتياز مراجعة مستقلة وإصدار `PASS-FOR-AUTHORING = YES`.
+اجتازت بوابة ما قبل التأليف مراجعة مستقلة، وصدر `PASS-FOR-AUTHORING = YES`، وأُنشئ متن الفصل وربط بالمخطوط. تبقى النتائج `NON-CITABLE` والدمج غير مأذون حتى البناء والتدقيق والمراجعة اللاحقة واعتماد المالك.
