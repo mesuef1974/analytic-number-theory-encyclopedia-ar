@@ -5,13 +5,14 @@
 ```text
 BRANCH                  = agent/chapter-19-primes-short-intervals-v0.23.0
 TYPOGRAPHY-FIX-HEAD     = 46796d9b8d7d624553a65c9a705543a1687da5cb
-QUALITY-CHECKS          = RUN-642 / SUCCESS
-PDF-BUILD               = RUN-563 / SUCCESS
+FINAL-STATUS-HEAD       = f079f9039469113835b20916a18e3dcea6ec59f4
+QUALITY-CHECKS          = RUN-643 / SUCCESS
+PDF-BUILD               = RUN-564 / SUCCESS
 PDF-PAGES               = 261
-PDF-SIZE-BYTES          = 1006860
-PDF-SHA256              = C813B5CD351BB557C6AE4BF2717FE91CDAFE1D826C0249B1A481197C38608B79
+PDF-SIZE-BYTES          = 1006820
+PDF-SHA256              = 236A0CBE2D3CDC314CB244F4F77705AABB35FA6A766B27D4EC7CD5A04AC13E52
 CHAPTER-19-OVERFULL     = 0 IN FINAL PASS
-VISUAL-AUDIT            = PASS / PHYSICAL PAGES 249--250
+VISUAL-AUDIT            = PASS / PHYSICAL PAGES 244, 249--250
 CHAPTER-19              = REVIEWED-CANDIDATE
 OWNER-ADOPTION          = PENDING
 MERGE                   = NOT AUTHORIZED
@@ -25,9 +26,9 @@ RELEASE-READY           = NO
 `Overfull \hbox`. تبدأ التجاوزات التالية بعد إغلاق الملف وفي الببليوغرافيا
 العامة، ولذلك لا تُنسب إلى الفصل أو إلى هذا التصحيح.
 
-فُحصت الصفحتان الفيزيائيتان 249 و250 من Artifact الناتج عن `PDF #563`.
-لم يظهر قص أو تراكب أو كسر في عنواني المبرهنتين أو معادلاتهما أو شارات
-المراجع.
+فُحصت الصفحات الفيزيائية 244 و249 و250 من Artifact الناتج عن `PDF #564`.
+لم يظهر قص أو تراكب أو كسر في حالة الفصل أو عنواني المبرهنتين أو معادلاتهما
+أو شارات المراجع.
 
 هذا الإيصال يغلق بند التصحيح الطباعي والبناء النهائي قبل الاعتماد، لكنه لا
 يمثل اعتماد المالك ولا يمنح إذن الدمج.

@@ -40,7 +40,7 @@ PR-37                      = DRAFT / OPEN / UNMERGED
 PRE-AUTHORING-GATE-19      = CLOSED
 PASS-FOR-AUTHORING-19      = YES
 RESULTS-19                 = 8 INDEPENDENTLY VERIFIED / NON-CITABLE
-FINAL-PRE-OWNER-19         = QUALITY-642 / PDF-563 / 261 PAGES / VISUAL PASS
+FINAL-PRE-OWNER-19         = QUALITY-643 / PDF-564 / 261 PAGES / VISUAL PASS
 EVIDENCE-19                = FROZEN / FRONTIER UPDATED
 CIRCULARITY-AUDIT-19       = PASS
 INDEPENDENT-REVIEW-19      = APPROVED / TYPOGRAPHY-CLOSED
@@ -81,6 +81,6 @@ UNDEFINED CITATIONS = 0
 UNDEFINED REFERENCES = 0
 ```
 
-أما الفصل التاسع عشر فاجتاز بعد التصحيح `Quality #642` وبناء PDF `#563` من 261 صفحة، وبصمة PDF هي `C813B5CD351BB557C6AE4BF2717FE91CDAFE1D826C0249B1A481197C38608B79`. لا يظهر تجاوز عمود داخل ملف الفصل في المرور النهائي، واجتازت صفحتا التصحيح الفحص البصري. هذا إيصال ما قبل اعتماد المالك، لا اعتماد نهائي.
+أما الفصل التاسع عشر فاجتاز على رأس الإغلاق `Quality #643` وبناء PDF `#564` من 261 صفحة، وبصمة PDF هي `236A0CBE2D3CDC314CB244F4F77705AABB35FA6A766B27D4EC7CD5A04AC13E52`. لا يظهر تجاوز عمود داخل ملف الفصل في المرور النهائي، واجتازت افتتاحية الفصل وصفحتا التصحيح الفحص البصري. هذا إيصال ما قبل اعتماد المالك، لا اعتماد نهائي.
 
 حالة `REVIEWED-CANDIDATE` لا تعني `REVIEWED` قبل قرار المالك، ولا تعني أن الموسوعة `RELEASE-READY`.
