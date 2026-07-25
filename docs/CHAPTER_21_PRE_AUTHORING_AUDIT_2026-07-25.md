@@ -2,7 +2,7 @@
 
 ## الحكم الحالي
 
-\`\`\`text
+~~~text
 PRE-AUTHORING-AUDIT  = SCIENTIFIC BLOCKERS CLOSED
 SCOPE                = FIXED
 EVIDENCE-LEDGER      = SCIENTIFIC CORE FROZEN
@@ -12,7 +12,7 @@ CIRCULARITY-AUDIT    = PASS WITH CITED-INPUT GUARD
 INDEPENDENT-REVIEW   = PENDING
 PASS-FOR-AUTHORING   = NO
 AUTHORING            = BLOCKED
-\`\`\`
+~~~
 
 ## المنجز
 
@@ -41,10 +41,10 @@ AUTHORING            = BLOCKED
 
 إغلاق العوائق العلمية بواسطة المؤلف لا يساوي مراجعة مستقلة. لذلك يبقى:
 
-\`\`\`text
+~~~text
 READY-FOR-INDEPENDENT-REVIEW = YES
 PASS-FOR-AUTHORING           = NO
 AUTHORING                    = BLOCKED
 RESULTS                      = 10 RESERVED / NON-CITABLE
 MERGE                        = NOT AUTHORIZED
-\`\`\`
+~~~
