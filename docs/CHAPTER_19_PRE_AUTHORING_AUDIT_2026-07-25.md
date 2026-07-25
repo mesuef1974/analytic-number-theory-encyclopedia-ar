@@ -1,18 +1,18 @@
 # تدقيق ما قبل تأليف الفصل التاسع عشر
 
 التاريخ: 2026-07-25  
-الفرع: \`agent/chapter-19-primes-short-intervals-v0.23.0\`  
-رأس البداية: \`2ec3f8fcb5eb365ca582af32771a7790bcded4b5\`
+الفرع: `agent/chapter-19-primes-short-intervals-v0.23.0`  
+رأس البداية: `2ec3f8fcb5eb365ca582af32771a7790bcded4b5`
 
 ## الحكم
 
-\`\`\`text
+```text
 PASS-FOR-RESEARCH-INTAKE = YES
 PASS-FOR-AUTHORING       = NO
 PRE-AUTHORING-GATE       = OPEN
 AUTHORING                = BLOCKED
 RESULTS                  = RESERVED / NON-CITABLE
-\`\`\`
+```
 
 ## ما اجتاز
 
@@ -40,9 +40,9 @@ RESULTS                  = RESERVED / NON-CITABLE
 ## شروط الإغلاق
 
 - [ ] تثبيت كل نتيجة تاريخية بمرجع أصلي وموضع وصيغة.
-- [ ] إغلاق الصيغة الصريحة وكثافة الأصفار أو تصنيفهما \`CITED\` بوضوح.
+- [ ] إغلاق الصيغة الصريحة وكثافة الأصفار أو تصنيفهما `CITED` بوضوح.
 - [ ] إغلاق تحويلات \(\psi\to\theta\to\pi\).
 - [ ] اجتياز تدقيق عدم الدور.
 - [ ] تجميد سجل النتائج والنطاق.
 - [ ] مراجعة مستقلة للبوابة.
-- [ ] إصدار \`PASS-FOR-AUTHORING = YES\` صريح.
+- [ ] إصدار `PASS-FOR-AUTHORING = YES` صريح.
