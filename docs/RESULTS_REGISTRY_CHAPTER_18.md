@@ -7,22 +7,23 @@
 ```text
 CHAPTER             = 18
 RESULTS             = 8
-STATUS              = RESERVED-DRAFT / NON-CITABLE
+STATUS              = AUTHORED-DRAFT / NON-CITABLE
 PRE-AUTHORING-GATE  = CLOSED
 PASS-FOR-AUTHORING  = YES
-AUTHORING           = AUTHORIZED ON WORK BRANCH
+AUTHORING           = BATCH-01 COMPLETE-AS-DRAFT
+MANUSCRIPT-LINK     = YES / WORK BRANCH ONLY
 ```
 
 | المعرّف | العنوان | التصنيف المجمد | الحالة |
 |---|---|---|---|
-| `ANT-ID-18-01` | الحد التافه للمجموع الأسي الموزون | `IDENTITY / PROVED-HERE` | `AUTHORIZED-FOR-DRAFTING` |
-| `ANT-LEM-18-01` | الجمع الجزئي المنفصل | `PROVED-HERE` | `AUTHORIZED-FOR-DRAFTING` |
-| `ANT-LEM-18-02` | متباينة فرق فان دير كوربوت | `PROVED-HERE TARGET / INDEPENDENTLY APPROVED` | `AUTHORIZED-FOR-DRAFTING` |
-| `ANT-THM-18-01` | اختبار المشتقة الأولى | `PROVED-HERE TARGET / INDEPENDENTLY APPROVED` | `AUTHORIZED-FOR-DRAFTING` |
-| `ANT-THM-18-02` | اختبار المشتقة الثانية | `CITED / EXPLAINED` | `AUTHORIZED-FOR-DRAFTING` |
-| `ANT-DEF-18-01` | إطار الزوج الأسي | `DEFINITION / CITED-FRAMEWORK` | `AUTHORIZED-FOR-DRAFTING` |
-| `ANT-PROP-18-01` | عملية A | `PROVED-HERE-LIMITED / CITED-GENERAL` | `AUTHORIZED-FOR-DRAFTING` |
-| `ANT-PROP-18-02` | عملية B | `CITED / EXPLAINED` | `AUTHORIZED-FOR-DRAFTING` |
+| `ANT-ID-18-01` | الحد التافه للمجموع الأسي الموزون | `IDENTITY / PROVED-HERE` | `AUTHORED-DRAFT` |
+| `ANT-LEM-18-01` | الجمع الجزئي المنفصل | `PROVED-HERE` | `AUTHORED-DRAFT` |
+| `ANT-LEM-18-02` | متباينة فرق فان دير كوربوت | `PROVED-HERE TARGET / INDEPENDENTLY APPROVED` | `AUTHORED-DRAFT` |
+| `ANT-THM-18-01` | اختبار المشتقة الأولى | `PROVED-HERE TARGET / INDEPENDENTLY APPROVED` | `RESERVED / NEXT BATCH` |
+| `ANT-THM-18-02` | اختبار المشتقة الثانية | `CITED / EXPLAINED` | `RESERVED / NEXT BATCH` |
+| `ANT-DEF-18-01` | إطار الزوج الأسي | `DEFINITION / CITED-FRAMEWORK` | `RESERVED / NEXT BATCH` |
+| `ANT-PROP-18-01` | عملية A | `PROVED-HERE-LIMITED / CITED-GENERAL` | `RESERVED / NEXT BATCH` |
+| `ANT-PROP-18-02` | عملية B | `CITED / EXPLAINED` | `RESERVED / NEXT BATCH` |
 
 ## قواعد الترقية
 
