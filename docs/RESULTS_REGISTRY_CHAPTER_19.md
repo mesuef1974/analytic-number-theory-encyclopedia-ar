@@ -4,22 +4,22 @@
 
 ~~~text
 CHAPTER             = 19
-STATUS              = AUTHORING OPEN / SCIENTIFIC SCOPE FROZEN
+STATUS              = AUTHORED-DRAFT / SCIENTIFIC SCOPE FROZEN
 PRE-AUTHORING-GATE  = CLOSED
 PASS-FOR-AUTHORING  = YES
-RESULTS             = 8 RESERVED / NON-CITABLE
-MANUSCRIPT-LINK     = NO
+RESULTS             = 8 AUTHORED-DRAFT / NON-CITABLE
+MANUSCRIPT-LINK     = YES
 INDEPENDENT-REVIEW  = PASS
 ~~~
 
 | المعرّف | العنوان المجمد | التصنيف | الحالة |
 |---|---|---|---|
-| ANT-DEF-19-01 | أنظمة الفترات القصيرة والتمييز بين كل \(x\) وتقريبًا كل \(x\) | DEFINITION / PROVED-HERE | RESERVED / NON-CITABLE |
+| ANT-DEF-19-01 | أنظمة الفترات القصيرة والتمييز بين كل \(x\) وتقريبًا كل \(x\) | DEFINITION / PROVED-HERE | AUTHORED-DRAFT / NON-CITABLE |
 | ANT-ID-19-01 | هوية فرق تشيبيشيف \(\Delta_h\psi\) | IDENTITY / PROVED-HERE | RESERVED / NON-CITABLE |
 | ANT-PROP-19-01 | نقل حد خطأ معطى إلى فرق قصير | PROVED-HERE TARGET | RESERVED / NON-CITABLE |
 | ANT-LEM-19-01 | ضبط القوى الأولية العليا والتحويل \(\psi\to\theta\) | PROVED-HERE TARGET | RESERVED / NON-CITABLE |
 | ANT-PROP-19-02 | حصار \(\Delta_h\pi\) بواسطة \(\Delta_h\theta\) | PROVED-HERE TARGET | RESERVED / NON-CITABLE |
-| ANT-THM-19-01 | صيغة Guth--Maynard التقاربية عند \(17/30+\varepsilon\) | CITED / EXPLAINED TARGET | RESERVED / SOURCE FROZEN |
+| ANT-THM-19-01 | صيغة Guth--Maynard التقاربية عند \(17/30+\varepsilon\) | CITED / EXPLAINED TARGET | AUTHORED-DRAFT / SOURCE FROZEN |
 | ANT-THM-19-02 | حد Baker--Harman--Pintz السفلي عند \(0.525=21/40\) | CITED TARGET | RESERVED / SOURCE FROZEN |
 | ANT-COR-19-01 | الانتقال من وجود أولي إلى حد فجوة | PROVED-HERE TARGET | RESERVED / NON-CITABLE |
 
