@@ -4,14 +4,14 @@
 
 - **الإصدار التطويري الحالي:** `0.23.0-dev`
 - **المرحلة الحالية:** الفصل التاسع عشر — الأوليات في الفترات القصيرة.
-- **حالة الفصل:** `PRE-AUTHORING / AUTHORING-BLOCKED`
+- **حالة الفصل:** `AUTHORED-DRAFT / NON-CITABLE`
 - **رأس البداية من `main`:** `2ec3f8fcb5eb365ca582af32771a7790bcded4b5`
 - **الفرع:** `agent/chapter-19-primes-short-intervals-v0.23.0`
 - **Issue:** `#36 / OPEN`
 - **PR:** `#37 / DRAFT / OPEN / UNMERGED`
-- **بوابة ما قبل التأليف:** `OPEN`
-- **إذن التأليف:** `PASS-FOR-AUTHORING = NO`
-- **النتائج:** `RESERVED / NON-CITABLE`
+- **بوابة ما قبل التأليف:** `CLOSED / PASS`
+- **إذن التأليف:** `PASS-FOR-AUTHORING = YES`
+- **النتائج:** `8 AUTHORED-DRAFT / NON-CITABLE`
 - **الموسوعة:** `NOT-RELEASE-READY`
 - **آخر تحديث:** 2026-07-25
 
@@ -25,10 +25,10 @@ CHAPTER              = 19
 TOPIC                = PRIMES IN SHORT INTERVALS
 ISSUE                = #36 / OPEN
 PR                   = #37 / DRAFT / OPEN / UNMERGED
-PRE-AUTHORING-GATE   = OPEN
-PASS-FOR-AUTHORING   = NO
-AUTHORING            = BLOCKED
-RESULTS              = RESERVED / NON-CITABLE
+PRE-AUTHORING-GATE   = CLOSED
+PASS-FOR-AUTHORING   = YES
+AUTHORING            = AUTHORED-DRAFT
+RESULTS              = 8 AUTHORED-DRAFT / NON-CITABLE
 LITERATURE-CUTOFF    = 2026-07-25
 MERGE                = NOT AUTHORIZED
 RELEASE-READY        = NO
@@ -40,7 +40,7 @@ RELEASE-READY        = NO
 |---|---|
 | الفصول 5--18 | `REVIEWED` بدرجات الحوكمة المسجلة |
 | الفصل 18 | `REVIEWED / OWNER-ADOPTED / MERGED` |
-| الفصل 19 | `PRE-AUTHORING / AUTHORING-BLOCKED` |
+| الفصل 19 | `AUTHORED-DRAFT / NON-CITABLE` |
 | آخر PDF معتمد | `RUN-531 / PASS / 249 PAGES` للفصل 18 |
 | سجل الأدلة 19 | `PRIMARY SOURCES FROZEN / FRONTIER UPDATED` |
 | خريطة البرهان 19 | `FROZEN / CIRCULARITY PASS` |
@@ -61,4 +61,4 @@ RELEASE-READY        = NO
 
 ## الخطوة التالية
 
-اكتمل التحقق المرجعي وتدقيق الاعتماد وعدم الدور. الخطوة التالية الوحيدة هي مراجعة مستقلة لحزمة البوابة؛ لا يبدأ المتن قبل حكم `PASS-FOR-AUTHORING = YES`.
+تشغيل فحوص الجودة وبناء PDF على رأس المسودة، ثم تدقيق النتائج الداخلية والمراجع والفحص البصري. لا ترقية إلى `VERIFIED` أو `REVIEWED` قبل هذه البوابات.
