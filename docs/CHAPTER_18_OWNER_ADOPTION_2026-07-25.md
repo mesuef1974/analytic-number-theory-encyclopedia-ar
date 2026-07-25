@@ -16,7 +16,11 @@ MINOR-BLOCKERS   = 0
 QUALITY-CHECKS   = RUN-601 / SUCCESS
 PDF-BUILD        = RUN-528 / SUCCESS / 249 PAGES
 OWNER-ADOPTION   = APPROVED
-MERGE            = AUTHORIZED
+MERGE            = COMPLETED
+MERGE-COMMIT     = 1bdaefebe1d2946c6fa728096d4f1d2f74234ad7
+FINAL-QUALITY     = RUN-604 / SUCCESS
+FINAL-PDF-BUILD   = RUN-531 / SUCCESS / 249 PAGES
+ISSUE-34          = CLOSED
 RELEASE-READY    = NO
 ```
 
@@ -27,5 +31,5 @@ RELEASE-READY    = NO
 نتيجة كما هو: النتائج الداخلية `PROVED-HERE`، والنتائج المنقولة
 `CITED / EXPLAINED`، والتعريف الموثق `CITED-FRAMEWORK`.
 
-هذا القرار يرفع الفصل إلى `REVIEWED` ويأذن بدمج PR #35، لكنه لا يمنح
+نُفذ القرار بدمج PR #35 وإغلاق Issue #34. لا يمنح هذا الدمج
 الموسوعة كلها حالة `RELEASE-READY`.
