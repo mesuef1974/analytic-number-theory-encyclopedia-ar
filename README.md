@@ -38,6 +38,7 @@ PR-37                      = DRAFT / OPEN / UNMERGED
 PRE-AUTHORING-GATE-19      = CLOSED
 PASS-FOR-AUTHORING-19      = YES
 RESULTS-19                 = 8 AUTHORED-DRAFT / NON-CITABLE
+DRAFT-BUILD-19             = QUALITY-637 / PDF-558 / 261 PAGES / VISUAL PASS
 EVIDENCE-19                = FROZEN / FRONTIER UPDATED
 CIRCULARITY-AUDIT-19       = PASS
 INDEPENDENT-REVIEW-19      = PRE-AUTHORING PASS / MANUSCRIPT REVIEW PENDING
@@ -68,7 +69,7 @@ RELEASE-READY              = NO
 
 ## بناء PDF
 
-آخر بناء كامل معتمد:
+آخر بناء كامل معتمد للفصل الثامن عشر:
 
 ```text
 XeLaTeX -> Biber -> XeLaTeX -> XeLaTeX
@@ -76,5 +77,7 @@ PDF = 249 pages
 UNDEFINED CITATIONS = 0
 UNDEFINED REFERENCES = 0
 ```
+
+أما مسودة الفصل التاسع عشر فاجتازت `Quality #637` وبناء PDF `#558` من 261 صفحة، مع صفر إحالات أو مراجع غير معرّفة في المرور النهائي، واجتازت الفحص البصري. هذا إيصال مسودة لا اعتماد نهائي.
 
 وجود مسودة الفصل التاسع عشر لا يعني أنها `VERIFIED` أو `REVIEWED`، ولا يعني أن الموسوعة `RELEASE-READY`.
