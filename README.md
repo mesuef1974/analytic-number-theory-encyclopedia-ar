@@ -22,20 +22,21 @@
 ## الحالة الحالية
 
 ```text
-BASE-MAIN                  = 95209028f7e9f10dd8b47baef4bd4194df40a5a0
+BASE-MAIN                  = 1bdaefebe1d2946c6fa728096d4f1d2f74234ad7
 VERSION                    = 0.22.0-dev
-CHAPTERS-IN-MANUSCRIPT     = 1--18 ON WORK BRANCH
+CHAPTERS-IN-MANUSCRIPT     = 1--18 ON MAIN
 CHAPTER-17                 = REVIEWED / OWNER-ADOPTED / MERGED
 PR-33                      = MERGED
 CHAPTER-18                 = REVIEWED / OWNER-ADOPTED / CITABLE
-BRANCH-18                  = agent/chapter-18-exponential-sums-van-der-corput-v0.22.0
-ISSUE-34                   = OPEN / CLOSE-AFTER-MERGE
-PR-35                      = OPEN / MERGE-AUTHORIZED
+BRANCH-18                  = MERGED INTO MAIN
+ISSUE-34                   = CLOSED
+PR-35                      = MERGED
 PRE-AUTHORING-GATE-18      = CLOSED
 PASS-FOR-AUTHORING-18      = YES
 POST-AUTHORING-CORRECTIONS = 3 / 3 CLOSED
-PDF-REBUILD-18             = RUN-524 / PASS / 249 PAGES
+PDF-REBUILD-18             = RUN-531 / PASS / 249 PAGES
 INDEPENDENT-REVIEW-18      = PASS AFTER CORRECTIONS / OWNER-ADOPTED
+MERGE-COMMIT-18            = 1bdaefebe1d2946c6fa728096d4f1d2f74234ad7
 RELEASE-READY              = NO
 ```
 
