@@ -2,78 +2,61 @@
 
 ## الحالة العامة
 
-- **الإصدار التطويري الحالي:** `0.22.0-dev`
-- **المرحلة الحالية:** الفصل الثامن عشر — المجاميع الأسية وطريقة فان دير كوربوت.
-- **حالة الفصل الثامن عشر:** `REVIEWED / OWNER-ADOPTED / CITABLE`
-- **رأس `main` بعد الدمج:** `1bdaefebe1d2946c6fa728096d4f1d2f74234ad7`
-- **فرع الفصل:** `agent/chapter-18-exponential-sums-van-der-corput-v0.22.0 / MERGED`
-- **Issue:** `#34 / CLOSED`
-- **PR:** `#35 / MERGED`
-- **بوابة ما قبل التأليف:** `CLOSED`
-- **إذن التأليف:** `PASS-FOR-AUTHORING = YES`
-- **نتائج الفصل:** `8 / ACTIVE / CITABLE`
+- **الإصدار التطويري الحالي:** `0.23.0-dev`
+- **المرحلة الحالية:** الفصل التاسع عشر — الأوليات في الفترات القصيرة.
+- **حالة الفصل:** `PRE-AUTHORING / AUTHORING-BLOCKED`
+- **رأس البداية من `main`:** `2ec3f8fcb5eb365ca582af32771a7790bcded4b5`
+- **الفرع:** `agent/chapter-19-primes-short-intervals-v0.23.0`
+- **Issue:** `#36 / OPEN`
+- **PR:** `NOT YET OPENED`
+- **بوابة ما قبل التأليف:** `OPEN`
+- **إذن التأليف:** `PASS-FOR-AUTHORING = NO`
+- **النتائج:** `RESERVED / NON-CITABLE`
 - **الموسوعة:** `NOT-RELEASE-READY`
 - **آخر تحديث:** 2026-07-25
 
 ```text
-CHAPTER-17                  = REVIEWED / OWNER-ADOPTED / MERGED
-PR-33                       = MERGED
-MERGE-COMMIT-17             = 95209028f7e9f10dd8b47baef4bd4194df40a5a0
-PDF-BUILD-17                = PASS / 237 PAGES
-CHAPTER-18                  = REVIEWED / OWNER-ADOPTED / CITABLE
-VERSION                     = 0.22.0-dev
-BRANCH                      = agent/chapter-18-exponential-sums-van-der-corput-v0.22.0 / MERGED
-ISSUE                       = #34 / CLOSED
-PR                          = #35 / MERGED
-PRE-AUTHORING-GATE          = CLOSED
-PASS-FOR-AUTHORING          = YES
-AUTHORING                   = COMPLETE / OWNER-ADOPTED
-RESULTS                     = 8 / ACTIVE / CITABLE
-POST-AUTHORING-FIXES        = 3 / 3 CLOSED
-REFERENCE-AUDIT             = PASS AFTER CORRECTIONS
-MATHEMATICAL-AUDIT          = INDEPENDENT NARROW REVIEW PASS
-QUALITY-CHECKS              = RUN-604 / SUCCESS
-PDF-BUILD                   = RUN-531 / SUCCESS / 249 PAGES
-PDF-SHA256                  = 13FF6784F1D40E8ABCE1DD12AE66D4E9659DE2A3002FBADFE6EB6AF3BE62B3C2
-MERGE                       = COMPLETED / 1bdaefebe1d2946c6fa728096d4f1d2f74234ad7
-RELEASE-READY               = NO
+CHAPTERS-1--18       = REVIEWED / MERGED
+CHAPTER-18           = REVIEWED / OWNER-ADOPTED / CITABLE
+MERGE-COMMIT-18      = 1bdaefebe1d2946c6fa728096d4f1d2f74234ad7
+MAIN-START-HEAD      = 2ec3f8fcb5eb365ca582af32771a7790bcded4b5
+VERSION              = 0.23.0-dev
+CHAPTER              = 19
+TOPIC                = PRIMES IN SHORT INTERVALS
+ISSUE                = #36 / OPEN
+PRE-AUTHORING-GATE   = OPEN
+PASS-FOR-AUTHORING   = NO
+AUTHORING            = BLOCKED
+RESULTS              = RESERVED / NON-CITABLE
+LITERATURE-CUTOFF    = 2026-07-25
+MERGE                = NOT AUTHORIZED
+RELEASE-READY        = NO
 ```
 
 ## لوحة التقدم
 
 | المكوّن | الحالة |
 |---|---|
-| الفصول 5--17 | `REVIEWED` بدرجات الحوكمة المسجلة |
-| الفصل 17 | `REVIEWED / OWNER-ADOPTED / MERGED` |
-| الفصل 18 | `REVIEWED / OWNER-ADOPTED / CITABLE` |
-| بناء PDF الأخير | `RUN-531 / PASS / 249 PAGES` على رأس اعتماد المالك |
+| الفصول 5--18 | `REVIEWED` بدرجات الحوكمة المسجلة |
+| الفصل 18 | `REVIEWED / OWNER-ADOPTED / MERGED` |
+| الفصل 19 | `PRE-AUTHORING / AUTHORING-BLOCKED` |
+| آخر PDF معتمد | `RUN-531 / PASS / 249 PAGES` للفصل 18 |
+| سجل الأدلة 19 | `INITIALIZED / VERIFICATION OPEN` |
+| خريطة البرهان 19 | `INITIALIZED / DEPENDENCY AUDIT OPEN` |
 
-## ما أُنجز في الفصل السابع عشر
+## نطاق الفصل التاسع عشر المرشح
 
-- إنشاء سجل الأدلة وخريطة البرهان وتدقيق عدم الدور.
-- إثبات هويتي التعامد وعد التمثيلات داخليًا.
-- ضبط السلسلة والتكامل المفردين وعامل القياس.
-- فصل النتائج المثبتة عن المقتبسة والمفتوحة.
-- دمج تدقيقي 03 و04 في النثر الموسوعي.
-- نجاح البناء والفحص البصري والمراجعة المستقلة.
-- اعتماد المالك ودمج PR #33 وإغلاق Issue #32.
+1. تعريف الفترات القصيرة والفروق (psi(x+h)-psi(x)).
+2. فصل ثلاثة أهداف لا يجوز خلطها:
+   - تقارب (psi(x+h)-psi(x)sim h) لكل (x).
+   - مجرد وجود أولي في الفترة.
+   - نتائج صحيحة لتقريبًا كل (x).
+3. مسار المنطقة الخالية من الأصفار والصيغة الصريحة للنتائج الطويلة نسبيًا.
+4. المسار الكلاسيكي Hoheisel--Ingham--Huxley للنتائج التقاربية.
+5. نتيجة Baker--Harman--Pintz عند الأس (0.525) بوصفها نتيجة مقتبسة.
+6. إبقاء ادعاء الأس (0.52) في preprint حديث داخل الحجر العلمي إلى أن يثبت التحكيم والتحقق المستقل.
+7. ربط الفترات القصيرة بفجوات الأوليات من دون عكس منطقي غير مشروع.
 
-## ما بدأ في الفصل الثامن عشر
+## الخطوة التالية
 
-- فتح Issue #34.
-- إنشاء فرع مستقل من رأس `main` المعتمد.
-- فتح Draft PR #35.
-- رفع الإصدار إلى `0.22.0-dev`.
-- إنشاء بوابة ما قبل التأليف.
-- تثبيت النطاق المرشح: المجاميع الأسية، فرق فان دير كوربوت، اختبارات المشتقة، عمليتا `A` و`B`، والأزواج الأسية.
-- إغلاق بوابة ما قبل التأليف وإصدار `PASS-FOR-AUTHORING = YES`.
-- إتمام دفعات التأليف الثلاث وربط النتائج الثماني بالمخطوط.
-- بناء PDF كامل من 249 صفحة قبل تدقيق ما بعد التأليف.
-- تطبيق التصحيحات الثلاثة: فرضية كوسمين--لانداو، وتطبيع الزوج الأسي، والإحالات المرجعية الفعلية.
-- نجاح فحص الجودة `run #593` وبناء PDF `run #520` بعد التصحيحات.
-- التحقق من صفر مراجع وإحالات غير معرّفة في المرور النهائي، وفحص الصفحات المصححة بصريًا.
-
-## إغلاق المراجعة والاعتماد
-
-1. أغلقت المراجعة المستقلة الضيقة جميع بنود التصحيح بحكم `PASS`.
-2. اعتمد المالك الفصل بحالة `REVIEWED`، ودُمج PR #35، وأُغلق Issue #34.
+إغلاق التحقق المرجعي والاعتماد المنطقي للصيغة الصريحة وكثافة الأصفار، ثم إجراء مراجعة مستقلة لما قبل التأليف. لا يبدأ المتن قبل حكم صريح.
