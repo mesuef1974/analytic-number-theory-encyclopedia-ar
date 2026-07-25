@@ -4,14 +4,16 @@
 
 ~~~text
 CHAPTER             = 19
-STATUS              = AUTHORED-DRAFT / INDEPENDENTLY REVIEWED
+STATUS              = REVIEWED-CANDIDATE / OWNER-ADOPTION-PENDING
 PRE-AUTHORING-GATE  = CLOSED
 PASS-FOR-AUTHORING  = YES
 RESULTS             = 8 INDEPENDENTLY VERIFIED / NON-CITABLE
 MANUSCRIPT-LINK     = YES
-INDEPENDENT-REVIEW  = APPROVED-WITH-NONBLOCKING-TYPOGRAPHY (see CHAPTER_19_INDEPENDENT_POST_AUTHORING_REVIEW_2026-07-25.md)
-DRAFT-BUILD         = QUALITY-637 / PDF-558 / 261 PAGES / SHA-256 CONFIRMED
+INDEPENDENT-REVIEW  = APPROVED / TYPOGRAPHY-CLOSED
+FINAL-PRE-OWNER     = QUALITY-642 / PDF-563 / 261 PAGES / VISUAL PASS
+PDF-SHA256          = C813B5CD351BB557C6AE4BF2717FE91CDAFE1D826C0249B1A481197C38608B79
 OWNER-ADOPTION      = PENDING
+MERGE               = NOT AUTHORIZED
 ~~~
 
 | المعرّف | العنوان المجمد | التصنيف | الحالة |
@@ -21,8 +23,8 @@ OWNER-ADOPTION      = PENDING
 | ANT-PROP-19-01 | نقل حد خطأ معطى إلى فرق قصير | PROVED-HERE | INDEPENDENTLY VERIFIED / PASS |
 | ANT-LEM-19-01 | ضبط القوى الأولية العليا والتحويل \(\psi\to\theta\) | PROVED-HERE | INDEPENDENTLY VERIFIED / PASS |
 | ANT-PROP-19-02 | حصار \(\Delta_h\pi\) بواسطة \(\Delta_h\theta\) | PROVED-HERE | INDEPENDENTLY VERIFIED / PASS |
-| ANT-THM-19-01 | صيغة Guth--Maynard التقاربية عند \(17/30+\varepsilon\) | CITED / EXPLAINED | INDEPENDENTLY VERIFIED / PASS، عنوان المبرهنة يحتاج تصحيحًا طباعيًا غير حاجز (تجاوز عمود طفيف) |
-| ANT-THM-19-02 | حد Baker--Harman--Pintz السفلي عند \(0.525=21/40\) | CITED | INDEPENDENTLY VERIFIED / PASS، عنوان المبرهنة يحتاج تصحيحًا طباعيًا غير حاجز (تجاوز عمود ~0.68 بوصة) |
+| ANT-THM-19-01 | صيغة Guth--Maynard التقاربية عند \(17/30+\varepsilon\) | CITED / EXPLAINED | INDEPENDENTLY VERIFIED / PASS |
+| ANT-THM-19-02 | حد Baker--Harman--Pintz السفلي عند \(0.525=21/40\) | CITED | INDEPENDENTLY VERIFIED / PASS |
 | ANT-COR-19-01 | الانتقال من وجود أولي إلى حد فجوة | PROVED-HERE | INDEPENDENTLY VERIFIED / PASS |
 
 ## النتائج التاريخية الشارحة

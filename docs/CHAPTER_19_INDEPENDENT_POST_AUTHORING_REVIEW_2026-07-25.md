@@ -93,6 +93,21 @@ TYPOGRAPHY-BLOCKERS    = 0
 TYPOGRAPHY-NONBLOCKING = 2 (ANT-THM-19-01 minor, ANT-THM-19-02 moderate overflow)
 ```
 
+### إغلاق الملاحظتين بعد التصحيح
+
+عولج العنوانان على الرأس
+`46796d9b8d7d624553a65c9a705543a1687da5cb` باختصار عنوان كل بيئة مبرهنة
+إلى اسم أصحاب النتيجة، مع بقاء وصف النتيجة كاملًا في عنوان القسم والمتن.
+اجتاز الرأس `Quality #642` و`PDF #563`. أعاد البناء 261 صفحة، وبصمة PDF:
+
+```text
+C813B5CD351BB557C6AE4BF2717FE91CDAFE1D826C0249B1A481197C38608B79
+```
+
+لا يظهر في المرور النهائي أي `Overfull \hbox` داخل ملف الفصل التاسع عشر،
+وفُحصت الصفحتان الفيزيائيتان 249--250 بصريًا بلا قص أو تراكب. التجاوزات
+اللاحقة في السجل تقع بعد إغلاق ملف الفصل وفي الببليوغرافيا العامة.
+
 ## الحكم
 
 ```text
@@ -100,8 +115,8 @@ MATHEMATICAL-BLOCKERS   = 0
 REFERENCE-BLOCKERS      = 0
 CIRCULARITY-BLOCKERS    = 0
 TYPOGRAPHY-BLOCKERS     = 0
-TYPOGRAPHY-NONBLOCKING  = 2
-VERDICT                 = APPROVED-WITH-NONBLOCKING-TYPOGRAPHY
+TYPOGRAPHY-NONBLOCKING  = 0 / CLOSED
+VERDICT                 = APPROVED
 CHAPTER-19               = REVIEWED-CANDIDATE
 OWNER-ADOPTION           = PENDING
 MERGE                    = NOT AUTHORIZED

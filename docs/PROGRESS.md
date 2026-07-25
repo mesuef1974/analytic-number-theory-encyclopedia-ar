@@ -4,14 +4,14 @@
 
 - **الإصدار التطويري الحالي:** `0.23.0-dev`
 - **المرحلة الحالية:** الفصل التاسع عشر — الأوليات في الفترات القصيرة.
-- **حالة الفصل:** `AUTHORED-DRAFT / NON-CITABLE`
+- **حالة الفصل:** `REVIEWED-CANDIDATE / OWNER-ADOPTION-PENDING`
 - **رأس البداية من `main`:** `2ec3f8fcb5eb365ca582af32771a7790bcded4b5`
 - **الفرع:** `agent/chapter-19-primes-short-intervals-v0.23.0`
 - **Issue:** `#36 / OPEN`
 - **PR:** `#37 / DRAFT / OPEN / UNMERGED`
 - **بوابة ما قبل التأليف:** `CLOSED / PASS`
 - **إذن التأليف:** `PASS-FOR-AUTHORING = YES`
-- **النتائج:** `8 AUTHORED-DRAFT / NON-CITABLE`
+- **النتائج:** `8 INDEPENDENTLY VERIFIED / NON-CITABLE`
 - **الموسوعة:** `NOT-RELEASE-READY`
 - **آخر تحديث:** 2026-07-25
 
@@ -27,9 +27,11 @@ ISSUE                = #36 / OPEN
 PR                   = #37 / DRAFT / OPEN / UNMERGED
 PRE-AUTHORING-GATE   = CLOSED
 PASS-FOR-AUTHORING   = YES
-AUTHORING            = AUTHORED-DRAFT
-RESULTS              = 8 AUTHORED-DRAFT / NON-CITABLE
-DRAFT-BUILD          = QUALITY-637 / PDF-558 / 261 PAGES / VISUAL PASS
+AUTHORING            = REVIEWED-CANDIDATE
+RESULTS              = 8 INDEPENDENTLY VERIFIED / NON-CITABLE
+INDEPENDENT-REVIEW   = APPROVED / TYPOGRAPHY-CLOSED
+FINAL-PRE-OWNER      = QUALITY-642 / PDF-563 / 261 PAGES / VISUAL PASS
+OWNER-ADOPTION       = PENDING
 LITERATURE-CUTOFF    = 2026-07-25
 MERGE                = NOT AUTHORIZED
 RELEASE-READY        = NO
@@ -41,9 +43,9 @@ RELEASE-READY        = NO
 |---|---|
 | الفصول 5--18 | `REVIEWED` بدرجات الحوكمة المسجلة |
 | الفصل 18 | `REVIEWED / OWNER-ADOPTED / MERGED` |
-| الفصل 19 | `AUTHORED-DRAFT / NON-CITABLE` |
+| الفصل 19 | `REVIEWED-CANDIDATE / OWNER-ADOPTION-PENDING` |
 | آخر PDF معتمد | `RUN-531 / PASS / 249 PAGES` للفصل 18 |
-| بناء مسودة الفصل 19 | `QUALITY-637 / PDF-558 / 261 PAGES / VISUAL PASS` |
+| البناء النهائي قبل اعتماد الفصل 19 | `QUALITY-642 / PDF-563 / 261 PAGES / VISUAL PASS` |
 | سجل الأدلة 19 | `PRIMARY SOURCES FROZEN / FRONTIER UPDATED` |
 | خريطة البرهان 19 | `FROZEN / CIRCULARITY PASS` |
 
@@ -63,4 +65,4 @@ RELEASE-READY        = NO
 
 ## الخطوة التالية
 
-اكتمل بناء المسودة وفحصها البصري. الخطوة التالية تدقيق رياضي ومرجعي مستقل للمتن؛ لا ترقية إلى `VERIFIED` أو `REVIEWED` قبل هذه البوابة.
+اكتملت المراجعة المستقلة وأُغلقت الملاحظتان الطباعيتان، ونجح البناء النهائي قبل الاعتماد. الخطوة التالية قرار المالك؛ لا ترقية إلى `REVIEWED` ولا دمج من دون أمر صريح.
