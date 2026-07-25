@@ -3,7 +3,7 @@
 ## الحالة الحاكمة
 
 ```text
-PROOF-MAP            = REVISED / NOT FROZEN
+PROOF-MAP            = REVISED / REVIEW PENDING
 PRIMARY-SCOPE        = LEVEL 1 / TRIVIAL CHARACTER
 CIRCULARITY-AUDIT    = PRELIMINARY PASS / REVIEW PENDING
 PRE-AUTHORING-GATE   = OPEN
@@ -37,7 +37,7 @@ AUTHORING            = BLOCKED
 | حد Weil لـKloosterman | `CITED` | Iwaniec--Kowalski؛ الموضع معلق | `LOCATOR-PENDING` |
 | صيغة Petersson مستوى 1 | `CITED-CORE` | Knightly--Li Cor. 3.12؛ الأصل Petersson 1932 | `LOCATED / CROSS-CHECK PASS` |
 | صيغة Kuznetsov | `CITED-CORE` | Kuznetsov Thms. 1--2، (2.14)، (2.23)؛ تقرير المطابقة | `LEVEL-1 CORE / CROSS-CHECK PASS` |
-| صيغة Selberg | `DEFERRED-FULL-PROOF` | Hejhal I، الفصل الأول، ص 1--38 | `STRUCTURAL-INTRO-ONLY` |
+| صيغة Selberg | `DEFERRED-FULL-PROOF` | Marklof (69)، Thm. 4 (182)؛ Hejhal I، الفصل الأول | `COMPACT-PROTOTYPE / CROSS-CHECK PASS` |
 
 ## فصل Petersson عن Kuznetsov
 
@@ -60,4 +60,4 @@ AUTHORING            = BLOCKED
 
 ## قرار المرحلة
 
-الخريطة منضبطة بنيويًا لكن غير مجمدة. لا يُكتب المتن قبل إغلاق مواضع المصادر، وتجميد جدول التطبيعات، ومراجعة الصيغ حدًا بحد، والمراجعة المستقلة.
+الخريطة منضبطة، وأُغلقت المطابقة العلمية للصيغ الثلاث ضمن نطاقها المعلن. لا يُكتب المتن قبل المراجعة المستقلة وتجميد جدول التطبيعات بحكم صريح.
