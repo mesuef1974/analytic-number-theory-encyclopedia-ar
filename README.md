@@ -32,6 +32,7 @@
 - [جدول تطبيعات الفصل الحادي والعشرين](docs/CHAPTER_21_NORMALIZATION_TABLE_2026-07-25.md)
 - [خريطة برهان الفصل الحادي والعشرين](docs/CHAPTER_21_PROOF_MAP_2026-07-25.md)
 - [تدقيق ما قبل تأليف الفصل الحادي والعشرين](docs/CHAPTER_21_PRE_AUTHORING_AUDIT_2026-07-25.md)
+- [المراجعة المستقلة لبوابة الفصل الحادي والعشرين](docs/CHAPTER_21_INDEPENDENT_PRE_AUTHORING_REVIEW_2026-07-25.md)
 - [سجل نتائج الفصل الحادي والعشرين](docs/RESULTS_REGISTRY_CHAPTER_21.md)
 
 ## الحالة الحالية
@@ -45,9 +46,9 @@ CHAPTER-21                 = PRE-AUTHORING
 BRANCH-21                  = agent/chapter-21-automorphic-l-subconvexity-langlands-v0.25.0
 ISSUE-40                   = OPEN
 PR-41                      = DRAFT / OPEN
-PRE-AUTHORING-GATE-21      = OPEN
-PASS-FOR-AUTHORING-21      = NO
-AUTHORING-21               = BLOCKED
+PRE-AUTHORING-GATE-21      = PASSED
+PASS-FOR-AUTHORING-21      = YES
+AUTHORING-21               = AUTHORIZED ON PR #41 BRANCH
 RESULTS-21                 = 10 RESERVED / NON-CITABLE
 LITERATURE-CUTOFF-21       = 2026-07-25
 RELEASE-READY              = NO
@@ -61,7 +62,7 @@ RELEASE-READY              = NO
 
 الفصل الحادي والعشرون: **دوال (L) الآلية، حدود التحدب ودون التحدب، ومدخل منضبط إلى لانجلاندز**.
 
-فُتحت المرحلة `0.25.0-dev` من الرأس `dd92caa3dba416ffc0f718d6bc037d67ec50466f`، وأُنشئت حزمة ما قبل التأليف وسجلت عشرة معرفات `RESERVED / NON-CITABLE`. استُعمل Consensus للاكتشاف فقط، ثم تحققت بيانات Michel--Venkatesh من صفحة الناشر وDOI. التأليف محجوب حتى تجميد التطبيعات والمصادر واجتياز المراجعة المستقلة.
+فُتحت المرحلة `0.25.0-dev` من الرأس `dd92caa3dba416ffc0f718d6bc037d67ec50466f`، وأُنشئت حزمة ما قبل التأليف وسجلت عشرة معرفات `RESERVED / NON-CITABLE`. استُعمل Consensus للاكتشاف فقط، ثم تحققت بيانات Michel--Venkatesh من صفحة الناشر وDOI. جُمّدت التطبيعات والمصادر واجتازت الحزمة المراجعة المستقلة؛ أصبح التأليف مأذونًا على فرع PR #41 فقط، مع بقاء النتائج محجوزة وغير قابلة للاستشهاد.
 
 ## بناء PDF
 
