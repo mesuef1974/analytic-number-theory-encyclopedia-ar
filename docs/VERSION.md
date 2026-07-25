@@ -20,8 +20,8 @@ PRE-AUTHORING-GATE     = OPEN
 PASS-FOR-AUTHORING     = NO
 AUTHORING              = BLOCKED
 RESULTS                = RESERVED / NON-CITABLE
-EVIDENCE-LEDGER        = INITIALIZED / VERIFICATION OPEN
-PROOF-MAP              = INITIALIZED / DEPENDENCY AUDIT OPEN
+EVIDENCE-LEDGER        = PRIMARY SOURCES FROZEN / FRONTIER UPDATED
+PROOF-MAP              = FROZEN / CIRCULARITY PASS
 INDEPENDENT-REVIEW     = PENDING
 MERGE                  = NOT AUTHORIZED
 RELEASE-READY          = NO
@@ -32,10 +32,11 @@ RELEASE-READY          = NO
 1. الفروق \(\psi(x+h)-\psi(x)\) وصيغ \(\theta\) و\(\pi\).
 2. التمييز بين التقارب لكل \(x\)، ووجود أولي، ونتائج «تقريبًا لكل» \(x\).
 3. مسار المنطقة الخالية من الأصفار والصيغة الصريحة وكثافة الأصفار.
-4. Hoheisel--Ingham--Huxley بوصفها طبقة تاريخية موثقة.
-5. Baker--Harman--Pintz عند \(0.525\) بوصفها نتيجة مقتبسة محكّمة.
-6. جبهة \(0.52\) الحديثة بوصفها preprint محجورًا، لا نتيجة معتمدة.
-7. عدم إنشاء متن قبل إغلاق بوابة الأدلة وعدم الدور والمراجعة المستقلة.
+4. Hoheisel--Ingham--Huxley بوصفها طبقة تاريخية؛ لا يثبت ثابت Hoheisel العددي.
+5. Guth--Maynard عند \(17/30+\varepsilon\) بوصفها الجبهة التقاربية الحديثة المنشورة.
+6. Baker--Harman--Pintz عند \(0.525\) بوصفها نتيجة حد سفلي مقتبسة محكّمة.
+7. جبهة \(0.52\) بوصفها preprint محجورًا، لا نتيجة معتمدة.
+8. عدم إنشاء متن قبل المراجعة المستقلة وإغلاق البوابة.
 
 ## المرحلة السابقة
 
