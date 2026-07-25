@@ -4,25 +4,26 @@
 
 ~~~text
 CHAPTER             = 19
-STATUS              = AUTHORED-DRAFT / SCIENTIFIC SCOPE FROZEN
+STATUS              = AUTHORED-DRAFT / INDEPENDENTLY REVIEWED
 PRE-AUTHORING-GATE  = CLOSED
 PASS-FOR-AUTHORING  = YES
-RESULTS             = 8 AUTHORED-DRAFT / NON-CITABLE
+RESULTS             = 8 INDEPENDENTLY VERIFIED / NON-CITABLE
 MANUSCRIPT-LINK     = YES
-INDEPENDENT-REVIEW  = PRE-AUTHORING PASS / MANUSCRIPT REVIEW PENDING
-DRAFT-BUILD         = QUALITY-637 / PDF-558 / 261 PAGES / VISUAL PASS
+INDEPENDENT-REVIEW  = APPROVED-WITH-NONBLOCKING-TYPOGRAPHY (see CHAPTER_19_INDEPENDENT_POST_AUTHORING_REVIEW_2026-07-25.md)
+DRAFT-BUILD         = QUALITY-637 / PDF-558 / 261 PAGES / SHA-256 CONFIRMED
+OWNER-ADOPTION      = PENDING
 ~~~
 
 | المعرّف | العنوان المجمد | التصنيف | الحالة |
 |---|---|---|---|
-| ANT-DEF-19-01 | أنظمة الفترات القصيرة والتمييز بين كل \(x\) وتقريبًا كل \(x\) | DEFINITION / PROVED-HERE | AUTHORED-DRAFT / NON-CITABLE |
-| ANT-ID-19-01 | هوية فرق تشيبيشيف \(\Delta_h\psi\) | IDENTITY / PROVED-HERE | RESERVED / NON-CITABLE |
-| ANT-PROP-19-01 | نقل حد خطأ معطى إلى فرق قصير | PROVED-HERE TARGET | RESERVED / NON-CITABLE |
-| ANT-LEM-19-01 | ضبط القوى الأولية العليا والتحويل \(\psi\to\theta\) | PROVED-HERE TARGET | RESERVED / NON-CITABLE |
-| ANT-PROP-19-02 | حصار \(\Delta_h\pi\) بواسطة \(\Delta_h\theta\) | PROVED-HERE TARGET | RESERVED / NON-CITABLE |
-| ANT-THM-19-01 | صيغة Guth--Maynard التقاربية عند \(17/30+\varepsilon\) | CITED / EXPLAINED TARGET | AUTHORED-DRAFT / SOURCE FROZEN |
-| ANT-THM-19-02 | حد Baker--Harman--Pintz السفلي عند \(0.525=21/40\) | CITED TARGET | RESERVED / SOURCE FROZEN |
-| ANT-COR-19-01 | الانتقال من وجود أولي إلى حد فجوة | PROVED-HERE TARGET | RESERVED / NON-CITABLE |
+| ANT-DEF-19-01 | أنظمة الفترات القصيرة والتمييز بين كل \(x\) وتقريبًا كل \(x\) | DEFINITION / PROVED-HERE | INDEPENDENTLY VERIFIED / PASS |
+| ANT-ID-19-01 | هوية فرق تشيبيشيف \(\Delta_h\psi\) | IDENTITY / PROVED-HERE | INDEPENDENTLY VERIFIED / PASS |
+| ANT-PROP-19-01 | نقل حد خطأ معطى إلى فرق قصير | PROVED-HERE | INDEPENDENTLY VERIFIED / PASS |
+| ANT-LEM-19-01 | ضبط القوى الأولية العليا والتحويل \(\psi\to\theta\) | PROVED-HERE | INDEPENDENTLY VERIFIED / PASS |
+| ANT-PROP-19-02 | حصار \(\Delta_h\pi\) بواسطة \(\Delta_h\theta\) | PROVED-HERE | INDEPENDENTLY VERIFIED / PASS |
+| ANT-THM-19-01 | صيغة Guth--Maynard التقاربية عند \(17/30+\varepsilon\) | CITED / EXPLAINED | INDEPENDENTLY VERIFIED / PASS، عنوان المبرهنة يحتاج تصحيحًا طباعيًا غير حاجز (تجاوز عمود طفيف) |
+| ANT-THM-19-02 | حد Baker--Harman--Pintz السفلي عند \(0.525=21/40\) | CITED | INDEPENDENTLY VERIFIED / PASS، عنوان المبرهنة يحتاج تصحيحًا طباعيًا غير حاجز (تجاوز عمود ~0.68 بوصة) |
+| ANT-COR-19-01 | الانتقال من وجود أولي إلى حد فجوة | PROVED-HERE | INDEPENDENTLY VERIFIED / PASS |
 
 ## النتائج التاريخية الشارحة
 
