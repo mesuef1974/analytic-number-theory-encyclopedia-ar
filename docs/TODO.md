@@ -13,11 +13,15 @@
 - [x] قراءة الصياغة الدقيقة لمبرهنة Michel--Venkatesh.
 - [x] إغلاق تدقيق عدم الدور.
 - [x] مراجعة مستقلة وإصدار `PASS-FOR-AUTHORING = YES`.
-- [ ] كتابة المتن بعد فتح البوابة فقط.
+- [x] كتابة المتن بعد فتح البوابة فقط.
+- [x] إضافة ملف BibTeX وربط الفصل بالمخطوط.
+- [ ] نجاح فحص الجودة وبناء PDF على الرأس الحاكم.
+- [ ] الفحص البصري لصفحات الفصل.
+- [ ] المراجعة المستقلة بعد التأليف.
 
 ```text
-AUTHORING      = AUTHORIZED ON PR #41 BRANCH
-RESULTS        = 10 RESERVED / NON-CITABLE
+AUTHORING      = COMPLETED
+RESULTS        = 10 AUTHORED-DRAFT / NON-CITABLE
 MERGE          = NOT AUTHORIZED
 RELEASE-READY  = NO
 ```
