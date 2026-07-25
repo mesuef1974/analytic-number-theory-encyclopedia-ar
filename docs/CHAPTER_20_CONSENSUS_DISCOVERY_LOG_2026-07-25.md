@@ -8,6 +8,7 @@
 4. `Kuznetsov original trace formula Petersson formula weight zero 1981`
 5. `Petersson original trace formula modular forms orthogonality Fourier coefficients`
 6. `Selberg original trace formula PSL(2,R) collected papers`
+7. `Kuznetsov trace formula normalization Fourier coefficients continuous spectrum Eisenstein Bessel transforms`
 
 ## السجلات الكاملة المسترجعة
 
@@ -19,6 +20,7 @@
 | `b1b0a06870c1591a8816a512d5de0bc6` | Bruggeman، 1979 | سياق تاريخي لكوزنتسوف |
 | `93e903ec89af59e3aeb487f4b965fa9e` | Liu--Ye، 2006 | مطابقة ثانوية للصيغتين |
 | `28b012afe1a352038b9b53fcf8669b15` | Hejhal، Volume II، 1983 | تفاصيل غير مدمجة مؤجلة |
+| `ffbc21a9fb035ae1b6751d2ab124ecc4` | Chamizo--Raboso، *On the Kuznetsov formula*، 2015، *Journal of Functional Analysis* 268، 869--886 | تحويلات بديلة؛ اكتشاف مقارن لا يثبت ثوابت النواة المختارة |
 
 ## ما تحقق خارج Consensus
 
