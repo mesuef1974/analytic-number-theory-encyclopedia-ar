@@ -8,6 +8,7 @@ VERSION              = 0.24.0-dev
 TABLE                = DRAFT / NOT FROZEN
 PRIMARY-SCOPE        = LEVEL 1 / TRIVIAL CHARACTER
 PETERSSON-LEVEL-1    = CROSS-CHECK PASS
+KUZNETSOV-LEVEL-1    = CROSS-CHECK PASS
 AUTHORING            = BLOCKED
 RESULTS              = RESERVED / NON-CITABLE
 ```
@@ -28,13 +29,13 @@ RESULTS              = RESERVED / NON-CITABLE
 |---|---|---|---|
 | الدالة الأسية | \(e(x)=e^{2\pi i x}\) | يجب استعمالها في فورييه وKloosterman معًا | `DRAFT` |
 | القياس الزائدي | \(d\mu(z)=dx\,dy/y^2\) | Kuznetsov §2، قبل (2.6) | `SOURCE-MATCHED` |
-| لابلاس | \(\Delta=-y^2(\partial_x^2+\partial_y^2)\)، \(\lambda=1/4+t^2\) | يلزم عند الاقتباس ترجمة إشارة المصدر صراحة | `DRAFT` |
+| لابلاس | \(\Delta=-y^2(\partial_x^2+\partial_y^2)\)، \(\lambda=1/4+t^2\) | ترجمت إشارة المصدر الأصلي صراحة | `SOURCE-MATCHED` |
 | فورييه الهولومورفي | \(f(z)=\sum_{n\ge1}a_f(n)e(nz)\) | Petersson/Knightly--Li §3 | `DRAFT` |
 | حاصل بيترسون | \(\langle f,g\rangle=\int_{\Gamma\backslash\mathbb H}f(z)\overline{g(z)}y^k\,d\mu(z)\) عند المستوى 1 | Knightly--Li (3) يقسم على \(\psi(N)\)؛ لا فرق عند \(N=1\) | `SOURCE-MATCHED / LEVEL-1` |
-| توسع مااس | \(u_j(z)=\sqrt y\sum_{n\ne0}\rho_j(n)K_{it_j}(2\pi|n|y)e(nx)\) | يقارن مع Kuznetsov (2.10) قبل نقل أي ثابت | `DRAFT` |
+| توسع مااس | \(u_j(z)=\sqrt y\sum_{n\ne0}\rho_j(n)K_{it_j}(2\pi|n|y)e(nx)\) | طوبق مع Kuznetsov (2.10) والصيغة الحديثة | `CROSS-CHECK PASS / LEVEL-1` |
 | مجموع Kloosterman | \(S(m,n;c)=\sum_{d\bmod c}^{*}e((md+n\bar d)/c)\) | Kuznetsov (2.13) | `SOURCE-MATCHED` |
 | نواة Petersson | \(J_{k-1}(4\pi\sqrt{mn}/c)\) | Knightly--Li Cor. 3.12؛ Iwaniec--Kowalski Prop. 14.5 | `CROSS-CHECK PASS / LEVEL-1` |
-| تحويلات Kuznetsov | تحفظ بصيغة المصدر ولا تختزل إلى رمز واحد قبل تعريف تحويل \(J/K\) وشروط دالة الاختبار | Kuznetsov (2.14)--(2.23) | `OPEN` |
+| تحويلات Kuznetsov | \(H^+\) مجمد للنواة ذات الإشارة المتساوية؛ تحويل \(K\) يذكر منفصلًا في سياق الإشارة المتعاكسة فقط | Kuznetsov (2.14)--(2.23)؛ تقرير المطابقة المستقل | `CROSS-CHECK PASS / CORE` |
 | زوج Selberg التحويلي | يثبت اتجاه تحويل فورييه وعامل \(2\pi\) داخل نص الفصل قبل التصريح بالصيغة | Hejhal I، الفصل الأول، ص 1--38 | `OPEN` |
 
 ## مطابقة Petersson عند المستوى 1
@@ -61,7 +62,7 @@ RESULTS              = RESERVED / NON-CITABLE
 ## شروط التجميد
 
 - [x] مطابقة صيغة Petersson مستوى \(1\) حدًا بحد مع مرجع قياسي ثانٍ.
-- مطابقة طرفي Kuznetsov: الطيف المنفصل والمستمر والقطري وطرف Kloosterman.
+- [x] مطابقة نواة Kuznetsov المعتمدة: الطيف المنفصل والمستمر والقطري وطرف Kloosterman وتحويل \(J\)، مع فصل سياق تحويل \(K\).
 - تثبيت اتجاه تحويل Selberg وعوامل \(2\pi\).
 - مراجعة مستقلة للجدول.
 
