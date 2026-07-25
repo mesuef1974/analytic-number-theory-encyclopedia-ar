@@ -16,12 +16,12 @@
 - [x] إجراء مراجعة مستقلة لبوابة ما قبل التأليف بحكم `APPROVED` وصفر عوائق.
 - [x] إصدار `PASS-FOR-AUTHORING = YES` صريح قبل إنشاء متن الفصل.
 - [x] تأليف الفصل وربطه بالمخطوط بعد فتح البوابة.
-- [ ] بناء PDF والتدقيق الرياضي والمرجعي والمراجعة المستقلة اللاحقة واعتماد المالك.
+- [x] بناء PDF والتدقيق الرياضي والمرجعي والمراجعة المستقلة اللاحقة واعتماد المالك.
 
 ```text
-AUTHORING      = AUTHORED-DRAFT
-RESULTS        = AUTHORED-DRAFT / NON-CITABLE
-MERGE          = NOT AUTHORIZED
+AUTHORING      = COMPLETED
+RESULTS        = 15 ACTIVE / CITABLE
+MERGE          = AUTHORIZED / PENDING EXECUTION
 RELEASE-READY  = NO
 ```
 
