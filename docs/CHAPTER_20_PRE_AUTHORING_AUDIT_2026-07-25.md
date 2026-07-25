@@ -1,0 +1,52 @@
+# تدقيق ما قبل تأليف الفصل العشرين — 2026-07-25
+
+## الحكم الحالي
+
+```text
+PRE-AUTHORING-AUDIT  = CLOSED
+EVIDENCE-LEDGER      = SCIENTIFIC CROSS-CHECK COMPLETE / INDEPENDENTLY REVIEWED
+PROOF-MAP            = REVISED / INDEPENDENTLY REVIEWED
+NORMALIZATION-TABLE  = CROSS-CHECK COMPLETE / INDEPENDENTLY REVIEWED
+CIRCULARITY-AUDIT    = PASS
+INDEPENDENT-REVIEW   = PASS / TARGET 46ac3df (see CHAPTER_20_INDEPENDENT_REVIEW_VERDICT_2026-07-25.md)
+PASS-FOR-AUTHORING   = YES
+AUTHORING            = OPEN
+```
+
+## قائمة التحقق
+
+- [x] تثبيت عنوان الفصل وحدوده العامة.
+- [x] فتح Issue وفرع مستقلين من رأس `main` المعتمد.
+- [x] إنشاء سجل أدلة وخريطة برهان أوليين.
+- [x] حجز معرفات نتائج غير قابلة للاستشهاد.
+- [x] التحقق الببليوغرافي من Petersson 1932 وKuznetsov 1981 وKnightly--Li 2006 وHejhal I.
+- [x] تثبيت المواضع المركزية: Knightly--Li (3)، Thm. 3.9، Cor. 3.12؛ Kuznetsov §2، (2.10)، (2.13)، Thms. 1--2، (2.14)، (2.23)؛ Hejhal I، الفصل الأول، ص 1--38.
+- [x] إنشاء جدول تطبيعات مقارن.
+- [x] حسم نطاق الصيغ الأساسية عند المستوى 1 والشخصية التافهة، مع تأجيل الصيغ العامة.
+- [x] إجراء تدقيق عدم دور بنيوي أولي؛ لا دورة ظاهرة.
+- [x] تثبيت مواضع Diamond--Shurman وIwaniec وIwaniec--Kowalski، وموضع فصل Miyake العام.
+- [x] تضييق Miyake إلى §4.5 (Hecke algebras، ص 131) و§4.6 (primitive forms، ص 153).
+- [x] مطابقة Petersson مستوى 1 حدًا بحد: Knightly--Li Cor. 3.12 مقابل Iwaniec--Kowalski Prop. 14.5.
+- [x] مطابقة نواة Kuznetsov المعتمدة عند المستوى 1: الطيف المنفصل والمستمر والقطري وKloosterman وتحويل \(J\)، مع فصل تحويل \(K\) إلى سياق الإشارة المتعاكسة.
+- [x] تثبيت زوج تحويل Selberg وعوامل \(2\pi\) للنموذج المدمج، مع إبقاء الحالة غير المدمجة مؤجلة.
+- [x] التحقق من مرجع Selberg الأصلي ببليوغرافيًا؛ لا يساوي ذلك تجميد زوج التحويل.
+- [x] إصدار حزمة مراجعة مستقلة على الرأس العلمي `46ac3dfee46bb0abe2a43459c55041d5773ed78e`.
+- [x] استلام حكم مراجعة مستقلة للحزمة كاملة (`PASS`، صفر عوائق).
+- [x] إصدار حكم صريح `PASS-FOR-AUTHORING = YES`.
+
+## ما أُغلق
+
+1. لم تعد المراجع الأصلية الأساسية مجهولة ببليوغرافيًا.
+2. لم تعد صيغة Petersson الحديثة بلا موضع.
+3. لم تعد هوية Kuznetsov الأصلية بلا موضع.
+4. لم يعد جدول التطبيعات مفقودًا.
+5. تحدد نطاق الصيغ الدقيقة بدل خلط المستوى العام بالمستوى 1.
+6. أغلقت مطابقة Kuznetsov للنواة المعتمدة في تقرير مستقل، مع إبقاء الصيغ العامة والإشارة المتعاكسة خارج النواة المركزية.
+7. أغلقت مطابقة Selberg للنموذج المدمج: زوج التحويل وعوامل \(2\pi\) وحدا الهوية والجيوديسيات.
+
+## العوائق المانعة المتبقية
+
+لا شيء. أُغلقت المراجعة المستقلة بحكم `PASS` وصفر عوائق (انظر
+`CHAPTER_20_INDEPENDENT_REVIEW_VERDICT_2026-07-25.md`)، وتحققت المطابقتان
+الأخطر (Kuznetsov وSelberg) حيًّا مقابل مصدرين خارجيين فعليين. `AUTHORING`
+مفتوح الآن ضمن النطاق المجمد فقط.

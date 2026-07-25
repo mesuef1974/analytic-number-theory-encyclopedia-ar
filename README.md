@@ -2,7 +2,7 @@
 
 **العنوان الكامل:** الموسوعة الشاملة في نظرية الأعداد التحليلية: من الأسس إلى الجبهات البحثية الحديثة
 
-**الإصدار التطويري الحالي:** `v0.23.0-dev`
+**الإصدار التطويري الحالي:** `v0.24.0-dev`
 
 مشروع موسوعة عربية بحثية متقدمة في نظرية الأعداد التحليلية، من الأسس إلى طرق الغربال والطريقة الدائرية والمجاميع الأسية والجبهات الحديثة.
 
@@ -24,13 +24,24 @@
 - [إيصال البناء النهائي قبل اعتماد الفصل التاسع عشر](docs/CHAPTER_19_FINAL_PRE_OWNER_BUILD_RECEIPT_2026-07-25.md)
 - [إيصال اعتماد المالك للفصل التاسع عشر](docs/CHAPTER_19_OWNER_ADOPTION_2026-07-25.md)
 - [سجل نتائج الفصل التاسع عشر](docs/RESULTS_REGISTRY_CHAPTER_19.md)
+- [حكم المراجعة المستقلة لبوابة الفصل العشرين](docs/CHAPTER_20_INDEPENDENT_REVIEW_VERDICT_2026-07-25.md)
+- [تدقيق تأليف الفصل العشرين](docs/CHAPTER_20_AUTHORING_AUDIT_2026-07-25.md)
+- [سجل نتائج الفصل العشرين](docs/RESULTS_REGISTRY_CHAPTER_20.md)
 
 ## الحالة الحالية
 
 ```text
-BASE-MAIN                  = 2ec3f8fcb5eb365ca582af32771a7790bcded4b5
-VERSION                    = 0.23.0-dev
-CHAPTERS-IN-MANUSCRIPT     = 1--19 ON MAIN
+BASE-MAIN                  = de0341a105bbf14d56ec4f7f256b9763f8087b30
+VERSION                    = 0.24.0-dev
+CHAPTERS-IN-MANUSCRIPT     = 1--19 ON MAIN / 20 ON ADOPTED BRANCH
+CHAPTER-20                 = REVIEWED / OWNER-ADOPTED / CITABLE
+BRANCH-20                  = agent/chapter-20-modular-maass-trace-formulas-v0.24.0
+ISSUE-38                   = OPEN
+PR-39                      = READY / OPEN / MERGE AUTHORIZED
+PRE-AUTHORING-GATE-20      = CLOSED / PASS
+PASS-FOR-AUTHORING-20      = YES
+AUTHORING-20               = COMPLETED
+RESULTS-20                 = 15 ACTIVE / CITABLE
 CHAPTER-18                 = REVIEWED / OWNER-ADOPTED / MERGED
 PR-35                      = MERGED
 ISSUE-34                   = CLOSED
@@ -47,30 +58,20 @@ CIRCULARITY-AUDIT-19       = PASS
 INDEPENDENT-REVIEW-19      = APPROVED / TYPOGRAPHY-CLOSED
 OWNER-ADOPTION-19          = APPROVED
 LITERATURE-CUTOFF-19       = 2026-07-25
-MERGE                      = COMPLETED
+MERGE                      = AUTHORIZED / PENDING EXECUTION
 MERGE-COMMIT-19            = 8fa2aa7f5972776580983074309fa90e07b53364
 RELEASE-READY              = NO
 ```
 
 ## آخر فصل معتمد
 
-الفصل التاسع عشر عن الأوليات في الفترات القصيرة معتمد بحالة `REVIEWED / CITABLE` وموجود على `main` بعد دمج PR #37. آخر بناء معتمد نجح في 261 صفحة بلا مراجع أو إحالات غير معرّفة في المرور النهائي.
+الفصل العشرون عن الأشكال المعيارية وأشكال مااس وصيغ التتبع معتمد بحالة `REVIEWED / OWNER-ADOPTED / CITABLE`، ونتائجه الخمس عشرة فعالة. ينتظر تنفيذ الدمج المأذون لـPR #39 في `main`.
 
 ## المرحلة الجارية
 
-الفصل التاسع عشر: **الأوليات في الفترات القصيرة**.
+الفصل العشرون: **الأشكال المعيارية وأشكال مااس ومدخل إلى صيغ التتبع**.
 
-أُغلقت بوابة ما قبل التأليف، وأُنشئت مسودة الفصل وربطت بالمخطوط. يميز المتن بين:
-
-- الصيغة التقاربية لكل \(x\).
-- مجرد وجود أولي في الفترة.
-- النتائج الصحيحة لتقريبًا كل \(x\).
-- الحدود غير المشروطة والشرطية.
-- سجل Guth--Maynard التقاربي المنشور عند \(17/30+\varepsilon\).
-- حد Baker--Harman--Pintz السفلي المحكّم عند \(0.525\).
-- ادعاء preprint عند \(0.52\) الذي يبقى محجورًا.
-
-اكتمل التحقق من المصادر والاعتمادات والتحويلات وتدقيق عدم الدور، ثم اجتاز المتن التدقيق والمراجعة المستقلة. أُغلقت الملاحظتان الطباعيتان ونجح البناء النهائي قبل الاعتماد. اعتمد المالك الفصل وفعّل نتائجه الثماني بحالة `ACTIVE / CITABLE` وأذن بدمج PR #37.
+اجتاز الفصل المراجعة المستقلة قبل التأليف وبعده، وأُغلقت ملاحظات الاكتمال الثلاث، ونجح `Quality #700` و`PDF #614` من 274 صفحة مع فحص بصري ناجح. اعتمد المالك الفصل وفعّل نتائجه الخمس عشرة وأذن بدمج PR #39.
 
 ## بناء PDF
 
