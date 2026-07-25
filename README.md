@@ -33,11 +33,11 @@
 ```text
 BASE-MAIN                  = de0341a105bbf14d56ec4f7f256b9763f8087b30
 VERSION                    = 0.24.0-dev
-CHAPTERS-IN-MANUSCRIPT     = 1--19 ON MAIN / 20 ON ADOPTED BRANCH
+CHAPTERS-IN-MANUSCRIPT     = 1--20 ON MAIN
 CHAPTER-20                 = REVIEWED / OWNER-ADOPTED / CITABLE
-BRANCH-20                  = agent/chapter-20-modular-maass-trace-formulas-v0.24.0
-ISSUE-38                   = OPEN
-PR-39                      = READY / OPEN / MERGE AUTHORIZED
+BRANCH-20                  = MERGED INTO MAIN
+ISSUE-38                   = CLOSED
+PR-39                      = MERGED
 PRE-AUTHORING-GATE-20      = CLOSED / PASS
 PASS-FOR-AUTHORING-20      = YES
 AUTHORING-20               = COMPLETED
@@ -58,14 +58,15 @@ CIRCULARITY-AUDIT-19       = PASS
 INDEPENDENT-REVIEW-19      = APPROVED / TYPOGRAPHY-CLOSED
 OWNER-ADOPTION-19          = APPROVED
 LITERATURE-CUTOFF-19       = 2026-07-25
-MERGE                      = AUTHORIZED / PENDING EXECUTION
+MERGE                      = COMPLETED
 MERGE-COMMIT-19            = 8fa2aa7f5972776580983074309fa90e07b53364
+MERGE-COMMIT-20            = c84202af5ae1b0a786016150282c7369fba66b54
 RELEASE-READY              = NO
 ```
 
 ## آخر فصل معتمد
 
-الفصل العشرون عن الأشكال المعيارية وأشكال مااس وصيغ التتبع معتمد بحالة `REVIEWED / OWNER-ADOPTED / CITABLE`، ونتائجه الخمس عشرة فعالة. ينتظر تنفيذ الدمج المأذون لـPR #39 في `main`.
+الفصل العشرون عن الأشكال المعيارية وأشكال مااس وصيغ التتبع معتمد بحالة `REVIEWED / OWNER-ADOPTED / CITABLE`، ونتائجه الخمس عشرة فعالة، وهو موجود على `main` بعد دمج PR #39.
 
 ## المرحلة الجارية
 
