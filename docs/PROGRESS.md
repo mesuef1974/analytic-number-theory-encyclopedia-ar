@@ -4,14 +4,14 @@
 
 - **الإصدار التطويري الحالي:** `0.23.0-dev`
 - **المرحلة الحالية:** الفصل التاسع عشر — الأوليات في الفترات القصيرة.
-- **حالة الفصل:** `REVIEWED-CANDIDATE / OWNER-ADOPTION-PENDING`
+- **حالة الفصل:** `REVIEWED / OWNER-ADOPTED / CITABLE`
 - **رأس البداية من `main`:** `2ec3f8fcb5eb365ca582af32771a7790bcded4b5`
 - **الفرع:** `agent/chapter-19-primes-short-intervals-v0.23.0`
 - **Issue:** `#36 / OPEN`
-- **PR:** `#37 / DRAFT / OPEN / UNMERGED`
+- **PR:** `#37 / READY-AUTHORIZED / OPEN / UNMERGED`
 - **بوابة ما قبل التأليف:** `CLOSED / PASS`
 - **إذن التأليف:** `PASS-FOR-AUTHORING = YES`
-- **النتائج:** `8 INDEPENDENTLY VERIFIED / NON-CITABLE`
+- **النتائج:** `8 ACTIVE / CITABLE`
 - **الموسوعة:** `NOT-RELEASE-READY`
 - **آخر تحديث:** 2026-07-25
 
@@ -24,16 +24,16 @@ VERSION              = 0.23.0-dev
 CHAPTER              = 19
 TOPIC                = PRIMES IN SHORT INTERVALS
 ISSUE                = #36 / OPEN
-PR                   = #37 / DRAFT / OPEN / UNMERGED
+PR                   = #37 / READY-AUTHORIZED / OPEN / UNMERGED
 PRE-AUTHORING-GATE   = CLOSED
 PASS-FOR-AUTHORING   = YES
-AUTHORING            = REVIEWED-CANDIDATE
-RESULTS              = 8 INDEPENDENTLY VERIFIED / NON-CITABLE
+AUTHORING            = REVIEWED / OWNER-ADOPTED
+RESULTS              = 8 ACTIVE / CITABLE
 INDEPENDENT-REVIEW   = APPROVED / TYPOGRAPHY-CLOSED
 FINAL-PRE-OWNER      = QUALITY-643 / PDF-564 / 261 PAGES / VISUAL PASS
-OWNER-ADOPTION       = PENDING
+OWNER-ADOPTION       = APPROVED
 LITERATURE-CUTOFF    = 2026-07-25
-MERGE                = NOT AUTHORIZED
+MERGE                = AUTHORIZED / NOT YET PERFORMED
 RELEASE-READY        = NO
 ```
 
@@ -43,13 +43,13 @@ RELEASE-READY        = NO
 |---|---|
 | الفصول 5--18 | `REVIEWED` بدرجات الحوكمة المسجلة |
 | الفصل 18 | `REVIEWED / OWNER-ADOPTED / MERGED` |
-| الفصل 19 | `REVIEWED-CANDIDATE / OWNER-ADOPTION-PENDING` |
+| الفصل 19 | `REVIEWED / OWNER-ADOPTED / CITABLE` |
 | آخر PDF معتمد | `RUN-531 / PASS / 249 PAGES` للفصل 18 |
 | البناء النهائي قبل اعتماد الفصل 19 | `QUALITY-643 / PDF-564 / 261 PAGES / VISUAL PASS` |
 | سجل الأدلة 19 | `PRIMARY SOURCES FROZEN / FRONTIER UPDATED` |
 | خريطة البرهان 19 | `FROZEN / CIRCULARITY PASS` |
 
-## نطاق الفصل التاسع عشر المرشح
+## نطاق الفصل التاسع عشر المعتمد
 
 1. تعريف الفترات القصيرة والفروق \(\psi(x+h)-\psi(x)\).
 2. فصل ثلاثة أهداف لا يجوز خلطها:
@@ -65,4 +65,4 @@ RELEASE-READY        = NO
 
 ## الخطوة التالية
 
-اكتملت المراجعة المستقلة وأُغلقت الملاحظتان الطباعيتان، ونجح البناء النهائي قبل الاعتماد. الخطوة التالية قرار المالك؛ لا ترقية إلى `REVIEWED` ولا دمج من دون أمر صريح.
+اكتملت المراجعة المستقلة وأُغلقت الملاحظتان الطباعيتان، ونجح البناء النهائي قبل الاعتماد. أصدر المالك قرار الاعتماد والترقية إلى `REVIEWED / CITABLE` وأذن بدمج PR #37؛ الخطوة التالية تنفيذ الدمج والتحقق من `main`.

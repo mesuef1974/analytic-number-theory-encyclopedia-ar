@@ -15,16 +15,17 @@ VERSION                = 0.23.0-dev
 CHAPTER                = 19
 TOPIC                  = PRIMES IN SHORT INTERVALS
 ISSUE                  = #36 / OPEN
-PR                     = #37 / DRAFT / OPEN / UNMERGED
+PR                     = #37 / READY-AUTHORIZED / OPEN / UNMERGED
 PRE-AUTHORING-GATE     = CLOSED
 PASS-FOR-AUTHORING     = YES
-AUTHORING              = AUTHORED-DRAFT
-RESULTS                = 8 AUTHORED-DRAFT / NON-CITABLE
+AUTHORING              = REVIEWED / OWNER-ADOPTED
+RESULTS                = 8 ACTIVE / CITABLE
 DRAFT-BUILD            = QUALITY-637 / PDF-558 / 261 PAGES / VISUAL PASS
 EVIDENCE-LEDGER        = PRIMARY SOURCES FROZEN / FRONTIER UPDATED
 PROOF-MAP              = FROZEN / CIRCULARITY PASS
-INDEPENDENT-REVIEW     = PRE-AUTHORING PASS / MANUSCRIPT REVIEW PENDING
-MERGE                  = NOT AUTHORIZED
+INDEPENDENT-REVIEW     = APPROVED / TYPOGRAPHY-CLOSED
+OWNER-ADOPTION         = APPROVED
+MERGE                  = AUTHORIZED / NOT YET PERFORMED
 RELEASE-READY          = NO
 ```
 
@@ -37,7 +38,7 @@ RELEASE-READY          = NO
 5. Guth--Maynard عند \(17/30+\varepsilon\) بوصفها الجبهة التقاربية الحديثة المنشورة.
 6. Baker--Harman--Pintz عند \(0.525\) بوصفها نتيجة حد سفلي مقتبسة محكّمة.
 7. جبهة \(0.52\) بوصفها preprint محجورًا، لا نتيجة معتمدة.
-8. إبقاء المتن والنتائج غير قابلة للاستشهاد حتى البناء والتدقيق والمراجعة المستقلة واعتماد المالك.
+8. تفعيل المتن والنتائج للاستشهاد بعد البناء والتدقيق والمراجعة المستقلة واعتماد المالك.
 
 ## المرحلة السابقة
 
