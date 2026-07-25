@@ -1,5 +1,27 @@
 # قائمة المهام
 
+## الفصل الحادي والعشرون — المرحلة 0.25.0-dev
+
+- [x] تثبيت رأس البداية `dd92caa3dba416ffc0f718d6bc037d67ec50466f`.
+- [x] فتح Issue #40 وفرع الفصل.
+- [x] تحديد النطاق الأساسي عند (GL(2)/mathbb Q).
+- [x] إنشاء سجل الأدلة وجدول التطبيعات وخريطة البرهان والتدقيق الأولي.
+- [x] حجز عشرة معرفات `RESERVED / NON-CITABLE`.
+- [x] استخدام Consensus للاكتشاف والتحقق اللاحق من المصدر الأصلي.
+- [ ] تثبيت مواضع Jacquet--Langlands وIwaniec--Sarnak وIwaniec--Kowalski.
+- [ ] تجميد عوامل غاما والموصل التحليلي وحد التحدب.
+- [ ] قراءة الصياغة الدقيقة لمبرهنة Michel--Venkatesh.
+- [ ] إغلاق تدقيق عدم الدور.
+- [ ] مراجعة مستقلة وإصدار `PASS-FOR-AUTHORING = YES`.
+- [ ] كتابة المتن بعد فتح البوابة فقط.
+
+```text
+AUTHORING      = BLOCKED
+RESULTS        = 10 RESERVED / NON-CITABLE
+MERGE          = NOT AUTHORIZED
+RELEASE-READY  = NO
+```
+
 ## الفصل العشرون — المرحلة 0.24.0-dev
 
 - [x] فتح Issue #38 وفرع الفصل من رأس `main` المعتمد `de0341a105bbf14d56ec4f7f256b9763f8087b30`.
