@@ -8,15 +8,15 @@
 - [x] إنشاء سجل الأدلة وجدول التطبيعات وخريطة البرهان والتدقيق الأولي.
 - [x] حجز عشرة معرفات `RESERVED / NON-CITABLE`.
 - [x] استخدام Consensus للاكتشاف والتحقق اللاحق من المصدر الأصلي.
-- [ ] تثبيت مواضع Jacquet--Langlands وIwaniec--Sarnak وIwaniec--Kowalski.
-- [ ] تجميد عوامل غاما والموصل التحليلي وحد التحدب.
-- [ ] قراءة الصياغة الدقيقة لمبرهنة Michel--Venkatesh.
-- [ ] إغلاق تدقيق عدم الدور.
-- [ ] مراجعة مستقلة وإصدار `PASS-FOR-AUTHORING = YES`.
+- [x] تثبيت مواضع Jacquet--Langlands وIwaniec--Sarnak وIwaniec--Kowalski.
+- [x] تجميد عوامل غاما والموصل التحليلي وحد التحدب.
+- [x] قراءة الصياغة الدقيقة لمبرهنة Michel--Venkatesh.
+- [x] إغلاق تدقيق عدم الدور.
+- [x] مراجعة مستقلة وإصدار `PASS-FOR-AUTHORING = YES`.
 - [ ] كتابة المتن بعد فتح البوابة فقط.
 
 ```text
-AUTHORING      = BLOCKED
+AUTHORING      = AUTHORIZED ON PR #41 BRANCH
 RESULTS        = 10 RESERVED / NON-CITABLE
 MERGE          = NOT AUTHORIZED
 RELEASE-READY  = NO
