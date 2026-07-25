@@ -4,7 +4,7 @@
 
 - **الإصدار التطويري الحالي:** `0.22.0-dev`
 - **المرحلة الحالية:** الفصل الثامن عشر — المجاميع الأسية وطريقة فان دير كوربوت.
-- **حالة الفصل الثامن عشر:** `AUTHORED-DRAFT / POST-AUTHORING-CORRECTIONS-CLOSED`
+- **حالة الفصل الثامن عشر:** `REVIEWED-CANDIDATE / OWNER-ADOPTION-PENDING`
 - **رأس الأساس من main:** `95209028f7e9f10dd8b47baef4bd4194df40a5a0`
 - **فرع العمل:** `agent/chapter-18-exponential-sums-van-der-corput-v0.22.0`
 - **Issue:** `#34 / OPEN`
@@ -20,7 +20,7 @@ CHAPTER-17                  = REVIEWED / OWNER-ADOPTED / MERGED
 PR-33                       = MERGED
 MERGE-COMMIT-17             = 95209028f7e9f10dd8b47baef4bd4194df40a5a0
 PDF-BUILD-17                = PASS / 237 PAGES
-CHAPTER-18                  = AUTHORED-DRAFT / NON-CITABLE
+CHAPTER-18                  = REVIEWED-CANDIDATE / OWNER-ADOPTION-PENDING / NON-CITABLE
 VERSION                     = 0.22.0-dev
 BRANCH                      = agent/chapter-18-exponential-sums-van-der-corput-v0.22.0
 ISSUE                       = #34 / OPEN
@@ -31,9 +31,9 @@ AUTHORING                   = BATCH-03 COMPLETE-AS-DRAFT
 RESULTS                     = 8 / AUTHORED-DRAFT
 POST-AUTHORING-FIXES        = 3 / 3 CLOSED
 REFERENCE-AUDIT             = PASS AFTER CORRECTIONS
-MATHEMATICAL-AUDIT          = CORRECTED / INDEPENDENT REVIEW PENDING
-QUALITY-CHECKS              = RUN-593 / SUCCESS
-PDF-BUILD                   = RUN-520 / SUCCESS / 249 PAGES
+MATHEMATICAL-AUDIT          = INDEPENDENT NARROW REVIEW PASS
+QUALITY-CHECKS              = RUN-597 / SUCCESS
+PDF-BUILD                   = RUN-524 / SUCCESS / 249 PAGES
 PDF-SHA256                  = 13FF6784F1D40E8ABCE1DD12AE66D4E9659DE2A3002FBADFE6EB6AF3BE62B3C2
 MERGE                       = NOT AUTHORIZED
 RELEASE-READY               = NO
@@ -45,8 +45,8 @@ RELEASE-READY               = NO
 |---|---|
 | الفصول 5--17 | `REVIEWED` بدرجات الحوكمة المسجلة |
 | الفصل 17 | `REVIEWED / OWNER-ADOPTED / MERGED` |
-| الفصل 18 | `AUTHORED-DRAFT / NON-CITABLE` |
-| بناء PDF الأخير | `RUN-520 / PASS / 249 PAGES` بعد تصحيحات ما بعد التأليف |
+| الفصل 18 | `REVIEWED-CANDIDATE / OWNER-ADOPTION-PENDING / NON-CITABLE` |
+| بناء PDF الأخير | `RUN-524 / PASS / 249 PAGES` بعد تصحيحات ما بعد التأليف |
 
 ## ما أُنجز في الفصل السابع عشر
 
