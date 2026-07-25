@@ -4,14 +4,14 @@
 
 - **الإصدار التطويري الحالي:** `0.22.0-dev`
 - **المرحلة الحالية:** الفصل الثامن عشر — المجاميع الأسية وطريقة فان دير كوربوت.
-- **حالة الفصل الثامن عشر:** `REVIEWED-CANDIDATE / OWNER-ADOPTION-PENDING`
+- **حالة الفصل الثامن عشر:** `REVIEWED / OWNER-ADOPTED / CITABLE`
 - **رأس الأساس من main:** `95209028f7e9f10dd8b47baef4bd4194df40a5a0`
 - **فرع العمل:** `agent/chapter-18-exponential-sums-van-der-corput-v0.22.0`
-- **Issue:** `#34 / OPEN`
-- **PR:** `#35 / DRAFT / OPEN / UNMERGED`
+- **Issue:** `#34 / OPEN / CLOSE-AFTER-MERGE`
+- **PR:** `#35 / OPEN / MERGE-AUTHORIZED`
 - **بوابة ما قبل التأليف:** `CLOSED`
 - **إذن التأليف:** `PASS-FOR-AUTHORING = YES`
-- **نتائج الفصل:** `8 / AUTHORED-DRAFT / NON-CITABLE`
+- **نتائج الفصل:** `8 / ACTIVE / CITABLE`
 - **الموسوعة:** `NOT-RELEASE-READY`
 - **آخر تحديث:** 2026-07-25
 
@@ -20,22 +20,22 @@ CHAPTER-17                  = REVIEWED / OWNER-ADOPTED / MERGED
 PR-33                       = MERGED
 MERGE-COMMIT-17             = 95209028f7e9f10dd8b47baef4bd4194df40a5a0
 PDF-BUILD-17                = PASS / 237 PAGES
-CHAPTER-18                  = REVIEWED-CANDIDATE / OWNER-ADOPTION-PENDING / NON-CITABLE
+CHAPTER-18                  = REVIEWED / OWNER-ADOPTED / CITABLE
 VERSION                     = 0.22.0-dev
 BRANCH                      = agent/chapter-18-exponential-sums-van-der-corput-v0.22.0
-ISSUE                       = #34 / OPEN
-PR                          = #35 / DRAFT / OPEN / UNMERGED
+ISSUE                       = #34 / OPEN / CLOSE-AFTER-MERGE
+PR                          = #35 / OPEN / MERGE-AUTHORIZED
 PRE-AUTHORING-GATE          = CLOSED
 PASS-FOR-AUTHORING          = YES
-AUTHORING                   = BATCH-03 COMPLETE-AS-DRAFT
-RESULTS                     = 8 / AUTHORED-DRAFT
+AUTHORING                   = COMPLETE / OWNER-ADOPTED
+RESULTS                     = 8 / ACTIVE / CITABLE
 POST-AUTHORING-FIXES        = 3 / 3 CLOSED
 REFERENCE-AUDIT             = PASS AFTER CORRECTIONS
 MATHEMATICAL-AUDIT          = INDEPENDENT NARROW REVIEW PASS
 QUALITY-CHECKS              = RUN-597 / SUCCESS
 PDF-BUILD                   = RUN-524 / SUCCESS / 249 PAGES
 PDF-SHA256                  = 13FF6784F1D40E8ABCE1DD12AE66D4E9659DE2A3002FBADFE6EB6AF3BE62B3C2
-MERGE                       = NOT AUTHORIZED
+MERGE                       = AUTHORIZED
 RELEASE-READY               = NO
 ```
 
@@ -45,7 +45,7 @@ RELEASE-READY               = NO
 |---|---|
 | الفصول 5--17 | `REVIEWED` بدرجات الحوكمة المسجلة |
 | الفصل 17 | `REVIEWED / OWNER-ADOPTED / MERGED` |
-| الفصل 18 | `REVIEWED-CANDIDATE / OWNER-ADOPTION-PENDING / NON-CITABLE` |
+| الفصل 18 | `REVIEWED / OWNER-ADOPTED / CITABLE` |
 | بناء PDF الأخير | `RUN-524 / PASS / 249 PAGES` بعد تصحيحات ما بعد التأليف |
 
 ## ما أُنجز في الفصل السابع عشر
@@ -73,7 +73,7 @@ RELEASE-READY               = NO
 - نجاح فحص الجودة `run #593` وبناء PDF `run #520` بعد التصحيحات.
 - التحقق من صفر مراجع وإحالات غير معرّفة في المرور النهائي، وفحص الصفحات المصححة بصريًا.
 
-## البنود المفتوحة بعد التصحيحات
+## إغلاق المراجعة والاعتماد
 
-1. المراجعة المستقلة لما بعد التأليف.
-2. لا ترقية أو دمج دون قرار صريح من المالك.
+1. أغلقت المراجعة المستقلة الضيقة جميع بنود التصحيح بحكم `PASS`.
+2. اعتمد المالك الفصل بحالة `REVIEWED` وأذن بدمج PR #35.
