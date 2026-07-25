@@ -26,7 +26,7 @@ AUTHORING            = BLOCKED
 - [x] إجراء تدقيق عدم دور بنيوي أولي؛ لا دورة ظاهرة.
 - [x] تثبيت مواضع Diamond--Shurman وIwaniec وIwaniec--Kowalski، وموضع فصل Miyake العام.
 - [x] تضييق Miyake إلى §4.5 (Hecke algebras، ص 131) و§4.6 (primitive forms، ص 153).
-- [ ] مطابقة Petersson مستوى 1 حدًا بحد مع مرجع قياسي ثانٍ.
+- [x] مطابقة Petersson مستوى 1 حدًا بحد: Knightly--Li Cor. 3.12 مقابل Iwaniec--Kowalski Prop. 14.5.
 - [ ] مطابقة Kuznetsov كاملة، بما فيها الطيف المستمر وتحويلات Bessel.
 - [ ] تثبيت زوج تحويل Selberg وعوامل \(2\pi\).
 - [ ] التحقق من مرجع Selberg الأصلي.
