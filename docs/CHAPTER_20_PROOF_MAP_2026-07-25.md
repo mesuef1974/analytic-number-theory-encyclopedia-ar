@@ -35,8 +35,8 @@ AUTHORING            = BLOCKED
 | أشكال مااس والطيف | `CITED-CORE` | Iwaniec؛ Kuznetsov §2 للسياق الأصلي | `LOCATOR-PENDING` |
 | التوسع Fourier--Whittaker | `CITED` | Kuznetsov (2.10) مع تطبيع الفصل | `FORMULA-LOCATED / MATCH-PENDING` |
 | حد Weil لـKloosterman | `CITED` | Iwaniec--Kowalski؛ الموضع معلق | `LOCATOR-PENDING` |
-| صيغة Petersson مستوى 1 | `CITED-CORE` | Knightly--Li Cor. 3.12؛ الأصل Petersson 1932 | `LOCATED / CROSS-CHECK-PENDING` |
-| صيغة Kuznetsov | `CITED-CORE` | Kuznetsov Thms. 1--2، (2.14)، (2.23) | `LOCATED / FULL-MATCH-PENDING` |
+| صيغة Petersson مستوى 1 | `CITED-CORE` | Knightly--Li Cor. 3.12؛ الأصل Petersson 1932 | `LOCATED / CROSS-CHECK PASS` |
+| صيغة Kuznetsov | `CITED-CORE` | Kuznetsov Thms. 1--2، (2.14)، (2.23)؛ تقرير المطابقة | `LEVEL-1 CORE / CROSS-CHECK PASS` |
 | صيغة Selberg | `DEFERRED-FULL-PROOF` | Hejhal I، الفصل الأول، ص 1--38 | `STRUCTURAL-INTRO-ONLY` |
 
 ## فصل Petersson عن Kuznetsov
