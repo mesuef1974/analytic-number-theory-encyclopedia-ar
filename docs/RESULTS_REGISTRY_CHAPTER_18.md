@@ -7,30 +7,30 @@
 ```text
 CHAPTER             = 18
 RESULTS             = 8
-STATUS              = REVIEWED-CANDIDATE / OWNER-ADOPTION-PENDING / NON-CITABLE
+STATUS              = REVIEWED / OWNER-ADOPTED / CITABLE
 PRE-AUTHORING-GATE  = CLOSED
 PASS-FOR-AUTHORING  = YES
-AUTHORING           = BATCH-03 COMPLETE-AS-DRAFT
-MANUSCRIPT-LINK     = YES / WORK BRANCH ONLY
+AUTHORING           = COMPLETE / OWNER-ADOPTED
+MANUSCRIPT-LINK     = YES / MERGE-AUTHORIZED
 PDF-BUILD           = RUN-524 / PASS / 249 PAGES
 POST-AUTHORING-AUDIT = CHANGES-REQUIRED CLOSED / NARROW PASS
-INDEPENDENT-REVIEW    = PASS / OWNER-ADOPTION-PENDING
+INDEPENDENT-REVIEW    = PASS / OWNER-ADOPTED
 ```
 
 | المعرّف | العنوان | التصنيف المجمد | الحالة |
 |---|---|---|---|
-| `ANT-ID-18-01` | الحد التافه للمجموع الأسي الموزون | `IDENTITY / PROVED-HERE` | `AUTHORED-DRAFT` |
-| `ANT-LEM-18-01` | الجمع الجزئي المنفصل | `PROVED-HERE` | `AUTHORED-DRAFT` |
-| `ANT-LEM-18-02` | متباينة فرق فان دير كوربوت | `PROVED-HERE TARGET / INDEPENDENTLY APPROVED` | `AUTHORED-DRAFT` |
-| `ANT-THM-18-01` | اختبار المشتقة الأولى | `PROVED-HERE TARGET / INDEPENDENTLY APPROVED` | `AUTHORED-DRAFT / PROOF WRITTEN` |
-| `ANT-THM-18-02` | اختبار المشتقة الثانية | `CITED / EXPLAINED` | `AUTHORED-DRAFT` |
-| `ANT-DEF-18-01` | الزوج الأسي في تطبيع أحادي البعد | `DEFINITION / CITED-FRAMEWORK` | `REVIEWED-CANDIDATE / NARROW-PASS` |
-| `ANT-PROP-18-01` | عملية A | `PROVED-HERE-LIMITED / CITED-GENERAL` | `AUTHORED-DRAFT / LIMITED PROOF WRITTEN` |
-| `ANT-PROP-18-02` | عملية B | `CITED / EXPLAINED` | `AUTHORED-DRAFT` |
+| `ANT-ID-18-01` | الحد التافه للمجموع الأسي الموزون | `IDENTITY / PROVED-HERE` | `ACTIVE` |
+| `ANT-LEM-18-01` | الجمع الجزئي المنفصل | `PROVED-HERE` | `ACTIVE` |
+| `ANT-LEM-18-02` | متباينة فرق فان دير كوربوت | `PROVED-HERE TARGET / INDEPENDENTLY APPROVED` | `ACTIVE` |
+| `ANT-THM-18-01` | اختبار المشتقة الأولى | `PROVED-HERE TARGET / INDEPENDENTLY APPROVED` | `ACTIVE / PROOF WRITTEN` |
+| `ANT-THM-18-02` | اختبار المشتقة الثانية | `CITED / EXPLAINED` | `ACTIVE` |
+| `ANT-DEF-18-01` | الزوج الأسي في تطبيع أحادي البعد | `DEFINITION / CITED-FRAMEWORK` | `ACTIVE / NARROW-PASS` |
+| `ANT-PROP-18-01` | عملية A | `PROVED-HERE-LIMITED / CITED-GENERAL` | `ACTIVE / LIMITED PROOF WRITTEN` |
+| `ANT-PROP-18-02` | عملية B | `CITED / EXPLAINED` | `ACTIVE` |
 
 ## قواعد الترقية
 
-- تبقى جميع المعرفات `NON-CITABLE` أثناء التأليف.
+- أصبحت المعرفات الثمانية `ACTIVE / CITABLE` بعد المراجعة المستقلة واعتماد المالك.
 - لا يتحول أي معرّف إلى `ACTIVE` قبل اكتمال البناء والتدقيق الرياضي والمرجعي والمراجعة المستقلة.
 - كتب برهان `ANT-THM-18-01` باستعمال فروق الطور ولمّة كوسمين--لانداو المنفصلة.
 - شُددت فرضية لمّة كوسمين--لانداو لتشمل كل عدد حقيقي بين طرفي متتالية الفروق، فلا تسمح بقفزة منفصلة فوق عدد صحيح.
