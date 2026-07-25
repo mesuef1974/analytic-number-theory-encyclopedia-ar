@@ -6,69 +6,84 @@
 CHAPTER              = 20
 VERSION              = 0.24.0-dev
 MODE                 = EVIDENCE-FIRST / PRE-AUTHORING
-LEDGER               = OPEN / NOT FROZEN
+LEDGER               = OPEN / PARTIALLY VERIFIED
+NORMALIZATION-TABLE  = DRAFT / NOT FROZEN
 AUTHORING            = BLOCKED
 RESULTS              = RESERVED / NON-CITABLE
 LITERATURE-CUTOFF    = 2026-07-25
 ```
 
-هذا سجل افتتاحي لا يمنح أي مصدر حالة `CITED` بعد. لا تنتقل مادة إلى خريطة البرهان النهائية قبل تثبيت الطبعة والموضع والصيغة والتطبيع.
+لا يمنح هذا السجل أي نتيجة حالة `CITED` بعد. التحقق الببليوغرافي لا يساوي مطابقة الصيغة؛ ومطابقة صيغة واحدة لا تجمد جدول التطبيعات كله.
 
 ## نطاق الفصل
 
-1. الفضاء العلوي وفعل `SL_2(Z)` والزمر التوافقية الأساسية.
-2. الأشكال المعيارية الهولومورفية، أشكال الحدبة، وتوسعات فورييه.
-3. حاصل الضرب الداخلي لبيترسون ومؤثرات Hecke ضمن مستوى وتطبيع محددين.
-4. أشكال مااس الحدبية، مؤثر لابلاس، والتوسع Fourier--Whittaker.
-5. مجاميع Kloosterman وتحويلات Bessel بوصفها لغة صيغ التتبع.
-6. صيغة Petersson وصيغة Kuznetsov، ومدخل محدود إلى صيغة Selberg.
-7. التطبيقات التحليلية تُذكر بوصفها جسورًا للفصل 21، لا تُستبق براهين دون التحدب أو لانجلاندز.
+1. الفضاء العلوي وفعل \(SL_2(\mathbb Z)\) والزمر التوافقية الأساسية.
+2. الأشكال المعيارية الهولومورفية وأشكال الحدبة وتوسعات فورييه.
+3. حاصل بيترسون ومؤثرات Hecke ضمن مستوى وتطبيع مصرح بهما.
+4. أشكال مااس ومؤثر لابلاس والتوسع Fourier--Whittaker.
+5. مجاميع Kloosterman وتحويلات Bessel.
+6. صيغة Petersson وصيغة Kuznetsov، ومدخل بنيوي محدود إلى صيغة Selberg.
+7. لا تُستبق دوال \(L\) الآلية أو دون التحدب أو لانجلاندز المخصصة للفصل 21.
 
-## قائمة المصادر المرشحة للتحقق
+## قرار النطاق للصيغ الدقيقة
 
-| الرمز | المصدر المرشح | الدور المتوقع | الحالة |
+```text
+PETERSSON-CORE = LEVEL 1 / TRIVIAL CHARACTER / EVEN k>2
+KUZNETSOV-CORE = MODULAR GROUP / WEIGHT 0 / CONTINUOUS SPECTRUM INCLUDED
+SELBERG-CORE   = COMPACT PROTOTYPE / STRUCTURAL INTRODUCTION
+GENERAL LEVEL  = CONTEXT ONLY UNTIL NORMALIZATIONS ARE MATCHED
+```
+
+## المصادر المتحققة ومواضعها
+
+| الرمز | المصدر | الموضع المثبت | ما يثبته | الحالة |
+|---|---|---|---|---|
+| E20-06 | Hans Petersson, *Über die Entwicklungskoeffizienten der automorphen Formen*, *Acta Mathematica* 58 (1932), 169--215، DOI: [10.1007/BF02547776](https://doi.org/10.1007/BF02547776) | المقالة الأصلية كاملة | الأصل الببليوغرافي لصيغة Petersson | `PRIMARY / BIBLIOGRAPHY-VERIFIED` |
+| E20-09 | Knightly--Li, *A relative trace formula proof of the Petersson trace formula*, *Acta Arithmetica* 122 (2006), 297--313 | §3؛ حاصل بيترسون (3)، Theorem 3.9، Corollary 3.12 | نسخة مضبوطة للمستوى والشخصية، والنسخة الكلاسيكية | `FULL-TEXT / FORMULA-LOCATED` |
+| E20-07 | N. V. Kuznetsov, *Petersson's conjecture for cusp forms of weight zero and Linnik's conjecture. Sums of Kloosterman sums*, *Math. USSR-Sb.* 39:3 (1981), 299--342، DOI: [10.1070/SM1981v039n03ABEH001518](https://doi.org/10.1070/SM1981v039n03ABEH001518) | §2؛ (2.10)، (2.13)، Theorems 1--2، ولا سيما (2.14) و(2.23) | توسع مااس، تعريف Kloosterman، والهوية الطيفية--الحسابية الأصلية | `PRIMARY / FULL-TEXT / FORMULA-LOCATED` |
+| E20-05 | D. A. Hejhal, *The Selberg Trace Formula for PSL(2,R)*, Vol. I, LNM 548, Springer (1976) | الفصل الأول: *The trace formula for compact Riemann surfaces*، ص 1--38 | موضع المدخل البنيوي المدمج | `PUBLISHER-VERIFIED / CHAPTER-LOCATED` |
+| E20-10 | Jianya Liu--Yangbo Ye, *Petersson and Kuznetsov Trace Formulas* (2006) | المقالة الاستعراضية، أقسام Petersson/Kuznetsov | مرجع ثانٍ للمطابقة، لا مصدر أصلي | `CONSENSUS-FETCHED / FULL-TEXT-LOCATED` |
+
+## مصادر الأساس التي ما تزال تحتاج مواضع دقيقة
+
+| الرمز | المصدر | الدور | الحالة |
 |---|---|---|---|
-| E20-01 | Diamond--Shurman, *A First Course in Modular Forms* | الأساس الهولومورفي، الفضاءات، مؤثرات Hecke | `CANDIDATE / LOCATOR-PENDING` |
+| E20-01 | Diamond--Shurman, *A First Course in Modular Forms* | الأشكال الهولومورفية والفضاءات وHecke | `CANDIDATE / LOCATOR-PENDING` |
 | E20-02 | Miyake, *Modular Forms* | الصياغة الكلاسيكية والتفاصيل البنيوية | `CANDIDATE / LOCATOR-PENDING` |
-| E20-03 | Iwaniec, *Spectral Methods of Automorphic Forms* | أشكال مااس والتحليل الطيفي وصيغ التتبع | `CANDIDATE / LOCATOR-PENDING` |
-| E20-04 | Iwaniec--Kowalski, *Analytic Number Theory* | الجسر إلى التطبيقات التحليلية ومجاميع Kloosterman | `CANDIDATE / LOCATOR-PENDING` |
-| E20-05 | Hejhal, *The Selberg Trace Formula for PSL(2,R)*, I--II | صيغة Selberg والتطبيعات الطيفية | `CANDIDATE / LOCATOR-PENDING` |
-| E20-06 | أوراق Petersson الأصلية | صيغة الأثر الهولومورفية | `PRIMARY / BIBLIOGRAPHY-PENDING` |
-| E20-07 | ورقة Kuznetsov الأصلية | صيغة الأثر غير الهولومورفية | `PRIMARY / BIBLIOGRAPHY-PENDING` |
-| E20-08 | أعمال Selberg الأصلية/المجمعة | صيغة الأثر والطيف | `PRIMARY / BIBLIOGRAPHY-PENDING` |
+| E20-03 | Iwaniec, *Spectral Methods of Automorphic Forms* | أشكال مااس والتحليل الطيفي | `CANDIDATE / LOCATOR-PENDING` |
+| E20-04 | Iwaniec--Kowalski, *Analytic Number Theory* | Petersson/Kuznetsov والتطبيقات التحليلية | `CANDIDATE / LOCATOR-PENDING` |
+| E20-08 | أعمال Selberg الأصلية/المجمعة | الأصل التاريخي لصيغة Selberg | `PRIMARY / BIBLIOGRAPHY-PENDING` |
 
-## اكتشافات Consensus الأولية
+## اكتشافات Consensus
 
-أُجريت في 25 يوليو 2026 ثلاثة استعلامات مستقلة عن صيغ Kuznetsov وPetersson وSelberg. جرى استدعاء السجل الكامل لكل نتيجة أدناه بعد البحث، وفق قاعدة Consensus. هذه السجلات أدوات اكتشاف فقط ولا تحل محل النص الأصلي أو موضع المبرهنة.
+استُخدم Consensus للاكتشاف والفرز، ثم استُدعيت السجلات الكاملة قبل تسجيلها. لا تعتمد أرقام الاستشهادات ولا المقتطفات لتثبيت الثوابت.
 
-| الرمز | السجل | البيانات المسترجعة | الحالة |
-|---|---|---|---|
-| C20-01 | [Kuznetsov's Trace Formula and the Hecke Eigenvalues of Maass Forms](https://consensus.app/papers/kuznetsovs-trace-formula-and-the-hecke-eigenvalues-of-li-knightly/fff6daeba5f95bbd84a521d529f62759/?utm_source=chatgpt) | Charles Li وAndrew H. Knightly، 2012، 69 استشهادًا في سجل Consensus | `CONSENSUS-DISCOVERED / PRIMARY-LOCATOR-PENDING` |
-| C20-02 | [A relative trace formula proof of the Petersson trace formula](https://consensus.app/papers/a-relative-trace-formula-proof-of-the-petersson-trace-knightly-li/f14270f8796c5a96a98e28818bc94c4d/?utm_source=chatgpt) | Andrew H. Knightly وCharles Li، 2006، *Acta Arithmetica* 122، 297--313، 22 استشهادًا | `CONSENSUS-FETCHED / THEOREM-3.9-TO-VERIFY` |
-| C20-03 | [The Selberg Trace Formula for PSL(2,R), Volume I](https://consensus.app/papers/the-selberg-trace-formula-for-psl2-volume-i-hejhal/a7208ee817515bc58e52d86ca1585f74/?utm_source=chatgpt) | D. Hejhal، 1976، 185 استشهادًا؛ الملخص غير متاح في السجل | `CONSENSUS-FETCHED / FULL-TEXT-REQUIRED` |
-
-### حدود الاستخدام
-
-- لا تعتمد أرقام الاستشهادات بوصفها معيار صحة.
-- لا تعتمد مقتطفات Consensus لإثبات الثوابت أو التطبيعات.
-- لا تُرفع أي نتيجة إلى `CITED` قبل مطابقة DOI/الناشر والنص الكامل.
-- صيغة Petersson المذكورة في C20-02 تخص مستوى ووزنًا وشخصية محددة؛ لا تُعمم قبل قراءة Theorem 3.9 كاملًا.
-- سجل Hejhal لا يحتوي ملخصًا، ولذلك لا يقدم دليلًا نصيًا على أي صيغة.
+| الرمز | السجل المسترجع | الحالة |
+|---|---|---|
+| C20-01 | Li--Knightly، *Kuznetsov's Trace Formula and the Hecke Eigenvalues of Maass Forms* (2012) | `CONSENSUS-FETCHED / SECONDARY` |
+| C20-02 | Knightly--Li، *A relative trace formula proof of the Petersson trace formula* (2006) | `CONSENSUS-FETCHED / FULL-TEXT-VERIFIED-SEPARATELY` |
+| C20-03 | Hejhal، Volume I (1976) | `CONSENSUS-FETCHED / PUBLISHER-VERIFIED-SEPARATELY` |
+| C20-04 | R. Bruggeman، *Kuznetsov's proof of the Ramanujan--Petersson conjecture for modular forms of weight zero* (1979) | `CONSENSUS-FETCHED / HISTORICAL-TRIAGE` |
+| C20-05 | Liu--Ye، *Petersson and Kuznetsov Trace Formulas* (2006) | `CONSENSUS-FETCHED / CROSS-CHECK-CANDIDATE` |
+| C20-06 | Hejhal، Volume II (1983) | `CONSENSUS-FETCHED / NONCOMPACT-DETAILS-DEFERRED` |
 
 ## اختبارات قبول المصدر
 
-- تطابق تعريف الوزن والمستوى والشخصية.
-- تثبيت قياس القطع الزائد وتطبيع حاصل الضرب الداخلي.
-- تثبيت إشارة مؤثر لابلاس ومعلمة الطيف.
-- تثبيت تطبيع معاملات فورييه وHecke.
-- تثبيت تعريف مجموع Kloosterman وعوامل Bessel.
-- فصل الصيغة الدقيقة عن النسخة التمهيدية أو التخطيطية.
-- منع الاعتماد على نتيجة لاحقة من الفصل 21 لإثبات مدخل في الفصل 20.
+- تطابق الوزن والمستوى والشخصية.
+- تثبيت قياس القطع الزائد وإشارة لابلاس.
+- تثبيت حاصل بيترسون وتطبيع معاملات فورييه وHecke.
+- تثبيت تعريف \(S(m,n;c)\) وعوامل \(J\)- و\(K\)-Bessel.
+- إبقاء الطيف المستمر في الحالة غير المدمجة.
+- فصل الصيغة الدقيقة عن العرض التخطيطي.
+- منع الاعتماد العكسي على الفصل 21.
 
 ## العوائق المفتوحة
 
-- المواضع الدقيقة وأرقام المبرهنات/الصفحات لجميع المصادر.
-- جدول تطبيعات موحد بين المراجع.
-- تحقق ببليوغرافي من الأوراق الأصلية.
-- تحديد النتائج التي ستبرهن داخل الفصل وتلك التي ستقتبس.
-- مراجعة مستقلة قبل تجميد السجل.
+1. مواضع Diamond--Shurman وMiyake وIwaniec وIwaniec--Kowalski.
+2. مطابقة حدًا بحد لصيغة Petersson مستوى \(1\) بمرجع قياسي ثانٍ.
+3. مطابقة صيغة Kuznetsov كاملة، بما فيها الطيف المستمر والتحويلات.
+4. تثبيت زوج تحويل Selberg وعوامل \(2\pi\).
+5. التحقق الببليوغرافي من نص Selberg الأصلي.
+6. مراجعة مستقلة للحزمة قبل التجميد.
+
+حتى إغلاق هذه البنود يبقى `PASS-FOR-AUTHORING = NO`.
