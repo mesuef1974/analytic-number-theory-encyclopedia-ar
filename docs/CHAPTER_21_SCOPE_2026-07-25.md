@@ -2,7 +2,7 @@
 
 ## الحالة الحاكمة
 
-\`\`\`text
+~~~text
 VERSION                = 0.25.0-dev
 CHAPTER                = 21
 TOPIC                  = AUTOMORPHIC L-FUNCTIONS / CONVEXITY / SUBCONVEXITY / LANGLANDS ENTRY
@@ -13,7 +13,7 @@ PASS-FOR-AUTHORING     = NO
 AUTHORING              = BLOCKED
 RESULTS                = RESERVED / NON-CITABLE
 RELEASE-READY          = NO
-\`\`\`
+~~~
 
 ## الهدف
 
