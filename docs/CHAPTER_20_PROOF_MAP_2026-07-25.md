@@ -3,12 +3,12 @@
 ## الحالة الحاكمة
 
 ```text
-PROOF-MAP            = REVISED / REVIEW PENDING
+PROOF-MAP            = FROZEN / INDEPENDENTLY REVIEWED
 PRIMARY-SCOPE        = LEVEL 1 / TRIVIAL CHARACTER
-CIRCULARITY-AUDIT    = PRELIMINARY PASS / REVIEW PENDING
-PRE-AUTHORING-GATE   = OPEN
-PASS-FOR-AUTHORING   = NO
-AUTHORING            = BLOCKED
+CIRCULARITY-AUDIT    = PASS
+PRE-AUTHORING-GATE   = CLOSED / PASS
+PASS-FOR-AUTHORING   = YES
+AUTHORING            = AUTHORED-DRAFT / NON-CITABLE
 ```
 
 ## سلسلة الاعتماد
@@ -56,8 +56,8 @@ AUTHORING            = BLOCKED
 | الفصل 19 | نتائج الفترات القصيرة | استعمالها لإثبات صيغة أثر | `NO DEPENDENCY` |
 | الفصل 21 | لا اعتماد سابق | دون التحدب أو لانجلاندز لإغلاق الفصل 20 | `HARD BLOCK` |
 
-التدقيق البنيوي لا يظهر دورة، لكنه يبقى `REVIEW-PENDING` حتى يقرأ مراجع كل عقدة مراجع مستقل.
+اجتازت الخريطة مراجعة مستقلة بلا عوائق، ولا يظهر اعتماد عكسي على الفصل 21.
 
 ## قرار المرحلة
 
-الخريطة منضبطة، وأُغلقت المطابقة العلمية للصيغ الثلاث ضمن نطاقها المعلن. لا يُكتب المتن قبل المراجعة المستقلة وتجميد جدول التطبيعات بحكم صريح.
+الخريطة منضبطة، وأُغلقت المطابقة العلمية والمراجعة المستقلة ضمن النطاق المعلن. أُلّف المتن مع إبقاء نتائجه `NON-CITABLE` حتى البناء والتدقيق والمراجعة اللاحقة واعتماد المالك.
