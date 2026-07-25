@@ -70,10 +70,26 @@ CORRECTIONS-REQUIRED       = 3
 CORRECTIONS-APPLIED        = 3
 MATHEMATICAL-BLOCKERS      = 0 BEFORE REBUILD
 REFERENCE-BLOCKERS         = 0 BEFORE REBUILD
-PDF-REBUILD                = PENDING
+QUALITY-CHECKS             = RUN-593 / SUCCESS
+PDF-REBUILD                = RUN-520 / SUCCESS / 249 PAGES
+PDF-SHA256                 = 13FF6784F1D40E8ABCE1DD12AE66D4E9659DE2A3002FBADFE6EB6AF3BE62B3C2
+UNDEFINED-CITATIONS-FINAL  = 0
+UNDEFINED-REFERENCES-FINAL = 0
+VISUAL-AUDIT               = PASS
 INDEPENDENT-REVIEW         = PENDING
 CHAPTER-18                 = AUTHORED-DRAFT / NON-CITABLE
 PR-35                      = DRAFT / OPEN / UNMERGED
 MERGE                      = NOT AUTHORIZED
 RELEASE-READY              = NO
 ```
+
+## تحقق البناء والفحص البصري
+
+- نجح فحص الجودة في GitHub Actions: `run #593`.
+- نجح بناء XeLaTeX وBiber في GitHub Actions: `run #520`.
+- الناتج: PDF 1.7 من 249 صفحة وحجم 967956 بايت.
+- طابقت بصمة الملف ملف البصمة داخل Artifact.
+- لم يظهر في مرور XeLaTeX النهائي أي مرجع أو إحالة غير معرّفة.
+- فُحصت بصريًا صفحات لمّة كوسمين--لانداو، وتعريف الزوج الأسي،
+  وعملية `B`، ومدخل Graham--Kolesnik في قائمة المراجع، بلا قص أو
+  تراكب.

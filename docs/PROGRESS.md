@@ -4,7 +4,7 @@
 
 - **الإصدار التطويري الحالي:** `0.22.0-dev`
 - **المرحلة الحالية:** الفصل الثامن عشر — المجاميع الأسية وطريقة فان دير كوربوت.
-- **حالة الفصل الثامن عشر:** `AUTHORED-DRAFT / POST-AUTHORING-CORRECTIONS-APPLIED`
+- **حالة الفصل الثامن عشر:** `AUTHORED-DRAFT / POST-AUTHORING-CORRECTIONS-CLOSED`
 - **رأس الأساس من main:** `95209028f7e9f10dd8b47baef4bd4194df40a5a0`
 - **فرع العمل:** `agent/chapter-18-exponential-sums-van-der-corput-v0.22.0`
 - **Issue:** `#34 / OPEN`
@@ -29,11 +29,12 @@ PRE-AUTHORING-GATE          = CLOSED
 PASS-FOR-AUTHORING          = YES
 AUTHORING                   = BATCH-03 COMPLETE-AS-DRAFT
 RESULTS                     = 8 / AUTHORED-DRAFT
-POST-AUTHORING-FIXES        = 3 / 3 APPLIED
-REFERENCE-AUDIT             = CORRECTED / REBUILD PENDING
+POST-AUTHORING-FIXES        = 3 / 3 CLOSED
+REFERENCE-AUDIT             = PASS AFTER CORRECTIONS
 MATHEMATICAL-AUDIT          = CORRECTED / INDEPENDENT REVIEW PENDING
-PDF-BUILD                   = PRE-CORRECTION PASS / 249 PAGES
-PDF-REBUILD                 = PENDING
+QUALITY-CHECKS              = RUN-593 / SUCCESS
+PDF-BUILD                   = RUN-520 / SUCCESS / 249 PAGES
+PDF-SHA256                  = 13FF6784F1D40E8ABCE1DD12AE66D4E9659DE2A3002FBADFE6EB6AF3BE62B3C2
 MERGE                       = NOT AUTHORIZED
 RELEASE-READY               = NO
 ```
@@ -45,7 +46,7 @@ RELEASE-READY               = NO
 | الفصول 5--17 | `REVIEWED` بدرجات الحوكمة المسجلة |
 | الفصل 17 | `REVIEWED / OWNER-ADOPTED / MERGED` |
 | الفصل 18 | `AUTHORED-DRAFT / NON-CITABLE` |
-| بناء PDF الأخير | `PASS / 249 PAGES` قبل تصحيحات ما بعد التأليف |
+| بناء PDF الأخير | `RUN-520 / PASS / 249 PAGES` بعد تصحيحات ما بعد التأليف |
 
 ## ما أُنجز في الفصل السابع عشر
 
@@ -69,11 +70,10 @@ RELEASE-READY               = NO
 - إتمام دفعات التأليف الثلاث وربط النتائج الثماني بالمخطوط.
 - بناء PDF كامل من 249 صفحة قبل تدقيق ما بعد التأليف.
 - تطبيق التصحيحات الثلاثة: فرضية كوسمين--لانداو، وتطبيع الزوج الأسي، والإحالات المرجعية الفعلية.
+- نجاح فحص الجودة `run #593` وبناء PDF `run #520` بعد التصحيحات.
+- التحقق من صفر مراجع وإحالات غير معرّفة في المرور النهائي، وفحص الصفحات المصححة بصريًا.
 
 ## البنود المفتوحة بعد التصحيحات
 
-1. إعادة بناء PDF كاملًا بعد التصحيحات.
-2. التحقق من صفر مراجع وإحالات غير معرّفة.
-3. الفحص البصري للصفحات المصححة.
-4. المراجعة المستقلة لما بعد التأليف.
-5. لا ترقية أو دمج دون قرار صريح من المالك.
+1. المراجعة المستقلة لما بعد التأليف.
+2. لا ترقية أو دمج دون قرار صريح من المالك.

@@ -33,8 +33,8 @@ ISSUE-34                   = OPEN
 PR-35                      = DRAFT / OPEN / UNMERGED
 PRE-AUTHORING-GATE-18      = CLOSED
 PASS-FOR-AUTHORING-18      = YES
-POST-AUTHORING-CORRECTIONS = 3 / 3 APPLIED
-PDF-REBUILD-18             = PENDING
+POST-AUTHORING-CORRECTIONS = 3 / 3 CLOSED
+PDF-REBUILD-18             = PASS / 249 PAGES
 INDEPENDENT-REVIEW-18      = PENDING
 RELEASE-READY              = NO
 ```
@@ -62,11 +62,11 @@ RELEASE-READY              = NO
 - تعريف الأزواج الأسية وعملية `B` مع مراجع فعلية.
 - إغلاق تصحيحات التدقيق الثلاثة بعد دفعة التأليف الثالثة.
 
-لا تزال إعادة بناء PDF والتدقيق النهائي والمراجعة المستقلة مطلوبة قبل أي ترقية.
+نجحت إعادة بناء PDF والتدقيق الآلي والبصري بعد التصحيحات. لا تزال المراجعة المستقلة مطلوبة قبل أي ترقية.
 
 ## بناء PDF
 
-آخر بناء كامل على فرع الفصل الثامن عشر قبل تصحيحات ما بعد التأليف:
+آخر بناء كامل على فرع الفصل الثامن عشر بعد تصحيحات ما بعد التأليف:
 
 ```text
 XeLaTeX -> Biber -> XeLaTeX -> XeLaTeX
@@ -75,4 +75,4 @@ UNDEFINED CITATIONS = 0
 UNDEFINED REFERENCES = 0
 ```
 
-تستلزم التصحيحات الحالية إعادة بناء جديدة. لا تعني المراجعة أو الدمج أن الموسوعة `RELEASE-READY`.
+نجح البناء في GitHub Actions بلا مراجع أو إحالات غير معرّفة في المرور النهائي. لا تعني المراجعة أو الدمج أن الموسوعة `RELEASE-READY`.
