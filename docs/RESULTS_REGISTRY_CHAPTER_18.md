@@ -13,7 +13,8 @@ PASS-FOR-AUTHORING  = YES
 AUTHORING           = BATCH-03 COMPLETE-AS-DRAFT
 MANUSCRIPT-LINK     = YES / WORK BRANCH ONLY
 PDF-BUILD           = POST-CORRECTION PASS / 249 PAGES
-POST-AUTHORING-AUDIT = CORRECTIONS CLOSED / VISUAL PASS
+POST-AUTHORING-AUDIT = INDEPENDENT CHANGES-REQUIRED / FIXES APPLIED
+INDEPENDENT-REVIEW    = NARROW RECHECK PENDING
 ```
 
 | المعرّف | العنوان | التصنيف المجمد | الحالة |
@@ -23,7 +24,7 @@ POST-AUTHORING-AUDIT = CORRECTIONS CLOSED / VISUAL PASS
 | `ANT-LEM-18-02` | متباينة فرق فان دير كوربوت | `PROVED-HERE TARGET / INDEPENDENTLY APPROVED` | `AUTHORED-DRAFT` |
 | `ANT-THM-18-01` | اختبار المشتقة الأولى | `PROVED-HERE TARGET / INDEPENDENTLY APPROVED` | `AUTHORED-DRAFT / PROOF WRITTEN` |
 | `ANT-THM-18-02` | اختبار المشتقة الثانية | `CITED / EXPLAINED` | `AUTHORED-DRAFT` |
-| `ANT-DEF-18-01` | إطار الزوج الأسي | `DEFINITION / CITED-FRAMEWORK` | `AUTHORED-DRAFT` |
+| `ANT-DEF-18-01` | الزوج الأسي في تطبيع أحادي البعد | `DEFINITION / CITED-FRAMEWORK` | `AUTHORED-DRAFT / CORRECTED / RECHECK PENDING` |
 | `ANT-PROP-18-01` | عملية A | `PROVED-HERE-LIMITED / CITED-GENERAL` | `AUTHORED-DRAFT / LIMITED PROOF WRITTEN` |
 | `ANT-PROP-18-02` | عملية B | `CITED / EXPLAINED` | `AUTHORED-DRAFT` |
 
@@ -34,6 +35,6 @@ POST-AUTHORING-AUDIT = CORRECTIONS CLOSED / VISUAL PASS
 - كتب برهان `ANT-THM-18-01` باستعمال فروق الطور ولمّة كوسمين--لانداو المنفصلة.
 - شُددت فرضية لمّة كوسمين--لانداو لتشمل كل عدد حقيقي بين طرفي متتالية الفروق، فلا تسمح بقفزة منفصلة فوق عدد صحيح.
 - كتب الجزء المحدود من `ANT-PROP-18-01` مباشرة من متباينة فرق فان دير كوربوت؛ أما تحويل الأزواج العام بعملية `A` فبقي `CITED`.
-- صُحح تطبيع تعريف الزوج الأسي إلى `F^kappa N^lambda + F^(-1)`، وأضيف مرجع Graham--Kolesnik الفعلي لتعريف الزوج وعملية `B`.
+- استُبدل التطبيع الوصفي غير المحدد بتعريف دقيق لفئة الأطوار `F(N,P,sigma,y,c)` والتقدير `(y/N^sigma)^kappa N^lambda`، وأضيف مرجع Trudgian--Yang للتعريف ومرجع Graham--Kolesnik لعمليتي `A` و`B`.
 - يبقى `ANT-THM-18-02` و`ANT-PROP-18-02` بحالة `CITED / EXPLAINED`، ولا تنسب تفاصيل برهانهما إلى الفصل.
 - لا يغير الفصل 18 تصنيفات نتائج الفصل 17 تلقائيًا.
