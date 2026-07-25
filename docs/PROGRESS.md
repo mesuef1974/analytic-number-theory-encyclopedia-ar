@@ -2,39 +2,35 @@
 
 ## الحالة العامة
 
-- **الإصدار التطويري الحالي:** `0.23.0-dev`
-- **المرحلة الحالية:** الفصل التاسع عشر — الأوليات في الفترات القصيرة.
-- **حالة الفصل:** `REVIEWED / OWNER-ADOPTED / CITABLE`
-- **رأس البداية من `main`:** `2ec3f8fcb5eb365ca582af32771a7790bcded4b5`
-- **الفرع:** `agent/chapter-19-primes-short-intervals-v0.23.0`
-- **Issue:** `#36 / CLOSED`
-- **PR:** `#37 / MERGED`
-- **بوابة ما قبل التأليف:** `CLOSED / PASS`
-- **إذن التأليف:** `PASS-FOR-AUTHORING = YES`
-- **النتائج:** `8 ACTIVE / CITABLE`
+- **الإصدار التطويري الحالي:** `0.24.0-dev`
+- **المرحلة الحالية:** الفصل العشرون — الأشكال المعيارية وأشكال مااس ومدخل إلى صيغ التتبع.
+- **حالة الفصل:** `PRE-AUTHORING / NON-CITABLE`
+- **رأس البداية من `main`:** `de0341a105bbf14d56ec4f7f256b9763f8087b30`
+- **الفرع:** `agent/chapter-20-modular-maass-trace-formulas-v0.24.0`
+- **Issue:** `#38 / OPEN`
+- **PR:** `PENDING`
+- **بوابة ما قبل التأليف:** `OPEN`
+- **إذن التأليف:** `PASS-FOR-AUTHORING = NO`
+- **النتائج:** `RESERVED / NON-CITABLE`
 - **الموسوعة:** `NOT-RELEASE-READY`
 - **آخر تحديث:** 2026-07-25
 
 ```text
-CHAPTERS-1--18       = REVIEWED / MERGED
-CHAPTER-18           = REVIEWED / OWNER-ADOPTED / CITABLE
-MERGE-COMMIT-18      = 1bdaefebe1d2946c6fa728096d4f1d2f74234ad7
-MAIN-START-HEAD      = 2ec3f8fcb5eb365ca582af32771a7790bcded4b5
-VERSION              = 0.23.0-dev
-CHAPTER              = 19
-TOPIC                = PRIMES IN SHORT INTERVALS
-ISSUE                = #36 / CLOSED
-PR                   = #37 / MERGED
-PRE-AUTHORING-GATE   = CLOSED
-PASS-FOR-AUTHORING   = YES
-AUTHORING            = REVIEWED / OWNER-ADOPTED
-RESULTS              = 8 ACTIVE / CITABLE
-INDEPENDENT-REVIEW   = APPROVED / TYPOGRAPHY-CLOSED
-FINAL-PRE-OWNER      = QUALITY-643 / PDF-564 / 261 PAGES / VISUAL PASS
-OWNER-ADOPTION       = APPROVED
+CHAPTERS-1--19       = REVIEWED / MERGED
+MAIN-START-HEAD      = de0341a105bbf14d56ec4f7f256b9763f8087b30
+VERSION              = 0.24.0-dev
+CHAPTER              = 20
+TOPIC                = MODULAR FORMS / MAASS FORMS / TRACE FORMULAS
+ISSUE                = #38 / OPEN
+PR                   = PENDING
+PRE-AUTHORING-GATE   = OPEN
+PASS-FOR-AUTHORING   = NO
+AUTHORING            = BLOCKED
+RESULTS              = RESERVED / NON-CITABLE
+INDEPENDENT-REVIEW   = PENDING
+OWNER-ADOPTION       = NOT REQUESTED
 LITERATURE-CUTOFF    = 2026-07-25
-MERGE                = COMPLETED
-MERGE-COMMIT         = 8fa2aa7f5972776580983074309fa90e07b53364
+MERGE                = NOT AUTHORIZED
 RELEASE-READY        = NO
 ```
 
@@ -44,7 +40,8 @@ RELEASE-READY        = NO
 |---|---|
 | الفصول 5--18 | `REVIEWED` بدرجات الحوكمة المسجلة |
 | الفصل 18 | `REVIEWED / OWNER-ADOPTED / MERGED` |
-| الفصل 19 | `REVIEWED / OWNER-ADOPTED / CITABLE` |
+| الفصل 19 | `REVIEWED / OWNER-ADOPTED / CITABLE / MERGED` |
+| الفصل 20 | `PRE-AUTHORING / AUTHORING-BLOCKED / NON-CITABLE` |
 | آخر PDF معتمد | `RUN-531 / PASS / 249 PAGES` للفصل 18 |
 | البناء النهائي قبل اعتماد الفصل 19 | `QUALITY-643 / PDF-564 / 261 PAGES / VISUAL PASS` |
 | سجل الأدلة 19 | `PRIMARY SOURCES FROZEN / FRONTIER UPDATED` |
