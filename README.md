@@ -34,6 +34,7 @@ CHAPTERS-IN-MANUSCRIPT     = 1--19 ON MAIN
 CHAPTER-20                 = PRE-AUTHORING / NON-CITABLE
 BRANCH-20                  = agent/chapter-20-modular-maass-trace-formulas-v0.24.0
 ISSUE-38                   = OPEN
+PR-39                      = DRAFT / OPEN / UNMERGED
 PRE-AUTHORING-GATE-20      = OPEN
 PASS-FOR-AUTHORING-20      = NO
 AUTHORING-20               = BLOCKED
