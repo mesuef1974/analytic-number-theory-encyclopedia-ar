@@ -16,7 +16,9 @@ QUALITY-CHECKS         = RUN-700 / SUCCESS
 PDF-BUILD              = RUN-614 / SUCCESS / 274 PAGES
 OWNER-ADOPTION         = APPROVED
 RESULTS                = 15 ACTIVE / CITABLE
-MERGE                  = AUTHORIZED / PENDING EXECUTION
+MERGE                  = COMPLETED
+MERGE-COMMIT           = c84202af5ae1b0a786016150282c7369fba66b54
+ISSUE-38               = CLOSED / COMPLETED
 RELEASE-READY          = NO
 ```
 
@@ -27,6 +29,6 @@ RELEASE-READY          = NO
 نتيجة كما هو: `PROVED-HERE` أو `CITED` أو `CITED-CORE` أو
 `CITED-DEFINITION` أو `COMPACT-PROTOTYPE / CITED`.
 
-يرفع القرار الفصل إلى `REVIEWED / CITABLE` ويأذن بدمج PR #39 في
-`main`. لا يمنح اعتماد الفصل أو دمجه الموسوعة كلها حالة
+رفع القرار الفصل إلى `REVIEWED / CITABLE`، ونُفذ بدمج PR #39 في
+`main` عند `c84202af5ae1b0a786016150282c7369fba66b54`. لا يمنح اعتماد الفصل أو دمجه الموسوعة كلها حالة
 `RELEASE-READY`.
