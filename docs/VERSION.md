@@ -1,14 +1,14 @@
 # الإصدار الحالي
 
-\`\`\`text
+```text
 0.23.0-dev
-\`\`\`
+```
 
 هذا الملف هو **المصدر الوحيد المعتمد لرقم الإصدار وحالة المرحلة الحالية**.
 
 ## المرحلة الحالية
 
-\`\`\`text
+```text
 BASE-MAIN              = 2ec3f8fcb5eb365ca582af32771a7790bcded4b5
 BRANCH                 = agent/chapter-19-primes-short-intervals-v0.23.0
 VERSION                = 0.23.0-dev
@@ -25,7 +25,7 @@ PROOF-MAP              = INITIALIZED / DEPENDENCY AUDIT OPEN
 INDEPENDENT-REVIEW     = PENDING
 MERGE                  = NOT AUTHORIZED
 RELEASE-READY          = NO
-\`\`\`
+```
 
 ## نطاق المرحلة
 
@@ -39,11 +39,11 @@ RELEASE-READY          = NO
 
 ## المرحلة السابقة
 
-\`\`\`text
+```text
 CHAPTER-18       = REVIEWED / OWNER-ADOPTED / MERGED
 PR-35            = MERGED
 ISSUE-34         = CLOSED
 MERGE-COMMIT     = 1bdaefebe1d2946c6fa728096d4f1d2f74234ad7
 PDF-BUILD        = RUN-531 / PASS / 249 PAGES
 RELEASE-READY    = NO
-\`\`\`
+```
