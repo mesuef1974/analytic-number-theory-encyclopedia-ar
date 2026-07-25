@@ -2,7 +2,7 @@
 
 **العنوان الكامل:** الموسوعة الشاملة في نظرية الأعداد التحليلية: من الأسس إلى الجبهات البحثية الحديثة
 
-**الإصدار التطويري الحالي:** `v0.24.0-dev`
+**الإصدار التطويري الحالي:** `v0.25.0-dev`
 
 مشروع موسوعة عربية بحثية متقدمة في نظرية الأعداد التحليلية، من الأسس إلى طرق الغربال والطريقة الدائرية والمجاميع الأسية والجبهات الحديثة.
 
@@ -27,40 +27,28 @@
 - [حكم المراجعة المستقلة لبوابة الفصل العشرين](docs/CHAPTER_20_INDEPENDENT_REVIEW_VERDICT_2026-07-25.md)
 - [تدقيق تأليف الفصل العشرين](docs/CHAPTER_20_AUTHORING_AUDIT_2026-07-25.md)
 - [سجل نتائج الفصل العشرين](docs/RESULTS_REGISTRY_CHAPTER_20.md)
+- [نطاق الفصل الحادي والعشرين](docs/CHAPTER_21_SCOPE_2026-07-25.md)
+- [سجل أدلة الفصل الحادي والعشرين](docs/CHAPTER_21_EVIDENCE_LEDGER_2026-07-25.md)
+- [جدول تطبيعات الفصل الحادي والعشرين](docs/CHAPTER_21_NORMALIZATION_TABLE_2026-07-25.md)
+- [خريطة برهان الفصل الحادي والعشرين](docs/CHAPTER_21_PROOF_MAP_2026-07-25.md)
+- [تدقيق ما قبل تأليف الفصل الحادي والعشرين](docs/CHAPTER_21_PRE_AUTHORING_AUDIT_2026-07-25.md)
+- [سجل نتائج الفصل الحادي والعشرين](docs/RESULTS_REGISTRY_CHAPTER_21.md)
 
 ## الحالة الحالية
 
 ```text
-BASE-MAIN                  = de0341a105bbf14d56ec4f7f256b9763f8087b30
-VERSION                    = 0.24.0-dev
+BASE-MAIN                  = dd92caa3dba416ffc0f718d6bc037d67ec50466f
+VERSION                    = 0.25.0-dev
 CHAPTERS-IN-MANUSCRIPT     = 1--20 ON MAIN
-CHAPTER-20                 = REVIEWED / OWNER-ADOPTED / CITABLE
-BRANCH-20                  = MERGED INTO MAIN
-ISSUE-38                   = CLOSED
-PR-39                      = MERGED
-PRE-AUTHORING-GATE-20      = CLOSED / PASS
-PASS-FOR-AUTHORING-20      = YES
-AUTHORING-20               = COMPLETED
-RESULTS-20                 = 15 ACTIVE / CITABLE
-CHAPTER-18                 = REVIEWED / OWNER-ADOPTED / MERGED
-PR-35                      = MERGED
-ISSUE-34                   = CLOSED
-CHAPTER-19                 = REVIEWED / OWNER-ADOPTED / CITABLE
-BRANCH-19                  = MERGED INTO MAIN
-ISSUE-36                   = CLOSED
-PR-37                      = MERGED
-PRE-AUTHORING-GATE-19      = CLOSED
-PASS-FOR-AUTHORING-19      = YES
-RESULTS-19                 = 8 ACTIVE / CITABLE
-FINAL-PRE-OWNER-19         = QUALITY-643 / PDF-564 / 261 PAGES / VISUAL PASS
-EVIDENCE-19                = FROZEN / FRONTIER UPDATED
-CIRCULARITY-AUDIT-19       = PASS
-INDEPENDENT-REVIEW-19      = APPROVED / TYPOGRAPHY-CLOSED
-OWNER-ADOPTION-19          = APPROVED
-LITERATURE-CUTOFF-19       = 2026-07-25
-MERGE                      = COMPLETED
-MERGE-COMMIT-19            = 8fa2aa7f5972776580983074309fa90e07b53364
-MERGE-COMMIT-20            = c84202af5ae1b0a786016150282c7369fba66b54
+CHAPTER-20                 = REVIEWED / OWNER-ADOPTED / CITABLE / MERGED
+CHAPTER-21                 = PRE-AUTHORING
+BRANCH-21                  = agent/chapter-21-automorphic-l-subconvexity-langlands-v0.25.0
+ISSUE-40                   = OPEN
+PRE-AUTHORING-GATE-21      = OPEN
+PASS-FOR-AUTHORING-21      = NO
+AUTHORING-21               = BLOCKED
+RESULTS-21                 = 10 RESERVED / NON-CITABLE
+LITERATURE-CUTOFF-21       = 2026-07-25
 RELEASE-READY              = NO
 ```
 
@@ -70,9 +58,9 @@ RELEASE-READY              = NO
 
 ## المرحلة الجارية
 
-الفصل العشرون: **الأشكال المعيارية وأشكال مااس ومدخل إلى صيغ التتبع**.
+الفصل الحادي والعشرون: **دوال (L) الآلية، حدود التحدب ودون التحدب، ومدخل منضبط إلى لانجلاندز**.
 
-اجتاز الفصل المراجعة المستقلة قبل التأليف وبعده، وأُغلقت ملاحظات الاكتمال الثلاث، ونجح `Quality #700` و`PDF #614` من 274 صفحة مع فحص بصري ناجح. اعتمد المالك الفصل وفعّل نتائجه الخمس عشرة وأذن بدمج PR #39.
+فُتحت المرحلة `0.25.0-dev` من الرأس `dd92caa3dba416ffc0f718d6bc037d67ec50466f`، وأُنشئت حزمة ما قبل التأليف وسجلت عشرة معرفات `RESERVED / NON-CITABLE`. استُعمل Consensus للاكتشاف فقط، ثم تحققت بيانات Michel--Venkatesh من صفحة الناشر وDOI. التأليف محجوب حتى تجميد التطبيعات والمصادر واجتياز المراجعة المستقلة.
 
 ## بناء PDF
 
