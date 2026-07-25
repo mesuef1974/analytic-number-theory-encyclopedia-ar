@@ -2,7 +2,7 @@
 
 **العنوان الكامل:** الموسوعة الشاملة في نظرية الأعداد التحليلية: من الأسس إلى الجبهات البحثية الحديثة
 
-**الإصدار التطويري الحالي:** `v0.22.0-dev`
+**الإصدار التطويري الحالي:** `v0.23.0-dev`
 
 مشروع موسوعة عربية بحثية متقدمة في نظرية الأعداد التحليلية، من الأسس إلى طرق الغربال والطريقة الدائرية والمجاميع الأسية والجبهات الحديثة.
 
@@ -15,59 +15,54 @@
 - [الإصدار الحالي](docs/VERSION.md)
 - [سياسة اعتماد النتائج](docs/RESULT_STATUS_POLICY.md)
 - [سجل النتائج](docs/RESULTS_REGISTRY.md)
-- [سجل نتائج الفصل السادس عشر](docs/RESULTS_REGISTRY_CHAPTER_16.md)
-- [سجل نتائج الفصل السابع عشر](docs/RESULTS_REGISTRY_CHAPTER_17.md)
 - [سجل نتائج الفصل الثامن عشر](docs/RESULTS_REGISTRY_CHAPTER_18.md)
+- [سجل أدلة الفصل التاسع عشر](docs/CHAPTER_19_EVIDENCE_LEDGER_2026-07-25.md)
+- [خريطة برهان الفصل التاسع عشر](docs/CHAPTER_19_PROOF_MAP_2026-07-25.md)
+- [تدقيق ما قبل التأليف للفصل التاسع عشر](docs/CHAPTER_19_PRE_AUTHORING_AUDIT_2026-07-25.md)
+- [سجل نتائج الفصل التاسع عشر](docs/RESULTS_REGISTRY_CHAPTER_19.md)
 
 ## الحالة الحالية
 
 ```text
-BASE-MAIN                  = 1bdaefebe1d2946c6fa728096d4f1d2f74234ad7
-VERSION                    = 0.22.0-dev
+BASE-MAIN                  = 2ec3f8fcb5eb365ca582af32771a7790bcded4b5
+VERSION                    = 0.23.0-dev
 CHAPTERS-IN-MANUSCRIPT     = 1--18 ON MAIN
-CHAPTER-17                 = REVIEWED / OWNER-ADOPTED / MERGED
-PR-33                      = MERGED
-CHAPTER-18                 = REVIEWED / OWNER-ADOPTED / CITABLE
-BRANCH-18                  = MERGED INTO MAIN
-ISSUE-34                   = CLOSED
+CHAPTER-18                 = REVIEWED / OWNER-ADOPTED / MERGED
 PR-35                      = MERGED
-PRE-AUTHORING-GATE-18      = CLOSED
-PASS-FOR-AUTHORING-18      = YES
-POST-AUTHORING-CORRECTIONS = 3 / 3 CLOSED
-PDF-REBUILD-18             = RUN-531 / PASS / 249 PAGES
-INDEPENDENT-REVIEW-18      = PASS AFTER CORRECTIONS / OWNER-ADOPTED
-MERGE-COMMIT-18            = 1bdaefebe1d2946c6fa728096d4f1d2f74234ad7
+ISSUE-34                   = CLOSED
+CHAPTER-19                 = PRE-AUTHORING / AUTHORING-BLOCKED
+BRANCH-19                  = agent/chapter-19-primes-short-intervals-v0.23.0
+ISSUE-36                   = OPEN
+PR-19                      = NOT YET OPENED
+PRE-AUTHORING-GATE-19      = OPEN
+PASS-FOR-AUTHORING-19      = NO
+RESULTS-19                 = 8 RESERVED / NON-CITABLE
+LITERATURE-CUTOFF-19       = 2026-07-25
+MERGE                      = NOT AUTHORIZED
 RELEASE-READY              = NO
 ```
 
-## آخر نتائج معتمدة
+## آخر فصل معتمد
 
-في الفصل السادس عشر أُثبت داخليًا، لكل عدد زوجي ثابت غير صفري \(h\):
-
-\[
-\pi_2(x;h)\ll_h \frac{x}{(\log x)^2},
-\]
-
-واستُنتج تقارب مجموع مقلوبات الأزواج الأولية ذات الفرق الثابت بالجمع الجزئي. كما عُرضت مبرهنات تشن وGPY وZhang وMaynard وPolymath8b بوصفها نتائج `CITED` موثقة، من دون ادعاء حدسية الأوليات التوأم أو \(H_1=2\).
+الفصل الثامن عشر عن المجاميع الأسية وطريقة فان دير كوربوت معتمد بحالة `REVIEWED / CITABLE` وموجود على `main`. آخر بناء معتمد نجح في 249 صفحة بلا مراجع أو إحالات غير معرّفة في المرور النهائي.
 
 ## المرحلة الجارية
 
-الفصل الثامن عشر: **المجاميع الأسية وطريقة فان دير كوربوت**.
+الفصل التاسع عشر: **الأوليات في الفترات القصيرة**.
 
-أُنجزت دفعات التأليف الثلاث، وتشمل:
+بدأت مرحلة ما قبل التأليف فقط. يميز النطاق بين:
 
-- الحد التافه والجمع الجزئي وفرق فان دير كوربوت.
-- اختبار المشتقة الأولى ببرهان داخلي.
-- اختبار المشتقة الثانية بوصفه `CITED / EXPLAINED`.
-- نسخة محدودة مثبتة من عملية `A`.
-- تعريف الأزواج الأسية وعملية `B` مع مراجع فعلية.
-- إغلاق تصحيحات التدقيق الثلاثة بعد دفعة التأليف الثالثة.
+- الصيغة التقاربية لكل (x).
+- مجرد وجود أولي في الفترة.
+- النتائج الصحيحة لتقريبًا كل (x).
+- الحدود غير المشروطة والشرطية.
+- السجل المحكّم عند الأس (0.525) وادعاء preprint عند (0.52) الذي يبقى محجورًا.
 
-نجحت إعادة بناء PDF والمراجعة المستقلة الضيقة بعد التصحيحات، واعتمد المالك الفصل بحالة `REVIEWED` وأذن بدمج PR #35.
+التأليف محجوب حتى يكتمل التحقق من المصادر الأصلية والصيغة الصريحة وكثافة الأصفار وتحويلات (psi,	heta,pi)، ثم يجتاز الملف مراجعة مستقلة لما قبل التأليف.
 
 ## بناء PDF
 
-آخر بناء كامل على فرع الفصل الثامن عشر بعد تصحيحات ما بعد التأليف:
+آخر بناء كامل معتمد:
 
 ```text
 XeLaTeX -> Biber -> XeLaTeX -> XeLaTeX
@@ -76,4 +71,4 @@ UNDEFINED CITATIONS = 0
 UNDEFINED REFERENCES = 0
 ```
 
-نجح البناء في GitHub Actions بلا مراجع أو إحالات غير معرّفة في المرور النهائي. لا تعني المراجعة أو الدمج أن الموسوعة `RELEASE-READY`.
+فتح المرحلة `0.23.0-dev` لا يعني أن الفصل التاسع عشر مؤلف أو أن الموسوعة `RELEASE-READY`.
