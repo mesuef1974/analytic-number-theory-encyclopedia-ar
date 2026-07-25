@@ -1,0 +1,629 @@
+\chapter{الأشكال المعيارية وأشكال مااس وصيغ التتبع}
+\label{ch:modular-maass-trace-formulas}
+
+\section*{نطاق الفصل وحالته}
+
+ينقل هذا الفصل نظرية الأعداد التحليلية من المجاميع على الأعداد الصحيحة إلى
+التحليل الطيفي على السطح الزائدي. الفكرة الموحدة هي أن تعامد عائلة من
+الدوال الذاتية يحول متوسطات معاملات فورييه إلى حد قطري وإلى مجاميع
+Kloosterman موزونة بنوى Bessel. نعالج أولًا الهندسة الزائدية والأشكال
+المعيارية الهولومورفية وأشكال مااس، ثم نعرض صيغ Petersson وKuznetsov
+بتطبيع مصرح به، ونختم بمدخل بنيوي إلى صيغة Selberg في النموذج المدمج.
+
+\noindent\textbf{حالة الفصل:}
+\textenglish{AUTHORED-DRAFT / NON-CITABLE}. فُتحت بوابة التأليف بعد
+مراجعة مستقلة لحزمة الأدلة والتطبيعات، لكن المتن ونتائجه لا يصبحان قابلين
+للاستشهاد قبل البناء والتدقيق والمراجعة اللاحقة واعتماد المالك.
+
+\subsection*{نطاق التطبيع}
+
+\begin{itemize}
+  \item في صيغة Petersson نعمل مع \(SL_2(\mathbb Z)\)، وشخصية تافهة،
+  ووزن زوجي \(k>2\).
+  \item في صيغة Kuznetsov نعمل مع الزمرة المعيارية ووزن مااس صفر،
+  ونبقي الطيف المستمر ظاهرًا.
+  \item صيغة Selberg تعرض للنموذج المدمج فقط؛ الحالة غير المدمجة وحدود
+  القطع والمبعثرات مؤجلة.
+\end{itemize}
+
+\subsection*{نواتج التعلم}
+
+بنهاية الفصل يستطيع القارئ أن:
+\begin{enumerate}
+  \item يثبت ثبات القياس الزائدي تحت فعل \(SL_2(\mathbb R)\).
+  \item يميز بين شرط التحويل المعياري وشرط الانعدام عند الرؤوس.
+  \item يستخرج توسع فورييه لشكل معياري من دوريته.
+  \item يعرّف حاصل Petersson ويشرح سبب ظهور العامل \(y^k\).
+  \item يكتب مؤثرات Hecke عند المستوى \(1\) ويستنتج علاقة معاملات الشكل الذاتي.
+  \item يميز الأشكال الهولومورفية عن أشكال مااس الذاتية للابلاس.
+  \item يحدد الطرف الطيفي والطرف الحسابي في صيغ Petersson وKuznetsov.
+  \item يشرح لماذا لا يجوز حذف طيف Eisenstein من Kuznetsov.
+  \item يقرأ صيغة Selberg المدمجة بوصفها مساواة بين الطول والطيف.
+\end{enumerate}
+
+\section{الفضاء العلوي والهندسة الزائدية}
+
+نكتب
+\[
+\mathbb H=\{z=x+iy\in\mathbb C:y>0\},
+\qquad
+d\mu(z)=\frac{dx\,dy}{y^2}.
+\]
+تؤثر المصفوفة
+\[
+\gamma=
+\begin{pmatrix}a&b\\c&d\end{pmatrix}
+\in SL_2(\mathbb R)
+\]
+بواسطة تحويل Möbius
+\[
+\gamma z=\frac{az+b}{cz+d}.
+\]
+ولا يتغير الفعل إذا استبدلنا \(\gamma\) بـ\(-\gamma\)، ولذلك فالمجموعة
+الهندسية الفعلية هي \(PSL_2(\mathbb R)\).
+
+\begin{definition}[عامل الأتمتة والقياس الزائدي]
+\label{def:automorphy-factor-hyperbolic-measure}
+\resultid{ANT-DEF-20-01}
+\provedhere
+نضع
+\[
+j(\gamma,z)=cz+d.
+\]
+ويُسمى
+\[
+ds^2=\frac{dx^2+dy^2}{y^2},
+\qquad
+d\mu(z)=\frac{dx\,dy}{y^2}
+\]
+المتر والقياس الزائديين على \(\mathbb H\).
+\end{definition}
+
+\begin{proposition}[هويات الفعل وثبات القياس]
+\label{prop:hyperbolic-invariance}
+\resultid{ANT-PROP-20-01}
+\provedhere
+لكل \(\gamma\in SL_2(\mathbb R)\) و\(z\in\mathbb H\):
+\[
+\Im(\gamma z)=\frac{\Im z}{|cz+d|^2},
+\qquad
+\frac{d(\gamma z)}{dz}=\frac1{(cz+d)^2}.
+\]
+ومن ثم
+\[
+d\mu(\gamma z)=d\mu(z).
+\]
+\end{proposition}
+
+\begin{proof}
+باستعمال \(ad-bc=1\) نحسب
+\[
+\gamma z-\overline{\gamma z}
+=
+\frac{(az+b)(c\bar z+d)-(a\bar z+b)(cz+d)}
+{|cz+d|^2}
+=\frac{z-\bar z}{|cz+d|^2},
+\]
+فتنتج هوية الجزء التخيلي. كما يعطي الاشتقاق
+\[
+\frac{a(cz+d)-c(az+b)}{(cz+d)^2}
+=\frac{ad-bc}{(cz+d)^2}.
+\]
+إذن عامل جاكوبي الحقيقي هو \(|cz+d|^{-4}\)، بينما يتحول
+\(y^2\) إلى \(y^2|cz+d|^{-4}\). بإلغاء العاملين نحصل على ثبات
+\(dx\,dy/y^2\).
+\end{proof}
+
+\begin{remark}
+هذا الثبات هو السبب البنيوي في أن حاصل الضرب \(L^2\) لأشكال مااس لا
+يحتاج وزنًا إضافيًا، بينما يحتاج حاصل Petersson للأشكال من الوزن \(k\)
+إلى العامل \(y^k\) كي يعوض مقدار عامل الأتمتة.
+\end{remark}
+
+\section{الأشكال المعيارية الهولومورفية}
+
+لتكن
+\[
+\Gamma=SL_2(\mathbb Z).
+\]
+إنها مولدة بالتحويلين
+\[
+T:z\mapsto z+1,
+\qquad
+S:z\mapsto-\frac1z.
+\]
+
+\begin{definition}[الشكل المعياري وشكل الحدبة]
+\label{def:holomorphic-modular-cusp-form}
+\resultid{ANT-DEF-20-02}
+\citedresult[\cite[Ch.~1]{DiamondShurman2005}]
+ليكن \(k\) عددًا صحيحًا. الشكل المعياري الهولومورفي من الوزن \(k\)
+للمجموعة \(\Gamma\) هو دالة هولومورفية \(f:\mathbb H\to\mathbb C\)
+تحقق
+\[
+f(\gamma z)=j(\gamma,z)^k f(z)
+\qquad(\gamma\in\Gamma),
+\]
+وتكون هولومورفية عند الرأس \(\infty\). وإذا كان حدها الثابت عند الرأس
+صفرًا سميت \emph{شكل حدبة}. نرمز إلى الفضاءين بـ\(M_k(\Gamma)\)
+و\(S_k(\Gamma)\).
+\end{definition}
+
+\begin{remark}[قيد الزوجية]
+لأن \(-I\in\Gamma\) يعمل على \(\mathbb H\) عمل الهوية، فإن
+\[
+f(z)=f((-I)z)=(-1)^k f(z).
+\]
+لذلك \(M_k(\Gamma)=\{0\}\) عندما يكون \(k\) فرديًا. ولهذا يقتصر
+نطاق صيغة Petersson في هذا الفصل على الوزن الزوجي.
+\end{remark}
+
+\begin{lemma}[التوسع عند الرأس]
+\label{lem:modular-fourier-expansion}
+\resultid{ANT-LEM-20-01}
+\provedhere
+إذا كان \(f\) هولومورفيًا على \(\mathbb H\) ويحقق \(f(z+1)=f(z)\)،
+فإن له توسعًا
+\[
+f(z)=\sum_{n\in\mathbb Z}a_f(n)e(nz),
+\qquad
+e(w)=e^{2\pi i w},
+\]
+متقاربًا محليًا. وإذا كان \(f\) هولومورفيًا عند \(\infty\)، فإن
+\[
+f(z)=\sum_{n\ge0}a_f(n)e(nz),
+\]
+وهو شكل حدبة عند \(\infty\) إذا وفقط إذا \(a_f(0)=0\).
+\end{lemma}
+
+\begin{proof}
+ضع \(q=e(z)=e^{2\pi iz}\). تحول الدورية الدالة \(f\) إلى دالة
+هولومورفية \(F(q)\) على القرص المثقوب \(0<|q|<1\)، لأن اختيار
+لوغاريتم آخر لـ\(q\) يغير \(z\) بعدد صحيح ولا يغير \(f(z)\).
+متسلسلة Laurent للدالة \(F\) تعطي
+\[
+F(q)=\sum_{n\in\mathbb Z}a_f(n)q^n.
+\]
+الهولومورفية عند الرأس تعني أن الشذوذ عند \(q=0\) قابل للإزالة، فتختفي
+القوى السالبة. والانعدام عند الرأس يكافئ \(F(0)=a_f(0)=0\).
+\end{proof}
+
+\begin{example}[متسلسلة دلتا]
+الدالة
+\[
+\Delta(z)=q\prod_{n\ge1}(1-q^n)^{24}
+=\sum_{n\ge1}\tau(n)q^n
+\]
+شكل حدبة من الوزن \(12\). لا نثبت معياريتها هنا؛ المثال يوضح أن معاملات
+فورييه للأشكال المعيارية تحمل متتاليات حسابية عميقة.
+\end{example}
+
+\section{حاصل Petersson}
+
+\begin{definition}[حاصل Petersson عند المستوى \(1\)]
+\label{def:petersson-inner-product}
+\resultid{ANT-DEF-20-04}
+\citedresult[\cite[\S3]{KnightlyLi2006}]
+إذا كان \(f,g\in S_k(\Gamma)\)، نضع
+\[
+\langle f,g\rangle
+=
+\int_{\Gamma\backslash\mathbb H}
+f(z)\overline{g(z)}\,y^k\,d\mu(z).
+\]
+\end{definition}
+
+\begin{proposition}[سلامة تعريف حاصل Petersson]
+\label{prop:petersson-invariance}
+\resultid{ANT-PROP-20-02}
+\provedhere
+الدالة
+\[
+f(z)\overline{g(z)}\,y^k\,d\mu(z)
+\]
+ثابتة تحت فعل \(\Gamma\)، ويتقارب التكامل عندما يكون \(f,g\) شكلي
+حدبة.
+\end{proposition}
+
+\begin{proof}
+لدينا
+\[
+f(\gamma z)\overline{g(\gamma z)}
+=|cz+d|^{2k}f(z)\overline{g(z)}
+\]
+و
+\[
+\Im(\gamma z)^k=\frac{y^k}{|cz+d|^{2k}},
+\]
+بينما \(d\mu\) ثابت. فتثبت اللاتغيرية. أما عند الرأس، فإن غياب الحد
+الثابت يعطي تناقصًا أسيًا من توسع فورييه؛ وهذا يغلب نمو عامل \(y^k\).
+وعلى الجزء المدمج من المجال الأساسي يكون التكامل منتهيًا بالاستمرارية.
+\end{proof}
+
+\section{مؤثرات Hecke}
+
+نعتمد عند المستوى \(1\) التطبيع
+\[
+(T_nf)(z)
+=
+n^{k-1}
+\sum_{\substack{ad=n\\d>0}}d^{-k}
+\sum_{b\bmod d}f\!\left(\frac{az+b}{d}\right).
+\]
+ويمكن كتابته بصورة أوضح:
+\[
+(T_nf)(z)
+=n^{k-1}\sum_{\substack{ad=n\\d>0}}d^{-k}
+\sum_{b=0}^{d-1}f\!\left(\frac{az+b}{d}\right).
+\]
+
+\begin{theorem}[علاقات Hecke الأساسية]
+\label{thm:hecke-relations-level-one}
+\resultid{ANT-THM-20-01}
+\citedresult[\cite[\S5.5]{DiamondShurman2005}]
+تحفظ المؤثرات \(T_n\) الفضاء \(S_k(\Gamma)\)، وهي ذاتية المرافق بالنسبة
+إلى حاصل Petersson، وتحقق
+\[
+T_mT_n
+=
+\sum_{d\mid(m,n)}d^{k-1}T_{mn/d^2}.
+\]
+وبخاصة، إذا \((m,n)=1\)، فإن \(T_mT_n=T_{mn}\).
+\end{theorem}
+
+إذا كان
+\[
+f(z)=\sum_{r\ge1}a_f(r)e(rz),
+\]
+فإن حساب مجموع \(b\bmod d\) باستعمال التعامد المنتهي يعطي
+\[
+a_{T_nf}(r)
+=
+\sum_{d\mid(n,r)}d^{k-1}a_f\!\left(\frac{nr}{d^2}\right).
+\]
+فإذا كان \(f\) شكلًا ذاتيًا مطبعًا بـ\(a_f(1)=1\)، ينتج من أخذ
+\(r=1\) أن القيمة الذاتية لـ\(T_n\) هي \(a_f(n)\)، ومن ثم
+\[
+a_f(m)a_f(n)
+=
+\sum_{d\mid(m,n)}d^{k-1}a_f\!\left(\frac{mn}{d^2}\right).
+\]
+هذه العلاقة هي البذرة الجبرية للجداء الأويلري، لكن بناء دوال \(L\)
+الآلية وتحليلها مؤجل إلى الفصل الحادي والعشرين.
+
+\section{أشكال مااس}
+
+نستعمل مؤثر لابلاس الزائدي بإشارة غير سالبة:
+\[
+\Delta=-y^2\left(\frac{\partial^2}{\partial x^2}
++\frac{\partial^2}{\partial y^2}\right).
+\]
+
+\begin{definition}[شكل مااس الحدبي من الوزن صفر]
+\label{def:maass-cusp-form}
+\resultid{ANT-DEF-20-03}
+\citedresult[\cite[Chs.~3--4]{Iwaniec2002}]
+شكل مااس الحدبي للمجموعة \(\Gamma\) هو دالة ملساء
+\(u:\mathbb H\to\mathbb C\) تحقق:
+\begin{enumerate}
+  \item \(u(\gamma z)=u(z)\) لكل \(\gamma\in\Gamma\).
+  \item \(\Delta u=\lambda u\) لقيمة ذاتية \(\lambda\).
+  \item \(u\in L^2(\Gamma\backslash\mathbb H,d\mu)\).
+  \item حدها الثابت عند الرأس يساوي صفرًا.
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[فصل المتغيرات وتوسع Fourier--Whittaker]
+\label{prop:maass-fourier-whittaker}
+\resultid{ANT-THM-20-02}
+\citedresult[\cite[\S2]{Kuznetsov1981}]
+إذا كان \(u\) شكل مااس حدبيًا ذا قيمة ذاتية
+\[
+\lambda=\frac14+t^2,
+\]
+فإن
+\[
+u(z)
+=
+\sqrt y\sum_{n\ne0}\rho_u(n)
+K_{it}(2\pi|n|y)e(nx).
+\]
+\end{proposition}
+
+\begin{remark}[لماذا يظهر \(K\)-Bessel]
+الدورية في \(x\) تعطي توسعًا فورييريًا. عند إدخاله في معادلة
+\(\Delta u=(1/4+t^2)u\)، تحقق معاملات \(y\) معادلة Bessel معدلة.
+شرط \(L^2\) والانحدار عند الرأس يستبعد الحل المتنامي \(I_{it}\) ويبقي
+\(K_{it}\). هذه حجة فصل متغيرات؛ أما التحليل الطيفي الكامل وتمام العائلة
+فمدخل مقتبس.
+\end{remark}
+
+\begin{remark}[تطبيعان لا يجوز خلطهما]
+يمكن تطبيع الشكل بـ\(\|u\|_2=1\)، أو تطبيع معاملات Hecke بحيث
+\(\rho_u(1)=1\). لا يتطابق التطبيعان عمومًا. صيغة Kuznetsov تتغير
+عواملها إذا انتقلنا بينهما، ولذلك سنصرح بالتطبيع في الصيغة نفسها.
+\end{remark}
+
+\section{مجاميع Kloosterman}
+
+\begin{definition}[مجموع Kloosterman]
+\label{def:kloosterman-sum}
+\resultid{ANT-DEF-20-05}
+\provedhere
+للأعداد الصحيحة \(m,n\) والعدد \(c\ge1\)، نضع
+\[
+S(m,n;c)
+=
+\sum_{\substack{d\bmod c\\(d,c)=1}}
+e\!\left(\frac{md+n\bar d}{c}\right),
+\]
+حيث \(d\bar d\equiv1\pmod c\).
+\end{definition}
+
+\begin{proposition}[تماثلات أولية]
+\label{prop:kloosterman-elementary-symmetries}
+\resultid{ANT-PROP-20-03}
+\provedhere
+لدينا
+\[
+S(m,n;c)=S(n,m;c),
+\qquad
+\overline{S(m,n;c)}=S(-m,-n;c).
+\]
+\end{proposition}
+
+\begin{proof}
+في الهوية الأولى نستبدل \(d\) بمعكوسه \(\bar d\)، وهو تبديل لمجموعة
+البواقي المختزلة. وفي الثانية نأخذ مرافق كل حد ونستعمل
+\(\overline{e(x)}=e(-x)\).
+\end{proof}
+
+\begin{theorem}[حد Weil]
+\label{thm:weil-kloosterman}
+\resultid{ANT-THM-20-03}
+\citedresult[\cite[Cor.~11.12]{IwaniecKowalski2004}]
+لدينا
+\[
+|S(m,n;c)|
+\le
+\tau(c)(m,n,c)^{1/2}c^{1/2}.
+\]
+\end{theorem}
+
+هذا ادخار جذر تربيعي، حتى عامل القواسم والقاسم المشترك، عن الحد التافه
+\(|S(m,n;c)|\le\varphi(c)\). لا يثبت الفصل حد Weil؛ عمقه جبري هندسي
+ويتجاوز الأدوات المطورة قبله.
+
+\section{صيغة Petersson}
+
+لتكن \(\mathcal B_k\) قاعدة متعامدة لـ\(S_k(\Gamma)\)، واكتب
+\[
+f(z)=\sum_{n\ge1}a_f(n)e(nz).
+\]
+
+\begin{theorem}[صيغة Petersson للمستوى \(1\)]
+\label{thm:petersson-trace}
+\resultid{ANT-THM-20-04}
+\citedresult[\cite[Cor.~3.12]{KnightlyLi2006}]
+إذا كان \(k>2\) زوجيًا و\(m,n\ge1\)، فإن
+\[
+\frac{\Gamma(k-1)}{(4\pi\sqrt{mn})^{k-1}}
+\sum_{f\in\mathcal B_k}
+\frac{a_f(m)\overline{a_f(n)}}{\langle f,f\rangle}
+=
+\delta_{m,n}
++2\pi i^{-k}
+\sum_{c\ge1}
+\frac{S(m,n;c)}{c}
+J_{k-1}\!\left(\frac{4\pi\sqrt{mn}}{c}\right).
+\]
+\end{theorem}
+
+تساوي الصيغة بين تعامد طيفي لمعاملات فورييه وطرف حسابي. الحد
+\(\delta_{m,n}\) هو القطر؛ وكل انحراف عنه تقيسه مجاميع Kloosterman
+مع نواة \(J_{k-1}\). ليست الصيغة مجرد تطبيق لمتباينة تعامد منتهية:
+النواة البسليّة تسجل هندسة المدارات غير القطرية.
+
+\section{صيغة Kuznetsov}
+
+صيغة Kuznetsov هي النظير غير الهولومورفي لصيغة Petersson، لكن يوجد فرق
+حاسم: السطح \(\Gamma\backslash\mathbb H\) غير مدمج، ولذلك لا يكتمل
+الطيف بأشكال مااس الحدبية وحدها؛ يجب إضافة طيف Eisenstein المستمر.
+
+نستعمل الصيغة الحديثة المطابقة في سجل التطبيعات. لتكن \(\{u_j\}\)
+قاعدة متعامدة معيارية من أشكال مااس الحدبية، ذات معاملات
+\(\rho_j(n)\) ومعلمات \(t_j\). واكتب توسع Eisenstein غير الصفري
+بمعاملات \(\tau(n,t)\). ولتكن \(h\) دالة اختبار زوجية هولومورفية في
+شريط أعرض من \(|\Im t|\le1/2\)، ومتلاشية بما يكفي، وضع
+\[
+\mathcal J(x,t)
+=
+\frac{J_{2it}(x)-J_{-2it}(x)}{\sinh(\pi t)},
+\qquad
+H^+(x)
+=
+\frac{i}{\pi}\int_{\mathbb R}
+\mathcal J(x,t)h(t)t\tanh(\pi t)\,dt.
+\]
+
+\begin{theorem}[Kuznetsov، النواة ذات الإشارة المتساوية]
+\label{thm:kuznetsov-trace}
+\resultid{ANT-THM-20-05}
+\citedresult[\cite[Lemma~2.1]{KhanYoung2020}]
+لـ\(m,n\ge1\)، وبالتطبيع المبين في جدول الفصل:
+\[
+\begin{aligned}
+&\sum_j
+\frac{\rho_j(n)\overline{\rho_j(m)}}{\cosh(\pi t_j)}h(t_j)
++\frac1{4\pi}\int_{\mathbb R}
+\frac{\tau(n,t)\overline{\tau(m,t)}}{\cosh(\pi t)}
+h(t)\,dt\\
+&\qquad
+=
+\frac{\delta_{m,n}}{\pi^2}\int_{\mathbb R}
+h(t)t\tanh(\pi t)\,dt
++\sum_{c\ge1}\frac{S(m,n;c)}{c}
+H^+\!\left(\frac{4\pi\sqrt{mn}}{c}\right),
+\end{aligned}
+\]
+\end{theorem}
+
+\begin{remark}[تطبيع Eisenstein]
+إذا عُرّف
+\[
+E(z,s)=\frac12\sum_{\Gamma_\infty\backslash\Gamma}
+\Im(\gamma z)^s,
+\]
+فإن \(\tau(n,t)\) يتضمن عوامل غاما وزيتا ودالة القواسم. يمكن إعادة
+كتابة الحد المستمر بدوال القواسم وعامل
+\(|\zeta(1+2it)|^{-2}\)، لكن لا يجوز نسخه من مرجع ذي تطبيع مختلف.
+\end{remark}
+
+\begin{remark}[تحويل \(K\)]
+التحويل \(H^+\) هنا هو تحويل \(J\) للنواة ذات الإشارة المتساوية.
+تحويل \(K\)-Bessel يظهر في صيغة الإشارة المتعاكسة، ولا نخلط الصيغتين
+لمجرد أن كليهما يحمل اسم Kuznetsov.
+\end{remark}
+
+\section{مدخل بنيوي إلى صيغة Selberg}
+
+ننتقل هنا إلى سطح زائد مدمج
+\[
+M=\Gamma\backslash\mathbb H
+\]
+بلا رؤوس، ولا عناصر قطع مكافئ، ولا طيف مستمر. اكتب قيم لابلاس
+\[
+\lambda_j=\frac14+r_j^2.
+\]
+لتكن \(h\) زوجية، هولومورفية في شريط، ومتلاشية بالسرعة المطلوبة، ولنعتمد
+زوج التحويل
+\[
+g(u)=\frac1{2\pi}\int_{\mathbb R}h(r)e^{-iru}\,dr,
+\qquad
+h(r)=\int_{\mathbb R}g(u)e^{iru}\,du.
+\]
+
+\begin{theorem}[صيغة Selberg: النموذج المدمج]
+\label{thm:selberg-compact-trace}
+\resultid{ANT-THM-20-06}
+\citedresult[\cite[Thm.~4]{Marklof2004}]
+إذا جرى الجمع على الجيوديسيات المغلقة البدائية \(\gamma\) ذات الأطوال
+\(\ell_\gamma\)، فإن
+\[
+\sum_{j\ge0}h(r_j)
+=
+\frac{\operatorname{Area}(M)}{4\pi}
+\int_{\mathbb R}h(r)\,r\tanh(\pi r)\,dr
++\sum_{\gamma\ {\rm primitive}}\sum_{n\ge1}
+\frac{\ell_\gamma\,g(n\ell_\gamma)}
+{2\sinh(n\ell_\gamma/2)}.
+\]
+\end{theorem}
+
+\deferredresult{معالجة مستقلة للصيغة غير المدمجة وحدود المبعثرات}
+
+الطرف الأيسر طيفي، والطرف الأيمن هندسي: حد الهوية يقاس بالمساحة،
+والحدود غير التافهة تقاس بأطوال الجيوديسيات المغلقة وتكراراتها. هذه
+المساواة هي النظير الزائدي لفكرة أن الأثر يمكن حسابه من القيم الذاتية
+أو من نقاط التثبيت/أصناف الاقتران.
+
+\begin{remark}[حدود النموذج]
+لا يجوز عرض هذه الصيغة بوصفها الصيغة الكاملة لـ
+\(PSL_2(\mathbb Z)\backslash\mathbb H\)، لأن هذا السطح غير مدمج وله
+رأس وطيف مستمر ومؤثر مبعثرات. عرضنا هنا نموذجًا مدمجًا مقصودًا لتثبيت
+البنية من دون إخفاء الحدود الإضافية.
+\end{remark}
+
+\section{مقارنة الصيغ الثلاث}
+
+\begin{center}
+\begin{tabular}{llll}
+\textbf{الصيغة} & \textbf{العائلة الطيفية} & \textbf{الطرف الحسابي/الهندسي}
+& \textbf{النواة}\\
+Petersson & أشكال هولومورفية & Kloosterman & \(J_{k-1}\)\\
+Kuznetsov & مااس + Eisenstein & Kloosterman & تحويل \(J\)\\
+Selberg المدمجة & طيف لابلاس & جيوديسيات مغلقة & \(g(n\ell)\)
+\end{tabular}
+\end{center}
+
+التشابه هو مبدأ الأثر، لا تطابق الصيغ. صيغة Petersson مجموع محدود في
+وزن ثابت، وKuznetsov تحليل طيفي غير مدمج، وSelberg تربط طيف لابلاس
+بأصناف الاقتران الزائدية. نقل ثابت أو قياس من صف إلى آخر من دون قاموس
+تطبيع يفسد النتيجة.
+
+\section{كيف تخدم الصيغ نظرية الأعداد التحليلية؟}
+
+\begin{enumerate}
+  \item تحول متوسطات معاملات فورييه أو Hecke إلى حد قطري مفهوم ومجاميع
+  Kloosterman يمكن تقديرها.
+  \item تكشف الإلغاء الطيفي الذي لا يظهر من تقدير كل شكل على حدة.
+  \item تدخل في لحظات دوال \(L\)، ومسائل دون التحدب، والغربال الطيفي،
+  وتوزيع الأشكال الذاتية.
+  \item تفصل بوضوح بين المعلومة المحلية عن معامل واحد والمعلومة
+  المتوسطية عن عائلة كاملة.
+\end{enumerate}
+
+لكن هذه التطبيقات جسور إلى الفصل التالي، لا مدخلات لإثبات نتائج الفصل
+الحالي. هذا يمنع اعتمادًا دائريًا على دوال \(L\) الآلية أو لانجلاندز.
+
+\section{أخطاء شائعة}
+
+\begin{enumerate}
+  \item حذف عامل \(y^k\) من حاصل Petersson أو استعماله في حاصل مااس.
+  \item الخلط بين \(a_f(n)\) و\(\lambda_f(n)\) من دون عامل التطبيع.
+  \item الخلط بين التطبيع \(L^2\) وتطبيع \(\rho_j(1)=1\).
+  \item حذف طيف Eisenstein من Kuznetsov للزمرة المعيارية.
+  \item استعمال تحويل \(K\) في نواة الإشارة المتساوية.
+  \item نقل عامل \(2\pi\) في تحويل Selberg إلى اصطلاح فورييري آخر.
+  \item عرض النموذج المدمج لـSelberg بوصفه الصيغة غير المدمجة الكاملة.
+  \item اعتبار حد Weil نتيجة مثبتة هنا لمجرد سهولة صياغتها.
+\end{enumerate}
+
+\section{تمارين}
+
+\subsection{المستوى الأول}
+\begin{enumerate}
+  \item تحقق مباشرة من \(\Im(-1/z)=\Im(z)/|z|^2\).
+  \item أثبت أن \(M_k(\Gamma)=\{0\}\) للأوزان الفردية.
+  \item استخرج توسع \(q\) من الدورية \(f(z+1)=f(z)\).
+  \item أثبت تماثلي مجموع Kloosterman المسجلين في الفصل.
+\end{enumerate}
+
+\subsection{المستوى الثاني}
+\begin{enumerate}
+  \item تحقق من ثبات تكامل Petersson تحت تغيير المجال الأساسي.
+  \item احسب معاملات \(T_pf\) عندما يكون \(p\) أوليًا.
+  \item اشتق معادلة Bessel المعدلة للمعامل الفورييري غير الصفري لشكل مااس.
+  \item فسر لماذا يؤدي انعدام الحد الثابت إلى إزالة الجزء غير الحدبي.
+\end{enumerate}
+
+\subsection{المستوى الثالث}
+\begin{enumerate}
+  \item قارن تطبيع صيغة Petersson هنا بتطبيع يستعمل معاملات Hecke
+  \(\lambda_f(n)\)، واكتب قاموس التحويل.
+  \item حدد الحد الذي يفقد إذا حذفت طيف Eisenstein من Kuznetsov.
+  \item ارسم خريطة تبين كيف ينتقل متوسط طيفي إلى حد قطري ومجموعات
+  Kloosterman.
+  \item اشرح الحدود الإضافية المتوقعة عند الانتقال من نموذج Selberg
+  المدمج إلى السطح المعياري غير المدمج، من دون اشتقاقها.
+\end{enumerate}
+
+\section*{حالة نتائج المسودة}
+
+\begin{center}
+\begin{tabular}{ll}
+\texttt{ANT-DEF-20-01} & \texttt{AUTHORED-DRAFT / PROVED-HERE}\\
+\texttt{ANT-DEF-20-02} & \texttt{AUTHORED-DRAFT / CITED-DEFINITION}\\
+\texttt{ANT-LEM-20-01} & \texttt{AUTHORED-DRAFT / PROVED-HERE}\\
+\texttt{ANT-THM-20-01} & \texttt{AUTHORED-DRAFT / CITED}\\
+\texttt{ANT-DEF-20-03} & \texttt{AUTHORED-DRAFT / CITED-DEFINITION}\\
+\texttt{ANT-THM-20-02} & \texttt{AUTHORED-DRAFT / CITED}\\
+\texttt{ANT-THM-20-03} & \texttt{AUTHORED-DRAFT / CITED}\\
+\texttt{ANT-THM-20-04} & \texttt{AUTHORED-DRAFT / CITED-CORE}\\
+\texttt{ANT-THM-20-05} & \texttt{AUTHORED-DRAFT / CITED-CORE}\\
+\texttt{ANT-THM-20-06} & \texttt{AUTHORED-DRAFT / COMPACT-PROTOTYPE}
+\end{tabular}
+\end{center}
+
+تبقى جميع النتائج \textenglish{NON-CITABLE} حتى اكتمال بناء PDF
+والتدقيق الرياضي والمرجعي والمراجعة المستقلة اللاحقة واعتماد المالك.
