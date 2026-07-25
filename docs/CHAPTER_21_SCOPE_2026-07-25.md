@@ -8,9 +8,9 @@ CHAPTER                = 21
 TOPIC                  = AUTOMORPHIC L-FUNCTIONS / CONVEXITY / SUBCONVEXITY / LANGLANDS ENTRY
 BASE-MAIN              = dd92caa3dba416ffc0f718d6bc037d67ec50466f
 ISSUE                  = #40 / OPEN
-PRE-AUTHORING-GATE     = OPEN
-PASS-FOR-AUTHORING     = NO
-AUTHORING              = BLOCKED
+PRE-AUTHORING-GATE     = PASSED
+PASS-FOR-AUTHORING     = YES
+AUTHORING              = AUTHORIZED ON PR #41 BRANCH
 RESULTS                = RESERVED / NON-CITABLE
 RELEASE-READY          = NO
 ~~~
@@ -45,7 +45,7 @@ RELEASE-READY          = NO
 
 ## قاعدة التأليف
 
-لا ينشأ ملف متن الفصل ولا ملف BibTeX نهائي قبل:
+اجتازت الشروط الآتية المراجعة المستقلة، وأصبح إنشاء متن الفصل وملف BibTeX مرحلي مأذونًا على فرع PR #41 فقط:
 
 1. تثبيت مواضع المصادر الأصلية.
 2. تجميد جدول التطبيعات.
