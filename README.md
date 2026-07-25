@@ -19,6 +19,7 @@
 - [سجل أدلة الفصل التاسع عشر](docs/CHAPTER_19_EVIDENCE_LEDGER_2026-07-25.md)
 - [خريطة برهان الفصل التاسع عشر](docs/CHAPTER_19_PROOF_MAP_2026-07-25.md)
 - [تدقيق ما قبل التأليف للفصل التاسع عشر](docs/CHAPTER_19_PRE_AUTHORING_AUDIT_2026-07-25.md)
+- [المراجعة المستقلة لبوابة الفصل التاسع عشر](docs/CHAPTER_19_INDEPENDENT_PRE_AUTHORING_REVIEW_2026-07-25.md)
 - [سجل نتائج الفصل التاسع عشر](docs/RESULTS_REGISTRY_CHAPTER_19.md)
 
 ## الحالة الحالية
@@ -26,20 +27,20 @@
 ```text
 BASE-MAIN                  = 2ec3f8fcb5eb365ca582af32771a7790bcded4b5
 VERSION                    = 0.23.0-dev
-CHAPTERS-IN-MANUSCRIPT     = 1--18 ON MAIN
+CHAPTERS-IN-MANUSCRIPT     = 1--18 ON MAIN / 19 ON DRAFT BRANCH
 CHAPTER-18                 = REVIEWED / OWNER-ADOPTED / MERGED
 PR-35                      = MERGED
 ISSUE-34                   = CLOSED
-CHAPTER-19                 = PRE-AUTHORING / AUTHORING-BLOCKED
+CHAPTER-19                 = AUTHORED-DRAFT / NON-CITABLE
 BRANCH-19                  = agent/chapter-19-primes-short-intervals-v0.23.0
 ISSUE-36                   = OPEN
 PR-37                      = DRAFT / OPEN / UNMERGED
-PRE-AUTHORING-GATE-19      = OPEN
-PASS-FOR-AUTHORING-19      = NO
-RESULTS-19                 = 8 RESERVED / NON-CITABLE
+PRE-AUTHORING-GATE-19      = CLOSED
+PASS-FOR-AUTHORING-19      = YES
+RESULTS-19                 = 8 AUTHORED-DRAFT / NON-CITABLE
 EVIDENCE-19                = FROZEN / FRONTIER UPDATED
 CIRCULARITY-AUDIT-19       = PASS
-INDEPENDENT-REVIEW-19      = PENDING
+INDEPENDENT-REVIEW-19      = PRE-AUTHORING PASS / MANUSCRIPT REVIEW PENDING
 LITERATURE-CUTOFF-19       = 2026-07-25
 MERGE                      = NOT AUTHORIZED
 RELEASE-READY              = NO
@@ -53,7 +54,7 @@ RELEASE-READY              = NO
 
 الفصل التاسع عشر: **الأوليات في الفترات القصيرة**.
 
-بدأت مرحلة ما قبل التأليف فقط. يميز النطاق بين:
+أُغلقت بوابة ما قبل التأليف، وأُنشئت مسودة الفصل وربطت بالمخطوط. يميز المتن بين:
 
 - الصيغة التقاربية لكل \(x\).
 - مجرد وجود أولي في الفترة.
@@ -63,7 +64,7 @@ RELEASE-READY              = NO
 - حد Baker--Harman--Pintz السفلي المحكّم عند \(0.525\).
 - ادعاء preprint عند \(0.52\) الذي يبقى محجورًا.
 
-اكتمل التحقق من المصادر والاعتمادات والتحويلات وتدقيق عدم الدور. التأليف محجوب الآن بسبب المراجعة المستقلة المطلوبة فقط.
+اكتمل التحقق من المصادر والاعتمادات والتحويلات وتدقيق عدم الدور، واجتازت البوابة مراجعة مستقلة. المسودة والنتائج غير قابلة للاستشهاد حتى نجاح البناء والتدقيق والمراجعة المستقلة للمتن واعتماد المالك.
 
 ## بناء PDF
 
@@ -76,4 +77,4 @@ UNDEFINED CITATIONS = 0
 UNDEFINED REFERENCES = 0
 ```
 
-فتح المرحلة `0.23.0-dev` لا يعني أن الفصل التاسع عشر مؤلف أو أن الموسوعة `RELEASE-READY`.
+وجود مسودة الفصل التاسع عشر لا يعني أنها `VERIFIED` أو `REVIEWED`، ولا يعني أن الموسوعة `RELEASE-READY`.
