@@ -8,7 +8,7 @@
 - **رأس البداية من `main`:** `de0341a105bbf14d56ec4f7f256b9763f8087b30`
 - **الفرع:** `agent/chapter-20-modular-maass-trace-formulas-v0.24.0`
 - **Issue:** `#38 / OPEN`
-- **PR:** `PENDING`
+- **PR:** `#39 / DRAFT / OPEN / UNMERGED`
 - **بوابة ما قبل التأليف:** `OPEN`
 - **إذن التأليف:** `PASS-FOR-AUTHORING = NO`
 - **النتائج:** `RESERVED / NON-CITABLE`
@@ -22,7 +22,7 @@ VERSION              = 0.24.0-dev
 CHAPTER              = 20
 TOPIC                = MODULAR FORMS / MAASS FORMS / TRACE FORMULAS
 ISSUE                = #38 / OPEN
-PR                   = PENDING
+PR                   = #39 / DRAFT / OPEN / UNMERGED
 PRE-AUTHORING-GATE   = OPEN
 PASS-FOR-AUTHORING   = NO
 AUTHORING            = BLOCKED
