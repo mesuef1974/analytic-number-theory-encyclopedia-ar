@@ -37,6 +37,9 @@ PR-37                      = DRAFT / OPEN / UNMERGED
 PRE-AUTHORING-GATE-19      = OPEN
 PASS-FOR-AUTHORING-19      = NO
 RESULTS-19                 = 8 RESERVED / NON-CITABLE
+EVIDENCE-19                = FROZEN / FRONTIER UPDATED
+CIRCULARITY-AUDIT-19       = PASS
+INDEPENDENT-REVIEW-19      = PENDING
 LITERATURE-CUTOFF-19       = 2026-07-25
 MERGE                      = NOT AUTHORIZED
 RELEASE-READY              = NO
@@ -56,9 +59,11 @@ RELEASE-READY              = NO
 - مجرد وجود أولي في الفترة.
 - النتائج الصحيحة لتقريبًا كل \(x\).
 - الحدود غير المشروطة والشرطية.
-- السجل المحكّم عند الأس \(0.525\) وادعاء preprint عند \(0.52\) الذي يبقى محجورًا.
+- سجل Guth--Maynard التقاربي المنشور عند \(17/30+\varepsilon\).
+- حد Baker--Harman--Pintz السفلي المحكّم عند \(0.525\).
+- ادعاء preprint عند \(0.52\) الذي يبقى محجورًا.
 
-التأليف محجوب حتى يكتمل التحقق من المصادر الأصلية والصيغة الصريحة وكثافة الأصفار وتحويلات \(\psi,\theta,\pi\)، ثم يجتاز الملف مراجعة مستقلة لما قبل التأليف.
+اكتمل التحقق من المصادر والاعتمادات والتحويلات وتدقيق عدم الدور. التأليف محجوب الآن بسبب المراجعة المستقلة المطلوبة فقط.
 
 ## بناء PDF
 
