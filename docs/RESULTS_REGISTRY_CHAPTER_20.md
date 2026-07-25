@@ -7,7 +7,10 @@ CHAPTER              = 20
 VERSION              = 0.24.0-dev
 REGISTRY             = RESERVATION-ONLY
 RESULTS              = NON-CITABLE
-AUTHORING            = BLOCKED
+PRE-AUTHORING-GATE   = CLOSED
+INDEPENDENT-REVIEW   = PASS (see CHAPTER_20_INDEPENDENT_REVIEW_VERDICT_2026-07-25.md)
+PASS-FOR-AUTHORING   = YES
+AUTHORING            = OPEN
 ```
 
 | المعرّف | الوصف المحجوز | التصنيف الحالي | الحالة |

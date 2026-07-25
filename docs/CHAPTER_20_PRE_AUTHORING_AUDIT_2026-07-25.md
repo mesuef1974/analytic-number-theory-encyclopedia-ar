@@ -3,14 +3,14 @@
 ## الحكم الحالي
 
 ```text
-PRE-AUTHORING-AUDIT  = IN PROGRESS
-EVIDENCE-LEDGER      = SCIENTIFIC CROSS-CHECK COMPLETE / REVIEW PENDING
-PROOF-MAP            = REVISED / REVIEW PENDING
-NORMALIZATION-TABLE  = CROSS-CHECK COMPLETE / REVIEW PENDING
-CIRCULARITY-AUDIT    = PRELIMINARY PASS / REVIEW PENDING
-INDEPENDENT-REVIEW   = REQUESTED / TARGET 46ac3df
-PASS-FOR-AUTHORING   = NO
-AUTHORING            = BLOCKED
+PRE-AUTHORING-AUDIT  = CLOSED
+EVIDENCE-LEDGER      = SCIENTIFIC CROSS-CHECK COMPLETE / INDEPENDENTLY REVIEWED
+PROOF-MAP            = REVISED / INDEPENDENTLY REVIEWED
+NORMALIZATION-TABLE  = CROSS-CHECK COMPLETE / INDEPENDENTLY REVIEWED
+CIRCULARITY-AUDIT    = PASS
+INDEPENDENT-REVIEW   = PASS / TARGET 46ac3df (see CHAPTER_20_INDEPENDENT_REVIEW_VERDICT_2026-07-25.md)
+PASS-FOR-AUTHORING   = YES
+AUTHORING            = OPEN
 ```
 
 ## قائمة التحقق
@@ -31,8 +31,8 @@ AUTHORING            = BLOCKED
 - [x] تثبيت زوج تحويل Selberg وعوامل \(2\pi\) للنموذج المدمج، مع إبقاء الحالة غير المدمجة مؤجلة.
 - [x] التحقق من مرجع Selberg الأصلي ببليوغرافيًا؛ لا يساوي ذلك تجميد زوج التحويل.
 - [x] إصدار حزمة مراجعة مستقلة على الرأس العلمي `46ac3dfee46bb0abe2a43459c55041d5773ed78e`.
-- [ ] استلام حكم مراجعة مستقلة للحزمة كاملة.
-- [ ] إصدار حكم صريح `PASS-FOR-AUTHORING = YES`.
+- [x] استلام حكم مراجعة مستقلة للحزمة كاملة (`PASS`، صفر عوائق).
+- [x] إصدار حكم صريح `PASS-FOR-AUTHORING = YES`.
 
 ## ما أُغلق
 
@@ -46,7 +46,7 @@ AUTHORING            = BLOCKED
 
 ## العوائق المانعة المتبقية
 
-1. المطابقات العلمية مكتملة، لكن جدول التطبيعات ينتظر المراجعة المستقلة قبل التجميد النهائي.
-2. صدرت حزمة الطلب، لكن لم يرد حكم مراجع مستقل بعد.
-
-أي كتابة للمتن قبل إغلاق هذه العوائق مخالفة لقاعدة الانتقال في خارطة الطريق.
+لا شيء. أُغلقت المراجعة المستقلة بحكم `PASS` وصفر عوائق (انظر
+`CHAPTER_20_INDEPENDENT_REVIEW_VERDICT_2026-07-25.md`)، وتحققت المطابقتان
+الأخطر (Kuznetsov وSelberg) حيًّا مقابل مصدرين خارجيين فعليين. `AUTHORING`
+مفتوح الآن ضمن النطاق المجمد فقط.
