@@ -9,7 +9,11 @@ REGISTRY             = AUTHORED-DRAFT
 RESULTS              = NON-CITABLE
 PRE-AUTHORING-GATE   = CLOSED
 INDEPENDENT-REVIEW   = PASS (pre-authoring target 46ac3df)
-POST-AUTHORING-REVIEW = APPROVED-WITH-NONBLOCKING-COMPLETENESS-NOTES (see CHAPTER_20_INDEPENDENT_POST_AUTHORING_REVIEW_2026-07-25.md)
+POST-AUTHORING-REVIEW = APPROVED-WITH-NONBLOCKING-COMPLETENESS-NOTES
+COMPLETENESS-NOTES  = RESOLVED (92c961b + d9cc0a9)
+FINAL-QUALITY       = #699 / PASS
+FINAL-PDF           = #613 / PASS / 274 PAGES
+FINAL-VISUAL-REVIEW = PASS
 PASS-FOR-AUTHORING   = YES
 AUTHORING            = AUTHORED-DRAFT
 OWNER-ADOPTION       = PENDING
@@ -33,4 +37,4 @@ OWNER-ADOPTION       = PENDING
 | ANT-THM-20-05 | صيغة Kuznetsov | `CITED-CORE` | `AUTHORED-DRAFT / NON-CITABLE` |
 | ANT-THM-20-06 | مدخل صيغة Selberg | `COMPACT-PROTOTYPE / CITED` | `AUTHORED-DRAFT / NON-CITABLE` |
 
-أُغلقت بوابة ما قبل التأليف وأُنشئ المتن، لكن لا يُنقل أي معرّف إلى `docs/RESULTS_REGISTRY.md` ولا يصبح قابلًا للاستشهاد قبل البناء والتدقيق والمراجعة المستقلة اللاحقة واعتماد المالك.
+أُغلقت بوابة ما قبل التأليف، واكتمل المتن ومراجعته المستقلة، وأُغلقت ملاحظات الاكتمال الثلاث مع نجاح البناء والفحص البصري النهائي. يبقى اعتماد المالك شرطًا لازمًا قبل نقل أي معرّف إلى `docs/RESULTS_REGISTRY.md` أو جعله قابلًا للاستشهاد.
