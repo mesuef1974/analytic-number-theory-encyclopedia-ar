@@ -40,9 +40,11 @@ GENERAL LEVEL  = CONTEXT ONLY UNTIL NORMALIZATIONS ARE MATCHED
 |---|---|---|---|---|
 | E20-06 | Hans Petersson, *Über die Entwicklungskoeffizienten der automorphen Formen*, *Acta Mathematica* 58 (1932), 169--215، DOI: [10.1007/BF02547776](https://doi.org/10.1007/BF02547776) | المقالة الأصلية كاملة | الأصل الببليوغرافي لصيغة Petersson | `PRIMARY / BIBLIOGRAPHY-VERIFIED` |
 | E20-09 | Knightly--Li, *A relative trace formula proof of the Petersson trace formula*, *Acta Arithmetica* 122 (2006), 297--313 | §3؛ حاصل بيترسون (3)، Theorem 3.9، Corollary 3.12 | نسخة مضبوطة للمستوى والشخصية، والنسخة الكلاسيكية | `FULL-TEXT / FORMULA-LOCATED` |
-| E20-07 | N. V. Kuznetsov, *Petersson's conjecture for cusp forms of weight zero and Linnik's conjecture. Sums of Kloosterman sums*, *Math. USSR-Sb.* 39:3 (1981), 299--342، DOI: [10.1070/SM1981v039n03ABEH001518](https://doi.org/10.1070/SM1981v039n03ABEH001518) | §2؛ (2.10)، (2.13)، Theorems 1--2، ولا سيما (2.14) و(2.23) | توسع مااس، تعريف Kloosterman، والهوية الطيفية--الحسابية الأصلية | `PRIMARY / FULL-TEXT / FORMULA-LOCATED` |
+| E20-07 | N. V. Kuznetsov, *Petersson's conjecture for cusp forms of weight zero and Linnik's conjecture. Sums of Kloosterman sums*, *Math. USSR-Sb.* 39:3 (1981), 299--342، DOI: [10.1070/SM1981v039n03ABEH001518](https://doi.org/10.1070/SM1981v039n03ABEH001518) | §2؛ (2.10)، (2.13)، Theorems 1--2، ولا سيما (2.14) و(2.23) | توسع مااس، تعريف Kloosterman، والهوية الطيفية--الحسابية الأصلية | `PRIMARY / FULL-TEXT / CORE-CROSSCHECK-PASS` |
 | E20-05 | D. A. Hejhal, *The Selberg Trace Formula for PSL(2,R)*, Vol. I, LNM 548, Springer (1976) | الفصل الأول: *The trace formula for compact Riemann surfaces*، ص 1--38 | موضع المدخل البنيوي المدمج | `PUBLISHER-VERIFIED / CHAPTER-LOCATED` |
 | E20-10 | Jianya Liu--Yangbo Ye, *Petersson and Kuznetsov Trace Formulas* (2006) | المقالة الاستعراضية، أقسام Petersson/Kuznetsov | مرجع ثانٍ للمطابقة، لا مصدر أصلي | `CONSENSUS-FETCHED / FULL-TEXT-LOCATED` |
+| E20-11 | Rizwanur Khan--Matthew P. Young, *Moments and hybrid subconvexity for symmetric-square L-functions* | §2.2، Lemma 2.1 | صيغة حديثة صريحة للطيف المنفصل والمستمر والقطري وتحويل \(J\) | `FULL-TEXT / FORMULA-CROSS-CHECKED` |
+| E20-12 | Blomer--Assing, *Relative Trace Formulae in Analytic Number Theory*, Set 2 | ص 1--3 | تطبيع \(L^2\)، علاقة Hecke، Eisenstein، والاتجاهان الأمامي والخلفي | `FULL-TEXT / NORMALIZATION-CROSS-CHECKED` |
 
 ## مصادر الأساس التي ما تزال تحتاج مواضع دقيقة
 
@@ -77,10 +79,13 @@ GENERAL LEVEL  = CONTEXT ONLY UNTIL NORMALIZATIONS ARE MATCHED
 - فصل الصيغة الدقيقة عن العرض التخطيطي.
 - منع الاعتماد العكسي على الفصل 21.
 
+## مطابقة Kuznetsov المغلقة
+
+أغلقت المطابقة للنواة المعتمدة عند المستوى 1 في `CHAPTER_20_KUZNETSOV_CROSSCHECK_2026-07-25.md`: الطيف المنفصل، طيف Eisenstein، الحد القطري، حد Kloosterman، وتحويل \(J\). وفُصل تحويل \(K\) إلى سياق الإشارة المتعاكسة، فلا يخلط بالنواة الأساسية ولا يمنح صيغة عامة غير مطابقة.
+
 ## العوائق المفتوحة
 
-1. مطابقة صيغة Kuznetsov كاملة بين الأصل وIwaniec--Kowalski §16.4 وIwaniec Ch. 9، بما فيها الطيف المستمر والتحويلات.
-2. تثبيت زوج تحويل Selberg وعوامل \(2\pi\) من النص الكامل ومطابقته مع Hejhal.
-3. مراجعة مستقلة للحزمة قبل التجميد.
+1. تثبيت زوج تحويل Selberg وعوامل \(2\pi\) من النص الكامل ومطابقته مع Hejhal.
+2. مراجعة مستقلة للحزمة قبل التجميد.
 
 حتى إغلاق هذه البنود يبقى `PASS-FOR-AUTHORING = NO`.
