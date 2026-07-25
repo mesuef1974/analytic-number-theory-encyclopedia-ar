@@ -2,47 +2,35 @@
 
 ## الحالة العامة
 
-- **الإصدار التطويري الحالي:** `0.21.0-dev`
-- **المرحلة الحالية:** الفصل السابع عشر — الطريقة الدائرية ومدخل إلى غولدباخ ووارينغ.
-- **حالة الفصل السابع عشر:** `POST-INTEGRATION-BUILD-PASS / VISUAL-RECHECK-PENDING`
-- **رأس الأساس من main:** `0bd442bc48490115bed48b18ed32783ad5bd1c9c`
-- **فرع العمل:** `agent/chapter-17-circle-method-goldbach-waring-v0.21.0`
-- **Issue:** `#32 / OPEN`
-- **PR:** `#33 / DRAFT / OPEN / UNMERGED`
-- **بوابة ما قبل التأليف:** `CLOSED`
-- **إذن التأليف:** `PASS-FOR-AUTHORING = YES`
-- **نتائج الفصل:** `9 / AUTHORED-DRAFT`
-- **التدقيق الرياضي:** `FOCUSED PASS`
-- **التدقيق المرجعي:** `INITIAL PASS / BUILD VERIFIED`
-- **تدقيق الاصطلاحات:** `PASS`
-- **المراجعة المستقلة الداخلية:** `CORRECTIONS-APPLIED / VISUAL-RECHECK-REQUIRED`
-- **البناء بعد الدمج الموسوعي:** `PASS / 237 PAGES`
-- **الفحص البصري النهائي:** `PENDING`
-- **اعتماد المالك:** `NOT YET`
+- **الإصدار التطويري الحالي:** `0.22.0-dev`
+- **المرحلة الحالية:** الفصل الثامن عشر — المجاميع الأسية وطريقة فان دير كوربوت.
+- **حالة الفصل الثامن عشر:** `PRE-AUTHORING-GATE-OPEN / AUTHORING-BLOCKED`
+- **رأس الأساس من main:** `95209028f7e9f10dd8b47baef4bd4194df40a5a0`
+- **فرع العمل:** `agent/chapter-18-exponential-sums-van-der-corput-v0.22.0`
+- **Issue:** `#34 / OPEN`
+- **PR:** `#35 / DRAFT / OPEN / UNMERGED`
+- **بوابة ما قبل التأليف:** `OPEN`
+- **إذن التأليف:** `PASS-FOR-AUTHORING = NO`
+- **نتائج الفصل:** `0 / DRAFT-NON-CITABLE`
 - **الموسوعة:** `NOT-RELEASE-READY`
 - **آخر تحديث:** 2026-07-25
 
 ```text
-CHAPTER-16                  = REVIEWED / OWNER-ADOPTION APPROVED / MERGED
-PR-31                       = MERGED
-MERGE-COMMIT                = 0bd442bc48490115bed48b18ed32783ad5bd1c9c
-PDF-BUILD-16                = PASS / 227 PAGES
-CHAPTER-17                  = POST-INTEGRATION-BUILD-PASS
-VERSION                     = 0.21.0-dev
-BRANCH                      = agent/chapter-17-circle-method-goldbach-waring-v0.21.0
-ISSUE                       = #32 / OPEN
-PR                          = #33 / DRAFT / OPEN / UNMERGED
-PRE-AUTHORING-GATE          = CLOSED
-PASS-FOR-AUTHORING          = YES
-RESULTS                     = 9 / AUTHORED-DRAFT
-REFERENCE-AUDIT             = INITIAL PASS / BUILD VERIFIED
-MATHEMATICAL-AUDIT          = FOCUSED PASS
-TERMINOLOGY-AUDIT           = PASS
-ENCYCLOPEDIC-INTEGRATION    = COMPLETE
-POST-INTEGRATION-BUILD      = PASS / 237 PAGES
-PDF-SHA256                  = 1D0EA5E9E98526E6330961AB52D3D83E538D57716F9B0DE811C0A1712020A520
-VISUAL-RECHECK              = PENDING
-OWNER-ADOPTION              = NOT YET
+CHAPTER-17                  = REVIEWED / OWNER-ADOPTED / MERGED
+PR-33                       = MERGED
+MERGE-COMMIT-17             = 95209028f7e9f10dd8b47baef4bd4194df40a5a0
+PDF-BUILD-17                = PASS / 237 PAGES
+CHAPTER-18                  = PRE-AUTHORING-GATE-OPEN
+VERSION                     = 0.22.0-dev
+BRANCH                      = agent/chapter-18-exponential-sums-van-der-corput-v0.22.0
+ISSUE                       = #34 / OPEN
+PR                          = #35 / DRAFT / OPEN / UNMERGED
+PRE-AUTHORING-GATE          = OPEN
+PASS-FOR-AUTHORING          = NO
+AUTHORING                   = BLOCKED
+RESULTS                     = 0 / DRAFT-NON-CITABLE
+REFERENCE-AUDIT             = PENDING
+MATHEMATICAL-AUDIT          = PENDING
 MERGE                       = NOT AUTHORIZED
 RELEASE-READY               = NO
 ```
@@ -51,45 +39,36 @@ RELEASE-READY               = NO
 
 | المكوّن | الحالة |
 |---|---|
-| الفصول 5--16 | `REVIEWED` بدرجات الحوكمة المسجلة |
-| الفصل 15 | `REVIEWED / MERGED` |
-| الفصل 16 | `REVIEWED / OWNER-ADOPTED / MERGED` |
-| الفصل 17 | `POST-INTEGRATION-BUILD-PASS / VISUAL-RECHECK-PENDING` |
-| بناء PDF الأخير | `PASS / 237 PAGES` بعد دمج تدقيقي 03 و04 في المتن |
-
-## ما أُنجز في الفصل السادس عشر
-
-- إثبات الحد العلوي لعد الأزواج الأولية ذات الفرق الزوجي الثابت.
-- استنتاج تقارب مجموع المقلوبات بالجمع الجزئي.
-- توثيق مبرهنات تشن وGPY وZhang وMaynard وPolymath8b.
-- تدقيق رياضي ومرجعي مستقل.
-- اعتماد المالك ودمج PR #31.
+| الفصول 5--17 | `REVIEWED` بدرجات الحوكمة المسجلة |
+| الفصل 17 | `REVIEWED / OWNER-ADOPTED / MERGED` |
+| الفصل 18 | `PRE-AUTHORING-GATE-OPEN / AUTHORING-BLOCKED` |
+| بناء PDF الأخير | `PASS / 237 PAGES` للفصل 17 قبل بدء الفصل 18 |
 
 ## ما أُنجز في الفصل السابع عشر
 
-- فتح Issue #32 وفرع مستقل وDraft PR #33.
-- إنشاء سجل أدلة وخريطة برهان وتدقيق عدم الدور.
-- إغلاق بوابة ما قبل التأليف وإصدار `PASS-FOR-AUTHORING = YES`.
-- إنشاء متن الفصل وربطه بالمخطوط على فرع العمل.
-- إثبات هوية التعامد وهوية عد التمثيلات داخليًا.
-- تثبيت تشريح الدائرة والتطبيع `P=N^(1/k)` و`Q=P^η`.
-- تعريف المجموع المحلي والتقريب الأرخميدي والسلسلة والتكامل المفردين.
-- إدراج مراجع Hardy--Littlewood وVaughan وVinogradov وHelfgott داخل المتن.
-- فصل النتائج `PROVED-HERE` عن `CITED` و`FINITE-VERIFIED` و`HYPOTHESIS / OPEN`.
-- إغلاق عائق عامل القياس بإثبات `J(N)=N^(s/k-1) J*`.
-- تثبيت شرط `s>k` للتقارب المطلق للتكامل المفرد المطبع.
-- تصحيح شرط إيجابية السلسلة المفردة إلى حلول `p`-أدية غير منفردة مع تقارب حاصل الضرب المحلي.
-- تخفيض قضية الأقواس الكبرى إلى `CITED / EXPLAINED`.
-- توحيد اصطلاح وارينغ إلى `N_+={1,2,3,...}` وقراءة الحد المنتهي بواسطة `floor(P)`.
-- كشف المراجعة البصرية شارة متناقضة ومعرفًا مقلوبًا وبنية ملحقات تدقيق غير موسوعية.
-- إزالة شارة المسودة المتناقضة وتصحيح المعرّف.
-- دمج تدقيقي 03 و04 في المتن الموسوعي وحذف الملفين المستقلين.
-- إضافة قسم نطاق الفصل وحالته ونواتج التعلم.
-- نجاح البناء بعد الدمج: 237 صفحة، بلا مراجع أو إحالات غير معرّفة، وبلا أخطاء LaTeX قاتلة.
+- إنشاء سجل الأدلة وخريطة البرهان وتدقيق عدم الدور.
+- إثبات هويتي التعامد وعد التمثيلات داخليًا.
+- ضبط السلسلة والتكامل المفردين وعامل القياس.
+- فصل النتائج المثبتة عن المقتبسة والمفتوحة.
+- دمج تدقيقي 03 و04 في النثر الموسوعي.
+- نجاح البناء والفحص البصري والمراجعة المستقلة.
+- اعتماد المالك ودمج PR #33 وإغلاق Issue #32.
 
-## البنود المفتوحة قبل الترقية
+## ما بدأ في الفصل الثامن عشر
 
-1. فحص بصري نهائي للصفحات المصفوفة بعد الدمج.
-2. قرار المالك الصريح بعد نجاح الفحص البصري.
-3. معالجة تحذيرات الخطوط العربية و`Overfull/Underfull hbox` بوصفها ديونًا تحريرية غير حاجزة.
-4. لا ترقية إلى `REVIEWED` ولا دمج دون قرار المالك وإذنه الصريح.
+- فتح Issue #34.
+- إنشاء فرع مستقل من رأس `main` المعتمد.
+- فتح Draft PR #35.
+- رفع الإصدار إلى `0.22.0-dev`.
+- إنشاء بوابة ما قبل التأليف.
+- تثبيت النطاق المرشح: المجاميع الأسية، فرق فان دير كوربوت، اختبارات المشتقة، عمليتا `A` و`B`، والأزواج الأسية.
+- إبقاء التأليف محظورًا حتى اكتمال الأدلة وخريطة البرهان والمراجعة المستقلة.
+
+## البنود المفتوحة قبل التأليف
+
+1. إنشاء سجل الأدلة وخريطة البرهان.
+2. تثبيت المصادر الأصلية والصياغات الدقيقة للنتائج.
+3. تدقيق عدم الدور مع الفصل 17.
+4. حسم نطاق عمليتي `A` و`B` والأزواج الأسية.
+5. مراجعة مستقلة وإصدار `PASS-FOR-AUTHORING` صريح.
+6. لا إنشاء لمتن الفصل ولا دمج دون إغلاق البوابة وقرار المالك.
