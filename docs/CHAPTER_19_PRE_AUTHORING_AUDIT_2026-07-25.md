@@ -13,9 +13,10 @@ MODERN-FRONTIER-AUDIT    = PASS
 DEPENDENCY-AUDIT         = PASS
 CIRCULARITY-AUDIT        = PASS
 SCOPE-FREEZE              = PASS
-INDEPENDENT-REVIEW       = PENDING
-PASS-FOR-AUTHORING       = NO
-AUTHORING                = BLOCKED
+INDEPENDENT-REVIEW       = PASS
+PRE-AUTHORING-GATE       = CLOSED
+PASS-FOR-AUTHORING       = YES
+AUTHORING                = OPEN
 RESULTS                  = 8 RESERVED / NON-CITABLE
 ~~~
 
@@ -42,18 +43,13 @@ RESULTS                  = 8 RESERVED / NON-CITABLE
 
 هذا التحفظ غير حاجز إذا التزم المتن بعدم ذكر ثابت عددي.
 
-## العائق الوحيد الباقي
+## المراجعة المستقلة
 
-لم تجر بعد مراجعة مستقلة منفصلة عن جولة البحث والتحرير الحالية. لا يجوز وصف إعادة القراءة الذاتية بأنها مستقلة، ولذلك تبقى البوابة مفتوحة.
+أُنجزت المراجعة المستقلة وسُجلت في `CHAPTER_19_INDEPENDENT_PRE_AUTHORING_REVIEW_2026-07-25.md`. أعادت اشتقاق المسار الداخلي، وفحصت المصدرين الأعلى مخاطرة، وتحققت من `ANT-LEM-09-02`. الحكم `PASS` وصفر عوائق.
 
 ## قرار التأليف
 
-لا ينشأ ملف LaTeX للفصل التاسع عشر في هذا الالتزام. يسمح بالخطوة التالية فقط:
-
-1. مراجعة مستقلة لسجل الأدلة وخريطة البرهان وسجل النتائج.
-2. معالجة أي CHANGES-REQUIRED.
-3. عند PASS فقط، إصدار PASS-FOR-AUTHORING = YES صريح.
-4. بدء المتن بعد ذلك.
+أُغلقت بوابة ما قبل التأليف، وصدر `PASS-FOR-AUTHORING = YES`. يجوز الآن إنشاء متن LaTeX للفصل التاسع عشر ضمن النطاق المجمد. لا يرقّي هذا القرار النتائج إلى `ACTIVE` أو `CITABLE` ولا يجيز الدمج.
 
 ## شروط الإغلاق
 
@@ -62,5 +58,5 @@ RESULTS                  = 8 RESERVED / NON-CITABLE
 - [x] إغلاق تحويلات \(\psi\to\theta\to\pi\).
 - [x] اجتياز تدقيق عدم الدور.
 - [x] تجميد سجل النتائج والنطاق.
-- [ ] مراجعة مستقلة للبوابة.
-- [ ] إصدار PASS-FOR-AUTHORING = YES صريح.
+- [x] مراجعة مستقلة للبوابة.
+- [x] إصدار PASS-FOR-AUTHORING = YES صريح.
