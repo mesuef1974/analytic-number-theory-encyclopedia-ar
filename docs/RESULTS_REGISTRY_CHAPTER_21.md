@@ -7,14 +7,24 @@ CHAPTER              = 21
 VERSION              = 0.25.0-dev
 REGISTRY             = REVIEWED-CANDIDATE
 RESULTS              = 10 AUTHORED-DRAFT / NON-CITABLE
-PRE-AUTHORING-GATE   = PASSED
-INDEPENDENT-REVIEW   = PASS
+PRE-AUTHORING-GATE            = PASSED (bf5cdbc)
+INDEPENDENT-GATE-REVIEW       = PASS (873fd4d، وكيل مستقل)
+MANUSCRIPT-INDEPENDENT-REVIEW = PASS (انظر CHAPTER_21_MANUSCRIPT_INDEPENDENT_REVIEW_2026-07-25.md، على الرأس 385dfd5)
+NOTE                          = تُهمَل أي حالة "مراجعة مستقلة" مسجلة في التزامات لاحقة على 385dfd5 بقلم مؤلف الحزمة نفسه؛ ليست دليلًا مستقلًا صالحًا.
 PASS-FOR-AUTHORING   = YES
 AUTHORING            = COMPLETED
-POST-AUTHORING       = PASS / APPROVED
-READY-FOR-OWNER      = YES
-OWNER-ADOPTION       = NOT REQUESTED
+SCIENTIFIC-VERDICT   = PASS
+BLOCKERS             = 0
+MANUSCRIPT-APPROVED  = YES
+RESULTS-VALIDATED    = 10
+OWNER-ADOPTION       = PENDING
+MERGE                = NOT AUTHORIZED
 ~~~
+
+القيم `POST-AUTHORING = PASS / APPROVED` و`READY-FOR-OWNER = YES` و
+`OWNER-ADOPTION = NOT REQUESTED` التي وردت سابقًا في هذا الملف صادرة عن
+مراجعة ذاتية كتبها مؤلف الحزمة نفسه، ولا قيمة حوكمية لها. الحكم المعتمد
+الوحيد هو المراجعة المستقلة الفعلية المسجلة أعلاه.
 
 | المعرّف | الوصف المحجوز | التصنيف المجمد | الحالة |
 |---|---|---|---|
