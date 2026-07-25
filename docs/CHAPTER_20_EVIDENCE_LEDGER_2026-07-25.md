@@ -37,6 +37,24 @@ LITERATURE-CUTOFF    = 2026-07-25
 | E20-07 | ورقة Kuznetsov الأصلية | صيغة الأثر غير الهولومورفية | `PRIMARY / BIBLIOGRAPHY-PENDING` |
 | E20-08 | أعمال Selberg الأصلية/المجمعة | صيغة الأثر والطيف | `PRIMARY / BIBLIOGRAPHY-PENDING` |
 
+## اكتشافات Consensus الأولية
+
+أُجريت في 25 يوليو 2026 ثلاثة استعلامات مستقلة عن صيغ Kuznetsov وPetersson وSelberg. جرى استدعاء السجل الكامل لكل نتيجة أدناه بعد البحث، وفق قاعدة Consensus. هذه السجلات أدوات اكتشاف فقط ولا تحل محل النص الأصلي أو موضع المبرهنة.
+
+| الرمز | السجل | البيانات المسترجعة | الحالة |
+|---|---|---|---|
+| C20-01 | [Kuznetsov's Trace Formula and the Hecke Eigenvalues of Maass Forms](https://consensus.app/papers/kuznetsovs-trace-formula-and-the-hecke-eigenvalues-of-li-knightly/fff6daeba5f95bbd84a521d529f62759/?utm_source=chatgpt) | Charles Li وAndrew H. Knightly، 2012، 69 استشهادًا في سجل Consensus | `CONSENSUS-DISCOVERED / PRIMARY-LOCATOR-PENDING` |
+| C20-02 | [A relative trace formula proof of the Petersson trace formula](https://consensus.app/papers/a-relative-trace-formula-proof-of-the-petersson-trace-knightly-li/f14270f8796c5a96a98e28818bc94c4d/?utm_source=chatgpt) | Andrew H. Knightly وCharles Li، 2006، *Acta Arithmetica* 122، 297--313، 22 استشهادًا | `CONSENSUS-FETCHED / THEOREM-3.9-TO-VERIFY` |
+| C20-03 | [The Selberg Trace Formula for PSL(2,R), Volume I](https://consensus.app/papers/the-selberg-trace-formula-for-psl2-volume-i-hejhal/a7208ee817515bc58e52d86ca1585f74/?utm_source=chatgpt) | D. Hejhal، 1976، 185 استشهادًا؛ الملخص غير متاح في السجل | `CONSENSUS-FETCHED / FULL-TEXT-REQUIRED` |
+
+### حدود الاستخدام
+
+- لا تعتمد أرقام الاستشهادات بوصفها معيار صحة.
+- لا تعتمد مقتطفات Consensus لإثبات الثوابت أو التطبيعات.
+- لا تُرفع أي نتيجة إلى `CITED` قبل مطابقة DOI/الناشر والنص الكامل.
+- صيغة Petersson المذكورة في C20-02 تخص مستوى ووزنًا وشخصية محددة؛ لا تُعمم قبل قراءة Theorem 3.9 كاملًا.
+- سجل Hejhal لا يحتوي ملخصًا، ولذلك لا يقدم دليلًا نصيًا على أي صيغة.
+
 ## اختبارات قبول المصدر
 
 - تطابق تعريف الوزن والمستوى والشخصية.
