@@ -7,8 +7,8 @@ LEDGER                 = SCIENTIFIC CORE FROZEN
 LITERATURE-CUTOFF      = 2026-07-25
 PRIMARY-SOURCES        = VERIFIED WITH EXACT LOCATORS
 CONSENSUS              = DISCOVERY-ONLY
-INDEPENDENT-REVIEW     = PENDING
-PASS-FOR-AUTHORING     = NO
+INDEPENDENT-REVIEW     = PASS
+PASS-FOR-AUTHORING     = YES
 ~~~
 
 ## طبقات الدليل
@@ -94,6 +94,6 @@ ROLE  = DISCOVERY ONLY
 - [x] صياغة Michel--Venkatesh الدقيقة.
 - [x] عوامل غاما للهولومورفي ومااس.
 - [x] نطاق لانجلاندز: تاريخي/مفاهيمي، بلا ادعاء functoriality عامة.
-- [ ] مراجعة مستقلة للحزمة كاملة.
+- [x] مراجعة مستقلة للحزمة كاملة بحكم `PASS-FOR-AUTHORING = YES`.
 
-السجل العلمي مجمد وجاهز للمراجعة المستقلة، لكنه لا يجيز التأليف منفردًا.
+السجل العلمي مجمد، واجتاز المراجعة المستقلة، وأُنجز التأليف على فرع PR #41. تبقى النتائج غير قابلة للاستشهاد حتى اعتماد المالك.
