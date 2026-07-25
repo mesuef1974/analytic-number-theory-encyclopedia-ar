@@ -4,12 +4,12 @@
 
 ~~~text
 CHAPTER             = 19
-STATUS              = PRE-AUTHORING / SCIENTIFIC SCOPE FROZEN
-PRE-AUTHORING-GATE  = OPEN
-PASS-FOR-AUTHORING  = NO
+STATUS              = AUTHORING OPEN / SCIENTIFIC SCOPE FROZEN
+PRE-AUTHORING-GATE  = CLOSED
+PASS-FOR-AUTHORING  = YES
 RESULTS             = 8 RESERVED / NON-CITABLE
 MANUSCRIPT-LINK     = NO
-INDEPENDENT-REVIEW  = PENDING
+INDEPENDENT-REVIEW  = PASS
 ~~~
 
 | المعرّف | العنوان المجمد | التصنيف | الحالة |
@@ -41,7 +41,7 @@ STATUS = QUARANTINED-PREPRINT / NOT ADOPTED / NO RESULT ID
 
 ## قواعد الترقية
 
-- لا يصبح أي معرّف ACTIVE قبل إغلاق بوابة ما قبل التأليف، ثم التأليف والبناء والتدقيق والمراجعة المستقلة وقرار المالك.
+- إغلاق بوابة ما قبل التأليف يجيز إنشاء المتن فقط؛ لا يصبح أي معرّف ACTIVE قبل التأليف والبناء والتدقيق والمراجعة المستقلة للمتن وقرار المالك.
 - لا تتحول نتيجة مقتبسة إلى PROVED-HERE لمجرد شرح فكرتها.
 - لا يخلط ANT-THM-19-01 التقاربي مع ANT-THM-19-02 ذي الحد السفلي.
 - أي تغيير في الجبهة الحديثة يتطلب بحثًا جديدًا وتاريخ قطع محدثًا.
