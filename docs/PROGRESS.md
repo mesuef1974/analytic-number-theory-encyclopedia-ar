@@ -4,7 +4,7 @@
 
 - **الإصدار التطويري الحالي:** `0.25.0-dev`
 - **المرحلة الحالية:** الفصل الحادي والعشرون — دوال (L) الآلية، دون التحدب، ومدخل إلى لانجلاندز.
-- **حالة الفصل:** `AUTHORED-DRAFT / POST-AUTHORING-OPEN`
+- **حالة الفصل:** `REVIEWED-CANDIDATE / OWNER-ADOPTION-PENDING`
 - **رأس البداية من `main`:** `dd92caa3dba416ffc0f718d6bc037d67ec50466f`
 - **الفرع:** `agent/chapter-21-automorphic-l-subconvexity-langlands-v0.25.0`
 - **Issue:** `#40 / OPEN`
@@ -27,7 +27,9 @@ PRE-AUTHORING-GATE   = PASSED
 PASS-FOR-AUTHORING   = YES
 AUTHORING            = COMPLETED
 RESULTS              = 10 AUTHORED-DRAFT / NON-CITABLE
-INDEPENDENT-REVIEW   = PASS
+POST-AUTHORING-CI    = QUALITY-742 / PDF-648 / 286 PAGES
+VISUAL-CHECK         = PASS
+INDEPENDENT-REVIEW   = APPROVED
 OWNER-ADOPTION       = NOT REQUESTED
 LITERATURE-CUTOFF    = 2026-07-25
 MERGE                = NOT AUTHORIZED
@@ -42,7 +44,8 @@ RELEASE-READY        = NO
 | الفصل 18 | `REVIEWED / OWNER-ADOPTED / MERGED` |
 | الفصل 19 | `REVIEWED / OWNER-ADOPTED / CITABLE / MERGED` |
 | الفصل 20 | `REVIEWED / OWNER-ADOPTED / 15 ACTIVE / CITABLE / MERGED` |
-| الفصل 21 | `AUTHORED-DRAFT / 10 NON-CITABLE / POST-AUTHORING-OPEN` |
+| الفصل 21 | `REVIEWED-CANDIDATE / 10 NON-CITABLE / OWNER-ADOPTION-PENDING` |
+| بناء الفصل 21 | `QUALITY-742 / PDF-648 / 286 PAGES / VISUAL PASS` |
 | البناء النهائي للفصل 20 | `QUALITY-700 / PDF-614 / 274 PAGES / VISUAL PASS` |
 | آخر PDF معتمد | `RUN-531 / PASS / 249 PAGES` للفصل 18 |
 | البناء النهائي قبل اعتماد الفصل 19 | `QUALITY-643 / PDF-564 / 261 PAGES / VISUAL PASS` |
@@ -65,4 +68,4 @@ RELEASE-READY        = NO
 
 ## الخطوة التالية
 
-إكمال فحوص الجودة وبناء PDF والفحص البصري، ثم المراجعة المستقلة بعد التأليف. تبقى النتائج `NON-CITABLE` والدمج غير مأذون و`RELEASE-READY = NO`.
+عرض حزمة الفصل الحادي والعشرين على المالك للاعتماد الصريح. اجتاز الفصل البناء والفحص البصري والمراجعة المستقلة، لكن النتائج تبقى `NON-CITABLE` والدمج غير مأذون و`RELEASE-READY = NO`.
