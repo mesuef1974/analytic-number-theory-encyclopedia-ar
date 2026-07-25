@@ -160,6 +160,7 @@ RELEASE-READY  = NO
 
 - [x] فتح الإصدار `0.25.0-dev` من رأس `main` المعتمد `dd92caa3dba416ffc0f718d6bc037d67ec50466f`.
 - [x] إنشاء Issue #40 والفرع `agent/chapter-21-automorphic-l-subconvexity-langlands-v0.25.0`.
+- [x] فتح Draft PR #41 إلى `main` مع منع الدمج قبل اعتماد المالك.
 - [x] تحديد النطاق الأساسي عند \(GL(2)/\mathbb Q\) مع جسر مضبوط من الفصلين 7 و20.
 - [x] إنشاء سجل أدلة وجدول تطبيعات وخريطة برهان وتدقيق ما قبل التأليف.
 - [x] حجز عشرة معرفات بحالة `RESERVED / NON-CITABLE`.
