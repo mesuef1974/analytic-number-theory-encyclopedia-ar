@@ -79,8 +79,7 @@ GENERAL LEVEL  = CONTEXT ONLY UNTIL NORMALIZATIONS ARE MATCHED
 
 ## العوائق المفتوحة
 
-1. مطابقة حدًا بحد لصيغة Petersson مستوى \(1\) بين Knightly--Li وIwaniec--Kowalski/مرجع ثانٍ.
-2. مطابقة صيغة Kuznetsov كاملة بين الأصل وIwaniec--Kowalski §16.4 وIwaniec Ch. 9، بما فيها الطيف المستمر والتحويلات.
+1. مطابقة صيغة Kuznetsov كاملة بين الأصل وIwaniec--Kowalski §16.4 وIwaniec Ch. 9، بما فيها الطيف المستمر والتحويلات.
 3. تثبيت زوج تحويل Selberg وعوامل \(2\pi\).
 4. التحقق الببليوغرافي من نص Selberg الأصلي.
 5. مراجعة مستقلة للحزمة قبل التجميد.
