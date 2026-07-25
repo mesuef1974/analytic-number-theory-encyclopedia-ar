@@ -2,14 +2,14 @@
 
 ## الحالة
 
-\`\`\`text
+~~~text
 LEDGER                 = SCIENTIFIC CORE FROZEN
 LITERATURE-CUTOFF      = 2026-07-25
 PRIMARY-SOURCES        = VERIFIED WITH EXACT LOCATORS
 CONSENSUS              = DISCOVERY-ONLY
 INDEPENDENT-REVIEW     = PENDING
 PASS-FOR-AUTHORING     = NO
-\`\`\`
+~~~
 
 ## طبقات الدليل
 
@@ -79,11 +79,11 @@ PASS-FOR-AUTHORING     = NO
 
 ## سجل Consensus
 
-\`\`\`text
+~~~text
 QUERY = automorphic L-functions GL(2) convexity subconvexity Langlands program survey foundational results
 DATE  = 2026-07-25
 ROLE  = DISCOVERY ONLY
-\`\`\`
+~~~
 
 اكتشف Consensus سجل Michel--Venkatesh، ثم جرى التحقق من كل ادعاء حاكم من الورقة الأصلية. لا يُستشهد بملخص Consensus مصدرًا رياضيًا.
 
