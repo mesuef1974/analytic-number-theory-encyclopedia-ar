@@ -5,12 +5,14 @@
 ~~~text
 CHAPTER              = 21
 VERSION              = 0.25.0-dev
-REGISTRY             = AUTHORED-DRAFT
+REGISTRY             = REVIEWED-CANDIDATE
 RESULTS              = 10 AUTHORED-DRAFT / NON-CITABLE
 PRE-AUTHORING-GATE   = PASSED
 INDEPENDENT-REVIEW   = PASS
 PASS-FOR-AUTHORING   = YES
 AUTHORING            = COMPLETED
+POST-AUTHORING       = PASS / APPROVED
+READY-FOR-OWNER      = YES
 OWNER-ADOPTION       = NOT REQUESTED
 ~~~
 
@@ -34,4 +36,4 @@ OWNER-ADOPTION       = NOT REQUESTED
 - ANT-OPEN-21-01 لا يوضع في بيئة theorem.
 - لا تصبح أي حجوزات هنا نتائج قابلة للاستشهاد قبل التأليف والتدقيق والمراجعة واعتماد المالك.
 
-هذه المعرفات حجوزات حوكمة فقط.
+اجتاز المتن المراجعة المستقلة بعد التأليف، لكن المعرفات تبقى `NON-CITABLE` حتى اعتماد المالك الصريح.
