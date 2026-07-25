@@ -2,7 +2,7 @@
 
 التاريخ: 2026-07-25  
 تاريخ القطع الأدبي: 2026-07-25  
-الحالة: \`INITIALIZED / VERIFICATION OPEN / AUTHORING-BLOCKED\`
+الحالة: `INITIALIZED / VERIFICATION OPEN / AUTHORING-BLOCKED`
 
 ## 1. سؤال الفصل
 
@@ -23,10 +23,10 @@
 
 | المصدر | النتيجة ذات الصلة | وضع التحقق | الاستعمال المسموح |
 |---|---|---|---|
-| A. E. Ingham, *On the Difference Between Consecutive Primes*, QJM 8 (1937), 255–266, DOI: 10.1093/qmath/os-8.1.255 | مرحلة تاريخية في خفض طول الفترة | \`BIBLIOGRAPHY VERIFIED / THEOREM TEXT PENDING\` | لا تثبت الصيغة العددية في المتن قبل فحص النص |
-| M. N. Huxley, *On the Difference between Consecutive Primes*, Invent. Math. 15 (1971/72), 164–170, DOI: 10.1007/BF01418933 | الصيغة التقاربية الكلاسيكية عند \(h\ge x^{7/12+\varepsilon}\) | \`PRIMARY RECORD VERIFIED / STATEMENT CROSS-CHECKED\` | \`CITED\` بعد تثبيت صيغة المبرهنة وكمّياتها |
-| R. C. Baker, G. Harman, J. Pintz, *The Difference Between Consecutive Primes, II*, PLMS 83 (2001), 532–562, DOI: 10.1112/plms/83.3.532 | وجود/حد سفلي من الرتبة الصحيحة عند الأس \(0.525\) | \`PEER-REVIEWED RECORD VERIFIED / EXACT QUANTIFIERS PENDING\` | \`CITED\` فقط؛ لا توصف بصيغة Huxley التقاربية |
-| R. Li, *The number of primes in short intervals and numerical calculations for Harman's sieve*, arXiv:2308.04458 | يدعي وجود أوليات عند الأس \(0.52\) | \`PREPRINT / NOT PEER-REVIEWED AS OF CUTOFF\` | \`QUARANTINED-PREPRINT\`؛ لا يدخل النتائج المعتمدة |
+| A. E. Ingham, *On the Difference Between Consecutive Primes*, QJM 8 (1937), 255–266, DOI: 10.1093/qmath/os-8.1.255 | مرحلة تاريخية في خفض طول الفترة | `BIBLIOGRAPHY VERIFIED / THEOREM TEXT PENDING` | لا تثبت الصيغة العددية في المتن قبل فحص النص |
+| M. N. Huxley, *On the Difference between Consecutive Primes*, Invent. Math. 15 (1971/72), 164–170, DOI: 10.1007/BF01418933 | الصيغة التقاربية الكلاسيكية عند \(h\ge x^{7/12+\varepsilon}\) | `PRIMARY RECORD VERIFIED / STATEMENT CROSS-CHECKED` | `CITED` بعد تثبيت صيغة المبرهنة وكمّياتها |
+| R. C. Baker, G. Harman, J. Pintz, *The Difference Between Consecutive Primes, II*, PLMS 83 (2001), 532–562, DOI: 10.1112/plms/83.3.532 | وجود/حد سفلي من الرتبة الصحيحة عند الأس \(0.525\) | `PEER-REVIEWED RECORD VERIFIED / EXACT QUANTIFIERS PENDING` | `CITED` فقط؛ لا توصف بصيغة Huxley التقاربية |
+| R. Li, *The number of primes in short intervals and numerical calculations for Harman's sieve*, arXiv:2308.04458 | يدعي وجود أوليات عند الأس \(0.52\) | `PREPRINT / NOT PEER-REVIEWED AS OF CUTOFF` | `QUARANTINED-PREPRINT`؛ لا يدخل النتائج المعتمدة |
 
 روابط التحقق:
 
@@ -39,10 +39,10 @@
 
 | المرجع | الوظيفة | الحالة |
 |---|---|---|
-| Montgomery--Vaughan, *Multiplicative Number Theory II* | الصيغة الصريحة وكثافة الأصفار والفترات القصيرة | \`EXACT SECTION/PAGES PENDING\` |
-| Iwaniec--Kowalski, *Analytic Number Theory* | كثافة الأصفار وأدوات الغربال | \`EXACT SECTION/PAGES PENDING\` |
-| Harman, *Prime-Detecting Sieves* | المسار الغربالي وراء الحدود الأقصر | \`EXACT SECTION/PAGES PENDING\` |
-| Friedlander--Iwaniec, *Opera de Cribro*, Chapter 23 | كشف الأوليات في فترة قصيرة | \`SCOPE/PAGES PENDING\` |
+| Montgomery--Vaughan, *Multiplicative Number Theory II* | الصيغة الصريحة وكثافة الأصفار والفترات القصيرة | `EXACT SECTION/PAGES PENDING` |
+| Iwaniec--Kowalski, *Analytic Number Theory* | كثافة الأصفار وأدوات الغربال | `EXACT SECTION/PAGES PENDING` |
+| Harman, *Prime-Detecting Sieves* | المسار الغربالي وراء الحدود الأقصر | `EXACT SECTION/PAGES PENDING` |
+| Friedlander--Iwaniec, *Opera de Cribro*, Chapter 23 | كشف الأوليات في فترة قصيرة | `SCOPE/PAGES PENDING` |
 
 لا تكفي أسماء الكتب وحدها لوسم نتيجة بأنها موثقة؛ يلزم رقم مبرهنة أو صفحات وصيغة مطابقة.
 
@@ -76,7 +76,7 @@
 \[
 \psi(x+h)-\psi(x)=h+O(E(x+h)+E(x)).
 \]
-ومن ثم يلزم \(E(x)=o(h)\) للحصول على الصيغة التقاربية بهذه الطريقة المباشرة. هذا الاستنتاج مرشح \`PROVED-HERE\`.
+ومن ثم يلزم \(E(x)=o(h)\) للحصول على الصيغة التقاربية بهذه الطريقة المباشرة. هذا الاستنتاج مرشح `PROVED-HERE`.
 
 ### 5.3 القوى الأولية العليا
 
@@ -88,7 +88,7 @@
 2. نتيجة Huxley التقاربية أقوى نوعيًا من مجرد الوجود، رغم أن أسها أطول.
 3. نتيجة BHP الأقصر لا تنقل إلى صيغة \(\sim h\) بلا نص صريح من المصدر.
 4. نتائج «تقريبًا كل فترة» لا تجيب عن سؤال «كل \(x\)».
-5. لا تستعمل فرضية ريمان داخل نتيجة غير مشروطة؛ أي مسار شرطي يوسم \`CONDITIONAL / CITED\`.
+5. لا تستعمل فرضية ريمان داخل نتيجة غير مشروطة؛ أي مسار شرطي يوسم `CONDITIONAL / CITED`.
 
 ## 7. ما يزال مفتوحًا قبل التأليف
 
@@ -101,10 +101,10 @@
 
 ## الحكم الحالي
 
-\`\`\`text
+```text
 EVIDENCE-INTAKE       = PASS
 PRIMARY-SOURCE-AUDIT  = PARTIAL
 DEPENDENCY-AUDIT      = OPEN
 PASS-FOR-AUTHORING    = NO
 AUTHORING              = BLOCKED
-\`\`\`
+```
