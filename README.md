@@ -34,6 +34,7 @@
 - [تدقيق ما قبل تأليف الفصل الحادي والعشرين](docs/CHAPTER_21_PRE_AUTHORING_AUDIT_2026-07-25.md)
 - [المراجعة المستقلة لبوابة الفصل الحادي والعشرين](docs/CHAPTER_21_INDEPENDENT_PRE_AUTHORING_REVIEW_2026-07-25.md)
 - [تدقيق تأليف الفصل الحادي والعشرين](docs/CHAPTER_21_AUTHORING_AUDIT_2026-07-25.md)
+- [المراجعة المستقلة بعد تأليف الفصل الحادي والعشرين](docs/CHAPTER_21_INDEPENDENT_POST_AUTHORING_REVIEW_2026-07-25.md)
 - [سجل نتائج الفصل الحادي والعشرين](docs/RESULTS_REGISTRY_CHAPTER_21.md)
 
 ## الحالة الحالية
@@ -43,7 +44,7 @@ BASE-MAIN                  = dd92caa3dba416ffc0f718d6bc037d67ec50466f
 VERSION                    = 0.25.0-dev
 CHAPTERS-IN-MANUSCRIPT     = 1--20 ON MAIN
 CHAPTER-20                 = REVIEWED / OWNER-ADOPTED / CITABLE / MERGED
-CHAPTER-21                 = AUTHORED-DRAFT / NON-CITABLE
+CHAPTER-21                 = REVIEWED-CANDIDATE / NON-CITABLE
 BRANCH-21                  = agent/chapter-21-automorphic-l-subconvexity-langlands-v0.25.0
 ISSUE-40                   = OPEN
 PR-41                      = DRAFT / OPEN
@@ -51,6 +52,9 @@ PRE-AUTHORING-GATE-21      = PASSED
 PASS-FOR-AUTHORING-21      = YES
 AUTHORING-21               = COMPLETED
 RESULTS-21                 = 10 AUTHORED-DRAFT / NON-CITABLE
+POST-AUTHORING-21          = APPROVED / READY-FOR-OWNER
+QUALITY-21                 = #742 / PASS
+PDF-21                     = #648 / PASS / 286 PAGES / VISUAL PASS
 LITERATURE-CUTOFF-21       = 2026-07-25
 RELEASE-READY              = NO
 ```
@@ -63,7 +67,7 @@ RELEASE-READY              = NO
 
 الفصل الحادي والعشرون: **دوال (L) الآلية، حدود التحدب ودون التحدب، ومدخل منضبط إلى لانجلاندز**.
 
-فُتحت المرحلة `0.25.0-dev` من الرأس `dd92caa3dba416ffc0f718d6bc037d67ec50466f`، وأُنشئت حزمة ما قبل التأليف وسجلت عشرة معرفات `RESERVED / NON-CITABLE`. استُعمل Consensus للاكتشاف فقط، ثم تحققت بيانات Michel--Venkatesh من صفحة الناشر وDOI. جُمّدت التطبيعات والمصادر واجتازت الحزمة المراجعة المستقلة، ثم أُنشئ متن الفصل وملف مراجع وربطا بالمخطوط. المسودة الآن `AUTHORED-DRAFT / NON-CITABLE` وتنتظر البناء والفحص البصري والمراجعة اللاحقة.
+فُتحت المرحلة `0.25.0-dev` من الرأس `dd92caa3dba416ffc0f718d6bc037d67ec50466f`، وأُنشئت حزمة ما قبل التأليف وسجلت عشرة معرفات `RESERVED / NON-CITABLE`. استُعمل Consensus للاكتشاف فقط، ثم تحققت بيانات Michel--Venkatesh من صفحة الناشر وDOI. جُمّدت التطبيعات والمصادر واجتازت الحزمة المراجعة المستقلة، ثم أُنشئ متن الفصل وملف مراجع وربطا بالمخطوط. اجتاز المتن `Quality #742` وبناء `PDF #648` من 286 صفحة والفحص البصري والمراجعة المستقلة اللاحقة بحكم `APPROVED`. وهو الآن `REVIEWED-CANDIDATE / NON-CITABLE` بانتظار اعتماد المالك الصريح؛ PR #41 ما يزال مسودة والدمج غير مأذون.
 
 ## بناء PDF
 
