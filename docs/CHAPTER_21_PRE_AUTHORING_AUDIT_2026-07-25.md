@@ -3,15 +3,15 @@
 ## الحكم الحالي
 
 ~~~text
-PRE-AUTHORING-AUDIT  = SCIENTIFIC BLOCKERS CLOSED
+PRE-AUTHORING-AUDIT  = PASS
 SCOPE                = FIXED
 EVIDENCE-LEDGER      = SCIENTIFIC CORE FROZEN
 NORMALIZATION-TABLE  = SCIENTIFIC CORE FROZEN
 PROOF-MAP            = FROZEN FOR REVIEW
 CIRCULARITY-AUDIT    = PASS WITH CITED-INPUT GUARD
-INDEPENDENT-REVIEW   = PENDING
-PASS-FOR-AUTHORING   = NO
-AUTHORING            = BLOCKED
+INDEPENDENT-REVIEW   = PASS
+PASS-FOR-AUTHORING   = YES
+AUTHORING            = AUTHORIZED ON PR #41 BRANCH
 ~~~
 
 ## المنجز
@@ -32,19 +32,18 @@ AUTHORING            = BLOCKED
 - [x] تثبيت حد عرض لانجلاندز: تاريخي/مفاهيمي، بلا مبرهنة functoriality عامة.
 - [x] إصلاح ترميز جميع أوامر LaTeX في حزمة البوابة.
 
-## المتبقي المانع
+## إغلاق المراجعة المستقلة
 
-- [ ] مراجعة مستقلة للحزمة العلمية والتطبيعات وخريطة البرهان.
-- [ ] إصدار وثيقة حكم مستقلة بـ\`PASS-FOR-AUTHORING = YES\` أو \`CHANGES-REQUIRED\`.
+- [x] مراجعة الحزمة العلمية والتطبيعات وخريطة البرهان.
+- [x] مطابقة Jacquet--Langlands Theorem 11.1 وMichel--Venkatesh Theorem 1.1 و§3.1.8 مع النصوص الأصلية.
+- [x] إصدار الوثيقة `CHAPTER_21_INDEPENDENT_PRE_AUTHORING_REVIEW_2026-07-25.md` بحكم `PASS`.
 
 ## حارس القرار
 
-إغلاق العوائق العلمية بواسطة المؤلف لا يساوي مراجعة مستقلة. لذلك يبقى:
-
 ~~~text
-READY-FOR-INDEPENDENT-REVIEW = YES
-PASS-FOR-AUTHORING           = NO
-AUTHORING                    = BLOCKED
-RESULTS                      = 10 RESERVED / NON-CITABLE
-MERGE                        = NOT AUTHORIZED
+PRE-AUTHORING-GATE = PASSED
+PASS-FOR-AUTHORING = YES
+AUTHORING           = AUTHORIZED ON PR #41 BRANCH ONLY
+RESULTS             = 10 RESERVED / NON-CITABLE
+MERGE               = NOT AUTHORIZED
 ~~~
