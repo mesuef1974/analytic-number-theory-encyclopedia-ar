@@ -24,21 +24,24 @@
 - [إيصال البناء النهائي قبل اعتماد الفصل التاسع عشر](docs/CHAPTER_19_FINAL_PRE_OWNER_BUILD_RECEIPT_2026-07-25.md)
 - [إيصال اعتماد المالك للفصل التاسع عشر](docs/CHAPTER_19_OWNER_ADOPTION_2026-07-25.md)
 - [سجل نتائج الفصل التاسع عشر](docs/RESULTS_REGISTRY_CHAPTER_19.md)
+- [حكم المراجعة المستقلة لبوابة الفصل العشرين](docs/CHAPTER_20_INDEPENDENT_REVIEW_VERDICT_2026-07-25.md)
+- [تدقيق تأليف الفصل العشرين](docs/CHAPTER_20_AUTHORING_AUDIT_2026-07-25.md)
+- [سجل نتائج الفصل العشرين](docs/RESULTS_REGISTRY_CHAPTER_20.md)
 
 ## الحالة الحالية
 
 ```text
 BASE-MAIN                  = de0341a105bbf14d56ec4f7f256b9763f8087b30
 VERSION                    = 0.24.0-dev
-CHAPTERS-IN-MANUSCRIPT     = 1--19 ON MAIN
-CHAPTER-20                 = PRE-AUTHORING / NON-CITABLE
+CHAPTERS-IN-MANUSCRIPT     = 1--19 ON MAIN / 20 ON DRAFT BRANCH
+CHAPTER-20                 = AUTHORED-DRAFT / NON-CITABLE
 BRANCH-20                  = agent/chapter-20-modular-maass-trace-formulas-v0.24.0
 ISSUE-38                   = OPEN
 PR-39                      = DRAFT / OPEN / UNMERGED
-PRE-AUTHORING-GATE-20      = OPEN
-PASS-FOR-AUTHORING-20      = NO
-AUTHORING-20               = BLOCKED
-RESULTS-20                 = RESERVED / NON-CITABLE
+PRE-AUTHORING-GATE-20      = CLOSED / PASS
+PASS-FOR-AUTHORING-20      = YES
+AUTHORING-20               = AUTHORED-DRAFT
+RESULTS-20                 = AUTHORED-DRAFT / NON-CITABLE
 CHAPTER-18                 = REVIEWED / OWNER-ADOPTED / MERGED
 PR-35                      = MERGED
 ISSUE-34                   = CLOSED
@@ -68,7 +71,7 @@ RELEASE-READY              = NO
 
 الفصل العشرون: **الأشكال المعيارية وأشكال مااس ومدخل إلى صيغ التتبع**.
 
-افتُتحت المرحلة `0.24.0-dev` بمنهج `EVIDENCE-FIRST / PRE-AUTHORING`. تشمل المرحلة الحالية تثبيت التطبيعات والمصادر الأصلية وخريطة الاعتمادات وتدقيق عدم الدور. لا يوجد متن للفصل العشرين بعد، وتبقى النتائج المحجوزة `NON-CITABLE` حتى المراجعة المستقلة وصدور `PASS-FOR-AUTHORING = YES`.
+اجتازت حزمة ما قبل التأليف مراجعة مستقلة بحكم `APPROVED` وصفر عوائق، وصدر `PASS-FOR-AUTHORING = YES`. أُنشئ متن الفصل وربط بالمخطوط ضمن النطاق المجمد، وتبقى جميع النتائج `NON-CITABLE` حتى البناء والتدقيق والمراجعة المستقلة اللاحقة واعتماد المالك.
 
 ## بناء PDF
 
