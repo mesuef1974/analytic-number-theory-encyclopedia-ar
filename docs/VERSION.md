@@ -15,16 +15,16 @@ VERSION                = 0.24.0-dev
 CHAPTER                = 20
 TOPIC                  = MODULAR FORMS / MAASS FORMS / TRACE FORMULAS
 ISSUE                  = #38 / OPEN
-PR                     = #39 / DRAFT / OPEN / UNMERGED
-STATUS                 = AUTHORED-DRAFT / NON-CITABLE
+PR                     = #39 / READY / OPEN / MERGE AUTHORIZED
+STATUS                 = REVIEWED / OWNER-ADOPTED / CITABLE
 PRE-AUTHORING-GATE     = CLOSED / PASS
 PASS-FOR-AUTHORING     = YES
-AUTHORING              = AUTHORED-DRAFT
-RESULTS                = AUTHORED-DRAFT / NON-CITABLE
-INDEPENDENT-REVIEW     = PRE-AUTHORING APPROVED / POST-AUTHORING PENDING
-OWNER-ADOPTION         = NOT REQUESTED
-MERGE                  = NOT AUTHORIZED
+AUTHORING              = COMPLETED
+RESULTS                = 15 ACTIVE / CITABLE
+INDEPENDENT-REVIEW     = PRE-AUTHORING APPROVED / POST-AUTHORING APPROVED / NOTES RESOLVED
+OWNER-ADOPTION         = APPROVED
+MERGE                  = AUTHORIZED / PENDING EXECUTION
 RELEASE-READY          = NO
 ```
 
-اجتازت بوابة ما قبل التأليف مراجعة مستقلة، وصدر `PASS-FOR-AUTHORING = YES`، وأُنشئ متن الفصل وربط بالمخطوط. تبقى النتائج `NON-CITABLE` والدمج غير مأذون حتى البناء والتدقيق والمراجعة اللاحقة واعتماد المالك.
+اجتازت الحزمة المراجعة المستقلة قبل التأليف وبعده، وأُغلقت ملاحظات الاكتمال، ونجح البناء النهائي من 274 صفحة. اعتمد المالك الفصل صراحةً، وفُعّلت نتائجه الخمس عشرة، وأُذن بدمج PR #39 مع بقاء `RELEASE-READY = NO`.
