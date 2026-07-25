@@ -2,35 +2,35 @@
 
 ## الحالة العامة
 
-- **الإصدار التطويري الحالي:** `0.24.0-dev`
-- **المرحلة الحالية:** الفصل العشرون — الأشكال المعيارية وأشكال مااس ومدخل إلى صيغ التتبع.
-- **حالة الفصل:** `REVIEWED / OWNER-ADOPTED / CITABLE`
-- **رأس البداية من `main`:** `de0341a105bbf14d56ec4f7f256b9763f8087b30`
-- **الفرع:** `MERGED INTO MAIN`
-- **Issue:** `#38 / CLOSED`
-- **PR:** `#39 / MERGED`
-- **بوابة ما قبل التأليف:** `CLOSED / PASS`
-- **إذن التأليف:** `PASS-FOR-AUTHORING = YES`
-- **النتائج:** `15 ACTIVE / CITABLE`
+- **الإصدار التطويري الحالي:** `0.25.0-dev`
+- **المرحلة الحالية:** الفصل الحادي والعشرون — دوال (L) الآلية، دون التحدب، ومدخل إلى لانجلاندز.
+- **حالة الفصل:** `PRE-AUTHORING / AUTHORING-BLOCKED`
+- **رأس البداية من `main`:** `dd92caa3dba416ffc0f718d6bc037d67ec50466f`
+- **الفرع:** `agent/chapter-21-automorphic-l-subconvexity-langlands-v0.25.0`
+- **Issue:** `#40 / OPEN`
+- **PR:** `PENDING CREATION`
+- **بوابة ما قبل التأليف:** `OPEN`
+- **إذن التأليف:** `PASS-FOR-AUTHORING = NO`
+- **النتائج:** `10 RESERVED / NON-CITABLE`
 - **الموسوعة:** `NOT-RELEASE-READY`
 - **آخر تحديث:** 2026-07-25
 
 ```text
 CHAPTERS-1--20       = REVIEWED / MERGED
-MAIN-START-HEAD      = de0341a105bbf14d56ec4f7f256b9763f8087b30
-VERSION              = 0.24.0-dev
-CHAPTER              = 20
-TOPIC                = MODULAR FORMS / MAASS FORMS / TRACE FORMULAS
-ISSUE                = #38 / CLOSED
-PR                   = #39 / MERGED
-PRE-AUTHORING-GATE   = CLOSED / PASS
-PASS-FOR-AUTHORING   = YES
-AUTHORING            = COMPLETED
-RESULTS              = 15 ACTIVE / CITABLE
-INDEPENDENT-REVIEW   = PRE-AUTHORING APPROVED / POST-AUTHORING APPROVED / NOTES RESOLVED
-OWNER-ADOPTION       = APPROVED
+MAIN-START-HEAD      = dd92caa3dba416ffc0f718d6bc037d67ec50466f
+VERSION              = 0.25.0-dev
+CHAPTER              = 21
+TOPIC                = AUTOMORPHIC L-FUNCTIONS / SUBCONVEXITY / LANGLANDS ENTRY
+ISSUE                = #40 / OPEN
+PR                   = PENDING CREATION
+PRE-AUTHORING-GATE   = OPEN
+PASS-FOR-AUTHORING   = NO
+AUTHORING            = BLOCKED
+RESULTS              = 10 RESERVED / NON-CITABLE
+INDEPENDENT-REVIEW   = PENDING
+OWNER-ADOPTION       = NOT REQUESTED
 LITERATURE-CUTOFF    = 2026-07-25
-MERGE                = COMPLETED / c84202af5ae1b0a786016150282c7369fba66b54
+MERGE                = NOT AUTHORIZED
 RELEASE-READY        = NO
 ```
 
@@ -42,6 +42,7 @@ RELEASE-READY        = NO
 | الفصل 18 | `REVIEWED / OWNER-ADOPTED / MERGED` |
 | الفصل 19 | `REVIEWED / OWNER-ADOPTED / CITABLE / MERGED` |
 | الفصل 20 | `REVIEWED / OWNER-ADOPTED / 15 ACTIVE / CITABLE / MERGED` |
+| الفصل 21 | `PRE-AUTHORING / 10 RESERVED / NON-CITABLE / AUTHORING-BLOCKED` |
 | البناء النهائي للفصل 20 | `QUALITY-700 / PDF-614 / 274 PAGES / VISUAL PASS` |
 | آخر PDF معتمد | `RUN-531 / PASS / 249 PAGES` للفصل 18 |
 | البناء النهائي قبل اعتماد الفصل 19 | `QUALITY-643 / PDF-564 / 261 PAGES / VISUAL PASS` |
@@ -64,4 +65,4 @@ RELEASE-READY        = NO
 
 ## الخطوة التالية
 
-الفصل العشرون معتمد وموجود على `main`. المرحلة التالية تحدد نطاق الفصل الحادي والعشرين بعد مراجعة خارطة الطريق، مع بقاء `RELEASE-READY = NO`.
+إغلاق المواضع الدقيقة للتطبيعات ومبرهنة Michel--Venkatesh، ثم إجراء مراجعة مستقلة لبوابة الفصل 21. لا يبدأ المتن قبل `PASS-FOR-AUTHORING = YES`، ويبقى `RELEASE-READY = NO`.
