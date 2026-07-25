@@ -49,7 +49,7 @@ GENERAL LEVEL  = CONTEXT ONLY UNTIL NORMALIZATIONS ARE MATCHED
 | الرمز | المصدر | الدور | الحالة |
 |---|---|---|---|
 | E20-01 | Diamond--Shurman, *A First Course in Modular Forms* | Ch. 5؛ §5.4، ص 181--183 لبيترسون؛ §5.5 للمرافق؛ §5.8 للأشكال الذاتية | `SECONDARY / LOCATED` |
-| E20-02 | Miyake, *Modular Forms* | Ch. 4، ص 96--194 للزمر المعيارية والأشكال | `SECONDARY / CHAPTER-LOCATED / SECTION-PENDING` |
+| E20-02 | Miyake, *Modular Forms* | Ch. 4، ص 96--194؛ §4.5 Hecke algebras، ص 131؛ §4.6 primitive forms، ص 153 | `SECONDARY / LOCATED` |
 | E20-03 | Iwaniec, *Spectral Methods of Automorphic Forms*, 2nd ed. | Chs. 1--3؛ Chs. 4 و7؛ Ch. 9، ص 121--134؛ Ch. 10، ص 135--156 | `SECONDARY / LOCATED` |
 | E20-04 | Iwaniec--Kowalski, *Analytic Number Theory* | Ch. 14، ص 353--382؛ Ch. 15، ص 383--402؛ §16.4، ص 406--412؛ §11.7، ص 287 | `SECONDARY / LOCATED` |
 | E20-08 | أعمال Selberg الأصلية/المجمعة | الأصل التاريخي لصيغة Selberg | `PRIMARY / BIBLIOGRAPHY-PENDING` |
@@ -79,11 +79,10 @@ GENERAL LEVEL  = CONTEXT ONLY UNTIL NORMALIZATIONS ARE MATCHED
 
 ## العوائق المفتوحة
 
-1. تضييق موضع Miyake من الفصل 4 إلى أرقام الأقسام والنتائج المستعملة فقط.
-2. مطابقة حدًا بحد لصيغة Petersson مستوى \(1\) بين Knightly--Li وIwaniec--Kowalski/مرجع ثانٍ.
-3. مطابقة صيغة Kuznetsov كاملة بين الأصل وIwaniec--Kowalski §16.4 وIwaniec Ch. 9، بما فيها الطيف المستمر والتحويلات.
-4. تثبيت زوج تحويل Selberg وعوامل \(2\pi\).
-5. التحقق الببليوغرافي من نص Selberg الأصلي.
-6. مراجعة مستقلة للحزمة قبل التجميد.
+1. مطابقة حدًا بحد لصيغة Petersson مستوى \(1\) بين Knightly--Li وIwaniec--Kowalski/مرجع ثانٍ.
+2. مطابقة صيغة Kuznetsov كاملة بين الأصل وIwaniec--Kowalski §16.4 وIwaniec Ch. 9، بما فيها الطيف المستمر والتحويلات.
+3. تثبيت زوج تحويل Selberg وعوامل \(2\pi\).
+4. التحقق الببليوغرافي من نص Selberg الأصلي.
+5. مراجعة مستقلة للحزمة قبل التجميد.
 
 حتى إغلاق هذه البنود يبقى `PASS-FOR-AUTHORING = NO`.
