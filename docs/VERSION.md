@@ -15,14 +15,16 @@ VERSION                = 0.22.0-dev
 CHAPTER                = 18
 TOPIC                  = EXPONENTIAL SUMS / VAN DER CORPUT
 ISSUE                  = #34 / OPEN
-PR                     = NOT YET OPENED
-PRE-AUTHORING-GATE     = OPEN
-PASS-FOR-AUTHORING     = NO
-AUTHORING              = BLOCKED
-RESULTS                = 0 / DRAFT-NON-CITABLE
-REFERENCE-AUDIT        = PENDING
-MATHEMATICAL-AUDIT     = PENDING
-PDF-BUILD              = NOT APPLICABLE
+PR                     = #35 / DRAFT / OPEN / UNMERGED
+PRE-AUTHORING-GATE     = CLOSED
+PASS-FOR-AUTHORING     = YES
+AUTHORING              = BATCH-03 COMPLETE-AS-DRAFT
+RESULTS                = 8 / AUTHORED-DRAFT / NON-CITABLE
+POST-AUTHORING-FIXES   = 3 / 3 APPLIED
+REFERENCE-AUDIT        = CORRECTED / REBUILD PENDING
+MATHEMATICAL-AUDIT     = CORRECTED / INDEPENDENT REVIEW PENDING
+PDF-BUILD              = PRE-CORRECTION PASS / 249 PAGES
+PDF-REBUILD            = PENDING
 MERGE                  = NOT AUTHORIZED
 RELEASE-READY          = NO
 ```
@@ -35,7 +37,7 @@ RELEASE-READY          = NO
 4. فرق فان دير كوربوت واختبارات المشتقات في نطاق مضبوط.
 5. عمليتا `A` و`B` والأزواج الأسية مع تصنيف دقيق للمثبت والمقتبس.
 6. تطبيقات تمهيدية للأقواس الصغرى تخدم الفصل السابع عشر بلا اعتماد دائري.
-7. منع إنشاء متن الفصل قبل إغلاق بوابة ما قبل التأليف.
+7. إبقاء الفصل غير قابل للاستشهاد حتى إعادة البناء والمراجعة المستقلة.
 
 ## المرحلة السابقة
 

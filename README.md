@@ -2,7 +2,7 @@
 
 **العنوان الكامل:** الموسوعة الشاملة في نظرية الأعداد التحليلية: من الأسس إلى الجبهات البحثية الحديثة
 
-**الإصدار التطويري الحالي:** `v0.21.0-dev`
+**الإصدار التطويري الحالي:** `v0.22.0-dev`
 
 مشروع موسوعة عربية بحثية متقدمة في نظرية الأعداد التحليلية، من الأسس إلى طرق الغربال والطريقة الدائرية والمجاميع الأسية والجبهات الحديثة.
 
@@ -17,24 +17,25 @@
 - [سجل النتائج](docs/RESULTS_REGISTRY.md)
 - [سجل نتائج الفصل السادس عشر](docs/RESULTS_REGISTRY_CHAPTER_16.md)
 - [سجل نتائج الفصل السابع عشر](docs/RESULTS_REGISTRY_CHAPTER_17.md)
+- [سجل نتائج الفصل الثامن عشر](docs/RESULTS_REGISTRY_CHAPTER_18.md)
 
 ## الحالة الحالية
 
 ```text
-BASE-MAIN                  = 0bd442bc48490115bed48b18ed32783ad5bd1c9c
-VERSION                    = 0.21.0-dev
-CHAPTERS-IN-MANUSCRIPT     = 1--17 ON WORK BRANCH
-CHAPTER-16                 = REVIEWED / OWNER-ADOPTED / MERGED
-PR-31                      = MERGED
-CHAPTER-17                 = AUTHORED-DRAFT / BATCH-02
-BRANCH-17                  = agent/chapter-17-circle-method-goldbach-waring-v0.21.0
-ISSUE-32                   = OPEN
-PR-33                      = DRAFT / OPEN / UNMERGED
-PRE-AUTHORING-GATE-17      = CLOSED
-PASS-FOR-AUTHORING-17      = YES
-REFERENCE-AUDIT-17         = INITIAL PASS
-MATHEMATICAL-AUDIT-17      = INITIAL PASS WITH OPEN ITEMS
-PDF-BUILD-17               = NOT YET RUN
+BASE-MAIN                  = 95209028f7e9f10dd8b47baef4bd4194df40a5a0
+VERSION                    = 0.22.0-dev
+CHAPTERS-IN-MANUSCRIPT     = 1--18 ON WORK BRANCH
+CHAPTER-17                 = REVIEWED / OWNER-ADOPTED / MERGED
+PR-33                      = MERGED
+CHAPTER-18                 = AUTHORED-DRAFT / NON-CITABLE
+BRANCH-18                  = agent/chapter-18-exponential-sums-van-der-corput-v0.22.0
+ISSUE-34                   = OPEN
+PR-35                      = DRAFT / OPEN / UNMERGED
+PRE-AUTHORING-GATE-18      = CLOSED
+PASS-FOR-AUTHORING-18      = YES
+POST-AUTHORING-CORRECTIONS = 3 / 3 APPLIED
+PDF-REBUILD-18             = PENDING
+INDEPENDENT-REVIEW-18      = PENDING
 RELEASE-READY              = NO
 ```
 
@@ -50,29 +51,28 @@ RELEASE-READY              = NO
 
 ## المرحلة الجارية
 
-الفصل السابع عشر: **الطريقة الدائرية ومدخل إلى غولدباخ ووارينغ**.
+الفصل الثامن عشر: **المجاميع الأسية وطريقة فان دير كوربوت**.
 
-أُنجزت دفعتا التأليف الأولى والثانية، وتشملان:
+أُنجزت دفعات التأليف الثلاث، وتشمل:
 
-- تعامد الدوال الأسية وهوية عد التمثيلات.
-- الأقواس الكبرى والصغرى.
-- المجموع المحلي والتقريب الأرخميدي.
-- السلسلة المفردة والتكامل المفرد.
-- الصيغة الكلاسيكية في وارينغ بوصفها `CITED / EXPLAINED`.
-- مبرهنتي فينوغرادوف وهلفغوت بوصفهما `CITED`.
-- غولدباخ الثنائية بوصفها `HYPOTHESIS / OPEN`.
+- الحد التافه والجمع الجزئي وفرق فان دير كوربوت.
+- اختبار المشتقة الأولى ببرهان داخلي.
+- اختبار المشتقة الثانية بوصفه `CITED / EXPLAINED`.
+- نسخة محدودة مثبتة من عملية `A`.
+- تعريف الأزواج الأسية وعملية `B` مع مراجع فعلية.
+- إغلاق تصحيحات التدقيق الثلاثة بعد دفعة التأليف الثالثة.
 
-لا يزال بناء PDF والتدقيق الرياضي والمرجعي النهائي والمراجعة المستقلة مطلوبًا قبل أي ترقية.
+لا تزال إعادة بناء PDF والتدقيق النهائي والمراجعة المستقلة مطلوبة قبل أي ترقية.
 
 ## بناء PDF
 
-آخر بناء كامل معتمد يخص الفصل السادس عشر:
+آخر بناء كامل على فرع الفصل الثامن عشر قبل تصحيحات ما بعد التأليف:
 
 ```text
 XeLaTeX -> Biber -> XeLaTeX -> XeLaTeX
-PDF = 227 pages
+PDF = 249 pages
 UNDEFINED CITATIONS = 0
 UNDEFINED REFERENCES = 0
 ```
 
-لا تعني المراجعة أو الدمج أن الموسوعة `RELEASE-READY`.
+تستلزم التصحيحات الحالية إعادة بناء جديدة. لا تعني المراجعة أو الدمج أن الموسوعة `RELEASE-READY`.

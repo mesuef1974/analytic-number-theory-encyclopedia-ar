@@ -12,7 +12,8 @@ PRE-AUTHORING-GATE  = CLOSED
 PASS-FOR-AUTHORING  = YES
 AUTHORING           = BATCH-03 COMPLETE-AS-DRAFT
 MANUSCRIPT-LINK     = YES / WORK BRANCH ONLY
-PDF-BUILD           = BATCH-03 PENDING
+PDF-BUILD           = BATCH-03 PASS / 249 PAGES
+POST-AUTHORING-AUDIT = CORRECTIONS APPLIED / REBUILD PENDING
 ```
 
 | المعرّف | العنوان | التصنيف المجمد | الحالة |
@@ -31,6 +32,8 @@ PDF-BUILD           = BATCH-03 PENDING
 - تبقى جميع المعرفات `NON-CITABLE` أثناء التأليف.
 - لا يتحول أي معرّف إلى `ACTIVE` قبل اكتمال البناء والتدقيق الرياضي والمرجعي والمراجعة المستقلة.
 - كتب برهان `ANT-THM-18-01` باستعمال فروق الطور ولمّة كوسمين--لانداو المنفصلة.
+- شُددت فرضية لمّة كوسمين--لانداو لتشمل كل عدد حقيقي بين طرفي متتالية الفروق، فلا تسمح بقفزة منفصلة فوق عدد صحيح.
 - كتب الجزء المحدود من `ANT-PROP-18-01` مباشرة من متباينة فرق فان دير كوربوت؛ أما تحويل الأزواج العام بعملية `A` فبقي `CITED`.
+- صُحح تطبيع تعريف الزوج الأسي إلى `F^kappa N^lambda + F^(-1)`، وأضيف مرجع Graham--Kolesnik الفعلي لتعريف الزوج وعملية `B`.
 - يبقى `ANT-THM-18-02` و`ANT-PROP-18-02` بحالة `CITED / EXPLAINED`، ولا تنسب تفاصيل برهانهما إلى الفصل.
 - لا يغير الفصل 18 تصنيفات نتائج الفصل 17 تلقائيًا.

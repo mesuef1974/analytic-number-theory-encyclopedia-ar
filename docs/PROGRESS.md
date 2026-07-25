@@ -4,14 +4,14 @@
 
 - **الإصدار التطويري الحالي:** `0.22.0-dev`
 - **المرحلة الحالية:** الفصل الثامن عشر — المجاميع الأسية وطريقة فان دير كوربوت.
-- **حالة الفصل الثامن عشر:** `PRE-AUTHORING-GATE-OPEN / AUTHORING-BLOCKED`
+- **حالة الفصل الثامن عشر:** `AUTHORED-DRAFT / POST-AUTHORING-CORRECTIONS-APPLIED`
 - **رأس الأساس من main:** `95209028f7e9f10dd8b47baef4bd4194df40a5a0`
 - **فرع العمل:** `agent/chapter-18-exponential-sums-van-der-corput-v0.22.0`
 - **Issue:** `#34 / OPEN`
 - **PR:** `#35 / DRAFT / OPEN / UNMERGED`
-- **بوابة ما قبل التأليف:** `OPEN`
-- **إذن التأليف:** `PASS-FOR-AUTHORING = NO`
-- **نتائج الفصل:** `0 / DRAFT-NON-CITABLE`
+- **بوابة ما قبل التأليف:** `CLOSED`
+- **إذن التأليف:** `PASS-FOR-AUTHORING = YES`
+- **نتائج الفصل:** `8 / AUTHORED-DRAFT / NON-CITABLE`
 - **الموسوعة:** `NOT-RELEASE-READY`
 - **آخر تحديث:** 2026-07-25
 
@@ -20,17 +20,20 @@ CHAPTER-17                  = REVIEWED / OWNER-ADOPTED / MERGED
 PR-33                       = MERGED
 MERGE-COMMIT-17             = 95209028f7e9f10dd8b47baef4bd4194df40a5a0
 PDF-BUILD-17                = PASS / 237 PAGES
-CHAPTER-18                  = PRE-AUTHORING-GATE-OPEN
+CHAPTER-18                  = AUTHORED-DRAFT / NON-CITABLE
 VERSION                     = 0.22.0-dev
 BRANCH                      = agent/chapter-18-exponential-sums-van-der-corput-v0.22.0
 ISSUE                       = #34 / OPEN
 PR                          = #35 / DRAFT / OPEN / UNMERGED
-PRE-AUTHORING-GATE          = OPEN
-PASS-FOR-AUTHORING          = NO
-AUTHORING                   = BLOCKED
-RESULTS                     = 0 / DRAFT-NON-CITABLE
-REFERENCE-AUDIT             = PENDING
-MATHEMATICAL-AUDIT          = PENDING
+PRE-AUTHORING-GATE          = CLOSED
+PASS-FOR-AUTHORING          = YES
+AUTHORING                   = BATCH-03 COMPLETE-AS-DRAFT
+RESULTS                     = 8 / AUTHORED-DRAFT
+POST-AUTHORING-FIXES        = 3 / 3 APPLIED
+REFERENCE-AUDIT             = CORRECTED / REBUILD PENDING
+MATHEMATICAL-AUDIT          = CORRECTED / INDEPENDENT REVIEW PENDING
+PDF-BUILD                   = PRE-CORRECTION PASS / 249 PAGES
+PDF-REBUILD                 = PENDING
 MERGE                       = NOT AUTHORIZED
 RELEASE-READY               = NO
 ```
@@ -41,8 +44,8 @@ RELEASE-READY               = NO
 |---|---|
 | الفصول 5--17 | `REVIEWED` بدرجات الحوكمة المسجلة |
 | الفصل 17 | `REVIEWED / OWNER-ADOPTED / MERGED` |
-| الفصل 18 | `PRE-AUTHORING-GATE-OPEN / AUTHORING-BLOCKED` |
-| بناء PDF الأخير | `PASS / 237 PAGES` للفصل 17 قبل بدء الفصل 18 |
+| الفصل 18 | `AUTHORED-DRAFT / NON-CITABLE` |
+| بناء PDF الأخير | `PASS / 249 PAGES` قبل تصحيحات ما بعد التأليف |
 
 ## ما أُنجز في الفصل السابع عشر
 
@@ -62,13 +65,15 @@ RELEASE-READY               = NO
 - رفع الإصدار إلى `0.22.0-dev`.
 - إنشاء بوابة ما قبل التأليف.
 - تثبيت النطاق المرشح: المجاميع الأسية، فرق فان دير كوربوت، اختبارات المشتقة، عمليتا `A` و`B`، والأزواج الأسية.
-- إبقاء التأليف محظورًا حتى اكتمال الأدلة وخريطة البرهان والمراجعة المستقلة.
+- إغلاق بوابة ما قبل التأليف وإصدار `PASS-FOR-AUTHORING = YES`.
+- إتمام دفعات التأليف الثلاث وربط النتائج الثماني بالمخطوط.
+- بناء PDF كامل من 249 صفحة قبل تدقيق ما بعد التأليف.
+- تطبيق التصحيحات الثلاثة: فرضية كوسمين--لانداو، وتطبيع الزوج الأسي، والإحالات المرجعية الفعلية.
 
-## البنود المفتوحة قبل التأليف
+## البنود المفتوحة بعد التصحيحات
 
-1. إنشاء سجل الأدلة وخريطة البرهان.
-2. تثبيت المصادر الأصلية والصياغات الدقيقة للنتائج.
-3. تدقيق عدم الدور مع الفصل 17.
-4. حسم نطاق عمليتي `A` و`B` والأزواج الأسية.
-5. مراجعة مستقلة وإصدار `PASS-FOR-AUTHORING` صريح.
-6. لا إنشاء لمتن الفصل ولا دمج دون إغلاق البوابة وقرار المالك.
+1. إعادة بناء PDF كاملًا بعد التصحيحات.
+2. التحقق من صفر مراجع وإحالات غير معرّفة.
+3. الفحص البصري للصفحات المصححة.
+4. المراجعة المستقلة لما بعد التأليف.
+5. لا ترقية أو دمج دون قرار صريح من المالك.
