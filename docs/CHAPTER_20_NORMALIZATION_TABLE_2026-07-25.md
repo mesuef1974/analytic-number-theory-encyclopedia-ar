@@ -7,6 +7,7 @@ CHAPTER              = 20
 VERSION              = 0.24.0-dev
 TABLE                = DRAFT / NOT FROZEN
 PRIMARY-SCOPE        = LEVEL 1 / TRIVIAL CHARACTER
+PETERSSON-LEVEL-1    = CROSS-CHECK PASS
 AUTHORING            = BLOCKED
 RESULTS              = RESERVED / NON-CITABLE
 ```
@@ -32,9 +33,21 @@ RESULTS              = RESERVED / NON-CITABLE
 | حاصل بيترسون | \(\langle f,g\rangle=\int_{\Gamma\backslash\mathbb H}f(z)\overline{g(z)}y^k\,d\mu(z)\) عند المستوى 1 | Knightly--Li (3) يقسم على \(\psi(N)\)؛ لا فرق عند \(N=1\) | `SOURCE-MATCHED / LEVEL-1` |
 | توسع مااس | \(u_j(z)=\sqrt y\sum_{n\ne0}\rho_j(n)K_{it_j}(2\pi|n|y)e(nx)\) | يقارن مع Kuznetsov (2.10) قبل نقل أي ثابت | `DRAFT` |
 | مجموع Kloosterman | \(S(m,n;c)=\sum_{d\bmod c}^{*}e((md+n\bar d)/c)\) | Kuznetsov (2.13) | `SOURCE-MATCHED` |
-| نواة Petersson | \(J_{k-1}(4\pi\sqrt{mn}/c)\) | Knightly--Li Cor. 3.12 | `SOURCE-MATCHED` |
+| نواة Petersson | \(J_{k-1}(4\pi\sqrt{mn}/c)\) | Knightly--Li Cor. 3.12؛ Iwaniec--Kowalski Prop. 14.5 | `CROSS-CHECK PASS / LEVEL-1` |
 | تحويلات Kuznetsov | تحفظ بصيغة المصدر ولا تختزل إلى رمز واحد قبل تعريف تحويل \(J/K\) وشروط دالة الاختبار | Kuznetsov (2.14)--(2.23) | `OPEN` |
 | زوج Selberg التحويلي | يثبت اتجاه تحويل فورييه وعامل \(2\pi\) داخل نص الفصل قبل التصريح بالصيغة | Hejhal I، الفصل الأول، ص 1--38 | `OPEN` |
+
+## مطابقة Petersson عند المستوى 1
+
+تطابق Knightly--Li Corollary 3.12 مع Iwaniec--Kowalski Proposition 14.5 بعد وضع \(N=1\):
+
+- \(\psi(1)=1\).
+- \(\Gamma(k-1)=(k-2)!\).
+- \(i^{-k}=1/i^k\).
+- الحجة البسليّة والعامل \(2\pi\) والحد القطري متطابقة.
+- تبديل معاملي Kloosterman يعالج بتغيير المتغير \(d\leftrightarrow \bar d\) في الحالة الكلاسيكية.
+
+الحكم: `PETERSSON-LEVEL-1 = CROSS-CHECK PASS`.
 
 ## حواجز النقل بين المراجع
 
@@ -47,7 +60,7 @@ RESULTS              = RESERVED / NON-CITABLE
 
 ## شروط التجميد
 
-- مطابقة صيغة Petersson مستوى \(1\) حدًا بحد مع مرجع قياسي ثانٍ.
+- [x] مطابقة صيغة Petersson مستوى \(1\) حدًا بحد مع مرجع قياسي ثانٍ.
 - مطابقة طرفي Kuznetsov: الطيف المنفصل والمستمر والقطري وطرف Kloosterman.
 - تثبيت اتجاه تحويل Selberg وعوامل \(2\pi\).
 - مراجعة مستقلة للجدول.
