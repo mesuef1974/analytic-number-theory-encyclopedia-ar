@@ -2,13 +2,13 @@
 
 ## الحالة
 
-\`\`\`text
+~~~text
 NORMALIZATION-TABLE = SCIENTIFIC CORE FROZEN
 PRIMARY-CORE        = GL(2) OVER Q
 CENTRAL-LINE        = Re(s) = 1/2
 CROSS-CHECK         = PRIMARY SOURCES COMPLETE
 INDEPENDENT-REVIEW  = PENDING
-\`\`\`
+~~~
 
 نضع
 \[
