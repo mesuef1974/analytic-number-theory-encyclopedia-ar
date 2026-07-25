@@ -117,7 +117,7 @@ RELEASE-READY  = NO
 
 ### الفصل 19 — الأوليات في الفترات القصيرة
 
-الحالة: `REVIEWED / OWNER-ADOPTED / CITABLE / MERGE-AUTHORIZED`.
+الحالة: `REVIEWED / OWNER-ADOPTED / CITABLE / MERGED`.
 
 - [x] فتح الإصدار `0.23.0-dev` من رأس `main` المعتمد `2ec3f8fcb5eb365ca582af32771a7790bcded4b5`.
 - [x] إنشاء الفرع `agent/chapter-19-primes-short-intervals-v0.23.0`.
@@ -133,7 +133,7 @@ RELEASE-READY  = NO
 - [x] بناء PDF من 261 صفحة والتدقيق الرياضي والمرجعي والمراجعة المستقلة.
 - [x] إغلاق ملاحظتي الطباعة ونجاح البناء التأكيدي `Quality #643` و`PDF #564`.
 - [x] اعتماد المالك بحالة `REVIEWED / CITABLE` بأمر صريح.
-- [ ] دمج PR #37 والتحقق من `main`.
+- [x] دمج PR #37 في `main` عند `8fa2aa7f5972776580983074309fa90e07b53364`.
 
 ## المرحلة 5 — التحليل الطيفي والآلي
 

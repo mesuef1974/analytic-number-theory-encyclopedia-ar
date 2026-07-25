@@ -8,7 +8,7 @@
 - **رأس البداية من `main`:** `2ec3f8fcb5eb365ca582af32771a7790bcded4b5`
 - **الفرع:** `agent/chapter-19-primes-short-intervals-v0.23.0`
 - **Issue:** `#36 / OPEN`
-- **PR:** `#37 / READY-AUTHORIZED / OPEN / UNMERGED`
+- **PR:** `#37 / MERGED`
 - **بوابة ما قبل التأليف:** `CLOSED / PASS`
 - **إذن التأليف:** `PASS-FOR-AUTHORING = YES`
 - **النتائج:** `8 ACTIVE / CITABLE`
@@ -24,7 +24,7 @@ VERSION              = 0.23.0-dev
 CHAPTER              = 19
 TOPIC                = PRIMES IN SHORT INTERVALS
 ISSUE                = #36 / OPEN
-PR                   = #37 / READY-AUTHORIZED / OPEN / UNMERGED
+PR                   = #37 / MERGED
 PRE-AUTHORING-GATE   = CLOSED
 PASS-FOR-AUTHORING   = YES
 AUTHORING            = REVIEWED / OWNER-ADOPTED
@@ -33,7 +33,8 @@ INDEPENDENT-REVIEW   = APPROVED / TYPOGRAPHY-CLOSED
 FINAL-PRE-OWNER      = QUALITY-643 / PDF-564 / 261 PAGES / VISUAL PASS
 OWNER-ADOPTION       = APPROVED
 LITERATURE-CUTOFF    = 2026-07-25
-MERGE                = AUTHORIZED / NOT YET PERFORMED
+MERGE                = COMPLETED
+MERGE-COMMIT         = 8fa2aa7f5972776580983074309fa90e07b53364
 RELEASE-READY        = NO
 ```
 
@@ -65,4 +66,4 @@ RELEASE-READY        = NO
 
 ## الخطوة التالية
 
-اكتملت المراجعة المستقلة وأُغلقت الملاحظتان الطباعيتان، ونجح البناء النهائي قبل الاعتماد. أصدر المالك قرار الاعتماد والترقية إلى `REVIEWED / CITABLE` وأذن بدمج PR #37؛ الخطوة التالية تنفيذ الدمج والتحقق من `main`.
+اكتملت المراجعة المستقلة وأُغلقت الملاحظتان الطباعيتان، ونجح البناء النهائي قبل الاعتماد. أصدر المالك قرار الاعتماد والترقية إلى `REVIEWED / CITABLE`، ودُمج PR #37 في `main` عند `8fa2aa7f5972776580983074309fa90e07b53364`.

@@ -30,14 +30,14 @@
 ```text
 BASE-MAIN                  = 2ec3f8fcb5eb365ca582af32771a7790bcded4b5
 VERSION                    = 0.23.0-dev
-CHAPTERS-IN-MANUSCRIPT     = 1--18 ON MAIN / 19 ADOPTED ON PR BRANCH
+CHAPTERS-IN-MANUSCRIPT     = 1--19 ON MAIN
 CHAPTER-18                 = REVIEWED / OWNER-ADOPTED / MERGED
 PR-35                      = MERGED
 ISSUE-34                   = CLOSED
 CHAPTER-19                 = REVIEWED / OWNER-ADOPTED / CITABLE
-BRANCH-19                  = agent/chapter-19-primes-short-intervals-v0.23.0
+BRANCH-19                  = MERGED INTO MAIN
 ISSUE-36                   = OPEN
-PR-37                      = READY-AUTHORIZED / OPEN / UNMERGED
+PR-37                      = MERGED
 PRE-AUTHORING-GATE-19      = CLOSED
 PASS-FOR-AUTHORING-19      = YES
 RESULTS-19                 = 8 ACTIVE / CITABLE
@@ -47,13 +47,14 @@ CIRCULARITY-AUDIT-19       = PASS
 INDEPENDENT-REVIEW-19      = APPROVED / TYPOGRAPHY-CLOSED
 OWNER-ADOPTION-19          = APPROVED
 LITERATURE-CUTOFF-19       = 2026-07-25
-MERGE                      = AUTHORIZED / NOT YET PERFORMED
+MERGE                      = COMPLETED
+MERGE-COMMIT-19            = 8fa2aa7f5972776580983074309fa90e07b53364
 RELEASE-READY              = NO
 ```
 
 ## آخر فصل معتمد
 
-الفصل التاسع عشر عن الأوليات في الفترات القصيرة معتمد بحالة `REVIEWED / CITABLE` على فرع PR #37، وقد صدر إذن المالك بدمجه في `main`. آخر بناء قبل الاعتماد نجح في 261 صفحة بلا مراجع أو إحالات غير معرّفة في المرور النهائي.
+الفصل التاسع عشر عن الأوليات في الفترات القصيرة معتمد بحالة `REVIEWED / CITABLE` وموجود على `main` بعد دمج PR #37. آخر بناء معتمد نجح في 261 صفحة بلا مراجع أو إحالات غير معرّفة في المرور النهائي.
 
 ## المرحلة الجارية
 
