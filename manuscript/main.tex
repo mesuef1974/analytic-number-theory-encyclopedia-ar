@@ -1,5 +1,13 @@
 \documentclass[12pt,oneside]{book}
 \input{manuscript/preamble}
+% Backward-compatible cited-result badge: the source argument is optional.
+\renewcommand{\citedresult}[1][المذكور في الشرح التالي]{%
+  \noindent
+  \resultbadge{blue!15}{مستشهد بها}%
+  \quad
+  منقولة من المرجع #1.%
+  \par
+}
 % Chapter 15 reviewed and merged on 2026-07-24.
 % Chapter 16 reviewed, owner-adopted, and merged on 2026-07-24.
 % Chapter 17 reviewed, owner-adopted, and merged on 2026-07-25.
