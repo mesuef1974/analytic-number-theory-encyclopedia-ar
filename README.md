@@ -33,15 +33,15 @@
 ```text
 BASE-MAIN                  = de0341a105bbf14d56ec4f7f256b9763f8087b30
 VERSION                    = 0.24.0-dev
-CHAPTERS-IN-MANUSCRIPT     = 1--19 ON MAIN / 20 ON DRAFT BRANCH
-CHAPTER-20                 = AUTHORED-DRAFT / NON-CITABLE
+CHAPTERS-IN-MANUSCRIPT     = 1--19 ON MAIN / 20 ON ADOPTED BRANCH
+CHAPTER-20                 = REVIEWED / OWNER-ADOPTED / CITABLE
 BRANCH-20                  = agent/chapter-20-modular-maass-trace-formulas-v0.24.0
 ISSUE-38                   = OPEN
-PR-39                      = DRAFT / OPEN / UNMERGED
+PR-39                      = READY / OPEN / MERGE AUTHORIZED
 PRE-AUTHORING-GATE-20      = CLOSED / PASS
 PASS-FOR-AUTHORING-20      = YES
-AUTHORING-20               = AUTHORED-DRAFT
-RESULTS-20                 = AUTHORED-DRAFT / NON-CITABLE
+AUTHORING-20               = COMPLETED
+RESULTS-20                 = 15 ACTIVE / CITABLE
 CHAPTER-18                 = REVIEWED / OWNER-ADOPTED / MERGED
 PR-35                      = MERGED
 ISSUE-34                   = CLOSED
@@ -58,20 +58,20 @@ CIRCULARITY-AUDIT-19       = PASS
 INDEPENDENT-REVIEW-19      = APPROVED / TYPOGRAPHY-CLOSED
 OWNER-ADOPTION-19          = APPROVED
 LITERATURE-CUTOFF-19       = 2026-07-25
-MERGE                      = COMPLETED
+MERGE                      = AUTHORIZED / PENDING EXECUTION
 MERGE-COMMIT-19            = 8fa2aa7f5972776580983074309fa90e07b53364
 RELEASE-READY              = NO
 ```
 
 ## آخر فصل معتمد
 
-الفصل التاسع عشر عن الأوليات في الفترات القصيرة معتمد بحالة `REVIEWED / CITABLE` وموجود على `main` بعد دمج PR #37. آخر بناء معتمد نجح في 261 صفحة بلا مراجع أو إحالات غير معرّفة في المرور النهائي.
+الفصل العشرون عن الأشكال المعيارية وأشكال مااس وصيغ التتبع معتمد بحالة `REVIEWED / OWNER-ADOPTED / CITABLE`، ونتائجه الخمس عشرة فعالة. ينتظر تنفيذ الدمج المأذون لـPR #39 في `main`.
 
 ## المرحلة الجارية
 
 الفصل العشرون: **الأشكال المعيارية وأشكال مااس ومدخل إلى صيغ التتبع**.
 
-اجتازت حزمة ما قبل التأليف مراجعة مستقلة بحكم `APPROVED` وصفر عوائق، وصدر `PASS-FOR-AUTHORING = YES`. أُنشئ متن الفصل وربط بالمخطوط ضمن النطاق المجمد، وتبقى جميع النتائج `NON-CITABLE` حتى البناء والتدقيق والمراجعة المستقلة اللاحقة واعتماد المالك.
+اجتاز الفصل المراجعة المستقلة قبل التأليف وبعده، وأُغلقت ملاحظات الاكتمال الثلاث، ونجح `Quality #700` و`PDF #614` من 274 صفحة مع فحص بصري ناجح. اعتمد المالك الفصل وفعّل نتائجه الخمس عشرة وأذن بدمج PR #39.
 
 ## بناء PDF
 
