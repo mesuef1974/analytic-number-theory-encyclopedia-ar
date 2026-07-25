@@ -2,7 +2,7 @@
 
 **العنوان الكامل:** الموسوعة الشاملة في نظرية الأعداد التحليلية: من الأسس إلى الجبهات البحثية الحديثة
 
-**الإصدار التطويري الحالي:** `v0.22.0-dev`
+**الإصدار التطويري الحالي:** `v0.23.0-dev`
 
 مشروع موسوعة عربية بحثية متقدمة في نظرية الأعداد التحليلية، من الأسس إلى طرق الغربال والطريقة الدائرية والمجاميع الأسية والجبهات الحديثة.
 
@@ -15,59 +15,65 @@
 - [الإصدار الحالي](docs/VERSION.md)
 - [سياسة اعتماد النتائج](docs/RESULT_STATUS_POLICY.md)
 - [سجل النتائج](docs/RESULTS_REGISTRY.md)
-- [سجل نتائج الفصل السادس عشر](docs/RESULTS_REGISTRY_CHAPTER_16.md)
-- [سجل نتائج الفصل السابع عشر](docs/RESULTS_REGISTRY_CHAPTER_17.md)
 - [سجل نتائج الفصل الثامن عشر](docs/RESULTS_REGISTRY_CHAPTER_18.md)
+- [سجل أدلة الفصل التاسع عشر](docs/CHAPTER_19_EVIDENCE_LEDGER_2026-07-25.md)
+- [خريطة برهان الفصل التاسع عشر](docs/CHAPTER_19_PROOF_MAP_2026-07-25.md)
+- [تدقيق ما قبل التأليف للفصل التاسع عشر](docs/CHAPTER_19_PRE_AUTHORING_AUDIT_2026-07-25.md)
+- [المراجعة المستقلة لبوابة الفصل التاسع عشر](docs/CHAPTER_19_INDEPENDENT_PRE_AUTHORING_REVIEW_2026-07-25.md)
+- [المراجعة المستقلة بعد تأليف الفصل التاسع عشر](docs/CHAPTER_19_INDEPENDENT_POST_AUTHORING_REVIEW_2026-07-25.md)
+- [إيصال البناء النهائي قبل اعتماد الفصل التاسع عشر](docs/CHAPTER_19_FINAL_PRE_OWNER_BUILD_RECEIPT_2026-07-25.md)
+- [إيصال اعتماد المالك للفصل التاسع عشر](docs/CHAPTER_19_OWNER_ADOPTION_2026-07-25.md)
+- [سجل نتائج الفصل التاسع عشر](docs/RESULTS_REGISTRY_CHAPTER_19.md)
 
 ## الحالة الحالية
 
 ```text
-BASE-MAIN                  = 1bdaefebe1d2946c6fa728096d4f1d2f74234ad7
-VERSION                    = 0.22.0-dev
-CHAPTERS-IN-MANUSCRIPT     = 1--18 ON MAIN
-CHAPTER-17                 = REVIEWED / OWNER-ADOPTED / MERGED
-PR-33                      = MERGED
-CHAPTER-18                 = REVIEWED / OWNER-ADOPTED / CITABLE
-BRANCH-18                  = MERGED INTO MAIN
-ISSUE-34                   = CLOSED
+BASE-MAIN                  = 2ec3f8fcb5eb365ca582af32771a7790bcded4b5
+VERSION                    = 0.23.0-dev
+CHAPTERS-IN-MANUSCRIPT     = 1--18 ON MAIN / 19 ADOPTED ON PR BRANCH
+CHAPTER-18                 = REVIEWED / OWNER-ADOPTED / MERGED
 PR-35                      = MERGED
-PRE-AUTHORING-GATE-18      = CLOSED
-PASS-FOR-AUTHORING-18      = YES
-POST-AUTHORING-CORRECTIONS = 3 / 3 CLOSED
-PDF-REBUILD-18             = RUN-531 / PASS / 249 PAGES
-INDEPENDENT-REVIEW-18      = PASS AFTER CORRECTIONS / OWNER-ADOPTED
-MERGE-COMMIT-18            = 1bdaefebe1d2946c6fa728096d4f1d2f74234ad7
+ISSUE-34                   = CLOSED
+CHAPTER-19                 = REVIEWED / OWNER-ADOPTED / CITABLE
+BRANCH-19                  = agent/chapter-19-primes-short-intervals-v0.23.0
+ISSUE-36                   = OPEN
+PR-37                      = READY-AUTHORIZED / OPEN / UNMERGED
+PRE-AUTHORING-GATE-19      = CLOSED
+PASS-FOR-AUTHORING-19      = YES
+RESULTS-19                 = 8 ACTIVE / CITABLE
+FINAL-PRE-OWNER-19         = QUALITY-643 / PDF-564 / 261 PAGES / VISUAL PASS
+EVIDENCE-19                = FROZEN / FRONTIER UPDATED
+CIRCULARITY-AUDIT-19       = PASS
+INDEPENDENT-REVIEW-19      = APPROVED / TYPOGRAPHY-CLOSED
+OWNER-ADOPTION-19          = APPROVED
+LITERATURE-CUTOFF-19       = 2026-07-25
+MERGE                      = AUTHORIZED / NOT YET PERFORMED
 RELEASE-READY              = NO
 ```
 
-## آخر نتائج معتمدة
+## آخر فصل معتمد
 
-في الفصل السادس عشر أُثبت داخليًا، لكل عدد زوجي ثابت غير صفري \(h\):
-
-\[
-\pi_2(x;h)\ll_h \frac{x}{(\log x)^2},
-\]
-
-واستُنتج تقارب مجموع مقلوبات الأزواج الأولية ذات الفرق الثابت بالجمع الجزئي. كما عُرضت مبرهنات تشن وGPY وZhang وMaynard وPolymath8b بوصفها نتائج `CITED` موثقة، من دون ادعاء حدسية الأوليات التوأم أو \(H_1=2\).
+الفصل التاسع عشر عن الأوليات في الفترات القصيرة معتمد بحالة `REVIEWED / CITABLE` على فرع PR #37، وقد صدر إذن المالك بدمجه في `main`. آخر بناء قبل الاعتماد نجح في 261 صفحة بلا مراجع أو إحالات غير معرّفة في المرور النهائي.
 
 ## المرحلة الجارية
 
-الفصل الثامن عشر: **المجاميع الأسية وطريقة فان دير كوربوت**.
+الفصل التاسع عشر: **الأوليات في الفترات القصيرة**.
 
-أُنجزت دفعات التأليف الثلاث، وتشمل:
+أُغلقت بوابة ما قبل التأليف، وأُنشئت مسودة الفصل وربطت بالمخطوط. يميز المتن بين:
 
-- الحد التافه والجمع الجزئي وفرق فان دير كوربوت.
-- اختبار المشتقة الأولى ببرهان داخلي.
-- اختبار المشتقة الثانية بوصفه `CITED / EXPLAINED`.
-- نسخة محدودة مثبتة من عملية `A`.
-- تعريف الأزواج الأسية وعملية `B` مع مراجع فعلية.
-- إغلاق تصحيحات التدقيق الثلاثة بعد دفعة التأليف الثالثة.
+- الصيغة التقاربية لكل \(x\).
+- مجرد وجود أولي في الفترة.
+- النتائج الصحيحة لتقريبًا كل \(x\).
+- الحدود غير المشروطة والشرطية.
+- سجل Guth--Maynard التقاربي المنشور عند \(17/30+\varepsilon\).
+- حد Baker--Harman--Pintz السفلي المحكّم عند \(0.525\).
+- ادعاء preprint عند \(0.52\) الذي يبقى محجورًا.
 
-نجحت إعادة بناء PDF والمراجعة المستقلة الضيقة بعد التصحيحات، واعتمد المالك الفصل بحالة `REVIEWED` وأذن بدمج PR #35.
+اكتمل التحقق من المصادر والاعتمادات والتحويلات وتدقيق عدم الدور، ثم اجتاز المتن التدقيق والمراجعة المستقلة. أُغلقت الملاحظتان الطباعيتان ونجح البناء النهائي قبل الاعتماد. اعتمد المالك الفصل وفعّل نتائجه الثماني بحالة `ACTIVE / CITABLE` وأذن بدمج PR #37.
 
 ## بناء PDF
 
-آخر بناء كامل على فرع الفصل الثامن عشر بعد تصحيحات ما بعد التأليف:
+آخر بناء كامل معتمد للفصل الثامن عشر:
 
 ```text
 XeLaTeX -> Biber -> XeLaTeX -> XeLaTeX
@@ -76,4 +82,6 @@ UNDEFINED CITATIONS = 0
 UNDEFINED REFERENCES = 0
 ```
 
-نجح البناء في GitHub Actions بلا مراجع أو إحالات غير معرّفة في المرور النهائي. لا تعني المراجعة أو الدمج أن الموسوعة `RELEASE-READY`.
+أما الفصل التاسع عشر فاجتاز على رأس الإغلاق `Quality #643` وبناء PDF `#564` من 261 صفحة، وبصمة PDF هي `236A0CBE2D3CDC314CB244F4F77705AABB35FA6A766B27D4EC7CD5A04AC13E52`. لا يظهر تجاوز عمود داخل ملف الفصل في المرور النهائي، واجتازت افتتاحية الفصل وصفحتا التصحيح الفحص البصري. اعتمد المالك هذه الحزمة وأذن بدمجها.
+
+اعتماد الفصل ودمجه لا يعني أن الموسوعة `RELEASE-READY`.
