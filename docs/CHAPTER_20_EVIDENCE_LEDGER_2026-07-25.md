@@ -52,7 +52,7 @@ GENERAL LEVEL  = CONTEXT ONLY UNTIL NORMALIZATIONS ARE MATCHED
 | E20-02 | Miyake, *Modular Forms* | Ch. 4، ص 96--194؛ §4.5 Hecke algebras، ص 131؛ §4.6 primitive forms، ص 153 | `SECONDARY / LOCATED` |
 | E20-03 | Iwaniec, *Spectral Methods of Automorphic Forms*, 2nd ed. | Chs. 1--3؛ Chs. 4 و7؛ Ch. 9، ص 121--134؛ Ch. 10، ص 135--156 | `SECONDARY / LOCATED` |
 | E20-04 | Iwaniec--Kowalski, *Analytic Number Theory* | Ch. 14، ص 353--382؛ Ch. 15، ص 383--402؛ §16.4، ص 406--412؛ §11.7، ص 287 | `SECONDARY / LOCATED` |
-| E20-08 | أعمال Selberg الأصلية/المجمعة | الأصل التاريخي لصيغة Selberg | `PRIMARY / BIBLIOGRAPHY-PENDING` |
+| E20-08 | A. Selberg, *Harmonic analysis and discontinuous groups in weakly symmetric Riemannian spaces with applications to Dirichlet series*, *J. Indian Math. Soc. (N.S.)* 20 (1956), 47--87 | المقالة الأصلية؛ مع مواد محاضرات غوتنغن 1954 المثبتة في Selberg Archive | الأصل التاريخي للصيغة؛ لا يجمّد اتجاه التحويل أو عوامل \(2\pi\) | `PRIMARY / BIBLIOGRAPHY-VERIFIED / TRANSFORM-PENDING` |
 
 ## اكتشافات Consensus
 
@@ -80,8 +80,7 @@ GENERAL LEVEL  = CONTEXT ONLY UNTIL NORMALIZATIONS ARE MATCHED
 ## العوائق المفتوحة
 
 1. مطابقة صيغة Kuznetsov كاملة بين الأصل وIwaniec--Kowalski §16.4 وIwaniec Ch. 9، بما فيها الطيف المستمر والتحويلات.
-3. تثبيت زوج تحويل Selberg وعوامل \(2\pi\).
-4. التحقق الببليوغرافي من نص Selberg الأصلي.
-5. مراجعة مستقلة للحزمة قبل التجميد.
+2. تثبيت زوج تحويل Selberg وعوامل \(2\pi\) من النص الكامل ومطابقته مع Hejhal.
+3. مراجعة مستقلة للحزمة قبل التجميد.
 
 حتى إغلاق هذه البنود يبقى `PASS-FOR-AUTHORING = NO`.
