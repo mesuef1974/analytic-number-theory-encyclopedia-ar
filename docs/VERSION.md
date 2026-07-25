@@ -1,6 +1,14 @@
 # الإصدار الحالي
 
 ```text
+0.24.0-dev
+```
+
+هذا الملف هو **المصدر الوحيد المعتمد لرقم الإصدار وحالة المرحلة الحالية**.
+
+## المرحلة الحالية
+
+```text
 BASE-MAIN              = de0341a105bbf14d56ec4f7f256b9763f8087b30
 BRANCH                 = agent/chapter-20-modular-maass-trace-formulas-v0.24.0
 VERSION                = 0.24.0-dev
