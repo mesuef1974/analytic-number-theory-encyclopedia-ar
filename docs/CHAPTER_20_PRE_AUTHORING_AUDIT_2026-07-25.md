@@ -4,9 +4,9 @@
 
 ```text
 PRE-AUTHORING-AUDIT  = IN PROGRESS
-EVIDENCE-LEDGER      = OPEN / PARTIALLY VERIFIED
-PROOF-MAP            = REVISED / NOT FROZEN
-NORMALIZATION-TABLE  = DRAFT / NOT FROZEN
+EVIDENCE-LEDGER      = SCIENTIFIC CROSS-CHECK COMPLETE / REVIEW PENDING
+PROOF-MAP            = REVISED / REVIEW PENDING
+NORMALIZATION-TABLE  = CROSS-CHECK COMPLETE / REVIEW PENDING
 CIRCULARITY-AUDIT    = PRELIMINARY PASS / REVIEW PENDING
 INDEPENDENT-REVIEW   = PENDING
 PASS-FOR-AUTHORING   = NO
@@ -28,7 +28,7 @@ AUTHORING            = BLOCKED
 - [x] تضييق Miyake إلى §4.5 (Hecke algebras، ص 131) و§4.6 (primitive forms، ص 153).
 - [x] مطابقة Petersson مستوى 1 حدًا بحد: Knightly--Li Cor. 3.12 مقابل Iwaniec--Kowalski Prop. 14.5.
 - [x] مطابقة نواة Kuznetsov المعتمدة عند المستوى 1: الطيف المنفصل والمستمر والقطري وKloosterman وتحويل \(J\)، مع فصل تحويل \(K\) إلى سياق الإشارة المتعاكسة.
-- [ ] تثبيت زوج تحويل Selberg وعوامل \(2\pi\).
+- [x] تثبيت زوج تحويل Selberg وعوامل \(2\pi\) للنموذج المدمج، مع إبقاء الحالة غير المدمجة مؤجلة.
 - [x] التحقق من مرجع Selberg الأصلي ببليوغرافيًا؛ لا يساوي ذلك تجميد زوج التحويل.
 - [ ] مراجعة مستقلة للحزمة كاملة.
 - [ ] إصدار حكم صريح `PASS-FOR-AUTHORING = YES`.
@@ -41,11 +41,11 @@ AUTHORING            = BLOCKED
 4. لم يعد جدول التطبيعات مفقودًا.
 5. تحدد نطاق الصيغ الدقيقة بدل خلط المستوى العام بالمستوى 1.
 6. أغلقت مطابقة Kuznetsov للنواة المعتمدة في تقرير مستقل، مع إبقاء الصيغ العامة والإشارة المتعاكسة خارج النواة المركزية.
+7. أغلقت مطابقة Selberg للنموذج المدمج: زوج التحويل وعوامل \(2\pi\) وحدا الهوية والجيوديسيات.
 
 ## العوائق المانعة المتبقية
 
-1. جدول التطبيعات ما يزال `DRAFT / NOT FROZEN` بسبب Selberg والمراجعة المستقلة.
-2. Selberg ما يزال مدخلًا بنيويًا، واتجاه التحويل وعوامل \(2\pi\) غير مجمدة.
-3. لم تجر مراجعة مستقلة.
+1. المطابقات العلمية مكتملة، لكن جدول التطبيعات ينتظر المراجعة المستقلة قبل التجميد النهائي.
+2. لم تجر مراجعة مستقلة.
 
 أي كتابة للمتن قبل إغلاق هذه العوائق مخالفة لقاعدة الانتقال في خارطة الطريق.
