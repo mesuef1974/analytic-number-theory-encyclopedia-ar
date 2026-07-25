@@ -14,13 +14,13 @@ BRANCH                 = agent/chapter-18-exponential-sums-van-der-corput-v0.22.
 VERSION                = 0.22.0-dev
 CHAPTER                = 18
 TOPIC                  = EXPONENTIAL SUMS / VAN DER CORPUT
-ISSUE                  = #34 / OPEN
-PR                     = #35 / DRAFT / OPEN / UNMERGED
+ISSUE                  = #34 / OPEN / CLOSE-AFTER-MERGE
+PR                     = #35 / OPEN / MERGE-AUTHORIZED
 PRE-AUTHORING-GATE     = CLOSED
 PASS-FOR-AUTHORING     = YES
-AUTHORING              = BATCH-03 COMPLETE-AS-DRAFT
-RESULTS                = 8 / REVIEWED-CANDIDATE / OWNER-ADOPTION-PENDING / NON-CITABLE
-CHAPTER-18             = REVIEWED-CANDIDATE / OWNER-ADOPTION-PENDING
+AUTHORING              = COMPLETE / OWNER-ADOPTED
+RESULTS                = 8 / ACTIVE / CITABLE
+CHAPTER-18             = REVIEWED / OWNER-ADOPTED
 POST-AUTHORING-FIXES   = 3 / 3 CLOSED
 REFERENCE-AUDIT        = PASS AFTER CORRECTIONS
 MATHEMATICAL-AUDIT     = INDEPENDENT NARROW REVIEW PASS
@@ -28,7 +28,7 @@ PDF-BUILD              = RUN-524 / PASS / 249 PAGES
 PDF-SHA256             = 13FF6784F1D40E8ABCE1DD12AE66D4E9659DE2A3002FBADFE6EB6AF3BE62B3C2
 QUALITY-CHECKS         = RUN-597 / SUCCESS
 PDF-REBUILD            = RUN-524 / SUCCESS
-MERGE                  = NOT AUTHORIZED
+MERGE                  = AUTHORIZED
 RELEASE-READY          = NO
 ```
 
@@ -40,7 +40,7 @@ RELEASE-READY          = NO
 4. فرق فان دير كوربوت واختبارات المشتقات في نطاق مضبوط.
 5. عمليتا `A` و`B` والأزواج الأسية مع تصنيف دقيق للمثبت والمقتبس.
 6. تطبيقات تمهيدية للأقواس الصغرى تخدم الفصل السابع عشر بلا اعتماد دائري.
-7. إبقاء الفصل غير قابل للاستشهاد حتى إعادة البناء والمراجعة المستقلة.
+7. اعتماد النتائج بعد إعادة البناء والمراجعة المستقلة، مع إبقاء `RELEASE-READY = NO` للموسوعة.
 
 ## المرحلة السابقة
 
