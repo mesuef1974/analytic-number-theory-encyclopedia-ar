@@ -8,7 +8,7 @@ EVIDENCE-LEDGER      = SCIENTIFIC CROSS-CHECK COMPLETE / REVIEW PENDING
 PROOF-MAP            = REVISED / REVIEW PENDING
 NORMALIZATION-TABLE  = CROSS-CHECK COMPLETE / REVIEW PENDING
 CIRCULARITY-AUDIT    = PRELIMINARY PASS / REVIEW PENDING
-INDEPENDENT-REVIEW   = PENDING
+INDEPENDENT-REVIEW   = REQUESTED / TARGET 46ac3df
 PASS-FOR-AUTHORING   = NO
 AUTHORING            = BLOCKED
 ```
@@ -30,7 +30,8 @@ AUTHORING            = BLOCKED
 - [x] مطابقة نواة Kuznetsov المعتمدة عند المستوى 1: الطيف المنفصل والمستمر والقطري وKloosterman وتحويل \(J\)، مع فصل تحويل \(K\) إلى سياق الإشارة المتعاكسة.
 - [x] تثبيت زوج تحويل Selberg وعوامل \(2\pi\) للنموذج المدمج، مع إبقاء الحالة غير المدمجة مؤجلة.
 - [x] التحقق من مرجع Selberg الأصلي ببليوغرافيًا؛ لا يساوي ذلك تجميد زوج التحويل.
-- [ ] مراجعة مستقلة للحزمة كاملة.
+- [x] إصدار حزمة مراجعة مستقلة على الرأس العلمي `46ac3dfee46bb0abe2a43459c55041d5773ed78e`.
+- [ ] استلام حكم مراجعة مستقلة للحزمة كاملة.
 - [ ] إصدار حكم صريح `PASS-FOR-AUTHORING = YES`.
 
 ## ما أُغلق
@@ -46,6 +47,6 @@ AUTHORING            = BLOCKED
 ## العوائق المانعة المتبقية
 
 1. المطابقات العلمية مكتملة، لكن جدول التطبيعات ينتظر المراجعة المستقلة قبل التجميد النهائي.
-2. لم تجر مراجعة مستقلة.
+2. صدرت حزمة الطلب، لكن لم يرد حكم مراجع مستقل بعد.
 
 أي كتابة للمتن قبل إغلاق هذه العوائق مخالفة لقاعدة الانتقال في خارطة الطريق.
