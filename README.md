@@ -33,6 +33,7 @@
 - [خريطة برهان الفصل الحادي والعشرين](docs/CHAPTER_21_PROOF_MAP_2026-07-25.md)
 - [تدقيق ما قبل تأليف الفصل الحادي والعشرين](docs/CHAPTER_21_PRE_AUTHORING_AUDIT_2026-07-25.md)
 - [المراجعة المستقلة لبوابة الفصل الحادي والعشرين](docs/CHAPTER_21_INDEPENDENT_PRE_AUTHORING_REVIEW_2026-07-25.md)
+- [تدقيق تأليف الفصل الحادي والعشرين](docs/CHAPTER_21_AUTHORING_AUDIT_2026-07-25.md)
 - [سجل نتائج الفصل الحادي والعشرين](docs/RESULTS_REGISTRY_CHAPTER_21.md)
 
 ## الحالة الحالية
@@ -42,14 +43,14 @@ BASE-MAIN                  = dd92caa3dba416ffc0f718d6bc037d67ec50466f
 VERSION                    = 0.25.0-dev
 CHAPTERS-IN-MANUSCRIPT     = 1--20 ON MAIN
 CHAPTER-20                 = REVIEWED / OWNER-ADOPTED / CITABLE / MERGED
-CHAPTER-21                 = PRE-AUTHORING
+CHAPTER-21                 = AUTHORED-DRAFT / NON-CITABLE
 BRANCH-21                  = agent/chapter-21-automorphic-l-subconvexity-langlands-v0.25.0
 ISSUE-40                   = OPEN
 PR-41                      = DRAFT / OPEN
 PRE-AUTHORING-GATE-21      = PASSED
 PASS-FOR-AUTHORING-21      = YES
-AUTHORING-21               = AUTHORIZED ON PR #41 BRANCH
-RESULTS-21                 = 10 RESERVED / NON-CITABLE
+AUTHORING-21               = COMPLETED
+RESULTS-21                 = 10 AUTHORED-DRAFT / NON-CITABLE
 LITERATURE-CUTOFF-21       = 2026-07-25
 RELEASE-READY              = NO
 ```
@@ -62,7 +63,7 @@ RELEASE-READY              = NO
 
 الفصل الحادي والعشرون: **دوال (L) الآلية، حدود التحدب ودون التحدب، ومدخل منضبط إلى لانجلاندز**.
 
-فُتحت المرحلة `0.25.0-dev` من الرأس `dd92caa3dba416ffc0f718d6bc037d67ec50466f`، وأُنشئت حزمة ما قبل التأليف وسجلت عشرة معرفات `RESERVED / NON-CITABLE`. استُعمل Consensus للاكتشاف فقط، ثم تحققت بيانات Michel--Venkatesh من صفحة الناشر وDOI. جُمّدت التطبيعات والمصادر واجتازت الحزمة المراجعة المستقلة؛ أصبح التأليف مأذونًا على فرع PR #41 فقط، مع بقاء النتائج محجوزة وغير قابلة للاستشهاد.
+فُتحت المرحلة `0.25.0-dev` من الرأس `dd92caa3dba416ffc0f718d6bc037d67ec50466f`، وأُنشئت حزمة ما قبل التأليف وسجلت عشرة معرفات `RESERVED / NON-CITABLE`. استُعمل Consensus للاكتشاف فقط، ثم تحققت بيانات Michel--Venkatesh من صفحة الناشر وDOI. جُمّدت التطبيعات والمصادر واجتازت الحزمة المراجعة المستقلة، ثم أُنشئ متن الفصل وملف مراجع وربطا بالمخطوط. المسودة الآن `AUTHORED-DRAFT / NON-CITABLE` وتنتظر البناء والفحص البصري والمراجعة اللاحقة.
 
 ## بناء PDF
 
