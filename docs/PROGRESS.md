@@ -8,7 +8,7 @@
 - **رأس البداية من `main`:** `dd92caa3dba416ffc0f718d6bc037d67ec50466f`
 - **الفرع:** `agent/chapter-21-automorphic-l-subconvexity-langlands-v0.25.0`
 - **Issue:** `#40 / OPEN`
-- **PR:** `PENDING CREATION`
+- **PR:** `#41 / DRAFT / OPEN`
 - **بوابة ما قبل التأليف:** `OPEN`
 - **إذن التأليف:** `PASS-FOR-AUTHORING = NO`
 - **النتائج:** `10 RESERVED / NON-CITABLE`
@@ -22,7 +22,7 @@ VERSION              = 0.25.0-dev
 CHAPTER              = 21
 TOPIC                = AUTOMORPHIC L-FUNCTIONS / SUBCONVEXITY / LANGLANDS ENTRY
 ISSUE                = #40 / OPEN
-PR                   = PENDING CREATION
+PR                   = #41 / DRAFT / OPEN
 PRE-AUTHORING-GATE   = OPEN
 PASS-FOR-AUTHORING   = NO
 AUTHORING            = BLOCKED
