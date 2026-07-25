@@ -5,10 +5,11 @@
 ```text
 CHAPTER              = 20
 VERSION              = 0.24.0-dev
-TABLE                = DRAFT / NOT FROZEN
+TABLE                = CROSS-CHECK COMPLETE / REVIEW PENDING
 PRIMARY-SCOPE        = LEVEL 1 / TRIVIAL CHARACTER
 PETERSSON-LEVEL-1    = CROSS-CHECK PASS
 KUZNETSOV-LEVEL-1    = CROSS-CHECK PASS
+SELBERG-COMPACT      = CROSS-CHECK PASS
 AUTHORING            = BLOCKED
 RESULTS              = RESERVED / NON-CITABLE
 ```
@@ -36,7 +37,7 @@ RESULTS              = RESERVED / NON-CITABLE
 | مجموع Kloosterman | \(S(m,n;c)=\sum_{d\bmod c}^{*}e((md+n\bar d)/c)\) | Kuznetsov (2.13) | `SOURCE-MATCHED` |
 | نواة Petersson | \(J_{k-1}(4\pi\sqrt{mn}/c)\) | Knightly--Li Cor. 3.12؛ Iwaniec--Kowalski Prop. 14.5 | `CROSS-CHECK PASS / LEVEL-1` |
 | تحويلات Kuznetsov | \(H^+\) مجمد للنواة ذات الإشارة المتساوية؛ تحويل \(K\) يذكر منفصلًا في سياق الإشارة المتعاكسة فقط | Kuznetsov (2.14)--(2.23)؛ تقرير المطابقة المستقل | `CROSS-CHECK PASS / CORE` |
-| زوج Selberg التحويلي | يثبت اتجاه تحويل فورييه وعامل \(2\pi\) داخل نص الفصل قبل التصريح بالصيغة | Hejhal I، الفصل الأول، ص 1--38 | `OPEN` |
+| زوج Selberg التحويلي | \(g(u)=\frac1{2\pi}\int h(r)e^{-iru}dr\)، و\(h(r)=\int g(u)e^{iru}du\) | Marklof (69)، Thm. 4 (182)؛ Hejhal I، الفصل الأول | `CROSS-CHECK PASS / COMPACT` |
 
 ## مطابقة Petersson عند المستوى 1
 
@@ -63,7 +64,7 @@ RESULTS              = RESERVED / NON-CITABLE
 
 - [x] مطابقة صيغة Petersson مستوى \(1\) حدًا بحد مع مرجع قياسي ثانٍ.
 - [x] مطابقة نواة Kuznetsov المعتمدة: الطيف المنفصل والمستمر والقطري وطرف Kloosterman وتحويل \(J\)، مع فصل سياق تحويل \(K\).
-- تثبيت اتجاه تحويل Selberg وعوامل \(2\pi\).
-- مراجعة مستقلة للجدول.
+- [x] تثبيت اتجاه تحويل Selberg وعوامل \(2\pi\) للنموذج المدمج.
+- [ ] مراجعة مستقلة للجدول.
 
-حتى تحقق هذه الشروط يبقى `TABLE = DRAFT / NOT FROZEN` و`AUTHORING = BLOCKED`.
+أُغلقت المطابقات العلمية الثلاث. حتى اكتمال المراجعة المستقلة يبقى `TABLE = CROSS-CHECK COMPLETE / REVIEW PENDING` و`AUTHORING = BLOCKED`.
