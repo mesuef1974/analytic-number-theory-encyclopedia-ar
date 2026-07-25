@@ -9,13 +9,13 @@
 ## المرحلة الحالية
 
 ```text
-BASE-MAIN              = 95209028f7e9f10dd8b47baef4bd4194df40a5a0
-BRANCH                 = agent/chapter-18-exponential-sums-van-der-corput-v0.22.0
+BASE-MAIN              = 1bdaefebe1d2946c6fa728096d4f1d2f74234ad7
+BRANCH                 = agent/chapter-18-exponential-sums-van-der-corput-v0.22.0 / MERGED
 VERSION                = 0.22.0-dev
 CHAPTER                = 18
 TOPIC                  = EXPONENTIAL SUMS / VAN DER CORPUT
-ISSUE                  = #34 / OPEN / CLOSE-AFTER-MERGE
-PR                     = #35 / OPEN / MERGE-AUTHORIZED
+ISSUE                  = #34 / CLOSED
+PR                     = #35 / MERGED
 PRE-AUTHORING-GATE     = CLOSED
 PASS-FOR-AUTHORING     = YES
 AUTHORING              = COMPLETE / OWNER-ADOPTED
@@ -24,11 +24,11 @@ CHAPTER-18             = REVIEWED / OWNER-ADOPTED
 POST-AUTHORING-FIXES   = 3 / 3 CLOSED
 REFERENCE-AUDIT        = PASS AFTER CORRECTIONS
 MATHEMATICAL-AUDIT     = INDEPENDENT NARROW REVIEW PASS
-PDF-BUILD              = RUN-524 / PASS / 249 PAGES
+PDF-BUILD              = RUN-531 / PASS / 249 PAGES
 PDF-SHA256             = 13FF6784F1D40E8ABCE1DD12AE66D4E9659DE2A3002FBADFE6EB6AF3BE62B3C2
-QUALITY-CHECKS         = RUN-597 / SUCCESS
-PDF-REBUILD            = RUN-524 / SUCCESS
-MERGE                  = AUTHORIZED
+QUALITY-CHECKS         = RUN-604 / SUCCESS
+PDF-REBUILD            = RUN-531 / SUCCESS
+MERGE                  = COMPLETED / 1bdaefebe1d2946c6fa728096d4f1d2f74234ad7
 RELEASE-READY          = NO
 ```
 
