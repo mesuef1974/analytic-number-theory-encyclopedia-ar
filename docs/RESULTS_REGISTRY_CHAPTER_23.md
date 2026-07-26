@@ -3,29 +3,30 @@
 ```text
 CHAPTER                = 23
 VERSION                = 0.27.0-dev
-REGISTRY               = POST-AUTHORING-REVIEWED / OWNER-ADOPTION-PENDING
-RESULTS                = 10 AUTHORED-DRAFT / NON-CITABLE
+REGISTRY               = OWNER-ADOPTED / ACTIVE
+RESULTS                = 10 ACTIVE / CITABLE
 PASS-FOR-AUTHORING     = YES
 AUTHORING              = COMPLETED
 LOCAL-BUILD            = PASS
 BUILD-PAGES            = 302
 POST-AUTHORING-REVIEW  = PASS / 0 BLOCKERS
-OWNER-ADOPTION         = NOT REQUESTED
-MERGE                  = NOT AUTHORIZED
+OWNER-ADOPTION         = YES / 2026-07-26
+MINOR-CORRECTIONS      = APPLIED
+MERGE                  = AUTHORIZED
 ```
 
 | المعرّف | الوصف | التصنيف المجمد | الحالة |
 |---|---|---|---|
-| ANT-DEF-23-01 | دالة عد الأصفار والتطبيع المحلي، مع إحالة إلى `ANT-THM-06-06` | DEFINITION / INTERNAL-CROSS-REFERENCE | AUTHORED-DRAFT / NON-CITABLE |
-| ANT-DEF-23-02 | إحصاء الارتباط الثنائي ودالة Montgomery الموزونة | DEFINITION | AUTHORED-DRAFT / NON-CITABLE |
-| ANT-THM-23-01 | مبرهنة Montgomery ضمن دعم \((-1,1)\) | CITED-CORE / CONDITIONAL-ON-RH | AUTHORED-DRAFT / NON-CITABLE |
-| ANT-CONJ-23-01 | حدسية الارتباط الثنائي الكاملة | CONJECTURAL-GUE | AUTHORED-DRAFT / NON-CITABLE |
-| ANT-THM-23-02 | حد GUE ونواة الجيب في النموذج المصفوفي | RANDOM-MATRIX-THEOREM / CITED-CORE | AUTHORED-DRAFT / NON-CITABLE |
-| ANT-EVID-23-01 | دليل Odlyzko العددي | NUMERICAL-EVIDENCE / FINITE-VERIFIED | AUTHORED-DRAFT / NON-CITABLE |
-| ANT-DEF-23-03 | إحصاء الفواصل والتباين العددي | DEFINITION | AUTHORED-DRAFT / NON-CITABLE |
-| ANT-PRIN-23-01 | مبدأ أنواع التناظر لعائلات دوال L | CITED-CORE / INTERPRETATION-GUARDED | AUTHORED-DRAFT / NON-CITABLE |
-| ANT-OPEN-23-01 | حدسية GUE الكاملة وإحصاءات n-level | OPEN / FRONTIER | AUTHORED-DRAFT / NON-CITABLE |
-| ANT-PRIN-23-02 | حدود الاستدلال بين RH وpair correlation والإحصاءات الأعلى | METHODOLOGICAL-PRINCIPLE / INFERENCE-GUARDED | AUTHORED-DRAFT / NON-CITABLE |
+| ANT-DEF-23-01 | دالة عد الأصفار والتطبيع المحلي، مع إحالة إلى `ANT-THM-06-06` | DEFINITION / INTERNAL-CROSS-REFERENCE | ACTIVE / CITABLE |
+| ANT-DEF-23-02 | إحصاء الارتباط الثنائي ودالة Montgomery الموزونة | DEFINITION | ACTIVE / CITABLE |
+| ANT-THM-23-01 | مبرهنة Montgomery ضمن دعم \((-1,1)\) | CITED-CORE / CONDITIONAL-ON-RH | ACTIVE / CITABLE |
+| ANT-CONJ-23-01 | حدسية الارتباط الثنائي الكاملة | CONJECTURAL-GUE | ACTIVE / CITABLE |
+| ANT-THM-23-02 | حد GUE ونواة الجيب في النموذج المصفوفي | RANDOM-MATRIX-THEOREM / CITED-CORE | ACTIVE / CITABLE |
+| ANT-EVID-23-01 | دليل Odlyzko العددي | NUMERICAL-EVIDENCE / FINITE-VERIFIED | ACTIVE / CITABLE |
+| ANT-DEF-23-03 | إحصاء الفواصل والتباين العددي | DEFINITION | ACTIVE / CITABLE |
+| ANT-PRIN-23-01 | مبدأ أنواع التناظر لعائلات دوال L | CITED-CORE / INTERPRETATION-GUARDED | ACTIVE / CITABLE |
+| ANT-OPEN-23-01 | حدسية GUE الكاملة وإحصاءات n-level | OPEN / FRONTIER | ACTIVE / CITABLE |
+| ANT-PRIN-23-02 | حدود الاستدلال بين RH وpair correlation والإحصاءات الأعلى | METHODOLOGICAL-PRINCIPLE / INFERENCE-GUARDED | ACTIVE / CITABLE |
 
 ## حكم بوابة التأليف
 
@@ -57,22 +58,27 @@ REVIEWED-HEAD           = 01e74e3e6ec27807e31ae2804258e7bd29520639
 REVIEW-COMMIT           = 2251186545c7c45f617b21396ff19392b02bb362
 VERDICT                 = PASS
 BLOCKERS                = 0
-RESULTS-CITABLE         = NO
-MERGE                   = NOT AUTHORIZED
 REVIEW-FILE             = docs/CHAPTER_23_INDEPENDENT_POST_AUTHORING_REVIEW_2026-07-26.md
 ```
 
-الملاحظتان المتبقيتان `MINOR` تحريريتان غير مانعتين: توضيح علاقة \(1-F(\alpha,T)\) بالجزء المثلثي من تحويل نواة الجيب، وتحسين كسر سطرين طويلين في صفحات الفصل 23. لا تُغيّر هاتان الملاحظتان الحكم العلمي، ولا تمنحان تفعيلًا أو إذن دمج.
+## اعتماد المالك والتصحيحات النهائية
 
-## حراس ما بعد التأليف
+```text
+OWNER-DIRECTIVE         = أعتمد الفصل 23، فعّل النتائج، أصلح الملاحظتين الصغيرتين، ثم ادمج PR #46 وادفع.
+OWNER-ADOPTION          = YES
+RESULTS-CITABLE         = YES
+MINOR-01                = CLOSED — clarified that 1-F(alpha,T), not alpha alone, matches the triangular factor
+MINOR-02                = CLOSED — broke the long methodological label and shortened the open-problem heading
+ADOPTION-FILE           = docs/CHAPTER_23_OWNER_ADOPTION_2026-07-26.md
+MERGE                   = AUTHORIZED
+```
 
-- لا يصبح أي معرّف `ACTIVE / CITABLE` قبل اعتماد المالك الصريح.
+## الحراس العلمية الدائمة
+
 - صيغة ريمان--فون مانغولت لا تحصل على معرّف فصل 23 جديد؛ مصدرها الداخلي `ANT-THM-06-06`.
 - `ANT-THM-23-01` يحمل RH في نصه ويقيد دعم \(\widehat f\) داخل \((-1,1)\).
 - `ANT-THM-23-02` مبرهنة في نموذج المصفوفات العشوائية لا في دالة زيتا.
-- `ANT-EVID-23-01` لا يرقى إلى مبرهنة.
-- `ANT-CONJ-23-01` و`ANT-OPEN-23-01` لا يوصفان بأنهما مثبتان.
+- `ANT-EVID-23-01` دليل عددي منته ولا يرقى إلى مبرهنة.
+- `ANT-CONJ-23-01` و`ANT-OPEN-23-01` يظلان حدسية ومسألة مفتوحة رغم كونهما قابلين للاستشهاد كسجلين علميين.
 - `ANT-PRIN-23-02` مبدأ منهجي ولا يحمل تصنيف `PROVED-HERE`.
 - يوضع الفصل 23 قبل خريطة الجبهات، وتبقى الخريطة آخر فصل.
-- تحذيرات التنضيد غير المانعة لا تعد حكمًا علميًا ولا تفوض التفعيل.
-- `MERGE = NOT AUTHORIZED` حتى اعتماد المالك الصريح.
