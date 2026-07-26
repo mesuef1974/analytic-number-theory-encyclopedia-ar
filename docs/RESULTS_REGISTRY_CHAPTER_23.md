@@ -3,7 +3,7 @@
 ```text
 CHAPTER            = 23
 VERSION            = 0.27.0-dev
-REGISTRY           = REVIEW-CORRECTED / NARROW-REVIEW-PENDING
+REGISTRY           = REVIEW-CORRECTED / SECOND-NARROW-REVIEW-PENDING
 RESULTS            = 10 RESERVED / NON-CITABLE
 PASS-FOR-AUTHORING = NO
 AUTHORING          = BLOCKED
@@ -22,24 +22,26 @@ MERGE              = NOT AUTHORIZED
 | ANT-DEF-23-03 | إحصاء الفواصل والتباين العددي | DEFINITION | RESERVED / NON-CITABLE |
 | ANT-PRIN-23-01 | مبدأ أنواع التناظر لعائلات دوال L | CITED-CORE / INTERPRETATION-GUARDED | RESERVED / NON-CITABLE |
 | ANT-OPEN-23-01 | حدسية GUE الكاملة وإحصاءات n-level | OPEN / FRONTIER | RESERVED / NON-CITABLE |
-| ANT-PRIN-23-02 | حدود الاستدلال بين RH وpair correlation والإحصاءات الأعلى | PROVED-HERE / LOGICAL-SEPARATION | RESERVED / NON-CITABLE |
+| ANT-PRIN-23-02 | حدود الاستدلال بين RH وpair correlation والإحصاءات الأعلى | METHODOLOGICAL-PRINCIPLE / INFERENCE-GUARDED | RESERVED / NON-CITABLE |
 
 ## حراس السجل
 
 - لا يصبح أي معرّف `ACTIVE` قبل تأليف المتن وبنائه ومراجعته واعتماد المالك.
-- صيغة ريمان--فون مانغولت لا تحصل على معرّف فصل 23 جديد؛ مصدرها الداخلي هو `ANT-THM-06-06`.
+- صيغة ريمان--فون مانغولت لا تحصل على معرّف فصل 23 جديد؛ مصدرها الداخلي `ANT-THM-06-06`.
 - `ANT-THM-23-01` يحمل RH في نصه ويقيد دعم \(\widehat f\) داخل \((-1,1)\).
 - `ANT-THM-23-02` مبرهنة في نموذج المصفوفات العشوائية، لا في دالة زيتا.
 - `ANT-EVID-23-01` لا يرقى إلى مبرهنة.
 - `ANT-CONJ-23-01` و`ANT-OPEN-23-01` لا يوصفان بأنهما مثبتان.
 - `ANT-PRIN-23-01` لا ينقل نتائج الحقول المنتهية تلقائيًا.
-- `ANT-PRIN-23-02` مبدأ فصل منطقي، لا ادعاء جديد عن مواضع الأصفار.
+- `ANT-PRIN-23-02` قاعدة منهجية لضبط الاستدلال، وليست نتيجة `PROVED-HERE` أو مبرهنة جديدة.
+- لا يحمل أي عنصر في سجل الفصل 23 تصنيف `PROVED-HERE`.
 
 ## حالة المراجعة
 
 ```text
 PRIMARY-INDEPENDENT-REVIEW = CHANGES-REQUIRED / 0 BLOCKERS
+FIRST-NARROW-RE-REVIEW     = CHANGES-REQUIRED / 0 BLOCKERS
 REVIEW-CORRECTIONS         = APPLIED
-NARROW-RE-REVIEW           = PENDING
+SECOND-NARROW-RE-REVIEW    = PENDING
 PASS-FOR-AUTHORING         = NO
 ```
