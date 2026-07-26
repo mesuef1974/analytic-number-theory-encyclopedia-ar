@@ -1,31 +1,31 @@
 # الإصدار الحالي
 
 ```text
-0.25.0-dev
+0.29.0-dev
 ```
 
 هذا الملف هو **المصدر الوحيد المعتمد لرقم الإصدار وحالة المرحلة الحالية**.
 
-## الحالة المعتمدة
+## الحالة الحالية
 
 ```text
-BASE-MAIN              = 470abde4ebb8d30a6accbb664a68d344f503b91e
-VERSION                = 0.25.0-dev
-CHAPTER                = 21
-TOPIC                  = AUTOMORPHIC L-FUNCTIONS / SUBCONVEXITY / LANGLANDS ENTRY
-ISSUE                  = #40 / CLOSED
-PR                     = #41 / MERGED
-STATUS                 = REVIEWED / OWNER-ADOPTED / CITABLE / MERGED
-PRE-AUTHORING-GATE     = PASSED
+BASE-MAIN              = cc053a8e717c009c1027a1e2a9169c1e96dd866d
+VERSION                = 0.29.0-dev
+CHAPTER                = 25
+TOPIC                  = DECOUPLING / EFFICIENT CONGRUENCING / VINOGRADOV MEAN VALUE
+ISSUE                  = #49 / OPEN
+PR                     = #50 / READY-FOR-MERGE
+STATUS                 = REVIEWED / OWNER-ADOPTED / CITABLE
+PRE-AUTHORING-GATE     = PASS
 PASS-FOR-AUTHORING     = YES
 AUTHORING              = COMPLETED
-INDEPENDENT-REVIEW     = PASS
+POST-AUTHORING-REVIEW  = PASS / 0 BLOCKERS
 OWNER-ADOPTION         = CONFIRMED
 RESULTS                = 10 ACTIVE / CITABLE
-MERGE                  = COMPLETED / 470abde4ebb8d30a6accbb664a68d344f503b91e
-LOCAL-BUILD            = PASS / 286 PAGES
-LOCAL-PDF-SHA256       = C2E77CE7640EB5AA3F8D39D55E6EB3D6D8F9BB3482E3801C44ACEB06ED5244D0
+CI-PDF                 = PASS / 317 PAGES
+CI-QUALITY             = PASS
+MERGE                  = AUTHORIZED / PENDING
 RELEASE-READY          = NO
 ```
 
-اعتمد المالك الفصل الحادي والعشرين صراحةً بعد مراجعة مستقلة فعلية للبوابة والمتن، ودُمج PR #41 في `main`. تفعيل نتائج الفصل لا يعني أن الموسوعة بكاملها جاهزة للإصدار.
+اعتمد المالك الفصل الخامس والعشرين صراحة بعد نجاح البناء والمراجعة المستقلة بعد التأليف. فُعّلت نتائجه العشر وفق تصنيفاتها وحراسها العلمية، وأُذن بدمج PR #50. لا يعني اعتماد الفصل أن الموسوعة جاهزة للإصدار.
