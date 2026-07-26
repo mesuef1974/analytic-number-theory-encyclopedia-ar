@@ -8,9 +8,10 @@ RESULTS                = 10 RESERVED / NON-CITABLE
 AUTHORING              = AUTHORED-DRAFT
 PRE-AUTHORING-REVIEW   = PASS
 PASS-FOR-AUTHORING     = YES
+LOCAL-BUILD            = PASS / 320 PAGES
 CI-QUALITY             = PENDING
 CI-PDF                 = PENDING
-POST-AUTHORING-REVIEW  = NOT STARTED
+POST-AUTHORING-REVIEW  = REQUESTED
 OWNER-ADOPTION         = NOT REQUESTED
 MERGE                  = NOT AUTHORIZED
 ```
@@ -35,4 +36,4 @@ MERGE                  = NOT AUTHORIZED
 - المبادئ المنهجية حراس استدلال وليست نتائج حسابية مستقلة.
 - قاموس الحالات يقتصر على `ESTABLISHED` و`ACTIVE-DIRECTION` و`CONJECTURAL-PROGRAM` و`OPEN`.
 - الإحصاء الحسابي مدرج بوصفه جبهة غير مكتملة التغطية، لا نتيجة معتمدة داخل الموسوعة.
-- لا تصبح المعرفات قابلة للاستشهاد قبل البناء والمراجعة المستقلة بعد التأليف واعتماد المالك.
+- لا تصبح المعرفات قابلة للاستشهاد قبل نجاح المراجعة المستقلة بعد التأليف واعتماد المالك.
