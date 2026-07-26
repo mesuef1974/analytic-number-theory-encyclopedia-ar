@@ -3,8 +3,8 @@
 ## حالة السجل
 
 ```text
-EVIDENCE-LEDGER     = CORE SOURCES VERIFIED / FRONTIER LIMITED
-AUTHORING           = BLOCKED
+EVIDENCE-LEDGER     = CORE SOURCES VERIFIED / REVIEW CORRECTIONS APPLIED
+AUTHORING           = BLOCKED PENDING NARROW RE-REVIEW
 PRIMARY-SOURCES     = VERIFIED FOR CORE STATEMENTS
 FRONTIER-MATERIAL   = QUARANTINED UNTIL REVIEW
 ```
@@ -13,15 +13,15 @@ FRONTIER-MATERIAL   = QUARANTINED UNTIL REVIEW
 
 | المحور | المصدر | الصيغة المثبتة للاستعمال | الحالة |
 |---|---|---|---|
-| العزم الثاني | Hardy--Littlewood؛ وصياغة معيارية لاحقة في Titchmarsh--Heath-Brown | \(\int_0^T|\zeta(1/2+it)|^2dt=T\log(T/2\pi)+(2\gamma-1)T+E_1(T)\)، ويكفي للنواة حد كلاسيكي من رتبة \(E_1(T)=O(T^{1/2}\log T)\) | CORE-VERIFIED |
-| العزم الرابع | A. E. Ingham, *Mean-Value Theorems in the Theory of the Riemann Zeta-Function*, Proc. LMS (2) 27, 273--300 | \(\int_0^T|\zeta(1/2+it)|^4dt=\frac{1}{2\pi^2}T\log^4T+O(T\log^3T)\)؛ النسخة الحديثة الأدق تكتب \(TP_4(\log T)+E_2(T)\) ومعامل الحد الأعلى \(1/(2\pi^2)\) | CORE-VERIFIED |
-| الحدود العليا | K. Soundararajan, *Moments of the Riemann zeta function*, Annals of Mathematics 170 (2009), 981--993 | تحت RH: لكل \(k>0\) ثابت و\(\varepsilon>0\)، \(J_k(T)\ll_{k,\varepsilon}T(\log T)^{k^2+\varepsilon}\) | PRIMARY-VERIFIED |
-| تحسين الحدود العليا | A. J. Harper, *Sharp conditional bounds for moments of the Riemann zeta function* | تحت RH: لكل \(k\ge0\) ثابت، \(J_k(T)\ll_k T(\log T)^{k^2}\) | PRIMARY-VERIFIED |
+| العزم الثاني | A. E. Ingham, *Mean-Value Theorems in the Theory of the Riemann Zeta-Function*, Proc. LMS (2) 27 (1928), 273--300؛ مع Hardy--Littlewood خلفية تاريخية، وTitchmarsh--Heath-Brown مرجعًا معياريًا لاحقًا | \(\int_0^T|\zeta(1/2+it)|^2dt=T\log(T/2\pi)+(2\gamma-1)T+E_1(T)\)، ويكفي للنواة الحد الكلاسيكي \(E_1(T)=O(T^{1/2}\log T)\) | CORE-VERIFIED / ATTRIBUTION-CORRECTED |
+| العزم الرابع | A. E. Ingham, *Mean-Value Theorems in the Theory of the Riemann Zeta-Function*, Proc. LMS (2) 27 (1928), 273--300، DOI: 10.1112/plms/s2-27.1.273 | \(\int_0^T|\zeta(1/2+it)|^4dt=\frac{1}{2\pi^2}T\log^4T+O(T\log^3T)\)؛ النسخة الحديثة الأدق تكتب \(TP_4(\log T)+E_2(T)\) ومعامل الحد الأعلى \(1/(2\pi^2)\) | CORE-VERIFIED |
+| الحدود العليا | K. Soundararajan, *Moments of the Riemann zeta function*, Annals of Mathematics 170 (2009), 981--993 | تحت RH: لكل \(k\ge0\) ثابت و\(\varepsilon>0\)، \(J_k(T)\ll_{k,\varepsilon}T(\log T)^{k^2+\varepsilon}\)؛ حالة \(k=0\) تافهة وتُذكر فقط لتوحيد المجال | PRIMARY-VERIFIED / PEER-REVIEWED |
+| تحسين الحدود العليا | A. J. Harper, *Sharp conditional bounds for moments of the Riemann zeta function*, arXiv:1305.4618 (2013) | تحت RH: لكل \(k\ge0\) ثابت، \(J_k(T)\ll_k T(\log T)^{k^2}\) | PRIMARY-VERIFIED / PREPRINT / NOT PEER-REVIEWED |
 | الحدود الدنيا | Radziwiłł--Soundararajan, *Continuous lower bounds for moments of zeta and L-functions*, Mathematika 59 (2013), 119--128 | لكل \(k\ge1\) ثابت، حد أدنى غير مشروط من الرتبة \(T(\log T)^{k^2}\)؛ لا يُصاغ كتكافؤ تقاربي | PRIMARY-VERIFIED |
 | حدود دنيا حديثة | Heap--Soundararajan, *Lower bounds for moments of zeta and L-functions revisited*, Mathematika 68 (2022) | تبسيط وتوسيع منهج الحدود الدنيا؛ يبقى CITED-SUPPORT لا بديلًا عن المصدر الأصلي | PRIMARY-VERIFIED / SUPPORT |
 | نموذج المصفوفات العشوائية | Keating--Snaith, *Random matrix theory and \(\zeta(1/2+it)\)*, CMP 214 (2000), 57--89 | حدسية العزوم العامة بعامل حسابي وعامل Barnes \(G\) | PRIMARY-VERIFIED / CONJECTURAL |
 | العزوم المزاحة | Ng--Shen--Wong, *Shifted moments of the Riemann zeta function*, CJM 76 (2024), 1556--1586 | سياق حديث خارج النواة الأساسية | VERIFIED-METADATA / DEFERRED |
-| مسح 2026 | Alexandra Florea, *A survey of moment bounds for \(\zeta(s)\)* | اكتشاف ومقارنة فقط، لا مصدر تأسيسي للنواة | QUARANTINED-SURVEY |
+| مسح 2026 | Alexandra Florea, *A survey of moment bounds for \(\zeta(s)\): From Heath-Brown's work to the present*, Journal of the London Mathematical Society 113 (2026), no. 1, e70376, DOI: 10.1112/jlms.70376 | اكتشاف ومقارنة فقط، لا مصدر تأسيسي للنواة | VERIFIED-SURVEY / NON-FOUNDATIONAL |
 
 ## الصيغ المجمدة
 
@@ -36,7 +36,7 @@ I_1(T)=\int_0^T\left|\zeta\!\left(\frac12+it\right)\right|^2dt
 \[
 E_1(T)=O(T^{1/2}\log T),
 \]
-من دون الادعاء أنه أفضل حد معروف.
+مع إسناده إلى Ingham، ومن دون الادعاء أنه أفضل حد معروف.
 
 ### العزم الرابع
 
@@ -77,15 +77,19 @@ a(k)=\prod_p\left(1-\frac1p\right)^{k^2}
 
 1. الصيغة العامة المتوقعة للعزوم ليست مبرهنة لكل \(k\).
 2. العزمان الثاني والرابع هما الحالتان الكلاسيكيتان ذواتا صيغ تقاربية مثبتة.
-3. حد Soundararajan لعام 2009 وحد Harper مشروطان بفرضية ريمان.
-4. الحدود الدنيا المستمرة غير مشروطة ضمن مجالها المعلن.
-5. نموذج Keating--Snaith حدسي لدالة زيتا، لا نتيجة مثبتة فيها.
-6. الانتقال من رتبة العزوم إلى قانون القيم القصوى يحتاج مدخلًا إضافيًا.
-7. لا تُستعمل أفضل حدود الخطأ الحديثة إذا لم تكن لازمة لبنية الفصل.
+3. حد Soundararajan محكّم ومنشور؛ حد Harper preprint موثوق لكنه غير محكّم بحسب السجل المتاح.
+4. كلا الحدين العلويين مشروط بفرضية ريمان.
+5. الحدود الدنيا المستمرة غير مشروطة ضمن مجالها المعلن.
+6. نموذج Keating--Snaith حدسي لدالة زيتا، لا نتيجة مثبتة فيها.
+7. الانتقال من رتبة العزوم إلى قانون القيم القصوى يحتاج مدخلًا إضافيًا.
+8. لا تُستعمل أفضل حدود الخطأ الحديثة إذا لم تكن لازمة لبنية الفصل.
 
-## المتبقي قبل التجميد النهائي
+## حالة ملاحظات المراجعة المستقلة
 
-- حسم مستوى البرهان الداخلي للعزم الثاني.
-- تثبيت أن العزم الرابع `CITED-CORE` لا `PROVED-HERE`.
-- إغلاق خريطة عدم الدور بعد تثبيت هذين القرارين.
-- مراجعة مستقلة فعلية لبوابة التأليف.
+- MAJOR-1: CLOSED — صُحح إسناد حد خطأ العزم الثاني إلى Ingham.
+- MAJOR-2: CLOSED — وُسم Harper صراحة `PREPRINT / NOT PEER-REVIEWED` وفُصل عن Soundararajan المنشور.
+- MINOR-1: CLOSED — ثُبتت سنة النشر 1928، مع كون 1926 سنة الاستلام.
+- MINOR-2: CLOSED — ثُبت مجال Soundararajan عند \(k\ge0\) الثابت، مع التنبيه إلى تفاهة \(k=0\).
+- EDITORIAL-2: CLOSED — استُكملت بيانات Florea الببليوغرافية.
+
+المتبقي قبل فتح التأليف: مراجعة ضيقة مستقلة للتصحيحات، مع بقاء `PASS-FOR-AUTHORING = NO` حتى صدور حكم جديد.
