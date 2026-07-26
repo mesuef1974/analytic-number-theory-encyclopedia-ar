@@ -5,9 +5,12 @@ CHAPTER                = 26
 VERSION                = 0.30.0-dev
 REGISTRY               = RESERVED / NON-CITABLE
 RESULTS                = 10 RESERVED / NON-CITABLE
-AUTHORING              = BLOCKED
-PRE-AUTHORING-REVIEW   = NOT STARTED
-PASS-FOR-AUTHORING     = NO
+AUTHORING              = AUTHORED-DRAFT
+PRE-AUTHORING-REVIEW   = PASS
+PASS-FOR-AUTHORING     = YES
+CI-QUALITY             = PENDING
+CI-PDF                 = PENDING
+POST-AUTHORING-REVIEW  = NOT STARTED
 OWNER-ADOPTION         = NOT REQUESTED
 MERGE                  = NOT AUTHORIZED
 ```
@@ -30,4 +33,6 @@ MERGE                  = NOT AUTHORIZED
 - لا يحمل أي عنصر تصنيف `PROVED-HERE`.
 - عناصر `SYNTHESIS-MAP` تجمع نتائج سابقة ولا تنشئ مبرهنات جديدة.
 - المبادئ المنهجية حراس استدلال وليست نتائج حسابية مستقلة.
-- لا تصبح المعرفات قابلة للاستشهاد قبل التأليف والبناء والمراجعة المستقلة واعتماد المالك.
+- قاموس الحالات يقتصر على `ESTABLISHED` و`ACTIVE-DIRECTION` و`CONJECTURAL-PROGRAM` و`OPEN`.
+- الإحصاء الحسابي مدرج بوصفه جبهة غير مكتملة التغطية، لا نتيجة معتمدة داخل الموسوعة.
+- لا تصبح المعرفات قابلة للاستشهاد قبل البناء والمراجعة المستقلة بعد التأليف واعتماد المالك.
