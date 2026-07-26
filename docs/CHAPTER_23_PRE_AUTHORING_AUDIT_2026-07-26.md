@@ -4,9 +4,11 @@
 CHAPTER                      = 23
 VERSION                      = 0.27.0-dev
 SCIENTIFIC-BLOCKERS          = 0
-READY-FOR-INDEPENDENT-REVIEW = YES
+PRIMARY-INDEPENDENT-REVIEW   = CHANGES-REQUIRED / 0 BLOCKERS
+REVIEW-CORRECTIONS           = APPLIED
+READY-FOR-NARROW-RE-REVIEW   = YES
 PASS-FOR-AUTHORING           = NO
-AUTHORING                    = BLOCKED PENDING REVIEW
+AUTHORING                    = BLOCKED
 RESULTS                      = 10 RESERVED / NON-CITABLE
 MERGE                        = NOT AUTHORIZED
 RELEASE-READY                = NO
@@ -18,22 +20,28 @@ RELEASE-READY                = NO
 - [x] خريطة الجبهات ستبقى آخر فصل.
 - [x] RH وGUE خارجان عن ادعاءات الإثبات.
 - [x] الحساب العددي مصنف دليلًا محدودًا لا برهانًا.
-- [x] تثبيت صيغة ريمان--فون مانغولت.
-- [x] تثبيت تعريف دالة Montgomery والوزن وشرط RH ومجال الدعم.
-- [x] تثبيت اتفاقية التحويل الفوري ذات \(2\pi\) وتطبيع نواة الجيب.
-- [x] تثبيت ورقة Odlyzko لعام 1987 وحجمي العينتين ودقة الحساب المعلنة.
-- [x] تثبيت حارس انتقال Katz--Sarnak من الحقول المنتهية إلى العائلات الكلاسيكية.
+- [x] تثبيت تعريف Montgomery والوزن وشرط RH ومجال الدعم.
+- [x] تثبيت اتفاقية فورييه وتطبيع نواة الجيب.
+- [x] تثبيت ورقة Odlyzko لعام 1987 وأرقامها.
+- [x] تثبيت حارس Katz--Sarnak.
+
+## فحوص المراجعة المصححة
+
+- [x] أُلغي `ANT-THM-23-01` القديم بوصفه نسخة مكررة من صيغة ريمان--فون مانغولت.
+- [x] صار `ANT-DEF-23-01` يحيل صراحة إلى `ANT-THM-06-06` بوصفه مصدر الحقيقة الداخلي.
+- [x] أُعيد ترقيم النتائج المحجوزة مع بقاء العدد عشرة.
+- [x] أضيف `ANT-PRIN-23-02` لمبدأ حدود الاستدلال بدل المبرهنة المكررة.
+- [x] صُحح Baluyot--Goldston--Suriajaya--Turnage-Butterbaugh إلى `PEER-REVIEWED` في Acta Arithmetica 214 (2024), 357--376.
+- [x] استُكملت بيانات Rudnick--Sarnak: Duke Math. J. 81 (1996), 269--322.
 
 ## فحوص البرهان وعدم الدور
 
 - [x] لا تستخدم حدسية GUE لإثبات الجزء المثبت.
 - [x] لا تستخدم البيانات العددية كمدخل برهاني.
 - [x] الفصل 22 مدخل مفاهيمي فقط.
-- [x] الفصلان 6 و9 يقدمان أدوات سابقة باتجاه واحد.
-- [x] الفصل 21 يقدم لغة العائلات والموصل فقط.
-- [x] `ANT-THM-23-01` هو النتيجة الوحيدة المصنفة `PROVED-HERE`.
-- [x] مبرهنة Montgomery وGUE المصفوفية وKatz--Sarnak نتائج مقتبسة بتصنيفات منفصلة.
-- [x] `CIRCULARITY = CLOSED`.
+- [x] الفصل 6 مصدر مباشر معلن لصيغة عد الأصفار.
+- [x] لا توجد مبرهنة مكررة بين الفصلين 6 و23.
+- [x] `CIRCULARITY = CLOSED` و`DUPLICATION = CLOSED`.
 
 ## فحوص التطبيع
 
@@ -47,32 +55,21 @@ RELEASE-READY                = NO
 
 ## فحوص النتائج
 
-- [x] حجز عشرة معرفات فقط.
+- [x] عشرة معرفات محجوزة فقط.
 - [x] جميعها `NON-CITABLE`.
-- [x] فصل المبرهن داخليًا عن المشروط والحدسي والمصفوفي والعددي.
-- [x] فصل pair correlation عن spacing وnumber variance وn-level.
-- [ ] مراجعة مستقلة للصيغ والتصنيفات والمصادر.
-
-## حزمة المراجعة
-
-يجب أن تقرأ المراجعة المستقلة كاملة:
-
-1. `docs/CHAPTER_23_SCOPE_2026-07-26.md`
-2. `docs/CHAPTER_23_EVIDENCE_LEDGER_2026-07-26.md`
-3. `docs/CHAPTER_23_NORMALIZATION_TABLE_2026-07-26.md`
-4. `docs/CHAPTER_23_PROOF_MAP_2026-07-26.md`
-5. `docs/RESULTS_REGISTRY_CHAPTER_23.md`
-6. هذا التدقيق.
+- [x] لا يوجد معرّف جديد لصيغة ريمان--فون مانغولت.
+- [x] فُصل المقتبس والمشروط والحدسي والمصفوفي والعددي والمنطقي.
+- [ ] مراجعة ضيقة مستقلة للتصحيحات الثلاثة.
 
 ## الحكم الحالي
 
 ```text
-VERDICT            = READY-FOR-INDEPENDENT-REVIEW
+VERDICT            = REVIEW-CORRECTED / NARROW-RE-REVIEW-PENDING
 BLOCKERS           = 0
 PASS-FOR-AUTHORING = NO
 ```
 
-لا يفتح التأليف إلا بحكم مستقل صريح:
+لا يفتح التأليف إلا بعد حكم مستقل جديد:
 
 ```text
 VERDICT            = PASS
