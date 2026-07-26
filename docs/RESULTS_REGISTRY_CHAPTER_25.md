@@ -9,9 +9,10 @@ AUTHORING              = AUTHORED-DRAFT
 PRE-AUTHORING-REVIEW   = PASS
 PASS-FOR-AUTHORING     = YES
 CI-QUALITY             = PASS
-CI-PDF                 = PASS
-POST-AUTHORING-REVIEW  = REQUESTED
-OWNER-ADOPTION         = NOT REQUESTED
+CI-PDF                 = PASS / 317 PAGES
+POST-AUTHORING-REVIEW  = PASS
+POST-AUTHORING-PASS    = YES
+OWNER-ADOPTION         = REQUIRED / NOT YET RECORDED
 MERGE                  = NOT AUTHORIZED
 ```
 
@@ -34,5 +35,6 @@ MERGE                  = NOT AUTHORIZED
 - `ANT-THM-25-01` و`ANT-THM-25-02` منقولتان من المصادر وليستا `PROVED-HERE`.
 - برهان `ANT-PROP-25-02` يثبت الحدين السفليين فقط؛ مطابقة الحد العلوي هي محتوى `ANT-THM-25-01`.
 - `ANT-PRIN-25-02` مبدأ مقارن لا يعلن تكافؤًا تقنيًا بين البرهانين.
-- لا تصبح النتائج قابلة للاستشهاد قبل المراجعة المستقلة بعد التأليف واعتماد المالك.
+- اجتاز الفصل المراجعة المستقلة بعد التأليف بحكم `PASS` وصفر عوائق، لكن النتائج لا تصبح قابلة للاستشهاد قبل اعتماد المالك الصريح.
+- لا يحدث الدمج قبل اعتماد المالك وإذن الدمج الصريح.
 - الفصل 25 يسبق خريطة الجبهات التي تبقى الفصل الأخير برقم 26.
