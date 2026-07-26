@@ -3,15 +3,15 @@
 ```text
 CHAPTER                = 23
 VERSION                = 0.27.0-dev
-REGISTRY               = AUTHORED-DRAFT
+REGISTRY               = POST-AUTHORING-REVIEWED / OWNER-ADOPTION-PENDING
 RESULTS                = 10 AUTHORED-DRAFT / NON-CITABLE
 PASS-FOR-AUTHORING     = YES
-AUTHORING               = COMPLETED
-LOCAL-BUILD             = PASS
-BUILD-PAGES             = 302
-POST-AUTHORING-REVIEW   = PENDING
-OWNER-ADOPTION          = NOT REQUESTED
-MERGE                   = NOT AUTHORIZED
+AUTHORING              = COMPLETED
+LOCAL-BUILD            = PASS
+BUILD-PAGES            = 302
+POST-AUTHORING-REVIEW  = PASS / 0 BLOCKERS
+OWNER-ADOPTION         = NOT REQUESTED
+MERGE                  = NOT AUTHORIZED
 ```
 
 | المعرّف | الوصف | التصنيف المجمد | الحالة |
@@ -45,14 +45,28 @@ BUILD-SOURCE-HEAD       = 8fd720190fa5fc1ff13fc2f292ff6f8499937c97
 BUILD-SEQUENCE          = xelatex -> biber -> xelatex -> xelatex
 PDF-PAGES               = 302
 PDF-SHA256              = 70731D72522AD2FAC954EF44AACB3FDEA41FA988C740C7F292C2C8C4BAD6E54A
-UNRESOLVED-CITATIONS     = 0 ON FINAL PASS
-UNDEFINED-REFERENCES     = 0 ON FINAL PASS
+UNRESOLVED-CITATIONS    = 0 ON FINAL PASS
+UNDEFINED-REFERENCES    = 0 ON FINAL PASS
 BUILD-RECEIPT           = docs/CHAPTER_23_LOCAL_BUILD_RECEIPT_2026-07-26.md
 ```
 
+## المراجعة المستقلة بعد التأليف
+
+```text
+REVIEWED-HEAD           = 01e74e3e6ec27807e31ae2804258e7bd29520639
+REVIEW-COMMIT           = 2251186545c7c45f617b21396ff19392b02bb362
+VERDICT                 = PASS
+BLOCKERS                = 0
+RESULTS-CITABLE         = NO
+MERGE                   = NOT AUTHORIZED
+REVIEW-FILE             = docs/CHAPTER_23_INDEPENDENT_POST_AUTHORING_REVIEW_2026-07-26.md
+```
+
+الملاحظتان المتبقيتان `MINOR` تحريريتان غير مانعتين: توضيح علاقة \(1-F(\alpha,T)\) بالجزء المثلثي من تحويل نواة الجيب، وتحسين كسر سطرين طويلين في صفحات الفصل 23. لا تُغيّر هاتان الملاحظتان الحكم العلمي، ولا تمنحان تفعيلًا أو إذن دمج.
+
 ## حراس ما بعد التأليف
 
-- لا يصبح أي معرّف `ACTIVE / CITABLE` قبل المراجعة المستقلة بعد التأليف واعتماد المالك.
+- لا يصبح أي معرّف `ACTIVE / CITABLE` قبل اعتماد المالك الصريح.
 - صيغة ريمان--فون مانغولت لا تحصل على معرّف فصل 23 جديد؛ مصدرها الداخلي `ANT-THM-06-06`.
 - `ANT-THM-23-01` يحمل RH في نصه ويقيد دعم \(\widehat f\) داخل \((-1,1)\).
 - `ANT-THM-23-02` مبرهنة في نموذج المصفوفات العشوائية لا في دالة زيتا.
