@@ -4,11 +4,10 @@
 
 ```text
 SCIENTIFIC-BLOCKERS          = CLOSED
-INDEPENDENT-REVIEW           = CHANGES-REQUIRED / 0 BLOCKERS
-REVIEW-CORRECTIONS           = APPLIED
-READY-FOR-NARROW-RE-REVIEW   = YES
-PASS-FOR-AUTHORING           = NO
-AUTHORING                    = BLOCKED
+INDEPENDENT-REVIEW           = PASS / 0 BLOCKERS
+NARROW-RE-REVIEW             = PASS
+PASS-FOR-AUTHORING           = YES
+AUTHORING                    = OPEN
 RESULTS                      = 10 RESERVED / NON-CITABLE
 MERGE                        = NOT AUTHORIZED
 ```
@@ -34,18 +33,8 @@ MERGE                        = NOT AUTHORIZED
 - حجز معرّف مستقل للمعادلة الوظيفية التقريبية، وإعادة توزيع المعرفات مع إبقاء العدد عشرة.
 - استكمال بيانات مسح Florea المنشور في JLMS 113 (2026), e70376.
 - إغلاق تدقيق عدم الدور مع الفصول 6 و7 و18 و21.
-
-## إغلاق ملاحظات المراجعة المستقلة
-
-| الملاحظة | التصنيف | الحالة |
-|---|---|---|
-| إسناد حد خطأ العزم الثاني | MAJOR | CLOSED |
-| حالة نشر Harper | MAJOR | CLOSED |
-| تسمية أداة ضبط غير القطري | MAJOR | CLOSED |
-| سنة Ingham | MINOR | CLOSED |
-| مجال \(k\) عند Soundararajan | MINOR | CLOSED |
-| معرّف المعادلة الوظيفية التقريبية | EDITORIAL | CLOSED |
-| بيانات Florea | EDITORIAL | CLOSED |
+- اجتياز المراجعة المستقلة الأولى بحكم `CHANGES-REQUIRED` وصفر عوائق، ثم إغلاق الملاحظات السبع.
+- اجتياز المراجعة المستقلة الضيقة على الرأس `9f56ae57afaa1e37eee55c54dc94a5e01563b004` بحكم `PASS` وصفر عوائق.
 
 ## حراس التأليف الإلزامية
 
@@ -57,12 +46,17 @@ MERGE                        = NOT AUTHORIZED
 6. لا يُستنتج قانون القيمة القصوى النموذجية من متراجحة ماركوف أو من عزم منفرد.
 7. لا يُدعى استعمال أفضل حد معروف لخطأ العزم الثاني أو الرابع.
 8. أي انتقال إلى عائلة دوال \(L\) يثبت العائلة والموصل ونوع التناظر.
-9. تبقى المعرفات العشرة `RESERVED / NON-CITABLE` حتى التأليف والمراجعة واعتماد المالك.
+9. تبقى المعرفات العشرة `RESERVED / NON-CITABLE` خلال التأليف، ولا تُفعّل قبل التدقيق اللاحق والمراجعة المستقلة واعتماد المالك.
 
 ## قرار الحوكمة
 
-الحزمة مصححة وجاهزة لمراجعة مستقلة ضيقة على الملاحظات السبع فقط. لا يجوز إنشاء ملف متن الفصل أو ربطه بـ`manuscript/main.tex` حتى يصدر المراجع المستقل حكمًا جديدًا صريحًا:
+بناءً على:
 
 ```text
+REVIEWED-HEAD      = 9f56ae57afaa1e37eee55c54dc94a5e01563b004
+VERDICT            = PASS
+BLOCKERS           = 0
 PASS-FOR-AUTHORING = YES
 ```
+
+تُفتح مرحلة التأليف على فرع الفصل 22 فقط. لا يسمح هذا القرار بتفعيل النتائج أو دمج PR #44 أو الادعاء بأن الفصل `REVIEWED` أو `RELEASE-READY`.
