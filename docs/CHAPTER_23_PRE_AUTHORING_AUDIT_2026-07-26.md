@@ -1,17 +1,18 @@
 # تدقيق ما قبل تأليف الفصل الثالث والعشرين
 
 ```text
-CHAPTER                      = 23
-VERSION                      = 0.27.0-dev
-SCIENTIFIC-BLOCKERS          = 0
-PRIMARY-INDEPENDENT-REVIEW   = CHANGES-REQUIRED / 0 BLOCKERS
-REVIEW-CORRECTIONS           = APPLIED
-READY-FOR-NARROW-RE-REVIEW   = YES
-PASS-FOR-AUTHORING           = NO
-AUTHORING                    = BLOCKED
-RESULTS                      = 10 RESERVED / NON-CITABLE
-MERGE                        = NOT AUTHORIZED
-RELEASE-READY                = NO
+CHAPTER                       = 23
+VERSION                       = 0.27.0-dev
+SCIENTIFIC-BLOCKERS           = 0
+PRIMARY-INDEPENDENT-REVIEW    = CHANGES-REQUIRED / 0 BLOCKERS
+FIRST-NARROW-RE-REVIEW        = CHANGES-REQUIRED / 0 BLOCKERS
+REVIEW-CORRECTIONS            = APPLIED
+READY-FOR-SECOND-NARROW-REVIEW= YES
+PASS-FOR-AUTHORING            = NO
+AUTHORING                     = BLOCKED
+RESULTS                       = 10 RESERVED / NON-CITABLE
+MERGE                         = NOT AUTHORIZED
+RELEASE-READY                 = NO
 ```
 
 ## فحوص النطاق
@@ -25,14 +26,14 @@ RELEASE-READY                = NO
 - [x] تثبيت ورقة Odlyzko لعام 1987 وأرقامها.
 - [x] تثبيت حارس Katz--Sarnak.
 
-## فحوص المراجعة المصححة
+## فحوص تصحيحات المراجعات
 
-- [x] أُلغي `ANT-THM-23-01` القديم بوصفه نسخة مكررة من صيغة ريمان--فون مانغولت.
-- [x] صار `ANT-DEF-23-01` يحيل صراحة إلى `ANT-THM-06-06` بوصفه مصدر الحقيقة الداخلي.
-- [x] أُعيد ترقيم النتائج المحجوزة مع بقاء العدد عشرة.
-- [x] أضيف `ANT-PRIN-23-02` لمبدأ حدود الاستدلال بدل المبرهنة المكررة.
-- [x] صُحح Baluyot--Goldston--Suriajaya--Turnage-Butterbaugh إلى `PEER-REVIEWED` في Acta Arithmetica 214 (2024), 357--376.
-- [x] استُكملت بيانات Rudnick--Sarnak: Duke Math. J. 81 (1996), 269--322.
+- [x] لا تسجل صيغة ريمان--فون مانغولت كمبرهنة جديدة؛ الإحالة إلى `ANT-THM-06-06` صريحة.
+- [x] ورقة Baluyot--Goldston--Suriajaya--Turnage-Butterbaugh مصنفة منشورة ومحكمة في Acta Arithmetica 214 (2024), 357--376.
+- [x] بيانات Rudnick--Sarnak مكتملة.
+- [x] أعيد تصنيف `ANT-PRIN-23-02` إلى `METHODOLOGICAL-PRINCIPLE / INFERENCE-GUARDED`.
+- [x] لا يحمل `ANT-PRIN-23-02` وسم `PROVED-HERE` ولا يقدم كمبرهنة.
+- [x] لا يوجد أي عنصر `PROVED-HERE` في سجل الفصل 23؛ النتائج الرياضية الجوهرية إما إحالة داخلية أو مقتبسة أو حدسية أو عددية.
 
 ## فحوص البرهان وعدم الدور
 
@@ -58,13 +59,13 @@ RELEASE-READY                = NO
 - [x] عشرة معرفات محجوزة فقط.
 - [x] جميعها `NON-CITABLE`.
 - [x] لا يوجد معرّف جديد لصيغة ريمان--فون مانغولت.
-- [x] فُصل المقتبس والمشروط والحدسي والمصفوفي والعددي والمنطقي.
-- [ ] مراجعة ضيقة مستقلة للتصحيحات الثلاثة.
+- [x] فُصل المقتبس والمشروط والحدسي والمصفوفي والعددي والمنهجي.
+- [ ] مراجعة ضيقة مستقلة ثانية لتصنيف `ANT-PRIN-23-02` واتساق السجل والخريطة.
 
 ## الحكم الحالي
 
 ```text
-VERDICT            = REVIEW-CORRECTED / NARROW-RE-REVIEW-PENDING
+VERDICT            = REVIEW-CORRECTED / SECOND-NARROW-RE-REVIEW-PENDING
 BLOCKERS           = 0
 PASS-FOR-AUTHORING = NO
 ```
