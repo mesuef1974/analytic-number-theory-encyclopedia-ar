@@ -10,8 +10,8 @@ BLOCKER-CORRECTION     = APPLIED
 NARROW-RE-REVIEW       = PASS / 0 BLOCKERS
 PASS-FOR-AUTHORING     = YES
 AUTHORING              = COMPLETED
-LOCAL-BUILD            = NOT STARTED
-POST-AUTHORING-REVIEW  = NOT STARTED
+LOCAL-BUILD            = PASS
+POST-AUTHORING-REVIEW  = REQUESTED
 OWNER-ADOPTION         = NOT REQUESTED
 MERGE                  = NOT AUTHORIZED
 ```
@@ -44,18 +44,22 @@ NARROW-BLOCKERS         = 0
 PASS-FOR-AUTHORING      = YES
 ```
 
-## ملفات التأليف
+## ملفات التأليف والبناء
 
 ```text
 AUTHORING-AUTHORIZATION = docs/CHAPTER_24_AUTHORING_AUTHORIZATION_2026-07-26.md
 CHAPTER-TEXT            = volumes/volume-15-modern-frontiers/chapters/chapter-24-pretentious-multiplicative-functions.tex
 BIBLIOGRAPHY            = manuscript/chapter-24-bibliography.bib
 MANUSCRIPT-LINK         = manuscript/main.tex
+BUILD-RECEIPT           = docs/CHAPTER_24_LOCAL_BUILD_RECEIPT_2026-07-26.md
+BUILT-HEAD              = ccd9c4b55c17b2117cc27bec95a0d615f5353ffb
+PDF-PAGES               = 308
+PDF-SHA256              = BD633FA81604FB991D46325768BD4BE0D90759CD721AD6D1A2D78E3B2CF4E5BD
 ```
 
 ## الحراس
 
-- لا يصبح أي معرّف قابلًا للاستشهاد قبل البناء والمراجعة المستقلة بعد التأليف واعتماد المالك.
+- لا يصبح أي معرّف قابلًا للاستشهاد قبل المراجعة المستقلة بعد التأليف واعتماد المالك.
 - `ANT-THM-24-01` منقول من المصدر، وليس `PROVED-HERE`.
 - لا يجوز حذف \(T^{-1/2}\) أو تغيير مجال التصغير \(|t|\le2T\).
 - `ANT-COR-24-01` يضبط تباعد \(\mathcal M\) واختيار \(T(x)\to\infty\) معًا.
