@@ -5,7 +5,7 @@
 ```text
 CHAPTER     = 24
 AUTHORING   = BLOCKED
-TABLE       = FROZEN-DRAFT
+TABLE       = CORRECTED-AFTER-INDEPENDENT-REVIEW
 ```
 
 ## الرموز والاتفاقيات
@@ -19,14 +19,30 @@ TABLE       = FROZEN-DRAFT
 | مسافة مقيدة | \(\mathbb D(f,g;x,y)^2=\sum_{y<p\le x}(1-\Re(f(p)\overline{g(p)}))/p\) | تستعمل فقط عند الحاجة |
 | النموذج الطوري | \(n^{it}=e^{it\log n}\) | \(t\in\mathbb R\) و\(\log\) طبيعي |
 | النموذج التوافقي | \(\chi(n)n^{it}\) | \(\chi\) شخصية ديريشليه مع فصل الرئيسية |
-| مقياس هالاش | \(\mathcal M(f;x,T)=\min_{|t|\le T}\mathbb D(f,n^{it};x)^2\) | لا يضاف \(\chi\) في الصيغة الأساسية إلا في قسم مستقل |
-| حد هالاش العامل | \((1+\mathcal M)e^{-\mathcal M}\) | تُراجع الثوابت وحدود \(T\) من المصدر قبل التأليف |
+| مقياس هالاش | \(\mathcal M(f;x,T)=\min_{|t|\le 2T}\mathbb D(f,n^{it};x)^2\) | المجال هو \(|t|\le 2T\)، لا \(|t|\le T\) |
+| حد هالاش الكمي | \(\displaystyle \left|\frac1x\sum_{n\le x}f(n)\right|\ll (1+\mathcal M)e^{-\mathcal M}+T^{-1/2}\) | صيغة كلاسيكية محسنة؛ ثابت \(\ll\) مطلق ضمن النطاق المجمد |
+| مجال المعلمة | \(T\ge 1\) | لا يحذف حد \(T^{-1/2}\) ولا يرسل \(T\) إلى ما لا نهاية دون ضبط |
 | موبيوس | \(\mu(p)=-1,\ \mu(p^k)=0\ (k\ge2)\) | ضربـية لا تامة |
 | ليوفيل | \(\lambda(n)=(-1)^{\Omega(n)}\) | ضربـية تامة وقيمها \(\pm1\) |
 
-## صيغ ممنوعة قبل المراجعة
+## الصيغة المجمدة لمبرهنة هالاش
 
-- لا تُكتب نسخة كمية نهائية لمبرهنة هالاش قبل مطابقة مجال \(T\) وحد الخطأ مع المصدر المختار.
+لدالة ضربـية \(f\) تحقق \(|f(n)|\le1\)، ومع \(x\ge2\) و\(T\ge1\)، نعرّف
+\[
+\mathcal M(f;x,T)=\min_{|t|\le2T}\mathbb D(f,n^{it};x)^2.
+\]
+والصيغة الكمية المعتمدة للتأليف هي
+\[
+\left|\frac1x\sum_{n\le x}f(n)\right|
+\ll
+(1+\mathcal M(f;x,T))e^{-\mathcal M(f;x,T)}+\frac1{\sqrt T}.
+\]
+لا يجوز حذف الحد \(T^{-1/2}\)، ولا استبدال مجال التصغير بـ\(|t|\le T\).
+
+## صيغ ممنوعة
+
+- لا تُحذف مساهمة \(T^{-1/2}\) من مبرهنة هالاش الكمية.
+- لا يُستبدل مجال \(|t|\le2T\) بمجال \(|t|\le T\).
 - لا يُستبدل \(\mathbb D^2\) بـ\(\mathbb D\) داخل الأس دون تصريح.
 - لا تُساوى \(\mathcal M\to\infty\) بإلغاء منتظم في كل فترة قصيرة.
 - لا تُستعمل \(\chi(n)n^{it}\) في النواة العامة ثم تُنسب مباشرة إلى النسخة غير التوافقية من المبرهنة.
@@ -38,6 +54,8 @@ FOURIER-CONVENTION        = NOT NEEDED IN CORE
 LOG                       = NATURAL LOGARITHM
 PRIME-SUM                 = p <= x
 DISTANCE                  = SQUARED FORM PRIMARY
+HALASZ-T-RANGE            = |t| <= 2T
+HALASZ-REMAINDER          = + T^(-1/2)
 MEAN                      = NORMALIZED BY x
 SHORT-INTERVAL RESULTS    = DEFERRED
 ```
