@@ -45,6 +45,7 @@
 \addbibresource{manuscript/chapter-19-bibliography.bib}
 \addbibresource{manuscript/chapter-20-bibliography.bib}
 \addbibresource{manuscript/chapter-21-bibliography.bib}
+\addbibresource{manuscript/chapter-22-bibliography.bib}
 
 \newtheorem{theorem}{مبرهنة}[chapter]
 \newtheorem{lemma}[theorem]{لمّة}
@@ -55,6 +56,8 @@
 \newtheorem{definition}[theorem]{تعريف}
 \newtheorem{example}[theorem]{مثال}
 \newtheorem{exercise}[theorem]{تمرين}
+\newtheorem{conjecture}[theorem]{حدسية}
+\newtheorem{openproblem}[theorem]{مسألة مفتوحة}
 
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{ملاحظة}
@@ -120,10 +123,10 @@
   \par
 }
 
-\newcommand{\draftresult}{%
+\newcommand{\openresult}{%
   \noindent
-  \resultbadge{red!15}{مسودة}%
+  \resultbadge{red!15}{مسألة مفتوحة}%
   \quad
-  النتيجة أو البرهان قيد المراجعة.%
+  لم تُحسم في الحالة العامة.%
   \par
 }
