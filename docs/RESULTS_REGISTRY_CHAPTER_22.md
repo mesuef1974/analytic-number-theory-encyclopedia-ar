@@ -5,10 +5,10 @@
 ```text
 CHAPTER              = 22
 VERSION              = 0.26.0-dev
-REGISTRY             = RESERVED / REVIEW-CORRECTED
+REGISTRY             = RESERVED / AUTHORING-OPEN
 RESULTS              = 10 RESERVED / NON-CITABLE
-PASS-FOR-AUTHORING   = NO
-AUTHORING            = BLOCKED PENDING NARROW RE-REVIEW
+PASS-FOR-AUTHORING   = YES
+AUTHORING            = OPEN
 OWNER-ADOPTION       = NOT REQUESTED
 MERGE                = NOT AUTHORIZED
 ```
@@ -26,15 +26,29 @@ MERGE                = NOT AUTHORIZED
 | ANT-CONJ-22-01 | حدسية العزوم العامة لـKeating--Snaith | CONJECTURAL / HEURISTIC | RESERVED / NON-CITABLE |
 | ANT-OPEN-22-01 | القيم المتطرفة والصيغة القصوى العامة | OPEN / FRONTIER | RESERVED / NON-CITABLE |
 
+## حكم بوابة التأليف
+
+اجتازت التصحيحات المراجعة المستقلة الضيقة:
+
+```text
+REVIEWED-HEAD      = 9f56ae57afaa1e37eee55c54dc94a5e01563b004
+VERDICT            = PASS
+BLOCKERS           = 0
+PASS-FOR-AUTHORING = YES
+```
+
+يسمح الحكم بإنشاء متن الفصل وربطه بالمخطوط على فرع PR #44 فقط. لا يرقّي أي معرّف إلى `ACTIVE` أو `CITABLE`.
+
 ## ملاحظة حول حدود الذيل
 
 لا يُحجز لها معرّف مستقل في النواة. ستظهر، إن لزم، كنتيجة تابعة قصيرة لمتراجحة ماركوف داخل مناقشة `ANT-OPEN-22-01`، حتى يبقى عدد المعرفات عشرة مع إضافة المعرّف الضروري للمعادلة الوظيفية التقريبية.
 
 ## حراس
 
-- لا تصبح أي نتيجة قابلة للاستشهاد قبل التأليف والتدقيق والمراجعة المستقلة واعتماد المالك.
+- لا تصبح أي نتيجة قابلة للاستشهاد قبل التأليف والتدقيق والمراجعة المستقلة اللاحقة واعتماد المالك.
 - `ANT-CONJ-22-01` لا يوضع في بيئة theorem ولا يوصف بأنه مثبت.
 - كل نتيجة مشروطة بفرضية ريمان تحمل الشرط في نصها وعنوانها المختصر.
 - `ANT-THM-22-04` يحمل وسم `PREPRINT` ولا يُعرض بمكانة ببليوغرافية مساوية لمقالة Soundararajan المحكّمة.
 - `ANT-OPEN-22-01` لا يُستنتج مباشرة من `ANT-THM-22-03` أو `ANT-THM-22-04`.
 - ترتيب `ANT-PROP-22-01` و`ANT-PROP-22-02` يسبق منطقيًا `ANT-THM-22-01` في المتن.
+- `MERGE = NOT AUTHORIZED` حتى اعتماد المالك الصريح.
