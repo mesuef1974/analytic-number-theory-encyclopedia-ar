@@ -11,7 +11,8 @@ NARROW-RE-REVIEW       = PASS / 0 BLOCKERS
 PASS-FOR-AUTHORING     = YES
 AUTHORING              = COMPLETED
 LOCAL-BUILD            = PASS
-POST-AUTHORING-REVIEW  = REQUESTED
+POST-AUTHORING-REVIEW  = CHANGES-REQUIRED / 0 BLOCKERS / 1 MAJOR / 1 MINOR
+POST-AUTHORING-FIXES   = APPLIED / PENDING NARROW REVIEW
 OWNER-ADOPTION         = NOT REQUESTED
 MERGE                  = NOT AUTHORIZED
 ```
@@ -42,6 +43,15 @@ NARROW-REVIEW-COMMIT    = 7fed8eb9dd3f69f4d43c2d5a720489b9f5a79830
 NARROW-VERDICT          = PASS
 NARROW-BLOCKERS         = 0
 PASS-FOR-AUTHORING      = YES
+POST-REVIEW-COMMIT      = 3eacb0091b005e4e02e821765c69e0b933492da6
+POST-VERDICT            = CHANGES-REQUIRED
+POST-BLOCKERS           = 0
+POST-MAJORS             = 1
+POST-MINORS             = 1
+MAJOR                    = ANT-PROP-24-01 GENERAL UNIT-DISK TRIANGLE PROOF GAP
+MINOR                    = ELLIOTT SOURCES UNUSED IN CHAPTER TEXT
+CORRECTION-COMMIT       = cb05df974df9485c367f30a275c0be2e5c3c9872
+CORRECTION              = PROBABILISTIC UNIT-CIRCLE LIFT + ELLIOTT CITATIONS
 ```
 
 ## ملفات التأليف والبناء
@@ -59,7 +69,8 @@ PDF-SHA256              = BD633FA81604FB991D46325768BD4BE0D90759CD721AD6D1A2D78E
 
 ## الحراس
 
-- لا يصبح أي معرّف قابلًا للاستشهاد قبل المراجعة المستقلة بعد التأليف واعتماد المالك.
+- لا يصبح أي معرّف قابلًا للاستشهاد قبل المراجعة الضيقة المستقلة للتصحيح، ثم اعتماد المالك.
+- `ANT-PROP-24-01` يبقى `PROVED-HERE` فقط إذا صادقت المراجعة المستقلة على برهان الرفع الاحتمالي الكامل للحالة \(|f(p)|\le1\).
 - `ANT-THM-24-01` منقول من المصدر، وليس `PROVED-HERE`.
 - لا يجوز حذف \(T^{-1/2}\) أو تغيير مجال التصغير \(|t|\le2T\).
 - `ANT-COR-24-01` يضبط تباعد \(\mathcal M\) واختيار \(T(x)\to\infty\) معًا.
