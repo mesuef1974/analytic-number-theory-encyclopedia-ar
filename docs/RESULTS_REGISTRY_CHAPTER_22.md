@@ -3,23 +3,25 @@
 ## الحالة
 
 ```text
-CHAPTER              = 22
-VERSION              = 0.26.0-dev
-REGISTRY             = AUTHORED-DRAFT
-RESULTS              = 10 AUTHORED-DRAFT / NON-CITABLE
-PASS-FOR-AUTHORING   = YES
-AUTHORING            = COMPLETED
-POST-AUTHORING-REVIEW= PENDING
-OWNER-ADOPTION       = NOT REQUESTED
-MERGE                = NOT AUTHORIZED
+CHAPTER               = 22
+VERSION               = 0.26.0-dev
+REGISTRY              = AUTHORED-DRAFT / REVIEW-CORRECTED
+RESULTS               = 10 AUTHORED-DRAFT / NON-CITABLE
+PASS-FOR-AUTHORING    = YES
+AUTHORING             = COMPLETED
+POST-AUTHORING-REVIEW = CHANGES-REQUIRED / 0 BLOCKERS
+REVIEW-CORRECTIONS    = APPLIED
+NARROW-RE-REVIEW      = PENDING
+OWNER-ADOPTION        = NOT REQUESTED
+MERGE                 = NOT AUTHORIZED
 ```
 
 | المعرّف | الوصف | التصنيف | الحالة |
 |---|---|---|---|
 | ANT-DEF-22-01 | تعريف العزم المستمر \(I_k(T)\) | DEFINITION | AUTHORED-DRAFT / NON-CITABLE |
-| ANT-PROP-22-01 | المعادلة الوظيفية التقريبية المتناظرة لدالة زيتا | PROVED-HERE | AUTHORED-DRAFT / NON-CITABLE |
+| ANT-PROP-22-01 | المعادلة الوظيفية التقريبية المتناظرة لدالة زيتا | PROVED-HERE | REVIEW-CORRECTED / NON-CITABLE |
 | ANT-PROP-22-02 | صيغة القيمة المتوسطة لكثيرات حدود ديريشليه | PROVED-HERE | AUTHORED-DRAFT / NON-CITABLE |
-| ANT-THM-22-01 | صيغة العزم الثاني لدالة زيتا | PROVED-HERE | AUTHORED-DRAFT / NON-CITABLE |
+| ANT-THM-22-01 | صيغة العزم الثاني لدالة زيتا | PROVED-HERE | REVIEW-CORRECTED / NON-CITABLE |
 | ANT-THM-22-02 | صيغة العزم الرابع الكلاسيكية | CITED-CORE | AUTHORED-DRAFT / NON-CITABLE |
 | ANT-THM-22-03 | حد Soundararajan للعزوم تحت RH | CITED-CORE / PEER-REVIEWED | AUTHORED-DRAFT / NON-CITABLE |
 | ANT-THM-22-04 | تحسين Harper للحدود العليا | CITED-CORE / PREPRINT | AUTHORED-DRAFT / NON-CITABLE |
@@ -35,6 +37,23 @@ VERDICT            = PASS
 BLOCKERS           = 0
 PASS-FOR-AUTHORING = YES
 ```
+
+## حكم المراجعة المستقلة بعد التأليف
+
+```text
+REVIEWED-HEAD   = 812ac2355d4ede8dba88354c02bc85c7bc3c9a4a
+VERDICT         = CHANGES-REQUIRED
+BLOCKERS        = 0
+RESULTS-CITABLE = NO
+```
+
+أُغلقت الملاحظتان الكبيرتان والملاحظة التحريرية في الرأس المصحح:
+
+- تصحيح حد خطأ `ANT-PROP-22-01` إلى \(O(x^{-1/2}+y^{-1/2})\).
+- إدراج إسناد Ingham صراحة داخل قسم العزم الثاني، مع فصل الخلفية التاريخية لـHardy--Littlewood.
+- إزالة علامة BOM من مطلع ملف الفصل.
+
+لا يرقّي هذا الإغلاق النتائج إلى `CITABLE` قبل المراجعة الضيقة المستقلة الجديدة واعتماد المالك.
 
 ## حراس ما بعد التأليف
 
