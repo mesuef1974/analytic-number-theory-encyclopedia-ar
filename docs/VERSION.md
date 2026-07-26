@@ -14,18 +14,18 @@ VERSION                = 0.29.0-dev
 CHAPTER                = 25
 TOPIC                  = DECOUPLING / EFFICIENT CONGRUENCING / VINOGRADOV MEAN VALUE
 ISSUE                  = #49 / OPEN
-PR                     = #50 / DRAFT
-STATUS                 = AUTHORED-DRAFT / NON-CITABLE
+PR                     = #50 / READY-FOR-MERGE
+STATUS                 = REVIEWED / OWNER-ADOPTED / CITABLE
 PRE-AUTHORING-GATE     = PASS
 PASS-FOR-AUTHORING     = YES
-AUTHORING              = COMPLETED-DRAFT
-POST-AUTHORING-REVIEW  = NOT STARTED
-OWNER-ADOPTION         = NOT REQUESTED
-RESULTS                = 10 RESERVED / NON-CITABLE
-CI-PDF                 = PASS
-CI-QUALITY             = PENDING-RECHECK
-MERGE                  = NOT AUTHORIZED
+AUTHORING              = COMPLETED
+POST-AUTHORING-REVIEW  = PASS / 0 BLOCKERS
+OWNER-ADOPTION         = CONFIRMED
+RESULTS                = 10 ACTIVE / CITABLE
+CI-PDF                 = PASS / 317 PAGES
+CI-QUALITY             = PASS
+MERGE                  = AUTHORIZED / PENDING
 RELEASE-READY          = NO
 ```
 
-الفصل الخامس والعشرون مؤلف كمسودة ومربوط بالمخطوط على فرعه فقط. لا تصبح نتائجه قابلة للاستشهاد قبل نجاح فحوص الجودة والمراجعة المستقلة بعد التأليف واعتماد المالك الصريح. لا يعني اكتمال المسودة أن الموسوعة جاهزة للإصدار.
+اعتمد المالك الفصل الخامس والعشرين صراحة بعد نجاح البناء والمراجعة المستقلة بعد التأليف. فُعّلت نتائجه العشر وفق تصنيفاتها وحراسها العلمية، وأُذن بدمج PR #50. لا يعني اعتماد الفصل أن الموسوعة جاهزة للإصدار.
