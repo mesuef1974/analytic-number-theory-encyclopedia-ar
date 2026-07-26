@@ -2,32 +2,27 @@
 
 ## الحالة العامة
 
-- **الإصدار التطويري الحالي:** `0.29.0-dev`
-- **آخر فصل معتمد:** الفصل الرابع والعشرون — الدوال الضربية الادعائية.
-- **المرحلة الحالية:** الفصل الخامس والعشرون — فك الاقتران والتوافق الفعّال ومبرهنة القيمة المتوسطة لفينوغرادوف.
-- **حالة الفصل 25:** `AUTHORED-DRAFT / NON-CITABLE`
-- **PR:** `#50 / DRAFT / OPEN`
-- **Issue:** `#49 / OPEN`
-- **النتائج:** `10 RESERVED / NON-CITABLE`
+- **الإصدار التطويري الحالي:** `0.30.0-dev`
+- **آخر فصل معتمد:** الفصل السادس والعشرون — خريطة الجبهات البحثية الحديثة.
+- **المرحلة الحالية:** إغلاق ما بعد الدمج والاستعداد للمراجعة الشاملة للإصدار.
+- **حالة الفصل 26:** `REVIEWED / OWNER-ADOPTED / ACTIVE-CITABLE / MERGED`
+- **PR:** `#52 / MERGED`
+- **Issue:** `#51 / CLOSED`
+- **النتائج:** `10 ACTIVE / CITABLE`
 - **الموسوعة:** `NOT-RELEASE-READY`
 - **آخر تحديث:** 2026-07-26
 
 ```text
-CHAPTERS-1--24         = IN MANUSCRIPT / MERGED
-MAIN-HEAD              = cc053a8e717c009c1027a1e2a9169c1e96dd866d
-VERSION                = 0.29.0-dev
-CHAPTER-24             = REVIEWED / OWNER-ADOPTED / CITABLE / MERGED
-CHAPTER-25             = AUTHORED-DRAFT / NON-CITABLE
-ISSUE-49               = OPEN
-PR-50                  = DRAFT / OPEN
-PRE-AUTHORING-GATE-25  = PASS
-PASS-FOR-AUTHORING-25  = YES
-AUTHORING-25           = COMPLETED-DRAFT
-POST-AUTHORING-REVIEW  = NOT STARTED
-RESULTS-25             = 10 RESERVED / NON-CITABLE
-CI-PDF-25              = PASS
-CI-QUALITY-25          = PENDING-RECHECK
-MERGE-25               = NOT AUTHORIZED
+CHAPTERS-1--26         = IN MANUSCRIPT / MERGED
+VERSION                = 0.30.0-dev
+CHAPTER-26             = REVIEWED / OWNER-ADOPTED / ACTIVE-CITABLE / MERGED
+ISSUE-51               = CLOSED
+PR-52                  = MERGED
+PRE-AUTHORING-GATE-26  = PASS
+POST-AUTHORING-REVIEW  = PASS
+RESULTS-26             = 10 ACTIVE / CITABLE
+LOCAL-PDF              = PASS / 321 PAGES BEFORE VERSION-SYNC REBUILD
+MERGE-26               = COMPLETED
 RELEASE-READY          = NO
 ```
 
@@ -35,18 +30,18 @@ RELEASE-READY          = NO
 
 | المكوّن | الحالة |
 |---|---|
-| الفصول 1--23 | موجودة على `main` بدرجات الحوكمة المسجلة |
-| الفصل 24 | `REVIEWED / OWNER-ADOPTED / 10 ACTIVE / CITABLE / MERGED` |
-| الفصل 25 | `AUTHORED-DRAFT / 10 RESERVED / NON-CITABLE` |
-| بناء الفصل 25 | `CI PDF PASS` |
-| فحص الجودة للفصل 25 | `PENDING-RECHECK` بعد توحيد رقم الإصدار |
-| المراجعة بعد التأليف | `NOT STARTED` |
+| الفصول 1--25 | موجودة على `main` بدرجات الحوكمة المسجلة |
+| الفصل 26 | `REVIEWED / OWNER-ADOPTED / 10 ACTIVE / CITABLE / MERGED` |
+| بنية المخطوط | `26 CHAPTERS / COMPLETE` |
+| البناء المحلي بعد الدمج | `PASS / 321 PAGES` قبل مزامنة الإصدار المركزي |
+| مزامنة الإصدار | `0.30.0-dev` في الوثائق المركزية |
+| المراجعة بعد التأليف | `PASS / 0 BLOCKERS / 0 MAJORS / 0 MINORS` |
 | الموسوعة الكاملة | `NOT-RELEASE-READY` |
 
-## حالة الفصل الخامس والعشرين
+## حالة الفصل السادس والعشرين
 
-اجتازت حزمة ما قبل التأليف مراجعة مستقلة فعلية بحكم `PASS` وصفر عوائق. أُلفت مسودة الفصل وربطت بالمخطوط على فرع PR #50، مع عشرة معرفات محفوظة وغير قابلة للاستشهاد. نجح بناء PDF في GitHub Actions. عولج عدم اتساق رقم الإصدار في الوثائق المركزية، ويجب أن ينجح فحص الجودة المعاد قبل فتح المراجعة المستقلة بعد التأليف.
+اجتازت حزمة ما قبل التأليف المراجعة المستقلة، ثم أُلف الفصل الختامي وخضع لمراجعة كاملة وتصحيحات ومراجعة ضيقة نهائية بحكم `PASS`. اعتمد المالك الفصل صراحة، وفُعّلت معرفاته العشرة، ودُمج PR #52 وأُغلق Issue #51. الفصل هو الأخير في المخطوط وتكتمل به بنية الموسوعة ذات الفصول الستة والعشرين.
 
 ## الخطوة التالية
 
-التحقق من نجاح فحص الجودة بعد توحيد الإصدار، ثم إنشاء طلب مراجعة مستقلة بعد التأليف. لا تُفعّل النتائج، ولا يعتمد الفصل، ولا يدمج PR #50 دون اعتماد المالك الصريح.
+إعادة مزامنة `main` محليًا بعد إصلاح خريطة إدراج المخطوط وتحديث الوثائق المركزية، ثم تشغيل فحص الجودة والبناء الكامل وتسجيل عدد الصفحات وبصمة SHA-256 النهائية. بعد ذلك تبدأ مراجعة الإصدار الشاملة؛ لا تزال حالة `RELEASE-READY = NO`.
