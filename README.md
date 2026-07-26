@@ -2,7 +2,7 @@
 
 **العنوان الكامل:** الموسوعة الشاملة في نظرية الأعداد التحليلية: من الأسس إلى الجبهات البحثية الحديثة
 
-**الإصدار التطويري الحالي:** `v0.25.0-dev`
+**الإصدار التطويري الحالي:** `v0.29.0-dev`
 
 مشروع موسوعة عربية بحثية متقدمة في نظرية الأعداد التحليلية، من الأسس إلى طرق الغربال والطريقة الدائرية والمجاميع الأسية والجبهات الحديثة.
 
@@ -15,39 +15,37 @@
 - [الإصدار الحالي](docs/VERSION.md)
 - [سياسة اعتماد النتائج](docs/RESULT_STATUS_POLICY.md)
 - [سجل النتائج](docs/RESULTS_REGISTRY.md)
-- [نطاق الفصل الحادي والعشرين](docs/CHAPTER_21_SCOPE_2026-07-25.md)
-- [سجل أدلة الفصل الحادي والعشرين](docs/CHAPTER_21_EVIDENCE_LEDGER_2026-07-25.md)
-- [جدول تطبيعات الفصل الحادي والعشرين](docs/CHAPTER_21_NORMALIZATION_TABLE_2026-07-25.md)
-- [خريطة برهان الفصل الحادي والعشرين](docs/CHAPTER_21_PROOF_MAP_2026-07-25.md)
-- [المراجعة المستقلة لبوابة الفصل الحادي والعشرين](docs/CHAPTER_21_INDEPENDENT_PRE_AUTHORING_REVIEW_2026-07-25.md)
-- [المراجعة المستقلة للمتن](docs/CHAPTER_21_MANUSCRIPT_INDEPENDENT_REVIEW_2026-07-25.md)
-- [إيصال اعتماد المالك وإغلاق الفصل](docs/CHAPTER_21_OWNER_ADOPTION_2026-07-25.md)
-- [سجل نتائج الفصل الحادي والعشرين](docs/RESULTS_REGISTRY_CHAPTER_21.md)
+- [نطاق الفصل الخامس والعشرين](docs/CHAPTER_25_SCOPE_2026-07-26.md)
+- [سجل أدلة الفصل الخامس والعشرين](docs/CHAPTER_25_EVIDENCE_LEDGER_2026-07-26.md)
+- [جدول تطبيعات الفصل الخامس والعشرين](docs/CHAPTER_25_NORMALIZATION_TABLE_2026-07-26.md)
+- [خريطة برهان الفصل الخامس والعشرين](docs/CHAPTER_25_PROOF_MAP_2026-07-26.md)
+- [المراجعة المستقلة لبوابة الفصل الخامس والعشرين](docs/CHAPTER_25_INDEPENDENT_PRE_AUTHORING_REVIEW_2026-07-26.md)
+- [سجل نتائج الفصل الخامس والعشرين](docs/RESULTS_REGISTRY_CHAPTER_25.md)
 
 ## الحالة الحالية
 
 ```text
-MAIN-HEAD                  = 470abde4ebb8d30a6accbb664a68d344f503b91e
-VERSION                    = 0.25.0-dev
-CHAPTERS-IN-MANUSCRIPT     = 1--21 ON MAIN
-CHAPTER-21                 = REVIEWED / OWNER-ADOPTED / CITABLE / MERGED
-ISSUE-40                   = CLOSED
-PR-41                      = MERGED
-PRE-AUTHORING-GATE-21      = PASSED
-PASS-FOR-AUTHORING-21      = YES
-AUTHORING-21               = COMPLETED
-INDEPENDENT-REVIEW-21      = PASS / 0 BLOCKERS
-RESULTS-21                 = 10 ACTIVE / CITABLE
-CI-QUALITY-21              = PASS
-CI-PDF-21                  = PASS / 286 PAGES
-LOCAL-BUILD-21             = PASS / 286 PAGES
-LOCAL-PDF-SHA256           = C2E77CE7640EB5AA3F8D39D55E6EB3D6D8F9BB3482E3801C44ACEB06ED5244D0
+BASE-MAIN                  = cc053a8e717c009c1027a1e2a9169c1e96dd866d
+VERSION                    = 0.29.0-dev
+CHAPTERS-IN-MANUSCRIPT     = 1--25 ON CHAPTER BRANCH
+CHAPTER-24                 = REVIEWED / OWNER-ADOPTED / CITABLE / MERGED
+CHAPTER-25                 = AUTHORED-DRAFT / NON-CITABLE
+ISSUE-49                   = OPEN
+PR-50                      = DRAFT / OPEN
+PRE-AUTHORING-GATE-25      = PASS
+PASS-FOR-AUTHORING-25      = YES
+AUTHORING-25               = COMPLETED-DRAFT
+POST-AUTHORING-REVIEW-25   = NOT STARTED
+RESULTS-25                 = 10 RESERVED / NON-CITABLE
+CI-PDF-25                  = PASS
+CI-QUALITY-25              = PENDING-RECHECK
+MERGE-25                   = NOT AUTHORIZED
 RELEASE-READY              = NO
 ```
 
 ## آخر فصل معتمد
 
-الفصل الحادي والعشرون عن دوال \(L\) الآلية وحدود التحدب ودون التحدب والمدخل المنضبط إلى لانجلاندز معتمد بحالة `REVIEWED / OWNER-ADOPTED / CITABLE / MERGED`. نتائجه العشر فعالة وفق تصنيفات منشئها، ودُمج PR #41 في `main` عند الالتزام `470abde4ebb8d30a6accbb664a68d344f503b91e`.
+الفصل الرابع والعشرون هو آخر فصل معتمد ومدموج على `main`. الفصل الخامس والعشرون مسودة مؤلفة على فرعه، ولا تصبح نتائجه قابلة للاستشهاد قبل البناء وفحوص الجودة والمراجعة المستقلة بعد التأليف واعتماد المالك الصريح.
 
 ## بناء PDF
 
@@ -63,6 +61,4 @@ XeLaTeX -> Biber -> XeLaTeX -> XeLaTeX
 .\scripts\build.ps1 -Clean
 ```
 
-آخر بناء محلي للفصل 21 أنتج `releases/preview.pdf` من 286 صفحة وبصمة SHA-256 المسجلة أعلاه.
-
-اعتماد الفصل ودمجه لا يعني أن الموسوعة `RELEASE-READY`.
+نجح بناء GitHub Actions لمسودة الفصل 25. لا يعني نجاح البناء وحده اعتماد الفصل أو جاهزية الموسوعة للإصدار.
