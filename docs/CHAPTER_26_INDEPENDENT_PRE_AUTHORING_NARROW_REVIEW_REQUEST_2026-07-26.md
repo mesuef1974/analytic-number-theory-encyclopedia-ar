@@ -5,7 +5,7 @@ CHAPTER                = 26
 VERSION                = 0.30.0-dev
 FIRST-REVIEW-COMMIT    = 708148d310aa30c331ae28cef97e7845a0bd1a7f
 FIRST-VERDICT          = CHANGES-REQUIRED
-CORRECTED-HEAD         = ff759fcd45acf561393d67a37b7df16e1ca38ae2
+REVIEW-TARGET          = CURRENT HEAD OF agent/chapter-26-final-research-frontiers-map-v0.30.0
 REVIEW-SCOPE           = NARROW / THREE FINDINGS ONLY
 AUTHORING              = BLOCKED
 PASS-FOR-AUTHORING     = NO
@@ -17,10 +17,13 @@ MERGE                  = NOT AUTHORIZED
 
 1. `docs/CHAPTER_26_INDEPENDENT_PRE_AUTHORING_REVIEW_2026-07-26.md`
 2. `docs/CHAPTER_26_PRE_AUTHORING_REVIEW_RESPONSE_2026-07-26.md`
-3. `docs/CHAPTER_26_EVIDENCE_LEDGER_2026-07-26.md`
-4. `docs/CHAPTER_26_STRUCTURE_MAP_2026-07-26.md`
-5. `docs/CHAPTER_26_PRE_AUTHORING_AUDIT_2026-07-26.md`
-6. `docs/RESULTS_REGISTRY_CHAPTER_26.md`
+3. `docs/CHAPTER_26_SCOPE_2026-07-26.md`
+4. `docs/CHAPTER_26_EVIDENCE_LEDGER_2026-07-26.md`
+5. `docs/CHAPTER_26_STRUCTURE_MAP_2026-07-26.md`
+6. `docs/CHAPTER_26_PRE_AUTHORING_AUDIT_2026-07-26.md`
+7. `docs/RESULTS_REGISTRY_CHAPTER_26.md`
+
+يجب على المراجع تثبيت الرأس الفعلي بـ`git log -1` قبل المراجعة، بدل الاعتماد على رأس مكتوب داخل ملف الطلب قد يتقادم بسبب التزام توثيقي لاحق.
 
 ## أسئلة المراجعة الضيقة
 
@@ -32,7 +35,7 @@ MERGE                  = NOT AUTHORIZED
 
 ### MAJOR-2
 
-- هل عاد محور الإحصاء الحسابي وعد الحقول والفئات المثالية إلى سجل الأدلة والبنية؟
+- هل عاد محور الإحصاء الحسابي وعد الحقول والفئات المثالية إلى النطاق وسجل الأدلة والبنية؟
 - هل صيغ بوصفه جبهة غير مكتملة التغطية دون ادعاء نتيجة أو فصل غير موجود؟
 
 ### MINOR
