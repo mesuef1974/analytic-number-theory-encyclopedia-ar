@@ -7,10 +7,11 @@ REGISTRY               = AUTHORED-DRAFT
 RESULTS                = 10 AUTHORED-DRAFT / NON-CITABLE
 PASS-FOR-AUTHORING     = YES
 AUTHORING               = COMPLETED
-LOCAL-BUILD             = PENDING
+LOCAL-BUILD             = PASS
+BUILD-PAGES             = 302
 POST-AUTHORING-REVIEW   = PENDING
 OWNER-ADOPTION          = NOT REQUESTED
-MERGE                  = NOT AUTHORIZED
+MERGE                   = NOT AUTHORIZED
 ```
 
 | المعرّف | الوصف | التصنيف المجمد | الحالة |
@@ -37,9 +38,21 @@ REVIEW-COMMIT              = 66927de635532a0ef4e82087e4a528abc57b5ebe
 PASS-FOR-AUTHORING         = YES
 ```
 
+## إيصال البناء
+
+```text
+BUILD-SOURCE-HEAD       = 8fd720190fa5fc1ff13fc2f292ff6f8499937c97
+BUILD-SEQUENCE          = xelatex -> biber -> xelatex -> xelatex
+PDF-PAGES               = 302
+PDF-SHA256              = 70731D72522AD2FAC954EF44AACB3FDEA41FA988C740C7F292C2C8C4BAD6E54A
+UNRESOLVED-CITATIONS     = 0 ON FINAL PASS
+UNDEFINED-REFERENCES     = 0 ON FINAL PASS
+BUILD-RECEIPT           = docs/CHAPTER_23_LOCAL_BUILD_RECEIPT_2026-07-26.md
+```
+
 ## حراس ما بعد التأليف
 
-- لا يصبح أي معرّف `ACTIVE / CITABLE` قبل البناء الكامل والمراجعة المستقلة بعد التأليف واعتماد المالك.
+- لا يصبح أي معرّف `ACTIVE / CITABLE` قبل المراجعة المستقلة بعد التأليف واعتماد المالك.
 - صيغة ريمان--فون مانغولت لا تحصل على معرّف فصل 23 جديد؛ مصدرها الداخلي `ANT-THM-06-06`.
 - `ANT-THM-23-01` يحمل RH في نصه ويقيد دعم \(\widehat f\) داخل \((-1,1)\).
 - `ANT-THM-23-02` مبرهنة في نموذج المصفوفات العشوائية لا في دالة زيتا.
@@ -47,4 +60,5 @@ PASS-FOR-AUTHORING         = YES
 - `ANT-CONJ-23-01` و`ANT-OPEN-23-01` لا يوصفان بأنهما مثبتان.
 - `ANT-PRIN-23-02` مبدأ منهجي ولا يحمل تصنيف `PROVED-HERE`.
 - يوضع الفصل 23 قبل خريطة الجبهات، وتبقى الخريطة آخر فصل.
+- تحذيرات التنضيد غير المانعة لا تعد حكمًا علميًا ولا تفوض التفعيل.
 - `MERGE = NOT AUTHORIZED` حتى اعتماد المالك الصريح.
