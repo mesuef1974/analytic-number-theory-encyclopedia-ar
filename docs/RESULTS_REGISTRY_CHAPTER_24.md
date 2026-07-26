@@ -3,13 +3,13 @@
 ```text
 CHAPTER                = 24
 VERSION                = 0.28.0-dev
-REGISTRY               = RESERVED / BLOCKER-CORRECTED-PENDING-NARROW-REVIEW
-RESULTS                = 10 RESERVED / NON-CITABLE
+REGISTRY               = AUTHORED-DRAFT / NON-CITABLE
+RESULTS                = 10 AUTHORED-DRAFT / NON-CITABLE
 PRIMARY-REVIEW         = CHANGES-REQUIRED / 1 BLOCKER
 BLOCKER-CORRECTION     = APPLIED
-NARROW-RE-REVIEW       = REQUESTED
-PASS-FOR-AUTHORING     = NO
-AUTHORING              = BLOCKED
+NARROW-RE-REVIEW       = PASS / 0 BLOCKERS
+PASS-FOR-AUTHORING     = YES
+AUTHORING              = COMPLETED
 LOCAL-BUILD            = NOT STARTED
 POST-AUTHORING-REVIEW  = NOT STARTED
 OWNER-ADOPTION         = NOT REQUESTED
@@ -18,35 +18,48 @@ MERGE                  = NOT AUTHORIZED
 
 | المعرّف | الوصف | التصنيف المجمد | الحالة |
 |---|---|---|---|
-| ANT-DEF-24-01 | الدوال الضربية المقيدة والمتوسط المطبع | DEFINITION | RESERVED / NON-CITABLE |
-| ANT-DEF-24-02 | المسافة الادعائية | DEFINITION / CITED-ORIGIN | RESERVED / NON-CITABLE |
-| ANT-PROP-24-01 | خصائص المسافة الادعائية الأساسية | PROVED-HERE | RESERVED / NON-CITABLE |
-| ANT-DEF-24-03 | المقياس \(\mathcal M(f;x,T)=\min_{|t|\le2T}\mathbb D(f,n^{it};x)^2\) | DEFINITION | RESERVED / NON-CITABLE |
-| ANT-THM-24-01 | مبرهنة هالاش الكمية مع \(+T^{-1/2}\) | CITED-CORE | RESERVED / NON-CITABLE |
-| ANT-COR-24-01 | معيار الإلغاء بعد ضبط الحدين | DERIVED-FROM-CITED | RESERVED / NON-CITABLE |
-| ANT-EX-24-01 | أمثلة موبيوس وليوفيل والشخصيات | EXAMPLES / INTERPRETATION-GUARDED | RESERVED / NON-CITABLE |
-| ANT-PRIN-24-01 | تفسير العائق الادعائي للمتوسط الكبير | CITED-INTERPRETATION | RESERVED / NON-CITABLE |
-| ANT-PRIN-24-02 | فصل المتوسطات الطويلة عن الفترات القصيرة | METHODOLOGICAL-PRINCIPLE / INFERENCE-GUARDED | RESERVED / NON-CITABLE |
-| ANT-OPEN-24-01 | الفترات القصيرة والارتباطات وتشاو | OPEN / DEFERRED-FRONTIER | RESERVED / NON-CITABLE |
+| ANT-DEF-24-01 | الدوال الضربية المقيدة والمتوسط المطبع | DEFINITION | AUTHORED-DRAFT / NON-CITABLE |
+| ANT-DEF-24-02 | المسافة الادعائية | DEFINITION / CITED-ORIGIN | AUTHORED-DRAFT / NON-CITABLE |
+| ANT-PROP-24-01 | خصائص المسافة الادعائية الأساسية | PROVED-HERE | AUTHORED-DRAFT / NON-CITABLE |
+| ANT-DEF-24-03 | المقياس \(\mathcal M(f;x,T)=\min_{|t|\le2T}\mathbb D(f,n^{it};x)^2\) | DEFINITION | AUTHORED-DRAFT / NON-CITABLE |
+| ANT-THM-24-01 | مبرهنة هالاش الكمية مع \(+T^{-1/2}\) | CITED-CORE | AUTHORED-DRAFT / NON-CITABLE |
+| ANT-COR-24-01 | معيار الإلغاء بعد ضبط الحدين | DERIVED-FROM-CITED | AUTHORED-DRAFT / NON-CITABLE |
+| ANT-EX-24-01 | أمثلة موبيوس وليوفيل والشخصيات | EXAMPLES / INTERPRETATION-GUARDED | AUTHORED-DRAFT / NON-CITABLE |
+| ANT-PRIN-24-01 | تفسير العائق الادعائي للمتوسط الكبير | CITED-INTERPRETATION | AUTHORED-DRAFT / NON-CITABLE |
+| ANT-PRIN-24-02 | فصل المتوسطات الطويلة عن الفترات القصيرة | METHODOLOGICAL-PRINCIPLE / INFERENCE-GUARDED | AUTHORED-DRAFT / NON-CITABLE |
+| ANT-OPEN-24-01 | الفترات القصيرة والارتباطات وتشاو | OPEN / DEFERRED-FRONTIER | AUTHORED-DRAFT / NON-CITABLE |
 
 ## سجل المراجعة
 
 ```text
-REVIEW-COMMIT           = 1fb25deeac05beada7abe0e8f68a77f8d5fd2f70
-VERDICT                 = CHANGES-REQUIRED
-BLOCKERS                = 1
+PRIMARY-REVIEW-COMMIT   = 1fb25deeac05beada7abe0e8f68a77f8d5fd2f70
+PRIMARY-VERDICT         = CHANGES-REQUIRED
+PRIMARY-BLOCKERS        = 1
 BLOCKER                 = HALASZ QUANTITATIVE NORMALIZATION
 CORRECTED-T-RANGE       = |t| <= 2T
 CORRECTED-REMAINDER     = + T^(-1/2)
-PASS-FOR-AUTHORING      = NO UNTIL INDEPENDENT NARROW PASS
+NARROW-REVIEW-COMMIT    = 7fed8eb9dd3f69f4d43c2d5a720489b9f5a79830
+NARROW-VERDICT          = PASS
+NARROW-BLOCKERS         = 0
+PASS-FOR-AUTHORING      = YES
+```
+
+## ملفات التأليف
+
+```text
+AUTHORING-AUTHORIZATION = docs/CHAPTER_24_AUTHORING_AUTHORIZATION_2026-07-26.md
+CHAPTER-TEXT            = volumes/volume-15-modern-frontiers/chapters/chapter-24-pretentious-multiplicative-functions.tex
+BIBLIOGRAPHY            = manuscript/chapter-24-bibliography.bib
+MANUSCRIPT-LINK         = manuscript/main.tex
 ```
 
 ## الحراس
 
-- لا يصبح أي معرّف قابلًا للاستشهاد قبل التأليف والبناء والمراجعة المستقلة واعتماد المالك.
+- لا يصبح أي معرّف قابلًا للاستشهاد قبل البناء والمراجعة المستقلة بعد التأليف واعتماد المالك.
 - `ANT-THM-24-01` منقول من المصدر، وليس `PROVED-HERE`.
 - لا يجوز حذف \(T^{-1/2}\) أو تغيير مجال التصغير \(|t|\le2T\).
 - `ANT-COR-24-01` يضبط تباعد \(\mathcal M\) واختيار \(T(x)\to\infty\) معًا.
 - `ANT-PRIN-24-02` مبدأ منهجي لا يحمل ادعاء برهانيًا مستقلًا.
 - `ANT-OPEN-24-01` لا يدخل في نواة الفصل المثبتة.
+- الفصل 24 يسبق خريطة الجبهات، وتبقى الخريطة الفصل الأخير.
 - لا دمج ولا تغيير على `main` قبل اعتماد المالك الصريح.
