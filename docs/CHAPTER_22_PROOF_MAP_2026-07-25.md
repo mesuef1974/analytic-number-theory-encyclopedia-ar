@@ -3,35 +3,36 @@
 ## الحالة
 
 ```text
-PROOF-MAP       = FROZEN FOR GATE REVIEW
+PROOF-MAP       = FROZEN AFTER INDEPENDENT-REVIEW CORRECTIONS
 CIRCULARITY     = PASS
-AUTHORING       = BLOCKED PENDING INDEPENDENT REVIEW
+AUTHORING       = BLOCKED PENDING NARROW RE-REVIEW
 ```
 
 ## قرار النواة
 
 - العزم الثاني: `PROVED-HERE` بصيغة تقاربية كاملة مع الحدين الرئيسيين، باستخدام معادلة وظيفية تقريبية وصيغة قيمة متوسطة لكثيرات حدود ديريشليه.
 - العزم الرابع: `CITED-CORE` من Ingham؛ لا يُدعى برهانه داخل الفصل.
-- الحدود العليا العامة: `CITED-CORE / CONDITIONAL-ON-RH`.
+- الحدود العليا العامة: `CITED-CORE / CONDITIONAL-ON-RH`، مع فصل Soundararajan المنشور عن Harper الـpreprint.
 - الحدود الدنيا العامة: `CITED-CORE / UNCONDITIONAL`.
 - حدسية Keating--Snaith: `CONJECTURAL / HEURISTIC-BRIDGE`.
 - القيم المتطرفة: نتائج متواضعة من متراجحات العزوم فقط؛ القوانين القصوى الدقيقة `DEFERRED`.
 
 ## مسار برهان العزم الثاني
 
-1. تثبيت معادلة وظيفية تقريبية متناظرة لـ\(\zeta(1/2+it)\) بطول يقارب \(\sqrt{t/2\pi}\).
+1. إثبات معادلة وظيفية تقريبية متناظرة لـ\(\zeta(1/2+it)\) بطول يقارب \(\sqrt{t/2\pi}\)، تحت المعرّف `ANT-PROP-22-01`.
 2. تربيع القيمة المطلقة وفصل الحدين الرئيسيين والحد المتقاطع.
-3. تطبيق صيغة القيمة المتوسطة لكثيرات حدود ديريشليه على الحد القطري.
+3. تطبيق صيغة القيمة المتوسطة لكثيرات حدود ديريشليه، تحت المعرّف `ANT-PROP-22-02`، على الحد القطري.
 4. استعمال
    \[
    \sum_{n\le x}\frac1n=\log x+\gamma+O(x^{-1})
    \]
    لاستخراج \(T\log(T/2\pi)+(2\gamma-1)T\).
-5. ضبط الحدود غير القطرية وبقايا المعادلة الوظيفية التقريبية بما يكفي لإعطاء
+5. ضبط الجزء غير القطري باستعمال الجمع الجزئي من الفصل 3، ثم لمّة كوسمين--لانداو المنفصلة واختبار المشتقة الأولى `thm:first-derivative-test` من الفصل 18 على الأطوار من نوع \(t\log(m/n)\). عند اقتراب \(m\) من \(n\)، يُفصل المجال دياديًا وتُستخدم صيغة القيمة المتوسطة نفسها بدل ادعاء إلغاء نقطي غير متاح.
+6. ضبط بقايا المعادلة الوظيفية التقريبية والانتقالات بين المقاطع بما يكفي لإعطاء
    \[
    E_1(T)=O(T^{1/2}\log T).
    \]
-6. عدم الادعاء أن حد الخطأ هو الأفضل تاريخيًا أو حاليًا.
+7. عدم الادعاء أن حد الخطأ هو الأفضل تاريخيًا أو حاليًا، وإسناد الصيغة الكلاسيكية إلى Ingham.
 
 ## مسار بقية الفصل
 
@@ -52,13 +53,14 @@ AUTHORING       = BLOCKED PENDING INDEPENDENT REVIEW
 |---|---|---|
 | تعريف زيتا والمعادلة الوظيفية | الفصل 6 | INTERNAL-PREREQUISITE |
 | دوال ديريشليه \(L\) والعائلات | الفصل 7 | INTERNAL-PREREQUISITE |
-| الجمع الجزئي والمجاميع الأسية | الفصول 3 و18 | INTERNAL-TOOL |
+| الجمع الجزئي | الفصل 3 | INTERNAL-TOOL |
+| لمّة كوسمين--لانداو واختبار المشتقة الأولى | الفصل 18 | INTERNAL-TOOL / EXPLICITLY-NAMED |
 | الموصل التحليلي والعائلات الآلية | الفصل 21 | CONTEXTUAL-PREREQUISITE |
-| معادلة القيمة المتوسطة لكثيرات حدود ديريشليه | تُثبت في الفصل 22 | PROVED-HERE-LEMMA |
-| المعادلة الوظيفية التقريبية لزيتا | مصدر كلاسيكي مع اشتقاق داخل النطاق | PROVED-HERE-INPUT |
-| العزم الثاني | Hardy--Littlewood/Titchmarsh | PROVED-HERE |
+| المعادلة الوظيفية التقريبية لزيتا | تُثبت في الفصل 22 | ANT-PROP-22-01 / PROVED-HERE |
+| معادلة القيمة المتوسطة لكثيرات حدود ديريشليه | تُثبت في الفصل 22 | ANT-PROP-22-02 / PROVED-HERE |
+| العزم الثاني | Ingham؛ مع مراجع معيارية لاحقة | PROVED-HERE |
 | العزم الرابع | Ingham | CITED-CORE |
-| الحدود العليا العامة | Soundararajan/Harper | CITED-CORE / RH |
+| الحدود العليا العامة | Soundararajan/Harper | CITED-CORE / RH / PUBLICATION-STATUS-SEPARATED |
 | الحدود الدنيا العامة | Radziwiłł--Soundararajan/Heap--Soundararajan | CITED-CORE |
 | حدسية العزوم | Keating--Snaith | CONJECTURAL |
 
@@ -72,10 +74,18 @@ AUTHORING       = BLOCKED PENDING INDEPENDENT REVIEW
 - صيغة Ingham لا تعتمد على Soundararajan أو Harper؛ والترتيب التاريخي والمنطقي محفوظ.
 - توافق حدسية Keating--Snaith مع \(k=1,2\) فحص اتساق لاحق، لا دليل على المبرهنتين الكلاسيكيتين.
 
+## إغلاق ملاحظة المراجعة الكبرى الثالثة
+
+```text
+MAJOR-3 = CLOSED
+```
+
+لم يعد ضبط غير القطري موصوفًا بعبارة عامة؛ سُمّيت الأدوات الداخلية صراحة، وحُددت معالجة المجال القريب من القطر.
+
 ## حكم الخريطة
 
 ```text
 CIRCULARITY-BLOCKERS = 0
 PROOF-SCOPE           = CLOSED
-READY-FOR-GATE-REVIEW = YES
+READY-FOR-RE-REVIEW   = YES
 ```
