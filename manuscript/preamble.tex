@@ -81,18 +81,53 @@
   }%
   \endgroup
 }
+
 \newcommand{\resultid}[1]{%
-  \par\noindent\texttt{#1}\par
+  \par
+  \smallskip
+  \noindent
+  \resultbadge{gray!15}{معرّف النتيجة}%
+  \quad
+  \textenglish{\texttt{#1}}%
+  \par
 }
+
 \newcommand{\provedhere}{%
-  \noindent\resultbadge{green!18}{مثبت هنا}\par
+  \noindent
+  \resultbadge{green!20}{مثبت هنا}%
+  \quad
+  مثبتة داخل الموسوعة ببرهان كامل.%
+  \par
 }
-\newcommand{\citedresult}[1][المذكور في الشرح التالي]{%
-  \noindent\resultbadge{blue!15}{مستشهد بها}\quad منقولة من المرجع #1.\par
+
+\newcommand{\citedresult}[1]{%
+  \noindent
+  \resultbadge{blue!15}{مستشهد بها}%
+  \quad
+  منقولة من المرجع #1.%
+  \par
 }
+
+\newcommand{\deferredresult}[1]{%
+  \noindent
+  \resultbadge{gray!20}{برهان مؤجل}%
+  \quad
+  سيظهر البرهان الكامل في #1.%
+  \par
+}
+
+\newcommand{\conditionalresult}[1]{%
+  \noindent
+  \resultbadge{orange!20}{نتيجة مشروطة}%
+  \quad
+  صحيحة بشرط #1.%
+  \par
+}
+
 \newcommand{\openresult}{%
-  \noindent\resultbadge{orange!20}{مفتوحة}\par
-}
-\newcommand{\conditionalresult}{%
-  \noindent\resultbadge{yellow!25}{مشروطة}\par
+  \noindent
+  \resultbadge{red!15}{مسألة مفتوحة}%
+  \quad
+  لم تُحسم في الحالة العامة.%
+  \par
 }
