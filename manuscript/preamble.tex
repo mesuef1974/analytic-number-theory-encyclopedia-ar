@@ -27,6 +27,17 @@
 \DeclareQuoteAlias[american]{english}{arabic}
 \usepackage{fancyhdr}
 
+% Polyglossia's \textenglish is a text-mode command. Preserve its normal
+% behavior while allowing guarded use inside displayed mathematics.
+\let\polyglossiatextenglish\textenglish
+\renewcommand{\textenglish}[1]{%
+  \ifmmode
+    \text{\polyglossiatextenglish{#1}}%
+  \else
+    \polyglossiatextenglish{#1}%
+  \fi
+}
+
 \geometry{a4paper,margin=27mm}
 
 \usepackage[
