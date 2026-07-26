@@ -17,9 +17,29 @@ AUTHORING = BLOCKED
 
 ### B. الحدود الدنيا البنيوية
 
-1. الحلول القطرية تعطي مساهمة من رتبة \(X^s\).
-2. الحجة البعدية/الاستمرارية تعطي المقياس \(X^{2s-K}\).
-3. الجمع بينهما يفسر شكل الحد الرئيسي، لكنه لا يثبته.
+1. الحلول القطرية تعطي حدًا سفليًا من رتبة \(X^s\).
+2. يثبت الحد السفلي فوق الحرج مباشرة من صندوق أقواس كبرى صغير: اختر ثابتًا \(c_k>0\) صغيرًا، واقصر التكامل على المنطقة
+   \[
+   |\alpha_j|\le c_k X^{-j}
+   \qquad (1\le j\le k).
+   \]
+   في هذه المنطقة يكون الطور \(\alpha_1n+\cdots+\alpha_kn^k\) محصورًا بانتظام، ومن ثم
+   \[
+   |f_k(\boldsymbol\alpha;X)|\gg_k X.
+   \]
+   وحجم الصندوق من رتبة
+   \[
+   \prod_{j=1}^k X^{-j}=X^{-K}.
+   \]
+   لذلك
+   \[
+   J_{s,k}(X)\gg_{s,k}X^{2s-K}.
+   \]
+3. ينتج بنيويًا
+   \[
+   J_{s,k}(X)\gg_{s,k}X^s+X^{2s-K},
+   \]
+   بعد تعديل الثابت الضمني عند الحاجة. هذا يثبت ضرورة الحدين، لكنه لا يثبت الحد العلوي المطابق.
 
 ### C. المبرهنة المحورية المنقولة
 
@@ -60,8 +80,8 @@ X^\varepsilon\left(X^s+X^{2s-K}\right).
 | ANT-DEF-25-01 | A1--A2 | DEFINITION |
 | ANT-PROP-25-01 | A3 | PROVED-HERE |
 | ANT-DEF-25-02 | A4 | DEFINITION |
-| ANT-PROP-25-02 | B1--B3 | PROVED-HERE / HEURISTIC-GUARDED |
-| ANT-THM-25-01 | S3/S4 | CITED-CORE |
+| ANT-PROP-25-02 | B1--B3 | PROVED-HERE |
+| ANT-THM-25-01 | S3/S4/S5 | CITED-CORE |
 | ANT-PRIN-25-01 | D | CITED-INTERPRETATION |
 | ANT-THM-25-02 | S2/S3 | CITED-CORE |
 | ANT-PRIN-25-02 | D مقابل E | METHODOLOGICAL-PRINCIPLE |
