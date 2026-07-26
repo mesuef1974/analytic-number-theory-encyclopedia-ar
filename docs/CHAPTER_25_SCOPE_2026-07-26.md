@@ -25,7 +25,7 @@ MERGE                   = NOT AUTHORIZED
    \[
    J_{s,k}(X)
    =
-   \int_{[0,1]^k}
+   \int_{[0,1)^k}
    \left|\sum_{1\le n\le X}e(\alpha_1n+\cdots+\alpha_kn^k)\right|^{2s}
    \,d\boldsymbol\alpha.
    \]
