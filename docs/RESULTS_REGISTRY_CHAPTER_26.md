@@ -8,10 +8,12 @@ RESULTS                = 10 RESERVED / NON-CITABLE
 AUTHORING              = AUTHORED-DRAFT
 PRE-AUTHORING-REVIEW   = PASS
 PASS-FOR-AUTHORING     = YES
-LOCAL-BUILD            = PASS / 320 PAGES
+LOCAL-BUILD            = PASS / 320 PAGES ON AUTHORED HEAD
 CI-QUALITY             = PENDING
 CI-PDF                 = PENDING
-POST-AUTHORING-REVIEW  = REQUESTED
+POST-AUTHORING-REVIEW  = CHANGES-REQUIRED / CORRECTED
+NARROW-REVIEW          = REQUESTED
+POST-AUTHORING-PASS    = NO
 OWNER-ADOPTION         = NOT REQUESTED
 MERGE                  = NOT AUTHORIZED
 ```
@@ -34,6 +36,7 @@ MERGE                  = NOT AUTHORIZED
 - لا يحمل أي عنصر تصنيف `PROVED-HERE`.
 - عناصر `SYNTHESIS-MAP` تجمع نتائج سابقة ولا تنشئ مبرهنات جديدة.
 - المبادئ المنهجية حراس استدلال وليست نتائج حسابية مستقلة.
-- قاموس الحالات يقتصر على `ESTABLISHED` و`ACTIVE-DIRECTION` و`CONJECTURAL-PROGRAM` و`OPEN`.
+- قاموس حالات الجبهات يقتصر على `ESTABLISHED` و`ACTIVE-DIRECTION` و`CONJECTURAL-PROGRAM` و`OPEN`.
+- سياسة اعتماد النتائج مستقلة عنه وتستعمل `PROVED-HERE / CITED / CONDITIONAL / DEFERRED / DRAFT`.
 - الإحصاء الحسابي مدرج بوصفه جبهة غير مكتملة التغطية، لا نتيجة معتمدة داخل الموسوعة.
 - لا تصبح المعرفات قابلة للاستشهاد قبل نجاح المراجعة المستقلة بعد التأليف واعتماد المالك.
