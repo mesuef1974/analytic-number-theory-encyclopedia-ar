@@ -8,7 +8,9 @@ RESULTS                = 10 RESERVED / NON-CITABLE
 AUTHORING              = AUTHORED-DRAFT
 PRE-AUTHORING-REVIEW   = PASS
 PASS-FOR-AUTHORING     = YES
-POST-AUTHORING-REVIEW  = NOT STARTED
+CI-QUALITY             = PASS
+CI-PDF                 = PASS
+POST-AUTHORING-REVIEW  = REQUESTED
 OWNER-ADOPTION         = NOT REQUESTED
 MERGE                  = NOT AUTHORIZED
 ```
@@ -32,5 +34,5 @@ MERGE                  = NOT AUTHORIZED
 - `ANT-THM-25-01` و`ANT-THM-25-02` منقولتان من المصادر وليستا `PROVED-HERE`.
 - برهان `ANT-PROP-25-02` يثبت الحدين السفليين فقط؛ مطابقة الحد العلوي هي محتوى `ANT-THM-25-01`.
 - `ANT-PRIN-25-02` مبدأ مقارن لا يعلن تكافؤًا تقنيًا بين البرهانين.
-- لا تصبح النتائج قابلة للاستشهاد قبل البناء والمراجعة المستقلة بعد التأليف واعتماد المالك.
+- لا تصبح النتائج قابلة للاستشهاد قبل المراجعة المستقلة بعد التأليف واعتماد المالك.
 - الفصل 25 يسبق خريطة الجبهات التي تبقى الفصل الأخير برقم 26.
