@@ -66,9 +66,18 @@ MERGE                 = NOT AUTHORIZED UNTIL ALL P0 GATES PASS
 
 ### P0-03 — تنظيف تكرارات الببليوغرافيا
 
-- الادعاء: تكرار كتاب Titchmarsh تحت المفاتيح `Tit86a`, `Tit86b`, `TH86`.
-- الحالة: `EXTERNAL-CLAIM / OPEN`.
-- المطلوب: جرد استعمال المفاتيح، اختيار مدخل قانوني واحد، تحديث الاستشهادات، وتشغيل فحص تكرار شامل.
+- الادعاء: تكرار كتاب Titchmarsh تحت مفاتيح متعددة.
+- إعادة الإنتاج: `PASS`؛ وجدت ثلاثة مداخل فعلية: `Titchmarsh1986`, `titchmarshHeathBrown1986zeta`, `titchmarsh1986zeta`.
+- الإصلاح:
+  - اعتماد `Titchmarsh1986` مدخلًا قانونيًا وحيدًا.
+  - حفظ المفتاحين القديمين في حقل `ids` داخل BibLaTeX.
+  - حذف النسختين المكررتين من ملفي ببليوغرافيا الفصلين 22 و23.
+- التحقق على الرأس `82ea2ea0da51e0d6c9f15c657c32795d8870d7b7`:
+  - `Quality checks` run 974 = `PASS`.
+  - `Build encyclopedia PDF` run 781 = `PASS`.
+  - `Biber` وبناء المسودة والنشر = `PASS`.
+- السجل التفصيلي: `docs/P0_03_TITCHMARSH_BIBLIOGRAPHY_DEDUP_2026-07-27.md`.
+- الحالة: `REPRODUCED / FIXED / VERIFIED / CLOSED`.
 
 ### P0-04 — تعليق تدقيق Che73
 
@@ -88,11 +97,11 @@ MERGE                 = NOT AUTHORIZED UNTIL ALL P0 GATES PASS
 P0-01 REPRODUCTION        = PASS
 P0-01 FIX / REGRESSION    = PASS
 P0-02 RELEASE BUILD       = PASS / CLOSED
-P0-03 BIB DEDUP           = PENDING
+P0-03 BIB DEDUP           = PASS / CLOSED
 P0-04 PRINTED NOTE        = PENDING
 P0-05 RESULT IDS          = PENDING
-INDEX BUILD               = PASS FOR P0-02 HEAD
-QUALITY CHECK             = PASS FOR P0-02 HEAD
+INDEX BUILD               = PASS FOR P0-03 HEAD
+QUALITY CHECK             = PASS FOR P0-03 HEAD
 LATIN TEXT INTEGRITY      = PASS FOR DRAFT AND RELEASE
 ARABIC SEARCHABILITY      = PENDING
 INDEPENDENT FINAL REVIEW  = PENDING
