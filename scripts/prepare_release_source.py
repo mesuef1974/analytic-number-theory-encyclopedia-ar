@@ -25,6 +25,15 @@ GOVERNANCE_TOKENS = (
     "POST-AUTHORING",
     "OWNER-ADOPTED",
     "ACTIVE-CITABLE",
+    "AUTHORED-DRAFT",
+    "NON-CITABLE",
+    "PROVED-HERE",
+    "CITED-EXPLAINED",
+    "CITED-FRAMEWORK",
+    "CITED-DEFINITION",
+    "CITED-CORE",
+    "COMPACT-PROTOTYPE",
+    "VERSION INTERNAL LIMITED",
     "GitHub",
     "worktree",
     "XeLaTeX",
@@ -38,6 +47,9 @@ STANDALONE_BADGE_RE = re.compile(
 )
 ARG_BADGE_RE = re.compile(
     r"(?m)^\s*\\(?:citedresult|deferredresult|conditionalresult)\s*\{[^\n]*\}\s*$"
+)
+INTERNAL_RESULT_ID_RE = re.compile(
+    r"ANT-(?:THM|LEM|PROP|COR|DEF|EX|REM|OPEN)-\d{2}-\d{2}"
 )
 
 RELEASE_OVERRIDES = r"""
@@ -73,16 +85,37 @@ def strip_status_lines(text: str) -> str:
     return "".join(kept)
 
 
+def strip_governance_environments(text: str) -> str:
+    """Remove list/table environments only when their contents are governance."""
+    environment_names = (
+        "itemize",
+        "enumerate",
+        "tabular",
+        "tabularx",
+        "longtable",
+    )
+    env_re = re.compile(
+        rf"\\begin\{{({'|'.join(environment_names)})\}}.*?\\end\{{\1\}}",
+        re.S,
+    )
+    return env_re.sub(
+        lambda match: "\n" if contains_governance(match.group(0)) else match.group(0),
+        text,
+    )
+
+
 def strip_governance_blocks(text: str) -> str:
     text = strip_status_lines(text)
-
-    # Remove audit-document lists as a unit, avoiding empty list environments.
-    env_re = re.compile(r"\\begin\{(itemize|enumerate)\}.*?\\end\{\1\}", re.S)
-    text = env_re.sub(lambda m: "\n" if contains_governance(m.group(0)) else m.group(0), text)
+    text = strip_governance_environments(text)
 
     text = STANDALONE_BADGE_RE.sub("", text)
     text = ARG_BADGE_RE.sub("", text)
     text = text.replace(r"\section{نطاق الفصل وحالته}", r"\section{نطاق الفصل}")
+
+    # Internal stable identifiers are useful in the auditable draft but are not
+    # publication prose. Remove only the identifier token and retain the entire
+    # surrounding scientific sentence, theorem statement, or cross-reference.
+    text = INTERNAL_RESULT_ID_RE.sub("", text)
 
     # TeX prose is paragraph-delimited. Remove governance paragraphs while
     # retaining mathematical/theorem blocks and ordinary scientific prose.
