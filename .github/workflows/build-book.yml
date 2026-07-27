@@ -9,6 +9,7 @@ on:
       - "figures/**"
       - "tables/**"
       - "scripts/check_latin_pdf_text.py"
+      - "scripts/check_arabic_pdf_text.py"
       - "scripts/check_release_pdf_text.py"
       - "scripts/prepare_release_source.py"
       - ".github/workflows/build-book.yml"
@@ -20,6 +21,7 @@ on:
       - "figures/**"
       - "tables/**"
       - "scripts/check_latin_pdf_text.py"
+      - "scripts/check_arabic_pdf_text.py"
       - "scripts/check_release_pdf_text.py"
       - "scripts/prepare_release_source.py"
       - ".github/workflows/build-book.yml"
@@ -41,11 +43,11 @@ jobs:
       - name: Create build directories
         run: mkdir -p build/draft build/release
 
-      - name: Compile auditable draft with XeLaTeX and Biber
+      - name: Compile auditable draft with LuaLaTeX and Biber
         uses: xu-cheng/latex-action@v4
         with:
           root_file: manuscript/main.tex
-          latexmk_use_xelatex: true
+          latexmk_use_lualatex: true
           args: >-
             -interaction=nonstopmode
             -halt-on-error
@@ -57,11 +59,11 @@ jobs:
         shell: bash
         run: python scripts/prepare_release_source.py
 
-      - name: Compile publication release with XeLaTeX and Biber
+      - name: Compile publication release with LuaLaTeX and Biber
         uses: xu-cheng/latex-action@v4
         with:
           root_file: build/release-src/manuscript/main.tex
-          latexmk_use_xelatex: true
+          latexmk_use_lualatex: true
           args: >-
             -interaction=nonstopmode
             -halt-on-error
@@ -101,6 +103,12 @@ jobs:
         run: |
           python scripts/check_latin_pdf_text.py build/draft/main-extracted.txt
           python scripts/check_latin_pdf_text.py build/release/main-extracted.txt
+
+      - name: Verify Arabic PDF text searchability
+        shell: bash
+        run: |
+          python scripts/check_arabic_pdf_text.py build/draft/main-extracted.txt
+          python scripts/check_arabic_pdf_text.py build/release/main-extracted.txt
 
       - name: Verify publication metadata separation
         shell: bash
