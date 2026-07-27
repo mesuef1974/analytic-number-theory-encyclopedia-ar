@@ -118,6 +118,29 @@ STATUS                     = PASS / CLOSED
 
 الفشل الأولي للفحص الآلي كان سببه اختلاف صيغ الحقول بين السجلات الفصلية،
 لا غياب المراجعة أو الاعتماد.
+
+## فحص BibTeX وروابط DOI
+
+```text
+QUALITY-CHECK              = PASS
+CITATION-KEYS              = 90
+BIBLIOGRAPHY-ENTRIES       = 106
+MISSING-BIB-KEYS           = 0
+DUPLICATE-BIB-KEYS         = 0
+DOI-FIELDS                 = 56
+DOI-RESOLVER-PASS          = 55
+LEGACY-DOI-EXCEPTIONS      = 1
+BROKEN-UNEXPLAINED-DOI     = 0
+STATUS                     = PASS / CLOSED
+```
+
+صُحح DOI مقال Kadiri إلى `10.1112/S0025579318000037`.
+
+بقي DOI مقال Chen لعام 1973، `10.1360/YA1973-16-2-157`،
+يعيد HTTP 404 من `doi.org` وCrossref، مع بقاء بيانات المقال
+الببليوغرافية متماسكة؛ لذلك وُثق كاستثناء قديم ولم يُحذف،
+مع إبقاء التحقق اليدوي من سجل الناشر مستحسنًا.
+
 ## إغلاق تجاوزات الأسطر الكبيرة
 
 أُجري حصر موجّه لكل `Overfull \hbox` بقياس 20 نقطة أو أكثر، ثم عولجت الأسباب التالية:
