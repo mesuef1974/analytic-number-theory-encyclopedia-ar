@@ -37,7 +37,9 @@ if canonical:
         if expected not in read(path):
             fail(f"Version mismatch: {path.relative_to(ROOT)} does not contain {expected!r}.")
 
-for path in list(ROOT.rglob("*.tex")) + list(ROOT.rglob("*.md")):
+text_paths = list(ROOT.rglob("*.tex")) + list(ROOT.rglob("*.md"))
+
+for path in text_paths:
     text = read(path)
     rel = path.relative_to(ROOT)
 
@@ -48,7 +50,16 @@ for path in list(ROOT.rglob("*.tex")) + list(ROOT.rglob("*.md")):
     if "identically" in text:
         fail(f"Untranslated word 'identically' found in {rel}.")
 
-for path in list(ROOT.rglob("*.tex")) + list(ROOT.rglob("*.md")):
+    # Chapter 18 result IDs must place the chapter number before the local
+    # sequence number: ANT-<TYPE>-18-<NN>. Reject the historical inversion
+    # ANT-<TYPE>-<NN>-18 everywhere in manuscript and governance records.
+    for old_id in re.findall(
+        r"\bANT-(?:ID|THM|LEM|PROP|COR|DEF|EX|REM|OPEN|CONJ)-\d{2}-18\b",
+        text,
+    ):
+        fail(f"Legacy Chapter 18 result ID ordering {old_id} found in {rel}.")
+
+for path in text_paths:
     text = read(path)
     rel = path.relative_to(ROOT)
     for char in text:
