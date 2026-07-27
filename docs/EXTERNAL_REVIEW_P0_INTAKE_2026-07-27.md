@@ -46,8 +46,23 @@ MERGE                 = NOT AUTHORIZED UNTIL ALL P0 GATES PASS
 ### P0-02 — فصل بناء المسودة عن بناء النشر
 
 - الادعاء: ظهور وسوم الحوكمة ومسارات الملفات وبصمات Git وتعليمات البناء في PDF العام.
-- الحالة: `EXTERNAL-CLAIM / OPEN`.
-- المطلوب: بناءان واضحان، `draft` و`release`، مع إبقاء مواد الحوكمة في المسودة فقط.
+- إعادة الإنتاج: `PASS`؛ ظهرت بيانات داخلية في نسخة PDF السابقة.
+- الإصلاح:
+  - بناء `draft` تدقيقي يحتفظ بمواد الحوكمة.
+  - توليد مصدر `release` مستقل داخل `build/release-src` دون تعديل المصدر القانوني.
+  - فحص آلي يمنع وسوم الحوكمة، المسارات، البصمات، مراجع PR/Issue، ومعرفات النتائج الداخلية في نسخة النشر.
+- التحقق على الرأس `ac632552e439a4c084bfa424a8746b7dfed36813`:
+  - `Quality checks` run 969 = `PASS`.
+  - `Build encyclopedia PDF` run 776 = `PASS`.
+  - بناء المسودة = `PASS`.
+  - بناء النشر = `PASS`.
+  - سلامة النص اللاتيني في الملفين = `PASS`.
+  - فصل بيانات الحوكمة = `PASS`.
+  - نسخة النشر: 299 صفحة، جميع مؤشرات التسرب الممنوعة = `0`.
+  - المسودة: 319 صفحة، `REVIEWED = 21`، ومعرفات ANT الداخلية = `301`.
+- أثر التحقق: `8665994526`، البصمة `sha256:1f3d79022274854241f2f2994167bb5c249a6847c994104dc60770f3aba02d7d`.
+- السجل التفصيلي: `docs/P0_02_DRAFT_RELEASE_BUILD_SEPARATION_2026-07-27.md`.
+- الحالة: `REPRODUCED / FIXED / VERIFIED / CLOSED`.
 
 ### P0-03 — تنظيف تكرارات الببليوغرافيا
 
@@ -72,13 +87,13 @@ MERGE                 = NOT AUTHORIZED UNTIL ALL P0 GATES PASS
 ```text
 P0-01 REPRODUCTION        = PASS
 P0-01 FIX / REGRESSION    = PASS
-P0-02 RELEASE BUILD       = PENDING
+P0-02 RELEASE BUILD       = PASS / CLOSED
 P0-03 BIB DEDUP           = PENDING
 P0-04 PRINTED NOTE        = PENDING
 P0-05 RESULT IDS          = PENDING
-INDEX BUILD               = PASS FOR P0-01 HEAD
-QUALITY CHECK             = PASS FOR P0-01 HEAD
-LATIN TEXT INTEGRITY      = PASS
+INDEX BUILD               = PASS FOR P0-02 HEAD
+QUALITY CHECK             = PASS FOR P0-02 HEAD
+LATIN TEXT INTEGRITY      = PASS FOR DRAFT AND RELEASE
 ARABIC SEARCHABILITY      = PENDING
 INDEPENDENT FINAL REVIEW  = PENDING
 PUBLICATION-READY         = NO
