@@ -1,4 +1,5 @@
 \chapter{الأشكال المعيارية وأشكال مااس وصيغ التتبع}
+\symbolindex{الأشكال المعيارية وأشكال مااس وصيغ التتبع}
 \label{ch:modular-maass-trace-formulas}
 
 \section*{نطاق الفصل وحالته}
@@ -7,7 +8,10 @@
 التحليل الطيفي على السطح الزائدي. الفكرة الموحدة هي أن تعامد عائلة من
 الدوال الذاتية يحول متوسطات معاملات فورييه إلى حد قطري وإلى مجاميع
 Kloosterman موزونة بنوى Bessel. نعالج أولًا الهندسة الزائدية والأشكال
+\personindex{بيترسون، هانس}
+\personindex{كوزنتسوف، نيكولاي}
 المعيارية الهولومورفية وأشكال مااس، ثم نعرض صيغ Petersson وKuznetsov
+\personindex{سيلبرغ، أتله}
 بتطبيع مصرح به، ونختم بمدخل بنيوي إلى صيغة Selberg في النموذج المدمج.
 
 \noindent\textbf{حالة الفصل:}
@@ -42,6 +46,7 @@ Kloosterman موزونة بنوى Bessel. نعالج أولًا الهندسة �
 \end{enumerate}
 
 \section{الفضاء العلوي والهندسة الزائدية}
+\symbolindex{الفضاء العلوي والهندسة الزائدية}
 
 نكتب
 \[
@@ -79,6 +84,7 @@ d\mu(z)=\frac{dx\,dy}{y^2}
 المتر والقياس الزائديين على \(\mathbb H\).
 \end{definition}
 
+\theoremindex{هويات الفعل وثبات القياس}
 \begin{proposition}[هويات الفعل وثبات القياس]
 \label{prop:hyperbolic-invariance}
 \resultid{ANT-PROP-20-01}
@@ -121,6 +127,7 @@ d\mu(\gamma z)=d\mu(z).
 \end{remark}
 
 \section{الأشكال المعيارية الهولومورفية}
+\symbolindex{الأشكال المعيارية الهولومورفية}
 
 لتكن
 \[
@@ -158,6 +165,7 @@ f(z)=f((-I)z)=(-1)^k f(z).
 نطاق صيغة Petersson في هذا الفصل على الوزن الزوجي.
 \end{remark}
 
+\theoremindex{التوسع عند الرأس}
 \begin{lemma}[التوسع عند الرأس]
 \label{lem:modular-fourier-expansion}
 \resultid{ANT-LEM-20-01}
@@ -199,6 +207,7 @@ F(q)=\sum_{n\in\mathbb Z}a_f(n)q^n.
 \end{example}
 
 \section{حاصل Petersson}
+\symbolindex{حاصل Petersson}
 
 \begin{definition}[حاصل Petersson عند المستوى \(1\)]
 \label{def:petersson-inner-product}
@@ -213,6 +222,7 @@ f(z)\overline{g(z)}\,y^k\,d\mu(z).
 \]
 \end{definition}
 
+\theoremindex{سلامة تعريف حاصل Petersson}
 \begin{proposition}[سلامة تعريف حاصل Petersson]
 \label{prop:petersson-invariance}
 \resultid{ANT-PROP-20-02}
@@ -241,6 +251,7 @@ f(\gamma z)\overline{g(\gamma z)}
 \end{proof}
 
 \section{مؤثرات Hecke}
+\symbolindex{مؤثرات Hecke}
 
 نعتمد عند المستوى \(1\) التطبيع
 \[
@@ -257,6 +268,7 @@ n^{k-1}
 \sum_{b=0}^{d-1}f\!\left(\frac{az+b}{d}\right).
 \]
 
+\theoremindex{علاقات Hecke الأساسية}
 \begin{theorem}[علاقات Hecke الأساسية]
 \label{thm:hecke-relations-level-one}
 \resultid{ANT-THM-20-01}
@@ -288,10 +300,12 @@ a_f(m)a_f(n)
 =
 \sum_{d\mid(m,n)}d^{k-1}a_f\!\left(\frac{mn}{d^2}\right).
 \]
+\personindex{أويلر، ليونهارت}
 هذه العلاقة هي البذرة الجبرية للجداء الأويلري، لكن بناء دوال \(L\)
 الآلية وتحليلها مؤجل إلى الفصل الحادي والعشرين.
 
 \section{أشكال مااس}
+\symbolindex{أشكال مااس}
 
 نستعمل مؤثر لابلاس الزائدي بإشارة غير سالبة:
 \[
@@ -313,6 +327,7 @@ a_f(m)a_f(n)
 \end{enumerate}
 \end{definition}
 
+\theoremindex{فصل المتغيرات وتوسع Fourier--Whittaker}
 \begin{theorem}[فصل المتغيرات وتوسع Fourier--Whittaker]
 \label{prop:maass-fourier-whittaker}
 \resultid{ANT-THM-20-02}
@@ -345,6 +360,7 @@ K_{it}(2\pi|n|y)e(nx).
 \end{remark}
 
 \section{مجاميع Kloosterman}
+\symbolindex{مجاميع Kloosterman}
 
 \begin{definition}[مجموع Kloosterman]
 \label{def:kloosterman-sum}
@@ -360,6 +376,7 @@ e\!\left(\frac{md+n\bar d}{c}\right),
 حيث \(d\bar d\equiv1\pmod c\).
 \end{definition}
 
+\theoremindex{تماثلات أولية}
 \begin{proposition}[تماثلات أولية]
 \label{prop:kloosterman-elementary-symmetries}
 \resultid{ANT-PROP-20-03}
@@ -378,6 +395,7 @@ S(m,n;c)=S(n,m;c),
 \(\overline{e(x)}=e(-x)\).
 \end{proof}
 
+\theoremindex{حد Weil}
 \begin{theorem}[حد Weil]
 \label{thm:weil-kloosterman}
 \resultid{ANT-THM-20-03}
@@ -395,12 +413,14 @@ S(m,n;c)=S(n,m;c),
 ويتجاوز الأدوات المطورة قبله.
 
 \section{صيغة Petersson}
+\symbolindex{صيغة Petersson}
 
 لتكن \(\mathcal B_k\) قاعدة متعامدة لـ\(S_k(\Gamma)\)، واكتب
 \[
 f(z)=\sum_{n\ge1}a_f(n)e(nz).
 \]
 
+\theoremindex{صيغة Petersson للمستوى \(1\)}
 \begin{theorem}[صيغة Petersson للمستوى \(1\)]
 \label{thm:petersson-trace}
 \resultid{ANT-THM-20-04}
@@ -425,6 +445,7 @@ J_{k-1}\!\left(\frac{4\pi\sqrt{mn}}{c}\right).
 النواة البسليّة تسجل هندسة المدارات غير القطرية.
 
 \section{صيغة Kuznetsov}
+\symbolindex{صيغة Kuznetsov}
 
 صيغة Kuznetsov هي النظير غير الهولومورفي لصيغة Petersson، لكن يوجد فرق
 حاسم: السطح \(\Gamma\backslash\mathbb H\) غير مدمج، ولذلك لا يكتمل
@@ -446,6 +467,7 @@ H^+(x)
 \mathcal J(x,t)h(t)t\tanh(\pi t)\,dt.
 \]
 
+\theoremindex{Kuznetsov، النواة ذات الإشارة المتساوية}
 \begin{theorem}[Kuznetsov، النواة ذات الإشارة المتساوية]
 \label{thm:kuznetsov-trace}
 \resultid{ANT-THM-20-05}
@@ -486,6 +508,7 @@ E(z,s)=\frac12\sum_{\Gamma_\infty\backslash\Gamma}
 \end{remark}
 
 \section{مدخل بنيوي إلى صيغة Selberg}
+\symbolindex{مدخل بنيوي إلى صيغة Selberg}
 
 ننتقل هنا إلى سطح زائد مدمج
 \[
@@ -503,6 +526,7 @@ g(u)=\frac1{2\pi}\int_{\mathbb R}h(r)e^{-iru}\,dr,
 h(r)=\int_{\mathbb R}g(u)e^{iru}\,du.
 \]
 
+\theoremindex{صيغة Selberg: النموذج المدمج}
 \begin{theorem}[صيغة Selberg: النموذج المدمج]
 \label{thm:selberg-compact-trace}
 \resultid{ANT-THM-20-06}
@@ -538,6 +562,7 @@ h(r)=\int_{\mathbb R}g(u)e^{iru}\,du.
 \end{remark}
 
 \section{مقارنة الصيغ الثلاث}
+\symbolindex{مقارنة الصيغ الثلاث}
 
 \begin{center}
 \begin{tabular}{llll}
@@ -555,6 +580,7 @@ Selberg المدمجة & طيف لابلاس & جيوديسيات مغلقة & \
 تطبيع يفسد النتيجة.
 
 \section{كيف تخدم الصيغ نظرية الأعداد التحليلية؟}
+\symbolindex{كيف تخدم الصيغ نظرية الأعداد التحليلية؟}
 
 \begin{enumerate}
   \item تحول متوسطات معاملات فورييه أو Hecke إلى حد قطري مفهوم ومجاميع
@@ -585,6 +611,7 @@ Selberg المدمجة & طيف لابلاس & جيوديسيات مغلقة & \
 \section{تمارين}
 
 \subsection{المستوى الأول}
+\symbolindex{المستوى الأول}
 \begin{enumerate}
   \item تحقق مباشرة من \(\Im(-1/z)=\Im(z)/|z|^2\).
   \item أثبت أن \(M_k(\Gamma)=\{0\}\) للأوزان الفردية.
@@ -593,6 +620,7 @@ Selberg المدمجة & طيف لابلاس & جيوديسيات مغلقة & \
 \end{enumerate}
 
 \subsection{المستوى الثاني}
+\symbolindex{المستوى الثاني}
 \begin{enumerate}
   \item تحقق من ثبات تكامل Petersson تحت تغيير المجال الأساسي.
   \item احسب معاملات \(T_pf\) عندما يكون \(p\) أوليًا.
@@ -601,6 +629,7 @@ Selberg المدمجة & طيف لابلاس & جيوديسيات مغلقة & \
 \end{enumerate}
 
 \subsection{المستوى الثالث}
+\symbolindex{المستوى الثالث}
 \begin{enumerate}
   \item قارن تطبيع صيغة Petersson هنا بتطبيع يستعمل معاملات Hecke
   \(\lambda_f(n)\)، واكتب قاموس التحويل.

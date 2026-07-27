@@ -1,4 +1,5 @@
 \chapter{مبرهنة سيغل--فالفش والتوزيع المنتظم للأعداد الأولية}
+\symbolindex{مبرهنة سيغل--فالفش والتوزيع المنتظم للأعداد الأولية}
 
 \section{نطاق الفصل وحالته}
 
@@ -27,6 +28,7 @@ q\le (\log x)^A.
 \begin{itemize}
   \item سجل الأدلة للفصل 12 في مجلد مراجعات الأدبيات.
   \item خريطة البرهان للفصل 12 في مجلد مراجعات الأدبيات.
+\personindex{بيرون، أوسكار}
   \item تدقيق بيرون وتحويل المسار والصيغة الصريحة.
   \item تدقيق الصفر الاستثنائي وعدم فعالية الثوابت.
   \item التدقيق المنطقي للفصل.
@@ -38,12 +40,15 @@ q\le (\log x)^A.
 لا يثبت الفصل صيغة بيرون المقطوعة أو تحويل المسار من الصفر. بل يقتبس صيغة
 صريحة موحدة محددة، ثم يثبت داخليًا اختيار ارتفاع القطع، وضبط الجزء غير
 الاستثنائي، وامتصاص الصفر الاستثنائي، وتجميع الشخصيات. ولا يستعمل الفصل
+\personindex{ريمان، برنهارد}
+\personindex{بومبييري، إنريكو}
 مبرهنة Bombieri--Vinogradov أو Linnik أو فرضية ريمان المعممة. وقد اجتاز
 الفصل مراجعة ثانية مستقلة بحكم \textenglish{APPROVED}، ورُقّي إلى
 \textenglish{REVIEWED} ودُمج عبر PR \#20. ولا تعني هذه الحالة أنه أصبح
 \textenglish{RELEASE-READY}.
 
 \subsection{ثلاث طبقات يجب عدم خلطها}
+\symbolindex{ثلاث طبقات يجب عدم خلطها}
 
 \begin{enumerate}
   \item يثبت الفصل العاشر أنه لكل \(q\) ثابت:
@@ -72,7 +77,9 @@ q\le (\log x)^A.
 \end{enumerate}
 
 \section{دوال العد والمرشح بالشخصيات}
+\symbolindex{دوال العد والمرشح بالشخصيات}
 
+\personindex{ديريشليه، يوهان بيتر غوستاف}
 لكل شخصية ديريشليه \(\chi\pmod q\)، نضع
 \[
 \psi(x,\chi)=\sum_{n\le x}\chi(n)\Lambda(n).
@@ -92,7 +99,9 @@ q\le (\log x)^A.
 التجميع في \((12.1)\).
 
 \section{الرد إلى الجد البدائي}
+\symbolindex{الرد إلى الجد البدائي}
 
+\theoremindex{رد مجموع فون مانغولت إلى الشخصية البدائية}
 \begin{lemma}[رد مجموع فون مانغولت إلى الشخصية البدائية]
 \label{lem:chapter12-primitive-psi-reduction}
 \resultid{ANT-LEM-12-01}
@@ -131,13 +140,18 @@ q\le (\log x)^A.
 يمتص في كل من الحد الأسي المستهدف وأي ادخار لوغاريتمي ثابت.
 
 \section{مدخلان مقتبسان من النظرية الكمية}
+\symbolindex{مدخلان مقتبسان من النظرية الكمية}
 
 المسار الكمي لا ينتج من مبرهنة Wiener--Ikehara النوعية وحدها. نحتاج حدًا
 فعالًا للشخصية الرئيسية، وصيغة صريحة مقطوعة موحدة للشخصيات البدائية.
 
+\theoremindex{حد دو لا فاليه بوسان لمبرهنة الأعداد الأولية}
 \begin{theorem}[حد دو لا فاليه بوسان لمبرهنة الأعداد الأولية]
 \label{thm:chapter12-effective-pnt}
 \resultid{ANT-THM-12-01}
+\personindex{دافنبورت، هارولد}
+\personindex{فوجان، روبرت}
+\personindex{مونتغمري، هيو}
 \citedresult{\cite{DeLaValleePoussin1896,Davenport2000,MontgomeryVaughan2007}}
 توجد ثوابت مطلقة فعالة \(c,C>0\) بحيث، لكل \(x\ge3\)،
 \[
@@ -161,6 +175,7 @@ q\le (\log x)^A.
 \psi(x,\chi)-\psi_0(x,\chi)=O(\log(2x)).
 \]
 
+\theoremindex{الصيغة الصريحة الكمية بعد عزل الاستثناء}
 \begin{theorem}[الصيغة الصريحة الكمية بعد عزل الاستثناء]
 \label{thm:chapter12-truncated-explicit-formula}
 \resultid{ANT-THM-12-02}
@@ -201,7 +216,9 @@ xe^{-\frac{c\log x}{\log(r(U+2))}}\log^2(r(U+2))
 وتحويل المسار وتقديرات رأسية لم تغلق بعد داخل الموسوعة.
 
 \section{اختيار ارتفاع القطع وضبط الجزء غير الاستثنائي}
+\symbolindex{اختيار ارتفاع القطع وضبط الجزء غير الاستثنائي}
 
+\theoremindex{اختيار الارتفاع اللوغاريتمي}
 \begin{lemma}[اختيار الارتفاع اللوغاريتمي]
 \label{lem:chapter12-nonexceptional-zero-bound}
 \resultid{ANT-LEM-12-02}
@@ -267,6 +284,7 @@ L^D e^{-c\sqrt L}\le e^{-c'\sqrt L}
 \end{proof}
 
 \section{الصفر الاستثنائي وموضع استعمال مبرهنة سيغل}
+\symbolindex{الصفر الاستثنائي وموضع استعمال مبرهنة سيغل}
 
 اللمّة السابقة لا تسمح بحذف الحد
 \[
@@ -274,6 +292,7 @@ L^D e^{-c\sqrt L}\le e^{-c'\sqrt L}
 \]
 يجب إبقاؤه ظاهرًا حتى هذه النقطة.
 
+\theoremindex{امتصاص حد الصفر الاستثنائي}
 \begin{lemma}[امتصاص حد الصفر الاستثنائي]
 \label{lem:chapter12-exceptional-zero-absorption}
 \resultid{ANT-LEM-12-03}
@@ -326,7 +345,9 @@ x^\beta
 \end{remark}
 
 \section{مبرهنة سيغل--فالفش}
+\symbolindex{مبرهنة سيغل--فالفش}
 
+\theoremindex{مبرهنة سيغل--فالفش في صيغة \(\psi\)}
 \begin{theorem}[مبرهنة سيغل--فالفش في صيغة \(\psi\)]
 \label{thm:chapter12-siegel-walfisz-psi}
 \resultid{ANT-THM-12-03}
@@ -406,7 +427,9 @@ Deuring--Heilbronn؛ انظر \cite{ThornerZaman2024}. كما توجد براه�
 \end{remark}
 
 \section{الادخار اللوغاريتمي الاعتباطي}
+\symbolindex{الادخار اللوغاريتمي الاعتباطي}
 
+\theoremindex{صيغة سيغل--فالفش اللوغاريتمية}
 \begin{corollary}[صيغة سيغل--فالفش اللوغاريتمية]
 \label{cor:chapter12-siegel-walfisz-log-saving}
 \resultid{ANT-COR-12-01}
@@ -431,7 +454,9 @@ e^{-c\sqrt{\log x}}\ll_{c,B}(\log x)^{-B},
 \end{proof}
 
 \section{الانتقال إلى \(\vartheta(x;q,a)\)}
+\symbolindex{الانتقال إلى \(\vartheta(x;q,a)\)}
 
+\theoremindex{التوزيع المنتظم للدالة \(\vartheta\)}
 \begin{corollary}[التوزيع المنتظم للدالة \(\vartheta\)]
 \label{cor:chapter12-siegel-walfisz-theta}
 \resultid{ANT-COR-12-02}
@@ -465,12 +490,14 @@ e^{-c\sqrt{\log x}}\ll_{c,B}(\log x)^{-B},
 \end{proof}
 
 \section{الانتقال إلى \(\pi(x;q,a)\)}
+\symbolindex{الانتقال إلى \(\pi(x;q,a)\)}
 
 نعرف
 \[
 \operatorname{Li}(x)=\int_2^x\frac{dt}{\log t}.
 \]
 
+\theoremindex{التوزيع المنتظم لعدد الأوليات}
 \begin{corollary}[التوزيع المنتظم لعدد الأوليات]
 \label{cor:chapter12-siegel-walfisz-pi}
 \resultid{ANT-COR-12-03}
@@ -552,8 +579,10 @@ O\!\left(\frac{\operatorname{Li}(y)+y/\log y}{\varphi(q)}\right)
 \end{proof}
 
 \section{قراءة النتيجة وحدودها}
+\symbolindex{قراءة النتيجة وحدودها}
 
 \subsection{ما الذي أضيف إلى الفصل العاشر؟}
+\symbolindex{ما الذي أضيف إلى الفصل العاشر؟}
 
 الفصل العاشر يثبت النهاية عند كل ترديد ثابت، لكنه لا يحدد سرعة التقارب
 بانتظام في \(q\). أما هذا الفصل فيعطي مجالًا واحدًا من الترديدات المتغيرة
@@ -562,6 +591,7 @@ O\!\left(\frac{\operatorname{Li}(y)+y/\log y}{\varphi(q)}\right)
 وحدها.
 
 \subsection{لماذا المجال لوغاريتمي؟}
+\symbolindex{لماذا المجال لوغاريتمي؟}
 
 من المنطقة القياسية نحصل، تقريبًا، على عامل
 \[
@@ -573,6 +603,7 @@ O\!\left(\frac{\operatorname{Li}(y)+y/\log y}{\varphi(q)}\right)
 \(x\)، فيحتاج آليات أخرى أو متوسطًا على الترديدات.
 
 \subsection{الفعالية وعدم الفعالية}
+\symbolindex{الفعالية وعدم الفعالية}
 
 كل جزء من البرهان قبل اللمّة
 \ref{lem:chapter12-exceptional-zero-absorption} يمكن جعله فعالًا ضمن
@@ -593,6 +624,7 @@ O\!\left(\frac{\operatorname{Li}(y)+y/\log y}{\varphi(q)}\right)
 \end{itemize}
 
 \section{أمثلة تفسيرية}
+\symbolindex{أمثلة تفسيرية}
 
 \begin{example}[ترديد ثابت]
 إذا ثبت \(q=10\)، فإن الفصل العاشر يكفي لإثبات التكافؤ التقاربي. تعطي

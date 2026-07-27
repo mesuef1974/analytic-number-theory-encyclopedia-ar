@@ -1,4 +1,6 @@
 \chapter{طرق الغربال الأساسية وغربال سيلبرغ وعائق التكافؤ}
+\personindex{سيلبرغ، أتله}
+\symbolindex{طرق الغربال الأساسية وغربال سيلبرغ وعائق التكافؤ}
 
 \section{نطاق الفصل وحالته}
 
@@ -25,7 +27,12 @@
 الحد العلوي على الأزواج المنخولة \(n,n+h\).
 
 لا يثبت الفصل حدسية الأوليات التوأم، ولا الفجوات المحدودة، ولا حدًا سفليًا لعدد
+\personindex{فينوغرادوف، إيفان ماتفييفيتش}
+\personindex{بومبييري، إنريكو}
 الأزواج الأولية. كما لا يستعمل مبرهنة بومبييري--فينوغرادوف أو مبرهنة
+\personindex{دافنبورت، هارولد}
+\personindex{هالبرستام، هيني}
+\personindex{باربان، ماريوس}
 باربان--دافنبورت--هالبرستام في بناء غربال سيلبرغ المجرد أو التطبيق المركزي.
 \subsection{نواتج التعلم}
 
@@ -44,6 +51,7 @@
 \end{enumerate}
 
 \section{بيانات الغربال المجردة}
+\symbolindex{بيانات الغربال المجردة}
 
 \begin{definition}[بيانات الغربال]
 \label{def:chapter15-sieve-data}
@@ -74,11 +82,13 @@ V(z)=\prod_{\substack{p<z\\p\in\mathcal P}}(1-g(p)).
 للحصول على نتيجة كمية؛ إذ يجب أيضًا ضبط البواقي على مجال مناسب من القواسم.
 
 \section{متراجحة سيلبرغ التربيعية}
+\symbolindex{متراجحة سيلبرغ التربيعية}
 
 نختار معاملات حقيقية \(\lambda_d\) مدعومة على القواسم المربعة الحرة
 \(d\mid P(z)\)، مع \(\lambda_1=1\). إذا كان \((n,P(z))=1\)، فلا يقسم \(n\)
 من هذه القواسم إلا \(1\)، ولذلك يساوي مجموع المعاملات \(1\).
 
+\theoremindex{متراجحة المربع}
 \begin{lemma}[متراجحة المربع]
 \label{lem:chapter15-square-majorant}
 \resultid{ANT-LEM-15-01}
@@ -123,6 +133,7 @@ X\mathcal Q(\lambda)+\mathcal R(\lambda),
 \]
 
 \section{حل مسألة التصغير المنتهية}
+\symbolindex{حل مسألة التصغير المنتهية}
 
 نضع للأعداد المربعة الحرة
 \[
@@ -146,6 +157,7 @@ G(R,z)=
 \tag{15.4}
 \]
 
+\theoremindex{الحد العلوي المنتهي لغربال سيلبرغ}
 \begin{theorem}[الحد العلوي المنتهي لغربال سيلبرغ]
 \label{thm:chapter15-finite-selberg-upper}
 \resultid{ANT-THM-15-01}
@@ -240,6 +252,7 @@ u_e=\frac{\mu(e)h(e)}{G(R,z)}.
 \end{proof}
 
 \section{البعد الغربالي ومقام سيلبرغ}
+\symbolindex{البعد الغربالي ومقام سيلبرغ}
 
 نفرض شرط الانتظام التالي: يوجد ثابت \(A_1\ge0\) بحيث لكل \(2\le w<z\)،
 \[
@@ -258,6 +271,7 @@ V(z)\asymp_{\kappa,A_1}\frac1{(\log z)^\kappa}.
 يجب عدم الخلط بين \(\kappa\) وبين مستوى البواقي \(D\)، ولا بينهما وبين حد
 الغربلة \(z\).
 
+\theoremindex{تقدير مقام سيلبرغ في البعد \(\kappa\)}
 \begin{theorem}[تقدير مقام سيلبرغ في البعد \(\kappa\)]
 \label{thm:chapter15-selberg-denominator}
 \resultid{ANT-THM-15-02}
@@ -277,6 +291,7 @@ V(z)^{-1}
 يحمل هذا المدخل حالة
 \textenglish{TEXT-LOCATION-VERIFIED / NORMALIZATION-MATCHED}.
 \section{اللمّة الأساسية وحدودها}
+\symbolindex{اللمّة الأساسية وحدودها}
 
 إذا كانت البواقي مضبوطة حتى مستوى \(D\)، نضع
 \[
@@ -288,6 +303,7 @@ s=\frac{\log D}{\log z}.
 يكبر معامل الغربلة \(s\)، مع خطأ يضم جزءًا بنيويًا يتناقص مع \(s\) وجزءًا
 قادما من البواقي.
 
+\theoremindex{صيغة عامة للّمة الأساسية}
 \begin{theorem}[صيغة عامة للّمة الأساسية]
 \label{thm:chapter15-fundamental-lemma}
 \resultid{ANT-THM-15-03}
@@ -318,6 +334,7 @@ O\!\left(
 \(F_\kappa,f_\kappa\) هنا؛ فهما ينتميان إلى صيغ الغربال الخطي أو
 \textenglish{beta-sieve} المتخصصة، وهي مؤجلة إلى فصل لاحق.
 \section{تطبيق: الأزواج المنخولة}
+\symbolindex{تطبيق: الأزواج المنخولة}
 
 لتكن \(h\ne0\) ثابتة، ولتكن
 \[
@@ -331,6 +348,7 @@ S_h(x,z)
 n(n+h)\equiv0\pmod p.
 \]
 
+\theoremindex{الكثافة المحلية للأزواج}
 \begin{proposition}[الكثافة المحلية للأزواج]
 \label{prop:chapter15-pair-local-density}
 \resultid{ANT-PROP-15-01}
@@ -354,6 +372,7 @@ n(n+h)\equiv0\pmod p.
 دائمًا، ولذلك يقسم \(2\) حاصل الضرب عندما تدخل الأولية \(2\) في \(P(z)\).
 \end{proof}
 
+\theoremindex{البعد الغربالي للأزواج}
 \begin{proposition}[البعد الغربالي للأزواج]
 \label{prop:chapter15-pair-dimension}
 \resultid{ANT-PROP-15-02}
@@ -415,6 +434,7 @@ V_h(z)
 ومن ثم يمكن أخذ \(X=x\)، و\(g_h(d)=\rho_h(d)/d\)، و
 \(|r_d|\le \rho_h(d)\le2^{\omega(d)}\).
 
+\theoremindex{حد الأزواج المنخولة}
 \begin{theorem}[حد الأزواج المنخولة]
 \label{thm:chapter15-sifted-pairs}
 \resultid{ANT-THM-15-04}
@@ -469,6 +489,7 @@ z^2(\log z)^5
 وتقدير صريح للبواقي، ولا يستعمل مبرهنة سيغل--فالفش أو ثابت سيغل غير الفعّال.
 \end{remark}
 \section{عائق التكافؤ}
+\symbolindex{عائق التكافؤ}
 
 \begin{remark}[عائق التكافؤ]
 \label{rem:chapter15-parity-barrier}
@@ -488,6 +509,7 @@ z^2(\log z)^5
 العلوي (15.14) إلى برهان على وجود أزواج أولية.
 
 \section{ملاحظات ختامية وتمارين}
+\symbolindex{ملاحظات ختامية وتمارين}
 
 يلخص هذا الفصل الطبقات التي ينبغي عدم خلطها:
 \begin{enumerate}

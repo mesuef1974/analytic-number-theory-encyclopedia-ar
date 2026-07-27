@@ -1,4 +1,6 @@
 \chapter{فك الاقتران والتوافق الفعّال: مبرهنة القيمة المتوسطة لفينوغرادوف}
+\personindex{فينوغرادوف، إيفان ماتفييفيتش}
+\symbolindex{فك الاقتران والتوافق الفعّال: مبرهنة القيمة المتوسطة لفينوغرادوف}
 \label{ch:decoupling-efficient-congruencing-vmvt}
 
 \section*{نطاق الفصل وحالته}
@@ -13,12 +15,18 @@
   \item نستعمل دائمًا \(e(t)=\exp(2\pi i t)\) والتكامل على \([0,1)^k\).
   \item هوية التعامد والحدان السفليان يثبتان هنا؛ الحد العلوي الأمثل منقول ولا يثبت هنا.
   \item لا يُعرض التوافق الفعّال وفك الاقتران على أنهما برهان واحد أو متكافئان خطوة بخطوة.
+\personindex{وولي، تريفور}
   \item نتيجة Wooley لعام 2012 تقدم تأسيسي، والحالة التكعيبية الكاملة تعود إلى عمله اللاحق المنشور سنة 2016.
+\personindex{غوث، لاري}
+\personindex{بورغين، جان}
+\personindex{ديمتر، تشيبرين}
   \item نتيجة Bourgain--Demeter--Guth تخص الدرجات \(k\ge4\)، بينما يغطي التوافق الفعّال المتداخل جميع الدرجات.
+\personindex{وارينغ، إدوارد}
   \item تطبيقات وارينغ والمجاميع الأسية جسور تفسيرية إلى الفصلين \ref{ch:circle-method-goldbach-waring} و\ref{ch:exponential-sums-van-der-corput}، وليست إعادة برهنة لنواتهما.
 \end{itemize}
 
 \section{مجموع فينوغرادوف والقيمة المتوسطة}
+\symbolindex{مجموع فينوغرادوف والقيمة المتوسطة}
 
 \begin{definition}[مجموع فينوغرادوف والقيمة المتوسطة]
 \label{def:ch25-vinogradov-mean-value}
@@ -47,6 +55,7 @@ J_{s,k}(X)
 
 هذا المتوسط ليس مجرد معيار تحليلي لحجم مجموع أسي؛ فهو يخزن بالضبط عدد حلول نظام جبري من معادلات القوى المتتالية.
 
+\theoremindex{هوية التعامد وعد حلول نظام فينوغرادوف}
 \begin{proposition}[هوية التعامد وعد حلول نظام فينوغرادوف]
 \label{prop:ch25-orthogonality-count}
 \resultid{ANT-PROP-25-01}
@@ -95,6 +104,7 @@ e\!\left(
 \end{proof}
 
 \section{الوزن الحرج والحدود الدنيا البنيوية}
+\symbolindex{الوزن الحرج والحدود الدنيا البنيوية}
 
 \begin{definition}[الوزن الحرج]
 \label{def:ch25-critical-weight}
@@ -107,6 +117,7 @@ K=1+2+\cdots+k=\frac{k(k+1)}2.
 هذا هو مجموع درجات معادلات نظام فينوغرادوف، وهو الفقد الطبيعي في أس عدد درجات الحرية.
 \end{definition}
 
+\theoremindex{المصدران البنيويان للحد الرئيسي}
 \begin{proposition}[المصدران البنيويان للحد الرئيسي]
 \label{prop:ch25-structural-lower-bounds}
 \resultid{ANT-PROP-25-02}
@@ -170,7 +181,9 @@ J_{s,k}(X)
 \(X^s+X^{2s-K}\). لكن إثبات حد علوي مطابق، حتى مع خسارة \(X^\varepsilon\)، هو قلب المبرهنة العميقة.
 
 \section{مبرهنة القيمة المتوسطة الرئيسية}
+\symbolindex{مبرهنة القيمة المتوسطة الرئيسية}
 
+\theoremindex{المبرهنة الرئيسية للقيمة المتوسطة لفينوغرادوف}
 \begin{theorem}[المبرهنة الرئيسية للقيمة المتوسطة لفينوغرادوف]
 \label{thm:ch25-main-vmvt}
 \resultid{ANT-THM-25-01}
@@ -193,6 +206,7 @@ X^s+X^{2s-k(k+1)/2}
 بدأ Wooley التوافق الفعّال في عمله المنشور سنة 2012، وحقق به تقدمًا جذريًا في VMVT وتطبيقاتها \cite{wooley2012efficient}. ثم أثبت الحالة التكعيبية الكاملة \(k=3\) في عمل لاحق نشر سنة 2016 \cite{wooley2016cubic}. وأثبت Bourgain وDemeter وGuth الحدسية للدرجات \(k\ge4\) بواسطة فك الاقتران الحاد للمنحنى اللحظي \cite{bourgainDemeterGuth2016vmvt}. وبعد ذلك قدم Wooley التوافق الفعّال المتداخل، مثبتًا صيغة عامة تشمل جميع الدرجات \cite{wooley2019nested}. هذا التسلسل يمنع نسبة النتيجة العامة كلها إلى ورقة واحدة أو إلى مسار واحد.
 
 \section{مسار التوافق الفعّال}
+\symbolindex{مسار التوافق الفعّال}
 
 \begin{remark}[مبدأ التوافق الفعّال]
 \label{rem:ch25-efficient-congruencing-principle}
@@ -208,7 +222,9 @@ X^s+X^{2s-k(k+1)/2}
 ليست قيودًا مستقلة اعتباطية؛ فعند اختيار متغيرات غير متطابقة modulo \(p\)، تسمح بنية مصفوفة فانديرموند برفع المعلومات التوافقية. في النسخة المتداخلة تصبح المقاييس متعددة الدرجات، وهو ما يمنح الطريقة المرونة اللازمة لإغلاق جميع الدرجات.
 
 \section{مسار فك الاقتران للمنحنى اللحظي}
+\symbolindex{مسار فك الاقتران للمنحنى اللحظي}
 
+\theoremindex{فك الاقتران الحاد والجسر إلى VMVT}
 \begin{theorem}[فك الاقتران الحاد والجسر إلى VMVT]
 \label{thm:ch25-decoupling-bridge}
 \resultid{ANT-THM-25-02}
@@ -230,7 +246,9 @@ X^s+X^{2s-k(k+1)/2}
 \end{remark}
 
 \section{الجسر إلى وارينغ والمجاميع الأسية}
+\symbolindex{الجسر إلى وارينغ والمجاميع الأسية}
 
+\theoremindex{جسر منضبط إلى التطبيقات}
 \begin{corollary}[جسر منضبط إلى التطبيقات]
 \label{cor:ch25-waring-exponential-bridge}
 \resultid{ANT-COR-25-01}
@@ -250,6 +268,7 @@ X^s+X^{2s-k(k+1)/2}
 \end{itemize}
 
 \section{الجبهة المفتوحة}
+\symbolindex{الجبهة المفتوحة}
 
 \begin{openproblem}[أنظمة متعددة الحدود وفك الاقتران الأوسع]
 \label{open:ch25-polynomial-systems}
