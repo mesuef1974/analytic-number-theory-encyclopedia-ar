@@ -28,6 +28,32 @@
 \DeclareQuoteAlias[american]{english}{arabic}
 \usepackage{fancyhdr}
 
+\usepackage[noautomatic]{imakeidx}
+
+% فهارس الموسوعة المرجعية.
+\makeindex[
+  name=people,
+  title={فهرس العلماء},
+  columns=2,
+  intoc
+]
+\makeindex[
+  name=theorems,
+  title={فهرس النظريات والنتائج},
+  columns=2,
+  intoc
+]
+\makeindex[
+  name=symbols,
+  title={فهرس الرموز والمصطلحات},
+  columns=2,
+  intoc
+]
+
+% واجهة موحدة تمنع خلط أنواع الفهارس داخل الفصول.
+\newcommand{\personindex}[1]{\index[people]{#1}}
+\newcommand{\theoremindex}[1]{\index[theorems]{#1}}
+\newcommand{\symbolindex}[1]{\index[symbols]{#1}}
 % Polyglossia's \textenglish is a text-mode command. Preserve its normal
 % behavior while allowing guarded use inside displayed mathematics.
 \let\polyglossiatextenglish\textenglish
@@ -101,7 +127,7 @@
   \smallskip
   \noindent
   \resultbadge{gray!15}{معرّف النتيجة}%
-  \quad
+  \hspace{0.5em}\allowbreak
   \textenglish{\texttt{#1}}%
   \par
 }
