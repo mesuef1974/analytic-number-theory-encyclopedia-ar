@@ -176,6 +176,19 @@ OVERFULL-HBOX >= 20pt = 0
 - جميع تجاوزات `Overfull \hbox` بقياس 20 نقطة أو أكثر مغلقة.
 - فرع المراجعة المبلغ عنه محليًا نظيف بعد الالتزام `8e20907`.
 
+## الفحص البصري النهائي
+
+```text
+TABLE-OF-CONTENTS          = PASS
+PART-OPENINGS              = PASS
+CHAPTERS-22--26            = PASS
+BIBLIOGRAPHY               = PASS
+VISIBLE-BLOCKERS           = 0
+SMALL-OVERFULL-CLASS       = NON-BLOCKING TYPOGRAPHIC DEBT
+STATUS                     = PASS / CLOSED
+```
+
+أُنجز الفحص البصري اليدوي للملف الكامل، ولم تظهر عيوب مرئية حاجزة.
 ## ترتيب الإغلاق المتبقي
 
 1. مصالحة `docs/RESULTS_REGISTRY.md` مع السجلات الفصلية والتحقق من فرادة المعرفات.
