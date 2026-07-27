@@ -39,9 +39,6 @@ STANDALONE_BADGE_RE = re.compile(
 ARG_BADGE_RE = re.compile(
     r"(?m)^\s*\\(?:citedresult|deferredresult|conditionalresult)\s*\{[^\n]*\}\s*$"
 )
-STATUS_LEAD_RE = re.compile(
-    r"(?:\\noindent\s*)?\\textbf\{حالة الفصل:\}.*?(?<!\\)\.", re.S
-)
 
 RELEASE_OVERRIDES = r"""
 % Publication build: suppress draft-governance badges and stable internal IDs.
@@ -64,10 +61,18 @@ def contains_governance(text: str) -> bool:
     )
 
 
+def strip_status_lines(text: str) -> str:
+    """Remove only complete status lines; never span TeX paragraphs or math."""
+    kept: list[str] = []
+    for line in text.splitlines(keepends=True):
+        if "حالة الفصل:" in line and contains_governance(line):
+            continue
+        kept.append(line)
+    return "".join(kept)
+
+
 def strip_governance_blocks(text: str) -> str:
-    # Remove the opening status sentence even when it shares a paragraph with
-    # scientific equations that must remain in the publication build.
-    text = STATUS_LEAD_RE.sub("", text)
+    text = strip_status_lines(text)
 
     # Remove audit-document lists as a unit, avoiding empty list environments.
     env_re = re.compile(r"\\begin\{(itemize|enumerate)\}.*?\\end\{\1\}", re.S)
