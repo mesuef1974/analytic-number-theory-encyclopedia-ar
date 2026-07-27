@@ -189,6 +189,23 @@ STATUS                     = PASS / CLOSED
 ```
 
 أُنجز الفحص البصري اليدوي للملف الكامل، ولم تظهر عيوب مرئية حاجزة.
+## إيصال البناء النهائي
+
+```text
+PDF-PAGES                  = 321
+PDF-SIZE-BYTES             = 1212922
+PDF-SHA256                 = 1A694020B0F787285D1363F75B24E3A1B02D2693D281868B22C1696F116C0439
+FATAL-BUILD-ERRORS         = 0
+OVERFULL-HBOX-TOTAL        = 341
+MAX-OVERFULL-PT            = 19.38495
+OVERFULL-HBOX >= 20pt      = 0
+FINAL-BUILD                = PASS
+RELEASE-READY              = NO
+MERGE                      = NOT AUTHORIZED
+```
+
+نجح البناء النهائي بعد تعديلات المراجع والحوكمة. بقيت التجاوزات الأصغر
+من 20 نقطة مصنفة ديونًا طباعية غير حاجزة بعد الفحص البصري.
 ## ترتيب الإغلاق المتبقي
 
 1. مصالحة `docs/RESULTS_REGISTRY.md` مع السجلات الفصلية والتحقق من فرادة المعرفات.
