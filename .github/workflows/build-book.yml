@@ -8,6 +8,7 @@ on:
       - "volumes/**"
       - "figures/**"
       - "tables/**"
+      - "scripts/check_latin_pdf_text.py"
       - ".github/workflows/build-book.yml"
   pull_request:
     branches: [main]
@@ -16,6 +17,7 @@ on:
       - "volumes/**"
       - "figures/**"
       - "tables/**"
+      - "scripts/check_latin_pdf_text.py"
       - ".github/workflows/build-book.yml"
   workflow_dispatch:
 
@@ -55,6 +57,16 @@ jobs:
           stat --printf='Size: %s bytes\n' build/main.pdf
           file build/main.pdf
 
+      - name: Verify Latin PDF text integrity
+        shell: bash
+        run: |
+          command -v pdftotext >/dev/null 2>&1 || {
+            sudo apt-get update
+            sudo apt-get install -y poppler-utils
+          }
+          pdftotext -layout build/main.pdf build/main-extracted.txt
+          python scripts/check_latin_pdf_text.py build/main-extracted.txt
+
       - name: Prepare named preview
         shell: bash
         run: |
@@ -69,5 +81,6 @@ jobs:
           path: |
             build/analytic-number-theory-encyclopedia-preview.pdf
             build/analytic-number-theory-encyclopedia-preview.pdf.sha256
+            build/main-extracted.txt
           if-no-files-found: error
           retention-days: 30
