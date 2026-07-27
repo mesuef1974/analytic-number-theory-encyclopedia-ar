@@ -51,6 +51,7 @@ jobs:
           root_file: manuscript/main.tex
           latexmk_use_lualatex: true
           args: >-
+            -shell-escape
             -interaction=nonstopmode
             -halt-on-error
             -file-line-error
@@ -67,6 +68,7 @@ jobs:
           root_file: build/release-src/manuscript/main.tex
           latexmk_use_lualatex: true
           args: >-
+            -shell-escape
             -interaction=nonstopmode
             -halt-on-error
             -file-line-error
