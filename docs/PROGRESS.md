@@ -3,45 +3,64 @@
 ## الحالة العامة
 
 - **الإصدار التطويري الحالي:** `0.30.0-dev`
-- **آخر فصل معتمد:** الفصل السادس والعشرون — خريطة الجبهات البحثية الحديثة.
-- **المرحلة الحالية:** إغلاق ما بعد الدمج والاستعداد للمراجعة الشاملة للإصدار.
-- **حالة الفصل 26:** `REVIEWED / OWNER-ADOPTED / ACTIVE-CITABLE / MERGED`
-- **PR:** `#52 / MERGED`
-- **Issue:** `#51 / CLOSED`
-- **النتائج:** `10 ACTIVE / CITABLE`
+- **الفصول:** 1--26 موجودة ومندمجة على `main`.
+- **المرحلة الحالية:** ما بعد المراجعة الشاملة؛ تنفيذ حواجز الإصدار المتبقية.
+- **المراجعة الشاملة:** `PASS / OPEN-MAJORS 0 / TECHNICAL-BLOCKERS 0`
+- **PR:** `#54 / MERGED`
+- **Issue المراجعة:** `#53 / CLOSED`
 - **الموسوعة:** `NOT-RELEASE-READY`
-- **آخر تحديث:** 2026-07-26
+- **آخر تحديث:** 2026-07-27
 
 ```text
-CHAPTERS-1--26         = IN MANUSCRIPT / MERGED
-VERSION                = 0.30.0-dev
-CHAPTER-26             = REVIEWED / OWNER-ADOPTED / ACTIVE-CITABLE / MERGED
-ISSUE-51               = CLOSED
-PR-52                  = MERGED
-PRE-AUTHORING-GATE-26  = PASS
-POST-AUTHORING-REVIEW  = PASS
-RESULTS-26             = 10 ACTIVE / CITABLE
-LOCAL-PDF              = PASS / 321 PAGES BEFORE VERSION-SYNC REBUILD
-MERGE-26               = COMPLETED
-RELEASE-READY          = NO
+CHAPTERS-1--26          = IN MANUSCRIPT / MERGED
+VERSION                 = 0.30.0-dev
+RELEASE-WIDE-REVIEW     = PASS
+ISSUE-53                = CLOSED
+PR-54                   = MERGED
+OWNER-ADOPTION          = CONFIRMED
+OPEN-MAJORS             = 0
+TECHNICAL-BLOCKERS      = 0
+FINAL-PDF               = PASS / 321 PAGES
+FINAL-PDF-SIZE-BYTES    = 1212922
+FINAL-PDF-SHA256        = 1A694020B0F787285D1363F75B24E3A1B02D2693D281868B22C1696F116C0439
+FATAL-BUILD-ERRORS      = 0
+UNDEFINED-REFERENCES    = 0
+UNDEFINED-CITATIONS     = 0
+OVERFULL-HBOX >= 20pt   = 0
+INDEX-ISSUE             = #55 / RELEASE-BLOCKER
+EXERCISES-ISSUE         = #56 / NON-BLOCKING
+FORWARD-REFS-ISSUE      = #57 / NON-BLOCKING
+RELEASE-READY           = NO
 ```
 
 ## لوحة التقدم
 
 | المكوّن | الحالة |
 |---|---|
-| الفصول 1--25 | موجودة على `main` بدرجات الحوكمة المسجلة |
-| الفصل 26 | `REVIEWED / OWNER-ADOPTED / 10 ACTIVE / CITABLE / MERGED` |
-| بنية المخطوط | `26 CHAPTERS / COMPLETE` |
-| البناء المحلي بعد الدمج | `PASS / 321 PAGES` قبل مزامنة الإصدار المركزي |
-| مزامنة الإصدار | `0.30.0-dev` في الوثائق المركزية |
-| المراجعة بعد التأليف | `PASS / 0 BLOCKERS / 0 MAJORS / 0 MINORS` |
+| الفصول 1--26 | `MERGED / GOVERNANCE-RECONCILED` |
+| سجل النتائج | `252 / 252 / ZERO MISSING / ZERO DUPLICATES` |
+| النتائج المفعلة بلا حوكمة | `0` |
+| BibTeX | `90 CITATION KEYS / 106 ENTRIES / ZERO MISSING / ZERO DUPLICATES` |
+| DOI | `55/56 RESOLVER PASS / 1 LEGACY EXCEPTION` |
+| الفحص البصري | `PASS / VISIBLE-BLOCKERS 0` |
+| البناء النهائي | `PASS / 321 PAGES / FATAL ERRORS 0` |
+| المراجعة المستقلة النهائية | `PASS` |
+| PR #54 | `MERGED` |
+| Issue #53 | `CLOSED` |
 | الموسوعة الكاملة | `NOT-RELEASE-READY` |
 
-## حالة الفصل السادس والعشرين
+## قرار المالك بعد المراجعة
 
-اجتازت حزمة ما قبل التأليف المراجعة المستقلة، ثم أُلف الفصل الختامي وخضع لمراجعة كاملة وتصحيحات ومراجعة ضيقة نهائية بحكم `PASS`. اعتمد المالك الفصل صراحة، وفُعّلت معرفاته العشرة، ودُمج PR #52 وأُغلق Issue #51. الفصل هو الأخير في المخطوط وتكتمل به بنية الموسوعة ذات الفصول الستة والعشرين.
+اعتمد المالك الإصدار `0.30.0-dev` كجاهز للدمج وصرّح صراحة بدمج PR #54. تم الدمج مع إبقاء `RELEASE-READY = NO`.
+
+صُنفت الأعمال المؤجلة كما يلي:
+
+1. **الفهارس — Issue #55:** غير حاجزة للدمج، لكنها حاجز صريح أمام الجاهزية للإصدار.
+2. **التمارين والحلول — Issue #56:** دين بيداغوجي غير حاجز.
+3. **الإحالات الأمامية — Issue #57:** دين تحريري غير حاجز؛ لا توجد إحالات معطوبة حاليًا.
+
+الديون المقبولة تشمل DOI مقال Chen لعام 1973 كاستثناء قديم `resolver-404` موثق، و341 حالة `Overfull \hbox` أصغر من 20 نقطة، أقصاها 19.38495 نقطة، بعد نجاح الفحص البصري.
 
 ## الخطوة التالية
 
-إعادة مزامنة `main` محليًا بعد إصلاح خريطة إدراج المخطوط وتحديث الوثائق المركزية، ثم تشغيل فحص الجودة والبناء الكامل وتسجيل عدد الصفحات وبصمة SHA-256 النهائية. بعد ذلك تبدأ مراجعة الإصدار الشاملة؛ لا تزال حالة `RELEASE-READY = NO`.
+تنفيذ Issue #55 وإكمال فهارس العلماء والنظريات والرموز، ثم إعادة البناء والفحص البصري. لا يجوز تغيير `RELEASE-READY` إلى `YES` قبل إغلاق حاجز الفهارس وإصدار قرار مالك جديد. أما Issue #56 وIssue #57 فيبقيان مساري تحسين غير حاجزين.
