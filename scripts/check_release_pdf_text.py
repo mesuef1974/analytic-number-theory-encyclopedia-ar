@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fail when publication PDF text leaks internal governance/build metadata."""
+"""Fail when publication PDF text leaks metadata or loses release structure."""
 
 from __future__ import annotations
 
@@ -34,6 +34,7 @@ FORBIDDEN_REGEX = (
     re.compile(r"\b[0-9a-f]{40}\b", re.I),
     re.compile(r"\bSHA-?256\b", re.I),
     re.compile(r"ANT-(?:THM|LEM|PROP|COR|DEF|EX|REM|OPEN)-\d{2}-\d{2}"),
+    re.compile(r"\?\?"),
 )
 
 REQUIRED = (
@@ -41,6 +42,9 @@ REQUIRED = (
     "Ahlfors",
     "Helfgott",
     "Zeitschrift",
+    "فهرس العلماء",
+    "فهرس النظريات والنتائج",
+    "فهرس الرموز والمصطلحات",
 )
 
 
@@ -73,7 +77,7 @@ def main() -> int:
         return 1
 
     print("RELEASE PDF TEXT CHECK: PASS")
-    print("Internal governance/build metadata absent; required scientific text present.")
+    print("Metadata absent; scientific text, cross-references, and named indexes retained.")
     return 0
 
 
