@@ -9,7 +9,15 @@
   Scale=1.12
 ]{Amiri}
 
-\newfontfamily\englishfont{Latin Modern Roman}
+% Keep Latin text on an explicitly Latin font and disable discretionary/common
+% ligatures.  This prevents Arabic-context shaping from corrupting letter
+% sequences such as "fi", "fl", and "iff" in prose and bibliography entries.
+\newfontfamily\englishfont[
+  Script=Latin,
+  Language=English,
+  Ligatures=NoCommon,
+  RawFeature={-liga;-clig;-dlig}
+]{Latin Modern Roman}
 
 \newfontfamily\arabicfonttt[
   Script=Arabic,
@@ -73,6 +81,10 @@
   sorting=nyt,
   language=english
 ]{biblatex}
+
+% LTR direction alone does not select a Latin font.  Force every printed
+% bibliography entry through the same ligature-safe English font.
+\renewcommand*{\bibfont}{\footnotesize\englishfont}
 
 \addbibresource{manuscript/bibliography.bib}
 \addbibresource{manuscript/chapter-13-bibliography.bib}
