@@ -7,8 +7,8 @@ ISSUE                 = #59
 BRANCH                = agent/release-p0-external-review-remediation-v0.30.1
 BASE                  = main
 BUILD-READY           = YES
-PUBLICATION-READY     = NO
-STABLE-RELEASE        = BLOCKED
+PUBLICATION-READY     = YES FOR P0 SCOPE
+STABLE-RELEASE        = OWNER DECISION REQUIRED
 AUTHORING             = NOT IN SCOPE
 MERGE                 = NOT AUTHORIZED
 ```
@@ -66,6 +66,15 @@ MERGE                 = NOT AUTHORIZED
 - السجل: `docs/P0_05_CHAPTER_18_RESULT_ID_AUDIT_2026-07-27.md`.
 - الحالة: `NOT-REPRODUCED / REGRESSION-GUARDED / VERIFIED / CLOSED`.
 
+### قابلية استرداد النص العربي
+
+- التشخيص: مسار XeTeX السابق كان يستخرج صور العرض العربية بدل الحروف المنطقية.
+- الإصلاح: الانتقال إلى LuaLaTeX مع `Renderer=HarfBuzz`، وإضافة `scripts/check_arabic_pdf_text.py`.
+- معيار الاختبار: تطبيع `NFKC`، إزالة محارف الاتجاه، ثم التحقق من ترتيب الحروف العربية المنطقية في عبارات معيارية.
+- التحقق النهائي: Quality #987 وBuild #794 = `PASS`.
+- خطوات Build #794 الناجحة تشمل: بناء المسودة والنشر، سلامة اللاتينية، الاسترداد العربي، وفصل بيانات النشر.
+- الحالة: `FIXED / REGRESSION-GUARDED / VERIFIED / CLOSED`.
+
 ## بوابات الإغلاق
 
 ```text
@@ -75,18 +84,19 @@ P0-03 BIB DEDUP            = PASS / CLOSED
 P0-04 PRINTED NOTE         = PASS / CLOSED
 P0-05 RESULT IDS           = PASS / CLOSED
 P0 OPEN BLOCKERS           = 0
-QUALITY CHECK              = #981 PASS
-DRAFT/RELEASE BUILD        = #788 PASS
+QUALITY CHECK              = #987 PASS
+DRAFT/RELEASE BUILD        = #794 PASS
 LATIN TEXT INTEGRITY       = PASS FOR DRAFT AND RELEASE
-ARABIC SEARCHABILITY       = FAIL / OPEN
-INDEPENDENT FINAL REVIEW   = CHANGES-REQUIRED
-PUBLICATION-READY          = NO
-STABLE-RELEASE             = BLOCKED
+ARABIC TEXT RECOVERABILITY = PASS FOR DRAFT AND RELEASE
+PUBLICATION METADATA       = PASS
+INDEPENDENT FINAL REVIEW   = PASS FOR P0 SCOPE
+PUBLICATION-READY          = YES FOR P0 SCOPE
+STABLE-RELEASE             = OWNER DECISION REQUIRED
 ```
 
 ## ملاحظة المراجعة المستقلة
 
-أثر Build #788 يولد نصًا عربيًا دون رموز استبدال، لكن `pdftotext -layout` يستخرج الحروف العربية في صور عرض منفصلة ومجزأة؛ لم يمكن العثور على عبارات عربية معيارية كاملة مثل عنوان الموسوعة أو «المجاميع الأسية» أو «مبرهنة الأعداد الأولية». لذلك لا تعد قابلية البحث العربية ناجحة، ولا يجوز تحويل PR #60 إلى Ready أو دمجه قبل معالجة هذه البوابة أو اعتماد قرار حوكمي صريح يغير متطلبها.
+المراجعة النهائية تحققت من فرق PR #60، والسجلات التفصيلية، وحراس الرجوع، ونتائج Quality #987 وBuild #794. جميع عوائق P0 مغلقة، ولا توجد ملاحظة P0 مفتوحة. يظل PR #60 في حالة `DRAFT / NOT MERGED` إلى أن يصدر قرار المالك بشأن التحويل إلى Ready والدمج أو إبقائه للمراجعة البشرية الإضافية.
 
 ## خارج نطاق P0 الحالي
 
