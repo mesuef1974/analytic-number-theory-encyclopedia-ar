@@ -42,8 +42,15 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Create build directories
-        run: mkdir -p build/draft build/release
+      - name: Create build directories and seed named indexes
+        shell: bash
+        run: |
+          mkdir -p build/draft build/release
+          for dir in build/draft build/release; do
+            for name in people theorems symbols; do
+              printf '\\begin{theindex}\n\\end{theindex}\n' > "$dir/main.$name.ind"
+            done
+          done
 
       - name: Compile auditable draft first pass
         uses: xu-cheng/latex-action@v4
