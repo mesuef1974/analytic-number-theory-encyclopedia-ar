@@ -10,24 +10,26 @@
 
 ```text
 VERSION                 = 0.30.0-dev
-CHAPTER                 = 26
-TOPIC                   = FINAL RESEARCH FRONTIERS MAP
-ISSUE                   = #51 / CLOSED
-PR                      = #52 / MERGED
-STATUS                  = REVIEWED / OWNER-ADOPTED / CITABLE / MERGED
-PRE-AUTHORING-GATE      = PASS
-PASS-FOR-AUTHORING      = YES
-AUTHORING               = COMPLETED
-POST-AUTHORING-REVIEW   = PASS / 0 BLOCKERS / 0 MAJORS / 0 MINORS
+CHAPTERS                = 1--26 / MERGED
+RELEASE-WIDE-ISSUE      = #53 / CLOSED
+RELEASE-WIDE-PR         = #54 / MERGED
+RELEASE-WIDE-REVIEW     = PASS
+OPEN-MAJORS             = 0
+TECHNICAL-BLOCKERS      = 0
 OWNER-ADOPTION          = CONFIRMED
-RESULTS                 = 10 ACTIVE / CITABLE
-MERGED-CHAPTER-HEAD     = 907d2c681f34a780c7ee29a94e5c562b1b54512d
-LOCAL-BUILD             = PASS / 321 PAGES
-LOCAL-PDF-SHA256        = DE62514B0BDA61CA3B42ADB7D076B85E59BC42FB247B8B58E02698462FDFCAD5
+MERGED-REVIEW-HEAD      = 6fbdb370d5df2d23af5fc6c47f05f2a8ded5f9a4
+MAIN-MERGE-COMMIT       = b8396c932cbdd50d69d68f202663bc91aefc0c82
+FINAL-PDF               = PASS / 321 PAGES
+FINAL-PDF-SIZE-BYTES    = 1212922
+FINAL-PDF-SHA256        = 1A694020B0F787285D1363F75B24E3A1B02D2693D281868B22C1696F116C0439
 UNDEFINED-REFERENCES    = 0
 UNDEFINED-CITATIONS     = 0
 FATAL-ERRORS            = 0
+OVERFULL-HBOX >= 20pt   = 0
+INDEX-TRACKING          = #55 / RELEASE-BLOCKER
+EXERCISES-TRACKING      = #56 / NON-BLOCKING
+FORWARD-REFS-TRACKING   = #57 / NON-BLOCKING
 RELEASE-READY           = NO
 ```
 
-اعتمد المالك الفصل السادس والعشرين بعد نجاح البناء والمراجعة المستقلة، وفُعّلت نتائجه العشر، ثم دُمج PR #52 وأُغلق Issue #51. نجح البناء المحلي بعد الدمج من 321 صفحة. رُفع رقم الإصدار المركزي إلى `0.30.0-dev`، مع بقاء الموسوعة نسخة تطويرية غير جاهزة للإصدار النهائي.
+اعتمد المالك المراجعة الشاملة النهائية وصرّح بدمج PR #54، فدُمج المسار وأُغلق Issue #53. نجحت المراجعة التقنية بحكم `PASS` وبصفر حواجز تقنية كبرى. لا يعني الدمج الجاهزية للإصدار: تبقى الفهارس في Issue #55 حاجزًا صريحًا أمام `RELEASE-READY`، بينما سُجلت التمارين والحلول في Issue #56 والإحالات الأمامية في Issue #57 كديون غير حاجزة.
