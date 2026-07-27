@@ -8,7 +8,7 @@ on:
       - "volumes/**"
       - "figures/**"
       - "tables/**"
-      - ".latexmkrc"
+      - "scripts/build_named_indexes.py"
       - "scripts/check_latin_pdf_text.py"
       - "scripts/check_arabic_pdf_text.py"
       - "scripts/check_release_pdf_text.py"
@@ -21,7 +21,7 @@ on:
       - "volumes/**"
       - "figures/**"
       - "tables/**"
-      - ".latexmkrc"
+      - "scripts/build_named_indexes.py"
       - "scripts/check_latin_pdf_text.py"
       - "scripts/check_arabic_pdf_text.py"
       - "scripts/check_release_pdf_text.py"
@@ -45,13 +45,28 @@ jobs:
       - name: Create build directories
         run: mkdir -p build/draft build/release
 
-      - name: Compile auditable draft with LuaLaTeX, Biber, and named indexes
+      - name: Compile auditable draft first pass
         uses: xu-cheng/latex-action@v4
         with:
           root_file: manuscript/main.tex
           latexmk_use_lualatex: true
           args: >-
-            -shell-escape
+            -interaction=nonstopmode
+            -halt-on-error
+            -file-line-error
+            -outdir=build/draft
+          os: debian
+
+      - name: Build UTF-8 named draft indexes
+        shell: bash
+        run: python scripts/build_named_indexes.py build/draft
+
+      - name: Compile auditable draft with indexes
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: manuscript/main.tex
+          latexmk_use_lualatex: true
+          args: >-
             -interaction=nonstopmode
             -halt-on-error
             -file-line-error
@@ -62,13 +77,28 @@ jobs:
         shell: bash
         run: python scripts/prepare_release_source.py
 
-      - name: Compile publication release with LuaLaTeX, Biber, and named indexes
+      - name: Compile publication release first pass
         uses: xu-cheng/latex-action@v4
         with:
           root_file: build/release-src/manuscript/main.tex
           latexmk_use_lualatex: true
           args: >-
-            -shell-escape
+            -interaction=nonstopmode
+            -halt-on-error
+            -file-line-error
+            -outdir=build/release
+          os: debian
+
+      - name: Build UTF-8 named release indexes
+        shell: bash
+        run: python scripts/build_named_indexes.py build/release
+
+      - name: Compile publication release with indexes
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: build/release-src/manuscript/main.tex
+          latexmk_use_lualatex: true
+          args: >-
             -interaction=nonstopmode
             -halt-on-error
             -file-line-error
