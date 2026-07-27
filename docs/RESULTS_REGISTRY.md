@@ -1,6 +1,6 @@
 # سجل النتائج المعتمدة
 
-آخر مراجعة: 2026-07-21
+آخر مراجعة: 2026-07-27
 
 | المعرّف | النتيجة | الملف | الحالة | المصدر أو البرهان |
 |---|---|---|---|---|
@@ -124,22 +124,240 @@
 | `ANT-COR-12-02` | الصيغة الموحدة لـ\(\vartheta(x;q,a)\) | الفصل 12 | `PROVED-HERE / INEFFECTIVE-CONSTANT` | ضبط القوى الأولية العليا من `ANT-LEM-09-02` |
 | `ANT-COR-12-03` | الصيغة الموحدة لـ\(\pi(x;q,a)\) | الفصل 12 | `PROVED-HERE / INEFFECTIVE-CONSTANT` | جمع جزئي مع هامش \(2A\) وتقسيم المجال الصغير |
 
-## سجل الفصل الثالث عشر
+## السجلات المركزية للفصول 13--26
 
-النتائج الأحد عشر للفصل الثالث عشر مسجلة في
-`docs/RESULTS_REGISTRY_CHAPTER_13.md` بحالة فصل `VERIFIED`. هذا الفصل
-يثبت Bombieri--Vinogradov ونتائجها التابعة، ولذلك أزيلت من قائمة النتائج
-المؤجلة. يبقى السجل الفصلـي مستقلًا لتجنب تكرار المعرفات في ملفات
-`RESULTS_REGISTRY*.md`.
+نُقلت الجداول الآتية حرفيًا من السجلات الفصلية المعتمدة للمحافظة على التصنيفات والحالات الأصلية. تختلف مخططات الأعمدة بين بعض الفصول، ويظل ملف كل فصل مرجع التفاصيل الحاكم.
 
+### الفصل الثالث عشر
 
-## سجل الفصل العشرين
+المصدر الحاكم: `docs/RESULTS_REGISTRY_CHAPTER_13.md`.
 
-النتائج الخمس عشرة للفصل العشرين مسجلة في
-`docs/RESULTS_REGISTRY_CHAPTER_20.md` بحالة `ACTIVE / CITABLE` بعد
-المراجعة المستقلة وإغلاق ملاحظات الاكتمال والبناء النهائي واعتماد المالك.
-يبقى السجل الفصلي مستقلًا لتجنب تكرار المعرفات في ملفات
-`RESULTS_REGISTRY*.md`.
+| المعرّف | النتيجة | الملف | الحالة | المصدر أو البرهان |
+|---|---|---|---|---|
+| `ANT-THM-13-01` | حزمة الغربال الكبير للشخصيات: التربيعية والثنائية العظمى | الفصل 13 | `CITED / COMPOSITE-INPUT` | Bombieri (1965)؛ Montgomery--Vaughan II (2026)، المبرهنتان 19.16 و19.19 |
+| `ANT-LEM-13-01` | هوية Vaughan | الفصل 13 | `PROVED-HERE` | برهان التفاف ديريشليه؛ تدقيق الهوية PASS |
+| `ANT-PROP-13-01` | تفكيك مجاميع فون مانغولت إلى Type I وType II | الفصل 13 | `PROVED-HERE` | نتيجة من هوية Vaughan؛ تدقيق الدعم PASS |
+| `ANT-LEM-13-02` | تقدير Type I | الفصل 13 | `PROVED-HERE` | Pólya--Vinogradov والجمع الجزئي؛ تدقيق Type I PASS |
+| `ANT-LEM-13-03` | تقدير Type II | الفصل 13 | `PROVED-HERE` | المدخل الثنائي العظمى والتقسيم الديادي؛ تدقيق Type II PASS |
+| `ANT-LEM-13-04` | متراجحة Pólya--Vinogradov للشخصيات البدائية | الفصل 13 | `PROVED-HERE` | تحويل فورييه المنتهي ومجاميع غاوس من الفصل 7 |
+| `ANT-THM-13-02` | مبرهنة القيمة المتوسطة للشخصيات البدائية مع `sup_{y<=x}` | الفصل 13 | `PROVED-HERE` | هوية Vaughan وType I/II وحزمة الغربال الكبير المقتبسة |
+| `ANT-THM-13-03` | مبرهنة Bombieri--Vinogradov في صيغة `psi` | الفصل 13 | `PROVED-HERE / INEFFECTIVE-CONSTANT` | القيمة المتوسطة ورد الموصلات وSiegel--Walfisz للصغار |
+| `ANT-COR-13-01` | النسخة الموافقة لـ`theta` | الفصل 13 | `PROVED-HERE / INEFFECTIVE-CONSTANT` | ضبط القوى الأولية العليا من الفصل 9 |
+| `ANT-COR-13-02` | النسخة الموافقة لـ`pi` | الفصل 13 | `PROVED-HERE / INEFFECTIVE-CONSTANT` | الجمع الجزئي من `ANT-COR-13-01` |
+| `ANT-COR-13-03` | نتيجة تقريبًا كل الترديدات | الفصل 13 | `PROVED-HERE / INEFFECTIVE-CONSTANT` | متراجحة ماركوف من `ANT-THM-13-03` |
+
+### الفصل الرابع عشر
+
+المصدر الحاكم: `docs/RESULTS_REGISTRY_CHAPTER_14.md`.
+
+| المعرّف | النتيجة | الحالة | المصدر أو البرهان |
+|---|---|---|---|
+| `ANT-LEM-14-01` | هوية تحويل تباين الفئات المختزلة إلى المتوسط التربيعي على شخصيات ديريشليه | `PROVED-HERE / REVIEWED` | تعامد الشخصيات والتوسيط الصريح للشخصية الرئيسية |
+| `ANT-LEM-14-02` | حد وزن الموصل \(1/\varphi(r)\le W_Q(r)\ll \log(2Q/r)/\varphi(r)\) | `PROVED-HERE / REVIEWED` | متراجحة أويلر ومجموع مقلوبات \(\varphi\) |
+| `ANT-LEM-14-03` | كلفة تصحيحات الاستحثاث \(O(Q(\log x)^2)\) والرد إلى المتوسط البدائي الموزون | `PROVED-HERE / REVIEWED` | إعادة الفهرسة حسب الموصل وتقارب متسلسلة \(\omega(m)^2/(m\varphi(m))\) |
+| `ANT-LEM-14-04` | الغربال الكبير بوزن الموصل على كتلة ديادية | `CITED-TOOL / REVIEWED` | `ANT-THM-13-01`؛ Bombieri (1965)، Montgomery--Vaughan II، المبرهنة 19.16 |
+| `ANT-THM-14-01` | الحد العلوي الكلاسيكي لباربان--دافنبورت--هالبرستام: \(V_\psi(x,Q)\ll_A xQ\log x\) في المجال \(x(\log x)^{-A}\le Q\le x\) | `PROVED-HERE / REVIEWED / INEFFECTIVE-CONSTANT` | فصل الموصلات، Siegel--Walfisz للموصلات الصغيرة، الغربال الكبير للموصلات الكبيرة |
+
+### الفصل الخامس عشر
+
+المصدر الحاكم: `docs/RESULTS_REGISTRY_CHAPTER_15.md`.
+
+| المعرّف | النتيجة | الحالة الحالية | المصدر أو البرهان |
+|---|---|---|---|
+| `ANT-DEF-15-01` | بيانات الغربال المجردة: \(P(z)\)، و\(S(\mathcal A,\mathcal P,z)\)، والتفكيك \(|\mathcal A_d|=Xg(d)+r_d\) | `DEFINITION / REVIEWED` | اصطلاح الفصل المثبت في تدقيق التطبيع |
+| `ANT-LEM-15-01` | متراجحة المربع: \(S(\mathcal A,\mathcal P,z)\le\sum_{n\in\mathcal A}(\sum_{d\mid(n,P(z))}\lambda_d)^2\) عند \(\lambda_1=1\) | `PROVED-HERE / REVIEWED` | برهان مباشر من كون الوزن يساوي 1 على العناصر المنخولة |
+| `ANT-THM-15-01` | الحد العلوي المنتهي لغربال سيلبرغ: \(S\le X/G(R,z)+\sum_{d<R^2}3^{\omega(d)}|r_d|\) | `PROVED-HERE / INDEPENDENTLY-CHECKED / REVIEWED` | التقطير الكامل، عكس موبيوس، كوشي--شفارتس، وصيغة معاملات سيلبرغ المثلى |
+| `ANT-THM-15-02` | تقدير مقام سيلبرغ في بعد \(\kappa\): \(G(z,z)=e^{\gamma\kappa}V(z)^{-1}/\Gamma(\kappa+1)\,(1+O(1/\log z))\) | `CITED / TEXT-LOCATION-VERIFIED / NORMALIZATION-MATCHED / REVIEWED` | Heath-Brown ص. 21؛ Halberstam--Richert (5.3.1) |
+| `ANT-THM-15-03` | اللمّة الأساسية العامة بصيغة أحادية \(S=XV(z)(1+O(\rho(s)))+\text{بواقي}\) | `CITED / CHAPTER-PAGE-RANGE-VERIFIED / NOT-USED-IN-PAIR-APPLICATION / REVIEWED` | Diamond--Halberstam--Galway، الفصل 4، ص 29--42 |
+| `ANT-PROP-15-01` | الكثافة المحلية للأزواج \(n,n+h\): \(\rho_h(p)=2\) إذا \(p\nmid h\)، و\(1\) إذا \(p\mid h\)، مع انعدام الحالة الفردية بعد غربلة 2 | `PROVED-HERE / REVIEWED` | حساب فئات البواقي ومبرهنة الباقي الصيني |
+| `ANT-PROP-15-02` | للحالة الزوجية \(h\ne0\)، يتحقق شرط الانتظام (15.6) بالبعد \(\kappa=2\)، و\(V_h(z)\asymp_h(\log z)^{-2}\) | `PROVED-HERE / INDEPENDENTLY-RECHECKED / REVIEWED` | برهان (15.12a) بمبرهنة ميرتنز الأولى، مع معالجة الأوليات القاسمة لـ\(h\) بحد \(O_h(1)\) |
+| `ANT-THM-15-04` | لكل ثابت زوجي \(h\ne0\): \(S_h(x,z)\ll_h x/(\log z)^2\) بانتظام في \(3\le z\le x^{1/4}\) | `PROVED-HERE / INDEPENDENTLY-RECHECKED / REVIEWED` | تطبيق الحد المنتهي بعد التحقق الصريح من شرط (15.6)؛ الثابت فعّال من حيث المبدأ عند تثبيت \(h\) |
+| `ANT-DIAG-15-01` | عائق التكافؤ: بيانات القواسم المحلية التقليدية لا تميز وحدها بما يكفي بين تكافؤ عدد العوامل الأولية | `DIAGNOSTIC / TEXT-LOCATION-VERIFIED / REVIEWED` | Friedlander--Iwaniec، ص 1042 و1044--1045 |
+
+### الفصل السادس عشر
+
+المصدر الحاكم: `docs/RESULTS_REGISTRY_CHAPTER_16.md`.
+
+| المعرّف | النوع | الوصف | التصنيف | الحالة |
+|---|---|---|---|---|
+| `ANT-DEF-16-01` | تعريف | فجوات الأوليات والكميات \(H_m\) | `PROVED-HERE` | `REVIEWED` |
+| `ANT-THM-16-01` | مبرهنة | حد علوي لعد الأزواج الأولية ذات فرق ثابت | `PROVED-HERE` | `REVIEWED` |
+| `ANT-COR-16-01` | نتيجة | تقارب مجموع برون للأزواج الأولية | `PROVED-HERE` | `REVIEWED` |
+| `ANT-THM-16-02` | مبرهنة | مبرهنة تشن بصياغة \(p+P_2\) | `CITED` | `REVIEWED` |
+| `ANT-THM-16-03` | مبرهنة | نتيجة GPY عن الفجوات الصغيرة نسبيًا | `CITED / EXPLAINED` | `REVIEWED` |
+| `ANT-THM-16-04` | مبرهنة | مبرهنة Zhang عن الفجوات المحدودة | `CITED / EXPLAINED` | `REVIEWED` |
+| `ANT-THM-16-05` | مبرهنة | مبرهنة Maynard عن الفجوات المحدودة و\(H_m<\infty\) | `CITED / EXPLAINED` | `REVIEWED` |
+| `ANT-THM-16-06` | مبرهنة | حد Polymath8b المنشور \(H_1\le246\) | `CITED` | `REVIEWED` |
+
+### الفصل السابع عشر
+
+المصدر الحاكم: `docs/RESULTS_REGISTRY_CHAPTER_17.md`.
+
+| المعرّف | النوع | الوصف | التصنيف | الحالة |
+|---|---|---|---|---|
+| `ANT-ID-17-01` | هوية | تعامد الدوال الأسية على الدائرة | `IDENTITY / PROVED-HERE` | `AUTHORED-DRAFT` |
+| `ANT-ID-17-02` | هوية | تمثيل عدد الحلول الموزون بتكامل فورييه | `IDENTITY / PROVED-HERE` | `AUTHORED-DRAFT` |
+| `ANT-DEF-17-01` | تعريف | الأقواس الكبرى والأقواس الصغرى | `DEFINITION / PROVED-HERE` | `AUTHORED-DRAFT` |
+| `ANT-PROP-17-01` | قضية مقتبسة | بنية مساهمة الأقواس الكبرى عبر السلسلة والتكامل المفردين في نموذج وارينغ | `CITED / EXPLAINED` | `AUTHORED-DRAFT` |
+| `ANT-PROP-17-02` | قضية | هوية قياس التكامل المفرد: `J(N)=N^(s/k-1) J*` | `PROVED-HERE` | `AUTHORED-DRAFT` |
+| `ANT-THM-17-01` | مبرهنة | الصيغة التقاربية الكلاسيكية لمسألة وارينغ في نطاق متغيرات كافٍ | `CITED / EXPLAINED` | `AUTHORED-DRAFT` |
+| `ANT-THM-17-02` | مبرهنة | مبرهنة فينوغرادوف للثلاثة أوليات | `CITED` | `AUTHORED-DRAFT` |
+| `ANT-THM-17-03` | مبرهنة | مبرهنة هلفغوت الكاملة لغولدباخ الثلاثي | `CITED` مع مكوّن `FINITE-VERIFIED` | `AUTHORED-DRAFT` |
+| `ANT-CONJ-17-01` | حدسية | غولدباخ الثنائية وصيغة هاردي--ليتلوود المتوقعة | `HYPOTHESIS / OPEN` | `AUTHORED-DRAFT` |
+
+### الفصل الثامن عشر
+
+المصدر الحاكم: `docs/RESULTS_REGISTRY_CHAPTER_18.md`.
+
+| المعرّف | العنوان | التصنيف المجمد | الحالة |
+|---|---|---|---|
+| `ANT-ID-18-01` | الحد التافه للمجموع الأسي الموزون | `IDENTITY / PROVED-HERE` | `ACTIVE` |
+| `ANT-LEM-18-01` | الجمع الجزئي المنفصل | `PROVED-HERE` | `ACTIVE` |
+| `ANT-LEM-18-02` | متباينة فرق فان دير كوربوت | `PROVED-HERE TARGET / INDEPENDENTLY APPROVED` | `ACTIVE` |
+| `ANT-THM-18-01` | اختبار المشتقة الأولى | `PROVED-HERE TARGET / INDEPENDENTLY APPROVED` | `ACTIVE / PROOF WRITTEN` |
+| `ANT-THM-18-02` | اختبار المشتقة الثانية | `CITED / EXPLAINED` | `ACTIVE` |
+| `ANT-DEF-18-01` | الزوج الأسي في تطبيع أحادي البعد | `DEFINITION / CITED-FRAMEWORK` | `ACTIVE / NARROW-PASS` |
+| `ANT-PROP-18-01` | عملية A | `PROVED-HERE-LIMITED / CITED-GENERAL` | `ACTIVE / LIMITED PROOF WRITTEN` |
+| `ANT-PROP-18-02` | عملية B | `CITED / EXPLAINED` | `ACTIVE` |
+
+### الفصل التاسع عشر
+
+المصدر الحاكم: `docs/RESULTS_REGISTRY_CHAPTER_19.md`.
+
+| المعرّف | العنوان المجمد | التصنيف | الحالة |
+|---|---|---|---|
+| ANT-DEF-19-01 | أنظمة الفترات القصيرة والتمييز بين كل \(x\) وتقريبًا كل \(x\) | DEFINITION / PROVED-HERE | ACTIVE / CITABLE |
+| ANT-ID-19-01 | هوية فرق تشيبيشيف \(\Delta_h\psi\) | IDENTITY / PROVED-HERE | ACTIVE / CITABLE |
+| ANT-PROP-19-01 | نقل حد خطأ معطى إلى فرق قصير | PROVED-HERE | ACTIVE / CITABLE |
+| ANT-LEM-19-01 | ضبط القوى الأولية العليا والتحويل \(\psi\to\theta\) | PROVED-HERE | ACTIVE / CITABLE |
+| ANT-PROP-19-02 | حصار \(\Delta_h\pi\) بواسطة \(\Delta_h\theta\) | PROVED-HERE | ACTIVE / CITABLE |
+| ANT-THM-19-01 | صيغة Guth--Maynard التقاربية عند \(17/30+\varepsilon\) | CITED / EXPLAINED | ACTIVE / CITABLE |
+| ANT-THM-19-02 | حد Baker--Harman--Pintz السفلي عند \(0.525=21/40\) | CITED | ACTIVE / CITABLE |
+| ANT-COR-19-01 | الانتقال من وجود أولي إلى حد فجوة | PROVED-HERE | ACTIVE / CITABLE |
+
+### الفصل العشرون
+
+المصدر الحاكم: `docs/RESULTS_REGISTRY_CHAPTER_20.md`.
+
+| المعرّف | الوصف المحجوز | التصنيف الحالي | الحالة |
+|---|---|---|---|
+| ANT-DEF-20-01 | فعل الزمرة وقياس القطع الزائد | `PROVED-HERE` | `ACTIVE / CITABLE` |
+| ANT-PROP-20-01 | هويات الفعل وثبات القياس الزائدي | `PROVED-HERE` | `ACTIVE / CITABLE` |
+| ANT-DEF-20-02 | الأشكال المعيارية الهولومورفية وأشكال الحدبة | `CITED-DEFINITION` | `ACTIVE / CITABLE` |
+| ANT-LEM-20-01 | توسع فورييه وشروط الرؤوس | `PROVED-HERE` | `ACTIVE / CITABLE` |
+| ANT-DEF-20-04 | حاصل Petersson عند المستوى 1 | `CITED-DEFINITION` | `ACTIVE / CITABLE` |
+| ANT-PROP-20-02 | سلامة تعريف حاصل Petersson | `PROVED-HERE` | `ACTIVE / CITABLE` |
+| ANT-THM-20-01 | مؤثرات Hecke والعلاقات الأساسية | `CITED` | `ACTIVE / CITABLE` |
+| ANT-DEF-20-03 | أشكال مااس ومؤثر لابلاس | `CITED-DEFINITION` | `ACTIVE / CITABLE` |
+| ANT-THM-20-02 | التوسع Fourier--Whittaker | `CITED` | `ACTIVE / CITABLE` |
+| ANT-DEF-20-05 | تعريف مجموع Kloosterman | `PROVED-HERE / DEFINITION` | `ACTIVE / CITABLE` |
+| ANT-PROP-20-03 | تماثلات Kloosterman الأولية | `PROVED-HERE` | `ACTIVE / CITABLE` |
+| ANT-THM-20-03 | حد Weil لمجاميع Kloosterman | `CITED` | `ACTIVE / CITABLE` |
+| ANT-THM-20-04 | صيغة Petersson | `CITED-CORE` | `ACTIVE / CITABLE` |
+| ANT-THM-20-05 | صيغة Kuznetsov | `CITED-CORE` | `ACTIVE / CITABLE` |
+| ANT-THM-20-06 | مدخل صيغة Selberg | `COMPACT-PROTOTYPE / CITED` | `ACTIVE / CITABLE` |
+
+### الفصل الحادي والعشرون
+
+المصدر الحاكم: `docs/RESULTS_REGISTRY_CHAPTER_21.md`.
+
+| المعرّف | الوصف | التصنيف المجمد | الحالة |
+|---|---|---|---|
+| ANT-DEF-21-01 | التطبيع التحليلي لمعاملات هيكه | PROVED-HERE / DEFINITION | ACTIVE / CITABLE |
+| ANT-PROP-21-01 | حاصل أويلر من العلاقات الضربية | PROVED-HERE | ACTIVE / CITABLE |
+| ANT-DEF-21-02 | العوامل المحلية غير المتشعبة | CITED-DEFINITION | ACTIVE / CITABLE |
+| ANT-THM-21-01 | الاستمرار التحليلي والمعادلة الوظيفية | CITED-CORE | ACTIVE / CITABLE |
+| ANT-DEF-21-03 | الموصل التحليلي | CITED-DEFINITION | ACTIVE / CITABLE |
+| ANT-THM-21-02 | حد التحدب | CITED-CORE | ACTIVE / CITABLE |
+| ANT-DEF-21-04 | مسألة دون التحدب في عائلة محددة | DEFINITION | ACTIVE / CITABLE |
+| ANT-THM-21-03 | مبرهنة Michel--Venkatesh لـ\(GL(1)\) و\(GL(2)\) | CITED-CORE | ACTIVE / CITABLE |
+| ANT-DEF-21-05 | التمثيل الآلي العالمي وعوامله المحلية | CITED-CONCEPTUAL | ACTIVE / CITABLE |
+| ANT-OPEN-21-01 | functoriality العامة في برنامج لانجلاندز | OPEN / CONJECTURAL FRAMEWORK | ACTIVE / CITABLE |
+
+### الفصل الثاني والعشرون
+
+المصدر الحاكم: `docs/RESULTS_REGISTRY_CHAPTER_22.md`.
+
+| المعرّف | الوصف | التصنيف | الحالة |
+|---|---|---|---|
+| ANT-DEF-22-01 | تعريف العزم المستمر \(I_k(T)\) | DEFINITION | ACTIVE / CITABLE |
+| ANT-PROP-22-01 | المعادلة الوظيفية التقريبية المتناظرة لدالة زيتا | PROVED-HERE | ACTIVE / CITABLE |
+| ANT-PROP-22-02 | صيغة القيمة المتوسطة لكثيرات حدود ديريشليه | PROVED-HERE | ACTIVE / CITABLE |
+| ANT-THM-22-01 | صيغة العزم الثاني لدالة زيتا | PROVED-HERE | ACTIVE / CITABLE |
+| ANT-THM-22-02 | صيغة العزم الرابع الكلاسيكية | CITED-CORE | ACTIVE / CITABLE |
+| ANT-THM-22-03 | حد Soundararajan للعزوم تحت RH | CITED-CORE / PEER-REVIEWED | ACTIVE / CITABLE |
+| ANT-THM-22-04 | تحسين Harper للحدود العليا | CITED-CORE / PREPRINT | ACTIVE / CITABLE |
+| ANT-THM-22-05 | الحدود الدنيا المستمرة للعزوم | CITED-CORE | ACTIVE / CITABLE |
+| ANT-CONJ-22-01 | حدسية العزوم العامة لـKeating--Snaith | CONJECTURAL / HEURISTIC | ACTIVE / CITABLE AS CONJECTURE |
+| ANT-OPEN-22-01 | القيم المتطرفة والصيغة القصوى العامة | OPEN / FRONTIER | ACTIVE / CITABLE AS OPEN |
+
+### الفصل الثالث والعشرون
+
+المصدر الحاكم: `docs/RESULTS_REGISTRY_CHAPTER_23.md`.
+
+| المعرّف | الوصف | التصنيف المجمد | الحالة |
+|---|---|---|---|
+| ANT-DEF-23-01 | دالة عد الأصفار والتطبيع المحلي، مع إحالة إلى `ANT-THM-06-06` | DEFINITION / INTERNAL-CROSS-REFERENCE | ACTIVE / CITABLE |
+| ANT-DEF-23-02 | إحصاء الارتباط الثنائي ودالة Montgomery الموزونة | DEFINITION | ACTIVE / CITABLE |
+| ANT-THM-23-01 | مبرهنة Montgomery ضمن دعم \((-1,1)\) | CITED-CORE / CONDITIONAL-ON-RH | ACTIVE / CITABLE |
+| ANT-CONJ-23-01 | حدسية الارتباط الثنائي الكاملة | CONJECTURAL-GUE | ACTIVE / CITABLE |
+| ANT-THM-23-02 | حد GUE ونواة الجيب في النموذج المصفوفي | RANDOM-MATRIX-THEOREM / CITED-CORE | ACTIVE / CITABLE |
+| ANT-EVID-23-01 | دليل Odlyzko العددي | NUMERICAL-EVIDENCE / FINITE-VERIFIED | ACTIVE / CITABLE |
+| ANT-DEF-23-03 | إحصاء الفواصل والتباين العددي | DEFINITION | ACTIVE / CITABLE |
+| ANT-PRIN-23-01 | مبدأ أنواع التناظر لعائلات دوال L | CITED-CORE / INTERPRETATION-GUARDED | ACTIVE / CITABLE |
+| ANT-OPEN-23-01 | حدسية GUE الكاملة وإحصاءات n-level | OPEN / FRONTIER | ACTIVE / CITABLE |
+| ANT-PRIN-23-02 | حدود الاستدلال بين RH وpair correlation والإحصاءات الأعلى | METHODOLOGICAL-PRINCIPLE / INFERENCE-GUARDED | ACTIVE / CITABLE |
+
+### الفصل الرابع والعشرون
+
+المصدر الحاكم: `docs/RESULTS_REGISTRY_CHAPTER_24.md`.
+
+| المعرّف | الوصف | التصنيف المعتمد | الحالة |
+|---|---|---|---|
+| ANT-DEF-24-01 | الدوال الضربية المقيدة والمتوسط المطبع | DEFINITION | ACTIVE / CITABLE |
+| ANT-DEF-24-02 | المسافة الادعائية | DEFINITION / CITED-ORIGIN | ACTIVE / CITABLE |
+| ANT-PROP-24-01 | خصائص المسافة الادعائية الأساسية | PROVED-HERE | ACTIVE / CITABLE |
+| ANT-DEF-24-03 | المقياس \(\mathcal M(f;x,T)=\min_{|t|\le2T}\mathbb D(f,n^{it};x)^2\) | DEFINITION | ACTIVE / CITABLE |
+| ANT-THM-24-01 | مبرهنة هالاش الكمية مع \(+T^{-1/2}\) | CITED-CORE | ACTIVE / CITABLE |
+| ANT-COR-24-01 | معيار الإلغاء بعد ضبط الحدين | DERIVED-FROM-CITED | ACTIVE / CITABLE |
+| ANT-EX-24-01 | أمثلة موبيوس وليوفيل والشخصيات | EXAMPLES / INTERPRETATION-GUARDED | ACTIVE / CITABLE |
+| ANT-PRIN-24-01 | تفسير العائق الادعائي للمتوسط الكبير | CITED-INTERPRETATION | ACTIVE / CITABLE |
+| ANT-PRIN-24-02 | فصل المتوسطات الطويلة عن الفترات القصيرة | METHODOLOGICAL-PRINCIPLE / INFERENCE-GUARDED | ACTIVE / CITABLE |
+| ANT-OPEN-24-01 | الفترات القصيرة والارتباطات وتشاو | OPEN / DEFERRED-FRONTIER | ACTIVE / CITABLE AS OPEN FRONTIER |
+
+### الفصل الخامس والعشرون
+
+المصدر الحاكم: `docs/RESULTS_REGISTRY_CHAPTER_25.md`.
+
+| المعرّف | الوصف | التصنيف المجمد | الحالة |
+|---|---|---|---|
+| ANT-DEF-25-01 | مجموع فينوغرادوف والقيمة المتوسطة \(J_{s,k}(X)\) | DEFINITION | ACTIVE / CITABLE |
+| ANT-PROP-25-01 | هوية التعامد وعدّ حلول نظام فينوغرادوف | PROVED-HERE | ACTIVE / CITABLE |
+| ANT-DEF-25-02 | الوزن الحرج \(K=k(k+1)/2\) | DEFINITION | ACTIVE / CITABLE |
+| ANT-PROP-25-02 | الحدان السفليان البنيويان \(X^s\) و\(X^{2s-K}\) | PROVED-HERE | ACTIVE / CITABLE |
+| ANT-THM-25-01 | الحد الرئيسي في مبرهنة القيمة المتوسطة لفينوغرادوف | CITED-CORE | ACTIVE / CITABLE |
+| ANT-PRIN-25-01 | البنية التكرارية للتوافق الفعّال | CITED-INTERPRETATION | ACTIVE / CITABLE |
+| ANT-THM-25-02 | فك الاقتران الحاد للمنحنى اللحظي والجسر إلى VMVT | CITED-CORE | ACTIVE / CITABLE |
+| ANT-PRIN-25-02 | استقلال المسارين: توافق عددي مقابل فصل هندسي-توافقي | METHODOLOGICAL-PRINCIPLE | ACTIVE / CITABLE |
+| ANT-COR-25-01 | جسر منضبط إلى وارينغ والمجاميع الأسية | DERIVED-BRIDGE / INFERENCE-GUARDED | ACTIVE / CITABLE |
+| ANT-OPEN-25-01 | امتدادات الأنظمة متعددة الحدود وفك الاقتران العام | OPEN / DEFERRED-FRONTIER | ACTIVE / CITABLE |
+
+### الفصل السادس والعشرون
+
+المصدر الحاكم: `docs/RESULTS_REGISTRY_CHAPTER_26.md`.
+
+| المعرّف | الوصف | التصنيف المجمد | الحالة |
+|---|---|---|---|
+| ANT-DEF-26-01 | قاموس حالات الجبهات الأربع | DEFINITION | ACTIVE / CITABLE |
+| ANT-PRIN-26-01 | النموذج أو التشابه لا يقوم مقام البرهان | METHODOLOGICAL-PRINCIPLE | ACTIVE / CITABLE |
+| ANT-PRIN-26-02 | نتائج المتوسط لا تنتقل تلقائيًا إلى تحكم نقطي | METHODOLOGICAL-PRINCIPLE | ACTIVE / CITABLE |
+| ANT-PRIN-26-03 | النجاح في نموذج خاص لا يثبت البرنامج العام | METHODOLOGICAL-PRINCIPLE | ACTIVE / CITABLE |
+| ANT-MAP-26-01 | خريطة القيم والأصفار | SYNTHESIS-MAP | ACTIVE / CITABLE |
+| ANT-MAP-26-02 | خريطة الأوليات والبنى الجمعية | SYNTHESIS-MAP | ACTIVE / CITABLE |
+| ANT-MAP-26-03 | خريطة دوال L والطيف | SYNTHESIS-MAP | ACTIVE / CITABLE |
+| ANT-MAP-26-04 | خريطة التذبذب الضربي | SYNTHESIS-MAP | ACTIVE / CITABLE |
+| ANT-MAP-26-05 | خريطة المجاميع الأسية وفك الاقتران | SYNTHESIS-MAP | ACTIVE / CITABLE |
+| ANT-OPEN-26-01 | تحديث الخريطة تحت نتائج مستقبلية مع حوكمة المصدر | OPEN / META-RESEARCH | ACTIVE / CITABLE |
 
 ## نتائج مؤجلة صراحة
 
