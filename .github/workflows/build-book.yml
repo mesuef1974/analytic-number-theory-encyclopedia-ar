@@ -64,6 +64,17 @@ jobs:
             -outdir=build/draft
           os: debian
 
+      - name: Diagnose draft build failure
+        if: failure()
+        shell: bash
+        run: |
+          echo "=== build/draft contents ==="
+          find build/draft -maxdepth 1 -type f -printf '%f\n' | sort || true
+          echo "=== tail of main.log ==="
+          test -f build/draft/main.log && tail -n 250 build/draft/main.log || true
+          echo "=== LaTeX error lines ==="
+          test -f build/draft/main.log && grep -nE '^!|LaTeX Error|Package .* Error|Emergency stop|Fatal error' build/draft/main.log | tail -n 80 || true
+
       - name: Build UTF-8 named draft indexes
         shell: bash
         run: python scripts/build_named_indexes.py build/draft
@@ -176,7 +187,9 @@ jobs:
             build/analytic-number-theory-encyclopedia-draft.pdf.sha256
             build/analytic-number-theory-encyclopedia-release.pdf
             build/analytic-number-theory-encyclopedia-release.pdf.sha256
+            build/draft/main.log
             build/draft/main-extracted.txt
+            build/release/main.log
             build/release/main-extracted.txt
             build/release-src/RELEASE_SOURCE_GENERATED.txt
           if-no-files-found: warn
