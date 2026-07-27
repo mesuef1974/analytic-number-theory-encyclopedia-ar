@@ -27,8 +27,17 @@ AUDIT NOTE    = The legacy DOI was retained because it matches the article metad
 PRINT STATUS  = NOT PRINTED
 ```
 
+## التحقق
+
+```text
+QUALITY #979 = PASS
+BUILD   #786 = PASS
+DRAFT PDF    = PASS
+RELEASE PDF  = PASS
+```
+
 ## الحالة
 
 ```text
-P0-04 = REPRODUCED / FIXED / CI PENDING
+P0-04 = REPRODUCED / FIXED / VERIFIED / CLOSED
 ```
