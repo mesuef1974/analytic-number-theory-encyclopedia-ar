@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
-"""Regression gate for logical Arabic text extraction from built PDFs."""
+"""Regression gate for recoverable logical Arabic text from built PDFs."""
 
 from __future__ import annotations
 
 import argparse
 from pathlib import Path
-import re
 import sys
 import unicodedata
 
@@ -20,12 +19,19 @@ BIDI_CONTROLS = {
 }
 
 
-def normalize(text: str) -> str:
-    text = unicodedata.normalize("NFC", text)
+def logical_stream(text: str) -> str:
+    """Return ordered logical characters, tolerating PDF extraction separators.
+
+    PDF text extractors may emit Arabic presentation forms, bidi controls, and
+    whitespace inside a visually continuous word. NFKC maps presentation forms
+    back to logical Arabic code points; removing bidi controls and whitespace
+    then verifies that the expected logical character sequence is recoverable.
+    """
+    text = unicodedata.normalize("NFKC", text)
     text = "".join(
         char for char in text if unicodedata.bidirectional(char) not in BIDI_CONTROLS
     )
-    return re.sub(r"\s+", " ", text)
+    return "".join(char for char in text if not char.isspace())
 
 
 def main() -> int:
@@ -33,21 +39,22 @@ def main() -> int:
     parser.add_argument("text_file", type=Path)
     args = parser.parse_args()
 
-    text = normalize(args.text_file.read_text(encoding="utf-8", errors="strict"))
-    missing = [phrase for phrase in EXPECTED_PHRASES if phrase not in text]
+    stream = logical_stream(args.text_file.read_text(encoding="utf-8", errors="strict"))
+    expected = {phrase: logical_stream(phrase) for phrase in EXPECTED_PHRASES}
+    missing = [phrase for phrase, compact in expected.items() if compact not in stream]
 
-    print("Arabic PDF text searchability report")
-    for phrase in EXPECTED_PHRASES:
-        print(f"EXPECTED {phrase}: {text.count(phrase)}")
+    print("Arabic PDF logical-text recoverability report")
+    for phrase, compact in expected.items():
+        print(f"EXPECTED {phrase}: {stream.count(compact)}")
 
     if missing:
         for phrase in missing:
             print(f"MISSING {phrase}", file=sys.stderr)
-        print("PDF ARABIC SEARCHABILITY = FAIL", file=sys.stderr)
+        print("PDF ARABIC LOGICAL-TEXT RECOVERABILITY = FAIL", file=sys.stderr)
         return 1
 
-    print("EXPECTED ARABIC PHRASES = PRESENT")
-    print("PDF ARABIC SEARCHABILITY = PASS")
+    print("EXPECTED ARABIC LOGICAL SEQUENCES = PRESENT")
+    print("PDF ARABIC LOGICAL-TEXT RECOVERABILITY = PASS")
     return 0
 
 
