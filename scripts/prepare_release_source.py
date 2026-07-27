@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Create a publication-facing TeX tree without mutating draft sources.
 
-The draft manuscript remains the canonical auditable source.  This script copies
+The draft manuscript remains the canonical auditable source. This script copies
 its TeX inputs to a generated tree, removes governance-only material, and
 rewrites input/resource paths so XeLaTeX compiles the generated copy.
 """
@@ -39,6 +39,19 @@ STANDALONE_BADGE_RE = re.compile(
 ARG_BADGE_RE = re.compile(
     r"(?m)^\s*\\(?:citedresult|deferredresult|conditionalresult)\s*\{[^\n]*\}\s*$"
 )
+STATUS_LEAD_RE = re.compile(
+    r"(?:\\noindent\s*)?\\textbf\{حالة الفصل:\}.*?(?<!\\)\.", re.S
+)
+
+RELEASE_OVERRIDES = r"""
+% Publication build: suppress draft-governance badges and stable internal IDs.
+\renewcommand{\resultid}[1]{}
+\renewcommand{\provedhere}{}
+\renewcommand{\citedresult}[1]{}
+\renewcommand{\deferredresult}[1]{}
+\renewcommand{\conditionalresult}[1]{}
+\renewcommand{\openresult}{}
+"""
 
 
 def contains_governance(text: str) -> bool:
@@ -52,6 +65,10 @@ def contains_governance(text: str) -> bool:
 
 
 def strip_governance_blocks(text: str) -> str:
+    # Remove the opening status sentence even when it shares a paragraph with
+    # scientific equations that must remain in the publication build.
+    text = STATUS_LEAD_RE.sub("", text)
+
     # Remove audit-document lists as a unit, avoiding empty list environments.
     env_re = re.compile(r"\\begin\{(itemize|enumerate)\}.*?\\end\{\1\}", re.S)
     text = env_re.sub(lambda m: "\n" if contains_governance(m.group(0)) else m.group(0), text)
@@ -89,10 +106,19 @@ def rewrite_generated_paths(text: str) -> str:
     return text
 
 
-def process_tex(source: Path, destination: Path) -> None:
+def inject_release_overrides(text: str) -> str:
+    marker = r"\title{"
+    if marker not in text:
+        raise ValueError("main.tex title marker not found for release overrides")
+    return text.replace(marker, RELEASE_OVERRIDES + "\n" + marker, 1)
+
+
+def process_tex(source: Path, destination: Path, relative: Path) -> None:
     text = source.read_text(encoding="utf-8")
     text = strip_governance_blocks(text)
     text = rewrite_generated_paths(text)
+    if relative.as_posix() == "manuscript/main.tex":
+        text = inject_release_overrides(text)
     destination.parent.mkdir(parents=True, exist_ok=True)
     destination.write_text(text, encoding="utf-8")
 
@@ -116,7 +142,7 @@ def main() -> int:
             relative = source.relative_to(root)
             destination = output / relative
             if source.suffix == ".tex":
-                process_tex(source, destination)
+                process_tex(source, destination, relative)
             else:
                 destination.parent.mkdir(parents=True, exist_ok=True)
                 shutil.copy2(source, destination)
