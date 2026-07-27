@@ -8,6 +8,10 @@ on:
       - "volumes/**"
       - "figures/**"
       - "tables/**"
+      - "scripts/check_latin_pdf_text.py"
+      - "scripts/check_arabic_pdf_text.py"
+      - "scripts/check_release_pdf_text.py"
+      - "scripts/prepare_release_source.py"
       - ".github/workflows/build-book.yml"
   pull_request:
     branches: [main]
@@ -16,6 +20,10 @@ on:
       - "volumes/**"
       - "figures/**"
       - "tables/**"
+      - "scripts/check_latin_pdf_text.py"
+      - "scripts/check_arabic_pdf_text.py"
+      - "scripts/check_release_pdf_text.py"
+      - "scripts/prepare_release_source.py"
       - ".github/workflows/build-book.yml"
   workflow_dispatch:
 
@@ -24,50 +32,111 @@ permissions:
 
 jobs:
   build:
-    name: Compile XeLaTeX manuscript
+    name: Compile draft and release PDFs
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
 
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Create build directory
-        run: mkdir -p build
+      - name: Create build directories
+        run: mkdir -p build/draft build/release
 
-      - name: Compile with XeLaTeX and Biber
+      - name: Compile auditable draft with LuaLaTeX and Biber
         uses: xu-cheng/latex-action@v4
         with:
           root_file: manuscript/main.tex
-          latexmk_use_xelatex: true
+          latexmk_use_lualatex: true
           args: >-
             -interaction=nonstopmode
             -halt-on-error
             -file-line-error
-            -outdir=build
+            -outdir=build/draft
           os: debian
 
-      - name: Verify PDF exists
+      - name: Prepare publication source
+        shell: bash
+        run: python scripts/prepare_release_source.py
+
+      - name: Compile publication release with LuaLaTeX and Biber
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: build/release-src/manuscript/main.tex
+          latexmk_use_lualatex: true
+          args: >-
+            -interaction=nonstopmode
+            -halt-on-error
+            -file-line-error
+            -outdir=build/release
+          os: debian
+
+      - name: Verify both PDFs exist
         shell: bash
         run: |
-          test -s build/main.pdf
-          echo "PDF generated successfully."
-          stat --printf='Size: %s bytes\n' build/main.pdf
-          file build/main.pdf
+          test -s build/draft/main.pdf
+          test -s build/release/main.pdf
+          echo "Draft and release PDFs generated successfully."
+          stat --printf='Draft size: %s bytes\n' build/draft/main.pdf
+          stat --printf='Release size: %s bytes\n' build/release/main.pdf
+          file build/draft/main.pdf build/release/main.pdf
 
-      - name: Prepare named preview
+      - name: Extract PDF text
         shell: bash
         run: |
-          cp build/main.pdf build/analytic-number-theory-encyclopedia-preview.pdf
-          sha256sum build/analytic-number-theory-encyclopedia-preview.pdf \
-            > build/analytic-number-theory-encyclopedia-preview.pdf.sha256
+          command -v pdftotext >/dev/null 2>&1 || {
+            sudo apt-get update
+            sudo apt-get install -y poppler-utils
+          }
+          pdftotext -layout build/draft/main.pdf build/draft/main-extracted.txt
+          pdftotext -layout build/release/main.pdf build/release/main-extracted.txt
 
-      - name: Upload PDF artifact
+      - name: Verify draft preserves governance evidence
+        shell: bash
+        run: |
+          grep -q 'REVIEWED' build/draft/main-extracted.txt
+          grep -q 'docs/' build/draft/main-extracted.txt
+          echo "DRAFT GOVERNANCE RETENTION: PASS"
+
+      - name: Verify Latin PDF text integrity
+        shell: bash
+        run: |
+          python scripts/check_latin_pdf_text.py build/draft/main-extracted.txt
+          python scripts/check_latin_pdf_text.py build/release/main-extracted.txt
+
+      - name: Verify Arabic PDF text searchability
+        shell: bash
+        run: |
+          python scripts/check_arabic_pdf_text.py build/draft/main-extracted.txt
+          python scripts/check_arabic_pdf_text.py build/release/main-extracted.txt
+
+      - name: Verify publication metadata separation
+        shell: bash
+        run: python scripts/check_release_pdf_text.py build/release/main-extracted.txt
+
+      - name: Prepare named artifacts
+        if: always()
+        shell: bash
+        run: |
+          test -s build/draft/main.pdf && cp build/draft/main.pdf build/analytic-number-theory-encyclopedia-draft.pdf
+          test -s build/release/main.pdf && cp build/release/main.pdf build/analytic-number-theory-encyclopedia-release.pdf
+          test -s build/analytic-number-theory-encyclopedia-draft.pdf && sha256sum build/analytic-number-theory-encyclopedia-draft.pdf \
+            > build/analytic-number-theory-encyclopedia-draft.pdf.sha256
+          test -s build/analytic-number-theory-encyclopedia-release.pdf && sha256sum build/analytic-number-theory-encyclopedia-release.pdf \
+            > build/analytic-number-theory-encyclopedia-release.pdf.sha256
+
+      - name: Upload draft and release artifacts
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: analytic-number-theory-encyclopedia-preview
+          name: analytic-number-theory-encyclopedia-draft-and-release
           path: |
-            build/analytic-number-theory-encyclopedia-preview.pdf
-            build/analytic-number-theory-encyclopedia-preview.pdf.sha256
-          if-no-files-found: error
+            build/analytic-number-theory-encyclopedia-draft.pdf
+            build/analytic-number-theory-encyclopedia-draft.pdf.sha256
+            build/analytic-number-theory-encyclopedia-release.pdf
+            build/analytic-number-theory-encyclopedia-release.pdf.sha256
+            build/draft/main-extracted.txt
+            build/release/main-extracted.txt
+            build/release-src/RELEASE_SOURCE_GENERATED.txt
+          if-no-files-found: warn
           retention-days: 30

@@ -4,16 +4,35 @@
 \setdefaultlanguage{arabic}
 \setotherlanguage{english}
 
+% Amiri remains the Arabic script font. LuaHBTeX/HarfBuzz preserves the
+% logical Unicode text while shaping Arabic glyphs for display. Disable only
+% common/contextual/discretionary ligatures so incidental Latin words in Arabic
+% paragraphs do not reorder fi/fl/iff sequences. Required Arabic shaping
+% features remain enabled by Script=Arabic.
 \newfontfamily\arabicfont[
   Script=Arabic,
-  Scale=1.12
+  Renderer=HarfBuzz,
+  Scale=1.12,
+  Ligatures=NoCommon,
+  RawFeature={-liga;-clig;-dlig}
 ]{Amiri}
 
-\newfontfamily\englishfont{Latin Modern Roman}
+% Keep explicitly English text on an independent Latin font with the same
+% defensive ligature policy.
+\newfontfamily\englishfont[
+  Script=Latin,
+  Renderer=HarfBuzz,
+  Language=English,
+  Ligatures=NoCommon,
+  RawFeature={-liga;-clig;-dlig}
+]{Latin Modern Roman}
 
 \newfontfamily\arabicfonttt[
   Script=Arabic,
-  Scale=1.05
+  Renderer=HarfBuzz,
+  Scale=1.05,
+  Ligatures=NoCommon,
+  RawFeature={-liga;-clig;-dlig}
 ]{Amiri}
 
 \usepackage{amsmath,amssymb,amsthm,mathtools}
@@ -73,6 +92,10 @@
   sorting=nyt,
   language=english
 ]{biblatex}
+
+% LTR direction alone does not select a Latin font. Force every printed
+% bibliography entry through the same ligature-safe English font.
+\renewcommand*{\bibfont}{\footnotesize\englishfont}
 
 \addbibresource{manuscript/bibliography.bib}
 \addbibresource{manuscript/chapter-13-bibliography.bib}
