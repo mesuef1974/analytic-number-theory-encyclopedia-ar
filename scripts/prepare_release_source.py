@@ -44,7 +44,9 @@ RELEASE_OVERRIDES = r"""
 % Publication build: suppress draft-governance badges and stable internal IDs.
 \renewcommand{\resultid}[1]{}
 \renewcommand{\provedhere}{}
-\renewcommand{\citedresult}[1]{}
+% Keep the optional-argument signature used by manuscript/main.tex. Changing it
+% to a mandatory argument makes bare \citedresult calls consume the next token.
+\renewcommand{\citedresult}[1][المذكور في الشرح التالي]{}
 \renewcommand{\deferredresult}[1]{}
 \renewcommand{\conditionalresult}[1]{}
 \renewcommand{\openresult}{}
