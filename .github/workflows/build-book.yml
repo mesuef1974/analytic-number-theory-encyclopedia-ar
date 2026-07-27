@@ -107,16 +107,18 @@ jobs:
         run: python scripts/check_release_pdf_text.py build/release/main-extracted.txt
 
       - name: Prepare named artifacts
+        if: always()
         shell: bash
         run: |
-          cp build/draft/main.pdf build/analytic-number-theory-encyclopedia-draft.pdf
-          cp build/release/main.pdf build/analytic-number-theory-encyclopedia-release.pdf
-          sha256sum build/analytic-number-theory-encyclopedia-draft.pdf \
+          test -s build/draft/main.pdf && cp build/draft/main.pdf build/analytic-number-theory-encyclopedia-draft.pdf
+          test -s build/release/main.pdf && cp build/release/main.pdf build/analytic-number-theory-encyclopedia-release.pdf
+          test -s build/analytic-number-theory-encyclopedia-draft.pdf && sha256sum build/analytic-number-theory-encyclopedia-draft.pdf \
             > build/analytic-number-theory-encyclopedia-draft.pdf.sha256
-          sha256sum build/analytic-number-theory-encyclopedia-release.pdf \
+          test -s build/analytic-number-theory-encyclopedia-release.pdf && sha256sum build/analytic-number-theory-encyclopedia-release.pdf \
             > build/analytic-number-theory-encyclopedia-release.pdf.sha256
 
       - name: Upload draft and release artifacts
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: analytic-number-theory-encyclopedia-draft-and-release
@@ -128,5 +130,5 @@ jobs:
             build/draft/main-extracted.txt
             build/release/main-extracted.txt
             build/release-src/RELEASE_SOURCE_GENERATED.txt
-          if-no-files-found: error
+          if-no-files-found: warn
           retention-days: 30
