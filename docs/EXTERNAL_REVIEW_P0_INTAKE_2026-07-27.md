@@ -30,8 +30,18 @@ MERGE                 = NOT AUTHORIZED UNTIL ALL P0 GATES PASS
 
 - الادعاء: انقلاب موضعي في الأزواج `fi/fl/ffi` داخل السياق العربي.
 - أمثلة الاختبار: `Walfisz`, `Zeitschrift`, `Scientifique`, `Ahlfors`, `Helfgott`, `Difference`, `Life`, `Asif`.
-- الحالة: `EXTERNAL-CLAIM / OPEN`.
-- البوابة: مسح آلي للنص المستخرج وفحص بصري للصفحات المصابة، ثم اختبار رجوع يمنع تكرار العطل.
+- إعادة الإنتاج: `PASS`؛ ظهرت الصيغ التالفة في PDF السابق.
+- الإصلاح: خط لاتيني مستقل، وتعطيل `liga/clig/dlig` في السياقين العربي والإنجليزي، وفرض `\englishfont` على الببليوغرافيا.
+- اختبار الرجوع: `scripts/check_latin_pdf_text.py` مدمج في بناء PDF.
+- التحقق على الرأس `68da6e6b4437f54c34210c3b8a2e03cc73eefe49`:
+  - `Quality checks` run 959 = `PASS`.
+  - `Build encyclopedia PDF` run 766 = `PASS`.
+  - `Verify Latin PDF text integrity` = `PASS`.
+  - الصيغ التالفة = `0`.
+  - الصيغ الصحيحة المتوقعة = `PRESENT`.
+  - الفحص البصري للصفحات 152 و314 و316 و318 = `PASS`.
+- السجل التفصيلي: `docs/P0_01_LATIN_SHAPING_REPRODUCTION_2026-07-27.md`.
+- الحالة: `REPRODUCED / FIXED / VERIFIED / CLOSED`.
 
 ### P0-02 — فصل بناء المسودة عن بناء النشر
 
@@ -60,15 +70,15 @@ MERGE                 = NOT AUTHORIZED UNTIL ALL P0 GATES PASS
 ## بوابات الإغلاق
 
 ```text
-P0-01 REPRODUCTION        = PENDING
-P0-01 FIX / REGRESSION    = PENDING
+P0-01 REPRODUCTION        = PASS
+P0-01 FIX / REGRESSION    = PASS
 P0-02 RELEASE BUILD       = PENDING
 P0-03 BIB DEDUP           = PENDING
 P0-04 PRINTED NOTE        = PENDING
 P0-05 RESULT IDS          = PENDING
-INDEX BUILD               = PENDING AFTER CHANGES
-QUALITY CHECK             = PENDING AFTER CHANGES
-LATIN TEXT INTEGRITY      = PENDING
+INDEX BUILD               = PASS FOR P0-01 HEAD
+QUALITY CHECK             = PASS FOR P0-01 HEAD
+LATIN TEXT INTEGRITY      = PASS
 ARABIC SEARCHABILITY      = PENDING
 INDEPENDENT FINAL REVIEW  = PENDING
 PUBLICATION-READY         = NO
