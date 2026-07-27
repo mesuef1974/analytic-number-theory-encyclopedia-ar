@@ -47,10 +47,9 @@
 \DeclareQuoteAlias[american]{english}{arabic}
 \usepackage{fancyhdr}
 
-% Named indexes are generated automatically by imakeidx. Builds must allow the
-% restricted shell escape needed to invoke makeindex; CI and local build
-% commands provide -shell-escape explicitly.
-\usepackage{imakeidx}
+% The named indexes are built by the repository's UTF-8-safe Python index
+% generator between LaTeX passes. Keep imakeidx from invoking legacy makeindex.
+\usepackage[noautomatic]{imakeidx}
 
 % فهارس الموسوعة المرجعية.
 \makeindex[
