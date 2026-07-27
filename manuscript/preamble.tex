@@ -4,14 +4,19 @@
 \setdefaultlanguage{arabic}
 \setotherlanguage{english}
 
+% Amiri remains the Arabic script font.  Disable only common/contextual/
+% discretionary ligatures so incidental Latin words in Arabic paragraphs do
+% not reorder fi/fl/iff sequences.  Required Arabic shaping features remain
+% enabled by the Script=Arabic shaper.
 \newfontfamily\arabicfont[
   Script=Arabic,
-  Scale=1.12
+  Scale=1.12,
+  Ligatures=NoCommon,
+  RawFeature={-liga;-clig;-dlig}
 ]{Amiri}
 
-% Keep Latin text on an explicitly Latin font and disable discretionary/common
-% ligatures.  This prevents Arabic-context shaping from corrupting letter
-% sequences such as "fi", "fl", and "iff" in prose and bibliography entries.
+% Keep explicitly English text on an independent Latin font with the same
+% defensive ligature policy.
 \newfontfamily\englishfont[
   Script=Latin,
   Language=English,
@@ -21,7 +26,9 @@
 
 \newfontfamily\arabicfonttt[
   Script=Arabic,
-  Scale=1.05
+  Scale=1.05,
+  Ligatures=NoCommon,
+  RawFeature={-liga;-clig;-dlig}
 ]{Amiri}
 
 \usepackage{amsmath,amssymb,amsthm,mathtools}
