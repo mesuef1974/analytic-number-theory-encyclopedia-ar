@@ -3,7 +3,7 @@
 
 The draft manuscript remains the canonical auditable source. This script copies
 its TeX inputs to a generated tree, removes governance-only material, and
-rewrites input/resource paths so XeLaTeX compiles the generated copy.
+rewrites input/resource paths so LuaLaTeX compiles the generated copy.
 """
 
 from __future__ import annotations
@@ -48,9 +48,23 @@ STANDALONE_BADGE_RE = re.compile(
 ARG_BADGE_RE = re.compile(
     r"(?m)^\s*\\(?:citedresult|deferredresult|conditionalresult)\s*\{[^\n]*\}\s*$"
 )
-INTERNAL_RESULT_ID_RE = re.compile(
-    r"ANT-(?:THM|LEM|PROP|COR|DEF|EX|REM|OPEN)-\d{2}-\d{2}"
+ANT_ID_RE = re.compile(r"ANT-(?:THM|LEM|PROP|COR|DEF|EX|REM|OPEN|COMP)-\d{2}-\d{2}")
+CROSS_REFERENCE_RE = re.compile(
+    r"\\(?:ref|pageref|autoref|eqref)\s*\{ANT-(?:THM|LEM|PROP|COR|DEF|EX|REM|OPEN|COMP)-\d{2}-\d{2}\}"
 )
+
+PUBLICATION_PROSE_REPLACEMENTS = {
+    (
+        "مع صيغة بيرون وتقديرات تحويل المسار تقود المنطقة الكلاسيكية إلى صيغة\n"
+        "فعالة لمبرهنة الأعداد الأولية. سيظهر البرهان الكامل في فصل توزيع\n"
+        "الأعداد الأولية، ولن نختزل تلك السلسلة في عبارة «لا أصفار قرب \\(1\\)»."
+    ): (
+        "مع صيغة بيرون وتقديرات تحويل المسار تقود المنطقة الكلاسيكية إلى صيغة\n"
+        "فعالة لمبرهنة الأعداد الأولية. يعرض فصل توزيع الأعداد الأولية نتيجة\n"
+        "هذا المسار وحدود ما أُثبت داخليًا، من دون ادعاء اشتقاق الحد الفعّال\n"
+        "الكامل ما دامت تفاصيل بيرون وتحويل المسار مؤجلة."
+    )
+}
 
 RELEASE_OVERRIDES = r"""
 % Publication build: suppress draft-governance badges and stable internal IDs.
@@ -112,13 +126,6 @@ def strip_governance_blocks(text: str) -> str:
     text = ARG_BADGE_RE.sub("", text)
     text = text.replace(r"\section{نطاق الفصل وحالته}", r"\section{نطاق الفصل}")
 
-    # Internal stable identifiers are useful in the auditable draft but are not
-    # publication prose. Remove only the identifier token and retain the entire
-    # surrounding scientific sentence, theorem statement, or cross-reference.
-    text = INTERNAL_RESULT_ID_RE.sub("", text)
-
-    # TeX prose is paragraph-delimited. Remove governance paragraphs while
-    # retaining mathematical/theorem blocks and ordinary scientific prose.
     blocks = re.split(r"(\n\s*\n)", text)
     cleaned: list[str] = []
     for block in blocks:
@@ -139,6 +146,27 @@ def strip_governance_blocks(text: str) -> str:
     return "".join(cleaned)
 
 
+def strip_display_ant_ids(text: str) -> str:
+    """Remove visible internal ANT IDs while preserving cross-reference labels."""
+    protected: list[str] = []
+
+    def protect(match: re.Match[str]) -> str:
+        protected.append(match.group(0))
+        return f"@@ANTREF{len(protected) - 1}@@"
+
+    text = CROSS_REFERENCE_RE.sub(protect, text)
+    text = ANT_ID_RE.sub("", text)
+    for index, reference in enumerate(protected):
+        text = text.replace(f"@@ANTREF{index}@@", reference)
+    return text
+
+
+def apply_publication_prose_replacements(text: str) -> str:
+    for old, new in PUBLICATION_PROSE_REPLACEMENTS.items():
+        text = text.replace(old, new)
+    return text
+
+
 def rewrite_generated_paths(text: str) -> str:
     text = text.replace(r"\input{manuscript/", r"\input{build/release-src/manuscript/")
     text = text.replace(r"\input{volumes/", r"\input{build/release-src/volumes/")
@@ -153,12 +181,21 @@ def inject_release_overrides(text: str) -> str:
     return text.replace(marker, RELEASE_OVERRIDES + "\n" + marker, 1)
 
 
+def assert_no_empty_cross_references(text: str, relative: Path) -> None:
+    empty = re.search(r"\\(?:ref|pageref|autoref|eqref)\s*\{\s*\}", text)
+    if empty:
+        raise ValueError(f"empty cross-reference generated in {relative}: {empty.group(0)}")
+
+
 def process_tex(source: Path, destination: Path, relative: Path) -> None:
     text = source.read_text(encoding="utf-8")
     text = strip_governance_blocks(text)
+    text = strip_display_ant_ids(text)
+    text = apply_publication_prose_replacements(text)
     text = rewrite_generated_paths(text)
     if relative.as_posix() == "manuscript/main.tex":
         text = inject_release_overrides(text)
+    assert_no_empty_cross_references(text, relative)
     destination.parent.mkdir(parents=True, exist_ok=True)
     destination.write_text(text, encoding="utf-8")
 

@@ -8,6 +8,7 @@ on:
       - "volumes/**"
       - "figures/**"
       - "tables/**"
+      - "scripts/build_named_indexes.py"
       - "scripts/check_latin_pdf_text.py"
       - "scripts/check_arabic_pdf_text.py"
       - "scripts/check_release_pdf_text.py"
@@ -20,6 +21,7 @@ on:
       - "volumes/**"
       - "figures/**"
       - "tables/**"
+      - "scripts/build_named_indexes.py"
       - "scripts/check_latin_pdf_text.py"
       - "scripts/check_arabic_pdf_text.py"
       - "scripts/check_release_pdf_text.py"
@@ -40,10 +42,44 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Create build directories
-        run: mkdir -p build/draft build/release
+      - name: Create build directories and seed named indexes
+        shell: bash
+        run: |
+          mkdir -p build/draft build/release
+          for dir in build/draft build/release; do
+            for name in people theorems symbols; do
+              printf '\\begin{theindex}\n\\end{theindex}\n' > "$dir/$name.ind"
+            done
+          done
 
-      - name: Compile auditable draft with LuaLaTeX and Biber
+      - name: Compile auditable draft first pass
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: manuscript/main.tex
+          latexmk_use_lualatex: true
+          args: >-
+            -interaction=nonstopmode
+            -halt-on-error
+            -file-line-error
+            -outdir=build/draft
+          os: debian
+
+      - name: Diagnose draft build failure
+        if: failure()
+        shell: bash
+        run: |
+          echo "=== build/draft contents ==="
+          find build/draft -maxdepth 1 -type f -printf '%f\n' | sort || true
+          echo "=== tail of main.log ==="
+          test -f build/draft/main.log && tail -n 250 build/draft/main.log || true
+          echo "=== LaTeX error lines ==="
+          test -f build/draft/main.log && grep -nE '^!|LaTeX Error|Package .* Error|Emergency stop|Fatal error' build/draft/main.log | tail -n 80 || true
+
+      - name: Build UTF-8 named draft indexes
+        shell: bash
+        run: python scripts/build_named_indexes.py build/draft
+
+      - name: Compile auditable draft with indexes
         uses: xu-cheng/latex-action@v4
         with:
           root_file: manuscript/main.tex
@@ -59,7 +95,23 @@ jobs:
         shell: bash
         run: python scripts/prepare_release_source.py
 
-      - name: Compile publication release with LuaLaTeX and Biber
+      - name: Compile publication release first pass
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: build/release-src/manuscript/main.tex
+          latexmk_use_lualatex: true
+          args: >-
+            -interaction=nonstopmode
+            -halt-on-error
+            -file-line-error
+            -outdir=build/release
+          os: debian
+
+      - name: Build UTF-8 named release indexes
+        shell: bash
+        run: python scripts/build_named_indexes.py build/release
+
+      - name: Compile publication release with indexes
         uses: xu-cheng/latex-action@v4
         with:
           root_file: build/release-src/manuscript/main.tex
@@ -110,7 +162,7 @@ jobs:
           python scripts/check_arabic_pdf_text.py build/draft/main-extracted.txt
           python scripts/check_arabic_pdf_text.py build/release/main-extracted.txt
 
-      - name: Verify publication metadata separation
+      - name: Verify publication metadata, references, and indexes
         shell: bash
         run: python scripts/check_release_pdf_text.py build/release/main-extracted.txt
 
@@ -135,7 +187,9 @@ jobs:
             build/analytic-number-theory-encyclopedia-draft.pdf.sha256
             build/analytic-number-theory-encyclopedia-release.pdf
             build/analytic-number-theory-encyclopedia-release.pdf.sha256
+            build/draft/main.log
             build/draft/main-extracted.txt
+            build/release/main.log
             build/release/main-extracted.txt
             build/release-src/RELEASE_SOURCE_GENERATED.txt
           if-no-files-found: warn
