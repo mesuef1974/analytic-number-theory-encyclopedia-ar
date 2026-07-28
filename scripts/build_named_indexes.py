@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Build UTF-8-safe named LaTeX indexes from imakeidx .idx files.
 
-imakeidx writes the named ``people.idx``, ``theorems.idx``, and ``symbols.idx``
-files in the current working directory even when the PDF auxiliary files are
-sent to an output directory. This script reads those UTF-8 inputs and writes the
-matching ``.ind`` files into the requested LaTeX output directory.
+The parser reads each .idx file as a TeX stream rather than assuming that every
+``\indexentry`` occupies exactly one physical line. This supports Arabic UTF-8,
+nested TeX groups, multiline entries, and formatted page numbers without using
+legacy makeindex.
 """
 
 from __future__ import annotations
@@ -34,67 +34,83 @@ class Entry:
         return unicodedata.normalize("NFKC", key).casefold()
 
 
-def read_group(text: str, start: int) -> tuple[str, int]:
-    """Read one balanced TeX brace group beginning at ``start``."""
-    if start >= len(text) or text[start] != "{":
-        raise ValueError(f"expected '{{' at column {start + 1}")
+def skip_space_and_comments(text: str, start: int) -> int:
+    cursor = start
+    while cursor < len(text):
+        if text[cursor].isspace():
+            cursor += 1
+            continue
+        if text[cursor] == "%":
+            newline = text.find("\n", cursor)
+            return len(text) if newline < 0 else skip_space_and_comments(text, newline + 1)
+        break
+    return cursor
 
-    depth = 0
-    escaped = False
+
+def read_group(text: str, start: int) -> tuple[str, int]:
+    """Read one balanced TeX brace group beginning at or after ``start``."""
+    cursor = skip_space_and_comments(text, start)
+    if cursor >= len(text) or text[cursor] != "{":
+        excerpt = text[cursor : cursor + 80].replace("\n", r"\n")
+        raise ValueError(f"expected '{{' at offset {cursor}; next={excerpt!r}")
+
+    depth = 1
+    index = cursor + 1
     chars: list[str] = []
-    for index in range(start, len(text)):
+    while index < len(text):
         char = text[index]
-        if escaped:
-            if depth >= 1:
-                chars.append(char)
-            escaped = False
+
+        # A TeX control symbol such as \{ or \} must not alter brace depth.
+        if char == "\\" and index + 1 < len(text) and text[index + 1] in "{}\\%":
+            chars.append(char)
+            chars.append(text[index + 1])
+            index += 2
             continue
-        if char == "\\":
-            if depth >= 1:
-                chars.append(char)
-            escaped = True
-            continue
+
         if char == "{":
             depth += 1
-            if depth > 1:
-                chars.append(char)
+            chars.append(char)
+            index += 1
             continue
         if char == "}":
             depth -= 1
-            if depth < 0:
-                raise ValueError(f"unbalanced closing brace at column {index + 1}")
             if depth == 0:
                 return "".join(chars), index + 1
+            if depth < 0:
+                raise ValueError(f"unbalanced closing brace at offset {index}")
             chars.append(char)
+            index += 1
             continue
-        if depth >= 1:
-            chars.append(char)
+
+        chars.append(char)
+        index += 1
 
     raise ValueError("unterminated brace group")
 
 
-def parse_index_line(line: str) -> Entry:
-    text = line.strip()
-    if not text.startswith(PREFIX):
-        raise ValueError("line does not begin with \\indexentry")
-
-    cursor = len(PREFIX)
-    raw, cursor = read_group(text, cursor)
-    page, cursor = read_group(text, cursor)
-    if text[cursor:].strip():
-        raise ValueError(f"unexpected trailing content: {text[cursor:]!r}")
-    return Entry(raw, page)
-
-
 def parse_idx(path: Path) -> list[Entry]:
+    text = path.read_text(encoding="utf-8-sig")
     entries: list[Entry] = []
-    for number, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
-        if not line.strip():
-            continue
+    cursor = 0
+
+    while True:
+        start = text.find(PREFIX, cursor)
+        if start < 0:
+            break
         try:
-            entries.append(parse_index_line(line))
+            raw, after_raw = read_group(text, start + len(PREFIX))
+            page, after_page = read_group(text, after_raw)
         except ValueError as exc:
-            raise ValueError(f"{path}:{number}: {exc}; line={line!r}") from exc
+            line = text.count("\n", 0, start) + 1
+            raise ValueError(f"{path}:{line}: {exc}") from exc
+        entries.append(Entry(raw.strip(), page.strip()))
+        cursor = after_page
+
+    prefix_count = text.count(PREFIX)
+    if len(entries) != prefix_count:
+        raise ValueError(
+            f"{path}: parsed {len(entries)} entries but found {prefix_count} {PREFIX!r} markers"
+        )
     return entries
 
 
@@ -122,17 +138,8 @@ def render(entries: list[Entry]) -> str:
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "output_directory",
-        type=Path,
-        help="LaTeX output directory that must receive people.ind, theorems.ind, and symbols.ind",
-    )
-    parser.add_argument(
-        "--input-directory",
-        type=Path,
-        default=Path.cwd(),
-        help="Directory containing people.idx, theorems.idx, and symbols.idx (default: current directory)",
-    )
+    parser.add_argument("output_directory", type=Path)
+    parser.add_argument("--input-directory", type=Path, default=Path.cwd())
     args = parser.parse_args()
 
     args.output_directory.mkdir(parents=True, exist_ok=True)
