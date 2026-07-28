@@ -14,6 +14,11 @@ CHAPTERS                = 1--26 / MERGED
 RELEASE-WIDE-ISSUE      = #53 / CLOSED
 RELEASE-WIDE-PR         = #54 / MERGED
 RELEASE-WIDE-REVIEW     = PASS
+P1-ISSUE                = #64 / CLOSED
+P1-PR                   = #65 / MERGED
+P1-REVIEW               = APPROVED
+P1-BLOCKERS             = 0
+P1-MERGE-HEAD           = 1a96640ec8e5744b076afc91c58eabe893a43001
 OPEN-MAJORS             = 0
 TECHNICAL-BLOCKERS      = 0
 OWNER-ADOPTION          = CONFIRMED
@@ -30,6 +35,7 @@ INDEX-TRACKING          = #55 / RELEASE-BLOCKER
 EXERCISES-TRACKING      = #56 / NON-BLOCKING
 FORWARD-REFS-TRACKING   = #57 / NON-BLOCKING
 RELEASE-READY           = NO
+STABLE-RELEASE          = BLOCKED
 ```
 
-اعتمد المالك المراجعة الشاملة النهائية وصرّح بدمج PR #54، فدُمج المسار وأُغلق Issue #53. نجحت المراجعة التقنية بحكم `PASS` وبصفر حواجز تقنية كبرى. لا يعني الدمج الجاهزية للإصدار: تبقى الفهارس في Issue #55 حاجزًا صريحًا أمام `RELEASE-READY`، بينما سُجلت التمارين والحلول في Issue #56 والإحالات الأمامية في Issue #57 كديون غير حاجزة.
+اعتمد المالك المراجعة الشاملة النهائية وصرّح بدمج PR #54، فدُمج المسار وأُغلق Issue #53. ثم أُغلقت مرحلة P1 العلمية بعد مراجعة مستقلة بحكم `APPROVED` وصفر حواجز، وصرّح المالك بدمج PR #65، فدُمج عند `1a96640ec8e5744b076afc91c58eabe893a43001` وأُغلق Issue #64. لا يعني ذلك الجاهزية للإصدار المستقر؛ تبقى حواجز الإصدار وقرار مالك مستقل مطلوبة قبل تغيير `RELEASE-READY` إلى `YES`.
