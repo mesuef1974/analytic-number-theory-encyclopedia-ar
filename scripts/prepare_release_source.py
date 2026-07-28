@@ -56,11 +56,25 @@ EDITORIAL_STATUS_LABELS = (
     "تنبيه تحريري:",
 )
 
+ARABIC_GOVERNANCE_SENTENCE_PHRASES = (
+    "مسودة غير قابلة للاستشهاد",
+    "حالة المستودع الحالية",
+    "حالة دفعة التأليف",
+    "قرار المالك الصريح",
+    "اعتماد المالك",
+    "بعد نجاح البناء",
+    "اعتمده مالك المشروع",
+    "أذن بدمجه",
+)
+
 STANDALONE_BADGE_RE = re.compile(
     r"(?m)^\s*\\(?:resultid|provedhere|openresult)\b(?:\{[^\n]*\})?\s*$"
 )
 ARG_BADGE_RE = re.compile(
     r"(?m)^\s*\\(?:citedresult|deferredresult|conditionalresult)\s*\{[^\n]*\}\s*$"
+)
+AUTHORING_STATUS_HEADING_RE = re.compile(
+    r"(?m)^\s*\\section\*?\{حالة دفعة التأليف[^}]*\}\s*$"
 )
 ANT_ID_RE = re.compile(r"ANT-(?:THM|LEM|PROP|COR|DEF|EX|REM|OPEN|COMP)-\d{2}-\d{2}")
 CROSS_REFERENCE_RE = re.compile(
@@ -109,6 +123,26 @@ def is_editorial_status_paragraph(paragraph: str) -> bool:
     return any(label in compact for label in EDITORIAL_STATUS_LABELS)
 
 
+def strip_governance_sentences(text: str) -> str:
+    """Remove Arabic preparation sentences while preserving surrounding science."""
+    paragraphs = re.split(r"(\n\s*\n)", text)
+    cleaned: list[str] = []
+    for paragraph in paragraphs:
+        current = paragraph
+        if not current.strip() or re.fullmatch(r"\n\s*\n", current):
+            cleaned.append(current)
+            continue
+        for phrase in ARABIC_GOVERNANCE_SENTENCE_PHRASES:
+            if phrase not in re.sub(r"\s+", " ", current):
+                continue
+            pattern = re.compile(
+                rf"(?s)(^|(?<=\.))\s*[^.]*{re.escape(phrase)}[^.]*\."
+            )
+            current = pattern.sub("", current)
+        cleaned.append(current)
+    return "".join(cleaned)
+
+
 def strip_status_paragraphs(text: str) -> str:
     """Remove complete editorial-status paragraphs, including wrapped lines."""
     paragraphs = re.split(r"(\n\s*\n)", text)
@@ -142,17 +176,23 @@ def strip_governance_environments(text: str) -> str:
 def normalize_publication_headings(text: str) -> str:
     replacements = {
         r"\section{نطاق الفصل وحالته}": r"\section{نطاق الفصل}",
+        r"\section*{نطاق الفصل وحالته}": r"\section*{نطاق الفصل}",
         r"\section{نطاق الفصل وحالة المتن}": r"\section{نطاق الفصل}",
+        r"\section*{نطاق الفصل وحالة المتن}": r"\section*{نطاق الفصل}",
         r"\section{نطاق الفصل وحالة الحزمة}": r"\section{نطاق الفصل}",
+        r"\section*{نطاق الفصل وحالة الحزمة}": r"\section*{نطاق الفصل}",
         r"\section{نطاق الفصل ووضعه}": r"\section{نطاق الفصل}",
+        r"\section*{نطاق الفصل ووضعه}": r"\section*{نطاق الفصل}",
         r"\section{نطاق الفصل وحالة النسخة}": r"\section{نطاق الفصل}",
+        r"\section*{نطاق الفصل وحالة النسخة}": r"\section*{نطاق الفصل}",
     }
     for old, new in replacements.items():
         text = text.replace(old, new)
-    return text
+    return AUTHORING_STATUS_HEADING_RE.sub("", text)
 
 
 def strip_governance_blocks(text: str) -> str:
+    text = strip_governance_sentences(text)
     text = strip_status_paragraphs(text)
     text = strip_governance_environments(text)
 
@@ -171,7 +211,7 @@ def strip_governance_blocks(text: str) -> str:
             for marker in (
                 r"\begin{theorem}", r"\begin{lemma}", r"\begin{proposition}",
                 r"\begin{corollary}", r"\begin{definition}", r"\begin{proof}",
-                r"\[", r"\begin{align", r"\begin{equation",
+                r"\[", r"\begin{align", r"\begin{equation}",
             )
         )
         if contains_governance(block) and not protected:
