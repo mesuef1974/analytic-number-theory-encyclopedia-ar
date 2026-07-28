@@ -161,6 +161,28 @@ R_s(N)
 \item إثبات إلغاء كافٍ على بقية الدائرة.
 \end{enumerate}
 
+\begin{antfigure}
+\begin{tikzpicture}[scale=2.1]
+  \draw[thick] (0,0) circle (1);
+  \foreach \ang/\p/\q in \antDataFareyOrderFive {
+    \ifnum\q<3
+      \draw[blue!70!black,line width=2.4pt,opacity=0.55]
+        (\ang-9:1) arc (\ang-9:\ang+9:1);
+    \fi
+    \filldraw[black] (\ang:1) circle (0.7pt);
+    \draw[gray] (0,0) -- (\ang:1);
+    \node[font=\scriptsize\englishfont] at (\ang:1.16) {$\p/\q$};
+  }
+\end{tikzpicture}
+\caption{متتالية فاري من الرتبة \(5\) (11 كسرًا مختزلًا، محسوبة مباشرة
+بخوارزمية فاري القياسية) موزعة على الدائرة \([0,1)\) بالتناظر
+\(a/q\mapsto360^\circ\cdot a/q\). الأقواس الزرقاء الغليظة حول الكسور ذات
+المقام الأصغر (\(q\le2\)) توضّح موضع الأقواس الكبرى \(\mathfrak M(q,a)\)
+تخطيطيًا فقط؛ عرضها هنا ثابت للعرض ولا يمثّل نصف القطر الفعلي
+\(Q/(qN)\) من التعريف أعلاه.}
+\label{fig:farey-dissection-order-5}
+\end{antfigure}
+
 \section{البنية المحلية والأرخميدية للحد الرئيس}
 \symbolindex{البنية المحلية والأرخميدية للحد الرئيس}
 

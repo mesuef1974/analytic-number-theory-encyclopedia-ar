@@ -173,6 +173,26 @@ R_2(u)=1-\left(\frac{\sin\pi u}{\pi u}\right)^2.
 
 هذه مبرهنة عن نموذج مصفوفي. التشابه مع صيغة أصفار زيتا عميق ومثمر، لكنه ليس تطابقًا مثبتًا بين الكائنين. الفارق المنطقي يجب أن يبقى ظاهرًا: في GUE تأتي النواة من بنية محددات الارتباط، أما في زيتا فالصيغة الكاملة ما تزال حدسية.
 
+\begin{antfigure}
+\begin{tikzpicture}
+\begin{axis}[
+  width=0.85\linewidth,height=6cm,
+  xlabel={$u$},ylabel={$R_2(u)$},
+  xmin=0,xmax=3,ymin=-0.05,ymax=1.15,
+  ytick={0,0.5,1},
+]
+\antPlotPairCorrelation{blue,thick,no marks}
+\draw[densely dashed] (axis cs:0,1) -- (axis cs:3,1);
+\end{axis}
+\end{tikzpicture}
+\caption{كثافة الارتباط الثنائي غير القطري
+\(R_2(u)=1-\bigl(\sin\pi u/\pi u\bigr)^2\) لنموذج \textenglish{GUE} كما في
+المبرهنة أعلاه، مرسومة مباشرة من الصيغة المغلقة (لا بيانات تقريبية). القيمة
+تنعدم عند \(u=0\) (التنافر المحلي بين الأصفار المتجاورة) وتؤول إلى \(1\)
+لِـ\(u\) الكبير (الخط الأفقي المتقطع).}
+\label{fig:gue-pair-correlation}
+\end{antfigure}
+
 \section{الدليل العددي: ما يثبته وما لا يثبته}
 \symbolindex{الدليل العددي: ما يثبته وما لا يثبته}
 

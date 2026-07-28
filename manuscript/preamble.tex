@@ -99,6 +99,30 @@
 % bibliography entry through the same ligature-safe English font.
 \renewcommand*{\bibfont}{\footnotesize\englishfont}
 
+% ---------------------------------------------------------------------------
+% Visual layer: every figure in this encyclopedia is either a plot of a
+% closed-form/finite arithmetic object computed by scripts/build_figure_data.py
+% (imported below), or a schematic diagram of a definition already stated in
+% the surrounding prose. No figure introduces a claim the text does not
+% already make. Tick and axis text render through the Latin font used for
+% every other piece of embedded English/math typography in the book.
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{arrows.meta,positioning,decorations.pathreplacing,calc}
+\pgfplotsset{
+  every axis/.append style={
+    font=\englishfont,
+    label style={font=\englishfont},
+    tick label style={font=\englishfont},
+    legend style={font=\englishfont},
+  }
+}
+\newenvironment{antfigure}
+  {\begin{figure}[htbp]\centering}
+  {\end{figure}}
+\input{manuscript/figure-data}
+
 \addbibresource{manuscript/bibliography.bib}
 \addbibresource{manuscript/chapter-13-bibliography.bib}
 \addbibresource{manuscript/chapter-15-bibliography.bib}
