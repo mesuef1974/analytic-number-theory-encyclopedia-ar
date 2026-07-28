@@ -150,6 +150,25 @@ def resolve_idx(name: str, input_directory: Path, output_directory: Path) -> Pat
     )
 
 
+WRAPPER_MACRO_RE = re.compile(r"^\s*\\[a-zA-Z@]+\s*\{(.*)\}\s*$", re.DOTALL)
+
+
+def unwrap_page(page: str) -> str:
+    r"""Strip a single enclosing TeX macro call, keeping its argument.
+
+    Polyglossia wraps every Arabic-document page number written to .idx files
+    in a private direction-forcing macro (e.g. ``\@ensure@LTR{198}``). That
+    macro is not expandable once copied verbatim into a hand-built .ind file
+    printed outside polyglossia's own page-number machinery: outside
+    \makeatletter, "@" is a plain printable character, so the whole macro
+    name leaks into the PDF as literal text on every single index entry.
+    Since plain page numbers already render correctly elsewhere in this
+    document without this wrapper, unwrap it and keep only the number.
+    """
+    match = WRAPPER_MACRO_RE.match(page)
+    return match.group(1) if match else page
+
+
 def page_sort_key(page: str) -> tuple[int, int | str]:
     plain_digits = re.sub(r"\D", "", page)
     if plain_digits and not re.search(r"[A-Za-z]", page):
@@ -161,7 +180,7 @@ def render(entries: list[Entry]) -> str:
     grouped: dict[str, set[str]] = {}
     order: dict[str, str] = {}
     for entry in entries:
-        grouped.setdefault(entry.display, set()).add(entry.page)
+        grouped.setdefault(entry.display, set()).add(unwrap_page(entry.page))
         order.setdefault(entry.display, entry.sort_key)
 
     lines = [r"\begin{theindex}", ""]
