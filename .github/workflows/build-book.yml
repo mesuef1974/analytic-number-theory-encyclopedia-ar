@@ -48,7 +48,7 @@ jobs:
           mkdir -p build/draft build/release
           for dir in build/draft build/release; do
             for name in people theorems symbols; do
-              printf '\\begin{theindex}\n\\end{theindex}\n' > "$dir/main.$name.ind"
+              printf '\\begin{theindex}\n\\end{theindex}\n' > "$dir/$name.ind"
             done
           done
 
