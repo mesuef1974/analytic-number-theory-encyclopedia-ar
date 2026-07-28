@@ -59,6 +59,17 @@ def normalize_pdf_text(text: str) -> str:
     return normalized
 
 
+def contains_required(text: str, token: str) -> bool:
+    """Accept extraction-only whitespace inserted inside Arabic words."""
+    if token in text:
+        return True
+    if re.search(r"[\u0600-\u06ff]", token):
+        compact_text = re.sub(r"\s+", "", text)
+        compact_token = re.sub(r"\s+", "", token)
+        return compact_token in compact_text
+    return False
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("text_file", type=Path)
@@ -79,7 +90,7 @@ def main() -> int:
             failures.append(f"forbidden pattern {pattern.pattern!r}: {len(matches)}")
 
     for token in REQUIRED:
-        if token not in text:
+        if not contains_required(text, token):
             failures.append(f"required publication text missing: {token!r}")
 
     if failures:
