@@ -14,6 +14,7 @@ import shutil
 from pathlib import Path
 
 GOVERNANCE_TOKENS = (
+    "DRAFT",
     "REVIEWED",
     "APPROVED",
     "RELEASE-READY",
@@ -89,13 +90,14 @@ def contains_governance(text: str) -> bool:
     )
 
 
-def strip_status_lines(text: str) -> str:
-    """Remove only complete status lines; never span TeX paragraphs or math."""
+def strip_status_paragraphs(text: str) -> str:
+    """Remove complete chapter-status paragraphs, including wrapped lines."""
+    paragraphs = re.split(r"(\n\s*\n)", text)
     kept: list[str] = []
-    for line in text.splitlines(keepends=True):
-        if "حالة الفصل:" in line and contains_governance(line):
+    for paragraph in paragraphs:
+        if "حالة الفصل:" in paragraph:
             continue
-        kept.append(line)
+        kept.append(paragraph)
     return "".join(kept)
 
 
@@ -119,7 +121,7 @@ def strip_governance_environments(text: str) -> str:
 
 
 def strip_governance_blocks(text: str) -> str:
-    text = strip_status_lines(text)
+    text = strip_status_paragraphs(text)
     text = strip_governance_environments(text)
 
     text = STANDALONE_BADGE_RE.sub("", text)
