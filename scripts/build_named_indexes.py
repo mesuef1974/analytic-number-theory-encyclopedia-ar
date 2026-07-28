@@ -15,11 +15,8 @@ import unicodedata
 from dataclasses import dataclass
 from pathlib import Path
 
-# The page field may itself contain TeX grouping, for example Arabic digit
-# formatting commands. Match the complete second argument rather than banning
-# braces inside it.
-ENTRY_RE = re.compile(r"^\\indexentry\{(.*)\}\{(.*)\}\s*$")
 EXPECTED = ("people", "theorems", "symbols")
+PREFIX = r"\indexentry"
 
 
 @dataclass(frozen=True)
@@ -37,15 +34,67 @@ class Entry:
         return unicodedata.normalize("NFKC", key).casefold()
 
 
+def read_group(text: str, start: int) -> tuple[str, int]:
+    """Read one balanced TeX brace group beginning at ``start``."""
+    if start >= len(text) or text[start] != "{":
+        raise ValueError(f"expected '{{' at column {start + 1}")
+
+    depth = 0
+    escaped = False
+    chars: list[str] = []
+    for index in range(start, len(text)):
+        char = text[index]
+        if escaped:
+            if depth >= 1:
+                chars.append(char)
+            escaped = False
+            continue
+        if char == "\\":
+            if depth >= 1:
+                chars.append(char)
+            escaped = True
+            continue
+        if char == "{":
+            depth += 1
+            if depth > 1:
+                chars.append(char)
+            continue
+        if char == "}":
+            depth -= 1
+            if depth < 0:
+                raise ValueError(f"unbalanced closing brace at column {index + 1}")
+            if depth == 0:
+                return "".join(chars), index + 1
+            chars.append(char)
+            continue
+        if depth >= 1:
+            chars.append(char)
+
+    raise ValueError("unterminated brace group")
+
+
+def parse_index_line(line: str) -> Entry:
+    text = line.strip()
+    if not text.startswith(PREFIX):
+        raise ValueError("line does not begin with \\indexentry")
+
+    cursor = len(PREFIX)
+    raw, cursor = read_group(text, cursor)
+    page, cursor = read_group(text, cursor)
+    if text[cursor:].strip():
+        raise ValueError(f"unexpected trailing content: {text[cursor:]!r}")
+    return Entry(raw, page)
+
+
 def parse_idx(path: Path) -> list[Entry]:
     entries: list[Entry] = []
     for number, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
         if not line.strip():
             continue
-        match = ENTRY_RE.match(line)
-        if not match:
-            raise ValueError(f"{path}:{number}: unsupported index line: {line!r}")
-        entries.append(Entry(match.group(1), match.group(2)))
+        try:
+            entries.append(parse_index_line(line))
+        except ValueError as exc:
+            raise ValueError(f"{path}:{number}: {exc}; line={line!r}") from exc
     return entries
 
 
