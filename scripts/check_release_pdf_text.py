@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import re
+import unicodedata
 from pathlib import Path
 
 FORBIDDEN_LITERAL = (
@@ -33,7 +34,7 @@ FORBIDDEN_REGEX = (
     re.compile(r"\bIssue\s*#?\s*\d+\b"),
     re.compile(r"\b[0-9a-f]{40}\b", re.I),
     re.compile(r"\bSHA-?256\b", re.I),
-    re.compile(r"ANT-(?:THM|LEM|PROP|COR|DEF|EX|REM|OPEN)-\d{2}-\d{2}"),
+    re.compile(r"ANT-(?:THM|LEM|PROP|COR|DEF|EX|REM|OPEN|COMP)-\d{2}-\d{2}"),
     re.compile(r"\?\?"),
 )
 
@@ -48,12 +49,23 @@ REQUIRED = (
 )
 
 
+def normalize_pdf_text(text: str) -> str:
+    """Normalize Arabic presentation forms emitted by PDF text extraction."""
+    normalized = unicodedata.normalize("NFKC", text)
+    # Directional controls separate Arabic words in some Poppler outputs but do
+    # not carry publication content. Replace them with ordinary spaces.
+    normalized = re.sub(r"[\u061c\u200e\u200f\u202a-\u202e\u2066-\u2069]", " ", normalized)
+    normalized = re.sub(r"[ \t]+", " ", normalized)
+    return normalized
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("text_file", type=Path)
     args = parser.parse_args()
 
-    text = args.text_file.read_text(encoding="utf-8", errors="replace")
+    raw_text = args.text_file.read_text(encoding="utf-8", errors="replace")
+    text = normalize_pdf_text(raw_text)
     failures: list[str] = []
 
     for token in FORBIDDEN_LITERAL:
