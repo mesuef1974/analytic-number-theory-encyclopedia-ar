@@ -1,10 +1,10 @@
 # P1-03 — تدقيق تمركز فترة Baker–Harman–Pintz
 
-ISSUE: #64  
-PR: #65  
-CLAIM: المصدر الأصلي يعطي فقط فترة خلفية  
-REPRODUCTION: NOT-REPRODUCED  
-ACTION: WORDING-HARDENED  
+ISSUE: #64
+PR: #65
+CLAIM: المصدر الأصلي يعطي فقط فترة خلفية
+REPRODUCTION: NOT-REPRODUCED
+ACTION: WORDING-HARDENED
 STATUS: VERIFIED / CLOSED
 
 ## النتيجة

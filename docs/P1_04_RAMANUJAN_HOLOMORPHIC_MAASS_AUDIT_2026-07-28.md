@@ -1,10 +1,10 @@
 # P1-04 — تدقيق صياغة رامانوجان–بيترسون
 
-ISSUE: #64  
-PR: #65  
-CLAIM: الفصل يخلط بين الحالة الهولومورفية وحالة مااس  
-REPRODUCTION: NOT-REPRODUCED  
-ACTION: WORDING-HARDENED  
+ISSUE: #64
+PR: #65
+CLAIM: الفصل يخلط بين الحالة الهولومورفية وحالة مااس
+REPRODUCTION: NOT-REPRODUCED
+ACTION: WORDING-HARDENED
 STATUS: VERIFIED / CLOSED
 
 ## النتيجة
