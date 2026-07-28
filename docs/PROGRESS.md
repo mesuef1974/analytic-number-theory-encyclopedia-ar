@@ -4,12 +4,11 @@
 
 - **الإصدار التطويري الحالي:** `0.30.0-dev`
 - **الفصول:** 1--26 موجودة ومندمجة على `main`.
-- **المرحلة الحالية:** ما بعد المراجعة الشاملة؛ تنفيذ حواجز الإصدار المتبقية.
+- **المرحلة الحالية:** ما بعد إغلاق P1؛ تنفيذ حواجز الإصدار المتبقية.
 - **المراجعة الشاملة:** `PASS / OPEN-MAJORS 0 / TECHNICAL-BLOCKERS 0`
-- **PR:** `#54 / MERGED`
-- **Issue المراجعة:** `#53 / CLOSED`
+- **P1 العلمي:** `APPROVED / ISSUE #64 CLOSED / PR #65 MERGED`
 - **الموسوعة:** `NOT-RELEASE-READY`
-- **آخر تحديث:** 2026-07-27
+- **آخر تحديث:** 2026-07-28
 
 ```text
 CHAPTERS-1--26          = IN MANUSCRIPT / MERGED
@@ -17,6 +16,11 @@ VERSION                 = 0.30.0-dev
 RELEASE-WIDE-REVIEW     = PASS
 ISSUE-53                = CLOSED
 PR-54                   = MERGED
+P1-ISSUE                = #64 / CLOSED
+P1-PR                   = #65 / MERGED
+P1-REVIEW               = APPROVED
+P1-BLOCKERS             = 0
+P1-MERGE-HEAD           = 1a96640ec8e5744b076afc91c58eabe893a43001
 OWNER-ADOPTION          = CONFIRMED
 OPEN-MAJORS             = 0
 TECHNICAL-BLOCKERS      = 0
@@ -45,13 +49,16 @@ RELEASE-READY           = NO
 | الفحص البصري | `PASS / VISIBLE-BLOCKERS 0` |
 | البناء النهائي | `PASS / 321 PAGES / FATAL ERRORS 0` |
 | المراجعة المستقلة النهائية | `PASS` |
-| PR #54 | `MERGED` |
-| Issue #53 | `CLOSED` |
+| P1 العلمي | `APPROVED / BLOCKERS 0` |
+| PR #65 | `MERGED` |
+| Issue #64 | `CLOSED` |
 | الموسوعة الكاملة | `NOT-RELEASE-READY` |
 
 ## قرار المالك بعد المراجعة
 
 اعتمد المالك الإصدار `0.30.0-dev` كجاهز للدمج وصرّح صراحة بدمج PR #54. تم الدمج مع إبقاء `RELEASE-READY = NO`.
+
+ثم اعتمد المالك إغلاق مرحلة P1 العلمية وصرّح بدمج PR #65. دُمج الطلب عند `1a96640ec8e5744b076afc91c58eabe893a43001` بعد مراجعة مستقلة بحكم `APPROVED` وصفر حواجز P1، مع إبقاء الإصدار المستقر محجوبًا.
 
 صُنفت الأعمال المؤجلة كما يلي:
 
@@ -63,4 +70,4 @@ RELEASE-READY           = NO
 
 ## الخطوة التالية
 
-تنفيذ Issue #55 وإكمال فهارس العلماء والنظريات والرموز، ثم إعادة البناء والفحص البصري. لا يجوز تغيير `RELEASE-READY` إلى `YES` قبل إغلاق حاجز الفهارس وإصدار قرار مالك جديد. أما Issue #56 وIssue #57 فيبقيان مساري تحسين غير حاجزين.
+استكمال حواجز الإصدار المتبقية وإصدار قرار مالك مستقل قبل أي تغيير إلى `RELEASE-READY = YES`. أما Issue #56 وIssue #57 فيبقيان مساري تحسين غير حاجزين.
