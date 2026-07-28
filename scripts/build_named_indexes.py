@@ -190,8 +190,6 @@ def write_diagnostics(output_directory: Path, input_directory: Path, exc: BaseEx
 
     diagnostic = "\n".join(sections) + "\n"
     (output_directory / "index-generator-error.txt").write_text(diagnostic, encoding="utf-8")
-    # Replace rather than append: this guarantees the existing artifact path
-    # exposes the index failure even when the CI log output is truncated.
     (output_directory / "main.log").write_text(diagnostic, encoding="utf-8")
 
 
@@ -207,7 +205,10 @@ def main() -> int:
         for name in EXPECTED:
             idx_path = resolve_idx(name, args.input_directory, args.output_directory)
             entries = parse_idx(idx_path)
-            ind_path = args.output_directory / f"main.{name}.ind"
+            # imakeidx reads named indexes as <name>.ind, even though the main
+            # document job name is "main". Writing main.<name>.ind leaves the
+            # seeded empty <name>.ind files in place and silently drops indexes.
+            ind_path = args.output_directory / f"{name}.ind"
             ind_path.write_text(render(entries), encoding="utf-8")
             print(f"Built {ind_path} from {len(entries)} entries in {idx_path}")
     except Exception as exc:
