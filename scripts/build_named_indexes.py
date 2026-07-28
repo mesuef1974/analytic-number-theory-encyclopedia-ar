@@ -21,13 +21,14 @@ EXPECTED = ("people", "theorems", "symbols")
 PREFIX = r"\indexentry"
 
 # Polyglossia may protect page numbers written to auxiliary files with internal
-# direction wrappers such as ``\ensure@LTR{...}``.  Those internal commands are
-# not stable publication content: when copied verbatim into a generated .ind
-# file, the ``@`` token can lose its command-name catcode and leak visibly as
-# ``ensure@LTR``.  The index generator owns the page field, so normalize these
+# direction wrappers such as ``\@ensure@LTR{...}`` or
+# ``\protect\@ensure@LTR{...}``. These internal commands are not stable
+# publication content: when copied verbatim into a generated .ind file, the
+# ``@`` token can lose its command-name catcode and leak visibly as
+# ``ensure@LTR``. The index generator owns the page field, so normalize these
 # wrappers before sorting or rendering.
 DIRECTION_WRAPPER_RE = re.compile(
-    r"^\s*\\(?:ensure@LTR|ensureLTR|textLR|LR)\s*\{(.*)\}\s*$",
+    r"^\s*(?:\\protect\s*)*\\(?:@ensure@LTR|ensure@LTR|ensureLTR|textLR|LR)\s*\{(.*)\}\s*$",
     re.S,
 )
 SAFE_PAGE_RE = re.compile(r"^[0-9٠-٩۰-۹ivxlcdmIVXLCDM-]+$")
