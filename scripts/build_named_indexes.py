@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Build UTF-8-safe named LaTeX indexes from imakeidx .idx files.
 
-This intentionally avoids legacy makeindex, whose byte-oriented parser is not
-reliable for Arabic UTF-8 index entries. The generated .ind files use the
-standard theindex environment consumed by imakeidx/\printindex.
+imakeidx writes the named ``people.idx``, ``theorems.idx``, and ``symbols.idx``
+files in the current working directory even when the PDF auxiliary files are
+sent to an output directory. This script reads those UTF-8 inputs and writes the
+matching ``.ind`` files into the requested LaTeX output directory.
 """
 
 from __future__ import annotations
@@ -15,6 +16,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 ENTRY_RE = re.compile(r"^\\indexentry\{(.*)\}\{([^{}]+)\}\s*$")
+EXPECTED = ("people", "theorems", "symbols")
 
 
 @dataclass(frozen=True)
@@ -24,14 +26,11 @@ class Entry:
 
     @property
     def display(self) -> str:
-        # Preserve TeX markup after an optional makeindex sort key.
         return self.raw.split("@", 1)[-1]
 
     @property
     def sort_key(self) -> str:
         key = self.raw.split("@", 1)[0]
-        # A stable Unicode-aware approximation: normalize and case-fold while
-        # retaining Arabic letters. TeX control syntax sorts after plain text.
         return unicodedata.normalize("NFKC", key).casefold()
 
 
@@ -47,17 +46,22 @@ def parse_idx(path: Path) -> list[Entry]:
     return entries
 
 
+def page_sort_key(page: str) -> tuple[int, int | str]:
+    if page.isdigit():
+        return (0, int(page))
+    return (1, page)
+
+
 def render(entries: list[Entry]) -> str:
     grouped: dict[str, set[str]] = {}
     order: dict[str, str] = {}
     for entry in entries:
-        display = entry.display
-        grouped.setdefault(display, set()).add(entry.page)
-        order.setdefault(display, entry.sort_key)
+        grouped.setdefault(entry.display, set()).add(entry.page)
+        order.setdefault(entry.display, entry.sort_key)
 
     lines = [r"\begin{theindex}", ""]
     for display in sorted(grouped, key=lambda value: (order[value], value)):
-        pages = sorted(grouped[display], key=lambda p: (not p.isdigit(), int(p) if p.isdigit() else p))
+        pages = sorted(grouped[display], key=page_sort_key)
         lines.append(rf"  \item {display}, {', '.join(pages)}")
     lines.extend(["", r"\end{theindex}", ""])
     return "\n".join(lines)
@@ -65,28 +69,31 @@ def render(entries: list[Entry]) -> str:
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("directory", type=Path)
+    parser.add_argument(
+        "output_directory",
+        type=Path,
+        help="LaTeX output directory that must receive people.ind, theorems.ind, and symbols.ind",
+    )
+    parser.add_argument(
+        "--input-directory",
+        type=Path,
+        default=Path.cwd(),
+        help="Directory containing people.idx, theorems.idx, and symbols.idx (default: current directory)",
+    )
     args = parser.parse_args()
 
-    idx_files = sorted(args.directory.glob("main.*.idx"))
-    if not idx_files:
-        raise SystemExit(f"No named index files found in {args.directory}")
+    args.output_directory.mkdir(parents=True, exist_ok=True)
 
-    expected = {"people", "theorems", "symbols"}
-    seen: set[str] = set()
-    for idx_path in idx_files:
-        name = idx_path.name.removeprefix("main.").removesuffix(".idx")
-        if name not in expected:
-            continue
+    for name in EXPECTED:
+        idx_path = args.input_directory / f"{name}.idx"
+        if not idx_path.is_file():
+            raise SystemExit(f"Missing named index input: {idx_path}")
+
         entries = parse_idx(idx_path)
-        ind_path = idx_path.with_suffix(".ind")
+        ind_path = args.output_directory / f"{name}.ind"
         ind_path.write_text(render(entries), encoding="utf-8")
-        print(f"Built {ind_path} from {len(entries)} entries")
-        seen.add(name)
+        print(f"Built {ind_path} from {len(entries)} entries in {idx_path}")
 
-    missing = expected - seen
-    if missing:
-        raise SystemExit(f"Missing named index inputs: {', '.join(sorted(missing))}")
     return 0
 
 
