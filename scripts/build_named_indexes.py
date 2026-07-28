@@ -2,9 +2,10 @@
 """Build UTF-8-safe named LaTeX indexes from imakeidx .idx files.
 
 The parser reads each .idx file as a TeX stream rather than assuming that every
-``\indexentry`` occupies exactly one physical line. This supports Arabic UTF-8,
-nested TeX groups, multiline entries, and formatted page numbers without using
-legacy makeindex.
+``\indexentry`` occupies exactly one physical line. It also resolves the named
+index files across the layouts produced by imakeidx/latexmk, including
+``people.idx`` and ``main.people.idx`` in either the working directory or the
+LaTeX output directory.
 """
 
 from __future__ import annotations
@@ -49,7 +50,6 @@ def skip_space_and_comments(text: str, start: int) -> int:
 
 
 def read_group(text: str, start: int) -> tuple[str, int]:
-    """Read one balanced TeX brace group beginning at or after ``start``."""
     cursor = skip_space_and_comments(text, start)
     if cursor >= len(text) or text[cursor] != "{":
         excerpt = text[cursor : cursor + 80].replace("\n", r"\n")
@@ -61,7 +61,6 @@ def read_group(text: str, start: int) -> tuple[str, int]:
     while index < len(text):
         char = text[index]
 
-        # A TeX control symbol such as \{ or \} must not alter brace depth.
         if char == "\\" and index + 1 < len(text) and text[index + 1] in "{}\\%":
             chars.append(char)
             chars.append(text[index + 1])
@@ -115,6 +114,42 @@ def parse_idx(path: Path) -> list[Entry]:
     return entries
 
 
+def resolve_idx(name: str, input_directory: Path, output_directory: Path) -> Path:
+    candidates = [
+        input_directory / f"{name}.idx",
+        input_directory / f"main.{name}.idx",
+        output_directory / f"{name}.idx",
+        output_directory / f"main.{name}.idx",
+    ]
+    for candidate in candidates:
+        if candidate.is_file():
+            return candidate
+
+    matches: list[Path] = []
+    for root in {input_directory.resolve(), output_directory.resolve()}:
+        if root.is_dir():
+            matches.extend(root.rglob(f"{name}.idx"))
+            matches.extend(root.rglob(f"main.{name}.idx"))
+    unique = sorted({path.resolve() for path in matches})
+    if len(unique) == 1:
+        return unique[0]
+    if len(unique) > 1:
+        choices = ", ".join(str(path) for path in unique)
+        raise FileNotFoundError(f"Ambiguous named index input for {name}: {choices}")
+
+    available = sorted(
+        {
+            *input_directory.glob("*.idx"),
+            *output_directory.glob("*.idx"),
+        }
+    )
+    listing = ", ".join(str(path) for path in available) or "none"
+    raise FileNotFoundError(
+        f"Missing named index input for {name}; searched working/output layouts; "
+        f"available .idx files: {listing}"
+    )
+
+
 def page_sort_key(page: str) -> tuple[int, int | str]:
     plain_digits = re.sub(r"\D", "", page)
     if plain_digits and not re.search(r"[A-Za-z]", page):
@@ -141,19 +176,23 @@ def write_diagnostics(output_directory: Path, input_directory: Path, exc: BaseEx
     sections = [
         "=== INDEX GENERATOR FAILURE ===",
         "".join(traceback.format_exception(type(exc), exc, exc.__traceback__)),
+        f"input_directory={input_directory.resolve()}",
+        f"output_directory={output_directory.resolve()}",
     ]
-    for name in EXPECTED:
-        path = input_directory / f"{name}.idx"
-        sections.append(f"\n=== {path} ===")
-        if path.is_file():
+    for root in (input_directory, output_directory):
+        sections.append(f"\n=== IDX FILES UNDER {root.resolve()} ===")
+        found = sorted(root.glob("*.idx")) if root.is_dir() else []
+        if not found:
+            sections.append("<none>")
+        for path in found:
+            sections.append(f"\n--- {path} ---")
             sections.append(path.read_text(encoding="utf-8-sig", errors="replace"))
-        else:
-            sections.append("<missing>")
 
     diagnostic = "\n".join(sections) + "\n"
     (output_directory / "index-generator-error.txt").write_text(diagnostic, encoding="utf-8")
-    with (output_directory / "main.log").open("a", encoding="utf-8") as log:
-        log.write("\n" + diagnostic)
+    # Replace rather than append: this guarantees the existing artifact path
+    # exposes the index failure even when the CI log output is truncated.
+    (output_directory / "main.log").write_text(diagnostic, encoding="utf-8")
 
 
 def main() -> int:
@@ -166,15 +205,9 @@ def main() -> int:
 
     try:
         for name in EXPECTED:
-            idx_path = args.input_directory / f"{name}.idx"
-            if not idx_path.is_file():
-                available = ", ".join(str(path) for path in sorted(args.input_directory.glob("*.idx"))) or "none"
-                raise FileNotFoundError(
-                    f"Missing named index input: {idx_path}; available .idx files: {available}"
-                )
-
+            idx_path = resolve_idx(name, args.input_directory, args.output_directory)
             entries = parse_idx(idx_path)
-            ind_path = args.output_directory / f"{name}.ind"
+            ind_path = args.output_directory / f"main.{name}.ind"
             ind_path.write_text(render(entries), encoding="utf-8")
             print(f"Built {ind_path} from {len(entries)} entries in {idx_path}")
     except Exception as exc:
