@@ -15,7 +15,10 @@ import unicodedata
 from dataclasses import dataclass
 from pathlib import Path
 
-ENTRY_RE = re.compile(r"^\\indexentry\{(.*)\}\{([^{}]+)\}\s*$")
+# The page field may itself contain TeX grouping, for example Arabic digit
+# formatting commands. Match the complete second argument rather than banning
+# braces inside it.
+ENTRY_RE = re.compile(r"^\\indexentry\{(.*)\}\{(.*)\}\s*$")
 EXPECTED = ("people", "theorems", "symbols")
 
 
@@ -47,8 +50,9 @@ def parse_idx(path: Path) -> list[Entry]:
 
 
 def page_sort_key(page: str) -> tuple[int, int | str]:
-    if page.isdigit():
-        return (0, int(page))
+    plain_digits = re.sub(r"\D", "", page)
+    if plain_digits and not re.search(r"[A-Za-z]", page):
+        return (0, int(plain_digits))
     return (1, page)
 
 
@@ -87,7 +91,8 @@ def main() -> int:
     for name in EXPECTED:
         idx_path = args.input_directory / f"{name}.idx"
         if not idx_path.is_file():
-            raise SystemExit(f"Missing named index input: {idx_path}")
+            available = ", ".join(str(path) for path in sorted(args.input_directory.glob("*.idx"))) or "none"
+            raise SystemExit(f"Missing named index input: {idx_path}; available .idx files: {available}")
 
         entries = parse_idx(idx_path)
         ind_path = args.output_directory / f"{name}.ind"
