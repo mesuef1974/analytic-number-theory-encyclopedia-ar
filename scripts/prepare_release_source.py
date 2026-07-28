@@ -81,6 +81,14 @@ CROSS_REFERENCE_RE = re.compile(
     r"\\(?:ref|pageref|autoref|eqref)\s*\{ANT-(?:THM|LEM|PROP|COR|DEF|EX|REM|OPEN|COMP)-\d{2}-\d{2}\}"
 )
 
+PUBLICATION_ANT_ID_LABELS = {
+    "ANT-THM-02-04": "نتيجة الجمع الجزئي في الفصل الثاني",
+    "ANT-PROP-07-02": "قضية قطب الدالة الرئيسية في الفصل السابع",
+    "ANT-PROP-10-01": "تفكيك سلسلة الفئة إلى مشتقات لوغاريتمية للشخصيات",
+    "ANT-THM-09-02": "مبرهنة Wiener--Ikehara في الفصل التاسع",
+    "ANT-THM-09-03": "مبرهنة الأعداد الأولية النوعية في الفصل التاسع",
+}
+
 PUBLICATION_PROSE_REPLACEMENTS = {
     (
         "مع صيغة بيرون وتقديرات تحويل المسار تقود المنطقة الكلاسيكية إلى صيغة\n"
@@ -221,7 +229,7 @@ def strip_governance_blocks(text: str) -> str:
 
 
 def strip_display_ant_ids(text: str) -> str:
-    """Remove visible internal ANT IDs while preserving cross-reference labels."""
+    """Replace reader-facing ANT IDs, then remove the remaining internal IDs."""
     protected: list[str] = []
 
     def protect(match: re.Match[str]) -> str:
@@ -229,6 +237,8 @@ def strip_display_ant_ids(text: str) -> str:
         return f"@@ANTREF{len(protected) - 1}@@"
 
     text = CROSS_REFERENCE_RE.sub(protect, text)
+    for ant_id, label in PUBLICATION_ANT_ID_LABELS.items():
+        text = text.replace(ant_id, label)
     text = ANT_ID_RE.sub("", text)
     for index, reference in enumerate(protected):
         text = text.replace(f"@@ANTREF{index}@@", reference)
