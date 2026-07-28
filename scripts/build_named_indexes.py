@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import argparse
 import re
+import traceback
 import unicodedata
 from dataclasses import dataclass
 from pathlib import Path
@@ -136,6 +137,25 @@ def render(entries: list[Entry]) -> str:
     return "\n".join(lines)
 
 
+def write_diagnostics(output_directory: Path, input_directory: Path, exc: BaseException) -> None:
+    sections = [
+        "=== INDEX GENERATOR FAILURE ===",
+        "".join(traceback.format_exception(type(exc), exc, exc.__traceback__)),
+    ]
+    for name in EXPECTED:
+        path = input_directory / f"{name}.idx"
+        sections.append(f"\n=== {path} ===")
+        if path.is_file():
+            sections.append(path.read_text(encoding="utf-8-sig", errors="replace"))
+        else:
+            sections.append("<missing>")
+
+    diagnostic = "\n".join(sections) + "\n"
+    (output_directory / "index-generator-error.txt").write_text(diagnostic, encoding="utf-8")
+    with (output_directory / "main.log").open("a", encoding="utf-8") as log:
+        log.write("\n" + diagnostic)
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("output_directory", type=Path)
@@ -144,16 +164,22 @@ def main() -> int:
 
     args.output_directory.mkdir(parents=True, exist_ok=True)
 
-    for name in EXPECTED:
-        idx_path = args.input_directory / f"{name}.idx"
-        if not idx_path.is_file():
-            available = ", ".join(str(path) for path in sorted(args.input_directory.glob("*.idx"))) or "none"
-            raise SystemExit(f"Missing named index input: {idx_path}; available .idx files: {available}")
+    try:
+        for name in EXPECTED:
+            idx_path = args.input_directory / f"{name}.idx"
+            if not idx_path.is_file():
+                available = ", ".join(str(path) for path in sorted(args.input_directory.glob("*.idx"))) or "none"
+                raise FileNotFoundError(
+                    f"Missing named index input: {idx_path}; available .idx files: {available}"
+                )
 
-        entries = parse_idx(idx_path)
-        ind_path = args.output_directory / f"{name}.ind"
-        ind_path.write_text(render(entries), encoding="utf-8")
-        print(f"Built {ind_path} from {len(entries)} entries in {idx_path}")
+            entries = parse_idx(idx_path)
+            ind_path = args.output_directory / f"{name}.ind"
+            ind_path.write_text(render(entries), encoding="utf-8")
+            print(f"Built {ind_path} from {len(entries)} entries in {idx_path}")
+    except Exception as exc:
+        write_diagnostics(args.output_directory, args.input_directory, exc)
+        raise
 
     return 0
 
