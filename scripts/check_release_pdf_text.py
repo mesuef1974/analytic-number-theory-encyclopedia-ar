@@ -20,6 +20,17 @@ FORBIDDEN_LITERAL = (
     "POST-AUTHORING",
     "OWNER-ADOPTED",
     "ACTIVE-CITABLE",
+    "AUTHORED-DRAFT",
+    "NON-CITABLE",
+    "حالة الفصل",
+    "حالة المتن",
+    "حالة الحزمة",
+    "حالة النسخة",
+    "حالة الاعتماد",
+    "وضع الفصل",
+    "الوضع التحريري",
+    "ملاحظة تحريرية",
+    "تنبيه تحريري",
     "docs/",
     "manuscript/",
     "build/",
@@ -30,6 +41,7 @@ FORBIDDEN_LITERAL = (
 )
 
 FORBIDDEN_REGEX = (
+    re.compile(r"(?<![A-Z])DRAFT(?![A-Z])"),
     re.compile(r"\bPR\s*#?\s*\d+\b"),
     re.compile(r"\bIssue\s*#?\s*\d+\b"),
     re.compile(r"\b[0-9a-f]{40}\b", re.I),
@@ -59,7 +71,7 @@ def normalize_pdf_text(text: str) -> str:
     return normalized
 
 
-def contains_required(text: str, token: str) -> bool:
+def contains_token(text: str, token: str) -> bool:
     """Accept extraction-only whitespace inserted inside Arabic words."""
     if token in text:
         return True
@@ -80,9 +92,8 @@ def main() -> int:
     failures: list[str] = []
 
     for token in FORBIDDEN_LITERAL:
-        count = text.count(token)
-        if count:
-            failures.append(f"forbidden literal {token!r}: {count}")
+        if contains_token(text, token):
+            failures.append(f"forbidden literal {token!r}")
 
     for pattern in FORBIDDEN_REGEX:
         matches = pattern.findall(text)
@@ -90,7 +101,7 @@ def main() -> int:
             failures.append(f"forbidden pattern {pattern.pattern!r}: {len(matches)}")
 
     for token in REQUIRED:
-        if not contains_required(text, token):
+        if not contains_token(text, token):
             failures.append(f"required publication text missing: {token!r}")
 
     if failures:

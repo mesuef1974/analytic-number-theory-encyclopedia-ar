@@ -14,6 +14,7 @@ import shutil
 from pathlib import Path
 
 GOVERNANCE_TOKENS = (
+    "DRAFT",
     "REVIEWED",
     "APPROVED",
     "RELEASE-READY",
@@ -40,6 +41,19 @@ GOVERNANCE_TOKENS = (
     "Biber",
     "docs/",
     ".md",
+)
+
+EDITORIAL_STATUS_LABELS = (
+    "حالة الفصل:",
+    "حالة الفصل في الإصدار",
+    "حالة المتن:",
+    "حالة الحزمة:",
+    "حالة النسخة:",
+    "حالة الاعتماد:",
+    "وضع الفصل:",
+    "الوضع التحريري:",
+    "ملاحظة تحريرية:",
+    "تنبيه تحريري:",
 )
 
 STANDALONE_BADGE_RE = re.compile(
@@ -89,13 +103,20 @@ def contains_governance(text: str) -> bool:
     )
 
 
-def strip_status_lines(text: str) -> str:
-    """Remove only complete status lines; never span TeX paragraphs or math."""
+def is_editorial_status_paragraph(paragraph: str) -> bool:
+    """Identify preparation-only status prose independently of English tokens."""
+    compact = re.sub(r"\s+", " ", paragraph)
+    return any(label in compact for label in EDITORIAL_STATUS_LABELS)
+
+
+def strip_status_paragraphs(text: str) -> str:
+    """Remove complete editorial-status paragraphs, including wrapped lines."""
+    paragraphs = re.split(r"(\n\s*\n)", text)
     kept: list[str] = []
-    for line in text.splitlines(keepends=True):
-        if "حالة الفصل:" in line and contains_governance(line):
+    for paragraph in paragraphs:
+        if is_editorial_status_paragraph(paragraph):
             continue
-        kept.append(line)
+        kept.append(paragraph)
     return "".join(kept)
 
 
@@ -118,13 +139,26 @@ def strip_governance_environments(text: str) -> str:
     )
 
 
+def normalize_publication_headings(text: str) -> str:
+    replacements = {
+        r"\section{نطاق الفصل وحالته}": r"\section{نطاق الفصل}",
+        r"\section{نطاق الفصل وحالة المتن}": r"\section{نطاق الفصل}",
+        r"\section{نطاق الفصل وحالة الحزمة}": r"\section{نطاق الفصل}",
+        r"\section{نطاق الفصل ووضعه}": r"\section{نطاق الفصل}",
+        r"\section{نطاق الفصل وحالة النسخة}": r"\section{نطاق الفصل}",
+    }
+    for old, new in replacements.items():
+        text = text.replace(old, new)
+    return text
+
+
 def strip_governance_blocks(text: str) -> str:
-    text = strip_status_lines(text)
+    text = strip_status_paragraphs(text)
     text = strip_governance_environments(text)
 
     text = STANDALONE_BADGE_RE.sub("", text)
     text = ARG_BADGE_RE.sub("", text)
-    text = text.replace(r"\section{نطاق الفصل وحالته}", r"\section{نطاق الفصل}")
+    text = normalize_publication_headings(text)
 
     blocks = re.split(r"(\n\s*\n)", text)
     cleaned: list[str] = []
