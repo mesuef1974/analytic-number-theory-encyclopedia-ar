@@ -4,7 +4,7 @@
 ISSUE                 = #64
 BRANCH                = agent/release-p1-external-review-math-v0.31.0-dev
 BASE                  = main
-VERSION               = 0.31.0-dev
+VERSION               = 0.30.0-dev
 P0 BLOCKERS           = 0
 P1 STATUS             = REMEDIATED / VERIFICATION PENDING
 PUBLICATION-READY     = YES FOR P0 SCOPE ONLY
