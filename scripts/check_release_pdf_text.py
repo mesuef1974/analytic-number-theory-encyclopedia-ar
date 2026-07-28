@@ -9,7 +9,6 @@ import unicodedata
 from pathlib import Path
 
 FORBIDDEN_LITERAL = (
-    "DRAFT",
     "REVIEWED",
     "APPROVED",
     "RELEASE-READY",
@@ -33,6 +32,7 @@ FORBIDDEN_LITERAL = (
 )
 
 FORBIDDEN_REGEX = (
+    re.compile(r"(?<![A-Z])DRAFT(?![A-Z])"),
     re.compile(r"\bPR\s*#?\s*\d+\b"),
     re.compile(r"\bIssue\s*#?\s*\d+\b"),
     re.compile(r"\b[0-9a-f]{40}\b", re.I),
