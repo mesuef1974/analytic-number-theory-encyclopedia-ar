@@ -9,6 +9,7 @@ import unicodedata
 from pathlib import Path
 
 FORBIDDEN_LITERAL = (
+    "DRAFT",
     "REVIEWED",
     "APPROVED",
     "RELEASE-READY",
@@ -20,6 +21,8 @@ FORBIDDEN_LITERAL = (
     "POST-AUTHORING",
     "OWNER-ADOPTED",
     "ACTIVE-CITABLE",
+    "AUTHORED-DRAFT",
+    "NON-CITABLE",
     "docs/",
     "manuscript/",
     "build/",
