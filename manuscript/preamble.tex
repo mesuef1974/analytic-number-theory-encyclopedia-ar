@@ -186,6 +186,20 @@
   \resultbadge{red!20}{مسألة مفتوحة}\par
 }
 
+% بطاقة "أحدث ما وصل إليه الحدّ" للجبهات البحثية الحديثة (الفصول ٢٢--٢٦).
+% تطبّق حرفيًا بروتوكول تحديث الخريطة في الفصل ٢٦: تاريخ قطع صريح، وحالة نشر،
+% ومصدر أساسي، وتحديد الجملة/النتيجة المتأثرة. ليست بديلًا عن بحث محدّث مستقل؛
+% إنما تجعل تاريخ آخر تحقق ظاهرًا للقارئ بدل عبارة "الأحدث" غير المؤرَّخة.
+\newcommand{\frontierupdatebadge}{\resultbadge{cyan!20}{تحديث الجبهة}}
+\newenvironment{frontiercard}[3]{%
+  \par\medskip\noindent\frontierupdatebadge\par
+  \noindent\textbf{تاريخ القطع:}~#1\hfill\textbf{حالة النشر:}~#2\par
+  \noindent\textbf{المصدر الأساسي:}~#3\par
+  \noindent\ignorespaces
+}{%
+  \par\medskip
+}
+
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[LE,RO]{\thepage}
