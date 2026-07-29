@@ -22,8 +22,8 @@ P1-REVIEW               = APPROVED
 P1-BLOCKERS             = 0
 P1-MERGE-HEAD           = 1a96640ec8e5744b076afc91c58eabe893a43001
 P2-BRANCH               = agent/release-p2-external-review-production-v0.31.0-dev
-P2-ISSUE                = لم يُفتح بعد؛ ينتظر إذن المالك
-P2-PR                   = لم يُفتح بعد؛ ينتظر إذن المالك
+P2-ISSUE                = #67 / OPEN
+P2-PR                   = #68 / DRAFT / OPEN
 P2-SCOPE                = طبقة بصرية (P2-01) + بطاقات جبهات مؤرَّخة (P2-06) +
                           تدقيق براهين مستقل (P2-04) + إصلاح تسرّب فهارس (P2-05)
                           + إصلاح تشوّه بطاقات الحالة (تحكيم صريح) + هوية

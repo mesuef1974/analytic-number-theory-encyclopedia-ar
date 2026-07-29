@@ -68,8 +68,8 @@ Issue/PR بعد. الأعمال أدناه منجَزة على الفرع فقط
 - [ ] P2-07: تحقق عددي آلي شامل لكل ثابت رقمي صريح مذكور في المتن (لم يبدأ).
 - [ ] P2-08: إعادة تصميم الغلاف (لم يبدأ).
 - [ ] حسم بيانات P2-C المتبقية: رقم الإصدار النهائي، صاحب الحقوق، ISBN/DOI، ترخيص `LICENSE` الحالي.
-- [ ] فتح Issue وPR لفرع P2 على GitHub — **قرار مالك صريح منفصل**، لم يُطلب بعد.
-- [ ] دمج فرع P2 بـ`main` — يتطلب اعتماد مالك بعد قرار الدمج أعلاه.
+- [x] فتح Issue #67 وDraft PR #68 لفرع P2 على GitHub، بإذن مالك صريح.
+- [ ] دمج فرع P2 بـ`main` — يتطلب حسم بيانات P2-C المتبقية وقرار مالك مستقل بشأن `RELEASE-READY` أولًا (المالك صرّح صراحةً بتأجيل هذين القرارين الآن).
 
 ## ديون غير حاجزة مبدئيًا
 
@@ -93,8 +93,8 @@ P1-MERGE-HEAD     = 1a96640ec8e5744b076afc91c58eabe893a43001
 OPEN-MAJORS       = 0
 OVERFULL >= 20pt  = 0
 P2-BRANCH         = agent/release-p2-external-review-production-v0.31.0-dev
-P2-ISSUE          = NOT-OPENED / OWNER-DECISION-PENDING
-P2-PR             = NOT-OPENED / OWNER-DECISION-PENDING
+P2-ISSUE          = #67 / OPEN
+P2-PR             = #68 / DRAFT / OPEN
 P2-CRITICAL-FIXES = 2 (تسرّب فهارس + تشوّه بطاقات حالة) / VERIFIED
 P2-BLOCKED        = 1 (P2-02 وسم PDF، خارج نطاق المشروع)
 P2-OPEN           = P2-07 (تحقق عددي)، P2-08 (غلاف)، بيانات P2-C المتبقية
