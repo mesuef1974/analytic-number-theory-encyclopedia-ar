@@ -1,7 +1,8 @@
 """Numerical verification of the Hilbert-inequality chain used in chapter 58.
 
-Verifies, in order, the PROVED-HERE results of
-docs/CHAPTER_58_PROOF_MAP_2026-07-29.md:
+Verifies, in order, results 1-6 of docs/CHAPTER_58_PROOF_MAP_2026-07-29.md.
+Result 1 is CITED there (a classical Fourier series, not proved in the
+chapter); results 2-6 are the PROVED-HERE ones:
 
   (1) sawtooth Fourier series  sum_{k>=1} sin(2 pi k x)/k = pi(1/2 - x),  0<x<1
   (2) g(x) := sum_{k != 0} e(kx)/k = i pi (1 - 2x),  hence |g| < pi on (0,1)
@@ -81,7 +82,7 @@ def main():
         worst_identity = max(worst_identity, err)
         print(f"      N={n_terms:3d}  |form - integral| = {err:.2e}")
 
-    print("(5) Hilbert inequality, 400 random complex trials, N in [2,40]:")
+    print("(5) Hilbert inequality, 400 random complex trials, N in [2,39]:")
     worst_ratio = 0.0
     for _ in range(400):
         n = int(rng.integers(2, 40))
