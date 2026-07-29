@@ -1,6 +1,6 @@
 """Numerical evidence that pi is the sharp constant in Hilbert's inequality.
 
-This is EVIDENCE, NOT A PROOF. Sharpness (result 6 of
+This is EVIDENCE, NOT A PROOF. Sharpness (result 8 of
 docs/CHAPTER_58_PROOF_MAP_2026-07-29.md) is CITED to Schur (1911) and
 Hardy-Littlewood-Polya, Inequalities, 2nd ed., Theorem 294 -- chapter 58
 does not prove it. This script only shows the operator norm creeping up
@@ -15,7 +15,7 @@ should approach 1 from below as N grows.
 Note the diagonal restriction matters: probing sharpness with REAL
 sequences fails, because the form vanishes identically there (antisymmetric
 kernel against symmetric weights) -- verified in
-verify_hilbert_inequality.py, result (5).
+verify_hilbert_inequality.py, result (6).
 
 Run:  python scripts/verify_hilbert_sharpness.py
 """

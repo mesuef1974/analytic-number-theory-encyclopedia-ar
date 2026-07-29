@@ -17,7 +17,7 @@ docs/CHAPTER_58_PROOF_MAP_2026-07-29.md:
 
 Sharpness of the constant pi is NOT checked here -- it needs the operator
 norm, see verify_hilbert_sharpness.py. (An earlier version of this script
-tried to probe sharpness with real sequences z_n = n^{-1/2}; by (5) those
+tried to probe sharpness with real sequences z_n = n^{-1/2}; by (6) those
 make the form vanish, so it was measuring zero. Kept out deliberately.)
 
 Run:  python scripts/verify_hilbert_inequality.py
@@ -66,7 +66,7 @@ def main():
     x3 = (np.arange(nodes3) + 0.5) / nodes3
     g3 = 1j * np.pi * (1 - 2 * x3)
     err3 = 0.0
-    for j in (-5, -3, -1, 1, 2, 4, 7):
+    for j in (-5, -3, -1, 1, 2, 3, 4, 7):
         val = np.sum(np.exp(2j * np.pi * j * x3) * g3) / nodes3
         err3 = max(err3, abs(val - (-1.0 / j)))
     err3_zero = abs(np.sum(g3) / nodes3)
