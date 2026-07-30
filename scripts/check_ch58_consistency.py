@@ -72,9 +72,27 @@ def check(label: str, ok: bool, detail: str = "") -> None:
         failures.append(f"{label} {detail}".strip())
 
 
-def declared(text: str, label_pattern: str) -> list[int]:
-    """Every number written immediately before the given label."""
-    return [norm(m) for m in re.findall(rf"({NUM}){GAP}(?:{label_pattern})", text)]
+def declared(text: str, label_pattern: str, reverse: bool = True) -> list[int]:
+    """Every number bound to the given label.
+
+    Both "8 PROVED-HERE" and "PROVED-HERE = 8" are declarations; matching
+    only the first direction let "PROVED-HERE = 99" through, which a
+    negative control exposed. The reverse direction is restricted to the
+    SAME LINE, and is disabled entirely for totals (which are always
+    written number-first, e.g. "14 identifiers = 8 + 2 + 4" -- reading
+    across the newline there wrongly captured the 8).
+    """
+    # Inline code spans are illustrations, not declarations: documentation
+    # that quotes a bad pattern like `PROVED-HERE = 99` must not trip the
+    # gate on itself. Legitimate declarations put the number outside the
+    # span ("8 `PROVED-HERE`"), so blanking span INTERIORS is safe.
+    scannable = re.sub(r"`[^`\n]*`", lambda m: " " * len(m.group(0)), text)
+
+    out = [norm(m) for m in re.findall(rf"({NUM}){GAP}(?:{label_pattern})", text)]
+    if reverse:
+        out += [norm(m) for m in
+                re.findall(rf"(?:{label_pattern})[ \t]*[:=][ \t]*({NUM})", scannable)]
+    return out
 
 
 def main() -> int:
@@ -110,14 +128,15 @@ def main() -> int:
                 check(f"{path.name}: '{n} {key}'", n == truth[key],
                       f"expected {truth[key]}")
 
-    # total, wherever a total is declared
+    # The declared TOTAL must equal the true total exactly. An earlier
+    # version exempted any value that happened to match a category count,
+    # which let a 14 -> 8 change pass; a negative control exposed that.
     for path in GOVERNANCE:
         text = read(path)
-        for n in declared(text, r"(?:DRAFT / NON-CITABLE|معرِّفًا|مسجَّلة)"):
-            if n in (total, truth["PROVED-HERE"], truth["CITED"],
-                     truth["METHODOLOGICAL-PRINCIPLE"]):
-                continue
-            check(f"{path.name}: stray total '{n}'", False, f"expected {total}")
+        for n in declared(text, r"(?:DRAFT / NON-CITABLE|معرِّفًا|مسجَّلة)",
+                          reverse=False):
+            check(f"{path.name}: declared total '{n}'", n == total,
+                  f"expected {total}")
 
     # --- 3. post-authoring round counts must agree everywhere ---
     # Only DECLARATIONS count: a number bound to an explicit post-authoring
@@ -175,14 +194,22 @@ def main() -> int:
                         r"|نتيجةً واحدة من الصفر")
     for path in [CHAPTER, *GOVERNANCE]:
         text = read(path)
+        # An exemption must apply to THIS occurrence only. The earlier
+        # version tested "«" + phrase anywhere in the file, so one quoted
+        # instance silently exempted every other live claim in the same
+        # file -- a negative control exposed that.
         hit = None
         for m in single.finditer(text):
-            window = text[max(0, m.start() - 200): m.end() + 200]
-            quoted = (text[max(0, m.start() - 2): m.start()].strip().endswith("«")
-                      or "«" + m.group(0) in text)
-            historical = "تاريخي" in window or "وقت تلك" in window
+            before = text[max(0, m.start() - 3): m.start()]
+            after = text[m.end(): m.end() + 3]
+            quoted = "«" in before and "»" in after
+            # a same-sentence historical marker, not a whole-file one
+            line_start = text.rfind("\n", 0, m.start()) + 1
+            line_end = text.find("\n", m.end())
+            line = text[line_start: line_end if line_end != -1 else len(text)]
+            historical = "تاريخي" in line or "وقت تلك" in line
             if quoted or historical:
-                continue  # a quotation of a past finding, not a live claim
+                continue
             hit = m
             break
         check(f"{path.name}: no unqualified single-result claim",
