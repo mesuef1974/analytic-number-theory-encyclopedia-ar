@@ -13,10 +13,15 @@ INDEPENDENT-REVIEW            = CHANGES-REQUIRED / CORRECTIONS-APPLIED
 SECOND-NARROW-REVIEW          = CHANGES-REQUIRED / CORRECTIONS-APPLIED
                                  (لا خطأ رياضي جديد؛ دين تحريري في الترقيم
                                  وتناقض الفصل ١٨ — صُحِّح كله)
-THIRD-NARROW-REVIEW           = PENDING
-PASS-FOR-AUTHORING            = NO
-AUTHORING                     = BLOCKED
-RESULTS                       = 0 RESERVED حتى الآن
+THIRD-NARROW-REVIEW           = PASS (اتساق الترقيم عبر كل الملفات)
+DOC-TYPE                      = PRE-AUTHORING / AUDIT — نوع الوثيقة
+                                 التاريخي، لا حالة الفصل الحالية
+CHAPTER-STATUS                = AUTHORED-DRAFT / NON-CITABLE (الفصل
+                                 مؤلَّف فعلًا؛ انظر قسم الخلل الحوكمي)
+PASS-FOR-AUTHORING            = NO (لم يُمنَح قبل التأليف — مخالفة مسجَّلة)
+POST-AUTHORING-REVIEW         = 3 جولات (CHAPTER_58_POST_AUTHORING_REVIEW_2026-07-30.md)
+RESULTS                       = 12 DRAFT / NON-CITABLE، صفر مُفعَّل
+                                 (RESULTS_REGISTRY_CHAPTER_58_DRAFT.md)
 MERGE                         = NOT AUTHORIZED
 RELEASE-READY                 = NO
 ```
@@ -171,8 +176,13 @@ OWNER DECISION (2026-07-30، أ) = تجميد المجلد الخامس وإنه
 OWNER DECISION (2026-07-30، ب) = استئناف المجلد الخامس («ثم اكمل في المجلد
                                   الخامس») — نافذ
 AUTHORING-ACTUALLY-STARTED    = YES (الفصل مؤلَّف ومدفوع)
-FOURTH-CONFIRMATION           = NOT DONE
-AUTHORING_AUTHORIZATION DOC   = NOT ISSUED
+FOURTH-CONFIRMATION           = PASS (مُنحت 2026-07-30 من المالك،
+                                 للتصحيحات الخمسة السابقة حصرًا)
+HLP-DIRECT-READING            = DONE-LATE (1934، المبرهنة 294) —
+                                 المخالفة التاريخية باقية مسجَّلة
+POST-AUTHORING-REVIEW         = 3 جولات (المحضر في
+                                 CHAPTER_58_POST_AUTHORING_REVIEW_2026-07-30.md)
+AUTHORING_AUTHORIZATION DOC   = NOT ISSUED (ولن يُصدَر بأثر رجعي)
 GATE-SATISFIED                = NO
 ```
 
