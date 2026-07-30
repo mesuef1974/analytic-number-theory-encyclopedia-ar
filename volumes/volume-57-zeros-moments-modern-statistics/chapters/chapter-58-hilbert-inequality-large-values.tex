@@ -371,14 +371,17 @@ g(x)=2i\sum_{k\ge1}\frac{\sin(2\pi kx)}{k}
 \label{prop:ch58-mv-weighted-cited}
 \resultid{ANT-PROP-58-05}
 \citedresult{\cite{MontgomeryVaughan1974}}
-لتكن \(\lambda_1<\dots<\lambda_N\) أعدادًا حقيقية، ولنضع
+ليكن \(N\ge2\)، ولتكن \(\lambda_1<\dots<\lambda_N\) أعدادًا حقيقية،
+ولنضع
 \[
 \delta_n:=\min_{m\ne n}\lvert\lambda_n-\lambda_m\rvert
 \]
 (أي أقرب مسافة إلى أي نقطة أخرى؛ هذه الصياغة معرَّفة تعريفًا تامًّا عند
 الطرفين \(n=1\) و\(n=N\) أيضًا، بخلاف صياغة الجارَين
 \(\min\{\lambda_n-\lambda_{n-1},\lambda_{n+1}-\lambda_n\}\) التي تستدعي
-\(\lambda_0\) و\(\lambda_{N+1}\) غير المعرَّفتين).
+\(\lambda_0\) و\(\lambda_{N+1}\) غير المعرَّفتين). شرط \(N\ge2\) لازم
+لأن الحدّ الأدنى عند \(N=1\) مأخوذ على مجموعة خالية فلا يكون معرَّفًا؛
+والحالة \(N=1\) تافهة على أي حال إذ يخلو المجموع من أي حدّ.
 عندئذٍ يوجد ثابت مطلق \(C_1\) بحيث
 \[
 \Biggl\lvert\sum_{m\ne n}\frac{z_m\overline{z_n}}{\lambda_m-\lambda_n}\Biggr\rvert
@@ -406,12 +409,16 @@ g(x)=2i\sum_{k\ge1}\frac{\sin(2\pi kx)}{k}
 \label{prop:ch58-large-values-cited}
 \resultid{ANT-PROP-58-06}
 \citedresult{\cite{Montgomery1969}}
-ليكن \(F(s)=\sum_{n\le N}a_nn^{-s}\)، ولتكن \(t_1,\dots,t_R\) نقاطًا في
-\([-T,T]\) متباعدة بمسافة \(\ge1\). إذا كان \(\lvert F(it_r)\rvert\ge V\)
-لكل \(r\)، فإن
+ليكن \(N\in\mathbb{N}\)، و\(T\ge1\)، و\(V>0\)، وليكن
+\(F(s)=\sum_{n\le N}a_nn^{-s}\) بمعاملات مركّبة \(a_n\). ولتكن
+\(t_1,\dots,t_R\) نقاطًا في \([-T,T]\) متباعدة بمسافة \(\ge1\)
+(أي \(\lvert t_r-t_s\rvert\ge1\) لكل \(r\ne s\)). إذا كان
+\(\lvert F(it_r)\rvert\ge V\) لكل \(r\)، فإن
 \[
-R\ll\frac{(N+T)\log(2N)}{V^2}\sum_{n\le N}\lvert a_n\rvert^2.
+R\ll\frac{(N+T)\log(2N)}{V^2}\sum_{n\le N}\lvert a_n\rvert^2,
 \]
+حيث الثابت الضمني في \(\ll\) \textbf{مطلق} (لا يتوقف على \(N\) ولا
+\(T\) ولا \(V\) ولا المعاملات).
 \end{proposition}
 
 \section{ما الذي لم يثبته هذا الفصل؟}
