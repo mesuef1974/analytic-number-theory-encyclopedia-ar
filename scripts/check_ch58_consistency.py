@@ -73,6 +73,35 @@ NUM = r"[0-9٠-٩]{1,3}"
 # markdown emphasis / backticks / spaces may sit between number and label
 GAP = r"[\s*`ً-ٟ]{0,8}"
 
+# Fields that must EXIST, each anchored to the canonical line that carries
+# it. "Somewhere in the file" is not enough: a prose mention elsewhere kept
+# standing in for a deleted header field, so the header line itself is what
+# is required here.
+D = r"[0-9٠-٩]"
+REQUIRED_FIELDS = {
+    "CHAPTER_58_SCOPE_2026-07-29.md": {
+        "THEOREMS": rf"^THEOREMS\s+=\s*{D}",
+        "PROVED-HERE": rf"^PROVED-HERE\s+=\s*{D}",
+    },
+    "CHAPTER_58_PROOF_MAP_2026-07-29.md": {
+        "THEOREMS": rf"^THEOREMS\s*=\s*{D}",
+        "PROVED-HERE": rf"^PROVED-HERE\s*=\s*{D}",
+    },
+    "RESULTS_REGISTRY_CHAPTER_58_DRAFT.md": {
+        "THEOREMS": rf"^THEOREMS\s+=\s*{D}",
+        "PROVED-HERE": rf"^\s*=\s*{D}+\s+PROVED-HERE",
+        "METHODOLOGICAL-PRINCIPLE": rf"^\s*\+\s*{D}+\s+METHODOLOGICAL-PRINCIPLE",
+        "CITED": rf"^\s*\+\s*{D}+\s+CITED",
+        "ROUNDS": rf"^POST-AUTHORING-REVIEW\s+=\s*{D}+\s+ROUNDS BY OWNER",
+    },
+    "CHAPTER_58_POST_AUTHORING_REVIEW_2026-07-30.md": {
+        "ROUNDS": rf"^ROUNDS\s+=\s*{D}",
+    },
+    "CHAPTER_58_PRE_AUTHORING_AUDIT_2026-07-29.md": {
+        "ROUNDS": rf"^POST-AUTHORING-REVIEW\s+=\s*{D}",
+    },
+}
+
 # Review rounds are written as Arabic ordinals in the minutes' headings.
 ORDINALS = {w: i + 1 for i, w in enumerate([
     "الأولى", "الثانية", "الثالثة", "الرابعة", "الخامسة", "السادسة",
@@ -204,6 +233,18 @@ def main() -> int:
     check("a single post-authoring round count is declared everywhere",
           len(all_vals) <= 1,
           f"found {all_vals} in {rounds}")
+
+    # --- 3b. the canonical fields must EXIST where they belong ---
+    # Checking that declarations agree says nothing about a declaration that
+    # is gone: deleting "THEOREMS = 1" from SCOPE, or "ROUNDS = 11" from the
+    # minutes header, left nothing to disagree with and passed. Absence is
+    # the cheapest way to lose a fact, so presence is required by name.
+    print("\ncanonical fields present where required:")
+    for name, fields in REQUIRED_FIELDS.items():
+        text = read(DOCS / name)
+        for field, anchor in fields.items():
+            check(f"{name}: declares {field} on its canonical line",
+                  re.search(anchor, text, re.M) is not None, "field absent")
 
     # --- 4. norm equality must never be called numerical ---
     print("\nB_N = Q_N presented as proved, not numerical:")
