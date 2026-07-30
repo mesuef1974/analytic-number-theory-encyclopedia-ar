@@ -47,6 +47,10 @@ GOVERNANCE = [
     REGISTRY,
 ]
 
+# Explicit, auditable opt-out for lines that quote a pattern as an example
+# rather than declaring it. Written on the line itself.
+GATE_IGNORE = "<!-- gate-ignore -->"
+
 ARABIC_INDIC = str.maketrans("٠١٢٣٤٥٦٧٨٩", "0123456789")
 NUM = r"[0-9٠-٩]{1,3}"
 # markdown emphasis / backticks / spaces may sit between number and label
@@ -82,13 +86,19 @@ def declared(text: str, label_pattern: str, reverse: bool = True) -> list[int]:
     written number-first, e.g. "14 identifiers = 8 + 2 + 4" -- reading
     across the newline there wrongly captured the 8).
     """
-    # Inline code spans are illustrations, not declarations: documentation
-    # that quotes a bad pattern like `PROVED-HERE = 99` must not trip the
-    # gate on itself. Legitimate declarations put the number outside the
-    # span ("8 `PROVED-HERE`"), so blanking span INTERIORS is safe.
-    scannable = re.sub(r"`[^`\n]*`", lambda m: " " * len(m.group(0)), text)
+    # Backticks are stripped UNIFORMLY before extraction, so both
+    # "8 `PROVED-HERE`" and "`PROVED-HERE` = 99" are read the same way.
+    # The earlier version blanked span interiors for the reverse direction
+    # only, which made parsing asymmetric: "`PROVED-HERE` = 99" slipped
+    # through while "`99 PROVED-HERE`" was rejected.
+    #
+    # Genuine illustrations opt out explicitly, per line, with a marker.
+    # An opt-out you have to write is auditable; one inferred from
+    # formatting is not.
+    lines = [ln for ln in text.split("\n") if GATE_IGNORE not in ln]
+    scannable = "\n".join(lines).replace("`", "")
 
-    out = [norm(m) for m in re.findall(rf"({NUM}){GAP}(?:{label_pattern})", text)]
+    out = [norm(m) for m in re.findall(rf"({NUM}){GAP}(?:{label_pattern})", scannable)]
     if reverse:
         out += [norm(m) for m in
                 re.findall(rf"(?:{label_pattern})[ \t]*[:=][ \t]*({NUM})", scannable)]
@@ -190,25 +200,25 @@ def main() -> int:
 
     # --- 7. no 'only one proved result' claim while several exist ---
     print("\nno 'single proved result' claim:")
-    single = re.compile(r"النتيجة الوحيدة (?:المبرهَنة|التي تُثبَت)"
-                        r"|نتيجةً واحدة من الصفر")
+    # Broad on purpose: earlier versions enumerated the exact wordings seen
+    # so far, so a rephrasing ("نتيجة واحدة مُثبَتة", "النتيجة الوحيدة في
+    # هذا الفصل") walked straight past. Any "single result" phrasing is a
+    # candidate; genuine exceptions opt out per line with GATE_IGNORE.
+    single = re.compile(r"\w*نتيجة\s+الوحيدة|نتيجةً?\s+واحدة")
     for path in [CHAPTER, *GOVERNANCE]:
         text = read(path)
-        # An exemption must apply to THIS occurrence only. The earlier
-        # version tested "«" + phrase anywhere in the file, so one quoted
-        # instance silently exempted every other live claim in the same
-        # file -- a negative control exposed that.
+        # Exemption is by EXPLICIT per-line marker only. Earlier versions
+        # inferred it from quotation marks or nearby words, which was both
+        # leaky (a whole-file test exempted unrelated live claims) and
+        # brittle (a quoted phrase whose closing mark sat more than three
+        # characters away was flagged anyway). Requiring an author to write
+        # the marker makes every exemption visible in the diff.
         hit = None
         for m in single.finditer(text):
-            before = text[max(0, m.start() - 3): m.start()]
-            after = text[m.end(): m.end() + 3]
-            quoted = "«" in before and "»" in after
-            # a same-sentence historical marker, not a whole-file one
             line_start = text.rfind("\n", 0, m.start()) + 1
             line_end = text.find("\n", m.end())
             line = text[line_start: line_end if line_end != -1 else len(text)]
-            historical = "تاريخي" in line or "وقت تلك" in line
-            if quoted or historical:
+            if GATE_IGNORE in line:
                 continue
             hit = m
             break
