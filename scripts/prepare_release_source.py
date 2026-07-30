@@ -1,10 +1,5 @@
 #!/usr/bin/env python3
-"""Create a publication-facing TeX tree without mutating draft sources.
-
-The draft manuscript remains the canonical auditable source. This script copies
-its TeX inputs to a generated tree, removes governance-only material, and
-rewrites input/resource paths so LuaLaTeX compiles the generated copy.
-"""
+"""Create a publication-facing TeX tree without mutating draft sources."""
 
 from __future__ import annotations
 
@@ -14,46 +9,25 @@ import shutil
 from pathlib import Path
 
 GOVERNANCE_TOKENS = (
-    "DRAFT",
-    "REVIEWED",
-    "APPROVED",
-    "RELEASE-READY",
-    "NOT-RELEASE-READY",
-    "PASS-FOR-AUTHORING",
-    "REFERENCE-AUDIT",
-    "EVIDENCE-FIRST",
-    "PRE-AUTHORING",
-    "POST-AUTHORING",
-    "OWNER-ADOPTED",
-    "ACTIVE-CITABLE",
-    "AUTHORED-DRAFT",
-    "NON-CITABLE",
-    "PROVED-HERE",
-    "CITED-EXPLAINED",
-    "CITED-FRAMEWORK",
-    "CITED-DEFINITION",
-    "CITED-CORE",
-    "COMPACT-PROTOTYPE",
-    "VERSION INTERNAL LIMITED",
-    "GitHub",
-    "worktree",
-    "XeLaTeX",
-    "Biber",
-    "docs/",
-    ".md",
+    "DRAFT", "REVIEWED", "APPROVED", "RELEASE-READY", "NOT-RELEASE-READY",
+    "PASS-FOR-AUTHORING", "REFERENCE-AUDIT", "EVIDENCE-FIRST",
+    "PRE-AUTHORING", "POST-AUTHORING", "OWNER-ADOPTED", "ACTIVE-CITABLE",
+    "AUTHORED-DRAFT", "NON-CITABLE", "PROVED-HERE", "CITED-EXPLAINED",
+    "CITED-FRAMEWORK", "CITED-DEFINITION", "CITED-CORE",
+    "COMPACT-PROTOTYPE", "VERSION INTERNAL LIMITED", "GitHub", "worktree",
+    "XeLaTeX", "Biber", "docs/", ".md",
 )
 
 EDITORIAL_STATUS_LABELS = (
-    "حالة الفصل:",
-    "حالة الفصل في الإصدار",
-    "حالة المتن:",
-    "حالة الحزمة:",
-    "حالة النسخة:",
-    "حالة الاعتماد:",
-    "وضع الفصل:",
-    "الوضع التحريري:",
-    "ملاحظة تحريرية:",
-    "تنبيه تحريري:",
+    "حالة الفصل:", "حالة الفصل في الإصدار", "حالة المتن:", "حالة الحزمة:",
+    "حالة النسخة:", "حالة الاعتماد:", "وضع الفصل:", "الوضع التحريري:",
+    "ملاحظة تحريرية:", "تنبيه تحريري:",
+)
+
+ARABIC_GOVERNANCE_SENTENCE_PHRASES = (
+    "مسودة غير قابلة للاستشهاد", "حالة المستودع الحالية", "حالة دفعة التأليف",
+    "قرار المالك الصريح", "اعتماد المالك", "بعد نجاح البناء",
+    "اعتمده مالك المشروع", "أذن بدمجه",
 )
 
 STANDALONE_BADGE_RE = re.compile(
@@ -62,10 +36,24 @@ STANDALONE_BADGE_RE = re.compile(
 ARG_BADGE_RE = re.compile(
     r"(?m)^\s*\\(?:citedresult|deferredresult|conditionalresult)\s*\{[^\n]*\}\s*$"
 )
-ANT_ID_RE = re.compile(r"ANT-(?:THM|LEM|PROP|COR|DEF|EX|REM|OPEN|COMP)-\d{2}-\d{2}")
-CROSS_REFERENCE_RE = re.compile(
-    r"\\(?:ref|pageref|autoref|eqref)\s*\{ANT-(?:THM|LEM|PROP|COR|DEF|EX|REM|OPEN|COMP)-\d{2}-\d{2}\}"
+AUTHORING_STATUS_HEADING_RE = re.compile(
+    r"(?m)^\s*\\section\*?\{حالة دفعة التأليف[^}]*\}\s*$"
 )
+ANT_ID_RE = re.compile(
+    r"ANT-(?:THM|LEM|PROP|COR|DEF|EX|REM|OPEN|COMP)-\d{2}-\d{2}"
+)
+CROSS_REFERENCE_RE = re.compile(
+    r"\\(?:ref|pageref|autoref|eqref)\s*\{"
+    r"ANT-(?:THM|LEM|PROP|COR|DEF|EX|REM|OPEN|COMP)-\d{2}-\d{2}\}"
+)
+
+PUBLICATION_ANT_ID_LABELS = {
+    "ANT-THM-02-04": "نتيجة الجمع الجزئي في الفصل الثاني",
+    "ANT-PROP-07-02": "قضية قطب الدالة الرئيسية في الفصل السابع",
+    "ANT-PROP-10-01": "تفكيك سلسلة الفئة إلى مشتقات لوغاريتمية للشخصيات",
+    "ANT-THM-09-02": "مبرهنة Wiener--Ikehara في الفصل التاسع",
+    "ANT-THM-09-03": "مبرهنة الأعداد الأولية النوعية في الفصل التاسع",
+}
 
 PUBLICATION_PROSE_REPLACEMENTS = {
     (
@@ -84,8 +72,6 @@ RELEASE_OVERRIDES = r"""
 % Publication build: suppress draft-governance badges and stable internal IDs.
 \renewcommand{\resultid}[1]{}
 \renewcommand{\provedhere}{}
-% Keep the optional-argument signature used by manuscript/main.tex. Changing it
-% to a mandatory argument makes bare \citedresult calls consume the next token.
 \renewcommand{\citedresult}[1][المذكور في الشرح التالي]{}
 \renewcommand{\deferredresult}[1]{}
 \renewcommand{\conditionalresult}[1]{}
@@ -104,31 +90,39 @@ def contains_governance(text: str) -> bool:
 
 
 def is_editorial_status_paragraph(paragraph: str) -> bool:
-    """Identify preparation-only status prose independently of English tokens."""
     compact = re.sub(r"\s+", " ", paragraph)
     return any(label in compact for label in EDITORIAL_STATUS_LABELS)
 
 
-def strip_status_paragraphs(text: str) -> str:
-    """Remove complete editorial-status paragraphs, including wrapped lines."""
+def strip_governance_sentences(text: str) -> str:
     paragraphs = re.split(r"(\n\s*\n)", text)
-    kept: list[str] = []
+    cleaned: list[str] = []
     for paragraph in paragraphs:
-        if is_editorial_status_paragraph(paragraph):
+        current = paragraph
+        if not current.strip() or re.fullmatch(r"\n\s*\n", current):
+            cleaned.append(current)
             continue
-        kept.append(paragraph)
-    return "".join(kept)
+        for phrase in ARABIC_GOVERNANCE_SENTENCE_PHRASES:
+            if phrase not in re.sub(r"\s+", " ", current):
+                continue
+            pattern = re.compile(
+                rf"(?s)(^|(?<=\.))\s*[^.]*{re.escape(phrase)}[^.]*\."
+            )
+            current = pattern.sub("", current)
+        cleaned.append(current)
+    return "".join(cleaned)
+
+
+def strip_status_paragraphs(text: str) -> str:
+    paragraphs = re.split(r"(\n\s*\n)", text)
+    return "".join(
+        paragraph for paragraph in paragraphs
+        if not is_editorial_status_paragraph(paragraph)
+    )
 
 
 def strip_governance_environments(text: str) -> str:
-    """Remove list/table environments only when their contents are governance."""
-    environment_names = (
-        "itemize",
-        "enumerate",
-        "tabular",
-        "tabularx",
-        "longtable",
-    )
+    environment_names = ("itemize", "enumerate", "tabular", "tabularx", "longtable")
     env_re = re.compile(
         rf"\\begin\{{({'|'.join(environment_names)})\}}.*?\\end\{{\1\}}",
         re.S,
@@ -142,46 +136,66 @@ def strip_governance_environments(text: str) -> str:
 def normalize_publication_headings(text: str) -> str:
     replacements = {
         r"\section{نطاق الفصل وحالته}": r"\section{نطاق الفصل}",
+        r"\section*{نطاق الفصل وحالته}": r"\section*{نطاق الفصل}",
         r"\section{نطاق الفصل وحالة المتن}": r"\section{نطاق الفصل}",
+        r"\section*{نطاق الفصل وحالة المتن}": r"\section*{نطاق الفصل}",
         r"\section{نطاق الفصل وحالة الحزمة}": r"\section{نطاق الفصل}",
+        r"\section*{نطاق الفصل وحالة الحزمة}": r"\section*{نطاق الفصل}",
         r"\section{نطاق الفصل ووضعه}": r"\section{نطاق الفصل}",
+        r"\section*{نطاق الفصل ووضعه}": r"\section*{نطاق الفصل}",
         r"\section{نطاق الفصل وحالة النسخة}": r"\section{نطاق الفصل}",
+        r"\section*{نطاق الفصل وحالة النسخة}": r"\section*{نطاق الفصل}",
     }
     for old, new in replacements.items():
         text = text.replace(old, new)
-    return text
+    return AUTHORING_STATUS_HEADING_RE.sub("", text)
 
 
 def strip_governance_blocks(text: str) -> str:
+    text = strip_governance_sentences(text)
     text = strip_status_paragraphs(text)
     text = strip_governance_environments(text)
-
     text = STANDALONE_BADGE_RE.sub("", text)
     text = ARG_BADGE_RE.sub("", text)
     text = normalize_publication_headings(text)
 
     blocks = re.split(r"(\n\s*\n)", text)
     cleaned: list[str] = []
+    protected_markers = (
+        r"\begin{theorem}", r"\begin{lemma}", r"\begin{proposition}",
+        r"\begin{corollary}", r"\begin{definition}", r"\begin{proof}",
+        r"\[", r"\begin{align", r"\begin{equation}",
+    )
     for block in blocks:
         if not block.strip() or re.fullmatch(r"\n\s*\n", block):
             cleaned.append(block)
             continue
-        protected = any(
-            marker in block
-            for marker in (
-                r"\begin{theorem}", r"\begin{lemma}", r"\begin{proposition}",
-                r"\begin{corollary}", r"\begin{definition}", r"\begin{proof}",
-                r"\[", r"\begin{align", r"\begin{equation",
-            )
-        )
+        protected = any(marker in block for marker in protected_markers)
         if contains_governance(block) and not protected:
             continue
         cleaned.append(block)
     return "".join(cleaned)
 
 
+def replace_reader_facing_ant_ids(text: str) -> str:
+    """Replace visible internal IDs with Arabic reader-facing references.
+
+    The source commonly wraps IDs in ``\textenglish{\texttt{...}}``.  Replacing
+    only the ID leaves Arabic text inside a Latin-only font and produces missing
+    glyph boxes.  Replace the complete wrapper first, then handle bare IDs.
+    """
+    for ant_id, label in PUBLICATION_ANT_ID_LABELS.items():
+        wrapped_patterns = (
+            rf"\\textenglish\s*\{{\s*\\texttt\s*\{{\s*{re.escape(ant_id)}\s*\}}\s*\}}",
+            rf"\\texttt\s*\{{\s*{re.escape(ant_id)}\s*\}}",
+        )
+        for pattern in wrapped_patterns:
+            text = re.sub(pattern, lambda _match, value=label: value, text)
+        text = text.replace(ant_id, label)
+    return text
+
+
 def strip_display_ant_ids(text: str) -> str:
-    """Remove visible internal ANT IDs while preserving cross-reference labels."""
     protected: list[str] = []
 
     def protect(match: re.Match[str]) -> str:
@@ -189,6 +203,7 @@ def strip_display_ant_ids(text: str) -> str:
         return f"@@ANTREF{len(protected) - 1}@@"
 
     text = CROSS_REFERENCE_RE.sub(protect, text)
+    text = replace_reader_facing_ant_ids(text)
     text = ANT_ID_RE.sub("", text)
     for index, reference in enumerate(protected):
         text = text.replace(f"@@ANTREF{index}@@", reference)
@@ -204,7 +219,10 @@ def apply_publication_prose_replacements(text: str) -> str:
 def rewrite_generated_paths(text: str) -> str:
     text = text.replace(r"\input{manuscript/", r"\input{build/release-src/manuscript/")
     text = text.replace(r"\input{volumes/", r"\input{build/release-src/volumes/")
-    text = text.replace(r"\addbibresource{manuscript/", r"\addbibresource{build/release-src/manuscript/")
+    text = text.replace(
+        r"\addbibresource{manuscript/",
+        r"\addbibresource{build/release-src/manuscript/",
+    )
     return text
 
 
@@ -218,7 +236,9 @@ def inject_release_overrides(text: str) -> str:
 def assert_no_empty_cross_references(text: str, relative: Path) -> None:
     empty = re.search(r"\\(?:ref|pageref|autoref|eqref)\s*\{\s*\}", text)
     if empty:
-        raise ValueError(f"empty cross-reference generated in {relative}: {empty.group(0)}")
+        raise ValueError(
+            f"empty cross-reference generated in {relative}: {empty.group(0)}"
+        )
 
 
 def process_tex(source: Path, destination: Path, relative: Path) -> None:

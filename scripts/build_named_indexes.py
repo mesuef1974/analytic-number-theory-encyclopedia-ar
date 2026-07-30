@@ -23,6 +23,19 @@ from pathlib import Path
 EXPECTED = ("people", "theorems", "symbols")
 PREFIX = r"\indexentry"
 
+# Polyglossia may protect page numbers written to auxiliary files with internal
+# direction wrappers such as ``\@ensure@LTR{...}`` or
+# ``\protect\@ensure@LTR{...}``. These internal commands are not stable
+# publication content: when copied verbatim into a generated .ind file, the
+# ``@`` token can lose its command-name catcode and leak visibly as
+# ``ensure@LTR``. The index generator owns the page field, so normalize these
+# wrappers before sorting or rendering.
+DIRECTION_WRAPPER_RE = re.compile(
+    r"^\s*(?:\\protect\s*)*\\(?:@ensure@LTR|ensure@LTR|ensureLTR|textLR|LR)\s*\{(.*)\}\s*$",
+    re.S,
+)
+SAFE_PAGE_RE = re.compile(r"^[0-9٠-٩۰-۹ivxlcdmIVXLCDM-]+$")
+
 
 @dataclass(frozen=True)
 class Entry:
@@ -91,6 +104,25 @@ def read_group(text: str, start: int) -> tuple[str, int]:
     raise ValueError("unterminated brace group")
 
 
+def normalize_page(page: str) -> str:
+    """Return a safe printable page token without auxiliary direction macros."""
+    normalized = page.strip()
+    previous = None
+    while normalized != previous:
+        previous = normalized
+        match = DIRECTION_WRAPPER_RE.fullmatch(normalized)
+        if match:
+            normalized = match.group(1).strip()
+
+    if not normalized:
+        raise ValueError(f"empty index page field after normalization: {page!r}")
+    if "ensure@LTR" in normalized or "ensureLTR" in normalized:
+        raise ValueError(f"unremoved direction wrapper in index page field: {page!r}")
+    if not SAFE_PAGE_RE.fullmatch(normalized):
+        raise ValueError(f"unsafe TeX or unexpected content in index page field: {page!r}")
+    return normalized
+
+
 def parse_idx(path: Path) -> list[Entry]:
     text = path.read_text(encoding="utf-8-sig")
     entries: list[Entry] = []
@@ -106,7 +138,7 @@ def parse_idx(path: Path) -> list[Entry]:
         except ValueError as exc:
             line = text.count("\n", 0, start) + 1
             raise ValueError(f"{path}:{line}: {exc}") from exc
-        entries.append(Entry(raw.strip(), page.strip()))
+        entries.append(Entry(raw.strip(), normalize_page(page)))
         cursor = after_page
 
     prefix_count = text.count(PREFIX)
