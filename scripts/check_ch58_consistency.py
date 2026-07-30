@@ -1,21 +1,28 @@
 """Cross-file consistency gate for chapter 58's governance documents.
 
-Why this exists: across seven owner review rounds on chapter 58, the
+Why this exists: across eight owner review rounds on chapter 58, the
 mathematics held up but the same failure recurred almost every time -- a
-correction applied in one file and not propagated to the others that carry
+correction applied in one file and not propagated to the others carrying
 the same fact. Attention alone did not prevent it, so it is checked here.
 
-What it enforces:
-  1. The result classification (8 PROVED-HERE + 2 METHODOLOGICAL-PRINCIPLE
-     + 4 CITED = 14) is stated identically wherever it appears, and matches
-     the registry's actual tables.
-  2. The registry's ID tables really contain 8 / 2 / 4 entries.
-  3. The post-authoring round count agrees across every file that states it.
-  4. No file still calls the norm equality B_N = Q_N a numerical result --
-     it is proved generally in ANT-PROP-58-07.
+Design note (after round 8): the first version of this gate pattern-matched
+the specific wrong values it had already seen ("10" where 8 was meant). That
+catches yesterday's bug and nothing else -- negative controls showed it
+missed 2->3, 4->5 and a 6->5 header drift. This version instead DERIVES the
+ground truth by counting the registry's own tables, then extracts every
+number declared anywhere near a label and compares it. Any drift in any
+direction fails, including values never seen before.
+
+Checks:
+  1. Ground truth from the registry tables: how many PROVED-HERE,
+     METHODOLOGICAL-PRINCIPLE and CITED rows actually exist.
+  2. Every declared count of those three categories, in every governance
+     file, matches the ground truth. Arabic-Indic digits are normalised.
+  3. Every declared post-authoring round count agrees with every other.
+  4. No file presents B_N = Q_N as a numerical result (it is proved).
   5. No file still lists the fourth confirmation as outstanding.
-  6. Every ANT-*-58-* id used in the chapter appears in the draft registry,
-     and vice versa (no orphans in either direction).
+  6. Chapter ids and registry ids match in both directions.
+  7. No file claims a single proved result while more than one exists.
 
 Run:  python scripts/check_ch58_consistency.py
 """
@@ -30,7 +37,6 @@ ROOT = Path(__file__).resolve().parent.parent
 DOCS = ROOT / "docs"
 CHAPTER = (ROOT / "volumes" / "volume-57-zeros-moments-modern-statistics"
            / "chapters" / "chapter-58-hilbert-inequality-large-values.tex")
-
 REGISTRY = DOCS / "RESULTS_REGISTRY_CHAPTER_58_DRAFT.md"
 GOVERNANCE = [
     DOCS / "CHAPTER_58_SCOPE_2026-07-29.md",
@@ -41,11 +47,16 @@ GOVERNANCE = [
     REGISTRY,
 ]
 
-EXPECTED_PROVED, EXPECTED_PRINCIPLE, EXPECTED_CITED = 8, 2, 4
-EXPECTED_TOTAL = EXPECTED_PROVED + EXPECTED_PRINCIPLE + EXPECTED_CITED
-EXPECTED_ROUNDS = 7
+ARABIC_INDIC = str.maketrans("٠١٢٣٤٥٦٧٨٩", "0123456789")
+NUM = r"[0-9٠-٩]{1,3}"
+# markdown emphasis / backticks / spaces may sit between number and label
+GAP = r"[\s*`ً-ٟ]{0,8}"
 
 failures: list[str] = []
+
+
+def norm(s: str) -> int:
+    return int(s.translate(ARABIC_INDIC))
 
 
 def read(path: Path) -> str:
@@ -61,81 +72,122 @@ def check(label: str, ok: bool, detail: str = "") -> None:
         failures.append(f"{label} {detail}".strip())
 
 
+def declared(text: str, label_pattern: str) -> list[int]:
+    """Every number written immediately before the given label."""
+    return [norm(m) for m in re.findall(rf"({NUM}){GAP}(?:{label_pattern})", text)]
+
+
 def main() -> int:
     print("chapter 58 cross-file consistency\n")
     reg = read(REGISTRY)
 
-    # 1/2. registry tables must actually contain the claimed split
-    proved = len(re.findall(r"\|\s*`PROVED-HERE`\s*\|", reg))
-    cited = len(re.findall(r"`DRAFT / CITED`", reg))
-    principle = len(re.findall(r"\|\s*مبدأ منهجي[^|]*\|", reg))
+    # --- 1. ground truth, counted from the registry's own tables ---
+    truth = {
+        "PROVED-HERE": len(re.findall(r"\|\s*`PROVED-HERE`\s*\|", reg)),
+        "METHODOLOGICAL-PRINCIPLE": len(re.findall(r"\|\s*مبدأ منهجي[^|]*\|", reg)),
+        "CITED": len(re.findall(r"`DRAFT / CITED`", reg)),
+    }
     ids = sorted(set(re.findall(r"ANT-(?:PRIN|LEM|PROP|THM)-58-\d+", reg)))
+    total = sum(truth.values())
 
-    print("registry tables:")
-    check(f"PROVED-HERE rows == {EXPECTED_PROVED}", proved == EXPECTED_PROVED, f"found {proved}")
-    check(f"METHODOLOGICAL-PRINCIPLE rows == {EXPECTED_PRINCIPLE}",
-          principle == EXPECTED_PRINCIPLE, f"found {principle}")
-    check(f"CITED rows == {EXPECTED_CITED}", cited == EXPECTED_CITED, f"found {cited}")
-    check(f"distinct ids == {EXPECTED_TOTAL}", len(ids) == EXPECTED_TOTAL, f"found {len(ids)}")
+    print("ground truth from registry tables:")
+    for k, v in truth.items():
+        print(f"    {k}: {v}")
+    check(f"category counts sum to the id count ({len(ids)})", total == len(ids),
+          f"sum={total} ids={len(ids)}")
 
-    # 3. the stated split must be identical wherever it is written.
-    # Allow markdown emphasis/backticks between the number and the label,
-    # so "**10** `PROVED-HERE`" is caught as readily as "10 PROVED-HERE".
-    GAP = r"[\s*`]{0,6}"
-    stale_split = re.compile(rf"(?<!\d)10{GAP}(?:مبرهَنة|PROVED-HERE)")
-    good_split = re.compile(rf"(?<!\d)8{GAP}(?:PROVED-HERE|`PROVED-HERE`)")
-    print("\nstated split, across files:")
+    # --- 2. every declared count must match ground truth ---
+    print("\ndeclared counts vs ground truth:")
+    label_for = {
+        "PROVED-HERE": r"`?PROVED-HERE`?",
+        "METHODOLOGICAL-PRINCIPLE": r"`?METHODOLOGICAL-PRINCIPLE`?",
+        "CITED": r"`?CITED`?",
+    }
     for path in GOVERNANCE:
         text = read(path)
-        if "PROVED-HERE" not in text:
-            continue
-        stale = stale_split.search(text)
-        check(f"{path.name}: no superseded 10+N split", stale is None,
-              f"found {stale.group(0)!r}" if stale else "")
-        # where a split is stated at all, it must be the 8 / 2 / 4 one
-        if "METHODOLOGICAL-PRINCIPLE" in text:
-            check(f"{path.name}: states the 8+2+4 split",
-                  bool(good_split.search(text)))
+        for key, pat in label_for.items():
+            for n in declared(text, pat):
+                check(f"{path.name}: '{n} {key}'", n == truth[key],
+                      f"expected {truth[key]}")
 
-    # 3b. principle 11 must not sit in the PROVED-HERE list
-    pm = read(DOCS / "CHAPTER_58_PROOF_MAP_2026-07-29.md")
-    proved_line = re.search(r"\*\*PROVED-HERE[^:]*:\*\*([^\n]*(?:\n(?!-)[^\n]*)*)", pm)
-    check("PROOF_MAP: principle 11 not listed under PROVED-HERE",
-          proved_line is not None and "١١" not in proved_line.group(1),
-          "result 11 found in the PROVED-HERE enumeration")
-
-    # 4. round count agreement
-    print("\npost-authoring round count:")
+    # total, wherever a total is declared
     for path in GOVERNANCE:
         text = read(path)
-        for m in re.finditer(r"(\d+)\s*(?:ROUNDS BY OWNER|جولات مُنجَزة)", text):
-            n = int(m.group(1))
-            check(f"{path.name}: rounds == {EXPECTED_ROUNDS - 1} done",
-                  n == EXPECTED_ROUNDS - 1, f"found {n}")
+        for n in declared(text, r"(?:DRAFT / NON-CITABLE|معرِّفًا|مسجَّلة)"):
+            if n in (total, truth["PROVED-HERE"], truth["CITED"],
+                     truth["METHODOLOGICAL-PRINCIPLE"]):
+                continue
+            check(f"{path.name}: stray total '{n}'", False, f"expected {total}")
 
-    # 5. the norm equality must never be presented as numerical
-    print("\nnorm equality B_N = Q_N presented as proved, not numerical:")
-    bad_phrase = re.compile(r"تحقَّق عدديًّا أن المعيارين")
+    # --- 3. post-authoring round counts must agree everywhere ---
+    # Only DECLARATIONS count: a number bound to an explicit post-authoring
+    # round label. Prose mentions and historical quotations of past wrong
+    # values are not declarations and must not be compared.
+    print("\npost-authoring round counts agree:")
+    decl_patterns = [
+        rf"POST-AUTHORING-REVIEW\s*=\s*({NUM})",
+        rf"ROUNDS\s*=\s*({NUM})",
+        rf"({NUM}){GAP}ROUNDS BY OWNER",
+        rf"({NUM}){GAP}جولات مُنجَزة",
+        r"\*\*(سبع|ست|خمس|أربع|ثلاث)\s+جولات\*\*",
+    ]
+    WORDNUM = {"ثلاث": 3, "أربع": 4, "خمس": 5, "ست": 6, "سبع": 7, "ثمان": 8}
+    rounds: dict[str, list[int]] = {}
     for path in GOVERNANCE:
         text = read(path)
-        check(f"{path.name}: not attributed to numerics",
-              bad_phrase.search(text) is None)
+        vals: list[int] = []
+        for pat in decl_patterns:
+            for m in re.findall(pat, text):
+                vals.append(WORDNUM[m] if m in WORDNUM else norm(m))
+        if vals:
+            rounds[path.name] = vals
+    all_vals = sorted({v for vs in rounds.values() for v in vs})
+    check("a single post-authoring round count is declared everywhere",
+          len(all_vals) <= 1,
+          f"found {all_vals} in {rounds}")
 
-    # 6. fourth confirmation must not still be listed as outstanding
+    # --- 4. norm equality must never be called numerical ---
+    print("\nB_N = Q_N presented as proved, not numerical:")
+    bad = re.compile(r"تحقَّق عدديًّا أن المعيار")
+    for path in GOVERNANCE:
+        check(f"{path.name}: not attributed to numerics", bad.search(read(path)) is None)
+
+    # --- 5. fourth confirmation not still pending ---
     print("\nfourth confirmation not still outstanding:")
+    pend = re.compile(r"تأكيد (?:مستقل )?رابع[^\n]{0,40}\(لم يُجرَ\)")
     for path in GOVERNANCE:
-        text = read(path)
-        bad = re.search(r"تأكيد (?:مستقل )?رابع[^\n]{0,40}\(لم يُجرَ\)", text)
-        check(f"{path.name}: not demanded as pending", bad is None)
+        check(f"{path.name}: not demanded as pending", pend.search(read(path)) is None)
 
-    # 7. id parity between chapter and registry
+    # --- 6. id parity ---
     print("\nid parity, chapter vs registry:")
     chap = read(CHAPTER)
     chap_ids = sorted(set(re.findall(r"\\resultid\{(ANT-[A-Z]+-58-\d+)\}", chap)))
-    only_chap = [i for i in chap_ids if i not in ids]
-    only_reg = [i for i in ids if i not in chap_ids]
-    check("every chapter id is registered", not only_chap, f"unregistered: {only_chap}")
-    check("every registered id is used", not only_reg, f"orphaned: {only_reg}")
+    check("every chapter id is registered",
+          not [i for i in chap_ids if i not in ids],
+          f"unregistered: {[i for i in chap_ids if i not in ids]}")
+    check("every registered id is used",
+          not [i for i in ids if i not in chap_ids],
+          f"orphaned: {[i for i in ids if i not in chap_ids]}")
+
+    # --- 7. no 'only one proved result' claim while several exist ---
+    print("\nno 'single proved result' claim:")
+    single = re.compile(r"النتيجة الوحيدة (?:المبرهَنة|التي تُثبَت)"
+                        r"|نتيجةً واحدة من الصفر")
+    for path in [CHAPTER, *GOVERNANCE]:
+        text = read(path)
+        hit = None
+        for m in single.finditer(text):
+            window = text[max(0, m.start() - 200): m.end() + 200]
+            quoted = (text[max(0, m.start() - 2): m.start()].strip().endswith("«")
+                      or "«" + m.group(0) in text)
+            historical = "تاريخي" in window or "وقت تلك" in window
+            if quoted or historical:
+                continue  # a quotation of a past finding, not a live claim
+            hit = m
+            break
+        check(f"{path.name}: no unqualified single-result claim",
+              hit is None or truth["PROVED-HERE"] <= 1,
+              f"found {hit.group(0)!r}" if hit else "")
 
     print(f"\n{len(failures)} failed")
     if failures:

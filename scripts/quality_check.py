@@ -3,7 +3,9 @@
 
 from __future__ import annotations
 
+import os
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -75,6 +77,30 @@ for tex_path in ROOT.rglob("*.tex"):
         if result_id not in registry:
             fail(f"Result ID {result_id} is missing from the result registry files.")
 
+# Delegated sub-checks. These live in their own scripts because each is
+# specific to one chapter's governance documents, but they must run in CI,
+# so quality_check.py invokes them rather than leaving them opt-in.
+SUB_CHECKS = [
+    ROOT / "scripts" / "check_ch58_consistency.py",
+]
+for sub in SUB_CHECKS:
+    if not sub.exists():
+        fail(f"Delegated check missing: {sub.relative_to(ROOT)}")
+        continue
+    result = subprocess.run(
+        [sys.executable, "-W", "ignore", str(sub)],
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+        errors="replace",
+        env={**os.environ, "PYTHONIOENCODING": "utf-8"},
+    )
+    if result.returncode != 0:
+        detail = (result.stdout or "") + (result.stderr or "")
+        offending = [ln.strip() for ln in detail.splitlines()
+                     if ln.strip().startswith("- ") or "FAIL" in ln]
+        fail(f"{sub.name} failed:\n    " + "\n    ".join(offending[:12]))
+
 if errors:
     print("QUALITY CHECK FAILED")
     for item in errors:
@@ -83,3 +109,4 @@ if errors:
 
 print("QUALITY CHECK PASSED")
 print(f"Canonical version: {canonical}")
+print(f"Delegated checks passed: {', '.join(s.name for s in SUB_CHECKS)}")
