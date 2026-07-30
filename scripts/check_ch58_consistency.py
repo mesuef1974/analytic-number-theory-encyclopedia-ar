@@ -22,7 +22,24 @@ Checks:
   4. No file presents B_N = Q_N as a numerical result (it is proved).
   5. No file still lists the fourth confirmation as outstanding.
   6. Chapter ids and registry ids match in both directions.
-  7. No file claims a single proved result while more than one exists.
+  7. Review-round headings in the minutes are unique, consecutive 1..N, and
+     N agrees with the declared round count.
+
+Scope note (after round 11, by owner direction): this gate checks STRUCTURAL
+facts only -- counted rows, canonical numeric fields, id parity, heading
+sequences. It deliberately does NOT try to judge free Arabic prose.
+
+An earlier version did chase prose: a regex meant to catch "the only proved
+result" while eight exist. Every round widened it and every round it missed
+the next natural rephrasing ("the sole proved result", "one proved result").
+That is an endless road -- a regex cannot carry the semantics of a language.
+What replaced it is the structural fact underneath the claim: THEOREMS and
+PROVED-HERE are numeric fields, counted from the registry's own tables and
+checked wherever they are declared.
+
+The honest cost: a sentence of running prose that contradicts those numbers
+is no longer caught by machine. That is human review's job now, and it is
+written here so no one mistakes a PASS for a verdict on the prose.
 
 Run:  python scripts/check_ch58_consistency.py
 """
@@ -55,6 +72,13 @@ ARABIC_INDIC = str.maketrans("٠١٢٣٤٥٦٧٨٩", "0123456789")
 NUM = r"[0-9٠-٩]{1,3}"
 # markdown emphasis / backticks / spaces may sit between number and label
 GAP = r"[\s*`ً-ٟ]{0,8}"
+
+# Review rounds are written as Arabic ordinals in the minutes' headings.
+ORDINALS = {w: i + 1 for i, w in enumerate([
+    "الأولى", "الثانية", "الثالثة", "الرابعة", "الخامسة", "السادسة",
+    "السابعة", "الثامنة", "التاسعة", "العاشرة", "الحادية عشرة",
+    "الثانية عشرة", "الثالثة عشرة", "الرابعة عشرة", "الخامسة عشرة",
+])}
 
 failures: list[str] = []
 
@@ -117,6 +141,9 @@ def main() -> int:
     }
     ids = sorted(set(re.findall(r"ANT-(?:PRIN|LEM|PROP|THM)-58-\d+", reg)))
     total = sum(truth.values())
+    # How many of those results are theorems is the structural fact that the
+    # "only one result" prose kept getting wrong. Counted, not asserted.
+    truth["THEOREMS"] = len({i for i in ids if "-THM-" in i})
 
     print("ground truth from registry tables:")
     for k, v in truth.items():
@@ -130,6 +157,7 @@ def main() -> int:
         "PROVED-HERE": r"`?PROVED-HERE`?",
         "METHODOLOGICAL-PRINCIPLE": r"`?METHODOLOGICAL-PRINCIPLE`?",
         "CITED": r"`?CITED`?",
+        "THEOREMS": r"`?THEOREMS`?",
     }
     for path in GOVERNANCE:
         text = read(path)
@@ -158,9 +186,11 @@ def main() -> int:
         rf"ROUNDS\s*=\s*({NUM})",
         rf"({NUM}){GAP}ROUNDS BY OWNER",
         rf"({NUM}){GAP}جولات مُنجَزة",
-        r"\*\*(سبع|ست|خمس|أربع|ثلاث)\s+جولات\*\*",
+        r"\*\*(ثلاث|أربع|خمس|ست|سبع|ثمان|تسع|عشر|إحدى عشرة|اثنتا عشرة)"
+        r"\s+جول(?:ات|ة)\*\*",
     ]
-    WORDNUM = {"ثلاث": 3, "أربع": 4, "خمس": 5, "ست": 6, "سبع": 7, "ثمان": 8}
+    WORDNUM = {"ثلاث": 3, "أربع": 4, "خمس": 5, "ست": 6, "سبع": 7, "ثمان": 8,
+               "تسع": 9, "عشر": 10, "إحدى عشرة": 11, "اثنتا عشرة": 12}
     rounds: dict[str, list[int]] = {}
     for path in GOVERNANCE:
         text = read(path)
@@ -198,33 +228,26 @@ def main() -> int:
           not [i for i in ids if i not in chap_ids],
           f"orphaned: {[i for i in ids if i not in chap_ids]}")
 
-    # --- 7. no 'only one proved result' claim while several exist ---
-    print("\nno 'single proved result' claim:")
-    # Broad on purpose: earlier versions enumerated the exact wordings seen
-    # so far, so a rephrasing ("نتيجة واحدة مُثبَتة", "النتيجة الوحيدة في
-    # هذا الفصل") walked straight past. Any "single result" phrasing is a
-    # candidate; genuine exceptions opt out per line with GATE_IGNORE.
-    single = re.compile(r"\w*نتيجة\s+الوحيدة|نتيجةً?\s+واحدة")
-    for path in [CHAPTER, *GOVERNANCE]:
-        text = read(path)
-        # Exemption is by EXPLICIT per-line marker only. Earlier versions
-        # inferred it from quotation marks or nearby words, which was both
-        # leaky (a whole-file test exempted unrelated live claims) and
-        # brittle (a quoted phrase whose closing mark sat more than three
-        # characters away was flagged anyway). Requiring an author to write
-        # the marker makes every exemption visible in the diff.
-        hit = None
-        for m in single.finditer(text):
-            line_start = text.rfind("\n", 0, m.start()) + 1
-            line_end = text.find("\n", m.end())
-            line = text[line_start: line_end if line_end != -1 else len(text)]
-            if GATE_IGNORE in line:
-                continue
-            hit = m
-            break
-        check(f"{path.name}: no unqualified single-result claim",
-              hit is None or truth["PROVED-HERE"] <= 1,
-              f"found {hit.group(0)!r}" if hit else "")
+    # --- 7. round headings: unique, consecutive, as many as declared ---
+    # Comparing declared totals says nothing about the minutes themselves:
+    # renaming "الجولة العاشرة" to "الجولة التاسعة" left every total intact
+    # and passed. A sequence is a structural object, so check it as one.
+    print("\nreview-round headings form 1..N:")
+    minutes = read(DOCS / "CHAPTER_58_POST_AUTHORING_REVIEW_2026-07-30.md")
+    heads = [h.strip() for h in
+             re.findall(r"^##\s+الجولة\s+([^\n—–]+?)\s*[—–]", minutes, re.M)]
+    unknown = [h for h in heads if h not in ORDINALS]
+    check("every round heading uses a known ordinal", not unknown,
+          f"unrecognised: {unknown}")
+    nums = [ORDINALS[h] for h in heads if h in ORDINALS]
+    check("round headings are unique and consecutive from 1",
+          nums == list(range(1, len(nums) + 1)), f"found {nums}")
+    if all_vals and nums:
+        check("heading count equals the declared round count",
+              len(nums) == all_vals[-1],
+              f"{len(nums)} headings vs declared {all_vals[-1]}")
+
+    print("\nfree prose: NOT CHECKED — human review (see module docstring)")
 
     print(f"\n{len(failures)} failed")
     if failures:

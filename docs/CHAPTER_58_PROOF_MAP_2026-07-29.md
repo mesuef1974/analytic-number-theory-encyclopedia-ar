@@ -5,6 +5,8 @@ CHAPTER  = 58
 DOC-TYPE = PRE-AUTHORING / PROOF-MAP  (نوع الوثيقة التاريخي، لا حالة
            الفصل الحالية: الفصل مؤلَّف فعلًا الآن)
 CHAPTER-STATUS = AUTHORED-DRAFT / NON-CITABLE
+THEOREMS = 1 (ANT-THM-58-01)
+PROVED-HERE = 8 (المبرهنة + سبع نتائج مساندة)
 TITLE    = متباينة هيلبرت ومدخل إلى طريقة القيم الكبيرة
 VERSION  = 0.32.0-dev (وسم خط الفرع الحالي)
 VERSION-AUTHORITY = docs/VERSION.md لا يزال 0.30.0-dev؛ لم يُرفع الإصدار

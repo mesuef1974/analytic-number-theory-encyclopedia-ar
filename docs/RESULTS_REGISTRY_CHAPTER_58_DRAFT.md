@@ -9,10 +9,11 @@ RESULTS                = 14 DRAFT / NON-CITABLE (صفر مُفعَّل)
                          = 8 PROVED-HERE
                          + 2 METHODOLOGICAL-PRINCIPLE (ANT-PRIN-58-01/02)
                          + 4 CITED
+THEOREMS               = 1 (ANT-THM-58-01)
 AUTHORING              = COMPLETE (لكن انظر تحذير الحوكمة أدناه)
 PRE-AUTHORING-REVIEW   = PASS (ثلاث جولات)
 PASS-FOR-AUTHORING     = تسلسل غير منتظم — انظر أدناه
-POST-AUTHORING-REVIEW  = 10 ROUNDS BY OWNER, 11th NEXT / CORRECTIONS APPLIED
+POST-AUTHORING-REVIEW  = 11 ROUNDS BY OWNER, 12th NEXT / CORRECTIONS APPLIED
                          (CHAPTER_58_POST_AUTHORING_REVIEW_2026-07-30.md)
 FOURTH-CONFIRMATION    = PASS
 HLP-DIRECT-READING     = DONE-LATE / HISTORICAL VIOLATION RETAINED
@@ -42,9 +43,9 @@ NEXT REQUIRED STEP = (حالة تاريخية وقت التأليف — التأ
 
 لذلك: التأليف قائم فعلًا، لكن **لا يُعَدّ مستوفيًا للبوابة**، ولا تُفعَّل
 أي نتيجة من هذا الفصل قبل استيفاء ما تبقّى. وقد **أُنجز** منه:
-التأكيد الرابع (`PASS`)، وقراءة HLP المباشرة (متأخرة)، و**عشر جولات**
+التأكيد الرابع (`PASS`)، وقراءة HLP المباشرة (متأخرة)، و**إحدى عشرة جولة**
 مراجعة بعد التأليف من المالك. **ويبقى:** جولة تأكيد على تصحيحات الجولة
-**العاشرة**، ثم **اعتماد مالك**. الوكيل المستقل الموفَد لمراجعة ما بعد
+**الحادية عشرة**، ثم **اعتماد مالك**. الوكيل المستقل الموفَد لمراجعة ما بعد
 التأليف توقّف على حدّ جلسة لا على حكم.
 
 ## سبب وجود هذا السجل، وحدوده
