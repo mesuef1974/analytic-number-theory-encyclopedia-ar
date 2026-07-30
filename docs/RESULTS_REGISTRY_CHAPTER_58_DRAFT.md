@@ -6,11 +6,13 @@ VOLUME                 = الخامس (الأصفار والعزوم والإح�
 VERSION                = 0.32.0-dev
 REGISTRY               = DRAFT / NON-CITABLE
 RESULTS                = 14 DRAFT / NON-CITABLE (صفر مُفعَّل)
-                         = 10 مبرهَنة داخليًّا + 4 مُستشهَد بها
+                         = 8 PROVED-HERE
+                         + 2 METHODOLOGICAL-PRINCIPLE (ANT-PRIN-58-01/02)
+                         + 4 CITED
 AUTHORING              = COMPLETE (لكن انظر تحذير الحوكمة أدناه)
 PRE-AUTHORING-REVIEW   = PASS (ثلاث جولات)
 PASS-FOR-AUTHORING     = تسلسل غير منتظم — انظر أدناه
-POST-AUTHORING-REVIEW  = 3 ROUNDS BY OWNER / CORRECTIONS APPLIED
+POST-AUTHORING-REVIEW  = 5 ROUNDS BY OWNER, 6th IN PROGRESS / CORRECTIONS APPLIED
                          (CHAPTER_58_POST_AUTHORING_REVIEW_2026-07-30.md)
 FOURTH-CONFIRMATION    = PASS
 HLP-DIRECT-READING     = DONE-LATE / HISTORICAL VIOLATION RETAINED
