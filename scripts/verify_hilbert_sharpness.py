@@ -1,16 +1,31 @@
 """Numerical evidence that pi is the sharp constant in Hilbert's inequality.
 
 This is EVIDENCE, NOT A PROOF. Sharpness (result 8 of
-docs/CHAPTER_58_PROOF_MAP_2026-07-29.md) is CITED to Schur (1911) and
-Hardy-Littlewood-Polya, Inequalities, 2nd ed., Theorem 294 -- chapter 58
-does not prove it. This script only shows the operator norm creeping up
-towards pi from below, consistent with sharpness.
+docs/CHAPTER_58_PROOF_MAP_2026-07-29.md) is CITED to SCHUR (1911) ALONE --
+chapter 58 does not prove it.
+
+Attribution note (corrected 2026-07-30 after reading the source directly):
+Hardy-Littlewood-Polya, Inequalities, Theorem 294 is NOT a source for
+sharpness. That theorem establishes that the forms do not exceed pi, i.e.
+the INEQUALITY; it does not prove optimality of pi at that location.
+Optimality is Schur's. An earlier version of this docstring wrongly cited
+HLP alongside Schur for sharpness.
+
+This script only shows the operator norm creeping up towards pi from
+below, consistent with sharpness.
 
 Method: the kernel K[m,n] = 1/(n-m) (zero on the diagonal) is real and
 antisymmetric, so iK is Hermitian and the supremum of
     |sum_{m != n} z_m conj(z_n)/(n-m)|  /  sum_n |z_n|^2
 over z in C^N is exactly the largest |eigenvalue| of iK. Dividing by pi
 should approach 1 from below as N grows.
+
+Scope of what these numbers do and do not establish: the identity
+Q_N = B_N (complex quadratic norm equals real bilinear norm) is PROVED in
+general for every finite N -- see proposition ANT-PROP-58-07 in the
+chapter, via K^T K = (iK)^2. The numbers below add nothing to that proof;
+they only check that this implementation is consistent with it, catching
+any convention or indexing slip.
 
 Note the diagonal restriction matters: probing sharpness with REAL
 sequences fails, because the form vanishes identically there (antisymmetric

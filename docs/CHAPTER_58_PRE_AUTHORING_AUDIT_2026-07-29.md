@@ -20,7 +20,7 @@ CHAPTER-STATUS                = AUTHORED-DRAFT / NON-CITABLE (الفصل
                                  مؤلَّف فعلًا؛ انظر قسم الخلل الحوكمي)
 PASS-FOR-AUTHORING            = NO (لم يُمنَح قبل التأليف — مخالفة مسجَّلة)
 POST-AUTHORING-REVIEW         = 3 جولات (CHAPTER_58_POST_AUTHORING_REVIEW_2026-07-30.md)
-RESULTS                       = 12 DRAFT / NON-CITABLE، صفر مُفعَّل
+RESULTS                       = 13 DRAFT / NON-CITABLE، صفر مُفعَّل
                                  (RESULTS_REGISTRY_CHAPTER_58_DRAFT.md)
 MERGE                         = NOT AUTHORIZED
 RELEASE-READY                 = NO
@@ -71,7 +71,10 @@ RELEASE-READY                 = NO
       ("On the Estimation of \(N(\sigma,T)\)"، مجلد os-11، ص 201-202)،
       منفصلة عن ورقته **1937** الموجودة سلفًا في ببليوغرافيا الفصل ١٩.
       كان من السهل الخلط بينهما.
-- [ ] **لم يُقرأ** برهان Hardy–Littlewood–Pólya (المبرهنة ٢٩٤) مباشرةً؛
+- [x] **قُرئ** برهان Hardy–Littlewood–Pólya (المبرهنة ٢٩٤) مباشرةً
+      (2026-07-30، الطبعة الأولى 1934، ص 212–214) — **بعد** التأليف لا
+      قبله، فالمخالفة التاريخية باقية. وكشفت القراءة خطأ إسناد حقيقي
+      (HLP تبرهن المتراجحة لا الحدّة) صُحِّح. سابقًا:
       البرهان المسجَّل في `PROOF_MAP` أعيد بناؤه ثم **تُحقِّق منه عدديًّا**
       لا نصيًّا. هذا فرق مهم يجب أن تفحصه المراجعة المستقلة: هل السلسلة
       صحيحة منطقيًّا بذاتها (بغض النظر عن مطابقتها لعرض HLP)؟
@@ -159,7 +162,7 @@ RELEASE-READY                 = NO
 ## الحكم الحالي
 
 ```text
-VERDICT            = THREE-REVIEWS-CORRECTED / FOURTH-CONFIRMATION-PENDING
+VERDICT            = FOURTH-CONFIRMATION PASSED / POST-AUTHORING ROUNDS APPLIED
 BLOCKERS           = 0 معروف (لا خطأ رياضي في أي جولة منذ الأولى)
 PASS-FOR-AUTHORING = NO
 ```
@@ -200,7 +203,9 @@ GATE-SATISFIED                = NO
 للبوابة. ولا تُفعَّل أي نتيجة منه — ولا يُدمَج — قبل:
 
 1. **تأكيد مستقل رابع** للتصحيحات الخمسة (لم يُجرَ).
-2. **مراجعة مستقلة لما بعد التأليف** (لم تكتمل: توقّف أول وكيل على حدّ
+2. **مراجعة ما بعد التأليف** — أُجريت ٣ جولات من المالك، محضرها في
+   `CHAPTER_58_POST_AUTHORING_REVIEW_2026-07-30.md` (الوكيل المستقل
+   الموفَد توقّف على حدّ
    جلسة، لا على حكم).
 3. **اعتماد مالك** صريح.
 

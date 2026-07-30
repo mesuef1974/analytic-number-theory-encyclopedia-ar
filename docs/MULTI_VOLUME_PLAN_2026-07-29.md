@@ -1,7 +1,9 @@
 # خطة المجلدات ٢–٥ للمشروع الموسوعي
 
 ```text
-STATUS          = PLANNING ONLY / NO AUTHORING STARTED
+STATUS          = المجلدات ٢–٤: PLANNING ONLY / NO AUTHORING STARTED.
+                  المجلد الخامس: RESUMED — الفصلان ٥٧ و٥٨ مؤلَّفان
+                  (AUTHORED-DRAFT / NON-CITABLE)، والفصول ٥٩–٦٦ لم تبدأ
 GOVERNS         = المجلدات الثاني إلى الخامس
 GATE RULE       = نفس قاعدة الانتقال المعتمدة في ROADMAP.md: لا يبدأ متن علمي
                   جديد قبل سجل أدلة وخريطة برهان وتدقيق عدم الدور ومراجعة

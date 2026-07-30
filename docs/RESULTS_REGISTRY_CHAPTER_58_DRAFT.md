@@ -5,11 +5,14 @@ CHAPTER                = 58
 VOLUME                 = الخامس (الأصفار والعزوم والإحصاءات الحديثة)
 VERSION                = 0.32.0-dev
 REGISTRY               = DRAFT / NON-CITABLE
-RESULTS                = 12 DRAFT / NON-CITABLE (صفر مُفعَّل)
+RESULTS                = 13 DRAFT / NON-CITABLE (صفر مُفعَّل)
 AUTHORING              = COMPLETE (لكن انظر تحذير الحوكمة أدناه)
 PRE-AUTHORING-REVIEW   = PASS (ثلاث جولات)
 PASS-FOR-AUTHORING     = تسلسل غير منتظم — انظر أدناه
-POST-AUTHORING-REVIEW  = NOT COMPLETED
+POST-AUTHORING-REVIEW  = 3 ROUNDS BY OWNER / CORRECTIONS APPLIED
+                         (CHAPTER_58_POST_AUTHORING_REVIEW_2026-07-30.md)
+FOURTH-CONFIRMATION    = PASS
+HLP-DIRECT-READING     = DONE-LATE / HISTORICAL VIOLATION RETAINED
 OWNER-ADOPTION         = NOT ADOPTED
 MERGE                  = NOT AUTHORIZED
 IN-MAIN-BUILD          = NO (غير مُدخَل في manuscript/main.tex)
@@ -35,7 +38,8 @@ NEXT REQUIRED STEP = تأكيد رابع للتصحيحات الخمسة
 
 لذلك: التأليف قائم فعلًا، لكن **لا يُعَدّ مستوفيًا للبوابة**، ولا تُفعَّل
 أي نتيجة من هذا الفصل قبل: (١) تأكيد مستقل للتصحيحات الخمسة السابقة،
-(٢) مراجعة مستقلة لما بعد التأليف (لم تكتمل؛ توقّف أول وكيل على حدّ
+(٢) جولة تأكيد على تصحيحات الجولة الثالثة (٣ جولات مراجعة أُجريت من
+المالك؛ الوكيل المستقل الموفَد توقّف على حدّ
 جلسة)، (٣) اعتماد مالك.
 
 ## سبب وجود هذا السجل، وحدوده
@@ -61,6 +65,7 @@ NEXT REQUIRED STEP = تأكيد رابع للتصحيحات الخمسة
 | `ANT-THM-58-01` | متباينة هيلبرت بالثابت \(\pi\) (المتراجحة فقط، لا حدّة الثابت) | `PROVED-HERE` | `DRAFT / NON-CITABLE` |
 | `ANT-PROP-58-02` | تلاشي الصيغة هويةً عند المعاملات الحقيقية | `PROVED-HERE` | `DRAFT / NON-CITABLE` |
 | `ANT-PROP-58-03` | صرامة المتراجحة عند كل \(N\) منتهٍ | `PROVED-HERE` | `DRAFT / NON-CITABLE` |
+| `ANT-PROP-58-07` | تطابق معياري الصيغتين: \(B_N=Q_N\) لكل \(N\ge2\) منتهٍ، عبر \(K^{\mathsf T}K=(iK)^2\) — **مبرهَن عمومًا، لا شاهدًا عدديًّا** | `PROVED-HERE` | `DRAFT / NON-CITABLE` |
 
 ## النتائج المُستشهَد بها (لا تُبرهَن هنا)
 
