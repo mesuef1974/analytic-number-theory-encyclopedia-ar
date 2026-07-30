@@ -255,6 +255,35 @@ f(x)=O(g(x)),\qquad f(x)=o(g(x)),\qquad f(x)\sim g(x).
 \end{tabular}
 \end{center}
 
+\begin{antfigure}
+\begin{tikzpicture}[
+  node distance=7mm and 10mm,
+  every node/.style={draw,rounded corners,align=center,fill=gray!8,
+                     font=\footnotesize,inner sep=2.5mm},
+  >=Latex,
+]
+  \node (foundations) {الأسس التحليلية\\والحسابية};
+  \node (zeta) [right=of foundations] {زيتا ودوال \(L\)};
+  \node (pnt) [right=of zeta] {توزيع الأعداد\\الأولية};
+  \node (sieve) [below=of pnt] {الغربال والطريقة\\الدائرية والمجاميع الأسية};
+  \node (spectral) [left=of sieve] {الطيف الآلي\\ولانجلاندز};
+  \node (frontiers) [left=of spectral] {الجبهات\\البحثية الحديثة};
+  \draw[->] (foundations) -- (zeta);
+  \draw[->] (zeta) -- (pnt);
+  \draw[->] (pnt) -- (sieve);
+  \draw[->] (zeta) -- (spectral);
+  \draw[->] (sieve) -- (frontiers);
+  \draw[->] (spectral) -- (frontiers);
+\end{tikzpicture}
+\caption{خريطة اعتماد مبسّطة بين أجزاء الموسوعة الستة والعشرين فصلًا،
+مطابقة لتقسيم الأجزاء الفعلي في الفهرس: الأسس تُبنى أولًا، ثم زيتا ودوال
+\(L\)، ثم توزيع الأعداد الأولية، ثم يتفرع الكتاب إلى مسارين متوازيين
+(الغربال/الطريقة الدائرية من جهة، والطيف الآلي من جهة أخرى) يلتقيان في
+الجبهات البحثية الحديثة. الأسهم تشير إلى اعتماد لاحق على سابق، لا إلى
+ترتيب قراءة إلزامي وحيد.}
+\label{fig:chapter-dependency-map}
+\end{antfigure}
+
 \section{معايير قراءة النتائج في هذا الكتاب}
 
 عند عرض أي نتيجة، يجب على القارئ أن يسأل:

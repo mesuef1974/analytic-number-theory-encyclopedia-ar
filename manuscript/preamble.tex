@@ -86,6 +86,11 @@
   \fi
 }
 
+% هوية المجلد داخل المشروع الموسوعي متعدد المجلدات. اسم المشروع الأعلى
+% («الموسوعة الشاملة») ثابت؛ هذان الأمران وحدهما يتغيران عند إصدار مجلد لاحق.
+\newcommand{\volumenumber}{المجلد الأول}
+\newcommand{\volumetitle}{النواة التحليلية وتوزيع الأوليات والبوابات الحديثة}
+
 \geometry{a4paper,margin=27mm}
 
 \usepackage[
@@ -98,6 +103,30 @@
 % LTR direction alone does not select a Latin font. Force every printed
 % bibliography entry through the same ligature-safe English font.
 \renewcommand*{\bibfont}{\footnotesize\englishfont}
+
+% ---------------------------------------------------------------------------
+% Visual layer: every figure in this encyclopedia is either a plot of a
+% closed-form/finite arithmetic object computed by scripts/build_figure_data.py
+% (imported below), or a schematic diagram of a definition already stated in
+% the surrounding prose. No figure introduces a claim the text does not
+% already make. Tick and axis text render through the Latin font used for
+% every other piece of embedded English/math typography in the book.
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{arrows.meta,positioning,decorations.pathreplacing,calc}
+\pgfplotsset{
+  every axis/.append style={
+    font=\englishfont,
+    label style={font=\englishfont},
+    tick label style={font=\englishfont},
+    legend style={font=\englishfont},
+  }
+}
+\newenvironment{antfigure}
+  {\begin{figure}[htbp]\centering}
+  {\end{figure}}
+\input{manuscript/figure-data}
 
 \addbibresource{manuscript/bibliography.bib}
 \addbibresource{manuscript/chapter-13-bibliography.bib}
@@ -160,6 +189,20 @@
 }
 \newcommand{\openresult}{%
   \resultbadge{red!20}{مسألة مفتوحة}\par
+}
+
+% بطاقة "أحدث ما وصل إليه الحدّ" للجبهات البحثية الحديثة (الفصول ٢٢--٢٦).
+% تطبّق حرفيًا بروتوكول تحديث الخريطة في الفصل ٢٦: تاريخ قطع صريح، وحالة نشر،
+% ومصدر أساسي، وتحديد الجملة/النتيجة المتأثرة. ليست بديلًا عن بحث محدّث مستقل؛
+% إنما تجعل تاريخ آخر تحقق ظاهرًا للقارئ بدل عبارة "الأحدث" غير المؤرَّخة.
+\newcommand{\frontierupdatebadge}{\resultbadge{cyan!20}{تحديث الجبهة}}
+\newenvironment{frontiercard}[3]{%
+  \par\medskip\noindent\frontierupdatebadge\par
+  \noindent\textbf{تاريخ القطع:}~#1\hfill\textbf{حالة النشر:}~#2\par
+  \noindent\textbf{المصدر الأساسي:}~#3\par
+  \noindent\ignorespaces
+}{%
+  \par\medskip
 }
 
 \pagestyle{fancy}
