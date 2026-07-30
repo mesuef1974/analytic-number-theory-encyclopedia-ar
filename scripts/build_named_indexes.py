@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
-"""Build UTF-8-safe named LaTeX indexes from imakeidx .idx files.
+r"""Build UTF-8-safe named LaTeX indexes from imakeidx .idx files.
 
 The parser reads each .idx file as a TeX stream rather than assuming that every
 ``\indexentry`` occupies exactly one physical line. It also resolves the named
 index files across the layouts produced by imakeidx/latexmk, including
 ``people.idx`` and ``main.people.idx`` in either the working directory or the
 LaTeX output directory.
+
+Page fields are normalized by ``unwrap_page``; see
+``scripts/test_index_page_normalization.py`` for the behaviour that is pinned.
 """
 
 from __future__ import annotations
@@ -150,23 +153,45 @@ def resolve_idx(name: str, input_directory: Path, output_directory: Path) -> Pat
     )
 
 
-WRAPPER_MACRO_RE = re.compile(r"^\s*\\[a-zA-Z@]+\s*\{(.*)\}\s*$", re.DOTALL)
+# Direction wrappers polyglossia may put around a page number written to an
+# auxiliary file. Only these are stripped -- deliberately a whitelist, not a
+# generic "strip any macro" rule, so that a legitimate page macro such as
+# \hyperpage{...} or a formatting macro is never silently discarded.
+# \protect is allowed (and may repeat) because LaTeX conventionally protects
+# fragile commands on their way into .aux/.idx files.
+DIRECTION_WRAPPER_RE = re.compile(
+    r"^\s*(?:\\protect\s*)*\\(?:@ensure@LTR|ensure@LTR|ensureLTR|textLR|LR)\s*\{(.*)\}\s*$",
+    re.DOTALL,
+)
+
+# A page field we are willing to print. Covers Western and Arabic-Indic and
+# Persian digits, Roman numerals (front matter), and ranges.
+SAFE_PAGE_RE = re.compile(r"^[0-9٠-٩۰-۹ivxlcdmIVXLCDM\-]+$")
 
 
 def unwrap_page(page: str) -> str:
-    r"""Strip a single enclosing TeX macro call, keeping its argument.
+    r"""Return a printable page field, stripped of direction wrappers.
 
     Polyglossia wraps every Arabic-document page number written to .idx files
-    in a private direction-forcing macro (e.g. ``\@ensure@LTR{198}``). That
+    in a private direction-forcing macro (e.g. ``\@ensure@LTR {٤}``). That
     macro is not expandable once copied verbatim into a hand-built .ind file
     printed outside polyglossia's own page-number machinery: outside
     \makeatletter, "@" is a plain printable character, so the whole macro
     name leaks into the PDF as literal text on every single index entry.
     Since plain page numbers already render correctly elsewhere in this
     document without this wrapper, unwrap it and keep only the number.
+
+    Strips repeatedly, so nested and \protect-ed forms are handled. Anything
+    that is not a recognised direction wrapper is returned untouched rather
+    than mangled; callers can use ``SAFE_PAGE_RE`` to detect a page field
+    that still needs attention.
     """
-    match = WRAPPER_MACRO_RE.match(page)
-    return match.group(1) if match else page
+    normalized = page.strip()
+    while True:
+        match = DIRECTION_WRAPPER_RE.match(normalized)
+        if not match:
+            return normalized
+        normalized = match.group(1).strip()
 
 
 def page_sort_key(page: str) -> tuple[int, int | str]:
