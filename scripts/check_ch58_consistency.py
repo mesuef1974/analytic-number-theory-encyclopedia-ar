@@ -56,7 +56,7 @@ ROOT = Path(__file__).resolve().parent.parent
 DOCS = ROOT / "docs"
 CHAPTER = (ROOT / "volumes" / "volume-57-zeros-moments-modern-statistics"
            / "chapters" / "chapter-58-hilbert-inequality-large-values.tex")
-REGISTRY = DOCS / "RESULTS_REGISTRY_CHAPTER_58_DRAFT.md"
+REGISTRY = DOCS / "RESULTS_REGISTRY_CHAPTER_58.md"
 GOVERNANCE = [
     DOCS / "CHAPTER_58_SCOPE_2026-07-29.md",
     DOCS / "CHAPTER_58_PROOF_MAP_2026-07-29.md",
@@ -88,12 +88,12 @@ REQUIRED_FIELDS = {
         "THEOREMS": rf"^THEOREMS\s*=\s*{D}",
         "PROVED-HERE": rf"^PROVED-HERE\s*=\s*{D}",
     },
-    "RESULTS_REGISTRY_CHAPTER_58_DRAFT.md": {
+    "RESULTS_REGISTRY_CHAPTER_58.md": {
         "THEOREMS": rf"^THEOREMS\s+=\s*{D}",
         "PROVED-HERE": rf"^\s*=\s*{D}+\s+PROVED-HERE",
         "METHODOLOGICAL-PRINCIPLE": rf"^\s*\+\s*{D}+\s+METHODOLOGICAL-PRINCIPLE",
         "CITED": rf"^\s*\+\s*{D}+\s+CITED",
-        "ROUNDS": rf"^POST-AUTHORING-REVIEW\s+=\s*{D}+\s+ROUNDS BY OWNER",
+        "ROUNDS": rf"^POST-AUTHORING-REVIEW\s+=\s*{D}+\s+ROUNDS",
     },
     "CHAPTER_58_POST_AUTHORING_REVIEW_2026-07-30.md": {
         "ROUNDS": rf"^ROUNDS\s+=\s*{D}",
@@ -173,7 +173,9 @@ def main() -> int:
     truth = {
         "PROVED-HERE": len(re.findall(r"\|\s*`PROVED-HERE`\s*\|", reg)),
         "METHODOLOGICAL-PRINCIPLE": len(re.findall(r"\|\s*مبدأ منهجي[^|]*\|", reg)),
-        "CITED": len(re.findall(r"`DRAFT / CITED`", reg)),
+        "CITED": len(re.findall(
+            r"`(?:DRAFT / CITED|ACTIVE / CITABLE / CITED)`", reg
+        )),
     }
     ids = sorted(set(re.findall(r"ANT-(?:PRIN|LEM|PROP|THM)-58-\d+", reg)))
     total = sum(truth.values())

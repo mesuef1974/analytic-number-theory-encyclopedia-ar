@@ -4,7 +4,7 @@
 CHAPTER  = 58
 DOC-TYPE = PRE-AUTHORING / PROOF-MAP  (نوع الوثيقة التاريخي، لا حالة
            الفصل الحالية: الفصل مؤلَّف فعلًا الآن)
-CHAPTER-STATUS = AUTHORED-DRAFT / NON-CITABLE
+CHAPTER-STATUS = REVIEWED / OWNER-ADOPTED / CITABLE
 THEOREMS = 1 (ANT-THM-58-01)
 PROVED-HERE = 8 (المبرهنة + سبع نتائج مساندة)
 TITLE    = متباينة هيلبرت ومدخل إلى طريقة القيم الكبيرة
@@ -69,7 +69,7 @@ VERSION-AUTHORITY = docs/VERSION.md لا يزال 0.30.0-dev؛ لم يُرفع �
   (`ANT-PRIN-58-01` تحذير النطاق، و`ANT-PRIN-58-02` جسر التكافؤ)
   + **4** `CITED`. والمبدآن المنهجيان ليسا نتيجتين رياضيتين مستقلتين،
   فلا يُعَدّان ضمن `PROVED-HERE`. مسجَّلة كلها في
-  `RESULTS_REGISTRY_CHAPTER_58_DRAFT.md` بحالة `DRAFT / NON-CITABLE`.
+  `RESULTS_REGISTRY_CHAPTER_58.md` بحالة `ACTIVE / CITABLE`.
   (تقدير ما قبل التأليف كان سبعًا وأربعًا؛ الفارق من نتائج أُضيفت أثناء
   معالجة مراجعات ما بعد التأليف.)
 - **CITED:** النتيجة ١ (متسلسلة فورييه الكلاسيكية للدالة السنّية)،

@@ -3,10 +3,12 @@
 ```text
 CHAPTER              = 58
 VERSION              = 0.32.0-dev
-REVIEWER             = المالك (مراجعة مباشرة للفرع البعيد والـPRs والمتن)
-ROUNDS               = 13 مُنجَزة + الرابعة عشرة تالية
-CURRENT VERDICT      = CHANGES-REQUIRED-CLOSED / بانتظار الجولة الرابعة عشرة
-OWNER-ADOPTION       = NOT ADOPTED
+REVIEWER             = المالك (الجولات 1–13) + وكيل التنفيذ بتفويض المالك
+                       (الجولة 14 على الرأس البعيد)
+ROUNDS               = 14 مُنجَزة / FINAL
+CURRENT VERDICT      = PASS / 0 BLOCKERS
+PASS-FOR-ADOPTION    = YES
+OWNER-ADOPTION       = ADOPTED / 2026-07-31
 ```
 
 ## ملاحظة على من أجرى هذه المراجعات
@@ -291,18 +293,47 @@ S(z)=-2i\,x^{\mathsf T}Ky,\qquad z=x+iy,
 واحدًا فيها وتطابقًا واحدًا في الملف كله. لذلك يفشل حذف سطر الترويسة،
 ويفشل كذلك إبقاء نسخة بديلة أو زرعها في المتن.
 
+## الجولة الرابعة عشرة — `PASS` (الجولة النهائية)
+
+جولة تأكيد على الرأس البعيد
+`4af2890c0c43887790cf1991738aa543d48fb883`. طابقت شجرته حرفيًّا شجرة
+الإصلاح المحلي `93ebf62`، ثم اجتازت:
+
+- الشجرة النظيفة و`git diff --check`.
+- `check_ch58_consistency.py`: ‏`0 failed / VERDICT: PASS`.
+- `quality_check.py`: ‏`QUALITY CHECK PASSED`.
+- فحص متباينة هيلبرت العددي: `VERDICT: PASS`.
+- فحص شاهد الحدّة: القيم متزايدة، وكلها دون \(1\)، وبلغت
+  \(0.999036\) عند \(N=4000\). يبقى هذا شاهدًا لا برهانًا.
+- عشرة ضوابط عكسية مستقلة؛ أخفق كل ضابط بفشل واحد مقصود. شملت حذف
+  ترويسة التدقيق، وزرع نسخة بديلة في المتن، والجمع بينهما، وحذف حقول
+  `THEOREMS` و`PROVED-HERE` و`CITED` و`ROUNDS`، وإفساد القيمة إلى كلمة،
+  وكسر تسلسل عناوين الجولات.
+- فحص بشري عشوائي لدعوى عدم اعتماد الفصل 58 على الفصل 18؛ وافقت الدعوى
+  المتن وخريطة البرهان وسجل الأدلة.
+
+لم يكن GitHub قد أنشأ تشغيل CI لهذا الرأس وقت الحكم، ولذلك لا يُنسب هنا
+رقم تشغيل غير موجود. الحزمة المحلية نفسها التي يشغّلها فحص الجودة
+اجتازت على الشجرة البعيدة، وتبقى فحوص PR المقسّم مطلوبة قبل أي دمج.
+
+```text
+VERDICT                 = PASS
+BLOCKERS                = 0
+PASS-FOR-OWNER-ADOPTION = YES
+```
+
 ## الحالة الحوكمية بعد هذه الجولات
 
 ```text
 FOURTH-CONFIRMATION   = PASS (مُنحت في الجولة الثانية، للتصحيحات الخمسة)
 HLP-DIRECT-READING    = DONE-LATE / HISTORICAL-VIOLATION RETAINED
 GATE-SATISFIED        = NO (التأليف سبق البوابة؛ المخالفة تبقى مسجَّلة)
-POST-AUTHORING-REVIEW = 13 جولات مُنجَزة، كلها CHANGES-REQUIRED وكلها صُحِّحت
+POST-AUTHORING-REVIEW = 14 جولة مُنجَزة / FINAL PASS / 0 BLOCKERS
 RESULTS-CLASSIFICATION= 14 = 8 PROVED-HERE + 2 METHODOLOGICAL-PRINCIPLE
                         + 4 CITED
-NEXT REQUIRED STEP    = الجولة الرابعة عشرة: تأكيد تصحيح الجولة الثالثة عشرة،
-                        ثم اعتماد
-                        مالك. وحتى ذلك تبقى كل النتائج DRAFT / NON-CITABLE
+OWNER-ADOPTION        = ADOPTED / 2026-07-31
+RESULTS               = 14 ACTIVE / CITABLE
+NEXT REQUIRED STEP    = تقسيم PR #70، ثم CI مستقل لكل PR قبل أي دمج
 ```
 
 ## ملاحظة تُسجَّل للفائدة

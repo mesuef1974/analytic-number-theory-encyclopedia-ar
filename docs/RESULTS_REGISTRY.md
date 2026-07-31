@@ -1,6 +1,6 @@
 # سجل النتائج المعتمدة
 
-آخر مراجعة: 2026-07-27
+آخر مراجعة: 2026-07-31
 
 | المعرّف | النتيجة | الملف | الحالة | المصدر أو البرهان |
 |---|---|---|---|---|
@@ -358,6 +358,27 @@
 | ANT-MAP-26-04 | خريطة التذبذب الضربي | SYNTHESIS-MAP | ACTIVE / CITABLE |
 | ANT-MAP-26-05 | خريطة المجاميع الأسية وفك الاقتران | SYNTHESIS-MAP | ACTIVE / CITABLE |
 | ANT-OPEN-26-01 | تحديث الخريطة تحت نتائج مستقبلية مع حوكمة المصدر | OPEN / META-RESEARCH | ACTIVE / CITABLE |
+
+### الفصل الثامن والخمسون
+
+المصدر الحاكم: `docs/RESULTS_REGISTRY_CHAPTER_58.md`.
+
+| المعرّف | الوصف | التصنيف المعتمد | الحالة |
+|---|---|---|---|
+| ANT-PRIN-58-01 | تحذير أن السلسلة المبرهَنة لا تكفي وحدها لحدّ كثافة صفرية | METHODOLOGICAL-PRINCIPLE | ACTIVE / CITABLE |
+| ANT-PRIN-58-02 | جسر التكافؤ بين صيغة HLP الثنائية والصيغة التربيعية المركبة | METHODOLOGICAL-PRINCIPLE / BRIDGE | ACTIVE / CITABLE |
+| ANT-LEM-58-01 | متسلسلة فورييه للدالة السنّية | CITED | ACTIVE / CITABLE |
+| ANT-LEM-58-02 | النواة \(g(x)=i\pi(1-2x)\) بالمجاميع المتناظرة | PROVED-HERE | ACTIVE / CITABLE |
+| ANT-LEM-58-03 | التكاملان الأوليان لمعاملات فورييه | PROVED-HERE | ACTIVE / CITABLE |
+| ANT-LEM-58-04 | معاملات فورييه للنواة \(g\) | PROVED-HERE | ACTIVE / CITABLE |
+| ANT-PROP-58-01 | التمثيل التكاملي للصيغة الثنائية لهيلبرت | PROVED-HERE | ACTIVE / CITABLE |
+| ANT-THM-58-01 | متباينة هيلبرت بالثابت \(\pi\)، دون برهان الحدّة | PROVED-HERE | ACTIVE / CITABLE |
+| ANT-PROP-58-02 | تلاشي الصيغة عند المعاملات الحقيقية | PROVED-HERE | ACTIVE / CITABLE |
+| ANT-PROP-58-03 | صرامة المتراجحة لكل مقطع منتهٍ | PROVED-HERE | ACTIVE / CITABLE |
+| ANT-PROP-58-04 | حدّة الثابت \(\pi\) | CITED / SCHUR 1911 | ACTIVE / CITABLE |
+| ANT-PROP-58-05 | تعميم مونتغمري–فون الموزون | CITED / MONTGOMERY–VAUGHAN 1974 | ACTIVE / CITABLE |
+| ANT-PROP-58-06 | مبرهنة القيم الكبيرة لكثيرات حدود ديريشليه | CITED / MONTGOMERY 1969 | ACTIVE / CITABLE |
+| ANT-PROP-58-07 | تطابق المعيارين \(B_N=Q_N\) لكل \(N\ge2\) منتهٍ | PROVED-HERE | ACTIVE / CITABLE |
 
 ## نتائج مؤجلة صراحة
 

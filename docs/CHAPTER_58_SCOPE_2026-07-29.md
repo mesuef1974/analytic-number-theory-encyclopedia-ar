@@ -15,7 +15,7 @@ PREREQUISITES    = لا متطلب برهاني من المجلد الأول (ا
                     المسار النهائي (حُذف بعد مراجعة مستقلة).
 DOC-TYPE         = PRE-AUTHORING / SCOPE  (نوع الوثيقة التاريخي، لا
                     حالة الفصل الحالية: الفصل مؤلَّف فعلًا الآن)
-CHAPTER-STATUS   = AUTHORED-DRAFT / NON-CITABLE
+CHAPTER-STATUS   = REVIEWED / OWNER-ADOPTED / CITABLE
 THEOREMS         = 1 (مبرهنة واحدة مُثبَتة بالكامل: ANT-THM-58-01)
 PROVED-HERE      = 8 (نتائج مبرهَنة داخليًّا، منها المبرهنة أعلاه)
 REORDERING       = هذا الفصل كان مرقَّمًا 59 أصلًا ("طريقة Halász–Montgomery")؛

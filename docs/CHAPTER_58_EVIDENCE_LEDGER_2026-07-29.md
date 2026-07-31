@@ -5,7 +5,7 @@ CHAPTER  = 58
 TITLE    = متباينة هيلبرت ومدخل إلى طريقة القيم الكبيرة
 DOC-TYPE = PRE-AUTHORING / EVIDENCE-LEDGER  (نوع الوثيقة التاريخي، لا
            حالة الفصل الحالية: الفصل مؤلَّف فعلًا الآن)
-CHAPTER-STATUS = AUTHORED-DRAFT / NON-CITABLE
+CHAPTER-STATUS = REVIEWED / OWNER-ADOPTED / CITABLE
 VERSION  = 0.32.0-dev (وسم خط الفرع؛ docs/VERSION.md لا يزال 0.30.0-dev
             ولم يُرفع الإصدار — انظر VERSION-AUTHORITY في PROOF_MAP)
 REWRITE  = أُعيدت كتابة هذه الوثيقة بالكامل (2026-07-29) بعد مراجعة مستقلة
