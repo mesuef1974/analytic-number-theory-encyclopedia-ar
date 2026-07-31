@@ -19,10 +19,12 @@ Checks:
   2. Every declared count of those three categories, in every governance
      file, matches the ground truth. Arabic-Indic digits are normalised.
   3. Every declared post-authoring round count agrees with every other.
-  4. No file presents B_N = Q_N as a numerical result (it is proved).
-  5. No file still lists the fourth confirmation as outstanding.
-  6. Chapter ids and registry ids match in both directions.
-  7. Review-round headings in the minutes are unique, consecutive 1..N, and
+  4. Every canonical field occurs exactly once in the first text header and
+     exactly once in its file; a body duplicate cannot replace the header.
+  5. No file presents B_N = Q_N as a numerical result (it is proved).
+  6. No file still lists the fourth confirmation as outstanding.
+  7. Chapter ids and registry ids match in both directions.
+  8. Review-round headings in the minutes are unique, consecutive 1..N, and
      N agrees with the declared round count.
 
 Scope note (after round 11, by owner direction): this gate checks STRUCTURAL
@@ -73,11 +75,10 @@ NUM = r"[0-9٠-٩]{1,3}"
 # markdown emphasis / backticks / spaces may sit between number and label
 GAP = r"[\s*`ً-ٟ]{0,8}"
 
-# Fields that must EXIST, each anchored to the canonical line that carries
-# it. "Somewhere in the file" is not enough: a prose mention elsewhere kept
-# standing in for a deleted header field, so the header line itself is what
-# is required here.
-D = r"[0-9٠-٩]"
+# Fields that must exist exactly once in the first fenced text header, and
+# exactly once in the whole file. "Somewhere in the file" is not enough: a
+# later line with the same shape once stood in for a deleted header field.
+D = NUM
 REQUIRED_FIELDS = {
     "CHAPTER_58_SCOPE_2026-07-29.md": {
         "THEOREMS": rf"^THEOREMS\s+=\s*{D}",
@@ -121,6 +122,12 @@ def read(path: Path) -> str:
         failures.append(f"missing file: {path.name}")
         return ""
     return path.read_text(encoding="utf-8")
+
+
+def canonical_header(text: str) -> str:
+    """Return the first fenced text block, which carries canonical fields."""
+    match = re.search(r"```text[ \t]*\n(.*?)\n```", text, re.S)
+    return match.group(1) if match else ""
 
 
 def check(label: str, ok: bool, detail: str = "") -> None:
@@ -210,16 +217,21 @@ def main() -> int:
     # round label. Prose mentions and historical quotations of past wrong
     # values are not declarations and must not be compared.
     print("\npost-authoring round counts agree:")
+    WORDNUM = {
+        "ثلاث": 3, "أربع": 4, "خمس": 5, "ست": 6, "سبع": 7, "ثمان": 8,
+        "تسع": 9, "عشر": 10, "إحدى عشرة": 11, "اثنتا عشرة": 12,
+        "ثلاث عشرة": 13, "أربع عشرة": 14, "خمس عشرة": 15,
+    }
+    wordnum_pattern = "|".join(
+        re.escape(word) for word in sorted(WORDNUM, key=len, reverse=True)
+    )
     decl_patterns = [
         rf"POST-AUTHORING-REVIEW\s*=\s*({NUM})",
         rf"ROUNDS\s*=\s*({NUM})",
         rf"({NUM}){GAP}ROUNDS BY OWNER",
         rf"({NUM}){GAP}جولات مُنجَزة",
-        r"\*\*(ثلاث|أربع|خمس|ست|سبع|ثمان|تسع|عشر|إحدى عشرة|اثنتا عشرة)"
-        r"\s+جول(?:ات|ة)\*\*",
+        rf"\*\*({wordnum_pattern})\s+جول(?:ات|ة)\*\*",
     ]
-    WORDNUM = {"ثلاث": 3, "أربع": 4, "خمس": 5, "ست": 6, "سبع": 7, "ثمان": 8,
-               "تسع": 9, "عشر": 10, "إحدى عشرة": 11, "اثنتا عشرة": 12}
     rounds: dict[str, list[int]] = {}
     for path in GOVERNANCE:
         text = read(path)
@@ -234,17 +246,23 @@ def main() -> int:
           len(all_vals) <= 1,
           f"found {all_vals} in {rounds}")
 
-    # --- 3b. the canonical fields must EXIST where they belong ---
-    # Checking that declarations agree says nothing about a declaration that
-    # is gone: deleting "THEOREMS = 1" from SCOPE, or "ROUNDS = 11" from the
-    # minutes header, left nothing to disagree with and passed. Absence is
-    # the cheapest way to lose a fact, so presence is required by name.
-    print("\ncanonical fields present where required:")
+    # --- 3b. canonical fields must exist once, in the header itself ---
+    # Presence anywhere in a file is insufficient. The audit once had two
+    # POST-AUTHORING-REVIEW lines of the same shape; deleting the canonical
+    # header line left the later copy to satisfy an unscoped search. Require
+    # one match in the first text header and one match in the whole file.
+    print("\ncanonical fields unique in their required header locations:")
     for name, fields in REQUIRED_FIELDS.items():
         text = read(DOCS / name)
+        header = canonical_header(text)
         for field, anchor in fields.items():
-            check(f"{name}: declares {field} on its canonical line",
-                  re.search(anchor, text, re.M) is not None, "field absent")
+            header_hits = len(re.findall(anchor, header, re.M))
+            file_hits = len(re.findall(anchor, text, re.M))
+            check(
+                f"{name}: declares {field} exactly once in its canonical header",
+                header_hits == 1 and file_hits == 1,
+                f"header matches={header_hits}, file matches={file_hits}",
+            )
 
     # --- 4. norm equality must never be called numerical ---
     print("\nB_N = Q_N presented as proved, not numerical:")
